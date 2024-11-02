@@ -131,11 +131,11 @@ document.addEventListener('it-message-from-youtube', function () {
 
 		//console.log(message);
 
-		if (message.requestOptionsUrl === true) {
+		if (message.requestOptionsUrl ) {
 			extension.messages.send({
 				responseOptionsUrl: chrome.runtime.getURL('menu/index.html')
 			});
-		} else if (message.onlyOnePlayer === true) {
+		} else if (message.onlyOnePlayer ) {
 			chrome.runtime.sendMessage({
 				name: 'only-one-player'
 			});
@@ -147,7 +147,7 @@ document.addEventListener('it-message-from-youtube', function () {
 				title: message.title,
 			});
 		} else if (message.action === 'analyzer') {
-			if (extension.storage.data.analyzer_activation === true) {
+			if (extension.storage.data.analyzer_activation ) {
 				var data = message.name,
 					date = new Date().toDateString(),
 					hours = new Date().getHours() + ':00';

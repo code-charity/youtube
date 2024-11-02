@@ -74,7 +74,7 @@ extension.events.on = function (type, listener, options = {}) {
 		listeners[type] = [];
 	}
 
-	if (options.async === true) {
+	if (options.async ) {
 		listener = (function (original) {
 			return async function () {
 				return new Promise(original);
@@ -82,7 +82,7 @@ extension.events.on = function (type, listener, options = {}) {
 		})(listener);
 	}
 
-	if (options.prepend === true) {
+	if (options.prepend ) {
 		listeners[type].unshift(listener);
 	} else {
 		listeners[type].push(listener);
@@ -101,7 +101,7 @@ extension.events.trigger = async function (type, data) {
 			var listener = listeners[i];
 
 			if (typeof listener === 'function') {
-				if (listener instanceof(async function () {}).constructor === true) {
+				if (listener instanceof(async function () {}).constructor ) {
 					await listener(data);
 				} else {
 					listener(data);

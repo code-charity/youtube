@@ -129,7 +129,7 @@ ImprovedTube.playbackSpeed = function (newSpeed) {
 /*------------------------------------------------------------------------------
 PERMANENT PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
+ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed ) {
 	var player = this.elements.player; if (!player) return;
 	var video = this.elements.video || player.querySelector('video'); 
 	option = this.storage.player_playback_speed;	
@@ -141,12 +141,12 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 	}
 	if (!(player.getVideoData() && player.getVideoData().isLive))
 	{ player.setPlaybackRate(Number(option)); if (!video) { video = { playbackRate: 1 }; };	video.playbackRate = Number(option); // #1729 q2	// hi! @raszpl
-		if ( (this.storage.player_force_speed_on_music !== true || this.storage.player_dont_speed_education === true)
+		if ( (this.storage.player_force_speed_on_music !== true || this.storage.player_dont_speed_education )
 		 	&& option !== 1) {
 			ImprovedTube.speedException = function () {
-				if (this.storage.player_dont_speed_education === true && DATA.genre === 'Education')
+				if (this.storage.player_dont_speed_education  && DATA.genre === 'Education')
 				{player.setPlaybackRate(Number(1));	video.playbackRate = Number(1); return;}
-				if (this.storage.player_force_speed_on_music === true)
+				if (this.storage.player_force_speed_on_music )
 				{ //player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);
 	 return;}
 				if (DATA.keywords && !keywords) { keywords = DATA.keywords.join(', ') || ''; }
@@ -435,7 +435,7 @@ AUTO FULLSCREEN
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutofullscreen = function () {
 	if (
-		this.storage.player_autofullscreen === true &&
+		this.storage.player_autofullscreen  &&
 		document.documentElement.dataset.pageType === 'video' &&
 		!document.fullscreenElement
 	) {
@@ -543,7 +543,7 @@ ImprovedTube.batteryFeatures = async function () {
 FORCED VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVolume = function () {
-	if (this.storage.player_forced_volume === true) {
+	if (this.storage.player_forced_volume ) {
 		var volume = this.storage.player_volume;
 
 		if (!this.isset(volume)) {
@@ -597,7 +597,7 @@ ImprovedTube.playerLoudnessNormalization = function () {
 		try {
 			var local_storage = localStorage['yt-player-volume'];
 
-			if (this.isset(Number(this.storage.player_volume)) && this.storage.player_forced_volume === true) {
+			if (this.isset(Number(this.storage.player_volume)) && this.storage.player_forced_volume ) {
 				return;
 			} else if (local_storage) {
 				local_storage = JSON.parse(JSON.parse(local_storage).data);
@@ -682,7 +682,7 @@ ImprovedTube.renderSubtitle = function (ctx, captionElements) {
 };
 
 ImprovedTube.playerScreenshotButton = function () {
-	if (this.storage.player_screenshot_button === true) {
+	if (this.storage.player_screenshot_button ) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -715,13 +715,13 @@ ImprovedTube.playerRepeat = function () {
 REPEAT BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerRepeatButton = function () {
-	if (this.storage.player_repeat_button === true) {
+	if (this.storage.player_repeat_button ) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 		path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
 		svg.appendChild(path);
-		var transparentOrOn = 0.5; if (this.storage.player_always_repeat === true ) { transparentOrOn = 1; }
+		var transparentOrOn = 0.5; if (this.storage.player_always_repeat  ) { transparentOrOn = 1; }
 		this.createPlayerButton({
 			id: 'it-repeat-button',
 			child: svg,
@@ -731,7 +731,7 @@ ImprovedTube.playerRepeatButton = function () {
 				function matchLoopState (opacity) {
 					var thisButton = document.querySelector('#it-repeat-button');
 					thisButton.style.opacity = opacity;
-					if (ImprovedTube.storage.below_player_loop !== false) {
+					if (ImprovedTube.storage.below_player_loop ) {
 						var otherButton = document.querySelector('#it-below-player-loop');
 						otherButton.children[0].style.opacity = opacity;
 					}
@@ -751,7 +751,7 @@ ImprovedTube.playerRepeatButton = function () {
 ROTATE
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerRotateButton = function () {
-	if (this.storage.player_rotate_button === true) {
+	if (this.storage.player_rotate_button ) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -805,7 +805,7 @@ ImprovedTube.playerRotateButton = function () {
 FIT-TO-WIN BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerFitToWinButton = function () {
-	if (this.storage.player_fit_to_win_button === true && (/watch\?/.test(location.href))) {
+	if (this.storage.player_fit_to_win_button  && (/watch\?/.test(location.href))) {
 	let tempContainer = document.createElement("div");
 	let svg;
 	if (typeof trustedTypes !== 'undefined' && typeof trustedTypes.createPolicy === 'function') {
@@ -931,12 +931,12 @@ ImprovedTube.playerCinemaModeEnable = function () {
 		if ((/watch\?/.test(location.href))) {
 			var overlay = document.getElementById('overlay_cinema');
 
-			if (this.storage.player_auto_cinema_mode === true && !overlay) {
+			if (this.storage.player_auto_cinema_mode  && !overlay) {
 				createOverlay();
 				overlay = document.getElementById('overlay_cinema');
 			}
 
-			// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused === true || this.storage.player_auto_cinema_mode === true && overlay)
+			// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused  || this.storage.player_auto_cinema_mode  && overlay)
 			if (overlay) {
 				overlay.style.display = 'block'
 				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
@@ -953,7 +953,7 @@ ImprovedTube.playerCinemaModeEnable = function () {
 HAMBURGER MENU
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerHamburgerButton = function () {
-	if (this.storage.player_hamburger_button === true) {
+	if (this.storage.player_hamburger_button ) {
 		const videoPlayer = document.querySelector('.html5-video-player');
 
 		if (!videoPlayer) {
@@ -1007,7 +1007,7 @@ ImprovedTube.playerHamburgerButton = function () {
 POPUP PLAYER
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPopupButton = function () {
-	if (this.storage.player_popup_button === true && location.href.indexOf('youtube.com/embed') === -1 ) {
+	if (this.storage.player_popup_button  && location.href.indexOf('youtube.com/embed') === -1 ) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -1056,7 +1056,7 @@ ImprovedTube.playerPopupButton = function () {
 Force SDR
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerSDR = function () {
-	if (this.storage.player_SDR === true) {
+	if (this.storage.player_SDR ) {
 		Object.defineProperty(window.screen, 'pixelDepth', {
 			enumerable: true,
 			configurable: true,
@@ -1106,7 +1106,7 @@ ImprovedTube.playerControls = function () {
 	}
 };
 /*#  HIDE VIDEO TITLE IN FULLSCREEN	*/ // Easier with CSS only (see player.css)
-//ImprovedTube.hideVideoTitleFullScreen = function (){ if (ImprovedTube.storage.hide_video_title_fullScreen === true) {
+//ImprovedTube.hideVideoTitleFullScreen = function (){ if (ImprovedTube.storage.hide_video_title_fullScreen ) {
 //document.addEventListener('fullscreenchange', function (){ document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'none');   }) }};
 
 /*------------------------------------------------------------------------------
@@ -1150,7 +1150,7 @@ ImprovedTube.miniPlayer_scroll = function () {
 		window.addEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
 
 		window.dispatchEvent(new Event('resize'));
-	} else if (window.scrollY < 256 && ImprovedTube.mini_player__mode === true || ImprovedTube.elements.player.classList.contains('ytp-player-minimized') === true) {
+	} else if (window.scrollY < 256 && ImprovedTube.mini_player__mode  || ImprovedTube.elements.player.classList.contains('ytp-player-minimized') ) {
 		ImprovedTube.mini_player__mode = false;
 		ImprovedTube.elements.player.classList.remove('it-mini-player');
 		ImprovedTube.mini_player__move = false;
@@ -1173,7 +1173,7 @@ ImprovedTube.miniPlayer_mouseDown = function (event) {
 		return false;
 	}
 
-	if (ImprovedTube.miniPlayer_resize() === true) {
+	if (ImprovedTube.miniPlayer_resize() ) {
 		return false;
 	}
 
@@ -1181,7 +1181,7 @@ ImprovedTube.miniPlayer_mouseDown = function (event) {
 		path = event.composedPath();
 
 	for (var i = 0, l = path.length; i < l; i++) {
-		if ((path[i].classList && path[i].classList.contains('it-mini-player')) === true) {
+		if ((path[i].classList && path[i].classList.contains('it-mini-player')) ) {
 			is_player = true;
 		}
 	}
@@ -1401,7 +1401,7 @@ ImprovedTube.miniPlayer_resizeMouseUp = function () {
 };
 
 ImprovedTube.miniPlayer = function () {
-	if (this.storage.mini_player === true) {
+	if (this.storage.mini_player ) {
 		var data = localStorage.getItem('improvedtube-mini-player');
 
 		try {
@@ -1455,7 +1455,7 @@ ImprovedTube.miniPlayer = function () {
 CUSTOM PAUSE FUNCTIONS
 ------------------------------------------------------------------------------*/
 ImprovedTube.pauseWhileTypingOnYoutube = function () {
-	if (ImprovedTube.storage.pause_while_typing_on_youtube === true) {
+	if (ImprovedTube.storage.pause_while_typing_on_youtube ) {
 		var timeoutId; // Declare a variable to hold the timeout ID
 
 		// Add event listener to the whole document

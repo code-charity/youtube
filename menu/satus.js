@@ -219,7 +219,7 @@ satus.data = function (element, data) {
 };
 /*---# ISSET-----------------------------------------------------*/
 satus.isset = function (target, is_object) {
-	if (is_object === true) {
+	if (is_object) {
 		var keys = target.split('.').filter(function (value) {
 			return value != '';
 		});
@@ -579,7 +579,7 @@ satus.on = function (element, listeners) {
 						layers = this.baseProvider.layers[0];
 					}
 
-					if (target.prepend === true) {
+					if (target.prepend) {
 						satus.prepend(target, this.parentNode);
 					} else if (layers && target.component !== 'modal') {
 						layers.open(target);
@@ -1670,7 +1670,7 @@ satus.components.time = function (component, skeleton) {
 		var hour = i,
 			value = i;
 
-		if (select_skeleton.hour12 === true && i > 12) {
+		if (select_skeleton.hour12  && i > 12) {
 			hour -= 12;
 		}
 
@@ -1679,7 +1679,7 @@ satus.components.time = function (component, skeleton) {
 			value = '0' + value;
 		}
 
-		if (select_skeleton.hour12 === true) {
+		if (select_skeleton.hour12 ) {
 			if (i > 12) {
 				hour += ':00 pm';
 			} else {
@@ -2316,7 +2316,7 @@ satus.components.shortcut = function (component, skeleton) {
 					render: function () {
 						component.primary = this;
 
-						if (component.skeleton.mouseButtons === true) {
+						if (component.skeleton.mouseButtons ) {
 							this.addEventListener('mousedown', function (event) {
 								if (
 									component.data.click && event.button === 0 ||
@@ -2462,7 +2462,7 @@ satus.components.checkbox = function (component, skeleton) {
 	component.input.addEventListener('change', function () {
 		var component = this.parentNode;
 
-		if (this.checked === true) {
+		if (this.checked ) {
 			component.storage.value = true;
 			component.dataset.value = 'true';
 		} else {
@@ -2565,7 +2565,7 @@ satus.events.on('render', function (component) {
 --------------------------------------------------------------*/
 
 satus.events.on('render', function (component) {
-	if (component.skeleton.sortable === true) {
+	if (component.skeleton.sortable ) {
 		component.addEventListener('mousedown', function (event) {
 			if (event.button !== 0) {
 				return false;

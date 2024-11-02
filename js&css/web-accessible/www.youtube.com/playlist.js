@@ -18,7 +18,7 @@ ImprovedTube.playlistUpNextAutoplay = function () { if (this.storage.playlist_up
 4.5.2 REVERSE
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistReverse = function () {
-	if (this.storage.playlist_reverse === true) {
+	if (this.storage.playlist_reverse ) {
 		function update () {
 			var results = ImprovedTube.elements.ytd_watch.data.contents.twoColumnWatchNextResults,
 				playlist = results.playlist.playlist,
@@ -81,7 +81,7 @@ ImprovedTube.playlistReverse = function () {
 			ImprovedTube.elements.playlist.actions.appendChild(button);
 		}
 
-		if (this.playlistReversed === true) {
+		if (this.playlistReversed ) {
 			update();
 		}
 	}
@@ -91,11 +91,11 @@ ImprovedTube.playlistReverse = function () {
 4.5.3 REPEAT
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistRepeat = function () {
-	if ( ImprovedTube.storage.playlist_repeat === true ) {
+	if ( ImprovedTube.storage.playlist_repeat  ) {
 	    setTimeout(function () {
 			var option = ImprovedTube.storage.playlist_repeat,
 				button = document.querySelector("#button.ytd-playlist-loop-button-renderer") || document.querySelector("ytd-playlist-loop-button-renderer button") || document.querySelector("ytd-playlist-loop-button-renderer");
-			if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M21')
+			if (button && (option  && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M21')
 			) && button.querySelector("#tooltip")?.textContent !== 'Loop video'
 	  && button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Loop video'
 	  && button.querySelector("#tooltip")?.textContent !== 'Turn off loop'
@@ -112,12 +112,12 @@ ImprovedTube.playlistRepeat = function () {
 4.5.4 SHUFFLE
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistShuffle = function () {
-	if ( ImprovedTube.storage.playlist_shuffle === true ) {
+	if ( ImprovedTube.storage.playlist_shuffle  ) {
 		setTimeout(function () {
 			var button = ImprovedTube.elements.playlist.shuffle_button,
 				option = ImprovedTube.storage.playlist_shuffle;
 			button = document.querySelector('#playlist-actions #playlist-action-menu ytd-toggle-button-renderer');
-			if (button && (option === true && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M18.1')
+			if (button && (option  && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M18.1')
 			) 	)
 			{ button.click(); }
 		}, 10000);
@@ -223,7 +223,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
  */
 ImprovedTube.playlistPopup = function () {
 	"use strict";
-	if (this.storage.playlist_popup === true) {
+	if (this.storage.playlist_popup ) {
 
 		const playlistID = location.search.match(this.regex.playlist_id)?.[1],
 			playlistIDMini = this.elements.player?.getPlaylistId?.();

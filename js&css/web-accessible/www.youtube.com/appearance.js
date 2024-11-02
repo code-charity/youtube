@@ -12,7 +12,7 @@ ImprovedTube.YouTubeExperiments = function () {
 			'web_watch_rounded_player_large'
 		];
 	        if (this.storage.undo_the_new_sidebar === "true") { 
-		if (window.yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid !== false) {
+		if (window.yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid ) {
 			try {
                 	newSidebarFlags.forEach(F => {
                   	  Object.defineProperty(window.yt.config_.EXPERIMENT_FLAGS, F, { get: () => false });
@@ -66,7 +66,7 @@ ImprovedTube.playerSize = function () {
  FORCED THEATER MODE
 ------------------------------------------------------------------------------*/
 ImprovedTube.forcedTheaterMode = function () {
-	if (ImprovedTube.storage.forced_theater_mode === true && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
+	if (ImprovedTube.storage.forced_theater_mode  && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
 		var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
 		if (button && ImprovedTube.elements.ytd_watch.theater === false) {
 			document.cookie = "wide=1;domain=.youtube.com";
@@ -81,7 +81,7 @@ ImprovedTube.forcedTheaterMode = function () {
  HD THUMBNAIL
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerHdThumbnail = function () {
-	if (this.storage.player_hd_thumbnail === true) {
+	if (this.storage.player_hd_thumbnail ) {
 		var thumbnail = ImprovedTube.elements.player_thumbnail;
 
 		if (thumbnail.style.backgroundImage.indexOf("/hqdefault.jpg") !== -1) {
@@ -141,7 +141,7 @@ ImprovedTube.showProgressBar = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.formatSecond = function (rTime) {
 	var time = new Date(null);
-	if (this.storage.duration_with_speed === true) {
+	if (this.storage.duration_with_speed ) {
 		var playbackRate = this.elements.video.playbackRate;
 		time.setSeconds(rTime / playbackRate);
 	} else {
@@ -171,7 +171,7 @@ ImprovedTube.playerRemainingDuration = function () {
 /*------------------------------------------------------------------------------
  Comments Sidebar Simple
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebarSimple = function () { if (ImprovedTube.storage.comments_sidebar_simple === true) {
+ImprovedTube.commentsSidebarSimple = function () { if (ImprovedTube.storage.comments_sidebar_simple ) {
 	if (window.matchMedia("(min-width: 1599px)").matches) {
 		document.querySelector("#primary").insertAdjacentElement('afterend', document.querySelector("#comments"));}
 	if (window.matchMedia("(max-width: 1598px)").matches) {
@@ -184,7 +184,7 @@ ImprovedTube.commentsSidebarSimple = function () { if (ImprovedTube.storage.comm
 /*------------------------------------------------------------------------------
  Comments Sidebar
 ------------------------------------------------------------------------------*/
-ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_sidebar === true) {
+ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_sidebar ) {
 	const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
 	let hasApplied = 0;
 	if (/watch\?/.test(location.href)) {
@@ -267,7 +267,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			if (isDarkMode) [color, colorHover] = ["#616161", "#909090"];
 			else [color, colorHover] = ["#aaaaaa", "#717171"];
 			const style = document.createElement("style");
-			if (ImprovedTube.storage.comments_sidebar_scrollbars === true) {
+			if (ImprovedTube.storage.comments_sidebar_scrollbars ) {
 				const cssRule = `
             #primary, #secondary {
                 overflow: overlay !important;
@@ -327,25 +327,25 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 /*----------------------------------------------------------------
  TRANSCRIPT
 --------------------------------------------------------------*/
-ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript === true) {
+ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript ) {
 	const available = el.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || el.querySelector('[target-id*=transcript]')?.clientHeight;
 	if (available) {
 		ImprovedTube.forbidFocus(2100);
 		const descriptionTranscript = el.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
 		descriptionTranscript ? descriptionTranscript.click() : el.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
-		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
+		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid  ) { available.setAttribute('z-index', '98765') }
 	}  
 }};
 /*----------------------------------------------------------------
  CHAPTERS
 --------------------------------------------------------------*/
-ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === true) {
+ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters ) {
 	const available = el.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || el.querySelector('[target-id*=chapters]')?.clientHeight;
 	if (available) {
 		ImprovedTube.forbidFocus(2100);
 		const modernChapters = el.querySelector('[modern-chapters] #navigation-button button[aria-label]');
 		modernChapters ? modernChapters.click() : el.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
-		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
+		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid  ) { available.setAttribute('z-index', '98765') }
 	}  
 }};	
 /*------------------------------------------------------------------------------
@@ -381,11 +381,11 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 	   {var section = document.querySelector('#flex.ytd-video-primary-info-renderer');}
    */
 		if (section && !section.querySelector('.improvedtube-player-button')) {
-			if (this.storage.below_player_loop !== false) {
+			if (this.storage.below_player_loop ) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		                var transparentOrOn = .5; if (this.storage.player_always_repeat === true ) { transparentOrOn = 1; }
+		                var transparentOrOn = .5; if (this.storage.player_always_repeat  ) { transparentOrOn = 1; }
 				button.className = 'improvedtube-player-button';
 				button.id = 'it-below-player-loop';
 				button.dataset.tooltip = 'Loop';
@@ -399,7 +399,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 
 					function matchLoopState (opacity) {
 		    svg.style.opacity = opacity;
-						if (ImprovedTube.storage.player_repeat_button === true) {
+						if (ImprovedTube.storage.player_repeat_button ) {
                    	 var otherButton = document.querySelector('#it-repeat-button');
                     	 otherButton.style.opacity = opacity;
           	        }
@@ -416,7 +416,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				svg.appendChild(path); 	button.appendChild(svg);
 				section.insertAdjacentElement('afterend', button)
 			}
-			if (this.storage.below_player_pip !== false) {
+			if (this.storage.below_player_pip ) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -435,7 +435,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				section.insertAdjacentElement('afterend', button)
 			}
 
-			if (this.storage.below_player_screenshot !== false) {
+			if (this.storage.below_player_screenshot ) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -495,7 +495,7 @@ ImprovedTube.expandDescription = function (el) {
  DAY OF WEEK
 --------------------------------------------------------------*/
 ImprovedTube.dayOfWeek = function () {
-	if (this.storage.day_of_week === true) {
+	if (this.storage.day_of_week ) {
 		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		setTimeout(function () { //YouTube related video or internal link?:
 			var videoDate; try { videoDate = JSON.parse(document.querySelector('#microformat script')?.textContent)?.uploadDate
@@ -520,7 +520,7 @@ ImprovedTube.dayOfWeek = function () {
  HOW LONG AGO THE VIDEO WAS UPLOADED
 ------------------------------------------------------------------------------*/
 ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
-	if (this.storage.how_long_ago_the_video_was_uploaded === true && this.elements.yt_channel_name) {
+	if (this.storage.how_long_ago_the_video_was_uploaded  && this.elements.yt_channel_name) {
 		var xhr = new XMLHttpRequest(),
 			key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey,
 			id = this.getParam(location.href.slice(location.href.indexOf("?") + 1), "v");
@@ -579,7 +579,7 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
  SHOW CHANNEL VIDEOS COUNT
 ------------------------------------------------------------------------------*/
 ImprovedTube.channelVideosCount = function () {
-	if (this.storage.channel_videos_count === true && this.elements.yt_channel_link) {
+	if (this.storage.channel_videos_count  && this.elements.yt_channel_link) {
 		var key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey;
 		if (this.elements.yt_channel_link.href.indexOf("/channel/") == -1) {
 			var xhr = new XMLHttpRequest(),
@@ -625,7 +625,7 @@ ImprovedTube.channelVideosCount = function () {
 		xhr.send();
 	}
 };
-if (ImprovedTube.storage.header_transparent2 === true) {
+if (ImprovedTube.storage.header_transparent2 ) {
 	/*------------------------------------------------------------------------------
     TURN TOP BAR TRANSPARENT WHEN SCROLLING
     ------------------------------------------------------------------------------*/

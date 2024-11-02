@@ -57,7 +57,7 @@ var compact = compact || {}
 ImprovedTube.channelCompactTheme = function () {
 	compact.eventHandlerFns = compact.eventHandlerFns || []
 	compact.styles = compact.styles || []
-	if (this.storage.channel_compact_theme === true) {
+	if (this.storage.channel_compact_theme ) {
 		compact.hasApplied = true
 		initialLoad();
 		document.querySelector("#sections #items") ? styleWithListeners() : styleWithInterval();

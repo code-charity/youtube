@@ -47,7 +47,7 @@ jest.mock('../../js&css/extension/core', () => ({
 					const listener = listeners[i];
 
 					if (typeof listener === 'function') {
-						if (listener instanceof (async function () { }).constructor === true) {
+						if (listener instanceof (async function () { }).constructor ) {
 							await listener(data);
 						} else {
 							listener(data);

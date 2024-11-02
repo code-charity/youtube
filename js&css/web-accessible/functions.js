@@ -54,7 +54,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 			var index = Array.prototype.indexOf.call(node.parentNode.children, node);
 			if (index === 0) {
-				if (this.storage.playlist_reverse === true) {
+				if (this.storage.playlist_reverse ) {
 					//can be precise:
 					try {this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
 					catch {try {this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
@@ -71,7 +71,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 				this.playlistShuffle();
 
-				if (this.storage.playlist_reverse === true) {
+				if (this.storage.playlist_reverse ) {
 					//can be precise:
 					try {this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode;}
 					catch {try {this.elements.playlist.actions = node.parentNode.parentNode.parentNode;}
@@ -263,7 +263,7 @@ ImprovedTube.videoPageUpdate = function () {
 	if (document.documentElement.dataset.pageType === 'video') {
 		var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
 
-		if (this.storage.track_watched_videos === true && video_id) {
+		if (this.storage.track_watched_videos  && video_id) {
 			ImprovedTube.messages.send({action: 'watched',
 				type: 'add',
 				id: video_id,
@@ -279,7 +279,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.upNextAutoplay();
 		ImprovedTube.playerAutofullscreen();
 		ImprovedTube.playerSize();
-		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); };
+		if (this.storage.player_always_repeat ) { ImprovedTube.playerRepeat(); };
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();
@@ -336,7 +336,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerQuality();
 		ImprovedTube.batteryFeatures();
 		ImprovedTube.playerVolume();
-		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }
+		if (this.storage.player_always_repeat ) { ImprovedTube.playerRepeat(); }
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();
@@ -372,8 +372,8 @@ ImprovedTube.playerOnTimeUpdate = function () {
 				ImprovedTube.playerPlaybackSpeed();
 			}
 
-			if (ImprovedTube.storage.always_show_progress_bar === true) {ImprovedTube.showProgressBar();}
-			if (ImprovedTube.storage.player_remaining_duration === true) {ImprovedTube.playerRemainingDuration();}
+			if (ImprovedTube.storage.always_show_progress_bar ) {ImprovedTube.showProgressBar();}
+			if (ImprovedTube.storage.player_remaining_duration ) {ImprovedTube.playerRemainingDuration();}
 			ImprovedTube.played_time += .5;
 		}, 500);
 	}
@@ -405,7 +405,7 @@ ImprovedTube.playerOnPause = function (event) {
 };
 
 if (document.documentElement.dataset.pageType === 'video'
-	 && (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.transcript === true || ImprovedTube.storage.chapters === true )) { 
+	 && (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.transcript  || ImprovedTube.storage.chapters  )) { 
 	ImprovedTube.forbidFocus =  function (ms) { 
 		const originalFocus = HTMLElement.prototype.focus; // Backing up default method  - other methods: Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy
 		// Override YouTube's scroll method:

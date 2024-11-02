@@ -18,7 +18,7 @@
 
 /* Sidepanel Option
   chrome.storage.local.get('improvedTubeSidePanel', function (result) {
-	if ( result.improvedTubeSidePanel && result.improvedTubeSidePanel === true) {
+	if ( result.improvedTubeSidePanel && result.improvedTubeSidePanel ) {
 		chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
 	} else {chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false }) }
   });
@@ -82,7 +82,7 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 			}
 		});
 		chrome.storage.local.get('hideSubscribe', function (result) {
-			if (result.hideSubscribe === true) {
+			if (result.hideSubscribe ) {
 				chrome.storage.local.set({subscribe: 'hidden'});
 				chrome.storage.local.remove(['hideSubscribe']);
 			}
