@@ -44,7 +44,7 @@ extension.features.youtubeHomePage = function (anything) {
 		}
 	} else if (anything === 'init') {
 		extension.events.on('init', function (resolve) {
-			if (/(www|m)\.youtube\.com\/?(\?|\#|$)/.test(location.href)) {
+			if (/(www|m)\.youtube\.com\/?(\?|#|$)/.test(location.href)) {
 				chrome.storage.local.get('youtube_home_page', function (items) {
 					var option = items.youtube_home_page;
 
@@ -128,7 +128,7 @@ extension.features.collapseOfSubscriptionSections = function (event) {
 		window.removeEventListener('click', this.collapseOfSubscriptionSections);
 
 		if (
-			extension.storage.get('collapse_of_subscription_sections')  &&
+			extension.storage.get('collapse_of_subscription_sections') &&
 			location.href.indexOf('feed/subscriptions') !== -1
 		) {
 			window.addEventListener('click', this.collapseOfSubscriptionSections, true);
@@ -253,7 +253,7 @@ extension.features.popupWindowButtons = function (event) {
 								ytPlayer = document.querySelector("#movie_player");
 								if (ytPlayer) {width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65}
 								else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
-		 if (!ytPlayer) {
+								if (!ytPlayer) {
 									let shorts = /short/.test(this.parentElement.href);
 									if ( width / height < 1 ) { let vertical = true } else { let vertical = false }
 									if ( !vertical && shorts ) { width = height * 0.6}
@@ -422,7 +422,7 @@ extension.features.markWatchedVideos = function (anything) {
 --------------------------------------------------------------*/
 
 extension.features.trackWatchedVideos = function () {
-	if (extension.storage.get('track_watched_videos')  && document.documentElement.getAttribute('it-pathname').indexOf('/watch') === 0) {
+	if (extension.storage.get('track_watched_videos') && document.documentElement.getAttribute('it-pathname').indexOf('/watch') === 0) {
 		var id = extension.functions.getUrlParameter(location.href, 'v');
 
 		if (!extension.storage.watched) {

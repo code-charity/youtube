@@ -233,7 +233,7 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'playerPlaybackSpeed':
 				case 'playerForcedPlaybackSpeed':
-					if (ImprovedTube.storage.player_forced_playback_speed  && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {
+					if (ImprovedTube.storage.player_forced_playback_speed && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {
 						ImprovedTube.playbackSpeed (Number(ImprovedTube.storage.player_playback_speed)); //new
 						ImprovedTube.elements.player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));
 						// ImprovedTube.elements.player.querySelector('video').playbackRate = Number(ImprovedTube.storage.player_playback_speed.toFixed(2));

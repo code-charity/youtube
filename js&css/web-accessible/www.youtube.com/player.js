@@ -146,9 +146,10 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 			ImprovedTube.speedException = function () {
 				if (this.storage.player_dont_speed_education  && DATA.genre === 'Education')
 				{player.setPlaybackRate(Number(1));	video.playbackRate = Number(1); return;}
-				if (this.storage.player_force_speed_on_music )
-				{ //player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);
-	 return;}
+				if (this.storage.player_force_speed_on_music ){
+					//player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);
+	 				return;
+				}
 				if (DATA.keywords && !keywords) { keywords = DATA.keywords.join(', ') || ''; }
 				if (keywords === 'video, sharing, camera phone, video phone, free, upload') { keywords = ''; }
 				var musicIdentifiers = /(official|music|lyrics?)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
@@ -936,7 +937,7 @@ ImprovedTube.playerCinemaModeEnable = function () {
 				overlay = document.getElementById('overlay_cinema');
 			}
 
-			// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused  || this.storage.player_auto_cinema_mode  && overlay)
+			// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused || this.storage.player_auto_cinema_mode  && overlay)
 			if (overlay) {
 				overlay.style.display = 'block'
 				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode

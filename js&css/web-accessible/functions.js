@@ -263,12 +263,12 @@ ImprovedTube.videoPageUpdate = function () {
 	if (document.documentElement.dataset.pageType === 'video') {
 		var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
 
-		if (this.storage.track_watched_videos  && video_id) {
+		if (this.storage.track_watched_videos && video_id) {
 			ImprovedTube.messages.send({action: 'watched',
 				type: 'add',
 				id: video_id,
 				title: document.title
-									   });
+			});
 		}
 
 		this.initialVideoUpdateDone = true;
@@ -405,7 +405,7 @@ ImprovedTube.playerOnPause = function (event) {
 };
 
 if (document.documentElement.dataset.pageType === 'video'
-	 && (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.transcript  || ImprovedTube.storage.chapters  )) { 
+	 && (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.transcript || ImprovedTube.storage.chapters  )) { 
 	ImprovedTube.forbidFocus =  function (ms) { 
 		const originalFocus = HTMLElement.prototype.focus; // Backing up default method  - other methods: Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy
 		// Override YouTube's scroll method:
