@@ -261,7 +261,7 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'transcript':
 					if (ImprovedTube.storage.transcript ) {
 						document.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');
-					} else if (ImprovedTube.storage.transcript === false) {
+					} else if (!ImprovedTube.storage.transcript) {
 						document.querySelector('*[target-id*=transcript] #visibility-button button')?.click();
 					}
 					break
@@ -269,7 +269,7 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'chapters':
 					if (ImprovedTube.storage.chapters ) {
 						document.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');
-					} else if (ImprovedTube.storage.chapters === false) {
+					} else if (!ImprovedTube.storage.chapters) {
 						document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
 					}
 					break

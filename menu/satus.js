@@ -281,13 +281,13 @@ satus.setAttributes = satus.attr = function (element, attributes) {
 			}
 
 			if (element.namespaceURI) {
-				if (value === false) {
+				if (!value) {
 					element.removeAttributeNS(null, name);
 				} else {
 					element.setAttributeNS(null, name, value);
 				}
 			} else {
-				if (value === false) {
+				if (!value) {
 					element.removeAttribute(name);
 				} else {
 					element.setAttribute(name, value);
@@ -1313,7 +1313,7 @@ satus.components.textField = function (component, skeleton) {
 		this.autofocus = true;	this.input.focus();
 	};
 
-	if (skeleton.lineNumbers === false) {
+	if (!skeleton.lineNumbers) {
 		component.setAttribute('line-numbers', 'false');
 
 		component.lineNumbers.setAttribute('hidden', '');

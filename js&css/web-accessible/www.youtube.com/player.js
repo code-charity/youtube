@@ -129,7 +129,10 @@ ImprovedTube.playbackSpeed = function (newSpeed) {
 /*------------------------------------------------------------------------------
 PERMANENT PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed ) {
+ImprovedTube.playerPlaybackSpeed = function () {
+	if (!this.storage.player_forced_playback_speed ) {
+		return;
+	}
 	var player = this.elements.player; if (!player) return;
 	var video = this.elements.video || player.querySelector('video'); 
 	option = this.storage.player_playback_speed;	
@@ -232,29 +235,48 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 				})();
 				}
 			};
-			if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData();}
-			else {
+			if ( (history && history.length === 1)
+			 || !history?.state?.endpoint?.watchEndpoint) {
+				ImprovedTube.fetchDOMData();
+			} else {
 				//Invidious instances. Should be updated automatically!...
 				const invidiousInstances = ['invidious.fdn.fr', 'inv.tux.pizza', 'invidious.flokinet.to', 'invidious.protokolla.fi', 'invidious.private.coffee', 'yt.artemislena.eu', 'invidious.materialio.us', 'iv.datura.network'];
 				function getRandomInvidiousInstance () { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
 
-				(async function () {	 let retries = 4;	let invidiousFetched = false;
-					async function fetchInvidiousData () {
-						try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
-			 DATA = await response.json();
-			 if (DATA.genre && DATA.title && DATA.keywords && DATA.lengthSeconds) { if (DATA.keywords.toString() === defaultKeywords ) {DATA.keywords = ''}
-				 ImprovedTube.speedException(); invidiousFetched = true;	}
-						} catch (error) { console.error('Error: Invidious API: ', error); }
+				(async function () {
+					let retries = 4;
+					let invidiousFetched = false;
+					async function fetchInvidiousData () {try {
+						const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
+			 			DATA = await response.json();
+			 			if (DATA.genre && DATA.title && DATA.keywords && DATA.lengthSeconds) {
+							if (DATA.keywords.toString() === defaultKeywords ) {
+								DATA.keywords = ''
+							}
+				 			ImprovedTube.speedException(); 
+							invidiousFetched = true;
+						}
+					} catch (error) {
+						console.error('Error: Invidious API: ', error); 
+					}}
+					while (retries > 0 && !invidiousFetched) {
+						await fetchInvidiousData();
+						if (!invidiousFetched) {
+							await new Promise(resolve => setTimeout(resolve, retries === 4 ? 1500 : 876));
+							retries--;
+						}
 					}
-					while (retries > 0 && !invidiousFetched) { await fetchInvidiousData();
-						if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 4 ? 1500 : 876)); retries--; }	}
-					if (!invidiousFetched) { if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())}
-					else { ImprovedTube.fetchDOMData();} }
+					if (!invidiousFetched) {
+						if (document.readyState === 'loading') {
+							document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())
+						} else {
+							ImprovedTube.fetchDOMData();
+						}
+					}
 				})();
 			}
-		}	// else { }
+		}
 	}
-}
 }
 /*------------------------------------------------------------------------------
 SUBTITLES
@@ -268,13 +290,12 @@ ImprovedTube.playerSubtitles = function () {
 			case 'enabled':
 				player.toggleSubtitlesOn();
 				break
-
 			case 'disabled':
 				if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
 				break
 		}
 	}
-};
+}
 /*------------------------------------------------------------------------------
 SUBTITLES LANGUAGE
 ------------------------------------------------------------------------------*/
@@ -602,7 +623,6 @@ ImprovedTube.playerLoudnessNormalization = function () {
 				return;
 			} else if (local_storage) {
 				local_storage = JSON.parse(JSON.parse(local_storage).data);
-
 				local_storage = Number(local_storage.volume);
 
 				video.volume = local_storage / 100;
@@ -736,7 +756,8 @@ ImprovedTube.playerRepeatButton = function () {
 						var otherButton = document.querySelector('#it-below-player-loop');
 						otherButton.children[0].style.opacity = opacity;
 					}
-				}		if (video.hasAttribute('loop')) {
+				}
+				if (video.hasAttribute('loop')) {
 					video.removeAttribute('loop');
 					matchLoopState('.5')
 				} else if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
@@ -821,8 +842,9 @@ ImprovedTube.playerFitToWinButton = function () {
 		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`);
 
 		// Ensure the SVG element is correctly parsed
-        	svg = tempContainer.querySelector('svg');
-	} else {tempContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
+        svg = tempContainer.querySelector('svg');
+	} else {
+		tempContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
  		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`;
 		svg = tempContainer.firstChild;}
 		this.createPlayerButton({
@@ -1187,7 +1209,7 @@ ImprovedTube.miniPlayer_mouseDown = function (event) {
 		}
 	}
 
-	if (is_player === false) {
+	if (!is_player) {
 		return false;
 	}
 

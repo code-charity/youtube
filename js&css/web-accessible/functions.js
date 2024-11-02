@@ -386,7 +386,10 @@ ImprovedTube.playerOnTimeUpdate = function () {
 
 ImprovedTube.playerOnLoadedMetadata = function () {
 	setTimeout(function () {ImprovedTube.playerSize();}, 100);
-	setTimeout(function () { if (ImprovedTube.elements.panels) { ImprovedTube.transcript(ImprovedTube.elements.panels); ImprovedTube.chapters(ImprovedTube.elements.panels);}}, 250);
+	setTimeout(function () { if (ImprovedTube.elements.panels) {
+		ImprovedTube.transcript(ImprovedTube.elements.panels);
+		ImprovedTube.chapters(ImprovedTube.elements.panels);
+	}}, 250);
 };
 
 ImprovedTube.playerOnPause = function (event) {
