@@ -80,39 +80,49 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-	if (request.action === 'focus') {
-		extension.messages.send({
-			focus: true
-		});
-	} else if (request.action === 'blur') {
-		extension.messages.send({
-			blur: true
-		});
-	} else if (request.action === 'pause') {
-		extension.messages.send({
-			pause: true
-		});
-	} else if (request.action === 'set-volume') {
-		extension.messages.send({
-			setVolume: request.value
-		});
-	} else if (request.action === 'set-playback-speed') {
-		extension.messages.send({
-			setPlaybackSpeed: request.value
-		});
-	} else if (request.action === 'mixer') {
-		extension.messages.send({
-			mixer: true
-		}, sendResponse, 'mixer');
-
-		return true;
-	} else if (request.action === 'delete-youtube-cookies') {
-		extension.messages.send({
-			deleteCookies: true
-		});
-	} else if (request.action === "another-video-started-playing") {
-		extension.features.onlyOnePlayerInstancePlaying();
+	switch (request.action) {
+		case 'focus':
+			extension.messages.send({
+				focus: true
+			});
+			break;
+		case 'blur':
+			extension.messages.send({
+				blur: true
+			});
+			break;
+		case 'pause':
+			extension.messages.send({
+				pause: true
+			});
+			break;
+		case 'set-volume':
+			extension.messages.send({
+				setVolume: request.value
+			});
+			break;
+		case 'set-playback-speed':
+			extension.messages.send({
+				setVolume: request.value
+			});
+			break;
+		case 'mixer':
+			extension.messages.send({
+				mixer: true
+			}, sendResponse, 'mixer');
+			break;
+		case 'delete-youtube-cookies':
+			extension.messages.send({
+				deleteCookies: true
+			});
+			break;
+		case 'another-video-started-playing':
+			extension.features.onlyOnePlayerInstancePlaying();
+			break;
+		default:
+			break;
 	}
+	return true;
 });
 
 document.addEventListener('it-message-from-youtube', function () {

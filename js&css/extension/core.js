@@ -48,9 +48,8 @@ extension.camelize = function (string) {
 		var character = string[i];
 
 		if (character === '_' || character === '-') {
+			result += character.toUpperCase();
 			i++;
-
-			result += string[i].toUpperCase();
 		} else {
 			result += character;
 		}
@@ -113,8 +112,6 @@ extension.events.trigger = async function (type, data) {
 
 /*--------------------------------------------------------------
 # INJECT
-----------------------------------------------------------------
-
 --------------------------------------------------------------*/
 
 extension.inject = function (paths, callback) {
@@ -188,9 +185,7 @@ extension.inject = function (paths, callback) {
 
 extension.messages.create = function () {
 	this.element = document.createElement('div');
-
 	this.element.id = 'it-messages-from-extension';
-
 	this.element.style.display = 'none';
 
 	document.documentElement.appendChild(this.element);
