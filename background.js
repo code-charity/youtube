@@ -18,7 +18,7 @@
 
 /* Sidepanel Option
   chrome.storage.local.get('improvedTubeSidePanel', function (result) {
-	if ( result.improvedTubeSidePanel && result.improvedTubeSidePanel ) {
+	if (result.improvedTubeSidePanel) {
 		chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
 	} else {chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false }) }
   });
@@ -28,8 +28,8 @@
 -----------------------------*/
 chrome.runtime.onInstalled.addListener(function (installed) {
 	if (installed.reason == 'update') {
-		//		var thisVersion = chrome.runtime.getManifest().version;
-		//		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
+		//var thisVersion = chrome.runtime.getManifest().version;
+		//console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
 		chrome.storage.local.get('description', function (result) {
 			if (result.description === 'classic_expanded') {
 				chrome.storage.local.set({description: 'expanded'});
@@ -37,7 +37,7 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 		});		
 		// Shortcut renames:
 		chrome.storage.local.get(['shortcut_auto', 'shortcut_144p', 'shortcut_240p', 'shortcut_360p', 'shortcut_480p', 'shortcut_720p', 'shortcut_1080p', 'shortcut_1440p', 'shortcut_2160p', 'shortcut_2880p', 'shortcut_4320p'], function (result) {
-			// validate and move to new name
+			// Validate and move to new name
 			for (let [name, keys] of Object.entries(result)) {
 				if (!keys) continue;
 				let newKeys = {},

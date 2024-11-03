@@ -24,7 +24,6 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 		var label = document.createElement('span');
 
 		button = document.createElement('button');
-
 		button.className = 'it-button';
 
 		button.addEventListener('mousedown', function (event) {
@@ -32,7 +31,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 				var x2 = event.layerX,
 					y2 = event.layerY;
 
-				function mousemove (event) {
+				function mousemove(event) {
 					if (button.className.indexOf('dragging') === -1) {
 						button.classList.add('it-button--dragging');
 					}
@@ -44,23 +43,20 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 					button.style.top = y + 'px';
 				}
 
-				function mouseup () {
-					localStorage.setItem('improvedtube-button-position', JSON.stringify({x, y}));
-
+				function mouseup() {
+					localStorage.setItem('improvedtube-button-position', JSON.stringify({ x, y }));
 					window.removeEventListener('mousemove', mousemove);
 					window.removeEventListener('mouseup', mouseup);
 				}
 
-				function click () {
+				function click() {
 					button.classList.remove('it-button--dragging');
-
 					window.removeEventListener('click', click);
 				}
 
 				window.addEventListener('mousemove', mousemove);
 				window.addEventListener('mouseup', mouseup);
 				window.addEventListener('click', click);
-
 				event.preventDefault();
 			}
 		});
@@ -95,7 +91,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 				document.body.appendChild(scrim);
 				document.body.appendChild(iframe);
 
-				ImprovedTube.messages.send({requestOptionsUrl: true});
+				ImprovedTube.messages.send({ requestOptionsUrl: true });
 			}
 		});
 
@@ -159,7 +155,7 @@ ImprovedTube.deleteYoutubeCookies = function () {
 		document.cookie = name + '=; domain=.youtube.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
 	}
 
-	setTimeout(function () {location.reload();}, 100);
+	setTimeout(function () { location.reload(); }, 100);
 };
 
 /*-----------------------------------------------------------------------------

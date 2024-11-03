@@ -24,7 +24,7 @@ extension.events.on('init', function (resolve) {
 	async: true
 });
 
-function bodyReady () {
+function bodyReady() {
 	if (extension.ready && extension.domReady) {
 		extension.features.addScrollToTop();
 		extension.features.font();
@@ -141,11 +141,11 @@ document.addEventListener('it-message-from-youtube', function () {
 
 		//console.log(message);
 
-		if (message.requestOptionsUrl ) {
+		if (message.requestOptionsUrl) {
 			extension.messages.send({
 				responseOptionsUrl: chrome.runtime.getURL('menu/index.html')
 			});
-		} else if (message.onlyOnePlayer ) {
+		} else if (message.onlyOnePlayer) {
 			chrome.runtime.sendMessage({
 				name: 'only-one-player'
 			});
@@ -153,11 +153,11 @@ document.addEventListener('it-message-from-youtube', function () {
 			chrome.runtime.sendMessage({
 				action: 'fixPopup',
 				width: message.width,
-		        height: message.height,
+				height: message.height,
 				title: message.title,
 			});
 		} else if (message.action === 'analyzer') {
-			if (extension.storage.data.analyzer_activation ) {
+			if (extension.storage.data.analyzer_activation) {
 				var data = message.name,
 					date = new Date().toDateString(),
 					hours = new Date().getHours() + ':00';
@@ -186,7 +186,7 @@ document.addEventListener('it-message-from-youtube', function () {
 			}
 		} else if (message.action === 'blocklist') {
 			if (!extension.storage.data.blocklist || typeof extension.storage.data.blocklist !== 'object') {
-				extension.storage.data.blocklist = {videos: {}, channels: {}};
+				extension.storage.data.blocklist = { videos: {}, channels: {} };
 			}
 
 			switch (message.type) {
@@ -243,7 +243,7 @@ document.addEventListener('it-message-from-youtube', function () {
 			});
 		} else if (message.action === 'set') {
 			if (message.value) {
-				chrome.storage.local.set({[message.key]: message.value});
+				chrome.storage.local.set({ [message.key]: message.value });
 			} else {
 				chrome.storage.local.remove([message.key]);
 			}
@@ -252,17 +252,17 @@ document.addEventListener('it-message-from-youtube', function () {
 });
 
 document.addEventListener('it-play', function () {
-	 // var videos = document.querySelectorAll('video');
+	// var videos = document.querySelectorAll('video');
 	try {
-		chrome.runtime.sendMessage({action: 'play'})
+		chrome.runtime.sendMessage({ action: 'play' })
 	} catch (error) {
 		console.log(error);
 		setTimeout(function () {
 			try {
-				chrome.runtime.sendMessage({action: 'play'}, function (response) {
+				chrome.runtime.sendMessage({ action: 'play' }, function (response) {
 					console.log(response)
-				} );
-			} catch {} 
+				});
+			} catch { }
 		}, 321);
 	}
 });

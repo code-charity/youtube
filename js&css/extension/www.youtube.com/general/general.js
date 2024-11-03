@@ -256,9 +256,9 @@ extension.features.popupWindowButtons = function (event) {
 								if (!ytPlayer) {
 									let shorts = /short/.test(this.parentElement.href);
 									let vertical = false;
-									if ( width / height < 1 ) { vertical = true }
-									if ( !vertical && shorts ) { width = height * 0.6}
-									if ( vertical && !shorts ) { height = width * 0.6}
+									if (width / height < 1) { vertical = true }
+									if (!vertical && shorts) { width = height * 0.6}
+									if (vertical && !shorts) { height = width * 0.6}
 								}
 
 								window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay_disable') ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);

@@ -4,12 +4,13 @@
 /*------------------------------------------------------------------------------
 4.5.1 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
-ImprovedTube.playlistUpNextAutoplay = function () { if (this.storage.playlist_up_next_autoplay === false) {
-	const playlistData = this.elements.ytd_watch?.playlistData;
-	if (this.getParam(location.href, 'list') && playlistData
-		&& playlistData.currentIndex
-		&& playlistData.totalVideos
-		&& playlistData.localCurrentIndex) {
+ImprovedTube.playlistUpNextAutoplay = function () {
+	if (this.storage.playlist_up_next_autoplay === false) {
+		const playlistData = this.elements.ytd_watch?.playlistData;
+		if (this.getParam(location.href, 'list') && playlistData
+			&& playlistData.currentIndex
+			&& playlistData.totalVideos
+			&& playlistData.localCurrentIndex) {
 			playlistData.currentIndex = playlistData.totalVideos;
 		}
 	}
@@ -18,8 +19,8 @@ ImprovedTube.playlistUpNextAutoplay = function () { if (this.storage.playlist_up
 4.5.2 REVERSE
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistReverse = function () {
-	if (this.storage.playlist_reverse ) {
-		function update () {
+	if (this.storage.playlist_reverse) {
+		function update() {
 			var results = ImprovedTube.elements.ytd_watch.data.contents.twoColumnWatchNextResults,
 				playlist = results.playlist.playlist,
 				autoplay = results.autoplay.autoplay;
@@ -81,7 +82,7 @@ ImprovedTube.playlistReverse = function () {
 			ImprovedTube.elements.playlist.actions.appendChild(button);
 		}
 
-		if (this.playlistReversed ) {
+		if (this.playlistReversed) {
 			update();
 		}
 	}
@@ -91,17 +92,16 @@ ImprovedTube.playlistReverse = function () {
 4.5.3 REPEAT
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistRepeat = function () {
-	if ( ImprovedTube.storage.playlist_repeat  ) {
-	    setTimeout(function () {
+	if (ImprovedTube.storage.playlist_repeat) {
+		setTimeout(function () {
 			var option = ImprovedTube.storage.playlist_repeat,
 				button = document.querySelector("#button.ytd-playlist-loop-button-renderer") || document.querySelector("ytd-playlist-loop-button-renderer button") || document.querySelector("ytd-playlist-loop-button-renderer");
-			if (button && (option  && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M21')
+			if (button && (option && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M21')
 			) && button.querySelector("#tooltip")?.textContent !== 'Loop video'
-	  && button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Loop video'
-	  && button.querySelector("#tooltip")?.textContent !== 'Turn off loop'
-	  && button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Turn off loop'
-			)
-			{ button.click(); }
+				&& button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Loop video'
+				&& button.querySelector("#tooltip")?.textContent !== 'Turn off loop'
+				&& button.firstElementChild?.firstElementChild?.attributes[2]?.textContent !== 'Turn off loop'
+			) { button.click(); }
 		}, 10000);
 	}
 };
@@ -112,14 +112,13 @@ ImprovedTube.playlistRepeat = function () {
 4.5.4 SHUFFLE
 ------------------------------------------------------------------------------*/
 ImprovedTube.playlistShuffle = function () {
-	if ( ImprovedTube.storage.playlist_shuffle  ) {
+	if (ImprovedTube.storage.playlist_shuffle) {
 		setTimeout(function () {
 			var button = ImprovedTube.elements.playlist.shuffle_button,
 				option = ImprovedTube.storage.playlist_shuffle;
 			button = document.querySelector('#playlist-actions #playlist-action-menu ytd-toggle-button-renderer');
-			if (button && (option  && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M18.1')
-			) 	)
-			{ button.click(); }
+			if (button && (option && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M18.1')
+			)) { button.click(); }
 		}, 10000);
 	}
 };
@@ -171,7 +170,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 					//~ check if the video ID in the link of the video title matches the original video ID in the URL and if not reload as a videoseries/playlist (without the videoID and start-time).
 					const videoLink = this.document.querySelector('div#player div.ytp-title-text>a[href]');
 					if (videoLink && videoLink.href.match(ImprovedTube.regex.video_id)[1] !== videoID) this.location.href = `${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}&list=${listID}`;
-				}, {passive: true, once: true});
+				}, { passive: true, once: true });
 			} else window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
 			//~ change focused tab to URL-less popup
 			ImprovedTube.messages.send({
@@ -183,12 +182,12 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 		} : function () {
 			let width = ImprovedTube.elements.player.offsetWidth * 0.7 ?? innerWidth * 0.45;
 			let height = ImprovedTube.elements.player.offsetHeight * 0.7 ?? innerHeight * 0.45;
-				if (!ImprovedTube.elements.player) {
-					shorts = /short/.test(this.parentElement.href);
-					if ( width / height < 1 ) { vertical = true } else { vertical = false }
-					if ( !vertical && shorts ) { width = height * 0.6}
-					if ( vertical && !shorts ) { height = width * 0.6}
-				}
+			if (!ImprovedTube.elements.player) {
+				shorts = /short/.test(this.parentElement.href);
+				if (width / height < 1) { vertical = true } else { vertical = false }
+				if (!vertical && shorts) { width = height * 0.6 }
+				if (vertical && !shorts) { height = width * 0.6 }
+			}
 			"use strict";
 			window.open(`${location.protocol}//www.youtube.com/embed/videoseries?autoplay=${ImprovedTube.storage.player_autoplay_disable ? '0' : '1'}&list=${this.dataset.list}`, '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
 			//~ change focused tab to URL-less popup
@@ -223,7 +222,7 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
  */
 ImprovedTube.playlistPopup = function () {
 	"use strict";
-	if (this.storage.playlist_popup ) {
+	if (this.storage.playlist_popup) {
 
 		const playlistID = location.search.match(this.regex.playlist_id)?.[1],
 			playlistIDMini = this.elements.player?.getPlaylistId?.();
@@ -245,6 +244,6 @@ ImprovedTube.playlistPopup = function () {
 				if (panelItemButtons == null) this.elements.buttons['it-popup-playlist-button-panel'] = null;
 				else panelItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-panel'] = this.playlistPopupCreateButton(playlistID, true, true));
 			} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-panel'].dataset.list !== playlistID) this.elements.buttons['it-popup-playlist-button-panel'].dataset.list = playlistID;
-		} catch (error) { console.error("Error appending playlist button panel:", error);}
+		} catch (error) { console.error("Error appending playlist button panel:", error); }
 	}
 };

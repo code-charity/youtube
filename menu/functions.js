@@ -188,7 +188,7 @@ extension.pushSettings = function () {
 						try {
 							chrome.storage.sync.clear();
 							var blob = JSON.stringify(satus.storage.data);
-							chrome.storage.sync.set({settings: blob});
+							chrome.storage.sync.set({ settings: blob });
 						} catch (error) {
 							console.error(error);
 						}

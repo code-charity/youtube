@@ -73,7 +73,7 @@ extension.events.on = function (type, listener, options = {}) {
 		listeners[type] = [];
 	}
 
-	if (options.async ) {
+	if (options.async) {
 		listener = (function (original) {
 			return async function () {
 				return new Promise(original);
@@ -81,7 +81,7 @@ extension.events.on = function (type, listener, options = {}) {
 		})(listener);
 	}
 
-	if (options.prepend ) {
+	if (options.prepend) {
 		listeners[type].unshift(listener);
 	} else {
 		listeners[type].push(listener);
@@ -100,7 +100,7 @@ extension.events.trigger = async function (type, data) {
 			var listener = listeners[i];
 
 			if (typeof listener === 'function') {
-				if (listener instanceof(async function () {}).constructor ) {
+				if (listener instanceof (async function () { }).constructor) {
 					await listener(data);
 				} else {
 					listener(data);
@@ -298,7 +298,7 @@ extension.storage.load = function (callback) {
 		// initialize theme in case YT is in Dark cookie mode
 		if (!extension.storage.data['theme'] && document.documentElement.hasAttribute('dark')) {
 			extension.storage.data['theme'] = 'dark';
-			chrome.storage.local.set({theme: 'dark'});
+			chrome.storage.local.set({ theme: 'dark' });
 		}
 
 		for (const key in items) {
