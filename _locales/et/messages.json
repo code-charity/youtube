@@ -1,8 +1,1394 @@
 {
+    "qualityWhenRunningOnBattery": {
+        "message": "Kvaliteet, kui töötab akust"
+    },
+    "pauseWhileIUnplugTheCharger": {
+        "message": "Paus, kui eemaldan laaduri"
+    },
+    "whenBatteryIslowDecreaseQuality": {
+        "message": "Nõrga akku korral vähenda kvaliteeti"
+    },
+    "analytics": {
+        "message": "Analüüsiandmed"
+    },
+    "purchase": {
+        "message": "Osta"
+    },
+    "join": {
+        "message": "Liituda"
+    },
+    "improvedTubeSidePanel": {
+        "message": "ParandatudTube: brauseri külgpaan"
+    },
+    "cursorLighting": {
+        "message": "Tundlik YouTube'i lehed, välja arvatud, kuhu hiirekursor liigutatakse!"
+    },
+    "youtubesLight": {
+        "message": "YouTube'i valgus"
+    },
+    "popupAd": {
+        "message": "Ukuavaldane reklaam: Peida"
+    },
+    "hideWatchedVideos": {
+        "message": "Peida vaadatud videod"
+    },
+    "ambientLighting": {
+        "message": "Ümbruse valgus"
+    },
+    "undoTheNewSidebar": {
+        "message": "Tühista uue külgpaani muutmine!"
+    },
+    "hideLogo": {
+        "message": "Logo: Peida!"
+    },
+    "about": {
+        "message": "Teave"
+    },
+    "accept": {
+        "message": "Vasta"
+    },
+    "activate": {
+        "message": "Aktiveeri"
+    },
+    "activateCaptions": {
+        "message": "Lülita sõnade teksti sisse"
+    },
+    "activated": {
+        "message": "Aktiveeritud"
+    },
+    "activatedFeatures": {
+        "message": "Aktiveeritud funktsioonid"
+    },
+    "activateFullscreen": {
+        "message": "Aktiveeri täisekraan"
+    },
+    "activeFeatures": {
+        "message": "Minu aktiivsed funktsioonid"
+    },
+    "addScrollToTop": {
+        "message": "Lisa «Üles liikumine»"
+    },
+    "ads": {
+        "message": "Reklamid"
+    },
+    "all": {
+        "message": "Kõik"
+    },
+    "allow": {
+        "message": "Luba"
+    },
+    "Allow_auto_generate": {
+        "message": "Luba automaatne genereerimine"
+    },
+    "allow60fps": {
+        "message": "Luba 60 fps"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "Kõik teie seaded kustutatakse ja neid ei saa taastada"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "Kõik teie otseteed kustutatakse ja neid ei saa taastada"
+    },
+    "always": {
+        "message": "Alati"
+    },
+    "alwaysActive": {
+        "message": "Alati aktiivne"
+    },
+    "alwaysShowProgressBar": {
+        "message": "Näita alati edenemisribit"
+    },
+    "amber": {
+        "message": "Pruun"
+    },
+    "analyzer": {
+        "message": "Analüsaator"
+    },
+    "animations": {
+        "message": "Animatsioonid"
+    },
+    "appearance": {
+        "message": "Välimus"
+    },
+    "areYouSureYouWantToExportTheData": {
+        "message": "Olete kindel, et soovite andmeid eksportida?"
+    },
+    "areYouSureYouWantToImportTheData": {
+        "message": "Olete kindel, et soovite need andmed importida?"
+    },
+    "areYouSureYouWantToSyncTheData": {
+        "message": "Olete kindel, et soovite praegused seaded sünkroniseerida?"
+    },
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
+    "atHistory": {
+        "message": "ajaloo juures"
+    },
+    "atSubscriptions": {
+        "message": "tellimuste juures"
+    },
+    "atTrending": {
+        "message": "populaarseimate juures"
+    },
+    "audio": {
+        "message": "Heliline"
+    },
+    "audioFormats": {
+        "message": "Heliformaadid"
+    },
+    "auto": {
+        "message": "Automaatne"
+    },
+    "Auto_PiP_picture_in_picture": {
+        "message": "Auto-PiP (pilt pildil)"
+    },
+    "playerAutoPipOutside": {
+        "message": "Auto-PiP ainult alltoidu vahekaardil"
+    },
+    "PipRequiresUserInteraction": {
+        "message": "PiP nõuab kasutaja hiljutist interaktsiooni alltoidu lehega. See on Chrome Pilt pildil API piirang ja me ei saa seda ületada. Toimib parimal moel, kui automaatkäivitamine on välja lülitatud ja käitusjuhitakse käsitsi või kliki alltoidu lehel enne vahekaardide vahetamist."
+    },
+    "autoFullscreen": {
+        "message": "Automaatne täisekraan"
+    },
+    "autopauseWhenSwitchingTabs": {
+        "message": "Automaatne paus, kui vahetan vahekaarte"
+    },
+    "autoPictureInPicture": {
+        "message": "Automaatne pilt pildil"
+    },
+    "autoplayDisable": {
+        "message": "Võta automaatkäivitamine välja"
+    },
+    "avoidAv1": {
+        "message": "Välti AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "Välti AV1, VP8, VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "Välti AV1, VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "Välti CPU renderdamist võimalikult"
+    },
+    "backgroundColor": {
+        "message": "Taustavärv"
+    },
+    "backgroundOpacity": {
+        "message": "Tausta läbipaistvus"
+    },
+    "backupAndReset": {
+        "message": "Varundus ja lähtestamine"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "Põhine süsteemi värviraamistikul"
+    },
+    "belowPlayer": {
+        "message": "Mängija all"
+    },
+    "bitness": {
+        "message": "Bitte"
+    },
+    "black": {
+        "message": "Must"
+    },
+    "block_Codec_Alert_h264": {
+        "message": "YouTube video mängimiseks peate lubama H.264 või VP9 kodekid."
+    },
+    "block_Codec_Alert_VP9": {
+        "message": "YouTube video mängimiseks peate lubama VP9 või H.264 kodekid."
+    },
+    "blockAll": {
+        "message": "Välja (blokeeri või jätka vahele)"
+    },
+    "blockAv1": {
+        "message": "Blokeeri AV1"
+    },
+    "blockH264": {
+        "message": "Blokeeri H.264"
+    },
+    "blocklist": {
+        "message": "Blokeerimisloend"
+    },
+    "blockMusic": {
+        "message": "Jätka vahele reklaamid, kui mängin muusikat"
+    },
+    "blockVp8": {
+        "message": "Blokeeri VP8"
+    },
+    "blockVp9": {
+        "message": "Blokeeri VP9"
+    },
+    "blue": {
+        "message": "Sinine"
+    },
+    "blueGray": {
+        "message": "Sinine hall"
+    },
+    "bluelight": {
+        "message": "Sinine valgus"
+    },
+    "brightness": {
+        "message": "Heledus"
+    },
+    "brown": {
+        "message": "Pruun"
+    },
+    "browser": {
+        "message": "Veebilehitseja"
+    },
+    "browserAccountSync": {
+        "message": "Sünkroniseeri (brauseri konto)"
+    },
+    "browserVersion": {
+        "message": "Veebilehitseja versioon"
+    },
+    "bubbles": {
+        "message": "Pülad"
+    },
+    "bug": {
+        "message": "Viga"
+    },
+    "buttons": {
+        "message": "Nupud"
+    },
+    "cancel": {
+        "message": "Tühista"
+    },
+    "categories": {
+        "message": "Kategooriad"
+    },
+    "channel": {
+        "message": "Kanaal"
+    },
+    "channels": {
+        "message": "Kanaalid"
+    },
+    "chapters": {
+        "message": "Peatükid"
+    },
+    "characterEdgeStyle": {
+        "message": "Tähemärgi äärise stiil"
+    },
+    "clip": {
+        "message": "Vihik"
+    },
+    "clipboard": {
+        "message": "Lõiguylak"
+    },
+    "codecH264": {
+        "message": "Kodek h.264"
+    },
+    "codecs": {
+        "message": "Kodekid"
+    },
+    "collapsed": {
+        "message": "Kollasson"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "Tellimuste sektsioonide kokkukandmine (kollasson)"
+    },
+    "columns": {
+        "message": "Lisakülgpaan (vastavate videote liigutamata, kui akna laius piisab)"
+    },
+    "comments": {
+        "message": "Kommentaarid"
+    },
+    "compact_spacing": {
+        "message": "Tihe paigutus"
+    },
+    "compactTheme": {
+        "message": "Tihe teema"
+    },
+    "confirmationBeforeClosing": {
+        "message": "Kinnitamine sulgemisel"
+    },
+    "cookies": {
+        "message": "Küpsised"
+    },
+    "cores": {
+        "message": "Tuumad"
+    },
+    "cropChapterTitles": {
+        "message": "Peatükkide pealkirjade lõigamine"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(Hetkel nõutakse YouTube-API-võtit: )"
+    },
+    "custom": {
+        "message": "Kohandatud"
+    },
+    "customCss": {
+        "message": "Kohandatud CSS"
+    },
+    "customJs": {
+        "message": "Kohandatud JS"
+    },
+    "customMiniPlayer": {
+        "message": "Kohandatud väike mängija"
+    },
+    "cyan": {
+        "message": "Syan"
+    },
+    "dark": {
+        "message": "Tume"
+    },
+    "darkTheme": {
+        "message": "Tume teema"
+    },
+    "dateAndTime": {
+        "message": "Kuupäev ja kellaaeg"
+    },
+    "dawn": {
+        "message": "Koit"
+    },
+    "decreasePlaybackSpeed": {
+        "message": "Vähenda mängitava kiirust"
+    },
+    "decreaseVolume": {
+        "message": "Vähenda helitugevust"
+    },
+    "deepOrange": {
+        "message": "Tume oranž"
+    },
+    "deepPurple": {
+        "message": "Tume lilla"
+    },
+    "default": {
+        "message": "Vaikimisi"
+    },
+    "default_CC": {
+        "message": "vaikimisi"
+    },
+    "default_theme": {
+        "message": "vaikimisi"
+    },
+    "defaultChannelTab": {
+        "message": "Vaikimisi kanali vahekaart"
+    },
+    "defaultContentCountry": {
+        "message": "Riik (virtuaalreis)"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "Vaikimisi mängitava kiirus"
+    },
+    "deleteWatchedVideos": {
+        "message": "Kustuta vaadatud videod"
+    },
+    "deleteYoutubeCookies": {
+        "message": "Kustuta YouTube küpsised"
+    },
+    "depressed": {
+        "message": "Surutud"
+    },
+    "description": {
+        "message": "Kirjeldus"
+    },
+    "description_ext": {
+        "message": "YouTube, korras ja intelligentses? Tugesta YouTube! Anna sellele tugevad funktsioonid, filtreeri ainult soovid videod ja täpselt selline välimus, mis sulle meeldib"
+    },
+    "desert": {
+        "message": "Kaaluster"
+    },
+    "details": {
+        "message": "Üksikasjad"
+    },
+    "developerOptions": {
+        "message": "Arendaja valikud"
+    },
+    "device": {
+        "message": "Seade"
+    },
+    "dim": {
+        "message": "Summuta"
+    },
+    "disabled": {
+        "message": "Välja lülitatud"
+    },
+    "disableThumbnailPlayback": {
+        "message": "Keela videomängija hiirekursori kohal"
+    },
+    "dislike": {
+        "message": "Eelistan mitte"
+    },
+    "displayDayOfTheWeak": {
+        "message": "Näita nädala päeva"
+    },
+    "donate": {
+        "message": "Lahenda"
+    },
+    "doNotChange": {
+        "message": "Ära muuda"
+    },
+    "download": {
+        "message": "Laadi alla"
+    },
+    "draggable": {
+        "message": "Liigutatav"
+    },
+    "dropShadow": {
+        "message": "Varjund"
+    },
+    "durationWithSpeed": {
+        "message": "Näita jäävast aega mängitava kiiruse järgi"
+    },
+    "email": {
+        "message": "E-post"
+    },
+    "embedded_Hide_Share": {
+        "message": "Peida jagamine siduslõigus"
+    },
+    "Embedded_YouTube": {
+        "message": "Sidus YouTube"
+    },
+    "empty": {
+        "message": "Tühi"
+    },
+    "enabled": {
+        "message": "Lubatud"
+    },
+    "enabledForced": {
+        "message": "Lubatud (välditud)"
+    },
+    "expanded": {
+        "message": "Laiendatud"
+    },
+    "exportSettings": {
+        "message": "Ekspordi seaded"
+    },
+    "extension": {
+        "message": "Laiendus"
+    },
+    "ExtraButtons": {
+        "message": "Lisanimbid"
+    },
+    "extraButtonsBelowThePlayer": {
+        "message": "Lisanimbid mängija all"
+    },
+    "Feature_not_yet_available": {
+        "message": "Funktsioon pole veel saadaval"
+    },
+    "file": {
+        "message": "Fail"
+    },
+    "filters": {
+        "message": "Filtrid"
+    },
+    "fitToWindow": {
+        "message": "Vana alternatiiv ('Sobita akna suurusele')"
+    },
+    "flash": {
+        "message": "Fläš"
+    },
+    "font": {
+        "message": "Kirjasüstema"
+    },
+    "fontColor": {
+        "message": "Kiri värv"
+    },
+    "fontFamily": {
+        "message": "Kirjasüsteem"
+    },
+    "fontOpacity": {
+        "message": "Kiri läbipaistvus"
+    },
+    "fontSize": {
+        "message": "Kiri suurus"
+    },
+    "footer": {
+        "message": "Järgteave"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "Kiirusemängimine: Püsikiirus"
+    },
+    "forcedPlaybackSpeedMusic": {
+        "message": "(Välista mängitava kiirus ka muusika korral?)"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "Välista video mängimine algusest"
+    },
+    "forcedTheaterMode": {
+        "message": "Välistatud teatri režiim"
+    },
+    "forcedVolume": {
+        "message": "Välastatud helitugevus"
+    },
+    "forceSDR": {
+        "message": "Välti HDR, säilita SDR"
+    },
+    "foundABug": {
+        "message": "Leidsid vigu?"
+    },
+    "fullWindow": {
+        "message": "Täis kõrgus"
+    },
+    "general": {
+        "message": "Üldine"
+    },
+    "geoPreference": {
+        "message": "Geo eelistus"
+    },
+    "github": {
+        "message": "GitHub"
+    },
+    "googleApiKey": {
+        "message": "Google API võti"
+    },
+    "goToSearchBox": {
+        "message": "Mine otsingukasti"
+    },
+    "gpu": {
+        "message": "GPU"
+    },
+    "GPUnotindatabase": {
+        "message": "GPU ei ole andmebaasis"
+    },
+    "green": {
+        "message": "Roheline"
+    },
+    "grey": {
+        "message": "Hall"
+    },
+    "halfTransparent": {
+        "message": "Halb/lõbusel läbipaistvus"
+    },
+    "Hamburger_Menu": {
+        "message": "Hamburdi menüü"
+    },
+    "hardwareInformation": {
+        "message": "Riistvara info"
+    },
+    "hd": {
+        "message": "Kõrge resolutsioon (HD)"
+    },
+    "hdThumbnail": {
+        "message": "Kõrge resolutsioonide pisipilt (HD)"
+    },
+    "header": {
+        "message": "Päis"
+    },
+    "hidden": {
+        "message": "Peidetud"
+    },
+    "hiddenOnVideoPage": {
+        "message": "Peidetud videolehel"
+    },
+    "hide_author_avatars": {
+        "message": "Peida autorite avatäht"
+    },
+    "hide_labels": {
+        "message": "Peida nimed"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "Peida pausi ulatus"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "Peida lühivideod, mis segavad selle video"
+    },
+    "Hide_sidebar": {
+        "message": "Peida külgriba"
+    },
+        "Hide_the_tabs_only": {
+        "message": "Peida ainult vahekaardid"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "Peida YouTube logo"
+    },
+    "hideAnimatedThumbnails": {
+        "message": "Peida animeeritud pisipildid"
+    },
+    "hideAnnotations": {
+        "message": "Peida anotatsioonid"
+    },
+    "hideCards": {
+        "message": "Peida kaardid"
+    },
+    "hideCategories": {
+        "message": "Peida kategooriad"
+    },
+    "hideCommentsCount": {
+        "message": "Peida kommentaaride arv"
+    },
+    "hideCountryCode": {
+        "message": "Peida riigikood"
+    },
+    "hideDate": {
+        "message": "Peida kuupäev"
+    },
+    "hideDetailButton": {
+        "message": "Nupud (mängija all)"
+    },
+    "hideDetails": {
+        "message": "Peida üksikasjad"
+    },
+    "hideEndscreen": {
+        "message": "Peida lõppkraan"
+    },
+    "hideFeaturedContent": {
+        "message": "Peida esitatud sisu"
+    },
+    "hideFooter": {
+        "message": "Peida jaluse"
+    },
+    "hideGradientBottom": {
+        "message": "Peida varjund mängija riba ümber"
+    },
     "hideHomePageShorts": {
-        "message": "Eemalda kodulehe Shortsid"
+        "message": "Peida lühivideod avalehel"
+    },
+    "hideMore": {
+        "message": "Peida '...'"
+    },
+    "hidePlayerControlsBar": {
+        "message": "Peida mängija juhtimisriba"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "Peida mängija juhtimisnupud"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "Peida mängija juhtimisvalikud"
+    },
+    "hidePlaylist": {
+        "message": "Peida loend"
+    },
+    "hideReport": {
+        "message": "Peida 'Raporteeri'"
+    },
+    "hideRightButtons": {
+        "message": "Peida paremad nupud"
+    },
+    "hideScrollForDetails": {
+        "message": "Peida 'Sektor üksikasjade jaoks'"
+    },
+    "hideSkipOverlay": {
+        "message": "Peida 5 sekundi ületöötluse animatsioon"
+    },
+    "hideThumbnailOverlay": {
+        "message": "Peida nupud pisipiltele"
+    },
+    "hideThumbnails": {
+        "message": "Peida pisipildid"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "Peida video pealkiri täisekraanis"
+    },
+    "hideViewsCount": {
+        "message": "Peida vaadatute arv"
+    },
+    "hideVoiceSearchButton": {
+        "message": "Peida häälte otsingunupp"
+    },
+    "high": {
+        "message": "Kõrge"
+    },
+    "history": {
+        "message": "Ajalugu"
+    },
+    "home": {
+        "message": "Avaleht"
+    },
+    "homeScreen": {
+        "message": "Avaleht"
+    },
+    "hover": {
+        "message": "Hiirekursori kohal"
+    },
+    "hoverOnVideoPage": {
+        "message": "Hiirekursori kohal videolehel"
+    },
+    "howLongAgoTheVideoWasUploaded": {
+        "message": "Näita video vanust (kui kaua tagasi see laeti üles)"
+    },
+    "icons": {
+        "message": "Ikoonid"
+    },
+    "iconsOnly": {
+        "message": "Ainult ikoon"
+    },
+    "importSettings": {
+        "message": "Impordi seaded"
+    },
+    "ImprovedTube": {
+        "message": "ParandatudTube"
+    },
+    "improvedtubeButtons": {
+        "message": "ParandatudTube nupud"
+    },
+    "improvedtubeIconOnYoutube": {
+        "message": "ParandatudTube ikoon YouTubel"
+    },
+    "improvedtubeLanguage": {
+        "message": "ParandatudTube keel"
+    },
+    "improvedtubeVersion": {
+        "message": "ParandatudTube versioon"
+    },
+    "improveLogo": {
+        "message": "Logo: Ühivärviline!"
+    },
+    "increasePlaybackSpeed": {
+        "message": "Suurenda mängitava kiirust"
+    },
+    "increaseVolume": {
+        "message": "Suurenda helitugevust"
+    },
+    "indigo": {
+        "message": "Indigo"
+    },
+    "items": {
+        "message": "Elemendid"
+    },
+    "language": {
+        "message": "Keel"
+    },
+    "language_closed_caption": {
+        "message": "Keel Vaikimisi - Sulged tekstid"
+    },
+    "languages": {
+        "message": "Keelte"
+    },
+    "layerAnimationScale": {
+        "message": "Kihi animatsiooni skaala"
+    },
+    "layout": {
+        "message": "Paigutus"
+    },
+    "legacyYoutube": {
+        "message": "Van YouTube"
+    },
+    "library": {
+        "message": "Raamatukogu"
+    },
+    "light": {
+        "message": "Hele"
+    },
+    "lightBlue": {
+        "message": "Hele sinine"
+    },
+    "lightGreen": {
+        "message": "Hele roheline"
+    },
+    "like": {
+        "message": "Meeldib"
+    },
+    "liked": {
+        "message": "Meeldib"
+    },
+    "likes": {
+        "message": "Meeldib"
+    },
+    "lime": {
+        "message": "Limetti"
+    },
+    "limitPageWidth": {
+        "message": "Piira lehe laius"
+    },
+    "list": {
+        "message": "Loend"
+    },
+    "liveChat": {
+        "message": "Elav vestlus"
+    },
+       "liveChatType": {
+        "message": "Live chat tüüp"
+    },
+    "location": {
+        "message": "Asukoht"
+    },
+    "loop": {
+        "message": "Silmukas"
+    },
+    "loudnessNormalization": {
+        "message": "Helitugevuse normaliseerimine"
+    },
+    "low": {
+        "message": "Madal"
+    },
+    "markWatchedVideos": {
+        "message": "Märgi vaatatud videod"
+    },
+    "medium": {
+        "message": "Keskmine"
+    },
+    "mixer": {
+        "message": "Segur"
+    },
+    "more": {
+        "message": "Rohkem"
+    },
+    "mostViewedChannels": {
+        "message": "Kõige rohkem vaadatud kanalid"
+    },
+    "moveSidebarLeft": {
+        "message": "Liiguta vasakule!"
+    },
+    "moveThumbnailsRight": {
+        "message": "Pisipildid paremale!"
+    },
+    "My_specs": {
+        "message": "Minu spetsifikatsioonid"
+    },
+    "myColors": {
+        "message": "Mu värvid"
+    },
+    "name": {
+        "message": "Nimi"
+    },
+    "nativeMiniPlayer": {
+        "message": "Kohalik väike mängija"
+    },
+    "new": {
+        "message": "Uus"
+    },
+    "nextVideo": {
+        "message": "Järgmine video"
+    },
+    "night": {
+        "message": "Öö"
+    },
+    "nightMode": {
+        "message": "Öörežiim"
+    },
+    "noActiveFeatures": {
+        "message": "Pole aktiivseid funktsioone"
+    },
+    "none": {
+        "message": "Ühtegi"
+    },
+    "noOpenVideoTabs": {
+        "message": "Pole avatud videokaarte"
+    },
+    "normal": {
+        "message": "Tavaline"
+    },
+    "Not_optimal": {
+        "message": "Ei ole optimaalne"
+    },
+    "off": {
+        "message": "Väljas"
+    },
+    "ok": {
+        "message": "Ok"
+    },
+    "old": {
+        "message": "Vana"
+    },
+    "onAllVideos": {
+        "message": "Sees"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "Ainult aktiivne YouTubel"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "Pausi, kui vaatan teist videot"
+    },
+    "onSmallCreators": {
+        "message": "Väljas, välja arvatud väikesed kanalid"
+    },
+    "onSubscribedChannels": {
+        "message": "Väljas, välja arvatud minu tellitud kanalid"
+    },
+    "openNewTab": {
+        "message": "Ava uues kaardil"
+    },
+    "openPopupPlayer": {
+        "message": "Ava video/mängilist uues aknas"
+    },
+    "optimizeCodecForHardwareAcceleration": {
+        "message": "Optimeeri kodek tugevaarate kiirustamiseks"
+    },
+    "orange": {
+        "message": "Oranž"
+    },
+    "os": {
+        "message": "Operatsioonisüsteem"
+    },
+    "other": {
+        "message": "Muud"
+    },
+    "outline": {
+        "message": "Kontuur"
+    },
+    "overlay": {
+        "message": "Ülevaljend"
+    },
+    "permissions": {
+        "message": "Lubad"
+    },
+    "pictureInPicture": {
+        "message": "Pilt-pildis"
+    },
+    "pink": {
+        "message": "Roosa"
+    },
+    "plain": {
+        "message": "Lihtne"
+    },
+    "platform": {
+        "message": "Platvorm"
+    },
+    "playAllButton": {
+        "message": "\"Mängi kõik\" nupp"
+    },
+    "playbackSpeed": {
+        "message": "Esituse kiirus"
+    },
+    "player": {
+        "message": "Mängija"
+    },
+    "player_dont_speed_education": {
+        "message": "Ära kiirenda (harva) kategooriat: Haridus"
+    },
+    "player_fit_to_win_button": {
+        "message": "Sobita akna suurusele"
+    },
+    "player_cinema_mode_button": {
+        "message": "Kino režiim"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "Peida automaatselt kino režiim pausi korral"
+    },
+    "player_auto_cinema_mode": {
+        "message": "Automaatne kino režiim"
+    },
+    "player_rotate_button": {
+        "message": "Pööra video"
+    },
+    "playerColor": {
+        "message": "Edenemisribbons värv"
+    },
+    "playerSize": {
+        "message": "Mängija suurus"
+    },
+    "playlist": {
+        "message": "Mängilist"
+    },
+    "playlists": {
+        "message": "Mängilisted"
+    },
+    "playPause": {
+        "message": "Mängi / Paus"
+    },
+    "popupPlayer": {
+        "message": "Põlitav mängija"
+    },
+    "popupWindowButtons": {
+        "message": "Lisa põlitav-mängija-nupp iga pisipildi juurde"
+    },
+    "position": {
+        "message": "Asukoht"
+    },
+    "pressAnyKeyOrScroll": {
+        "message": "Vajuta suvalist klahvi või kasuta hiire rulli."
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "Vajuta suvalist klahvi või kasuta hiire rulli"
+    },
+    "previousVideo": {
+        "message": "Eelmine video"
+    },
+       "primaryColor": {
+        "message": "Peamine värv"
+    },
+    "pullSyncSettings": {
+        "message": "Vaheta"
+    },
+    "purple": {
+        "message": "Lilla"
+    },
+    "pushSyncSettings": {
+        "message": "Salvesta"
+    },
+    "quality": {
+        "message": "Kvaliteet"
+    },
+    "qualityWithoutFocus": {
+        "message": "Kvaliteet fookuse puudumisel"
+    },
+    "raised": {
+        "message": "Tõstetud"
+    },
+    "ram": {
+        "message": "RAM"
+    },
+    "rateMe": {
+        "message": "Hinda mind"
+    },
+    "rateUs": {
+        "message": "Hinda meid"
+    },
+    "red": {
+        "message": "Punane"
+    },
+    "redDislikeButton": {
+        "message": "Punane eelduse korral"
+    },
+    "relatedVideos": {
+        "message": "Seotud videod"
+    },
+    "remote": {
+        "message": "Mängi TV-s"
+    },
+    "Remove": {
+        "message": "Eemalda"
+    },
+    "removeBlackBars": {
+        "message": "Eemalda mustad ribad täisekraanil"
+    },
+    "removeIcons": {
+        "message": "Eemalda ikoonid"
+    },
+    "removeName": {
+        "message": "Eemalda nimi"
+    },
+    "removeNames": {
+        "message": "Eemalda nimed"
+    },
+    "removeRelatedSearchResults": {
+        "message": "Eemalda seotud otsingutulemused"
     },
     "removeShortsReelSearchResults": {
-        "message": "Eemaldage Shorts-rull otsingutulemustest"
+        "message": "Eemalda lühivideod otsingutulemustest"
+    },
+    "repeat": {
+        "message": "Korda"
+    },
+    "report": {
+        "message": "Raporteeri"
+    },
+    "reset": {
+        "message": "Lähtesta"
+    },
+    "resetAllSettings": {
+        "message": "Lähtesta kõik sätted"
+    },
+    "resetAllShortcuts": {
+        "message": "Lähtesta kõik kiirklahvid"
+    },
+    "reverse": {
+        "message": "Pööra vastupidi"
+    },
+    "rotate": {
+        "message": "Pööra"
+    },
+    "save": {
+        "message": "Salvesta"
+    },
+    "saveAs": {
+        "message": "Salvesta kui"
+    },
+    "schedule": {
+        "message": "Ajastus"
+    },
+    "screen": {
+        "message": "Ekraan"
+    },
+    "screenshot": {
+        "message": "Ekraanipilt"
+    },
+    "scrollBar": {
+        "message": "Kerimisrib"
+    },
+    "sd": {
+        "message": "SD"
+    },
+    "search": {
+        "message": "Otsi"
+    },
+    "searchBarOnly": {
+        "message": "Ainult otsingurib"
+    },
+    "seekBackward10Seconds": {
+        "message": "Liigu tagasi 10 sekundit"
+    },
+    "seekForward10Seconds": {
+        "message": "Liigu edasi 10 sekundit"
+    },
+    "seekNextChapter": {
+        "message": "Liigu järgmise peatükki"
+    },
+    "seekPreviousChapter": {
+        "message": "Liigu eelmise peatükki"
+    },
+    "settings": {
+        "message": "Sätted"
+    },
+    "settingsSuccessfullyImported": {
+        "message": "Sätted edukalt importeeritud"
+    },
+    "share": {
+        "message": "Jaga"
+    },
+    "shortcut_chapters": {
+        "message": "Peatükid (Külgriba) Sees/Väljas"
+    },
+    "shortcut_screenshot": {
+        "message": "Ekraanipilt"
+    },
+    "shortcut_transcript": {
+        "message": "Tekstiversioon (Külgriba) Sees/Väljas"
+    },
+    "shortcuts": {
+        "message": "Kiirklahvid"
+    },
+    "showCardsOnMouseHover": {
+        "message": "Näita kaarte hiire all"
+    },
+    "showChannelVideosCount": {
+        "message": "Näita kanali videode arvu"
+    },
+    "showLess": {
+        "message": "Näita vähem"
+    },
+    "showMore": {
+        "message": "Näita rohkem"
+    },
+    "showRemainingDuration": {
+        "message": "Näita jäänud kestust"
+    },
+    "showVersion": {
+        "message": "Näita versiooni"
+    },
+    "shuffle": {
+        "message": "Sega"
+    },
+    "sidebar": {
+        "message": "Külgriba"
+    },
+    "Sidebar_simple_alternative": {
+        "message": "Külgriba (lihtsalt alternatiiv)"
+    },
+    "softwareInformation": {
+        "message": "Tarkvara info"
+    },
+    "spacebar": {
+        "message": "Vahetükk"
+    },
+    "squaredUserImages": {
+        "message": "Ruutlikud kasutajapildid"
+    },
+    "static": {
+        "message": "Statiline"
+    },
+    "statsForNerds": {
+        "message": "Näita tehnikaandmeid"
+    },
+    "step": {
+        "message": "Samm"
+    },
+    "stop": {
+        "message": "Peata"
+    },
+    "style": {
+        "message": "Stiil"
+    },
+    "styles": {
+        "message": "Stiilid"
+    },
+    "subscribe": {
+        "message": "Telli"
+    },
+      "subscriptions": {
+        "message": "Tellimused"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "Subtiitrid (kaasa arvatud praegused sõnad)"
+    },
+    "subtitles": {
+        "message": "Subtiitrid"
+    },
+    "RemoveSubtitlesForLyrics": {
+        "message": "Eemalda subtiitrid laulude jaoks"
+    },
+    "sunset": {
+        "message": "Kehaloo"
+    },
+    "sunsetToSunrise": {
+        "message": "Kehaloo kuni päikese tõusmiseni"
+    },
+    "systemPeferenceDark": {
+        "message": "Süsteemi eelistus: tumedane"
+    },
+    "systemPeferenceLight": {
+        "message": "Süsteemi eelistus: heledane"
+    },
+    "teal": {
+        "message": "Veerisroheline"
+    },
+    "textColor": {
+        "message": "Teksti värv"
+    },
+    "thanks": {
+        "message": "Dankon"
+    },
+    "themes": {
+        "message": "Teemad"
+    },
+    "thisWillRemoveAllCookies": {
+        "message": "See eemaldab kõik küpsised."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "See eemaldab kõik vaatatud videod."
+    },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "See eemaldab kõik YouTube küpsised."
+    },
+    "thisWillResetAllSettings": {
+        "message": "See lähtestab kõik sätted."
+    },
+    "thisWillResetAllShortcuts": {
+        "message": "See lähtestab kõik kiirklahvid."
+    },
+    "thumbnails": {
+        "message": "Pisipildid"
+    },
+    "thumbnailsQuality": {
+        "message": "Pisipiltide kvaliteet"
+    },
+    "timeFrom": {
+        "message": "Aega alates"
+    },
+    "timeTo": {
+        "message": "Aega kuni"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "Külgasse! (Lehe marginaalita)"
+    },
+    "todayAt": {
+        "message": "Täna kell"
+    },
+    "toggleAutoplay": {
+        "message": "Lülita automaatne mängimine"
+    },
+    "toggleCards": {
+        "message": "Lülita kaartide näitamine"
+    },
+    "toggleControls": {
+        "message": "Lülita mängija kontrollide peitmist"
+    },
+    "topChat": {
+        "message": "Ülemine vestlus"
+    },
+    "trackWatchedVideos": {
+        "message": "Jälgi vaatatud filme"
+    },
+    "trailerAutoplay": {
+        "message": "Eelvaatluse automaatne mängimine"
+    },
+    "Transcript": {
+        "message": "Tekstiversioon"
+    },
+    "translations": {
+        "message": "Tõlkeversioonid"
+    },
+    "transparentBackground": {
+        "message": "Läbipaistev taust"
+    },
+    "transparentColor": {
+        "message": "Läbipaistev"
+    },
+    "trending": {
+        "message": "Populaarsed"
+    },
+    "tryToReloadThePage": {
+        "message": "Proovi lehte uuesti laadida"
+    },
+    "type": {
+        "message": "Tüüp"
+    },
+    "upNextAutoplay": {
+        "message": "Järgmine automaatne mängimine"
+    },
+    "use24HourFormat": {
+        "message": "Kasuta 24-tunnist vormingut"
+    },
+    "version": {
+        "message": "Versioon"
+    },
+    "video": {
+        "message": "Video"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "Video kirjeldus laiendatakse kategooria nime saamiseks"
+    },
+    "videoFormats": {
+        "message": "Video vormingud"
+    },
+    "videos": {
+        "message": "Videod"
+    },
+    "viewMode": {
+        "message": "Vaadatise režiim"
+    },
+    "volume": {
+        "message": "Helitugevus"
+    },
+    "watchedVideos": {
+        "message": "Vaatatud videod"
+    },
+    "watchLater": {
+        "message": "Vaata hiljem"
+    },
+    "watchTime": {
+        "message": "Vaatamisaeg"
+    },
+    "whenPaused": {
+        "message": "Pausi korral"
+    },
+    "whenTabIsChanged": {
+        "message": "Kaardi muutmisel"
+    },
+    "white": {
+        "message": "Valge"
+    },
+    "windowColor": {
+        "message": "Akna värv"
+    },
+    "windowOpacity": {
+        "message": "Akna läbipaistvus"
+    },
+    "with_scrollbars": {
+        "message": "kaasa arvatud kerimisribad?"
+    },
+    "yellow": {
+        "message": "Kollane"
+    },
+    "Youtube_Search": {
+        "message": "Youtube Otsing"
+    },
+    "youTubeButtons": {
+        "message": "YouTube nupud"
+    },
+    "youtubeHeaderLeft": {
+        "message": "YouTube päis (vasakul)"
+    },
+    "youtubeHeaderRight": {
+        "message": "YouTube päis (paremal)"
+    },
+    "youtubeHomePage": {
+        "message": "YouTube avaleht"
+    },
+    "youtubeLanguage": {
+        "message": "YouTube keel"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "YouTube piirab video kvaliteeti 1080p h.264 kodeki jaoks"
+    },
+    "youtubesDark": {
+        "message": "YouTube'i tumedane"
+    },
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "Pausi, kui ma YouTube-l kirjutan"
     }
 }
