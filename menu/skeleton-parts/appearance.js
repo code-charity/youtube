@@ -405,9 +405,16 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideScrollForDetails",
 				tags: "remove,hide"
-			}
+			},
+			hide_top_loading_bar: {
+				component: "switch",
+				text: "hideTopLoadingBar",
+				tags: "remove,hide"
+			},
 		}
 	}
+
+	
 };
 
 /*--------------------------------------------------------------
