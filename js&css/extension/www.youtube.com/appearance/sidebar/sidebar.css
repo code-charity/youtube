@@ -18,13 +18,17 @@ ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
 	min-width: unset !important;
 }
 
+ytd-watch-flexy[flexy] #primary.ytd-watch-flexy {
+	max-width: calc(100vw - var(--ytd-margin-6x)) !important;
+}
+
 ytd-live-chat-frame,
 div#secondary div#related,
 div#secondary div#panels,
 div#secondary div#donation-shelf,
 div#secondary #playlist {
-	width: var(--ytd-watch-flexy-sidebar-width);
-	min-width: var(--ytd-watch-flexy-sidebar-min-width);
+	max-width: var(--ytd-watch-flexy-sidebar-width);
+	min-width: unset !important;
 }
 /*--------------------------------------------------------------
 # TRANSCRIPT
