@@ -143,11 +143,13 @@ html[it-hide-playlist='true'] ytd-playlist-panel-renderer#playlist,
 /*--------------------------------------------------------------
 # HIDE RELATED VIDEOS
 --------------------------------------------------------------*/
+html[it-related-videos='hidden'] #related,
 html[it-related-videos='hidden'] #related #contents,
 html[it-related-videos='hidden'] #related #dismissible,
 html[it-related-videos='hidden'] #related > ytd-watch-next-secondary-results-renderer > #items,
 html[data-page-type=video][it-related-videos='hidden'] ytd-compact-video-renderer,
 html[data-page-type=video][it-related-videos='hidetabs'] #related #chips, 
+html[it-hide-sidebar='true'] #related,
 html[it-hide-sidebar='true'] #related > ytd-watch-next-secondary-results-renderer > #items,
 html[it-hide-sidebar='true'] div#secondary div#panels,
 html[it-hide-sidebar='true'] div#secondary div#donation-shelf {
