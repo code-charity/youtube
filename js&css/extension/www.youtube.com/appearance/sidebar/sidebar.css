@@ -13,16 +13,23 @@
 /*--------------------------------------------------------------
 # SIDEBAR AUTO SIZING
 --------------------------------------------------------------*/
-ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
+html[it-hide-sidebar='true'] ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
 	width: auto !important;
 	min-width: unset !important;
 }
 
-ytd-watch-flexy[flexy] #primary.ytd-watch-flexy {
-	max-width: calc(100vw - var(--ytd-margin-6x)) !important;
+html[it-hide-sidebar='true'] ytd-watch-flexy[flexy] #primary.ytd-watch-flexy {
+	max-width: calc(100vw - (var(--ytd-margin-6x)*2)) !important;
+	width: fit-content;
+	min-width: unset !important;
 }
 
-ytd-live-chat-frame,
+html[it-hide-sidebar='true'] ytd-watch-flexy[flexy] #secondary{
+	container-name: sidebar;
+	container-type: inline-size;
+}
+
+html[it-hide-sidebar='true'] ytd-live-chat-frame,
 div#secondary div#related,
 div#secondary div#panels,
 div#secondary div#donation-shelf,
