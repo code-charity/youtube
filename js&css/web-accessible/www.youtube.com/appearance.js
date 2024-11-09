@@ -320,6 +320,15 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 		};
 	}
 }
+/*------------------------------------------------------------------------------  
+ HIDE TOP PROGRESS BAR  
+------------------------------------------------------------------------------*/
+ImprovedTube.hideTopProgressBar = function () {
+    var progressBar = document.querySelector(".top-progress-bar"); 
+    if (progressBar) {
+        progressBar.style.display = "none";
+    }
+};
 }
 /*------------------------------------------------------------------------------
  SIDEBAR

@@ -610,3 +610,13 @@ html[data-page-type=video][it-remove-black-bars=true] ytd-watch-flexy[fullscreen
 	left: 0px!important;
 	object-fit: cover;
 }
+
+/*--------------------------------------------------------------
+# HIDE TOP Progress BAR
+--------------------------------------------------------------*/
+
+html[data-page-type=video][it-hide-top-loading-bar=true] #progress.style-scope.yt-page-navigation-progress,
+html[data-page-type=video][it-hide-top-loading-bar=true] .ytp-load-progress,
+html[data-page-type=video][it-hide-top-loading-bar=true] .ytp-loading-bar {
+    display: none !important;
+}
