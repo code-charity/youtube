@@ -328,6 +328,16 @@ ImprovedTube.commentsSidebar = function () {
 		};
 	}
 }
+/*------------------------------------------------------------------------------  
+ HIDE TOP PROGRESS BAR  
+------------------------------------------------------------------------------*/
+ImprovedTube.hideTopProgressBar = function () {
+    var progressBar = document.querySelector(".top-progress-bar"); 
+    if (progressBar) {
+        progressBar.style.display = "none";
+    }
+};
+}
 /*------------------------------------------------------------------------------
  SIDEBAR
 ------------------------------------------------------------------------------*/

@@ -13,18 +13,29 @@
 /*--------------------------------------------------------------
 # SIDEBAR AUTO SIZING
 --------------------------------------------------------------*/
-ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
+html[it-hide-sidebar='true'] ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
 	width: auto !important;
 	min-width: unset !important;
 }
 
-ytd-live-chat-frame,
+html[it-hide-sidebar='true'] ytd-watch-flexy[flexy] #primary.ytd-watch-flexy {
+	max-width: calc(100vw - (var(--ytd-margin-6x)*2)) !important;
+	width: fit-content;
+	min-width: unset !important;
+}
+
+html[it-hide-sidebar='true'] ytd-watch-flexy[flexy] #secondary{
+	container-name: sidebar;
+	container-type: inline-size;
+}
+
+html[it-hide-sidebar='true'] ytd-live-chat-frame,
 div#secondary div#related,
 div#secondary div#panels,
 div#secondary div#donation-shelf,
 div#secondary #playlist {
-	width: var(--ytd-watch-flexy-sidebar-width);
-	min-width: var(--ytd-watch-flexy-sidebar-min-width);
+	max-width: var(--ytd-watch-flexy-sidebar-width);
+	min-width: unset !important;
 }
 /*--------------------------------------------------------------
 # TRANSCRIPT
@@ -143,11 +154,13 @@ html[it-hide-playlist='true'] ytd-playlist-panel-renderer#playlist,
 /*--------------------------------------------------------------
 # HIDE RELATED VIDEOS
 --------------------------------------------------------------*/
+html[it-related-videos='hidden'] #related,
 html[it-related-videos='hidden'] #related #contents,
 html[it-related-videos='hidden'] #related #dismissible,
 html[it-related-videos='hidden'] #related > ytd-watch-next-secondary-results-renderer > #items,
 html[data-page-type=video][it-related-videos='hidden'] ytd-compact-video-renderer,
 html[data-page-type=video][it-related-videos='hidetabs'] #related #chips, 
+html[it-hide-sidebar='true'] #related,
 html[it-hide-sidebar='true'] #related > ytd-watch-next-secondary-results-renderer > #items,
 html[it-hide-sidebar='true'] div#secondary div#panels,
 html[it-hide-sidebar='true'] div#secondary div#donation-shelf {
