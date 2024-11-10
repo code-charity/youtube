@@ -40,7 +40,7 @@ ImprovedTube.YouTubeExperiments = function () {
 		yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid = true;
 		yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments = true;
 		yt.config_.EXPERIMENT_FLAGS.small_avatars_for_comments_ep = true;
-	} catch (error) { console.error("tried to move description to the sidebar", error); }   
+	} catch (error) { console.error("tried to move description to the sidebar", error); }
 */
 /*------------------------------------------------------------------------------
   PLAYER
@@ -50,7 +50,7 @@ ImprovedTube.YouTubeExperiments = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerSize = function () {
 	if (this.storage.player_size === "custom") {
-		var width = Number(this.storage.custom_player_size_width) || 1280,
+		let width = Number(this.storage.custom_player_size_width) || 1280,
 			height = Number(this.storage.custom_player_size_height) || 720,
 			style = this.elements.player_size_style || document.createElement("style");
 
@@ -68,7 +68,7 @@ ImprovedTube.playerSize = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.forcedTheaterMode = function () {
 	if (ImprovedTube.storage.forced_theater_mode && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
-		var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
+		let button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
 		if (button && ImprovedTube.elements.ytd_watch.theater === false) {
 			document.cookie = "wide=1;domain=.youtube.com";
 			//     ImprovedTube.elements.ytd_watch.theater = true;
@@ -83,7 +83,7 @@ ImprovedTube.forcedTheaterMode = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerHdThumbnail = function () {
 	if (this.storage.player_hd_thumbnail) {
-		var thumbnail = ImprovedTube.elements.player_thumbnail;
+		let thumbnail = ImprovedTube.elements.player_thumbnail;
 
 		if (thumbnail.style.backgroundImage.indexOf("/hqdefault.jpg") !== -1) {
 			thumbnail.style.backgroundImage = thumbnail.style.backgroundImage.replace("/hqdefault.jpg", "/maxresdefault.jpg");
@@ -141,9 +141,9 @@ ImprovedTube.showProgressBar = function () {
  VIDEO REMAINING DURATION
 ------------------------------------------------------------------------------*/
 ImprovedTube.formatSecond = function (rTime) {
-	var time = new Date(null);
+	let time = new Date(null);
 	if (this.storage.duration_with_speed) {
-		var playbackRate = this.elements.video.playbackRate;
+		let playbackRate = this.elements.video.playbackRate;
 		time.setSeconds(rTime / playbackRate);
 	} else {
 		time.setSeconds(rTime);
@@ -157,11 +157,11 @@ ImprovedTube.formatSecond = function (rTime) {
 };
 
 ImprovedTube.playerRemainingDuration = function () {
-	var player = ImprovedTube.elements.player;
-	var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));
-	var element = document.querySelector(".ytp-time-remaining-duration");
+	let player = ImprovedTube.elements.player;
+	let rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));
+	let element = document.querySelector(".ytp-time-remaining-duration");
 	if (!element) {
-		var label = document.createElement("span");
+		let label = document.createElement("span");
 		label.textContent = " (-" + rTime + ")";
 		label.className = "ytp-time-remaining-duration";
 		document.querySelector(".ytp-time-display").appendChild(label);
@@ -279,20 +279,20 @@ ImprovedTube.commentsSidebar = function () {
             #primary, #secondary {
                 overflow: overlay !important;
             }
-            
+
             ::-webkit-scrollbar
             {
                 width: 16px;
                 height: 7px;
             }
-            
+
             ::-webkit-scrollbar-thumb{
                 background-color: ${color};
                 border-radius: 10px;
                 border: 4px solid transparent;
                 background-clip: padding-box;
             }
-            
+
             ::-webkit-scrollbar-thumb:hover{
                 background-color: ${colorHover};
             }`;
@@ -302,7 +302,7 @@ ImprovedTube.commentsSidebar = function () {
 				const cssRule = `
             #primary, #secondary {
                 overflow: overlay !important;
-            }            
+            }
             ::-webkit-scrollbar
             {
                 width: 0px;
@@ -328,16 +328,15 @@ ImprovedTube.commentsSidebar = function () {
 		};
 	}
 }
-/*------------------------------------------------------------------------------  
- HIDE TOP PROGRESS BAR  
+/*------------------------------------------------------------------------------
+ HIDE TOP PROGRESS BAR
 ------------------------------------------------------------------------------*/
 ImprovedTube.hideTopProgressBar = function () {
-    var progressBar = document.querySelector(".top-progress-bar"); 
+    let progressBar = document.querySelector(".top-progress-bar");
     if (progressBar) {
         progressBar.style.display = "none";
     }
 };
-}
 /*------------------------------------------------------------------------------
  SIDEBAR
 ------------------------------------------------------------------------------*/
@@ -376,7 +375,7 @@ ImprovedTube.chapters = function (el) {
 ------------------------------------------------------------------------------*/
 ImprovedTube.livechat = function () {
 	if (this.storage.livechat === "collapsed") {
-		if (typeof isCollapsed === 'undefined') { var isCollapsed = false; }
+		if (typeof isCollapsed === 'undefined') { let isCollapsed = false; }
 		if (ImprovedTube.elements.livechat && !isCollapsed) {
 			ImprovedTube.elements.livechat.button.click();
 			isCollapsed = true
@@ -398,17 +397,17 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 	if (window.self !== window.top) { return false; }
 	if (document.documentElement.dataset.pageType === 'video') {
 
-		var section = document.querySelector('#subscribe-button');
+		let section = document.querySelector('#subscribe-button');
 		/*  if (this.storage.description == "classic"
 		   ||  this.storage.description == "classic_expanded" || this.storage.description == "classic_hidden"  )
-		  {var section = document.querySelector('#flex.ytd-video-primary-info-renderer');}
+		  {let section = document.querySelector('#flex.ytd-video-primary-info-renderer');}
 	  */
 		if (section && !section.querySelector('.improvedtube-player-button')) {
 			if (this.storage.below_player_loop) {
-				var button = document.createElement('button'),
+				let button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-				var transparentOrOn = .5; if (this.storage.player_always_repeat) { transparentOrOn = 1; }
+				let transparentOrOn = .5; if (this.storage.player_always_repeat) { transparentOrOn = 1; }
 				button.className = 'improvedtube-player-button';
 				button.id = 'it-below-player-loop';
 				button.dataset.tooltip = 'Loop';
@@ -417,13 +416,13 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
 
 				button.onclick = function () {
-					var video = ImprovedTube.elements.video,
+					let video = ImprovedTube.elements.video,
 						svg = this.children[0];
 
 					function matchLoopState(opacity) {
 						svg.style.opacity = opacity;
 						if (ImprovedTube.storage.player_repeat_button) {
-							var otherButton = document.querySelector('#it-repeat-button');
+							let otherButton = document.querySelector('#it-repeat-button');
 							otherButton.style.opacity = opacity;
 						}
 					}
@@ -440,7 +439,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				section.insertAdjacentElement('afterend', button)
 			}
 			if (this.storage.below_player_pip) {
-				var button = document.createElement('button'),
+				let button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -459,7 +458,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 			}
 
 			if (this.storage.below_player_screenshot) {
-				var button = document.createElement('button'),
+				let button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -483,15 +482,19 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 ImprovedTube.expandDescription = function (el) {
 	if (this.storage.description === "expanded") {
 		if (el) {
-			ImprovedTube.forbidFocus(2100); // setTimeout(function () {ImprovedTube.elements.player.focus();}, 2500);  
+			ImprovedTube.forbidFocus(2100); // setTimeout(function () {ImprovedTube.elements.player.focus();}, 2500);
 			el.click();
 		}
-		else { // wait for the description 
-			var tries = 0; var intervalMs = 210; if (location.href.indexOf('/watch?') !== -1) { var maxTries = 10; } else { var maxTries = 0; } // ...except when it is an embedded player?
-			var waitForDescription = setInterval(() => {
+		else { // wait for the description
+			let tries = 0, intervalMs = 210, maxTries = 0;
+            if (location.href.indexOf('/watch?') !== -1) {
+                let maxTries = 10;
+            } // ...except when it is an embedded player?
+			let waitForDescription = setInterval(() => {
 				if (++tries >= maxTries) {
 					if (el) {
-						ImprovedTube.forbidFocus(2600);  // setTimeout(function () {ImprovedTube.elements.player.focus();}, 1000); 
+						ImprovedTube.forbidFocus(2600);
+                        // setTimeout(function () {ImprovedTube.elements.player.focus();}, 1000);
 						el.click();
 						clearInterval(waitForDescription);
 					}
@@ -521,16 +524,16 @@ ImprovedTube.expandDescription = function (el) {
 --------------------------------------------------------------*/
 ImprovedTube.dayOfWeek = function () {
 	if (this.storage.day_of_week) {
-		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		setTimeout(function () { //YouTube related video or internal link?:
-			var videoDate; try {
+			let videoDate; try {
 				videoDate = JSON.parse(document.querySelector('#microformat script')?.textContent)?.uploadDate
 			} catch { try { videoDate = document.querySelector("[itemprop=datePublished]").content; } catch { } }
 			//..no? must be new session?
-			var tempDate = new Date(videoDate);
-			var element = document.querySelector(".ytd-day-of-week");
+			let tempDate = new Date(videoDate);
+			let element = document.querySelector(".ytd-day-of-week");
 			if (!element) {
-				var label = document.createElement("span");
+				let label = document.createElement("span");
 				label.textContent = days[tempDate.getDay() + 1] + '  ';
 				label.className = "ytd-day-of-week";
 				//update please:
@@ -549,12 +552,12 @@ ImprovedTube.dayOfWeek = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 	if (this.storage.how_long_ago_the_video_was_uploaded && this.elements.yt_channel_name) {
-		var xhr = new XMLHttpRequest(),
+		let xhr = new XMLHttpRequest(),
 			key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey,
 			id = this.getParam(location.href.slice(location.href.indexOf("?") + 1), "v");
 
 		function timeSince(date) {
-			var seconds = Math.floor((new Date() - new Date(date)) / 1000),
+			let seconds = Math.floor((new Date() - new Date(date)) / 1000),
 				interval = Math.floor(seconds / 31536000);
 
 			if (interval > 1) {
@@ -581,7 +584,7 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 		}
 
 		xhr.addEventListener("load", function () {
-			var response = JSON.parse(this.responseText),
+			let response = JSON.parse(this.responseText),
 				element = ImprovedTube.elements.how_long_ago_the_video_was_uploaded || document.createElement("div");
 
 			ImprovedTube.empty(element);
@@ -608,14 +611,14 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.channelVideosCount = function () {
 	if (this.storage.channel_videos_count && this.elements.yt_channel_link) {
-		var key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey;
+		let key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey;
 		if (this.elements.yt_channel_link.href.indexOf("/channel/") == -1) {
-			var xhr = new XMLHttpRequest(),
+			let xhr = new XMLHttpRequest(),
 				id = this.getParam(location.href.slice(location.href.indexOf("?") + 1), "v");
 			xhr.open("GET", "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + key, false);
 			xhr.send();
 			if (xhr.readyState === xhr.DONE && xhr.status === 200) {
-				var response = JSON.parse(xhr.responseText);
+				let response = JSON.parse(xhr.responseText);
 				id = response.items[0].snippet.channelId;
 			}
 		} else {
@@ -628,7 +631,7 @@ ImprovedTube.channelVideosCount = function () {
 		xhr = new XMLHttpRequest();
 
 		xhr.addEventListener("load", function () {
-			var response = JSON.parse(this.responseText),
+			let response = JSON.parse(this.responseText),
 				parent = document.querySelector("#meta ytd-channel-name + yt-formatted-string"),
 				element = ImprovedTube.elements.channel_videos_count || document.createElement("div");
 
@@ -658,8 +661,8 @@ if (ImprovedTube.storage.header_transparent2) {
 	TURN TOP BAR TRANSPARENT WHEN SCROLLING
 	------------------------------------------------------------------------------*/
 	window.addEventListener('scroll', function () {
-		var masthead = document.querySelector('html[it-header-transparent=true] ytd-masthead');
-		var endButtons = masthead.querySelector('#end');
+		let masthead = document.querySelector('html[it-header-transparent=true] ytd-masthead');
+		let endButtons = masthead.querySelector('#end');
 
 		if (window.scrollY === 0) {
 			endButtons.style.visibility = 'visible';
@@ -669,8 +672,8 @@ if (ImprovedTube.storage.header_transparent2) {
 	});
 
 	function handleScroll() {
-		var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-		var buttonsContainer = document.getElementById('buttons');
+		let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+		let buttonsContainer = document.getElementById('buttons');
 
 		if (scrollTop > 100) {
 			buttonsContainer.classList.add('hidden');
@@ -685,19 +688,19 @@ if (ImprovedTube.storage.header_transparent2) {
 	window.addEventListener("scroll", handleScroll);
 
 	function getScrollDirection() {
-		var lastScrollTop = 0;
+		let lastScrollTop = 0;
 		return function () {
-			var st = window.pageYOffset || document.documentElement.scrollTop;
-			var scrollDirection = st > lastScrollTop ? 'down' : 'up';
+			let st = window.pageYOffset || document.documentElement.scrollTop;
+			let scrollDirection = st > lastScrollTop ? 'down' : 'up';
 			lastScrollTop = st <= 0 ? 0 : st;
 			return scrollDirection;
 		};
 	}
 
-	var scrollDirection = getScrollDirection();
+	let scrollDirection = getScrollDirection();
 
 	window.addEventListener('scroll', function () {
-		var direction = scrollDirection();
+		let direction = scrollDirection();
 		if (direction === 'down') {
 			document.documentElement.setAttribute('data-scroll-direction', 'down');
 		} else {

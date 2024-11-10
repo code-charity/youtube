@@ -12,7 +12,7 @@ ImprovedTube.shortcutsInit = function () {
 		listeners = ImprovedTube.input.listeners;
 
 	// reset 'listening' shortcuts
-	for (var key in listening) delete listening[key];
+	for (let key in listening) delete listening[key];
 	// extract shortcuts from User Settings and initialize 'listening'
 	for (const [name, keys] of Object.entries(this.storage).filter(v => v[0].startsWith('shortcut_'))) {
 		if (!keys) continue;
@@ -27,11 +27,9 @@ ImprovedTube.shortcutsInit = function () {
 				case 'toggle':
 					potentialShortcut[button] = keys[button] || false;
 					break
-
 				case 'wheel':
 					potentialShortcut[button] = keys[button] || 0;
 					break
-
 				case 'keys':
 					// set of unique scancodes
 					potentialShortcut[button] = keys[button] ? new Set(Object.keys(keys[button]).map(s => Number(s))) : new Set();
@@ -235,17 +233,17 @@ ImprovedTube.shortcutSeekForward = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutSeekNextChapter = function () {
 	if (this.elements.player) {
-		var player = this.elements.player,
+		let player = this.elements.player,
 			chapters_container = player.querySelector('.ytp-chapters-container'),
 			progress_bar = player.querySelector('.ytp-progress-bar');
 
 		if (chapters_container && chapters_container.children && progress_bar) {
-			var chapters = chapters_container.children,
+			let chapters = chapters_container.children,
 				duration = player.getDuration(),
 				current_width = player.getCurrentTime() / (duration / 100) * (progress_bar.offsetWidth / 100);
 
-			for (var i = 0, l = chapters.length; i < l; i++) {
-				var left = chapters[i].offsetLeft;
+			for (let i = 0, l = chapters.length; i < l; i++) {
+				let left = chapters[i].offsetLeft;
 
 				if (current_width < left) {
 					player.seekTo(left / (progress_bar.offsetWidth / 100) * (duration / 100));
@@ -261,18 +259,18 @@ ImprovedTube.shortcutSeekNextChapter = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutSeekPreviousChapter = function () {
 	if (this.elements.player) {
-		var player = this.elements.player,
+		let player = this.elements.player,
 			chapters_container = player.querySelector('.ytp-chapters-container'),
 			progress_bar = player.querySelector('.ytp-progress-bar');
 
 		if (chapters_container && chapters_container.children && progress_bar) {
-			var chapters = chapters_container.children,
+			let chapters = chapters_container.children,
 				duration = player.getDuration(),
 				current_width = player.getCurrentTime() / (duration / 100) * (progress_bar.offsetWidth / 100);
 
-			for (var i = chapters.length - 1; i > 0; i--) {
+			for (let i = chapters.length - 1; i > 0; i--) {
 				if (current_width > chapters[i].offsetLeft) {
-					var left = 0;
+					let left = 0;
 
 					if (i > 0) {
 						left = chapters[i - 1].offsetLeft;
@@ -346,7 +344,7 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function (decrease) {
 		// Slow down near 0   // Chrome's minimum is 0.0625. Otherwise this could seamlessly turn into single frame steps.
 		newSpeed = (speed - value < 0.1) ? Math.max(Number(speed * 0.7).toFixed(2), 0.0625) : (speed - value);
 	} else {
-		// Aligning at 1.0 instead of passing by 1:		
+		// Aligning at 1.0 instead of passing by 1:
 		if (speed < 1 && speed > 1 - ImprovedTube.storage.shortcuts_playback_speed_step) {
 			newSpeed = 1;
 			// Firefox doesnt limit speed to 16x, we can allow more in Firefox.
@@ -598,7 +596,7 @@ ImprovedTube.shortcutRotateVideo = function () {
 	transform += 'rotate(' + rotate + 'deg)';
 
 	if (rotate == 90 || rotate == 270) {
-		var is_vertical_video = video.videoHeight > video.videoWidth;
+		let is_vertical_video = video.videoHeight > video.videoWidth;
 
 		transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
 	}

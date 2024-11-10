@@ -7,7 +7,7 @@
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.channelDefaultTab = function (a) {
-	var option = this.storage.channel_default_tab;
+	let option = this.storage.channel_default_tab;
 
 	if (option && option !== '/' && a && a.parentNode && a.parentNode.id !== 'contenteditable-root') {
 		if (this.regex.channel_home_page.test(a.href) && !a.href.endsWith(option)) {
@@ -53,7 +53,7 @@ ImprovedTube.channelPlayAllButton = function () {
 4.6.3 COMPACT THEME
 ------------------------------------------------------------------------------*/
 
-var compact = compact || {}
+var compact = compact || {};
 ImprovedTube.channelCompactTheme = function () {
 	compact.eventHandlerFns = compact.eventHandlerFns || []
 	compact.styles = compact.styles || []

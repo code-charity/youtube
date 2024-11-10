@@ -7,7 +7,7 @@
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.improvedtubeYoutubeIcon = function () {
-	var data = localStorage.getItem('improvedtube-button-position'),
+	let data = localStorage.getItem('improvedtube-button-position'),
 		x = 0,
 		y = 0,
 		option = this.storage.improvedtube_youtube_icon,
@@ -21,14 +21,14 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 	}
 
 	if (!button) {
-		var label = document.createElement('span');
+		let label = document.createElement('span');
 
 		button = document.createElement('button');
 		button.className = 'it-button';
 
 		button.addEventListener('mousedown', function (event) {
 			if (ImprovedTube.storage.improvedtube_youtube_icon === 'draggable') {
-				var x2 = event.layerX,
+				let x2 = event.layerX,
 					y2 = event.layerY;
 
 				function mousemove(event) {
@@ -63,7 +63,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 
 		button.addEventListener('click', function () {
 			if (this.classList.contains('it-button--dragging') === false) {
-				var rect = this.getBoundingClientRect(),
+				let rect = this.getBoundingClientRect(),
 					left = rect.x,
 					top = rect.y,
 					scrim = document.createElement('div'),
@@ -145,10 +145,10 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.deleteYoutubeCookies = function () {
-	var cookies = document.cookie.split(';');
+	let cookies = document.cookie.split(';');
 
-	for (var i = 0, l = cookies.length; i < l; i++) {
-		var cookie = cookies[i],
+	for (let i = 0, l = cookies.length; i < l; i++) {
+		let cookie = cookies[i],
 			eqPos = cookie.indexOf('='),
 			name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
 

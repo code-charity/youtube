@@ -21,7 +21,7 @@ ImprovedTube.playlistUpNextAutoplay = function () {
 ImprovedTube.playlistReverse = function () {
 	if (this.storage.playlist_reverse) {
 		function update() {
-			var results = ImprovedTube.elements.ytd_watch.data.contents.twoColumnWatchNextResults,
+			let results = ImprovedTube.elements.ytd_watch.data.contents.twoColumnWatchNextResults,
 				playlist = results.playlist.playlist,
 				autoplay = results.autoplay.autoplay;
 
@@ -30,8 +30,8 @@ ImprovedTube.playlistReverse = function () {
 			playlist.currentIndex = playlist.totalVideos - playlist.currentIndex - 1;
 			playlist.localCurrentIndex = playlist.contents.length - playlist.localCurrentIndex - 1;
 
-			for (var i = 0, l = autoplay.sets.length; i < l; i++) {
-				var item = autoplay.sets[i];
+			for (let i = 0, l = autoplay.sets.length; i < l; i++) {
+				let item = autoplay.sets[i];
 
 				item.autoplayVideo = item.previousButtonVideo;
 				item.previousButtonVideo = item.nextButtonVideo;
@@ -41,7 +41,7 @@ ImprovedTube.playlistReverse = function () {
 			ImprovedTube.elements.ytd_watch.updatePageData_(JSON.parse(JSON.stringify(ImprovedTube.elements.ytd_watch.data)));
 
 			setTimeout(function () {
-				var playlist_manager = document.querySelector('yt-playlist-manager');
+				const playlist_manager = document.querySelector('yt-playlist-manager');
 
 				ImprovedTube.elements.ytd_player.updatePlayerComponents(null, autoplay, null, playlist);
 				playlist_manager.autoplayData = autoplay;
@@ -51,7 +51,7 @@ ImprovedTube.playlistReverse = function () {
 		}
 
 		if (!document.querySelector('#it-reverse-playlist') && ImprovedTube.elements.playlist.actions) {
-			var button = document.createElement('button'),
+			let button = document.createElement('button'),
 				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -94,7 +94,7 @@ ImprovedTube.playlistReverse = function () {
 ImprovedTube.playlistRepeat = function () {
 	if (ImprovedTube.storage.playlist_repeat) {
 		setTimeout(function () {
-			var option = ImprovedTube.storage.playlist_repeat,
+			let option = ImprovedTube.storage.playlist_repeat,
 				button = document.querySelector("#button.ytd-playlist-loop-button-renderer") || document.querySelector("ytd-playlist-loop-button-renderer button") || document.querySelector("ytd-playlist-loop-button-renderer");
 			if (button && (option && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M21')
 			) && button.querySelector("#tooltip")?.textContent !== 'Loop video'
@@ -114,7 +114,7 @@ ImprovedTube.playlistRepeat = function () {
 ImprovedTube.playlistShuffle = function () {
 	if (ImprovedTube.storage.playlist_shuffle) {
 		setTimeout(function () {
-			var button = ImprovedTube.elements.playlist.shuffle_button,
+			let button = ImprovedTube.elements.playlist.shuffle_button,
 				option = ImprovedTube.storage.playlist_shuffle;
 			button = document.querySelector('#playlist-actions #playlist-action-menu ytd-toggle-button-renderer');
 			if (button && (option && button.querySelector("path").attributes.d.textContent.split(" ")[0].startsWith('M18.1')
@@ -223,27 +223,35 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 ImprovedTube.playlistPopup = function () {
 	"use strict";
 	if (this.storage.playlist_popup) {
-
 		const playlistID = location.search.match(this.regex.playlist_id)?.[1],
 			playlistIDMini = this.elements.player?.getPlaylistId?.();
 
 		if (!document.contains(this.elements.buttons['it-popup-playlist-button-playlist'])) {
 			const playlistShareButton = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-browse>ytd-playlist-header-renderer ytd-button-renderer.ytd-playlist-header-renderer:has(button[title])');
-			if (playlistShareButton == null) this.elements.buttons['it-popup-playlist-button-playlist'] = null;
-			else playlistShareButton.insertAdjacentElement('afterend', this.elements.buttons['it-popup-playlist-button-playlist'] = this.playlistPopupCreateButton(playlistID));
-		} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-playlist'].dataset.list !== playlistID) this.elements.buttons['it-popup-playlist-button-playlist'].dataset.list = playlistID;
+			if (playlistShareButton == null)
+                this.elements.buttons['it-popup-playlist-button-playlist'] = null;
+			else
+                playlistShareButton.insertAdjacentElement('afterend', this.elements.buttons['it-popup-playlist-button-playlist'] = this.playlistPopupCreateButton(playlistID));
+		} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-playlist'].dataset.list !== playlistID)
+            this.elements.buttons['it-popup-playlist-button-playlist'].dataset.list = playlistID;
 
 		if (!document.contains(this.elements.buttons['it-popup-playlist-button-mini'])) {
 			const miniItemButtons = document.body.querySelector('ytd-app>ytd-miniplayer ytd-playlist-panel-renderer div#top-level-buttons-computed');
-			if (miniItemButtons == null) this.elements.buttons['it-popup-playlist-button-mini'] = null;
-			else miniItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-mini'] = this.playlistPopupCreateButton(playlistIDMini, true, true));
+			if (miniItemButtons == null)
+                this.elements.buttons['it-popup-playlist-button-mini'] = null;
+			else
+                miniItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-mini'] = this.playlistPopupCreateButton(playlistIDMini, true, true));
 		} else if (playlistIDMini != null && this.elements.buttons['it-popup-playlist-button-mini'].dataset.list !== playlistIDMini) this.elements.buttons['it-popup-playlist-button-mini'].dataset.list = playlistIDMini;
 		try {
 			if (!document.contains(this.elements.buttons['it-popup-playlist-button-panel'])) {
 				const panelItemButtons = document.body.querySelector('ytd-app>div#content>ytd-page-manager>ytd-watch-flexy ytd-playlist-panel-renderer div#top-level-buttons-computed');
-				if (panelItemButtons == null) this.elements.buttons['it-popup-playlist-button-panel'] = null;
-				else panelItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-panel'] = this.playlistPopupCreateButton(playlistID, true, true));
+				if (panelItemButtons == null)
+                    this.elements.buttons['it-popup-playlist-button-panel'] = null;
+				else
+                    panelItemButtons.appendChild(this.elements.buttons['it-popup-playlist-button-panel'] = this.playlistPopupCreateButton(playlistID, true, true));
 			} else if (playlistID != null && this.elements.buttons['it-popup-playlist-button-panel'].dataset.list !== playlistID) this.elements.buttons['it-popup-playlist-button-panel'].dataset.list = playlistID;
-		} catch (error) { console.error("Error appending playlist button panel:", error); }
+		} catch (error) {
+            console.error("Error appending playlist button panel:", error);
+        }
 	}
 };

@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------*/
 ImprovedTube.myColors = function () {
 	if (this.storage.theme === 'custom') {
-		var style = this.elements.my_colors || document.createElement('style'),
+		let style = this.elements.my_colors || document.createElement('style'),
 			primary_color = this.storage.theme_primary_color,
 			text_color = this.storage.theme_text_color;
 

@@ -3,13 +3,13 @@ AUTOPLAY DISABLE
 ------------------------------------------------------------------------------*/
 ImprovedTube.autoplayDisable = function (videoElement) {
 	if (this.storage.player_autoplay_disable
-		|| this.storage.playlist_autoplay === false
+        || this.storage.playlist_autoplay === false
 		|| this.storage.channel_trailer_autoplay === false) {
 		const player = this.elements.player || videoElement.closest('.html5-video-player') || videoElement.closest('#movie_player'); // #movie_player: outdated since 2024?
 
 		if (this.video_url !== location.href) { this.user_interacted = false; }
 
-		//if (there is a player) and (no user clicks) and (no ads playing) 
+		//if (there is a player) and (no user clicks) and (no ads playing)
 		// and( ((auto play is off and it is not in a playlist)
 		//   	 or (playlist auto play is off and in a playlist))
 		//   	 or (we are in a channel and the channel trailer autoplay is off)  )
@@ -133,8 +133,8 @@ ImprovedTube.playerPlaybackSpeed = function () {
 	if (!this.storage.player_forced_playback_speed) {
 		return;
 	}
-	var player = this.elements.player; if (!player) return;
-	var video = this.elements.video || player.querySelector('video');
+	let player = this.elements.player; if (!player) return;
+	let video = this.elements.video || player.querySelector('video');
 	option = this.storage.player_playback_speed;
 	if (this.isset(option) === false) { option = 1; }
 	else if (option !== 1) {
@@ -153,13 +153,13 @@ ImprovedTube.playerPlaybackSpeed = function () {
 				}
 				if (DATA.keywords && !keywords) { keywords = DATA.keywords.join(', ') || ''; }
 				if (keywords === 'video, sharing, camera phone, video phone, free, upload') { keywords = ''; }
-				var musicIdentifiers = /(official|music|lyrics?)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
-				var musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
-				var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + '|' + musicIdentifiers.source, "i");
-				var musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
+				let musicIdentifiers = /(official|music|lyrics?)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
+				let musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
+				let musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + '|' + musicIdentifiers.source, "i");
+				let musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
 				if (!musicRegexMatch) {
-					var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),|\(Musical Genre\)|, jazz|, reggae/i;
-					var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + '|' + musicIdentifiers.source, "i");
+					let musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),|\(Musical Genre\)|, jazz|, reggae/i;
+					let musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + '|' + musicIdentifiers.source, "i");
 					keywordsAmount = 1 + ((keywords || '').match(/,/) || []).length;
 					if (((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08) {
 						musicRegexMatch = true
@@ -182,7 +182,7 @@ ImprovedTube.playerPlaybackSpeed = function () {
 					if (ytMusic && ytMusic > 1 && (85 <= s / ytMusic && (s / ytMusic <= 375 || ytMusic == 10))) { return 'multiple'; }
 					//does Youtube ever show more than 10 songs below the description?
 				}
-				var songDurationType = testSongDuration(DATA.lengthSeconds);
+				let songDurationType = testSongDuration(DATA.lengthSeconds);
 				console.log("genre: " + DATA.genre + "//title: " + DATA.title + "//keywords: " + keywords + "//music word match: " + musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + DATA.lengthSeconds + "//song duration type: " + songDurationType);
 				// check if the video is PROBABLY MUSIC:
 				if ((DATA.genre === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))
@@ -197,9 +197,9 @@ ImprovedTube.playerPlaybackSpeed = function () {
 				) { player.setPlaybackRate(1); video.playbackRate = 1; console.log("...,thus must be music?"); }
 				else { 	// Now this video might rarely be music
 					// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
-					var tries = 0; var intervalMs = 210; if (location.href.indexOf('/watch?') !== -1) { var maxTries = 10; } else { var maxTries = 0; }
+					let tries = 0; let intervalMs = 210; if (location.href.indexOf('/watch?') !== -1) { let maxTries = 10; } else { let maxTries = 0; }
 					// ...except when it is an embedded player?
-					var waitForDescription = setInterval(() => {
+					let waitForDescription = setInterval(() => {
 						if (++tries >= maxTries) {
 							subtitle = document.querySelector('#title + #subtitle:last-of-type')
 							if (subtitle && 1 <= Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0])	// indicates buyable/registered music (amount of songs)
@@ -441,10 +441,10 @@ ImprovedTube.subtitlesDisableLyrics = function () {
 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
 ImprovedTube.upNextAutoplay = function () {
-	var option = this.storage.up_next_autoplay;
+	let option = this.storage.up_next_autoplay;
 
 	if (this.isset(option)) {
-		var toggle = document.querySelector('.ytp-autonav-toggle-button');
+		let toggle = document.querySelector('.ytp-autonav-toggle-button');
 
 		if (toggle) {
 			if (option !== (toggle.getAttribute('aria-checked') === 'true')) {
@@ -597,7 +597,7 @@ FORCED VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVolume = function () {
 	if (this.storage.player_forced_volume) {
-		var volume = this.storage.player_volume;
+		let volume = this.storage.player_volume;
 
 		if (!this.isset(volume)) {
 			volume = 100;
@@ -632,14 +632,14 @@ LOUDNESS NORMALIZATION
 ------------------------------------------------------------------------------*/
 ImprovedTube.onvolumechange = function () {
 	if (document.querySelector('.ytp-volume-panel') && ImprovedTube.storage.player_loudness_normalization === false) {
-		var volume = Number(document.querySelector('.ytp-volume-panel').getAttribute('aria-valuenow'));
+		let volume = Number(document.querySelector('.ytp-volume-panel').getAttribute('aria-valuenow'));
 
 		this.volume = volume / 100;
 	}
 };
 
 ImprovedTube.playerLoudnessNormalization = function () {
-	var video = this.elements.video;
+	let video = this.elements.video;
 
 	if (video) {
 		video.removeEventListener('volumechange', this.onvolumechange);
@@ -648,7 +648,7 @@ ImprovedTube.playerLoudnessNormalization = function () {
 
 	if (this.storage.player_loudness_normalization === false) {
 		try {
-			var local_storage = localStorage['yt-player-volume'];
+			let local_storage = localStorage['yt-player-volume'];
 
 			if (this.isset(Number(this.storage.player_volume)) && this.storage.player_forced_volume) {
 				return;
@@ -710,20 +710,20 @@ ImprovedTube.screenshot = function () {
 ImprovedTube.renderSubtitle = function (ctx, captionElements) {
 	if (ctx && captionElements) {
 		captionElements.forEach(function (captionElement, index) {
-			var captionText = captionElement.textContent.trim();
-			var captionStyles = window.getComputedStyle(captionElement);
+			let captionText = captionElement.textContent.trim();
+			let captionStyles = window.getComputedStyle(captionElement);
 
 			ctx.fillStyle = captionStyles.color;
 			ctx.font = captionStyles.font;
 			ctx.textAlign = 'center';
 			ctx.textBaseline = 'bottom';
-			var txtWidth = ctx.measureText(captionText).width;
-			var txtHeight = parseFloat(captionStyles.fontSize);
+			let txtWidth = ctx.measureText(captionText).width;
+			let txtHeight = parseFloat(captionStyles.fontSize);
 
-			var xOfset = (ctx.canvas.width - txtWidth) / 2;
+			let xOfset = (ctx.canvas.width - txtWidth) / 2;
 
-			var padding = 5; // Adjust the padding as needed
-			var yofset = ctx.canvas.height - (captionElements.length - index) * (txtHeight + 2 * padding);
+			let padding = 5; // Adjust the padding as needed
+			let yofset = ctx.canvas.height - (captionElements.length - index) * (txtHeight + 2 * padding);
 
 			ctx.fillStyle = captionStyles.backgroundColor;
 			ctx.fillRect(xOfset - padding, yofset - txtHeight - padding, txtWidth + 2 * padding, txtHeight + 2 * padding);
@@ -735,7 +735,7 @@ ImprovedTube.renderSubtitle = function (ctx, captionElements) {
 
 ImprovedTube.playerScreenshotButton = function () {
 	if (this.storage.player_screenshot_button) {
-		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
@@ -768,23 +768,23 @@ REPEAT BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerRepeatButton = function () {
 	if (this.storage.player_repeat_button) {
-		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
 		path.setAttributeNS(null, 'd', 'M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4zm-4-2V9h-1l-2 1v1h1.5v4H13z');
 		svg.appendChild(path);
-		var transparentOrOn = 0.5; if (this.storage.player_always_repeat) { transparentOrOn = 1; }
+		let transparentOrOn = 0.5; if (this.storage.player_always_repeat) { transparentOrOn = 1; }
 		this.createPlayerButton({
 			id: 'it-repeat-button',
 			child: svg,
 			opacity: transparentOrOn,
 			onclick: function () {
-				var video = ImprovedTube.elements.video;
+				let video = ImprovedTube.elements.video;
 				function matchLoopState(opacity) {
-					var thisButton = document.querySelector('#it-repeat-button');
+					let thisButton = document.querySelector('#it-repeat-button');
 					thisButton.style.opacity = opacity;
 					if (ImprovedTube.storage.below_player_loop) {
-						var otherButton = document.querySelector('#it-below-player-loop');
+						let otherButton = document.querySelector('#it-below-player-loop');
 						otherButton.children[0].style.opacity = opacity;
 					}
 				}
@@ -805,7 +805,7 @@ ROTATE
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerRotateButton = function () {
 	if (this.storage.player_rotate_button) {
-		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
@@ -818,7 +818,7 @@ ImprovedTube.playerRotateButton = function () {
 			child: svg,
 			opacity: 0.85,
 			onclick: function () {
-				var player = ImprovedTube.elements.player,
+				let player = ImprovedTube.elements.player,
 					video = ImprovedTube.elements.video,
 					rotate = Number(document.body.dataset.itRotate) || 0,
 					transform = '';
@@ -834,13 +834,13 @@ ImprovedTube.playerRotateButton = function () {
 				transform += 'rotate(' + rotate + 'deg)';
 
 				if (rotate == 90 || rotate == 270) {
-					var is_vertical_video = video.videoHeight > video.videoWidth;
+					let is_vertical_video = video.videoHeight > video.videoWidth;
 
 					transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
 				}
 
 				if (!ImprovedTube.elements.buttons['it-rotate-styles']) {
-					var style = document.createElement('style');
+					let style = document.createElement('style');
 
 					ImprovedTube.elements.buttons['it-rotate-styles'] = style;
 
@@ -903,17 +903,17 @@ ImprovedTube.playerFitToWinButton = function () {
 CINEMA MODE BUTTON
 ------------------------------------------------------------------------------*/
 
-var xpath = function (xpathToExecute) {
-	var result = [];
-	var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-	for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
+let xpath = function (xpathToExecute) {
+	let result = [];
+	let nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+	for (let i = 0; i < nodesSnapshot.snapshotLength; i++) {
 		result.push(nodesSnapshot.snapshotItem(i));
 	}
 	return result;
 }
 
 function createOverlay() {
-	var overlay = document.createElement('div');
+	let overlay = document.createElement('div');
 	overlay.id = 'overlay_cinema';
 	overlay.style.position = 'fixed';
 	overlay.style.top = '0';
@@ -928,7 +928,7 @@ function createOverlay() {
 
 ImprovedTube.playerCinemaModeButton = function () {
 	if (this.storage.player_cinema_mode_button && (/watch\?/.test(location.href))) {
-		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
@@ -943,7 +943,7 @@ ImprovedTube.playerCinemaModeButton = function () {
 			// position: "right", // using right only works when we also have fit to window button enabled for some reason
 			opacity: 0.64,
 			onclick: function () {
-				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+				let player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
 				// console.log(player)
 				if (player.style.zIndex == 10000) {
 					player.style.zIndex = 1;
@@ -954,7 +954,7 @@ ImprovedTube.playerCinemaModeButton = function () {
 					svg.parentNode.style.opacity = 1;
 				}
 
-				var overlay = document.getElementById('overlay_cinema');
+				let overlay = document.getElementById('overlay_cinema');
 				if (!overlay) {
 					createOverlay();
 				} else {
@@ -969,12 +969,12 @@ ImprovedTube.playerCinemaModeButton = function () {
 
 ImprovedTube.playerCinemaModeDisable = function () {
 	if (this.storage.player_auto_hide_cinema_mode_when_paused) {
-		var overlay = document.getElementById('overlay_cinema');
+		let overlay = document.getElementById('overlay_cinema');
 		if (overlay) {
 			overlay.style.display = 'none'
-			var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+			let player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
 			player.style.zIndex = 1;
-			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
+			let cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
 			cinemaModeButton.style.opacity = 0.64
 		}
 	}
@@ -984,7 +984,7 @@ ImprovedTube.playerCinemaModeEnable = function () {
 	if (this.storage.player_auto_cinema_mode || this.storage.player_auto_hide_cinema_mode_when_paused) {
 
 		if ((/watch\?/.test(location.href))) {
-			var overlay = document.getElementById('overlay_cinema');
+			let overlay = document.getElementById('overlay_cinema');
 
 			if (this.storage.player_auto_cinema_mode && !overlay) {
 				createOverlay();
@@ -994,10 +994,10 @@ ImprovedTube.playerCinemaModeEnable = function () {
 			// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused || this.storage.player_auto_cinema_mode  && overlay)
 			if (overlay) {
 				overlay.style.display = 'block'
-				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+				let player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
 				player.style.zIndex = 10000;
 				// console.log(player)
-				var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
+				let cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
 				cinemaModeButton.style.opacity = 1
 			}
 		}
@@ -1063,7 +1063,7 @@ POPUP PLAYER
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPopupButton = function () {
 	if (this.storage.player_popup_button && location.href.indexOf('youtube.com/embed') === -1) {
-		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
@@ -1232,10 +1232,10 @@ ImprovedTube.miniPlayer_mouseDown = function (event) {
 		return false;
 	}
 
-	var is_player = false,
+	let is_player = false,
 		path = event.composedPath();
 
-	for (var i = 0, l = path.length; i < l; i++) {
+	for (let i = 0, l = path.length; i < l; i++) {
 		if ((path[i].classList && path[i].classList.contains('it-mini-player'))) {
 			is_player = true;
 		}
@@ -1247,7 +1247,7 @@ ImprovedTube.miniPlayer_mouseDown = function (event) {
 
 	event.preventDefault();
 
-	var bcr = ImprovedTube.elements.player.getBoundingClientRect();
+	let bcr = ImprovedTube.elements.player.getBoundingClientRect();
 
 	ImprovedTube.miniPlayer_mouseDown_x = event.clientX;
 	ImprovedTube.miniPlayer_mouseDown_y = event.clientY;
@@ -1265,7 +1265,7 @@ ImprovedTube.miniPlayer_mouseDown = function (event) {
 };
 
 ImprovedTube.miniPlayer_mouseUp = function () {
-	var strg = JSON.parse(localStorage.getItem('improvedtube-mini-player')) || {};
+	let strg = JSON.parse(localStorage.getItem('improvedtube-mini-player')) || {};
 
 	strg.x = ImprovedTube.mini_player__x;
 	strg.y = ImprovedTube.mini_player__y;
@@ -1294,7 +1294,7 @@ ImprovedTube.miniPlayer_mouseMove = function (event) {
 		event.clientX > ImprovedTube.miniPlayer_mouseDown_x + 5 ||
 		event.clientY > ImprovedTube.miniPlayer_mouseDown_y + 5
 	) {
-		var x = event.clientX - ImprovedTube.mini_player__player_offset_x,
+		let x = event.clientX - ImprovedTube.mini_player__player_offset_x,
 			y = event.clientY - ImprovedTube.mini_player__player_offset_y;
 
 		if (ImprovedTube.mini_player__move === false) {
@@ -1327,7 +1327,7 @@ ImprovedTube.miniPlayer_mouseMove = function (event) {
 };
 
 ImprovedTube.miniPlayer_cursorUpdate = function (event) {
-	var x = event.clientX,
+	let x = event.clientX,
 		y = event.clientY,
 		c = ImprovedTube.mini_player__cursor;
 
@@ -1434,7 +1434,7 @@ ImprovedTube.miniPlayer_resizeMouseMove = function (event) {
 };
 
 ImprovedTube.miniPlayer_resizeMouseUp = function () {
-	var bcr = ImprovedTube.elements.player.getBoundingClientRect();
+	let bcr = ImprovedTube.elements.player.getBoundingClientRect();
 
 	ImprovedTube.mini_player__x = bcr.left;
 	ImprovedTube.mini_player__y = bcr.top;
@@ -1443,7 +1443,7 @@ ImprovedTube.miniPlayer_resizeMouseUp = function () {
 
 	window.dispatchEvent(new Event('resize'));
 
-	var strg = JSON.parse(localStorage.getItem('improvedtube-mini-player')) || {};
+	let strg = JSON.parse(localStorage.getItem('improvedtube-mini-player')) || {};
 
 	strg.width = ImprovedTube.mini_player__width;
 	strg.height = ImprovedTube.mini_player__height;
@@ -1457,7 +1457,7 @@ ImprovedTube.miniPlayer_resizeMouseUp = function () {
 
 ImprovedTube.miniPlayer = function () {
 	if (this.storage.mini_player) {
-		var data = localStorage.getItem('improvedtube-mini-player');
+		let data = localStorage.getItem('improvedtube-mini-player');
 
 		try {
 			if (this.isset(data)) {
@@ -1511,7 +1511,7 @@ CUSTOM PAUSE FUNCTIONS
 ------------------------------------------------------------------------------*/
 ImprovedTube.pauseWhileTypingOnYoutube = function () {
 	if (ImprovedTube.storage.pause_while_typing_on_youtube) {
-		var timeoutId; // Declare a variable to hold the timeout ID
+		let timeoutId; // Declare a variable to hold the timeout ID
 
 		// Add event listener to the whole document
 		document.addEventListener('keydown', function (e) {
@@ -1522,7 +1522,7 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 				return;
 			}
 
-			var player = ImprovedTube.elements.player;
+			let player = ImprovedTube.elements.player;
 
 			if (player) {
 				if (
@@ -1549,11 +1549,11 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 		});
 
 		function isPlayerInViewport() {
-			var player = ImprovedTube.elements.player;
+			let player = ImprovedTube.elements.player;
 			if (player) {
-				var rect = player.getBoundingClientRect();
-				var windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-				var windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+				let rect = player.getBoundingClientRect();
+				let windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+				let windowWidth = (window.innerWidth || document.documentElement.clientWidth);
 
 				// Check if the player is in the viewport
 				return (

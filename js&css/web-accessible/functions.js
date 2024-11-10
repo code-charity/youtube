@@ -3,7 +3,15 @@
 --------------------------------------------------------------*/
 ImprovedTube.childHandler = function (node) {
 	//console.log(node.nodeName);
-	if (node.nodeName === 'SCRIPT' || node.nodeName === 'iron-iconset-svg' || node.nodeName === 'svg' || node.nodeName === 'SPAN' || node.nodeName === '#text' || node.nodeName === '#comment' || node.nodeName === 'yt-icon-shape' || node.nodeName === 'DOM-IF' || node.nodeName === 'DOM-REPEAT') {
+	if (node.nodeName === 'SCRIPT'
+     || node.nodeName === 'iron-iconset-svg'
+     || node.nodeName === 'svg'
+     || node.nodeName === 'SPAN'
+     || node.nodeName === '#text'
+     || node.nodeName === '#comment'
+     || node.nodeName === 'yt-icon-shape'
+     || node.nodeName === 'DOM-IF'
+     || node.nodeName === 'DOM-REPEAT') {
 		return
 	}
 	var children = node.children;
@@ -42,7 +50,8 @@ ImprovedTube.ytElementsHandler = function (node) {
 		}
 		if (this.storage.blocklist_activate) {
 			// we are interested in thumbnails and video-previews, skip ones with 'button.it-add-to-blocklist' already
-			if (((node.href && node.classList.contains('ytd-thumbnail')) || node.classList.contains('ytd-video-preview'))
+			if (((node.href && node.classList.contains('ytd-thumbnail'))
+               || node.classList.contains('ytd-video-preview'))
 				&& !node.querySelector("button.it-add-to-blocklist")) {
 				this.blocklistNode(node);
 			}
@@ -115,7 +124,8 @@ ImprovedTube.ytElementsHandler = function (node) {
 		// 	if (document.documentElement.dataset.pageType === 'video') {
 		// 		this.hideDetailButton(node.querySelector('#flexible-item-buttons').children);
 		// 	}
-	} else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
+	} else if (name === 'YTD-PLAYLIST-HEADER-RENDERER'
+           || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
 		this.playlistPopup();
 	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER'
 		|| name === 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL'
@@ -174,7 +184,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 								}
 							}
 						}
-						if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button-modern.ytp-button',)) {
+						if (mutation.type === 'attributes'
+                         && mutation.attributeName === 'id'
+                         && mutation.target.querySelector('*[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button-modern.ytp-button',)) {
 							ImprovedTube.playerAds(node);
 						}
 					}
@@ -185,7 +197,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 			}
 
 			new MutationObserver(function (mutationList) {
-				for (var i = 0, l = mutationList.length; i < l; i++) {
+				for (let i = 0, l = mutationList.length; i < l; i++) {
 					var mutation = mutationList[i];
 
 					if (mutation.type === 'attributes') {
@@ -434,7 +446,7 @@ if (document.documentElement.dataset.pageType === 'video'
 		// Override YouTube's scroll method:
 		HTMLElement.prototype.focus = function () { console.log("Preventing YouTube's scripted scrolling, when expanding the video description for you"); }
 		if (document.hidden) ms = 3 * ms;
-		setTimeout(function () { HTMLElement.prototype.focus = originalFocus; }, ms); 	// Restoring JS's "focus()" 
+		setTimeout(function () { HTMLElement.prototype.focus = originalFocus; }, ms); 	// Restoring JS's "focus()"
 	}
 }
 
@@ -456,7 +468,7 @@ ImprovedTube.playerOnEnded = function (event) {
 ImprovedTube.onkeydown = function () {
 	ImprovedTube.pauseWhileTypingOnYoutube()
 	window.addEventListener('keydown', function () {
-		ImprovedTube.user_interacted = true; // = event.key 
+		ImprovedTube.user_interacted = true; // = event.key
 	}, true);
 };
 
