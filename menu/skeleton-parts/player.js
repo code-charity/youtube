@@ -1163,6 +1163,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 				component: 'switch',
 				text: 'loop',
 				value: true
+			},
+			copy_video_id: {
+				component: 'switch',
+				text: 'copyVideoID',
+				value: true
 			}
 		},
 		player_hide_controls_options: {

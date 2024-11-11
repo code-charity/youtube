@@ -460,6 +460,33 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				svg.appendChild(path);	button.appendChild(svg);
 				section.insertAdjacentElement('afterend', button)
 			}
+
+			if (this.storage.copy_video_id !== false) {
+				var button = document.createElement('button'),
+					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+				button.className = 'improvedtube-player-button';
+				button.dataset.tooltip = 'CopyVideoID';
+				svg.style.opacity = '.5';
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				path.setAttributeNS(null, 'd', 'M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2m0 16H8V7h11z');
+				// https://stackoverflow.com/questions/3452546/how-do-i-get-the-youtube-video-id-from-a-url
+				const videoIDRegex = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
+				button.onclick = function () {
+					svg.style.opacity = '1';
+					const videoId = window.location.href.match(videoIDRegex)[1];
+					navigator.clipboard.writeText(videoId);
+					button.dataset.tooltip = 'Copied!';
+					setTimeout(function() {
+						button.dataset.tooltip = 'CopyVideoID';
+						svg.style.opacity = '.5';
+					}, 500);
+				}
+
+				svg.appendChild(path);	button.appendChild(svg);
+				section.insertAdjacentElement('afterend', button)
+			}
 	  }
 	}
 };
