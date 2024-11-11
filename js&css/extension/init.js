@@ -49,7 +49,7 @@ extension.events.on('init', function () {
 
 chrome.runtime.sendMessage({
 	action: 'tab-connected'
-}, function (response) {
+}, response => {
 	if (response) {
 		extension.tabId = response.tabId;
 	}
@@ -67,15 +67,13 @@ extension.inject([
 	'/js&css/web-accessible/www.youtube.com/blocklist.js',
 	'/js&css/web-accessible/www.youtube.com/settings.js',
 	'/js&css/web-accessible/init.js'
-], function () {
+], () => {
 	extension.ready = true;
-
 	extension.events.trigger('init');
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 	extension.domReady = true;
-
 	bodyReady();
 });
 
@@ -251,18 +249,16 @@ document.addEventListener('it-message-from-youtube', function () {
 	}
 });
 
-document.addEventListener('it-play', function () {
+document.addEventListener('it-play', () => {
 	// var videos = document.querySelectorAll('video');
 	try {
 		chrome.runtime.sendMessage({ action: 'play' })
 	} catch (error) {
 		console.log(error);
-		setTimeout(function () {
-			try {
-				chrome.runtime.sendMessage({ action: 'play' }, function (response) {
-					console.log(response)
-				});
-			} catch { }
-		}, 321);
+		setTimeout(function () { try {
+			chrome.runtime.sendMessage({ action: 'play' }, response => {
+				console.log(response)
+			});
+		} catch (error){console.log(error)}}, 321);
 	}
 });

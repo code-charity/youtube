@@ -21,7 +21,7 @@
 # GLOBAL VARIABLE
 --------------------------------------------------------------*/
 
-var extension = {
+let extension = {
 	domReady: false,
 	events: {
 		listeners: {}
@@ -42,10 +42,10 @@ var extension = {
 --------------------------------------------------------------*/
 
 extension.camelize = function (string) {
-	var result = '';
+	let result = '';
 
-	for (var i = 0, l = string.length; i < l; i++) {
-		var character = string[i];
+	for (let i = 0, l = string.length; i < l; i++) {
+		const character = string[i];
 
 		if (character === '_' || character === '-') {
 			result += character.toUpperCase();
@@ -67,7 +67,7 @@ extension.camelize = function (string) {
 --------------------------------------------------------------*/
 
 extension.events.on = function (type, listener, options = {}) {
-	var listeners = extension.events.listeners;
+	let listeners = extension.events.listeners;
 
 	if (!listeners[type]) {
 		listeners[type] = [];
@@ -93,11 +93,11 @@ extension.events.on = function (type, listener, options = {}) {
 --------------------------------------------------------------*/
 
 extension.events.trigger = async function (type, data) {
-	var listeners = extension.events.listeners[type];
+	let listeners = extension.events.listeners[type];
 
 	if (listeners) {
-		for (var i = 0, l = listeners.length; i < l; i++) {
-			var listener = listeners[i];
+		for (let i = 0, l = listeners.length; i < l; i++) {
+			let listener = listeners[i];
 
 			if (typeof listener === 'function') {
 				if (listener instanceof (async function () { }).constructor) {
@@ -121,12 +121,10 @@ extension.inject = function (paths, callback) {
 
 		if (path.indexOf('.css') !== -1) {
 			element = document.createElement('link');
-
 			element.rel = 'stylesheet';
 			element.href = path;
 		} else {
 			element = document.createElement('script');
-
 			element.src = path;
 		}
 

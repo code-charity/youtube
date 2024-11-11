@@ -4,12 +4,11 @@
 if (document.body) { ImprovedTube.childHandler(document.body); }
 
 ImprovedTube.observer = new MutationObserver(function (mutationList) {
-
-	for (var i = 0, l = mutationList.length; i < l; i++) {
+	for (let i = 0, l = mutationList.length; i < l; i++) {
 		var mutation = mutationList[i];
 
 		if (mutation.type === 'childList') {
-			for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
+			for (let j = 0, k = mutation.addedNodes.length; j < k; j++) {
 				ImprovedTube.childHandler(mutation.addedNodes[j]);
 			}
 		}
@@ -59,7 +58,7 @@ ImprovedTube.observer = new MutationObserver(function (mutationList) {
 
 if (ImprovedTube.storage.channel_default_tab && ImprovedTube.storage.channel_default_tab !== '/') {
 	new MutationObserver(function (mutationList) {
-		for (var i = 0, l = mutationList.length; i < l; i++) {
+		for (let i = 0, l = mutationList.length; i < l; i++) {
 			var mutation = mutationList[i];
 
 			if (mutation.type === 'attributes') {

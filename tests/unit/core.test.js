@@ -61,7 +61,6 @@ const extensionMock = require('../../js&css/extension/core');
 
 // Unit tests for the camelize function
 test('Convert snake_case to camelCase', () => {
-
 	const input = 'snake_case_example';
 	const expectedOutput = 'snakeCaseExample';
 

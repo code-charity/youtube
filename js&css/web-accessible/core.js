@@ -12,7 +12,7 @@
 # GLOBAL VARIABLE
 --------------------------------------------------------------*/
 
-var ImprovedTube = {
+let ImprovedTube = {
 	messages: {
 		queue: []
 	},

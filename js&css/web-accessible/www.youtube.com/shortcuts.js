@@ -13,6 +13,7 @@ ImprovedTube.shortcutsInit = function () {
 
 	// reset 'listening' shortcuts
 	for (let key in listening) delete listening[key];
+
 	// extract shortcuts from User Settings and initialize 'listening'
 	for (const [name, keys] of Object.entries(this.storage).filter(v => v[0].startsWith('shortcut_'))) {
 		if (!keys) continue;

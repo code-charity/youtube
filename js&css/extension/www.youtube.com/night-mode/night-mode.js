@@ -16,14 +16,10 @@
 --------------------------------------------------------------*/
 
 extension.features.bluelight = function () {
-	var value = extension.storage.get('bluelight');
+	let value = extension.storage.get('bluelight') || 0;
 
 	if (extension.features.schedule() === false) {
 		return false;
-	}
-
-	if (!value) {
-		value = 0;
 	}
 
 	if (typeof value !== 'number') {
@@ -45,11 +41,9 @@ extension.features.bluelight = function () {
 			filter.setAttributeNS(null, 'id', 'it-bluelight-filter');
 			feColorMatrix.setAttributeNS(null, 'type', 'matrix');
 
-			for (var i = 0; i < 20; i++) {
+			for (let i = 0; i < 20; i++) {
 				var number = svg.createSVGNumber();
-
 				number.value = 0;
-
 				matrix.appendItem(number);
 			}
 
@@ -81,14 +75,13 @@ extension.features.bluelight = function () {
 --------------------------------------------------------------*/
 
 extension.features.dim = function () {
-	var value = extension.storage.get('dim');
+	const value = extension.storage.get('dim') || 0;
 	if (extension.features.schedule() === false) { return false;}
 
-	if (!value) { value = 0;}
 	if (typeof value !== 'number') {value = Number(value);}
 	if (value !== 0) {
 		if (!this.dim.element) {
-			var element = document.createElement('div');
+			const element = document.createElement('div');
 
 			element.id = 'it-dim';
 			element.style.opacity = parseInt(Number(value)) / 100 || 0;
@@ -111,7 +104,7 @@ extension.features.dim = function () {
 --------------------------------------------------------------*/
 
 extension.features.schedule = function () {
-	var current = new Date().getHours(),
+	let current = new Date().getHours(),
 		from = Number((extension.storage.get('schedule_time_from') || '00:00').substr(0, 2)),
 		to = Number((extension.storage.get('schedule_time_to') || '00:00').substr(0, 2));
 

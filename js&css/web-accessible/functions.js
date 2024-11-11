@@ -14,7 +14,7 @@ ImprovedTube.childHandler = function (node) {
      || node.nodeName === 'DOM-REPEAT') {
 		return
 	}
-	var children = node.children;
+	let children = node.children;
 	this.ytElementsHandler(node);
 
 	if (children) {
@@ -65,17 +65,16 @@ ImprovedTube.ytElementsHandler = function (node) {
 			if (index === 0) {
 				if (this.storage.playlist_reverse) {
 					//can be precise:
-					try { this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode; }
-					catch {
-						try { this.elements.playlist.actions = node.parentNode.parentNode.parentNode; }
-						catch {
-							try { this.elements.playlist.actions = node.parentNode.parentNode; }
-							catch {
-								try { this.elements.playlist.actions = node.parentNode; }
-								catch { try { this.elements.playlist.actions = node; } catch { } }
-							}
-						}
-					}
+					try {
+                        this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode; }
+					catch {try {
+                        this.elements.playlist.actions = node.parentNode.parentNode.parentNode; }
+                    catch {try {
+                        this.elements.playlist.actions = node.parentNode.parentNode; }
+                    catch {try {
+                        this.elements.playlist.actions = node.parentNode; }
+                    catch { try { this.elements.playlist.actions = node; }
+                    catch (error){ console.log(error); }}}}}
 				}
 				this.playlistReverse();
 			} else if (index === 1) {
@@ -85,25 +84,24 @@ ImprovedTube.ytElementsHandler = function (node) {
 
 				if (this.storage.playlist_reverse) {
 					//can be precise:
-					try { this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode; }
-					catch {
-						try { this.elements.playlist.actions = node.parentNode.parentNode.parentNode; }
-						catch {
-							try { this.elements.playlist.actions = node.parentNode.parentNode; }
-							catch {
-								try { this.elements.playlist.actions = node.parentNode; }
-								catch { try { this.elements.playlist.actions = node; } catch { } }
-							}
-						}
-					}
-				}
-				this.playlistReverse();
+					try {
+                        this.elements.playlist.actions = node.parentNode.parentNode.parentNode.parentNode; }
+					catch {try {
+                        this.elements.playlist.actions = node.parentNode.parentNode.parentNode; }
+                    catch {try {
+                        this.elements.playlist.actions = node.parentNode.parentNode; }
+                    catch {try {
+                        this.elements.playlist.actions = node.parentNode; }
+                    catch {try {
+                        this.elements.playlist.actions = node; }
+                        catch (error){ console.log(error); }}}}}}
+
+                    this.playlistReverse();
 			}
 		}
 	} else if (name === 'YTD-GUIDE-SECTION-RENDERER') {
 		if (!this.elements.sidebar_section) {
 			this.elements.sidebar_section = node;
-
 			this.improvedtubeYoutubeIcon();
 		}
 	} else if (name === 'YTD-VIDEO-PRIMARY-INFO-RENDERER') {
@@ -171,11 +169,11 @@ ImprovedTube.ytElementsHandler = function (node) {
 			ImprovedTube.playerSize();
 			if (typeof this.storage.ads !== 'undefined' && this.storage.ads !== "all_videos") {
 				new MutationObserver(function (mutationList) {
-					for (var i = 0, l = mutationList.length; i < l; i++) {
+					for (let i = 0, l = mutationList.length; i < l; i++) {
 						var mutation = mutationList[i];
 
 						if (mutation.type === 'childList') {
-							for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
+							for (let j = 0, k = mutation.addedNodes.length; j < k; j++) {
 								var node = mutation.addedNodes[j];
 
 								if (node instanceof Element
@@ -414,8 +412,8 @@ ImprovedTube.playerOnTimeUpdate = function () {
 };
 
 ImprovedTube.playerOnLoadedMetadata = function () {
-	setTimeout(function () { ImprovedTube.playerSize(); }, 100);
-	setTimeout(function () {
+	setTimeout(() => { ImprovedTube.playerSize(); }, 100);
+	setTimeout(() => {
 		if (ImprovedTube.elements.panels) {
 			ImprovedTube.transcript(ImprovedTube.elements.panels);
 			ImprovedTube.chapters(ImprovedTube.elements.panels);
