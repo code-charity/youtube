@@ -1,33 +1,40 @@
-// Function to add the playback speed button once the video element is ready
-function addPlaybackSpeedButton() {
-    const videoElement = document.querySelector('video');
-    
-    // Check if the video element is available
-    if (!videoElement) {
-        console.log("Video element not found, retrying...");
-        setTimeout(addPlaybackSpeedButton, 1000); // Retry after 1 second
-        return;
-    }
+/*------------------------------------------------------------------------------
+QUICK ACCESS PLAYBACK SPEED
+------------------------------------------------------------------------------*/
+ImprovedTube.createPlaybackSpeedButtons = function () {
+    const playerControls = document.querySelector('.ytp-right-controls'); // Adjust this selector based on your player structure
+    if (!playerControls) return;
 
-    // Create a playback speed button and add it to the UI
-    const speedButton = document.createElement('button');
-    speedButton.innerText = 'Speed: 1x';
-    speedButton.style.position = 'fixed';
-    speedButton.style.bottom = '10px';
-    speedButton.style.right = '10px';
-    speedButton.style.zIndex = '1000'; // Ensures it appears above other elements
+    // Create playback speed buttons
+    const speeds = [0.5, 1.0, 1.5, 2.0];
+    speeds.forEach(speed => {
+        const button = document.createElement('button');
+        button.innerText = `${speed}x`;
+        button.style.margin = '0 5px'; // Add some margin for spacing
+        button.style.cursor = 'pointer';
+        button.title = `Set playback speed to ${speed}x`;
 
-    // Function to toggle playback speed
-    speedButton.onclick = () => {
-        const currentSpeed = videoElement.playbackRate;
-        videoElement.playbackRate = currentSpeed >= 2 ? 1 : currentSpeed + 0.5;
-        speedButton.innerText = `Speed: ${videoElement.playbackRate}x`; // Update button text
-    };
+        // Add event listener to change playback speed
+        button.addEventListener('click', () => {
+            const newSpeed = ImprovedTube.playbackSpeed(speed);
+            document.getElementById('currentSpeed').innerText = newSpeed || 'Error';
+        });
 
-    // Append the button to the page
-    document.body.appendChild(speedButton);
-    console.log("Playback speed button added successfully.");
-}
+        playerControls.appendChild(button); // Add button to player controls
+    });
 
-// Run the function when the script loads
-addPlaybackSpeedButton();
+    // Display current speed
+    const currentSpeedDisplay = document.createElement('span');
+    currentSpeedDisplay.id = 'currentSpeed';
+    currentSpeedDisplay.innerText = '1.0'; // Default speed
+    currentSpeedDisplay.style.marginLeft = '10px';
+    playerControls.appendChild(currentSpeedDisplay);
+};
+
+/* Call this function when the player is ready */
+ImprovedTube.init = function () {
+    // Other initialization code...
+    this.createPlaybackSpeedButtons(); // Create playback speed buttons
+};
+
+// Ensure to call ImprovedTube.init() somewhere in your code after the player is ready
