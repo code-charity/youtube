@@ -860,8 +860,7 @@ As our Syntax markup isnt read for <textarea>, is it?
 	display: flex;
 	flex-direction: column;
 
-	width: 100%;
-	height: 100%;
+	min-height: inherit;
 
 	color: var(--satus-base-foreground);
 	background: var(--satus-base-background);
