@@ -146,6 +146,15 @@ document.addEventListener('yt-navigate-finish', function () {
 	} else if (document.documentElement.dataset.pageType === 'channel') {
 		ImprovedTube.channelPlayAllButton();
 	}
+
+	 // Inject CSS to hide YouTube frontpage thumbnails
+	 const style = document.createElement("style");
+	 style.textContent = `
+		  .yt-spec-avatar-shape.yt-spec-avatar-shape__button.yt-spec-avatar-shape__button--button-medium.yt-spec-avatar-shape__button--tappable {
+			  display: none !important;
+		  }
+		  `;
+	 document.head.appendChild(style);
 });
 
 window.addEventListener('load', function () {
