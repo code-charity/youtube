@@ -759,13 +759,11 @@ As our Syntax markup isnt read for <textarea>, is it?
 }
 
 .satus-section--card>[class^='satus']:not(.satus-list):not(.satus-section) {
-	display: flex;
-	flex-direction: column;
-
 	min-height: 48px;
 
 	transition: background-color .18s cubic-bezier(.25, .8, .5, 1);
 	text-align: left;
+    padding: 8px 12px;
 
 	border-radius: 0;
 
