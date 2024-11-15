@@ -146,16 +146,6 @@ document.addEventListener('yt-navigate-finish', function () {
 	} else if (document.documentElement.dataset.pageType === 'channel') {
 		ImprovedTube.channelPlayAllButton();
 	}
-
-	// Adds CSS to hide dots from thumbnails
-	const style = document.createElement("style");
-	style.textContent = `
-		html[it-hide-thumbnail-dots='true'] button#button[aria-label="Action menu"],
-  		html[it-hide-thumbnail-dots="true"] button.yt-spec-button-shape-next[aria-label="More actions"] {
-    		display: none !important;
-  	}
-	`;
-	document.head.appendChild(style);
 });
 
 window.addEventListener('load', function () {

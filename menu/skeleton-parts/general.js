@@ -199,6 +199,7 @@ extension.skeleton.main.layers.section.general = {
 				hide_thumbnail_dots: {
 					component: 'switch',
 					text: 'hideThumbnailDots',
+					tags: 'preview'
 				},
 				thumbnails_quality: {
 					component: 'select',

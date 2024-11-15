@@ -11,6 +11,7 @@
 # Mark watched videos
 # Hide aniamted thubmnails
 # Hide buttons on thumbnails
+# Hide dots on thumbnails
 --------------------------------------------------------------*/
 html[it-cursorLighting=true] #below			{opacity:.4; transition:3s;}
 html[it-cursorLighting=true] #below:hover	{opacity:1; transition:.5s;}
@@ -68,6 +69,13 @@ html[it-hide-animated-thumbnails='true'] #preview>ytd-video-preview,
 --------------------------------------------------------------*/
 html[it-hide-thumbnail-overlay='true'] #hover-overlays,
 html[it-hide-thumbnail-overlay='true'] #player-controls.ytd-video-preview,
+/*--------------------------------------------------------------
+# HIDE DOTS ON THUMBNAILS
+--------------------------------------------------------------*/
+html[it-hide-thumbnail-dots='true'] button#button[aria-label="Action menu"],
+html[it-hide-thumbnail-dots="true"] button.yt-spec-button-shape-next[aria-label="More actions"] {
+    display: none;
+}
 /*--------------------------------------------------------------
 # EMBEDDED VIDEOS
  --------------------------------------------------------------*/
