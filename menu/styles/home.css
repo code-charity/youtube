@@ -1,8 +1,21 @@
 /*--------------------------------------------------------------
 >>> HOME:
 ----------------------------------------------------------------
+# Section
 # Buttons
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# SECTION
+--------------------------------------------------------------*/
+
+.satus-section--home {
+    display: grid;
+    flex-wrap: wrap;
+
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 8px;
+}
 
 /*--------------------------------------------------------------
 # BUTTONS
@@ -11,11 +24,9 @@
 .satus-section--home .satus-button {
 	display: flex;
 	flex-direction: column;
+    align-items: center;
 
-	width: calc(100% / 3);
 	height: unset;
-	margin: 8px 0 0;
-	padding: 8px 0;
 }
 
 .satus-base:not([improvedtube-home='list'])[page] .satus-section--home .satus-button {

@@ -680,10 +680,8 @@ As our Syntax markup isnt read for <textarea>, is it?
 --------------------------------------------------------------*/
 
 .satus-section {
-    display: grid;
+    display: flex;
     flex-wrap: wrap;
-    grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: 8px;
 }
 
 
@@ -762,9 +760,9 @@ As our Syntax markup isnt read for <textarea>, is it?
 
 .satus-section--card>[class^='satus']:not(.satus-list):not(.satus-section) {
 	display: flex;
+	flex-direction: column;
 
 	min-height: 48px;
-	padding: 8px 12px;
 
 	transition: background-color .18s cubic-bezier(.25, .8, .5, 1);
 	text-align: left;
@@ -1148,26 +1146,21 @@ As our Syntax markup isnt read for <textarea>, is it?
 --------------------------------------------------------------*/
 
 .satus-button {
-	font: inherit;
-
-	position: relative;
-
+    font: inherit;
 	display: inline-flex;
-	overflow: hidden;
-
-	height: 36px;
-	padding: 8px;
-
-	transition: background-color .3s cubic-bezier(.25, .8, .5, 1);
-
-	color: inherit;
-	border: none;
-	border-radius: 6px;
-	outline: none;
-	background: transparent;
-
-	appearance: none;
 	align-items: center;
+    overflow: hidden;
+    height: 36px;
+    padding: 8px;
+
+    transition: background-color .3s cubic-bezier(.25, .8, .5, 1);
+
+    color: inherit;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    background: transparent;
+    appearance: none;
 }
 
 .satus-button:hover {
