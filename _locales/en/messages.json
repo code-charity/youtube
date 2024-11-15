@@ -278,6 +278,9 @@
     "chapters": {
         "message": "Chapters"
     },
+    "chapterTitle": {
+        "message": "Chapter Title"
+    },
     "characterEdgeStyle": {
         "message": "Character edge style"
     },

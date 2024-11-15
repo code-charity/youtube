@@ -297,6 +297,10 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 						player_remote_button: {
 							component: "switch",
 							text: "remote"
+						},
+						player_chaptertitle_button: {
+							component:"switch",
+							text:"chapterTitle"
 						}
 					}
 				}
