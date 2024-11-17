@@ -680,6 +680,9 @@
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
     },
+    "hideThumbnailDots": {
+        "message": "Hide '⫶' (more actions) on thumbnails"
+    },
     "hideThumbnails": {
         "message": "Hide thumbnails"
     },
