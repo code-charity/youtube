@@ -203,7 +203,7 @@ ImprovedTube.commentsSidebar = function () {
 		window.addEventListener("resize", sidebar)
 	}
 
-	function sidebar() {
+	function sidebar (){
 		resizePlayer();
 		if (window.matchMedia("(min-width: 1952px)").matches) {
 			if (!hasApplied) {
@@ -237,7 +237,7 @@ ImprovedTube.commentsSidebar = function () {
 			hasApplied = 0;
 		}
 	}
-	function setGrid() {
+	function setGrid (){
 		let checkParentInterval = setInterval(() => {
 			container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement;
 			if (container) {
@@ -248,7 +248,7 @@ ImprovedTube.commentsSidebar = function () {
 			}
 		}, 250);
 	}
-	function initialSetup() {
+	function initialSetup (){
 		let secondaryInner = document.getElementById("secondary-inner");
 		let primaryInner = document.getElementById("primary-inner");
 		let comments = document.querySelector("#comments");

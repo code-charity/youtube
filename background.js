@@ -178,9 +178,9 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.storage.onChanged.addListener(changes => {
 	if (changes?.language)
-        updateContextMenu(changes.language.newValue);
+		updateContextMenu(changes.language.newValue);
 	if (changes?.improvedTubeSidebar)
-        chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes.language.newValue});
+		chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes.language.newValue});
 });
 /*--------------------------------------------------------------
 # TAB Helper, prune stale connected tabs
@@ -282,17 +282,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 					active: true
 				}, ts => {
 					const tID = ts[0]?.id,
-						  data = {
-                                type: 'popup',
-								state: w.state,
-								width: parseInt(message.width, 10),
-								height: parseInt(message.height, 10),
-								left: 0,
-								top: 20
-                          };
-
-					if (tID)
-                        data.tabId = tID;
+						data = {
+							type: 'popup',
+							state: w.state,
+							width: parseInt(message.width, 10),
+							height: parseInt(message.height, 10),
+							left: 0,
+							top: 20
+                        };
+					if (tID) data.tabId = tID;
 					chrome.windows.create(data);
 
 					//append to title?
