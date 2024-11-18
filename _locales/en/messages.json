@@ -1217,6 +1217,9 @@
     "RemoveSubtitlesForLyrics": {
         "message": "Remove subtitles for lyrics"
     },
+    "removeMemberOnly": {
+        "message": "Remove member only videos"
+    },
     "sunset": {
         "message": "Sunset"
     },
