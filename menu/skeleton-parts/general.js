@@ -391,7 +391,6 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'removeMemberOnly',
 				},
-
 			}
 		}
 	},
