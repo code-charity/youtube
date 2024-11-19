@@ -42,6 +42,10 @@ extension.skeleton.main.layers.section.playlist = {
 				playlist_popup: {
 					component: 'switch',
 					text: 'popupPlayer'
+				},
+				playlist_copy_video_id: {
+					component: 'switch',
+					text: 'copyVideoId'
 				}
 			}
 		}
