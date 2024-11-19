@@ -7,6 +7,7 @@
 # Hide annotations
 # Hide endscreen
 # Hide cards
+# Hide "Includes Paid Promotion"
 # Show cards on mouse hover
 # Hide "Scroll for details"
 # Player Size
@@ -652,4 +653,13 @@ html[it-hide-scroll-for-details='true'] button.ytp-fullerscreen-edu-button {
 
 html[it-hide-scroll-for-details='true'] ytd-app[scrolling_] {
 	overflow: hidden !important;
+}
+
+/*--------------------------------------------------------------
+# HIDE Includes Paid Promotion
+--------------------------------------------------------------*/
+html[data-page-type=video][it-hide-includes-paid-promotion=true] .ytp-paid-content-overlay,
+html[data-page-type=home][it-hide-includes-paid-promotion=true] .YtmPaidContentOverlayLink,
+html[data-page-type=other][it-hide-includes-paid-promotion=true] .YtmPaidContentOverlayLink  {
+  display: none !important;
 }
