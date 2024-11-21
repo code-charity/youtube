@@ -223,7 +223,6 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 ImprovedTube.playlistCopyVideoIdButton = function () {
 	if (this.storage.playlist_copy_video_id === true) {
     const playlistItems = document.querySelectorAll('ytd-playlist-panel-video-renderer');
-		const videoIDRegex = /.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
 		playlistItems.forEach(item => {
 			if (!item.querySelector('.it-playlist-copy-video-id')) {
 				const button = document.createElement('button');
@@ -238,7 +237,7 @@ ImprovedTube.playlistCopyVideoIdButton = function () {
 				button.addEventListener('click', () => {
 					const playlistLink = item.querySelector('a#wc-endpoint');
 					if (playlistLink) {
-						const playlistURL = playlistLink.href.match(videoIDRegex)[1];
+						const playlistURL = playlistLink.href.match(ImprovedTube.regex.video_id)?.[1];
 						navigator.clipboard.writeText(playlistURL);
 					}
 					button.dataset.tooltip = 'Copied!';
