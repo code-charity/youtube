@@ -320,6 +320,9 @@
     "cores": {
         "message": "Cores"
     },
+    "copyVideoId": {
+        "message": "Copy Video Id"
+    },
     "cropChapterTitles": {
         "message": "Crop chapter titles"
     },

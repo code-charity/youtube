@@ -143,6 +143,9 @@
     "cores": {
         "message": "核心"
     },
+    "copyVideoId": {
+        "message": "复制影片 ID"
+    },
     "cropChapterTitles": {
         "message": "裁剪章节标题"
     },
