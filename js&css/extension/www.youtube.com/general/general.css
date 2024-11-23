@@ -6,6 +6,7 @@
 # Remove related search results
 # Scroll bar
 # Add "Scroll to top"
+# Remove members only videos
 # Limit page width
 # Squared user images
 # Mark watched videos
@@ -265,6 +266,12 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 	transition: background 250ms 125ms, transform 250ms, box-shadow 275ms !important;
 	transform: translateY(4px) scale(.975) !important;
 	box-shadow: 0 1px 1px 0 #d60024, 0 1px 2px rgb(82, 0, 14, .32) !important;
+}
+/*--------------------------------------------------------------
+# REMOVE MEMBER ONLY VIDEOS
+--------------------------------------------------------------*/
+html[it-remove-member-only='true'] ytd-grid-video-renderer:has(.badge-style-type-members-only) {
+    display: none !important;
 }
 
 /*--------------------------------------------------------------

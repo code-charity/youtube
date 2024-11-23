@@ -386,7 +386,11 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'addScrollToTop',
 					tags: 'up'
-				}
+				},
+				remove_member_only: {
+					component: 'switch',
+					text: 'removeMemberOnly',
+				},
 			}
 		}
 	},
