@@ -12,6 +12,7 @@
 # Mark watched videos
 # Hide aniamted thubmnails
 # Hide buttons on thumbnails
+# Hide thumbnail icon
 # Hide dots on thumbnails
 --------------------------------------------------------------*/
 html[it-cursorLighting=true] #below			{opacity:.4; transition:3s;}
@@ -70,6 +71,10 @@ html[it-hide-animated-thumbnails='true'] #preview>ytd-video-preview,
 --------------------------------------------------------------*/
 html[it-hide-thumbnail-overlay='true'] #hover-overlays,
 html[it-hide-thumbnail-overlay='true'] #player-controls.ytd-video-preview,
+/*--------------------------------------------------------------
+# HIDE THUMBNAIL ICON
+--------------------------------------------------------------*/
+html[it-hide-thumbnail-icon='true'] .yt-spec-avatar-shape.yt-spec-avatar-shape__button.yt-spec-avatar-shape__button--button-medium.yt-spec-avatar-shape__button--tappable,
 /*--------------------------------------------------------------
 # HIDE DOTS ON THUMBNAILS
 --------------------------------------------------------------*/

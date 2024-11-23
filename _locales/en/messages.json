@@ -689,6 +689,9 @@
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
     },
+    "hideThumbnailIcon": {
+        "message": "Hide thumbnail icon"
+    },
     "hideViewsCount": {
         "message": "Hide views count"
     },
