@@ -181,6 +181,9 @@ html[it-player-remote-button=true] .ytp-remote-button,
 html[it-player-chaptertitle-button=true] .ytp-chapter-container {
 	display: none !important;
 }
+html[it-player-subtitlesLine-button=true] button.ytp-subtitles-button.ytp-button::after{
+    display: none;
+}
 /*--------------------------------------------------------------
 # HIDE ANNOTATIONS
 --------------------------------------------------------------*/
