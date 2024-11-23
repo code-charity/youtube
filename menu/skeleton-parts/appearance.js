@@ -282,6 +282,10 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 							component: "switch",
 							text: "subtitles"
 						},
+						player_subtitlesLine_button: {
+							component: "switch",
+							text: "subtitleLine"
+						},
 						player_miniplayer_button: {
 							component: "switch",
 							text: "nativeMiniPlayer"
@@ -297,6 +301,10 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 						player_remote_button: {
 							component: "switch",
 							text: "remote"
+						},
+						player_chaptertitle_button: {
+							component:"switch",
+							text:"chapterTitle"
 						}
 					}
 				}

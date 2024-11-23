@@ -278,6 +278,9 @@
     "chapters": {
         "message": "Chapters"
     },
+    "chapterTitle": {
+        "message": "Chapter Title"
+    },
     "characterEdgeStyle": {
         "message": "Character edge style"
     },
@@ -676,6 +679,9 @@
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
+    },
+    "hideThumbnailDots": {
+        "message": "Hide '⫶' (more actions) on thumbnails"
     },
     "hideThumbnails": {
         "message": "Hide thumbnails"
@@ -1211,8 +1217,14 @@
     "subtitles": {
         "message": "Subtitles"
     },
+    "subtitleLine": {
+        "message": "Hide subtitle red line"
+    },
     "RemoveSubtitlesForLyrics": {
         "message": "Remove subtitles for lyrics"
+    },
+    "removeMemberOnly": {
+        "message": "Remove member only videos"
     },
     "sunset": {
         "message": "Sunset"
