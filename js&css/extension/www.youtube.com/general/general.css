@@ -278,7 +278,12 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 html[it-remove-member-only='true'] ytd-grid-video-renderer:has(.badge-style-type-members-only) {
     display: none !important;
 }
-
+/*--------------------------------------------------------------
+# REMOVE CONTEXT BUTTONS ON SHORTS
+--------------------------------------------------------------*/
+html[it-remove-context-buttons='true'] yt-shorts-suggested-action-view-model.YtShortsSuggestedActionViewModelStaticHost {
+    display: none !important;
+}
 /*--------------------------------------------------------------
 # Popup Window Button
 --------------------------------------------------------------*/
