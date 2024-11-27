@@ -1220,6 +1220,9 @@
     "subtitleLine": {
         "message": "Hide subtitle red line"
     },
+    "removeContextButtons": {
+        "message": "Remove context buttons on shorts"
+    },
     "RemoveSubtitlesForLyrics": {
         "message": "Remove subtitles for lyrics"
     },
