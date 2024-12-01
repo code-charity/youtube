@@ -178,6 +178,12 @@ html[it-player-miniplayer-button=true] .ytp-miniplayer-button,
 html[it-player-view-button=true] .ytp-size-button,
 html[it-player-screen-button=true] .ytp-fullscreen-button,
 html[it-player-remote-button=true] .ytp-remote-button,
+html[it-player-chaptertitle-button=true] .ytp-chapter-container {
+	display: none !important;
+}
+html[it-player-subtitlesLine-button=true] button.ytp-subtitles-button.ytp-button::after{
+    display: none;
+}
 /*--------------------------------------------------------------
 # HIDE ANNOTATIONS
 --------------------------------------------------------------*/
@@ -609,4 +615,14 @@ html[data-page-type=video][it-remove-black-bars=true] ytd-watch-flexy[fullscreen
 	top: 0px!important;
 	left: 0px!important;
 	object-fit: cover;
+}
+
+/*--------------------------------------------------------------
+# HIDE TOP Progress BAR
+--------------------------------------------------------------*/
+
+html[data-page-type=video][it-hide-top-loading-bar=true] #progress.style-scope.yt-page-navigation-progress,
+html[data-page-type=video][it-hide-top-loading-bar=true] .ytp-load-progress,
+html[data-page-type=video][it-hide-top-loading-bar=true] .ytp-loading-bar {
+    display: none !important;
 }
