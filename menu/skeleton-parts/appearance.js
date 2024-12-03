@@ -245,7 +245,17 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					text: "always",
 					value: "always"
 				}]
-			},
+			},		
+			player_hide_progress_preview: {
+			component: 'switch',
+			text: 'Hide progress bar preview',
+			storage: 'player_hide_progress_preview',
+			on: {
+				click: function () {
+					ImprovedTube.playerHideProgressPreview();
+				}
+			}
+			},			
 			player_hide_controls_options: {
 				component: "button",
 				text: "hidePlayerControlsBarButtons",
