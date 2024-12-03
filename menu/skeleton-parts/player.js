@@ -1052,17 +1052,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'forceSDR',
 			storage: 'player_SDR'
-		},
-		player_hide_progress_preview: {
-			component: 'switch',
-			text: 'Hide progress bar preview',
-			storage: 'player_hide_progress_preview',
-			on: {
-				click: function () {
-					ImprovedTube.playerHideProgressPreview();
-				}
-			}
-		},
+		}
 	},
 	section_2: {
 		component: 'section',
