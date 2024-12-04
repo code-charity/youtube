@@ -38,3 +38,6 @@ chrome.runtime.sendMessage({
 		document.body.setAttribute('tab', '');
 	}
 });
+
+// Add logic to store the user's preferred minimum video duration for recommendations
+satus.storage.set('recommended_videos_min_duration', items.recommended_videos_min_duration || 0);

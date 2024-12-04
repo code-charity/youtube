@@ -35,4 +35,41 @@ extension.features.relatedVideos = function (anything) {
 			window.removeEventListener('click', this.relatedVideos, true);
 		}
 	}
+
+	// Apply the duration filter to related videos
+	var minDuration = extension.storage.get('recommended_videos_min_duration') || 0;
+
+	function filterVideos() {
+		var videos = document.querySelectorAll('ytd-compact-video-renderer, ytd-video-renderer, ytd-grid-video-renderer');
+
+		for (var i = 0, l = videos.length; i < l; i++) {
+			var video = videos[i],
+				durationElement = video.querySelector('span.ytd-thumbnail-overlay-time-status-renderer');
+
+			if (durationElement) {
+				var durationText = durationElement.textContent.trim(),
+					durationParts = durationText.split(':'),
+					durationInSeconds = 0;
+
+				for (var j = 0, k = durationParts.length; j < k; j++) {
+					durationInSeconds = durationInSeconds * 60 + parseInt(durationParts[j]);
+				}
+
+				if (durationInSeconds < minDuration) {
+					video.style.display = 'none';
+				} else {
+					video.style.display = '';
+				}
+			}
+		}
+	}
+
+	filterVideos();
+
+	var observer = new MutationObserver(filterVideos);
+
+	observer.observe(document.documentElement, {
+		childList: true,
+		subtree: true
+	});
 };
