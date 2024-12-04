@@ -2,37 +2,38 @@
 
 ### Description
 
-Please include a summary of the changes and the related issue. Please also include relevant motivation and context. List any dependencies that are required for this change.
+(You can include a summary of the changes and mention the related issue/s Or the relevant context.)  
 
-Fixes # (issue)
+Moreover every contribution is precious and we would like to learn about you:
+Can we return the favor? Are you like to contribute again? Would you like to be invited as member of the organisation? 
 
-### Type of change
+### Fixing Closing issues
 
-Please delete options that are not relevant.
+This pull request closes #ISSUE_NUMBER
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
+### Type of change/s 
+(you can delete options that are not relevant.)
+
+- [ ] Bug fix
+- [ ] New feature 
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
 ### How Has This Been Tested?
 
-Please describe the tests that you ran to verify your changes. Please also note any relevant details for your test configuration.
+- [ ] tested
 
-- [ ] Test A
-- [ ] Test B
+In what browser/s? 
 
 ### Checklist:
 
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
+
+( Doesn't apply to this repo: 
 - [ ] New and existing unit tests pass locally with my changes
 - [ ] Any dependent changes have been merged and published in downstream modules
+)
 
-### Closing issues
 
-This pull request closes #ISSUE_NUMBER
