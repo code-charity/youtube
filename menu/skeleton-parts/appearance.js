@@ -226,6 +226,11 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideEndscreen"
 			},
+			hide_includes_paid_promotion:{
+			component: 'switch',
+			text: 'hideIncludesPaidPromotion',
+			storage: 'hide_includes_paid_promotion',
+			},
 			remove_black_bars: {
 				component: "switch",
 				text: "removeBlackBars",
