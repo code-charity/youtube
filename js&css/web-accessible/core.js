@@ -397,6 +397,10 @@ document.addEventListener('it-message-from-extension', function () {
 					ImprovedTube.subtitlesUserSettings();
 					break
 
+				case 'playerHideProgressPreview':
+					ImprovedTube.playerHideProgressPreview();
+					break
+
 				case 'playerHideControls':
 					ImprovedTube.playerControls();
 					break
