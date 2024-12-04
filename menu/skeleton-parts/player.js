@@ -1052,6 +1052,15 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'forceSDR',
 			storage: 'player_SDR'
+			},
+		recommended_videos_min_duration: {
+			component: 'slider',
+			text: 'Minimum Duration for Recommended Videos',
+			min: 0,
+			max: 600,
+			step: 10,
+			value: 0,
+			storage: 'recommended_videos_min_duration'
 		}
 	},
 	section_2: {
