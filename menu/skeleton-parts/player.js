@@ -84,11 +84,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'autoplayDisable',
 			storage: 'player_autoplay_disable'
 		},
-		hide_includes_paid_promotion:{
-			component: 'switch',
-			text: 'hideIncludesPaidPromotion',
-			storage: 'hide_includes_paid_promotion',
-		},
 		up_next_autoplay: {
 			component: 'switch',
 			text: 'upNextAutoplay',
