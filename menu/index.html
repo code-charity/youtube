@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
-<title>ImprovedTube</title><style>body{width:320px;max-width:320px; margin:0; height:586px;max-height:586px;"}</style>
+<title>ImprovedTube</title><style>body{width:320px; max-width:396px; margin:0; min-height:522px; height: 586px; max-height:586px;}</style>
 <script src="satus.js"></script>
 <script src="skeleton.js"></script>
 <script src="functions.js"></script>
@@ -32,4 +32,9 @@
 <link rel="stylesheet" href="styles/settings.css">
 <link rel="stylesheet" href="styles/themes.css">
 </head><body><div id="loading" style="animation: 3s linear 0s 1 normal none running fadeIn; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 3px solid rgb(182, 233, 255); border-radius: 80px; padding: 37px; color: rgb(120, 147, 161);">...asking your browser what settings you made here before...</div>
+ <script> if (window.location.href.includes('chrome://extensions/?options=')) {
+    body.style.setProperty('height', '523px', 'important');
+    body.style.setProperty('width', '396px', 'important');
+  } 
+</script> 
 </body></html>

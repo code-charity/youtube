@@ -304,6 +304,14 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
+				case 'playerCinemaModeButton'	:
+					if (ImprovedTube.storage.player_cinema_mode_button === false) {
+						if (ImprovedTube.elements.buttons['it-cinema-mode-button']) {
+							ImprovedTube.elements.buttons['it-cinema-mode-button']?.remove();
+							ImprovedTube.elements.buttons['it-cinema-mode-styles']?.remove();
+						}
+					}
+
 				case 'playerRepeatButton':
 					if (ImprovedTube.storage.player_repeat_button === false) {
 						if (ImprovedTube.elements.buttons['it-repeat-button']) {
@@ -397,6 +405,10 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'subtitlesFontOpacity':
 				case 'subtitlesBackgroundOpacity':
 					ImprovedTube.subtitlesUserSettings();
+					break
+
+				case 'playerHideProgressPreview':
+					ImprovedTube.playerHideProgressPreview();
 					break
 
 				case 'playerHideControls':

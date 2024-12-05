@@ -683,6 +683,7 @@ html:not([data-page-type=channel]) .it-blocklisted-channel:hover ytd-thumbnail {
 	color: var(--paper-tooltip-text-color, white);
 	border-radius: 2px;
 	background-color: var(--paper-tooltip-background, #616161);
+	z-index: 1002;
 }
 
 /*------------------------------------------------------------------------------
