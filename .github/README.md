@@ -10,7 +10,7 @@ Downloads:
 [Edge](https://microsoftedge.microsoft.com/addons/detail/improve-youtube-video-/knbckijjjbmkjiagojjneoplbjilfllc)
 [Whale](https://store.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa)
 [Opera](https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/)
-[Github](https://github.com/code-for-charity/ImprovedTube-for-YouTube/releases/latest)
+[Github](https://github.com/code-charity/ImprovedTube-for-YouTube/releases/latest)
 
 # Recommended by
 - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/)
@@ -25,6 +25,45 @@ Downloads:
 
 # Contributing
 For more info on how to contribute, see the [contributing wiki](https://github.com/code-charity/ImprovedTube-for-YouTube/wiki/Contributing").
+
+### 💡 Vision for Open-Source Efficiency: 🌱 [`Auto Contributors`](https://github.com/code-charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
+(Compare: Wikipedia Bots. Would especially help medium-size projects.) <br>
+(+[community-list of regEx](https://github.com/code-charity/the-RegEx-Collector--Queries--Patterns " - ")?)
+
+### 💡 Vision for the _(tweaking-/userStyle-/"modding-"_)Community:
+We can optimize things for the world, greatly prioritized: [<img src="github.png" height="18px">Crowd Fixes](https://github.com/code-charity/Universal-UserTweaks) <br>  ( <i> "insteada just tweakin@home like Sisyphos" </i> )
+
+### 💡 Got great ideas?
+Please notify us if you have relavant (volunteer) work beyond this project! (or ideas@improvedtube.com)
+- [Wish-Factory](https://github.com/code-charity/wish-factory "💡")
+
+## 🎁 Our Extensions:
+**Superb:**
+- [**History Manager<**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj) <a href="https://github.com/code-charity/history-manager"><img src="github.png" height="18px"></a><br>
+**Global / Filters:**
+- [**unFreeze me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) Unlock your Right-Click, Ctrl+F, Selection anywhere!") [<img src="github.png" height="18px">](https://github.com/code-charity/unlock-keyboard-and-mouse)
+- [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) - Universal dark-mode! [<img src="github.png" height="18px">](https://github.com/code-charity/dark-mode)
+**Research:**
+- [Ultimate Regex](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")[<img src="github.png" height="18px">](https://github.com/code-charity/regex)
+- [Regex Replace](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[<img src="github.png" height="18px">](https://github.com/code-charity/ultimate-REGEX-extension/issues/3)
+**Browser:**
+- [Custom user agent](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-charity/user-agent)
+- [auto-scroll](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch) [<img src="github.png" height="18px">](https://github.com/code-charity/auto-scroll)
+**Video / Media:** (integrate them in this extension please)
+- [Looper](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)[<img src="github.png" height="18px">](https://github.com/code-charity/looper)
+- [Frame by Frame](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)[<img src="github.png" height="18px">](https://github.com/code-charity/frame-by-frame)
+- [unBlob](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-charity/unblob "please fix/adopt me!") (<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-charity/equalizer)</del></i>)
+**Home:**
+- [Start Page tabs](https://github.com/code-charity/start-page)
+- [TextEditor](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka)[<img src="github.png" height="18px">](https://github.com/code-charity/Editor)
+- [ToDo](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-charity/todo)
+**Development:**
+- [**Satus**](https://github.com/code-charity/satus) (Our JS library)
+- [`WebGL.js`](https://github.com/code-charity/webgl.js) - WebGL Library
+- [endless grid](https://github.com/code-charity/pluviam)
+- [CodeEditor](https://github.com/code-charity/code-editor)
+- [TE](https://github.com/code-charity/theme-engine)
+- [Viscum Player](https://github.com/code-charity/viscum-player) - video.js?
 
 # Roadmap ✔️
  - [ ] _Find [developers](https://github.com/code-charity/youtube/discussions/1881) and patreons._
