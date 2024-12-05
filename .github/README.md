@@ -3,6 +3,15 @@
 **`ImprovedTube`** is a powerful but lightweight extension,
 to enrich your video experience & enable your content selection.
 
+Downloads:
+[Chrome](https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd)
+[Safari](https://apps.apple.com/us/app/improved-tube/id1672777754)
+[Firefox](https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/)
+[Edge](https://microsoftedge.microsoft.com/addons/detail/improve-youtube-video-/knbckijjjbmkjiagojjneoplbjilfllc)
+[Whale](https://store.whale.naver.com/detail/npfgdbojchpofhjdleehaoddbmbonbpa)
+[Opera](https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/)
+[Github](https://github.com/code-for-charity/ImprovedTube-for-YouTube/releases/latest)
+
 # Recommended by
 - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/)
   Recommended: *"We're talking about carefully curated gems that meet the highest standards
@@ -11,11 +20,11 @@ to enrich your video experience & enable your content selection.
   *"This Might Be the Only YouTube Browser Extension You'll Ever Need"*
 - [ghacks.net](https://www.ghacks.net/2021/03/26/improved-youtube-enhances-youtube-in-meaningful-ways/)
   *"Improved YouTube! enhances YouTube in meaningful ways"*
-  
+
 <!-- - [chip.de](https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html) -->
 
 # Contributing
-For more info on how to contribute, see the [contributing wiki](https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing").
+For more info on how to contribute, see the [contributing wiki](https://github.com/code-charity/ImprovedTube-for-YouTube/wiki/Contributing").
 
 # Roadmap ✔️
  - [ ] _Find [developers](https://github.com/code-charity/youtube/discussions/1881) and patreons._
@@ -27,129 +36,128 @@ For more info on how to contribute, see the [contributing wiki](https://github.c
    - [Userscripts](https://greasyfork.org/en/scripts?sort=total_installs#:~:text=HTML5%20Video)
    - [Nova](https://github.com/raingart/Nova-YouTube-extension)
    - [youtube-refined](https://github.com/MarcGuiselin/youtube-refined) filters and more ([i](https://github.com/ThomasTavernier/Improve-Crunchyroll) [p](https://github.com/ppixiv/ppixiv) [r](https://github.com/refined-github/refined-github) [o](https://github.com/ovity/octotree)...)
-   - [ ] Smart player [buttons](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1445) for all `<video>`s
+   - [ ] Smart player [buttons](https://github.com/code-charity/ImprovedTube-for-YouTube/issues/1445) for all `<video>`s
  - [ ] Clean YT's DOM? (and avoid CPU rendering)
- - [ ] Smart [filtering/discovery](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1451), [YT.js](https://github.com/LuanRT/YouTube.js), [M](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1463), [D](https://github.com/code-charity/youtube/issues?q=is%3Aopen+sort%3Aupdated-desc+label%3A%22%3Cmeta%3E+data%22)
-   - [ ] Integrate data [#1452](https://github.com/code-for-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.
+ - [ ] Smart [filtering/discovery](https://github.com/code-charity/ImprovedTube-for-YouTube/issues/1451), [YT.js](https://github.com/LuanRT/YouTube.js), [M](https://github.com/code-charity/ImprovedTube-for-YouTube/issues/1463), [D](https://github.com/code-charity/youtube/issues?q=is%3Aopen+sort%3Aupdated-desc+label%3A%22%3Cmeta%3E+data%22)
+   - [ ] Integrate data [#1452](https://github.com/code-charity/ImprovedTube-for-YouTube/issues/1452), [SB](https://github.com/mchangrh/sb-mirror) / [NB](https://github.com/andrewzlee/NeuralBlock) etc.
  - [ ] Full-page GUI: History & Dashboard
  - [ ] Consider m.youtube.com
  - [ ] Ask Samsung Browser to list us
 
 # Translation ♡
-<code>✔️ [EN](https://github.com/code-charity/youtubeblob/master/_locales/en/messages.json)</code><br>
-<code>[en_GB](https://github.com/code-charity/youtubeblob/master/_locales/en_GB/messages.json) : [Korbough](https://github.com/Korbough)</code><br>Proofreaders:<code>(You?)</code><br>
-<code>[CN(zh_CN)](https://github.com/code-charity/youtubeblob/master/_locales/zh_CN/messages.json") : [niceRAM](https://github.com/niceRAM) [ausers](https://github.com/ausers)</code><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/zh_TW/messages.json" title="中文 (繁體)">CN(zh_TW)</a></code> :
-<a href="https://github.com/Still34" title="✨🏆"><code>Still34</code></a>
-<a href="https://github.com/water903"><code>water903</code></a>  <br>
-<a href="https://github.com/suitangi"><code>suitangi</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/es/messages.json" title="Español">ES</a></code> :
-<a href="https://github.com/Kioraga"><code>Kioraga</code></a>
-<a href="https://github.com/Compvictor"><code>Compvictor</code></a>
-<a href="https://github.com/dimateos"><code>dimateos</code></a><br>
-<a href="https://github.com/DMCS20"><code>DMCS20</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/hi/messages.json" title="हिन्दी">HI</a></code> :
-<a href="https://github.com/monishamandal02"><code>monishamandal02</code></a>
-<a href="https://github.com/BRAVO68WEB"><code>BRAVO68WEB</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/fr/messages.json" title="Français">FR</a></code> :
-<a href="https://github.com/leghort"><code>leghort</code></a>
-<a href="https://github.com/Eymiks"><code>Eymiks</code></a>
-<a href="https://github.com/Solvabl"><code>Solvabl</code></a><br>
-<code><a href="https://github.com/code-charity/youtube-Extension/blob/master/_locales/ar/messages.json" title="العربية">AR</a></code> :
-<a href="https://github.com/Raayib"><code>Raayib</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/bn/messages.json" title="বাংলা">BN</a></code> :
-<a href="https://github.com/BRAVO68WEB" title="✨🏆"><code>BRAVO68WEB</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/ru/messages.json" title="Русский">RU</a></code> :
-<a href="https://github.com/qweered"><code>qweered</code></a>
-<a href="https://github.com/alexesprit"><code>alexesprit</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/pt_BR/messages.json" title="Português (Brasil)">pt_BR</a></code> :
-<a href="https://github.com/dthiago" title="✨🏆"><code>dthiago</code></a>
-<a href="https://github.com/Mike-Correa"><code>Mike-Correa</code></a><br>
-<a href="https://github.com/DavidBrazSan"><code>DavidBrazSan</code></a>
-<a href="https://github.com/unnamed-orbert"><code>unnamed-orbert :)</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/pt_PT/messages.json" title="Português">PT</a></code> :
-<a href="https://github.com/DrNopt"><code>DrNopt</code></a>
-<a href="https://github.com/unnamed-orbert"><code>unnamed-orbert</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/id/messages.json" title="Bahasa Indonesia">ID</a></code> :
-<a href="https://github.com/Bagus23"><code>Bagus23</code></a>
-<a href="https://github.com/fdciabdul"><code>A.Muttaqin</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/de/messages.json" title="Deutsch">DE</a></code> :
-<a href="https://github.com/Termuellinator" title="✨🏆"><code>Termuellinator</code></a>
-<a href="https://github.com/css-smueller"><code>css-smueller</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/ja/messages.json" title="日本語">JA</a></code> :
-<a href="https://github.com/utuhiro78" title="✨🏆"><code>utuhiro78</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/tr/messages.json" title="Türkçe">TR</a></code> :
-<a href="https://github.com/onurdumangoz"><code>onurdumangoz</code></a>
-<a href="https://github.com/decimaldreamer"><code>decimaldreamer</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/vn/messages.json" title="Vietnamese">VN</a></code> :
-<a href="https://github.com/zeref-dragneel"><code>zeref-dragneel</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/ko/messages.json" title="한국어">KO</a></code> :
-<a href="https://github.com/msc9533"><code>msc9533</code></a>
-<a href="https://github.com/LYHyoung"><code>LYHyoung</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/fa_IR/messages.json" title="فارسی">(Iranian) Persian</a></code> :
-<a href="https://github.com/AC-Lover"><code>AC Lover</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/it/messages.json" title="Italiano">IT</a></code> :
-<a href="https://github.com/urfausto" title="✨🏆"><code>urfausto</code></a>
-<a href="https://github.com/FedericoSlongo"><code>FedericoSlongo</code></a><br>
-<code>❌<a href="https://github.com/code-charity/youtubeblob/master/_locales/th/messages.json" title="Thai">TH Thai</a></code> :
+<code>✔️ [EN](https://github.com/code-charity/youtube/blob/master/_locales/en/messages.json)</code><br>
+<code>[en_GB](https://github.com/code-charity/youtube/blob/master/_locales/en_GB/messages.json) : [Korbough](https://github.com/Korbough)</code><br>Proofreaders:<code>(You?)</code><br>
+<code>[CN(zh_CN)](https://github.com/code-charity/youtube/blob/master/_locales/zh_CN/messages.json") : [niceRAM](https://github.com/niceRAM) [ausers](https://github.com/ausers)</code><br>
+<code>[CN(zh_TW)](https://github.com/code-charity/youtube/blob/master/_locales/zh_TW/messages.json)</code> :
+[<code>Still34</code>](https://github.com/Still34)
+[<code>water903</code>](https://github.com/water903)  <br>
+[<code>suitangi</code>](https://github.com/suitangi)<br>
+<code>[ES](https://github.com/code-charity/youtube/blob/master/_locales/es/messages.json)</code> :
+[<code>Kioraga</code>](https://github.com/Kioraga)
+[<code>Compvictor</code>](https://github.com/Compvictor)
+[<code>dimateos</code>](https://github.com/dimateos)<br>
+[<code>DMCS20</code>](https://github.com/DMCS20)<br>
+<code>[HI](https://github.com/code-charity/youtube/blob/master/_locales/hi/messages.json)</code> :
+[<code>monishamandal02</code>](https://github.com/monishamandal02)
+[<code>BRAVO68WEB</code>](https://github.com/BRAVO68WEB)<br>
+<code>[FR](https://github.com/code-charity/youtube/blob/master/_locales/fr/messages.json)</code> :
+[<code>leghort</code>](https://github.com/leghort)
+[<code>Eymiks</code>](https://github.com/Eymiks)
+[<code>Solvabl</code>](https://github.com/Solvabl)<br>
+<code>[AR](https://github.com/code-charity/youtube-Extension/blob/master/_locales/ar/messages.json)</code> :
+[<code>Raayib</code>](https://github.com/Raayib)<br>
+<code>[BN](https://github.com/code-charity/youtube/blob/master/_locales/bn/messages.json)</code> :
+[<code>BRAVO68WEB</code>](https://github.com/BRAVO68WEB)<br>
+<code>[RU](https://github.com/code-charity/youtube/blob/master/_locales/ru/messages.json)</code> :
+[<code>qweered</code>](https://github.com/qweered)
+[<code>alexesprit</code>](https://github.com/alexesprit)<br>
+<code>[pt_BR](https://github.com/code-charity/youtube/blob/master/_locales/pt_BR/messages.json)</code> :
+[<code>dthiago</code>](https://github.com/dthiago)
+[<code>Mike-Correa</code>](https://github.com/Mike-Correa)<br>
+[<code>DavidBrazSan</code>](https://github.com/DavidBrazSan)
+[<code>unnamed-orbert :)</code>](https://github.com/unnamed-orbert)<br>
+<code>[PT](https://github.com/code-charity/youtube/blob/master/_locales/pt_PT/messages.json)</code> :
+[<code>DrNopt</code>](https://github.com/DrNopt)
+[<code>unnamed-orbert</code>](https://github.com/unnamed-orbert)<br>
+<code>[ID](https://github.com/code-charity/youtube/blob/master/_locales/id/messages.json)</code> :
+[<code>Bagus23</code>](https://github.com/Bagus23)
+[<code>A.Muttaqin</code>](https://github.com/fdciabdul)<br>
+<code>[DE](https://github.com/code-charity/youtube/blob/master/_locales/de/messages.json)</code> :
+[<code>Termuellinator</code>](https://github.com/Termuellinator)
+[<code>css-smueller</code>](https://github.com/css-smueller)<br>
+<code>[JA](https://github.com/code-charity/youtube/blob/master/_locales/ja/messages.json)</code> :
+[<code>utuhiro78</code>](https://github.com/utuhiro78)<br>
+<code>[TR](https://github.com/code-charity/youtube/blob/master/_locales/tr/messages.json)</code> :
+[<code>onurdumangoz</code>](https://github.com/onurdumangoz)
+[<code>decimaldreamer</code>](https://github.com/decimaldreamer)<br>
+<code>[VN](https://github.com/code-charity/youtube/blob/master/_locales/vn/messages.json)</code> :
+[<code>zeref-dragneel</code>](https://github.com/zeref-dragneel)<br>
+<code>[KO](https://github.com/code-charity/youtube/blob/master/_locales/ko/messages.json)</code> :
+[<code>msc9533</code>](https://github.com/msc9533)
+[<code>LYHyoung</code>](https://github.com/LYHyoung)<br>
+<code>[(Iranian) Persian](https://github.com/code-charity/youtube/blob/master/_locales/fa_IR/messages.json)</code> :
+[<code>AC Lover</code>](https://github.com/AC-Lover)<br>
+<code>[IT](https://github.com/code-charity/youtube/blob/master/_locales/it/messages.json)</code> :
+[<code>urfausto</code>](https://github.com/urfausto)
+[<code>FedericoSlongo</code>](https://github.com/FedericoSlongo)<br>
+<code>❌[TH Thai](https://github.com/code-charity/youtube/blob/master/_locales/th/messages.json)</code> :
 [(You?)](https://github.com/????????)</code><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/pl/messages.json" title="Polski">PL</a></code> :
-<a href="https://github.com/FluidExtractor" title="✨🏆"><code>FluidExtractor</code></a><br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/uk/messages.json" title="Ukrainian">Ukrainian</a></code> :
+<code>[PL](https://github.com/code-charity/youtube/blob/master/_locales/pl/messages.json)</code> :
+[<code>FluidExtractor</code>](https://github.com/FluidExtractor)<br>
+<code>`❌`[Ukrainian](https://github.com/code-charity/youtube/blob/master/_locales/uk/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Hebrew">Hebrew</a></code> :
+<code>`❌`[Hebrew](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Czech">Czech</a></code> :
+<code>`❌`[Czech](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/sv/messages.json" title="Swedish">SE</a></code> :
-<a href="https://github.com/KiloBravoBFE"><code>KiloBravoBFE</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/nl/messages.json" title="Nederlands">NL</a></code> :
-<a href="https://github.com/aron-hoogeveen"><code>aron-hoogeveen</code></a>
-<a href="https://github.com/Vistaus"><code>Vistaus</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/ro/messages.json" title="Română">RO</a></code> :
-<a href="https://github.com/hateofhades"><code>hateofhades</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/si/messages.json" title="සිංහල (Sri Lanka)">SI</a></code> :
-<a href="https://github.com/AshenNethsara"><code>AshenNethsara</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/el/messages.json" title="ελληνικά">EL(Greek)</a></code> :
-<a href="https://github.com/molyvius"><code>molyvius</code></a><br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Danish">DA Danish</a></code> :
+<code>[SE](https://github.com/code-charity/youtube/blob/master/_locales/sv/messages.json)</code> :
+[<code>KiloBravoBFE</code>](https://github.com/KiloBravoBFE)<br>
+<code>[NL](https://github.com/code-charity/youtube/blob/master/_locales/nl/messages.json)</code> :
+[<code>aron-hoogeveen</code>](https://github.com/aron-hoogeveen)
+[<code>Vistaus</code>](https://github.com/Vistaus)<br>
+<code>[RO](https://github.com/code-charity/youtube/blob/master/_locales/ro/messages.json)</code> :
+[<code>hateofhades</code>](https://github.com/hateofhades)<br>
+<code>[SI](https://github.com/code-charity/youtube/blob/master/_locales/si/messages.json)</code> :
+[<code>AshenNethsara</code>](https://github.com/AshenNethsara)<br>
+<code>[EL(Greek)](https://github.com/code-charity/youtube/blob/master/_locales/el/messages.json)</code> :
+[<code>molyvius</code>](https://github.com/molyvius)<br>
+<code>`❌`[DA Danish](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Hungarian">Hungarian</a></code> :
+<code>`❌`[Hungarian](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Finnish">FI Finnish</a></code> :
+<code>`❌`[FI Finnish](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Serbian">Serbian</a></code> :
+<code>`❌`[Serbian](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Slovak">Slovak</a></code> :
+<code>`❌`[Slovak](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Bulgarian">BG Bulgarian</a></code> :
+<code>`❌`[BG Bulgarian](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/nb_NO/messages.json" title="Norsk Bokmål">no_NB</a></code> :
-<a href="https://github.com/comradekingu"><code>comradekingu</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/hr/messages.json" title="Hrvatski">HR(Croatian)</a></code> :
-<a href="https://github.com/mbeara"><code>mbeara</code></a><br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Croatian">Croatian</a></code> :
+<code>[no_NB](https://github.com/code-charity/youtube/blob/master/_locales/nb_NO/messages.json)</code> :
+[<code>comradekingu</code>](https://github.com/comradekingu)<br>
+<code>[HR(Croatian)](https://github.com/code-charity/youtube/blob/master/_locales/hr/messages.json)</code> :
+[<code>mbeara</code>](https://github.com/mbeara)<br>
+<code>`❌`[Croatian](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/no/messages.json" title="Norsk">NO</a></code> :
-<a href="https://github.com/master3395"><code>master3395</code></a>
-<a href="https://github.com/comradekingu"><code>comradekingu</code></a><br>
-<code><a href="https://github.com/code-charity/youtubeblob/master/_locales/sk/messages.json" title="Slovenčina">SK</a></code> :
-<a href="https://github.com/bbc-s"><code>bbc-s</code></a><br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Catalan, Valencian">Catalan, Valencian</a></code> :
+<code>[NO](https://github.com/code-charity/youtube/blob/master/_locales/no/messages.json)</code> :
+[<code>master3395</code>](https://github.com/master3395)
+[<code>comradekingu</code>](https://github.com/comradekingu)<br>
+<code>[SK](https://github.com/code-charity/youtube/blob/master/_locales/sk/messages.json)</code> :
+[<code>bbc-s</code>](https://github.com/bbc-s)<br>
+<code>`❌`[Catalan, Valencian](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
-<code><code>❌</code><a href="https://github.com/code-charity/youtubeblob/master/_locales/____/messages.json" title="Estonian">Estonian</a></code> :
+<code>`❌`[Estonian](https://github.com/code-charity/youtube/blob/master/_locales/____/messages.json)</code> :
 [(You?)](https://github.com/????????)<br>
 
 <div align="center">
 
 [Help us translate](https://github.com/code-charity/YouTube-Extension/wiki/Translations)
-
 here, or on [Crowdin](https://crowdin.com/project/1655556")
 </div>
 
 # Development
 ## 🔧 Install from source
-1. **Download & extract the [[latest🧪version]](https://github.com/code-charity/youtube-Extension/archive/refs/heads/master.zip) or  [[release]](https://github.com/code-for-charity/YouTube-Extension/releases)**
+1. **Download & extract the [[latest🧪version]](https://github.com/code-charity/youtube-Extension/archive/refs/heads/master.zip) or  [[release]](https://github.com/code-charity/YouTube-Extension/releases)**
 - **Safari**:
   - [Issue #494](https://github.com/code-charity/youtube-Extension/issues/494#issuecomment-675098753)
 
