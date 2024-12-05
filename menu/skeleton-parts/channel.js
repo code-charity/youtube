@@ -63,7 +63,10 @@ extension.skeleton.main.layers.section.channel = {
 						const apiKey = YOUTUBE_API_KEY;
 						const switchElement = event.target.closest('.satus-switch');
                         const isChecked = switchElement && switchElement.dataset.value === 'true';
-						console.log(isChecked)
+
+						// Store the switch state in chrome.storage.local
+						chrome.storage.local.set( { switchState: isChecked } );
+
 						try {
 							const videoId = await getCurrentVideoId();
 							const videoInfo = await getVideoInfo(apiKey, videoId);
@@ -72,7 +75,7 @@ extension.skeleton.main.layers.section.channel = {
 							const channelInfo = await getChannelInfo(apiKey, channelId);
 							
 							chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-								console.log("Sending message to content.js");
+								//console.log("Sending message to content.js");
 								chrome.tabs.sendMessage(tabs[0].id, {
 									action: isChecked ? 'append-channel-info' : 'remove-channel-info',
 									channelName: channelInfo.channelName,
@@ -131,7 +134,7 @@ extension.skeleton.main.layers.section.channel = {
 async function getCurrentVideoId() {
     return new Promise((resolve, reject) => {
         chrome.storage.local.get('videoId', (result) => {
-			console.log('Retrieved video ID from storage:', result.videoId); // Debugging log
+			//console.log('Retrieved video ID from storage:', result.videoId); // Debugging log
             if (result.videoId) {
                 resolve(result.videoId);
             } else {
@@ -145,7 +148,6 @@ async function getVideoInfo(apiKey, videoId) {
 	const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet,contentDetails,statistics,status`);
 	const data = await response.json();
 	const video = data?.items[0];
-	console.log(video)
 	
 	return video;
 }
@@ -154,10 +156,8 @@ async function getChannelInfo(apiKey, channelId) {
 	const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?id=${channelId}&key=${apiKey}&part=snippet,contentDetails,statistics,status`);
 	const data = await response.json();
 	const channel = data.items[0];
-	console.log(channel);
 	const customUrl = channel.snippet.customUrl;
 	const channelName = channel.snippet.title;
-	// const uploadTime = new Date(channel.snippet.publishedAt).toLocaleString();
 	const videoCount = channel.statistics.videoCount;
 
 	return {channelName, videoCount, customUrl};
