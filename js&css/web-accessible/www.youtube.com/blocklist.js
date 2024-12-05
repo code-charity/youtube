@@ -150,7 +150,7 @@ ImprovedTube.blocklistChannel = function (node) {
 			node.parentNode.parentNode.appendChild(button);
 		}
 	});
-	this.blocklistChannelObserver.observe(node.parentNode.parentNode, {childList: true, subtree: true});
+	this.blocklistChannelObserver.observe(node.parentNode.parentNode, { childList: true, subtree: true });
 };
 
 ImprovedTube.blocklistInit = function () {
@@ -158,7 +158,7 @@ ImprovedTube.blocklistInit = function () {
 		// initialize and (re)scan whole page. Called on load after 'storage-loaded'
 		// and blocklist 'storage-changed' event (adding/removing blocks)
 		if (!this.storage.blocklist || typeof this.storage.blocklist !== 'object') {
-			this.storage.blocklist = {videos: {}, channels: {}};
+			this.storage.blocklist = { videos: {}, channels: {} };
 		}
 		if (!this.storage.blocklist.videos || typeof this.storage.blocklist.channels !== 'object') {
 			this.storage.blocklist.videos = {};
@@ -233,31 +233,31 @@ ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 ImprovedTube.blocklistElementTypeHelper = function (node) {
 	switch (node.parentNode.className.replace('style-scope ', '')) {
 		case 'ytd-compact-video-renderer':
-			// list next to player
-			// node.parentNode.__dataHost.$.dismissible;
+		// list next to player
+		// node.parentNode.__dataHost.$.dismissible;
 		case 'ytd-rich-item-renderer':
-			// short reel
+		// short reel
 		case 'ytd-rich-grid-media':
-			// grid reel
+		// grid reel
 		case 'ytd-rich-grid-slim-media':
-			// short grid reel
+		// short grid reel
 		case 'ytd-playlist-video-renderer':
-			// playlist page
+		// playlist page
 		case 'ytd-playlist-panel-video-renderer':
-			// playlist next to player
-			// node.parentNode.closest('ytd-playlist-panel-video-renderer')
+		// playlist next to player
+		// node.parentNode.closest('ytd-playlist-panel-video-renderer')
 		case 'ytd-structured-description-video-lockup-renderer':
-			// list under the player
-			// node.parentNode.closest('ytd-structured-description-video-lockup-renderer')
-			// or even node.parentNode.closest('ytd-compact-infocard-renderer') === node.parentNode.parentNode.parentNode.parentNode
+		// list under the player
+		// node.parentNode.closest('ytd-structured-description-video-lockup-renderer')
+		// or even node.parentNode.closest('ytd-compact-infocard-renderer') === node.parentNode.parentNode.parentNode.parentNode
 		case 'ytd-video-renderer':
-			// search results
+		// search results
 		case 'ytd-video-preview':
 			// subscriptions/search thumbnail video-preview
 			return node.parentNode.parentNode.parentNode;
 
 		case 'ytd-grid-video-renderer':
-			// channel home screen grid
+		// channel home screen grid
 		case 'ytd-reel-item-renderer':
 			// reel
 			return node.parentNode.parentNode;

@@ -206,7 +206,7 @@ extension.skeleton.main = {
 		component: 'layers',
 		on: {
 			open: function () {
-				var skeleton = satus.last(this.path),
+				let skeleton = satus.last(this.path),
 					section = this.baseProvider.skeleton.header.sectionStart,
 					title = 'ImprovedTube';
 

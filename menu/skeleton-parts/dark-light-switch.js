@@ -1,6 +1,6 @@
 const isDark = () => {
 	const themeElement = satus.storage.get('theme')
-	const lightThemes = ['desert', 'dawn', 'plain', 'default']
+//	const lightThemes = ['desert', 'dawn', 'plain', 'default']
 	const darkThemes = ['sunset', 'night', 'dark', 'black']
 	return darkThemes.includes(themeElement)
 }
