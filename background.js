@@ -323,41 +323,48 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 			break;
 		
 		case 'store-video-id':
-			console.log('Storing video ID:', message.videoId); // Debugging log
+			//console.log('Storing video ID:', message.videoId); // Debugging log
 			if (message.videoId) {
 				chrome.storage.local.set({ videoId: message.videoId }, function() {
-					console.log('Video ID stored:', message.videoId); // Debugging log
+					//console.log('Video ID stored:', message.videoId); // Debugging log
 					sendResponse({ status: 'success' });
 				});
 			} else {
 				sendResponse({ status: 'error', message: 'No video ID provided' });
 			}
 			return true; // Indicates that sendResponse will be called asynchronously
-			
-			case 'fetch-new-data':
-				chrome.storage.local.get('videoId', async function(result) {
-					const videoId = result.videoId;
-					const apiKey = "AIzaSyA0r8em0ndGCnx6vZu1Tv6T0iyLW4nB1jI"; // Replace with your YouTube Data API key
-					try {
-						const videoInfo = await getVideoInfo(apiKey, videoId);
-						const channelId = videoInfo.snippet.channelId;
-						const channelInfo = await getChannelInfo(apiKey, channelId);
-						
-						chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-							console.log("Sending message to content.js");
-							chrome.tabs.sendMessage(tabs[0].id, {
-								action: 'append-channel-info',
-								channelName: channelInfo.channelName,
-								uploadTime: new Date(videoInfo.snippet.publishedAt).toLocaleString(),
-								videoCount: channelInfo.videoCount,
-								customUrl: channelInfo.customUrl
-							});
+		
+		case 'check-switch-state':
+			chrome.storage.local.get('switchState', function(result) {
+				//console.log('Switch state:', result.switchState);
+				sendResponse( {isSwitchOn: result.switchState});
+			});	
+			return true;
+
+		case 'fetch-new-data':
+			chrome.storage.local.get('videoId', async function(result) {
+				const videoId = result.videoId;
+				const apiKey = "AIzaSyA0r8em0ndGCnx6vZu1Tv6T0iyLW4nB1jI"; // Replace with your YouTube Data API key
+				try {
+					const videoInfo = await getVideoInfo(apiKey, videoId);
+					const channelId = videoInfo.snippet.channelId;
+					const channelInfo = await getChannelInfo(apiKey, channelId);
+					
+					chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+						//console.log("Sending message to content.js");
+						chrome.tabs.sendMessage(tabs[0].id, {
+							action: 'append-channel-info',
+							channelName: channelInfo.channelName,
+							uploadTime: new Date(videoInfo.snippet.publishedAt).toLocaleString(),
+							videoCount: channelInfo.videoCount,
+							customUrl: channelInfo.customUrl
 						});
-					} catch (error) {
-						console.error(error);
-					}
-				});
-				return true;	
+					});
+				} catch (error) {
+					console.error(error);
+				}
+			});
+			return true;	
 
 		}
 });
@@ -377,6 +384,7 @@ async function getChannelInfo(apiKey, channelId) {
     const videoCount = channel.statistics.videoCount;
     const customUrl = channel.snippet.customUrl;
 
-    return { channelName, uploadTime, videoCount, customUrl };}
+    return { channelName, uploadTime, videoCount, customUrl };
+}
 /*-----# UNINSTALL URL-----------------------------------*/
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
