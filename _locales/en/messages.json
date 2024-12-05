@@ -650,6 +650,9 @@
     "hideHomePageShorts": {
         "message": "Hide Shorts on the home page"
     },
+    "hideIncludesPaidPromotion": {
+        "message": "Hide \"Includes Paid Promotion\""
+    },
     "hideMore": {
         "message": "Hide '...'"
     },

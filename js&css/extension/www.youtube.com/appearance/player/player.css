@@ -7,6 +7,7 @@
 # Hide annotations
 # Hide endscreen
 # Hide cards
+# Hide "Includes Paid Promotion"
 # Show cards on mouse hover
 # Hide "Scroll for details"
 # Player Size
@@ -625,4 +626,40 @@ html[data-page-type=video][it-hide-top-loading-bar=true] #progress.style-scope.y
 html[data-page-type=video][it-hide-top-loading-bar=true] .ytp-load-progress,
 html[data-page-type=video][it-hide-top-loading-bar=true] .ytp-loading-bar {
     display: none !important;
+}
+
+/*--------------------------------------------------------------
+# HIDE PROGRESS BAR PREVIEW
+--------------------------------------------------------------*/
+html[data-page-type=video][it-hide-progress-preview='true'] .ytp-preview,
+html[data-page-type=video][it-hide-progress-preview='true'] .ytp-tooltip,
+html[data-page-type=video][it-hide-progress-preview='true'] .ytp-tooltip-bg,
+html[data-page-type=video][it-hide-progress-preview='true'] .ytp-tooltip-text,
+html[data-page-type=video][it-hide-progress-preview='true'] .ytp-tooltip-text-wrapper,
+html[data-page-type=video][it-hide-progress-preview='true'] .ytp-chapter-hover-container {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/*--------------------------------------------------------------
+# HIDE "SCROLL FOR DETAILS"
+--------------------------------------------------------------*/
+
+html[it-hide-scroll-for-details='true'] button.ytp-fullerscreen-edu-button {
+	display: none !important;
+}
+
+html[it-hide-scroll-for-details='true'] ytd-app[scrolling_] {
+	overflow: hidden !important;
+}
+
+/*--------------------------------------------------------------
+# HIDE Includes Paid Promotion
+--------------------------------------------------------------*/
+html[data-page-type=video][it-hide-includes-paid-promotion=true] .ytp-paid-content-overlay,
+html[data-page-type=home][it-hide-includes-paid-promotion=true] .YtmPaidContentOverlayLink,
+html[data-page-type=other][it-hide-includes-paid-promotion=true] .YtmPaidContentOverlayLink  {
+  display: none !important;
 }

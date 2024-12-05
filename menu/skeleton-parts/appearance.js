@@ -226,6 +226,11 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideEndscreen"
 			},
+			hide_includes_paid_promotion:{
+			component: 'switch',
+			text: 'hideIncludesPaidPromotion',
+			storage: 'hide_includes_paid_promotion',
+			},
 			remove_black_bars: {
 				component: "switch",
 				text: "removeBlackBars",
@@ -245,7 +250,12 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					text: "always",
 					value: "always"
 				}]
-			},
+			},		
+			player_hide_progress_preview: {
+			component: 'switch',
+			text: 'Hide progress bar preview',
+			storage: 'player_hide_progress_preview',
+			},			
 			player_hide_controls_options: {
 				component: "button",
 				text: "hidePlayerControlsBarButtons",
