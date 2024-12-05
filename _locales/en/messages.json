@@ -149,6 +149,9 @@
     "auto": {
         "message": "Auto"
     },
+    "autoplay": {
+        "message": "Autoplay"
+    },
     "Auto_PiP_picture_in_picture": {
         "message": "Auto-PiP (Picture in Picture)"
     },
