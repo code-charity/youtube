@@ -38,25 +38,32 @@ Please notify us if you have relavant (volunteer) work beyond this project! (or 
 - [Wish-Factory](https://github.com/code-charity/wish-factory "💡")
 
 ## 🎁 Our Extensions:
+
 **Superb:**
 - [**History Manager<**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj) <a href="https://github.com/code-charity/history-manager"><img src="github.png" height="18px"></a><br>
+
 **Global / Filters:**
 - [**unFreeze me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) Unlock your Right-Click, Ctrl+F, Selection anywhere!") [<img src="github.png" height="18px">](https://github.com/code-charity/unlock-keyboard-and-mouse)
 - [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) - Universal dark-mode! [<img src="github.png" height="18px">](https://github.com/code-charity/dark-mode)
+
 **Research:**
 - [Ultimate Regex](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")[<img src="github.png" height="18px">](https://github.com/code-charity/regex)
 - [Regex Replace](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[<img src="github.png" height="18px">](https://github.com/code-charity/ultimate-REGEX-extension/issues/3)
+
 **Browser:**
 - [Custom user agent](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-charity/user-agent)
 - [auto-scroll](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch) [<img src="github.png" height="18px">](https://github.com/code-charity/auto-scroll)
+
 **Video / Media:** (integrate them in this extension please)
 - [Looper](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)[<img src="github.png" height="18px">](https://github.com/code-charity/looper)
 - [Frame by Frame](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)[<img src="github.png" height="18px">](https://github.com/code-charity/frame-by-frame)
 - [unBlob](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-charity/unblob "please fix/adopt me!") (<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-charity/equalizer)</del></i>)
+
 **Home:**
 - [Start Page tabs](https://github.com/code-charity/start-page)
 - [TextEditor](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka)[<img src="github.png" height="18px">](https://github.com/code-charity/Editor)
 - [ToDo](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-charity/todo)
+
 **Development:**
 - [**Satus**](https://github.com/code-charity/satus) (Our JS library)
 - [`WebGL.js`](https://github.com/code-charity/webgl.js) - WebGL Library
