@@ -30,6 +30,7 @@ html {overflow-x: hidden !important}
 6.0 Channel
   6.1 "Play all" button
   6.2 Featured content
+  6.3 Details
 7.0 Shortcuts
 8.0 Settings
   8.1 ImprovedTube icon on YouTube
@@ -312,6 +313,45 @@ html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-cont
 	padding: 0;
 }
 
+/*------------------------------------------------------------------------------
+6.3 Details
+------------------------------------------------------------------------------*/
+.channel-info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 2px;
+	align-items: center;
+	margin-right: 2px;
+}
+.channel-info .channel-name {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 5px;
+}
+.channel-info .upload-time, .channel-info .video-count {
+	color: #555;
+	display: block;
+	margin-bottom: 5px;
+	width: 80px;
+	font-size: 13px;
+	font-weight: bold;
+}
+.channel-info .all-videos-link,
+.channel-info .view-data-link {
+	font-family: 'Roboto', Arial, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	padding: 8px 8px;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.channel-info .all-videos-link:hover,
+.channel-info .view-data-link:hover {
+	text-decoration: underline;
+}
 
 /*------------------------------------------------------------------------------
 7.0 SHORTCUTS
