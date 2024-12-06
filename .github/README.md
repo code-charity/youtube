@@ -34,10 +34,10 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 
 **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> 
 
-<h2>Contributing</h2>
-For more info on how to contribute, see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a>.
-<br><br> Please join us! And let's re-define "<a href="https://en.wikipedia.org/wiki/Browser_extension">extensions</a>"!
-<i>Why are they often unfunded & neglected?</i>
+<h2><a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">Contributing</a></h2>
+For more info on how to contribute, see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a> or <a href="https://github.com/code-charity/youtube/wiki/Contributing#development"> #development</a>
+<br><br><i> Please join us! And let's re-define "<a href="https://en.wikipedia.org/wiki/Browser_extension">extensions</a>"!
+(Why are they often unfunded & neglected?</i>)
 
 <table  align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap</h3> <!-- The list below only stays formatted when there is a line break above --> 
 
@@ -189,18 +189,13 @@ Chinese + Hindi + Spanish. <br></i>
 (And there are so many more: <br> https://www.ethnologue.com/)</div>
 <div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translations">Help us Translate</a>]
 <br> (=here), or on ​<a href="https://crowdin.com/project/1655556">Crowdin</a></div>
-</td></tr></table>  
+</td></tr></table><hr>
 
 ##### 💡 Vision for Open-Source Efficiency: 🌱 [`Auto Contributors`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
-(Compare: Wikipedia Bots. Would especially help medium-size projects.) <br> 
-(+[community-list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
+(Compare: Wikipedia Bots. Would especially help medium-size projects.) (+[list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
 ##### 💡 Vision for the _(tweaking-/userStyle-/"modding-"_)Community:
-We can optimize things for the world, greatly prioritized: [<img src="github.png" height="18px">Crowd Fixes](https://github.com/code-charity/Universal-UserTweaks) <br>  ( <i> "insteada just tweakin@home like Sisyphos" </i> )
-<br>
-##### 💡 Got great ideas?   
-	
-Please notify us if you have relavant (volunteer) work beyond this project! (or ideas@improvedtube.com)
-+ [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡") 
+We can optimize the www's GUI, greatly prioritized: [<img src="github.png" height="18px">Crowd Fixes](https://github.com/code-charity/Universal-UserTweaks) <br> (<i> "insteada just tweakin@home like Sisyphos" </i>) <br>
+##### 💡 Got great ideas? - Notify us? - [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡")  (or ideas@improvedtube.com)
 
 <h4> <code>🎁</code>Our Extensions:</h4></summary>
 	
