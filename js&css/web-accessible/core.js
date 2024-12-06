@@ -377,6 +377,15 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
+				case 'copyVideoId':
+					if (ImprovedTube.storage.copy_video_id === false) {
+						document.querySelector('.improvedtube-player-button[data-tooltip="CopyVideoId"]')?.remove();
+					} else if (ImprovedTube.storage.copy_video_id === true) {
+						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
+						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+					}
+					break
+
 				case 'dayOfWeek':
 					if (ImprovedTube.storage.day_of_week === false) {
 						document.querySelector(".ytd-day-of-week")?.remove();
@@ -415,6 +424,13 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerlistUpNextAutoplay':
 					if (this.storage.playlist_up_next_autoplay !== false) {
 						if (playlistData.currentIndex != playlistData.localCurrentIndex) { playlistData.currentIndex = playlistData.localCurrentIndex;}
+					}
+					break
+				case 'playlistCopyVideoId':
+					if (ImprovedTube.storage.playlist_copy_video_id === false) {
+						document.querySelectorAll('.it-playlist-copy-video-id').forEach(e => e.remove());
+					} else if (ImprovedTube.storage.playlist_copy_video_id === true) {
+						ImprovedTube.playlistCopyVideoIdButton();
 					}
 					break
 			}
