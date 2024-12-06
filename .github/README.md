@@ -1,9 +1,8 @@
-<img src="https://github.com/code-charity/youtube/blob/f466617897ad5d5dd2e2b88e3d0d195a702359b4/menu/icons/32.png">
-
+# <img src="https://github.com/code-charity/youtube/blob/f466617897ad5d5dd2e2b88e3d0d195a702359b4/menu/icons/32.png"> ImprovedTube
 **`ImprovedTube`** is a powerful but lightweight extension,
 to enrich your video experience & enable your content selection.
 
-Downloads:
+**Downloads**:
 [Chrome](https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd)
 [Safari](https://apps.apple.com/us/app/improved-tube/id1672777754)
 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/)
@@ -12,7 +11,7 @@ Downloads:
 [Opera](https://addons.opera.com/de/extensions/details/improvedtube-youtube-extension/)
 [Github](https://github.com/code-charity/ImprovedTube-for-YouTube/releases/latest)
 
-# Recommended by
+## Recommended by
 - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/youtube-addon/)
   Recommended: *"We're talking about carefully curated gems that meet the highest standards
   in security, functionality, and overall user experience"*
@@ -23,7 +22,7 @@ Downloads:
 
 <!-- - [chip.de](https://www.chip.de/downloads/Improve-YouTube-fuer-Chrome_183480435.html) -->
 
-# Contributing
+## Contributing
 For more info on how to contribute, see the [contributing wiki](https://github.com/code-charity/ImprovedTube-for-YouTube/wiki/Contributing").
 
 ### 💡 Vision for Open-Source Efficiency: 🌱 [`Auto Contributors`](https://github.com/code-charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
@@ -37,7 +36,7 @@ We can optimize things for the world, greatly prioritized: [<img src="github.png
 Please notify us if you have relavant (volunteer) work beyond this project! (or ideas@improvedtube.com)
 - [Wish-Factory](https://github.com/code-charity/wish-factory "💡")
 
-## 🎁 Our Extensions:
+### 🎁 Our Extensions:
 
 **Superb:**
 - [**History Manager<**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj) <a href="https://github.com/code-charity/history-manager"><img src="github.png" height="18px"></a><br>
@@ -72,7 +71,7 @@ Please notify us if you have relavant (volunteer) work beyond this project! (or 
 - [TE](https://github.com/code-charity/theme-engine)
 - [Viscum Player](https://github.com/code-charity/viscum-player) - video.js?
 
-# Roadmap ✔️
+## Roadmap ✔️
  - [ ] _Find [developers](https://github.com/code-charity/youtube/discussions/1881) and patreons._
    - [ ] _Many [bugs](https://github.com/code-charity/youtube-Extension/issues?q=label%3Abug+is%3Aopen+-label%3A_+) and [wishes](https://github.com/code-charity/YouTube-Extension/issues?q=label%3A%22Feature+Request%22+is%3Aopen)_
  - [ ] _Documentation and tooltips_
@@ -90,7 +89,7 @@ Please notify us if you have relavant (volunteer) work beyond this project! (or 
  - [ ] Consider m.youtube.com
  - [ ] Ask Samsung Browser to list us
 
-# Translation ♡
+## Translation ♡
 <code>✔️ [EN](https://github.com/code-charity/youtube/blob/master/_locales/en/messages.json)</code><br>
 <code>[en_GB](https://github.com/code-charity/youtube/blob/master/_locales/en_GB/messages.json) : [Korbough](https://github.com/Korbough)</code><br>Proofreaders:<code>(You?)</code><br>
 <code>[CN(zh_CN)](https://github.com/code-charity/youtube/blob/master/_locales/zh_CN/messages.json") : [niceRAM](https://github.com/niceRAM) [ausers](https://github.com/ausers)</code><br>
@@ -201,8 +200,8 @@ Please notify us if you have relavant (volunteer) work beyond this project! (or 
 here, or on [Crowdin](https://crowdin.com/project/1655556")
 </div>
 
-# Development
-## 🔧 Install from source
+## Development
+### 🔧 Install from source
 1. **Download & extract the [[latest🧪version]](https://github.com/code-charity/youtube-Extension/archive/refs/heads/master.zip) or  [[release]](https://github.com/code-charity/YouTube-Extension/releases)**
 - **Safari**:
   - [Issue #494](https://github.com/code-charity/youtube-Extension/issues/494#issuecomment-675098753)
@@ -239,7 +238,7 @@ OR
    - 5.) Click on "Load Temporary Add-on…"
    - 6.) Select the `manifest.json` file from unzipped folder
 
-#### Web browser support
+### Web browser support
 |[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://addons.opera.com/en/extensions/details/install-chrome-extensions/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
