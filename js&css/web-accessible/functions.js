@@ -344,6 +344,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerFitToWinButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
+		ImprovedTube.playerHideProgressPreview();
 		ImprovedTube.expandDescription();
 		setTimeout(function () {ImprovedTube.forcedTheaterMode(); }, 150);
 		if (location.href.indexOf('/embed/') === -1) { ImprovedTube.miniPlayer(); }
@@ -415,6 +416,31 @@ if (document.documentElement.dataset.pageType === 'video'
 	}
 }
 
+/*--------------------------------------------------------------
+# HIDE PROGRESS BAR PREVIEW
+--------------------------------------------------------------*/
+
+ImprovedTube.playerHideProgressPreview = function () {
+    const shouldHide = this.storage.player_hide_progress_preview === true;
+    
+    if (shouldHide) {
+        document.documentElement.setAttribute('it-hide-progress-preview', 'true');
+        
+        // Force refresh the player UI
+        if (this.elements.player) {
+            this.elements.player.dispatchEvent(new Event('mousemove'));
+            // Also try to force hide any existing tooltips
+            const tooltips = document.querySelectorAll('.ytp-tooltip, .ytp-preview, .ytp-tooltip-text-wrapper');
+            tooltips.forEach(tooltip => {
+                tooltip.style.display = 'none';
+                tooltip.style.opacity = '0';
+                tooltip.style.visibility = 'hidden';
+            });
+        }
+    } else {
+        document.documentElement.removeAttribute('it-hide-progress-preview');
+    }
+};
 
 ImprovedTube.playerOnEnded = function (event) {
 	ImprovedTube.playlistUpNextAutoplay(event);

@@ -196,6 +196,16 @@ extension.skeleton.main.layers.section.general = {
 					text: 'hideThumbnailOverlay',
 					tags: 'preview'
 				},
+				hide_thumbnail_icon: {
+					component: "switch",
+					text: "hideThumbnailIcon",
+					tags: "preview",
+				  },
+				hide_thumbnail_dots: {
+					component: 'switch',
+					text: 'hideThumbnailDots',
+					tags: 'preview'
+				},
 				thumbnails_quality: {
 					component: 'select',
 					text: 'thumbnailsQuality',
@@ -381,7 +391,15 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'addScrollToTop',
 					tags: 'up'
-				}
+				},
+				remove_member_only: {
+					component: 'switch',
+					text: 'removeMemberOnly',
+				},
+				remove_context_buttons: {
+					component: 'switch',
+					text: 'removeContextButtons',
+				},
 			}
 		}
 	},

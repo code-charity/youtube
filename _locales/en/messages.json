@@ -278,6 +278,9 @@
     "chapters": {
         "message": "Chapters"
     },
+    "chapterTitle": {
+        "message": "Chapter Title"
+    },
     "characterEdgeStyle": {
         "message": "Character edge style"
     },
@@ -650,6 +653,9 @@
     "hideHomePageShorts": {
         "message": "Hide Shorts on the home page"
     },
+    "hideIncludesPaidPromotion": {
+        "message": "Hide \"Includes Paid Promotion\""
+    },
     "hideMore": {
         "message": "Hide '...'"
     },
@@ -680,11 +686,17 @@
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
     },
+    "hideThumbnailDots": {
+        "message": "Hide '⫶' (more actions) on thumbnails"
+    },
     "hideThumbnails": {
         "message": "Hide thumbnails"
     },
     "hideVideoTitleFullScreen": {
         "message": "Hide video title in fullscreen"
+    },
+    "hideThumbnailIcon": {
+        "message": "Hide thumbnail icon"
     },
     "hideViewsCount": {
         "message": "Hide views count"
@@ -1211,8 +1223,17 @@
     "subtitles": {
         "message": "Subtitles"
     },
+    "subtitleLine": {
+        "message": "Hide subtitle red line"
+    },
+    "removeContextButtons": {
+        "message": "Remove context buttons on shorts"
+    },
     "RemoveSubtitlesForLyrics": {
         "message": "Remove subtitles for lyrics"
+    },
+    "removeMemberOnly": {
+        "message": "Remove member only videos"
     },
     "sunset": {
         "message": "Sunset"
