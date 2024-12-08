@@ -1,7 +1,4 @@
 {
-    "2160p": {
-        "message": "2160p - 4K"
-    },
     "about": {
         "message": "Sobre"
     },
@@ -160,9 +157,6 @@
     },
     "block_Codec_Alert_h264": {
         "message": "Você precisa ativar o H.264 ou VP9 para reproduzir vídeos."
-    },
-    "block_Codec_Alert_VP9": {
-        "message": "Você precisa ativar o VP9 ou H.264 para reproduzir vídeos."
     },
     "blockAll": {
         "message": "Bloquear tudo"
