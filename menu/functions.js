@@ -27,7 +27,7 @@ extension.attributes = function () {
 		layer_animation_scale: false
 	};
 
-	for (var attribute in attributes) {
+	for (let attribute in attributes) {
 		var value = satus.storage.get(attribute);
 
 		if (attribute === 'improvedtube_home') {
@@ -188,7 +188,7 @@ extension.pushSettings = function () {
 						try {
 							chrome.storage.sync.clear();
 							var blob = JSON.stringify(satus.storage.data);
-							chrome.storage.sync.set({settings: blob});
+							chrome.storage.sync.set({ settings: blob });
 						} catch (error) {
 							console.error(error);
 						}
@@ -223,7 +223,7 @@ extension.pullSettings = function () {
 					click: function () {
 						chrome.storage.sync.get('settings', function (r) {
 							var data = JSON.parse(r['settings']);
-							for (var key in data) {
+							for (const key in data) {
 								satus.storage.set(key, data[key]);
 							}
 						});

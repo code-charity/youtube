@@ -12,7 +12,7 @@
 # GLOBAL VARIABLE
 --------------------------------------------------------------*/
 
-var ImprovedTube = {
+let ImprovedTube = {
 	messages: {
 		queue: []
 	},
@@ -100,7 +100,7 @@ CODEC || 30FPS
 	file to patch HTMLMediaElement before YT player uses it.
 --------------------------------------------------------------*/
 if (localStorage['it-codec'] || localStorage['it-player30fps']) {
-	function overwrite (self, callback, mime) {
+	function overwrite(self, callback, mime) {
 		if (localStorage['it-codec']) {
 			var re = new RegExp(localStorage['it-codec']);
 			// /webm|vp8|vp9|av01/
@@ -184,9 +184,10 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.storage = message.storage;
 
 			if (ImprovedTube.storage.block_vp9 || ImprovedTube.storage.block_av1 || ImprovedTube.storage.block_h264) {
-				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'},
+				let atlas = { block_vp9: 'vp9|vp09', block_h264: 'avc1', block_av1: 'av01' },
 					codec = Object.keys(atlas).reduce(function (all, key) {
-						return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all}, '');
+						return ImprovedTube.storage[key] ? ((all ? all + '|' : '') + atlas[key]) : all
+					}, '');
 				if (localStorage['it-codec'] != codec) {
 					localStorage['it-codec'] = codec;
 				}
@@ -204,20 +205,21 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.init();
 			ImprovedTube.blocklistInit();
 
-		// REACTION OR VISUAL FEEDBACK WHEN THE USER CHANGES A SETTING (already automated for our CSS features):
+			// REACTION OR VISUAL FEEDBACK WHEN THE USER CHANGES A SETTING (already automated for our CSS features):
 		} else if (message.action === 'storage-changed') {
 			let camelized_key = message.camelizedKey;
 
 			ImprovedTube.storage[message.key] = message.value;
 			if (['block_vp9', 'block_h264', 'block_av1'].includes(message.key)) {
-				let atlas = {block_vp9:'vp9|vp09', block_h264:'avc1', block_av1:'av01'}
+				let atlas = { block_vp9: 'vp9|vp09', block_h264: 'avc1', block_av1: 'av01' }
 				localStorage['it-codec'] = Object.keys(atlas).reduce(function (all, key) {
-					return ImprovedTube.storage[key] ? ((all?all+'|':'') + atlas[key]) : all}, '');
+					return ImprovedTube.storage[key] ? ((all ? all + '|' : '') + atlas[key]) : all
+				}, '');
 				if (!localStorage['it-codec']) {
 					localStorage.removeItem('it-codec');
 				}
 			}
-			if (message.key==="player_60fps") {
+			if (message.key === "player_60fps") {
 				if (ImprovedTube.storage.player_60fps === false) {
 					localStorage['it-player30fps'] = true;
 				} else {
@@ -233,8 +235,8 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'playerPlaybackSpeed':
 				case 'playerForcedPlaybackSpeed':
-					if (ImprovedTube.storage.player_forced_playback_speed === true && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {
-						ImprovedTube.playbackSpeed (Number(ImprovedTube.storage.player_playback_speed)); //new
+					if (ImprovedTube.storage.player_forced_playback_speed && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {
+						ImprovedTube.playbackSpeed(Number(ImprovedTube.storage.player_playback_speed)); //new
 						ImprovedTube.elements.player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));
 						// ImprovedTube.elements.player.querySelector('video').playbackRate = Number(ImprovedTube.storage.player_playback_speed.toFixed(2));
 					} else if (ImprovedTube.storage.player_forced_playback_speed === false) {
@@ -252,24 +254,24 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'description':
 					if (ImprovedTube.storage.description === "expanded") {
-						try {document.querySelector("#more").click() || document.querySelector("#expand").click();} catch {}
+						try { document.querySelector("#more").click() || document.querySelector("#expand").click(); } catch { }
 					} else if (ImprovedTube.storage.description === "normal") {
-						try {document.querySelector("#less").click() || document.querySelector("#collapse").click();} catch {}
+						try { document.querySelector("#less").click() || document.querySelector("#collapse").click(); } catch { }
 					}
 					break
 
 				case 'transcript':
-					if (ImprovedTube.storage.transcript === true) {
+					if (ImprovedTube.storage.transcript) {
 						document.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');
-					} else if (ImprovedTube.storage.transcript === false) {
+					} else if (!ImprovedTube.storage.transcript) {
 						document.querySelector('*[target-id*=transcript] #visibility-button button')?.click();
 					}
 					break
 
 				case 'chapters':
-					if (ImprovedTube.storage.chapters === true) {
+					if (ImprovedTube.storage.chapters) {
 						document.querySelector('*[target-id*=chapters]')?.removeAttribute('visibility');
-					} else if (ImprovedTube.storage.chapters === false) {
+					} else if (!ImprovedTube.storage.chapters) {
 						document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
 					}
 					break
@@ -286,9 +288,9 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'forcedTheaterMode':
 					if (ImprovedTube.storage.forced_theater_mode === false && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
 						const button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
-						if (button && ImprovedTube.elements.ytd_watch.theater === true) {
+						if (button && ImprovedTube.elements.ytd_watch.theater) {
 							ImprovedTube.elements.ytd_watch.theater = false;
-							setTimeout(function () { button.click();}, 100);
+							setTimeout(function () { button.click(); }, 100);
 						}
 					}
 					break
@@ -353,7 +355,7 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'belowPlayerPip':
 					if (ImprovedTube.storage.below_player_pip === false) {
 						document.querySelector('.improvedtube-player-button[data-tooltip="PiP"]')?.remove();
-					} else if (ImprovedTube.storage.below_player_pip === true) {
+					} else if (ImprovedTube.storage.below_player_pip) {
 						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
 						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
 					}
@@ -362,7 +364,7 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'belowPlayerScreenshot':
 					if (ImprovedTube.storage.below_player_screenshot === false) {
 						document.querySelector('.improvedtube-player-button[data-tooltip="Screenshot"]')?.remove();
-					} else if (ImprovedTube.storage.below_player_screenshot === true) {
+					} else if (ImprovedTube.storage.below_player_screenshot) {
 						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
 						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
 					}
@@ -371,7 +373,7 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'belowPlayerLoop':
 					if (ImprovedTube.storage.below_player_loop === false) {
 						document.querySelector('.improvedtube-player-button[data-tooltip="Loop"]')?.remove();
-					} else if (ImprovedTube.storage.below_player_loop === true) {
+					} else if (ImprovedTube.storage.below_player_loop) {
 						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
 						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
 					}
@@ -389,7 +391,7 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'dayOfWeek':
 					if (ImprovedTube.storage.day_of_week === false) {
 						document.querySelector(".ytd-day-of-week")?.remove();
-					} else if (ImprovedTube.storage.day_of_week === true) {
+					} else if (ImprovedTube.storage.day_of_week) {
 						ImprovedTube.dayOfWeek();
 					}
 					break
@@ -397,7 +399,7 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerRemainingDuration':
 					if (ImprovedTube.storage.player_remaining_duration === false) {
 						document.querySelector(".ytp-time-remaining-duration")?.remove();
-					} else if (ImprovedTube.storage.player_remaining_duration === true) {
+					} else if (ImprovedTube.storage.player_remaining_duration) {
 						ImprovedTube.playerRemainingDuration();
 					}
 					break
@@ -422,8 +424,8 @@ document.addEventListener('it-message-from-extension', function () {
 					ImprovedTube.playerControls();
 					break
 				case 'playerlistUpNextAutoplay':
-					if (this.storage.playlist_up_next_autoplay !== false) {
-						if (playlistData.currentIndex != playlistData.localCurrentIndex) { playlistData.currentIndex = playlistData.localCurrentIndex;}
+					if (this.storage.playlist_up_next_autoplay) {
+						if (playlistData.currentIndex != playlistData.localCurrentIndex) { playlistData.currentIndex = playlistData.localCurrentIndex; }
 					}
 					break
 				case 'playlistCopyVideoId':
@@ -439,19 +441,19 @@ document.addEventListener('it-message-from-extension', function () {
 			if (message.key.startsWith('shortcut_')) camelized_key = 'shortcuts';
 
 			if (ImprovedTube[camelized_key]) {
-				try {ImprovedTube[camelized_key]()} catch {};
+				try { ImprovedTube[camelized_key]() } catch { };
 			}
-		} else if (message.focus === true && ImprovedTube.elements.player) {
+		} else if (message.focus && ImprovedTube.elements.player) {
 			ImprovedTube.focus = true;
 
 			ImprovedTube.pageOnFocus();
-		} else if (message.blur === true && ImprovedTube.elements.player) {
+		} else if (message.blur && ImprovedTube.elements.player) {
 			ImprovedTube.focus = false;
 
 			ImprovedTube.pageOnFocus();
 
 			document.dispatchEvent(new CustomEvent('improvedtube-blur'));
-		} else if (message.pause === true) {
+		} else if (message.pause) {
 			if (ImprovedTube.elements.player) {
 				ImprovedTube.played_before_blur = ImprovedTube.elements.player.getPlayerState() === 1;
 				ImprovedTube.elements.player.pauseVideo();
@@ -460,7 +462,7 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.elements.player?.setVolume(message.setVolume);
 		} else if (message.setPlaybackSpeed) {
 			ImprovedTube.playbackSpeed(message.setPlaybackSpeed);
-		} else if (message.deleteCookies === true) {
+		} else if (message.deleteCookies) {
 			ImprovedTube.deleteYoutubeCookies();
 		} else if (message.responseOptionsUrl) {
 			const iframe = document.querySelector('.it-button__iframe');
