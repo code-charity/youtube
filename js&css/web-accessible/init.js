@@ -81,6 +81,7 @@ ImprovedTube.init = function () {
 			ImprovedTube.playlistShuffle();
 			ImprovedTube.playlistReverse();
 			ImprovedTube.playlistPopup();
+			ImprovedTube.playlistCopyVideoIdButton();
 		}
 	});
 	this.pageType();

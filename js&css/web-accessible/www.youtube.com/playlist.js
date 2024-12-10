@@ -213,6 +213,46 @@ ImprovedTube.playlistPopupCreateButton = function (playlistID, altButtonStyle, c
 
 	return button;
 };
+
+/*------------------------------------------------------------------------------
+4.5.6 PLAYLIST COPY VIDEO ID BUTTON
+------------------------------------------------------------------------------*/
+/**
+*/
+ImprovedTube.playlistCopyVideoIdButton = function () {
+	if (this.storage.playlist_copy_video_id === true) {
+    const playlistItems = document.querySelectorAll('ytd-playlist-panel-video-renderer');
+		playlistItems.forEach(item => {
+			if (!item.querySelector('.it-playlist-copy-video-id')) {
+				const button = document.createElement('button');
+				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+				button.className = ('it-playlist-copy-video-id');
+				button.dataset.tooltip = 'CopyVideoId';
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				path.setAttributeNS(null, 'd', 'M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2m0 16H8V7h11z');
+				svg.append(path);
+				button.append(svg);
+				button.addEventListener('click', () => {
+					const playlistLink = item.querySelector('a#wc-endpoint');
+					if (playlistLink) {
+						const playlistURL = playlistLink.href.match(ImprovedTube.regex.video_id)?.[1];
+						navigator.clipboard.writeText(playlistURL);
+					}
+					button.dataset.tooltip = 'Copied!';
+					setTimeout(function() {
+						button.dataset.tooltip = 'CopyVideoID';
+					}, 500);
+				});
+				const menuElement = item.querySelector('#menu');
+				if (menuElement) {
+					menuElement.parentNode.insertBefore(button, menuElement);
+				}
+			}
+		});
+	}
+}
+
 /**
  * ## Adds a playlist popup button to each playlist panel found or update the links of existing popup buttons
  * - buttons will be added on the playlist page (next to the share button), in the playlist panel (after the loop and shuffle buttons), and/or the mini playlist section of the mini player (after the loop and shuffle buttons)

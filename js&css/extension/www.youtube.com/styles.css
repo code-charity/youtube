@@ -266,6 +266,26 @@ body.no-scroll .it-player-button--tooltip {
 	fill: #f00;
 }
 
+/*------------------------------------------------------------------------------
+5.2 COPY VIDEO ID
+------------------------------------------------------------------------------*/
+.it-playlist-copy-video-id {
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	background: none;
+	fill: var(--yt-spec-icon-inactive);
+	align-self: center;
+}
+  
+.it-playlist-copy-video-id:hover::after {
+	content: attr(data-tooltip);
+	transform: translateX(-50%);
+	color: var(--paper-tooltip-text-color, white);
+	background-color: var(--paper-tooltip-background, #616161);
+}
 
 /*------------------------------------------------------------------------------
 6.0 CHANNEL
