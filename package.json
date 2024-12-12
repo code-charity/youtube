@@ -15,14 +15,12 @@
     "@eslint/js": "^9.16.0",
     "eslint": "^8.57.1",
     "jest": "^29.7.0",
-    "jslint": "^0.12.1"
+    "jslint": "^0.12.1",
+    "globals": "^15.13.0",
+    "prettier": "^3.4.2"
   },
   "browserslist": [
     "last 10 versions, not dead, > 1%",
     "not op_mini all"
-  ],
-  "dependencies": {
-    "globals": "^15.13.0",
-    "prettier": "^3.4.2"
-  }
+  ]
 }
