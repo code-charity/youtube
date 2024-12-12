@@ -20,5 +20,8 @@
   "browserslist": [
     "last 10 versions, not dead, > 1%",
     "not op_mini all"
-  ]
+  ],
+  "dependencies": {
+    "globals": "^15.13.0"
+  }
 }
