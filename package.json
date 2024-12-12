@@ -22,6 +22,7 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "globals": "^15.13.0"
+    "globals": "^15.13.0",
+    "prettier": "^3.4.2"
   }
 }

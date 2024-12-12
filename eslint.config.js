@@ -4,6 +4,7 @@ import globals from "globals";
 const customGlobals = {
 	extension: "writable",
 	ImprovedTube: "writable",
+	chrome: "readonly",
 }
 
 export default [
