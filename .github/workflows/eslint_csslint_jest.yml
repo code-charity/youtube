@@ -27,7 +27,7 @@ jobs:
         run: npm install --force
       
       - name: Run eslint
-        run: npx eslint --config=tests/eslint_rules.config.mjs
+        run: npx eslint
         continue-on-error: true
 
       # - name: Run JSLint
@@ -40,11 +40,9 @@ jobs:
       - name: Run npm test
         run: npm test
 
-      - name: Install csslint using npm
-        run: npm install -g csslint@1.0.5
+#      - name: Install csslint using npm
+#        run: npm install -g csslint@1.0.5
 
 #      - name: Lint CSS files
 #        run: |
 #          for file in $(grep -rl --include='*.css' '' ./); do npx csslint --config tests/csslint_rules.json "$file"; done
-
-
