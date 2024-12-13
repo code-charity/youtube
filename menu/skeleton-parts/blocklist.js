@@ -36,7 +36,7 @@ extension.skeleton.main.layers.section.blocklist = {
 										for (let key in blocklist.channels) {
 											let channel = blocklist.channels[key];
 
-											if (channel !== false) {
+											if (channel ) {
 												skeleton[key] = {
 													component: 'div',
 													variant: 'blocklist',
@@ -134,7 +134,7 @@ extension.skeleton.main.layers.section.blocklist = {
 										for (let key in blocklist.videos) {
 											let video = blocklist.videos[key];
 
-											if (video !== false) {
+											if (video ) {
 												skeleton[key] = {
 													component: 'div',
 													variant: 'blocklist',

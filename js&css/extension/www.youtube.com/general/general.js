@@ -20,14 +20,14 @@
 
 extension.features.youtubeHomePage = function (anything) {
 	if (anything instanceof Event) {
-		var event = anything;
+		const event = anything;
 
 		if (event.target) {
-			var target = event.target;
+			const target = event.target;
 
 			while (target.parentNode) {
 				if (target.nodeName === 'A' && target.id === 'logo') {
-					var option = extension.storage.get('youtube_home_page');
+					const option = extension.storage.get('youtube_home_page');
 
 					if (option !== 'search') {
 						event.preventDefault();
@@ -43,9 +43,9 @@ extension.features.youtubeHomePage = function (anything) {
 			}
 		}
 	} else if (anything === 'init') {
-		extension.events.on('init', function (resolve) {
-			if (/(www|m)\.youtube\.com\/?(\?|\#|$)/.test(location.href)) {
-				chrome.storage.local.get('youtube_home_page', function (items) {
+		extension.events.on('init', resolve => {
+			if (/(www|m)\.youtube\.com\/?(\?|#|$)/.test(location.href)) {
+				chrome.storage.local.get('youtube_home_page', items => {
 					var option = items.youtube_home_page;
 
 					if (
@@ -69,7 +69,7 @@ extension.features.youtubeHomePage = function (anything) {
 			prepend: true
 		});
 	} else {
-		var option = extension.storage.get('youtube_home_page');
+		const option = extension.storage.get('youtube_home_page');
 
 		window.removeEventListener('click', this.youtubeHomePage);
 
@@ -92,16 +92,18 @@ extension.features.youtubeHomePage = function (anything) {
 
 extension.features.collapseOfSubscriptionSections = function (event) {
 	if (event instanceof Event) {
-		var section,
+		let section,
 			content;
 
 		if (event.target) {
-			var target = event.target;
+			let target = event.target;
 
 			while (target.parentNode) {
 				if (target.nodeName === 'YTD-ITEM-SECTION-RENDERER') {
 					section = target;
-				} else if (target.className && target.className.indexOf && target.className.indexOf('grid-subheader') !== -1) {
+				} else if (target.className
+                    && target.className.indexOf
+                    && target.className.indexOf('grid-subheader') !== -1) {
 					content = target.nextElementSibling;
 				}
 
@@ -118,7 +120,7 @@ extension.features.collapseOfSubscriptionSections = function (event) {
 				content.style.transition = 'height 200ms';
 			}
 
-			setTimeout(function () {
+			setTimeout(() => {
 				section.classList.toggle('it-section-collapsed');
 			});
 
@@ -128,7 +130,7 @@ extension.features.collapseOfSubscriptionSections = function (event) {
 		window.removeEventListener('click', this.collapseOfSubscriptionSections);
 
 		if (
-			extension.storage.get('collapse_of_subscription_sections') === true &&
+			extension.storage.get('collapse_of_subscription_sections') &&
 			location.href.indexOf('feed/subscriptions') !== -1
 		) {
 			window.addEventListener('click', this.collapseOfSubscriptionSections, true);
@@ -140,11 +142,11 @@ extension.features.collapseOfSubscriptionSections = function (event) {
 # ONLY ONE PLAYER INSTANCE PLAYING
 --------------------------------------------------------------*/
 
-extension.features.onlyOnePlayerInstancePlaying = function () {
-	if (extension.storage.get('only_one_player_instance_playing') === true) {
-		var videos = document.querySelectorAll('video');
+extension.features.onlyOnePlayerInstancePlaying = () => {
+	if (extension.storage.get('only_one_player_instance_playing') ) {
+		let videos = document.querySelectorAll('video');
 
-		for (var i = 0, l = videos.length; i < l; i++) {
+		for (let i = 0, l = videos.length; i < l; i++) {
 			videos[i].pause();
 		}
 	}
@@ -160,7 +162,7 @@ extension.features.addScrollToTop = function (event) {
 			document.documentElement.removeAttribute('it-scroll-to-top');
 		}
 	} else {
-		if (extension.storage.get('add_scroll_to_top') === true) {
+		if (extension.storage.get('add_scroll_to_top') ) {
 			this.addScrollToTop.button = document.createElement('div');
 			this.addScrollToTop.button.id = 'it-scroll-to-top';
 			this.addScrollToTop.button.className = 'satus-div';
@@ -176,7 +178,7 @@ extension.features.addScrollToTop = function (event) {
 				document.getElementById('it-scroll-to-top')?.remove();
 			});
 		}
-		if (extension.storage.get('add_scroll_to_top') === true) {
+		if (extension.storage.get('add_scroll_to_top') ) {
 			window.addEventListener('scroll', extension.features.addScrollToTop);
 		} else if (this.addScrollToTop.button) {
 			window.removeEventListener('scroll', extension.features.addScrollToTop);
@@ -188,9 +190,9 @@ extension.features.addScrollToTop = function (event) {
 # CONFIRMATION BEFORE CLOSING
 --------------------------------------------------------------*/
 
-extension.features.confirmationBeforeClosing = function () {
+extension.features.confirmationBeforeClosing = () => {
 	window.onbeforeunload = function () {
-		if (extension.storage.get('confirmation_before_closing') === true) {
+		if (extension.storage.get('confirmation_before_closing')) {
 			return 'You have attempted to leave this page. Are you sure?';
 		}
 	};
@@ -200,13 +202,12 @@ extension.features.confirmationBeforeClosing = function () {
 # DEFAULT CONTENT COUNTRY
 --------------------------------------------------------------*/
 
-extension.features.defaultContentCountry = function (changed) {
-	var value = extension.storage.get('default_content_country');
+extension.features.defaultContentCountry = changed => {
+	const value = extension.storage.get('default_content_country');
 
 	if (value) {
 		if (value !== 'default') {
-			var date = new Date();
-
+			let date = new Date();
 			date.setTime(date.getTime() + 3.154e+10);
 
 			document.cookie = 's_gl=' + value + '; path=/; domain=.youtube.com; expires=' + date.toGMTString();
@@ -227,7 +228,7 @@ extension.features.popupWindowButtons = function (event) {
 	if (event instanceof Event) {
 		if (event.type === 'mouseover') {
 			if (event.target) {
-				var target = event.target,
+				let target = event.target,
 					detected = false;
 				while (detected === false && target.parentNode) {
 					if ( target.className && typeof target.className === 'string' && ((
@@ -238,9 +239,9 @@ extension.features.popupWindowButtons = function (event) {
 							target.itPopupWindowButton = document.createElement('button');
 							target.itPopupWindowButton.className = 'it-popup-window';
 
-							var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+							let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 							svg.setAttribute('viewBox', '0 0 24 24');
-							var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+							let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 							path.setAttribute('d', 'M19 7h-8v6h8V7zm2-4H3C2 3 1 4 1 5v14c0 1 1 2 2 2h18c1 0 2-1 2-2V5c0-1-1-2-2-2zm0 16H3V5h18v14z');
 							svg.appendChild(path);
 							target.itPopupWindowButton.appendChild(svg);
@@ -253,11 +254,12 @@ extension.features.popupWindowButtons = function (event) {
 								let ytPlayer = document.querySelector("#movie_player");
 								if (ytPlayer) {width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65}
 								else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
-		 						if (!ytPlayer) {
+								if (!ytPlayer) {
 									let shorts = /short/.test(this.parentElement.href);
-									if ( width / height < 1 ) { let vertical = true } else { let vertical = false }
-									if ( !vertical && shorts ) { width = height * 0.6}
-									if ( vertical && !shorts ) { height = width * 0.6}
+									let vertical = false;
+									if (width / height < 1) vertical = true;
+									if (!vertical && shorts) width = height * 0.6;
+									if (vertical && !shorts) height = width * 0.6;
 								}
 
 								window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay_disable') ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
@@ -276,7 +278,7 @@ extension.features.popupWindowButtons = function (event) {
 			}
 		}
 	} else {
-		if (extension.storage.get('popup_window_buttons') === true) {
+		if (extension.storage.get('popup_window_buttons') ) {
 			window.addEventListener('mouseover', this.popupWindowButtons, true);
 		} else {
 			window.removeEventListener('mouseover', this.popupWindowButtons, true);
@@ -288,11 +290,13 @@ extension.features.popupWindowButtons = function (event) {
 --------------------------------------------------------------*/
 
 extension.features.font = function (changed) {
-	var option = extension.storage.get('font');
+	const option = extension.storage.get('font');
+	var link = this.font.link,
+		style = this.font.style;
 
 	if (option && option !== 'Default') {
-		var link = this.font.link || document.createElement('link'),
-			style = this.font.style || document.createElement('style');
+		link = link || document.createElement('link'),
+		style = style || document.createElement('style');
 
 		link.rel = 'stylesheet';
 		link.href = '//fonts.googleapis.com/css2?family=' + option;
@@ -305,16 +309,8 @@ extension.features.font = function (changed) {
 		this.font.link = link;
 		this.font.style = style;
 	} else if (changed) {
-		var link = this.font.link,
-			style = this.font.style;
-
-		if (link) {
-			link.remove();
-		}
-
-		if (style) {
-			style.remove();
-		}
+		if (link) link.remove();
+		if (style) style.remove();
 	}
 };
 
@@ -324,7 +320,7 @@ extension.features.font = function (changed) {
 
 extension.features.markWatchedVideos = function (anything) {
 	if (anything instanceof Event) {
-		var event = anything;
+		const event = anything;
 
 		if (event.type === 'mouseover') {
 			if (event.target) {
@@ -343,14 +339,17 @@ extension.features.markWatchedVideos = function (anything) {
 							target.itMarkWatchedVideosButton = document.createElement('button');
 							target.itMarkWatchedVideosButton.className = 'it-mark-watched-videos';
 							target.itMarkWatchedVideosButton.dataset.id = extension.functions.getUrlParameter(target.href, 'v');
-							var id = target.itMarkWatchedVideosButton.dataset.id;
-							var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('viewBox', '0 0 24 24');
-							var pathData = 'M12 15.15q1.525 0 2.588-1.063 1.062-1.062 1.062-2.587 0-1.525-1.062-2.588Q13.525 7.85 12 7.85q-1.525 0-2.587 1.062Q8.35 9.975 8.35 11.5q0 1.525 1.063 2.587Q10.475 15.15 12 15.15Zm0-.95q-1.125 0-1.912-.788Q9.3 12.625 9.3 11.5t.788-1.913Q10.875 8.8 12 8.8t1.913.787q.787.788.787 1.913t-.787 1.912q-.788.788-1.913.788Zm0 3.8q-3.1 0-5.688-1.613Q3.725 14.775 2.325 12q-.05-.1-.075-.225-.025-.125-.025-.275 0-.15.025-.275.025-.125.075-.225 1.4-2.775 3.987-4.388Q8.9 5 12 5q3.1 0 5.688 1.612Q20.275 8.225 21.675 11q.05.1.075.225.025.125.025.275 0 .15-.025.275-.025.125-.075.225-1.4 2.775-3.987 4.387Q15.1 18 12 18Z';
-							var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+							const id = target.itMarkWatchedVideosButton.dataset.id;
+							let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            svg.setAttribute('viewBox', '0 0 24 24');
+							const pathData = 'M12 15.15q1.525 0 2.588-1.063 1.062-1.062 1.062-2.587 0-1.525-1.062-2.588Q13.525 7.85 12 7.85q-1.525 0-2.587 1.062Q8.35 9.975 8.35 11.5q0 1.525 1.063 2.587Q10.475 15.15 12 15.15Zm0-.95q-1.125 0-1.912-.788Q9.3 12.625 9.3 11.5t.788-1.913Q10.875 8.8 12 8.8t1.913.787q.787.788.787 1.913t-.787 1.912q-.788.788-1.913.788Zm0 3.8q-3.1 0-5.688-1.613Q3.725 14.775 2.325 12q-.05-.1-.075-.225-.025-.125-.025-.275 0-.15.025-.275.025-.125.075-.225 1.4-2.775 3.987-4.388Q8.9 5 12 5q3.1 0 5.688 1.612Q20.275 8.225 21.675 11q.05.1.075.225.025.125.025.275 0 .15-.025.275-.025.125-.075.225-1.4 2.775-3.987 4.387Q15.1 18 12 18Z';
+							let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 							path.setAttribute('d', pathData + 'm0-6.5Zm0 5.5q2.825 0 5.188-1.488Q19.55 14.025 20.8 11.5q-1.25-2.525-3.612-4.013Q14.825 6 12 6 9.175 6 6.812 7.487 4.45 8.975 3.2 11.5q1.25 2.525 3.612 4.012Q9.175 17 12 17Z');
 							svg.appendChild(path);
-							var svg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg2.setAttribute('viewBox', '0 0 24 24');
-							var extraPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+							let svg2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            svg2.setAttribute('viewBox', '0 0 24 24');
+							let extraPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 							extraPath.setAttribute('d', pathData);
 							svg2.appendChild(extraPath);
 							target.itMarkWatchedVideosButton.appendChild(svg);
@@ -384,7 +383,7 @@ extension.features.markWatchedVideos = function (anything) {
 							});
 
 						} else {
-							var button = target.itMarkWatchedVideosButton;
+							const button = target.itMarkWatchedVideosButton;
 
 							if (extension.storage.get('watched') && extension.storage.get('watched')[button.dataset.id]) {
 								button.setAttribute('watched', '');
@@ -400,18 +399,16 @@ extension.features.markWatchedVideos = function (anything) {
 				}
 			}
 		}
-	} else if (anything === true) {
-		var buttons = document.querySelectorAll('.it-mark-watched-videos');
+	} else if (anything ) {
+		const buttons = document.querySelectorAll('.it-mark-watched-videos');
 
-		for (var i = 0, l = buttons.length; i < l; i++) {
-			var button = buttons[i];
-
-			button.remove();
+		for (let i = 0, l = buttons.length; i < l; i++) {
+			buttons[i].remove();
 		}
 	} else {
 		window.removeEventListener('mouseover', this.markWatchedVideos, true);
 
-		if (extension.storage.get('mark_watched_videos') === true) {
+		if (extension.storage.get('mark_watched_videos') ) {
 			window.addEventListener('mouseover', this.markWatchedVideos, true);
 		}
 	}
@@ -422,8 +419,8 @@ extension.features.markWatchedVideos = function (anything) {
 --------------------------------------------------------------*/
 
 extension.features.trackWatchedVideos = function () {
-	if (extension.storage.get('track_watched_videos') === true && document.documentElement.getAttribute('it-pathname').indexOf('/watch') === 0) {
-		var id = extension.functions.getUrlParameter(location.href, 'v');
+	if (extension.storage.get('track_watched_videos') && document.documentElement.getAttribute('it-pathname').indexOf('/watch') === 0) {
+		const id = extension.functions.getUrlParameter(location.href, 'v');
 
 		if (!extension.storage.watched) {
 			extension.storage.watched = {};
@@ -464,7 +461,7 @@ extension.features.thumbnailsQuality = function (anything) {
 		}
 	}
 
-	if (['default', 'mqdefault', 'hqdefault', 'sddefault', 'maxresdefault'].includes(option) === true) {
+	if (['default', 'mqdefault', 'hqdefault', 'sddefault', 'maxresdefault'].includes(option) ) {
 		var thumbnails = document.querySelectorAll('img');
 
 		this.thumbnailsQuality.regex = /(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+/;
@@ -491,14 +488,13 @@ extension.features.thumbnailsQuality = function (anything) {
 				subtree: true
 			});
 		}
-	} else if (anything === true) {
+	} else if (anything ) {
 		var thumbnails = document.querySelectorAll('img[data-default-src]');
 
-		for (var i = 0, l = thumbnails.length; i < l; i++) {
+		for (let i = 0, l = thumbnails.length; i < l; i++) {
 			var thumbnail = thumbnails[i];
 
 			thumbnail.src = thumbnail.dataset.defaultSrc;
-
 			thumbnail.removeAttribute('data-default-src');
 		}
 
@@ -518,7 +514,7 @@ extension.features.disableThumbnailPlayback = function (event) {
 			event.stopImmediatePropagation();
 		}
 	} else {
-		if (extension.storage.get('disable_thumbnail_playback') === true) {
+		if (extension.storage.get('disable_thumbnail_playback') ) {
 			window.addEventListener('mouseenter', this.disableThumbnailPlayback, true);
 		} else {
 			window.removeEventListener('mouseenter', this.disableThumbnailPlayback, true);
@@ -531,7 +527,7 @@ extension.features.disableThumbnailPlayback = function (event) {
 --------------------------------------------------------------*/
 
 extension.features.openNewTab = function () {
-	if (extension.storage.get("open_new_tab") === true) {
+	if (extension.storage.get("open_new_tab") ) {
 		window.onload = function () {
 			const searchButton = document.querySelector("button#search-icon-legacy");
 			const inputField = document.querySelector("input#search");

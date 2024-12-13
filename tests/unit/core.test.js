@@ -1,11 +1,6 @@
 // Mock extension object directly within the jest.mock call
 jest.mock('../../js&css/extension/core', () => ({
 	domReady: false,
-	events: {
-		listeners: {},
-		on: jest.fn(),
-		trigger: jest.fn(),
-	},
 	features: {},
 	functions: {},
 	messages: {
@@ -39,6 +34,7 @@ jest.mock('../../js&css/extension/core', () => ({
 	events: {
 		// Mock implementation of the events function
 		listeners: {},
+		on: jest.fn(),
 		trigger: async function (type, data) {
 			const listeners = this.listeners[type];
 
@@ -47,7 +43,7 @@ jest.mock('../../js&css/extension/core', () => ({
 					const listener = listeners[i];
 
 					if (typeof listener === 'function') {
-						if (listener instanceof (async function () { }).constructor === true) {
+						if (listener instanceof (async function () { }).constructor ) {
 							await listener(data);
 						} else {
 							listener(data);
@@ -65,7 +61,6 @@ const extensionMock = require('../../js&css/extension/core');
 
 // Unit tests for the camelize function
 test('Convert snake_case to camelCase', () => {
-
 	const input = 'snake_case_example';
 	const expectedOutput = 'snakeCaseExample';
 

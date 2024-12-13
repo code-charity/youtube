@@ -762,8 +762,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 				render: function () {
 					// relies on options.text above auto always starting with a number for parseInt to work
 					const options = this.childNodes[2].options,
-							index = this.childNodes[2].selectedIndex;
-							cutoff = 1080;
+						index = this.childNodes[2].selectedIndex;
+						cutoff = 1080;
 					if (satus.storage.get('player_h264')) {
 						if (parseInt(options[index].text) > cutoff) {
 							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
@@ -967,7 +967,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			custom: true,
 			on: {
 				click: function () {
-					let skeleton = this.parentNode.skeleton;
+					//let skeleton = this.parentNode.skeleton;
 					// refresh player_codecs/optimize_codec_for_hardware_acceleration elements when we change codecs
 					let refresh = function () {
 						document.getElementById('player_quality').dispatchEvent(new CustomEvent('render'));
@@ -1014,7 +1014,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			},
 			on: {
 				click: function () {
-					//put some code here
+					// put some code here
 				}
 			},
 			list: {

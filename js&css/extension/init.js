@@ -24,7 +24,7 @@ extension.events.on('init', function (resolve) {
 	async: true
 });
 
-function bodyReady () {
+function bodyReady() {
 	if (extension.ready && extension.domReady) {
 		extension.features.addScrollToTop();
 		extension.features.font();
@@ -49,7 +49,7 @@ extension.events.on('init', function () {
 
 chrome.runtime.sendMessage({
 	action: 'tab-connected'
-}, function (response) {
+}, response => {
 	if (response) {
 		extension.tabId = response.tabId;
 	}
@@ -67,52 +67,60 @@ extension.inject([
 	'/js&css/web-accessible/www.youtube.com/blocklist.js',
 	'/js&css/web-accessible/www.youtube.com/settings.js',
 	'/js&css/web-accessible/init.js'
-], function () {
+], () => {
 	extension.ready = true;
-
 	extension.events.trigger('init');
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 	extension.domReady = true;
-
 	bodyReady();
 });
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-	if (request.action === 'focus') {
-		extension.messages.send({
-			focus: true
-		});
-	} else if (request.action === 'blur') {
-		extension.messages.send({
-			blur: true
-		});
-	} else if (request.action === 'pause') {
-		extension.messages.send({
-			pause: true
-		});
-	} else if (request.action === 'set-volume') {
-		extension.messages.send({
-			setVolume: request.value
-		});
-	} else if (request.action === 'set-playback-speed') {
-		extension.messages.send({
-			setPlaybackSpeed: request.value
-		});
-	} else if (request.action === 'mixer') {
-		extension.messages.send({
-			mixer: true
-		}, sendResponse, 'mixer');
-
-		return true;
-	} else if (request.action === 'delete-youtube-cookies') {
-		extension.messages.send({
-			deleteCookies: true
-		});
-	} else if (request.action === "another-video-started-playing") {
-		extension.features.onlyOnePlayerInstancePlaying();
+	switch (request.action) {
+		case 'focus':
+			extension.messages.send({
+				focus: true
+			});
+			break;
+		case 'blur':
+			extension.messages.send({
+				blur: true
+			});
+			break;
+		case 'pause':
+			extension.messages.send({
+				pause: true
+			});
+			break;
+		case 'set-volume':
+			extension.messages.send({
+				setVolume: request.value
+			});
+			break;
+		case 'set-playback-speed':
+			extension.messages.send({
+				setVolume: request.value
+			});
+			break;
+		case 'mixer':
+			extension.messages.send({
+				mixer: true
+			}, sendResponse, 'mixer');
+			break;
+		case 'delete-youtube-cookies':
+			extension.messages.send({
+				deleteCookies: true
+			});
+			break;
+		case 'another-video-started-playing':
+			extension.features.onlyOnePlayerInstancePlaying();
+			break;
+		default:
+			break;
 	}
+	return true;
 });
 
 document.addEventListener('it-message-from-youtube', function () {
@@ -131,11 +139,11 @@ document.addEventListener('it-message-from-youtube', function () {
 
 		//console.log(message);
 
-		if (message.requestOptionsUrl === true) {
+		if (message.requestOptionsUrl) {
 			extension.messages.send({
 				responseOptionsUrl: chrome.runtime.getURL('menu/index.html')
 			});
-		} else if (message.onlyOnePlayer === true) {
+		} else if (message.onlyOnePlayer) {
 			chrome.runtime.sendMessage({
 				name: 'only-one-player'
 			});
@@ -143,11 +151,11 @@ document.addEventListener('it-message-from-youtube', function () {
 			chrome.runtime.sendMessage({
 				action: 'fixPopup',
 				width: message.width,
-		        height: message.height,
+				height: message.height,
 				title: message.title,
 			});
 		} else if (message.action === 'analyzer') {
-			if (extension.storage.data.analyzer_activation === true) {
+			if (extension.storage.data.analyzer_activation) {
 				var data = message.name,
 					date = new Date().toDateString(),
 					hours = new Date().getHours() + ':00';
@@ -176,7 +184,7 @@ document.addEventListener('it-message-from-youtube', function () {
 			}
 		} else if (message.action === 'blocklist') {
 			if (!extension.storage.data.blocklist || typeof extension.storage.data.blocklist !== 'object') {
-				extension.storage.data.blocklist = {videos: {}, channels: {}};
+				extension.storage.data.blocklist = { videos: {}, channels: {} };
 			}
 
 			switch (message.type) {
@@ -233,7 +241,7 @@ document.addEventListener('it-message-from-youtube', function () {
 			});
 		} else if (message.action === 'set') {
 			if (message.value) {
-				chrome.storage.local.set({[message.key]: message.value});
+				chrome.storage.local.set({ [message.key]: message.value });
 			} else {
 				chrome.storage.local.remove([message.key]);
 			}
@@ -241,8 +249,16 @@ document.addEventListener('it-message-from-youtube', function () {
 	}
 });
 
-document.addEventListener('it-play', function () {
-	 // var videos = document.querySelectorAll('video');
-	try {chrome.runtime.sendMessage({action: 'play'})
-	} catch (error) {console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({action: 'play'}, function (response) { console.log(response) } ); } catch { } }, 321) }
+document.addEventListener('it-play', () => {
+	// var videos = document.querySelectorAll('video');
+	try {
+		chrome.runtime.sendMessage({ action: 'play' })
+	} catch (error) {
+		console.log(error);
+		setTimeout(function () { try {
+			chrome.runtime.sendMessage({ action: 'play' }, response => {
+				console.log(response)
+			});
+		} catch (error){console.log(error)}}, 321);
+	}
 });
