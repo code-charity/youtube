@@ -279,8 +279,8 @@ def upgrade():
 'zh_TW',
     ]
 
-    if os.path.exists('../_locales/en/messages.json'):
-        file = open('../_locales/en/messages.json', 'r+', encoding='utf-8')
+    if os.path.exists('../src/_locales/en/messages.json'):
+        file = open('../src/_locales/en/messages.json', 'r+', encoding='utf-8')
         
         default_locale = json.load(file)
 
@@ -289,7 +289,7 @@ def upgrade():
         default_locale = {}
 
     for locale in locales:
-        path = '../_locales/' + locale
+        path = '../src/_locales/' + locale
 
         if not os.path.exists(path):
             pathlib.Path(path).mkdir(parents=True, exist_ok=True)
@@ -320,10 +320,10 @@ def upgrade():
 # 9.0 INITIALIZATION
 # ------------------------------------------------------------------------------
 
-if not os.path.exists('../_locales/'):
-    pathlib.Path('../_locales/').mkdir(parents=True, exist_ok=True)
+if not os.path.exists('../src/_locales/'):
+    pathlib.Path('../src/_locales/').mkdir(parents=True, exist_ok=True)
 
-allFiles = getListOfFiles('../_locales/')
+allFiles = getListOfFiles('../src/_locales/')
 
 for arg in sys.argv:
     if arg == '-add':

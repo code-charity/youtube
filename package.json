@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "jest tests",
-    "lint": "eslint --ignore-path tests/.gitignore"
+    "lint": "eslint src/**/*.js --no-eslintrc -c config/eslint.config.js",
+    "prettier": "prettier src/**/*.{js,css} --config config/prettier.config.js"
   },
   "keywords": [],
   "author": "",

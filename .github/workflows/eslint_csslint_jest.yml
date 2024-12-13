@@ -21,13 +21,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 'lts/*'
 
       - name: Install dependencies
         run: npm install --force
       
-      - name: Run eslint
-        run: npx eslint
+      - name: Run ESLint
+        run: npm run lint
         continue-on-error: true
 
       # - name: Run JSLint
@@ -35,14 +35,14 @@ jobs:
       #   continue-on-error: true
 
       - name: Run Jest
-        run: npx jest  # --config=tests/jest.config.js
+        run: npm run test
 
-      - name: Run npm test
-        run: npm test
+      - name: Run Prettier
+        run: npm run prettier
 
-#      - name: Install csslint using npm
-#        run: npm install -g csslint@1.0.5
+      #- name: Run npm test
+      #  run: npm test
 
-#      - name: Lint CSS files
-#        run: |
-#          for file in $(grep -rl --include='*.css' '' ./); do npx csslint --config tests/csslint_rules.json "$file"; done
+      #- name: Lint CSS files
+      #  run: |
+      #    for file in $(grep -rl --include='*.css' '' ./); do npx csslint --config tests/csslint_rules.json "$file"; done

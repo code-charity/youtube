@@ -28,7 +28,7 @@ import zipfile
 #---------------------------------------------------------------
 
 def chromium(browser):
-	temporary_path = '../cached'
+	temporary_path = '../tmp'
 
 	if (os.path.isdir(temporary_path)):
 		shutil.rmtree(temporary_path, ignore_errors=True)
@@ -36,25 +36,13 @@ def chromium(browser):
 	os.mkdir(temporary_path)
 	os.chdir(temporary_path)
 
-	for item in os.listdir('../'):
-		if (
-			item != '.git' and
-			item != '.github' and
-			item != 'cached' and
-			item != 'previews' and
-			item != 'py' and
-			item != 'wiki' and
-			item != 'LICENSE' and
-			item != 'README.md' and
-			item != 'SECURITY.md' and
-			item.find('.zip') == -1
-		):
-			s = os.path.join('../', item)
-			d = os.path.join(temporary_path, item)
-			if os.path.isdir(s):
-				shutil.copytree(s, d, True, None)
-			else:
-				shutil.copy2(s, d)
+	for item in os.listdir('../src'):
+		s = os.path.join('../src/', item)
+		d = os.path.join(temporary_path, item)
+		if os.path.isdir(s):
+			shutil.copytree(s, d, True, None)
+		else:
+			shutil.copy2(s, d)
 
 	with open('manifest.json', 'r+') as json_file:
 		data = json.load(json_file)
@@ -85,7 +73,7 @@ def chromium(browser):
 #---------------------------------------------------------------
 
 def firefox():
-	temporary_path = '../cached'
+	temporary_path = '../tmp'
 
 	if (os.path.isdir(temporary_path)):
 		shutil.rmtree(temporary_path, ignore_errors=True)
@@ -93,25 +81,13 @@ def firefox():
 	os.mkdir(temporary_path)
 	os.chdir(temporary_path)
 
-	for item in os.listdir('../'):
-		if (
-			item != '.git' and
-			item != '.github' and
-			item != 'cached' and
-			item != 'previews' and
-			item != 'py' and
-			item != 'wiki' and
-			item != 'LICENSE' and
-			item != 'README.md' and
-			item != 'SECURITY.md' and
-			item.find('.zip') == -1
-		):
-			s = os.path.join('../', item)
-			d = os.path.join(temporary_path, item)
-			if os.path.isdir(s):
-				shutil.copytree(s, d, True, None)
-			else:
-				shutil.copy2(s, d)
+	for item in os.listdir('../src'):
+		s = os.path.join('../src/', item)
+		d = os.path.join(temporary_path, item)
+		if os.path.isdir(s):
+			shutil.copytree(s, d, True, None)
+		else:
+			shutil.copy2(s, d)
 
 	with open('background.js', 'r') as file:
 		lines = file.readlines()

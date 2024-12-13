@@ -1,8 +1,0 @@
-{
-	"testPathIgnorePatterns": [
-		"/node_modules/"
-	],
-	"testMatch": [
-		"**/tests/**/*.js"
-	]
-}
