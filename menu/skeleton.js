@@ -243,7 +243,7 @@ extension.skeleton.main = {
 			component: 'iframe',
 			class: 'frame',
 			attr: {
-				'src': 'https://improvedtube.com/wishes',
+				'src': 'https://improvedtube.com/wishes?'+ Date.now(),
 				'style': 'border: none; bottom: 0px; overflow: hidden; width:326px; position: absolute; height:212px; left:-6px !important'
 			}
 		}
