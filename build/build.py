@@ -28,7 +28,7 @@ import zipfile
 #---------------------------------------------------------------
 
 def chromium(browser):
-	temporary_path = '../tmp'
+	temporary_path = 'tmp'
 
 	if (os.path.isdir(temporary_path)):
 		shutil.rmtree(temporary_path, ignore_errors=True)
@@ -38,11 +38,10 @@ def chromium(browser):
 
 	for item in os.listdir('../src'):
 		s = os.path.join('../src/', item)
-		d = os.path.join(temporary_path, item)
 		if os.path.isdir(s):
-			shutil.copytree(s, d, True, None)
+			shutil.copytree(s, item, True, None)
 		else:
-			shutil.copy2(s, d)
+			shutil.copy2(s, item)
 
 	with open('manifest.json', 'r+') as json_file:
 		data = json.load(json_file)
@@ -65,6 +64,7 @@ def chromium(browser):
 						  				  os.path.join('.', '.')))
 
 	archive.close()
+	os.chdir('..')
 	shutil.rmtree(temporary_path)
 
 
@@ -73,7 +73,7 @@ def chromium(browser):
 #---------------------------------------------------------------
 
 def firefox():
-	temporary_path = '../tmp'
+	temporary_path = 'tmp'
 
 	if (os.path.isdir(temporary_path)):
 		shutil.rmtree(temporary_path, ignore_errors=True)
@@ -83,16 +83,15 @@ def firefox():
 
 	for item in os.listdir('../src'):
 		s = os.path.join('../src/', item)
-		d = os.path.join(temporary_path, item)
 		if os.path.isdir(s):
-			shutil.copytree(s, d, True, None)
+			shutil.copytree(s, item, True, None)
 		else:
-			shutil.copy2(s, d)
+			shutil.copy2(s, item)
 
 	with open('background.js', 'r') as file:
 		lines = file.readlines()
 
-	with open('background.js', 'w') as file:
+	with open('/background.js', 'w') as file:
 		skip = False
 
 		for pos, line in enumerate(lines):
@@ -105,7 +104,7 @@ def firefox():
 			if (line.find('/*--------------------------------------------------------------') != -1):
 				skip = False
 
-	with open('manifest.json', 'r+') as json_file:
+	with open('/manifest.json', 'r+') as json_file:
 		data = json.load(json_file)
 
 		version = data['version']
@@ -126,6 +125,7 @@ def firefox():
 						  				  os.path.join('.', '.')))
 
 	archive.close()
+	os.chdir('..')
 	shutil.rmtree(temporary_path)
 
 
