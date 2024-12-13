@@ -251,7 +251,7 @@ extension.features.popupWindowButtons = function (event) {
 								event.preventDefault();
 								event.stopPropagation();
 								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error)};
-								ytPlayer = document.querySelector("#movie_player");
+								let ytPlayer = document.querySelector("#movie_player");
 								if (ytPlayer) {width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65}
 								else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
 								if (!ytPlayer) {
