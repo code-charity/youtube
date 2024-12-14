@@ -56,17 +56,17 @@ chrome.runtime.sendMessage({
 });
 
 extension.inject([
-	'/js&css/web-accessible/core.js',
-	'/js&css/web-accessible/functions.js',
-	'/js&css/web-accessible/www.youtube.com/appearance.js',
-	'/js&css/web-accessible/www.youtube.com/themes.js',
-	'/js&css/web-accessible/www.youtube.com/player.js',
-	'/js&css/web-accessible/www.youtube.com/playlist.js',
-	'/js&css/web-accessible/www.youtube.com/channel.js',
-	'/js&css/web-accessible/www.youtube.com/shortcuts.js',
-	'/js&css/web-accessible/www.youtube.com/blocklist.js',
-	'/js&css/web-accessible/www.youtube.com/settings.js',
-	'/js&css/web-accessible/init.js'
+	'/js/web-accessible/core.js',
+	'/js/web-accessible/functions.js',
+	'/js/web-accessible/www.youtube.com/appearance.js',
+	'/js/web-accessible/www.youtube.com/themes.js',
+	'/js/web-accessible/www.youtube.com/player.js',
+	'/js/web-accessible/www.youtube.com/playlist.js',
+	'/js/web-accessible/www.youtube.com/channel.js',
+	'/js/web-accessible/www.youtube.com/shortcuts.js',
+	'/js/web-accessible/www.youtube.com/blocklist.js',
+	'/js/web-accessible/www.youtube.com/settings.js',
+	'/js/web-accessible/init.js'
 ], () => {
 	extension.ready = true;
 	extension.events.trigger('init');

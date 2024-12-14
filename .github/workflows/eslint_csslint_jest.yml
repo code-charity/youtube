@@ -1,11 +1,10 @@
-name: eslint, csslint, jest, npm test, jslint
+name: Lint, format and test
 
 on:
   push:
     branches:
       - master
       - 'feature/*'
-      - ESlint
   pull_request:
     branches:
       - master
@@ -38,7 +37,7 @@ jobs:
         run: npm run test
 
       - name: Run Prettier
-        run: npm run prettier
+        run: npm run format
 
       #- name: Run npm test
       #  run: npm test

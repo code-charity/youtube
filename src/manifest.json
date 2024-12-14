@@ -28,27 +28,27 @@
 	"content_scripts": [{
 		"all_frames": true,
 		"css": [
-			"js&css/extension/www.youtube.com/styles.css",
-			"js&css/extension/www.youtube.com/night-mode/night-mode.css",
-			"js&css/extension/www.youtube.com/general/general.css",
-			"js&css/extension/www.youtube.com/appearance/header/header.css",
-			"js&css/extension/www.youtube.com/appearance/player/player.css",
-			"js&css/extension/www.youtube.com/appearance/details/details.css",
-			"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.css",
-			"js&css/extension/www.youtube.com/appearance/comments/comments.css"
+			"css/extension/www.youtube.com/styles.css",
+			"css/extension/www.youtube.com/night-mode.css",
+			"css/extension/www.youtube.com/general.css",
+			"css/extension/www.youtube.com/appearance/header.css",
+			"css/extension/www.youtube.com/appearance/player.css",
+			"css/extension/www.youtube.com/appearance/details.css",
+			"css/extension/www.youtube.com/appearance/sidebar.css",
+			"css/extension/www.youtube.com/appearance/comments.css"
 		],
 		"exclude_matches": [
 			"https://www.youtube.com/audiolibrary/*",
 			"https://www.youtube.com/tv*"
 		],
 		"js": [
-			"js&css/extension/core.js",
-			"js&css/extension/functions.js",
-			"js&css/extension/www.youtube.com/night-mode/night-mode.js",
-			"js&css/extension/www.youtube.com/general/general.js",
-			"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
-			"js&css/extension/www.youtube.com/appearance/comments/comments.js",
-			"js&css/extension/init.js"
+			"js/extension/core.js",
+			"js/extension/functions.js",
+			"js/extension/www.youtube.com/night-mode.js",
+			"js/extension/www.youtube.com/general.js",
+			"js/extension/www.youtube.com/appearance/sidebar.js",
+			"js/extension/www.youtube.com/appearance/comments.js",
+			"js/extension/init.js"
 		],
 		"matches": [
 			"https://www.youtube.com/*"
@@ -66,17 +66,17 @@
 	"web_accessible_resources": [{
 		"resources": [
 			"menu/index.html",
-			"js&css/web-accessible/core.js",
-			"js&css/web-accessible/functions.js",
-			"js&css/web-accessible/www.youtube.com/appearance.js",
-			"js&css/web-accessible/www.youtube.com/player.js",
-			"js&css/web-accessible/www.youtube.com/themes.js",
-			"js&css/web-accessible/www.youtube.com/playlist.js",
-			"js&css/web-accessible/www.youtube.com/channel.js",
-			"js&css/web-accessible/www.youtube.com/shortcuts.js",
-			"js&css/web-accessible/www.youtube.com/blocklist.js",
-			"js&css/web-accessible/www.youtube.com/settings.js",
-			"js&css/web-accessible/init.js",
+			"js/web-accessible/core.js",
+			"js/web-accessible/functions.js",
+			"js/web-accessible/www.youtube.com/appearance.js",
+			"js/web-accessible/www.youtube.com/player.js",
+			"js/web-accessible/www.youtube.com/themes.js",
+			"js/web-accessible/www.youtube.com/playlist.js",
+			"js/web-accessible/www.youtube.com/channel.js",
+			"js/web-accessible/www.youtube.com/shortcuts.js",
+			"js/web-accessible/www.youtube.com/blocklist.js",
+			"js/web-accessible/www.youtube.com/settings.js",
+			"js/web-accessible/init.js",
 			"menu/icons/48.png"
 		],
 		"matches": [
