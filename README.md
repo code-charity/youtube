@@ -30,7 +30,7 @@ For more info on how to contribute, see the [contributing wiki](https://github.c
 (+[community-list of regEx](https://github.com/code-charity/the-RegEx-Collector--Queries--Patterns " - ")?)
 
 ### 💡 Vision for the _(tweaking-/userStyle-/"modding-"_)Community:
-We can optimize things for the world, greatly prioritized: [<img src="github.png" height="18px">Crowd Fixes](https://github.com/code-charity/Universal-UserTweaks) <br>  ( <i> "insteada just tweakin@home like Sisyphos" </i> )
+We can optimize things for the world, greatly prioritized: [<img src=".github/github.png" height="18px">Crowd Fixes](https://github.com/code-charity/Universal-UserTweaks) <br>  ( <i> "insteada just tweakin@home like Sisyphos" </i> )
 
 ### 💡 Got great ideas?
 Please notify us if you have relavant (volunteer) work beyond this project! (or ideas@improvedtube.com)
@@ -39,36 +39,36 @@ Please notify us if you have relavant (volunteer) work beyond this project! (or 
 ### 🎁 Our Extensions:
 
 #### Superb:
-- [**History Manager<**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj) <a href="https://github.com/code-charity/history-manager"><img src="github.png" height="18px"></a><br>
+- [**History Manager<**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj) <a href="https://github.com/code-charity/history-manager"><img src=".github/github.png" height="18px"></a><br>
 
 #### Global / Filters:
-- [**unFreeze me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) Unlock your Right-Click, Ctrl+F, Selection anywhere!") [<img src="github.png" height="18px">](https://github.com/code-charity/unlock-keyboard-and-mouse)
-- [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) - Universal dark-mode! [<img src="github.png" height="18px">](https://github.com/code-charity/dark-mode)
+- [**unFreeze me**](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl) Unlock your Right-Click, Ctrl+F, Selection anywhere!") [<img src=".github/github.png" height="18px">](https://github.com/code-charity/unlock-keyboard-and-mouse)
+- [**Dark Mode**](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl) - Universal dark-mode! [<img src=".github/github.png" height="18px">](https://github.com/code-charity/dark-mode)
 
 #### Research:
-- [Ultimate Regex](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")[<img src="github.png" height="18px">](https://github.com/code-charity/regex)
-- [Regex Replace](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[<img src="github.png" height="18px">](https://github.com/code-charity/ultimate-REGEX-extension/issues/3)
+- [Ultimate Regex](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)("Ctrl+F+Shift")[<img src=".github/github.png" height="18px">](https://github.com/code-charity/regex)
+- [Regex Replace](https://chrome.google.com/webstore/detail/regex-replace/ihcaaefaoebbcklmolaflgllidfamfgm)[<img src=".github/github.png" height="18px">](https://github.com/code-charity/ultimate-REGEX-extension/issues/3)
 
 #### Browser:
-- [Custom user agent](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-charity/user-agent)
-- [auto-scroll](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch) [<img src="github.png" height="18px">](https://github.com/code-charity/auto-scroll)
+- [Custom user agent](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src=".github/github.png" height="18px">](https://github.com/code-charity/user-agent)
+- [auto-scroll](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch) [<img src=".github/github.png" height="18px">](https://github.com/code-charity/auto-scroll)
 
 #### Video / Media: (integrate them in this extension please)
-- [Looper](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)[<img src="github.png" height="18px">](https://github.com/code-charity/looper)
-- [Frame by Frame](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)[<img src="github.png" height="18px">](https://github.com/code-charity/frame-by-frame)
-- [unBlob](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-charity/unblob "please fix/adopt me!") (<i><del>Equalizer[<img src="github.png" height="18px">](https://github.com/code-charity/equalizer)</del></i>)
+- [Looper](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)[<img src=".github/github.png" height="18px">](https://github.com/code-charity/looper)
+- [Frame by Frame](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)[<img src=".github/github.png" height="18px">](https://github.com/code-charity/frame-by-frame)
+- [unBlob](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src=".github/github.png" height="18px">](https://github.com/code-charity/unblob "please fix/adopt me!") (<i><del>Equalizer[<img src=".github/github.png" height="18px">](https://github.com/code-charity/equalizer)</del></i>)
 
 #### Home:
 - [Start Page tabs](https://github.com/code-charity/start-page)
-- [TextEditor](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka)[<img src="github.png" height="18px">](https://github.com/code-charity/Editor)
-- [ToDo](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-charity/todo)
+- [TextEditor](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka)[<img src=".github/github.png" height="18px">](https://github.com/code-charity/Editor)
+- [ToDo](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src=".github/github.png" height="18px">](https://github.com/code-charity/todo)
 
 #### Development:
 - [**Satus**](https://github.com/code-charity/satus) (Our JS library)
 - [`WebGL.js`](https://github.com/code-charity/webgl.js) - WebGL Library
 - [endless grid](https://github.com/code-charity/pluviam)
 - [CodeEditor](https://github.com/code-charity/code-editor)
-- [TE](https://github.com/code-charity/theme-engine)
+- [Theme Engine](https://github.com/code-charity/theme-engine)
 - [Viscum Player](https://github.com/code-charity/viscum-player) - video.js?
 
 ## Roadmap ✔️
@@ -146,13 +146,11 @@ here, or on [Crowdin](https://crowdin.com/project/1655556")
 - **Safari**:
   - [Issue #494](https://github.com/code-charity/youtube-Extension/issues/494#issuecomment-675098753)
 
-<details><summary>
-`🔧` Installing on Safari </summary>
+<details><summary>🔧 Installing on Safari</summary>
 
 - 2.) [**Build yourself**](https://github.com/code-charity/youtube-Extension/issues/494#issuecomment-675098753)
 
 OR
-
 - 2.) Right-click ImprovedTube.app and select the "Open" option from the drop down menu.
   - 3.) Run this extension in your Applications folder
   - 4.) Open System Settings, click Privacy & Security, scroll down, and click the Open Anyway button (Allow App Store and identified developers first)
@@ -164,6 +162,7 @@ OR
   - 8.) Click Develop in Safari menu bar and then turn on Allow Unsigned Extensions
   - 9.) You will see this extension in Extensions of Safari Settings, turn on it
   - 10.) Click Always Allow on Every Website
+
 </details>
 
 - Chrome / Chromium / Brave / Edge / Vivaldi:
@@ -179,7 +178,7 @@ OR
    - 6.) Select the `manifest.json` file from unzipped folder
 
 ### Web browser support
-|[<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png" alt="Brave" width="28px" />](https://brave.com)</br>Brave | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png" alt="Chromium" width="28px" />](https://github.com/chromium/chromium)</br>Chromium | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" />](https://chrome.google.com/webstore/detail/improve-youtube-open-sour/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://www.microsoft.com/edge)</br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://foundation.mozilla.org)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](https://addons.opera.com/en/extensions/details/install-chrome-extensions/)</br>Opera| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://www.apple.com/safari/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png" alt="Vivaldi" width="24px" height="24px" />](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
+|[![Brave](https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png)](https://brave.com)</br>Brave | [![Chromium](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chromium/chromium_48x48.png)](https://github.com/chromium/chromium)<br> Chomium | [![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](https://chromewebstore.google.com/detail/improve-youtube-%F0%9F%8E%A7-for-yo/bnomihfieiccainjcjblhegjgglakjdd)</br>Chrome | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](https://www.microsoft.com/edge)</br>Edge | [![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](https://foundation.mozilla.org)</br>Firefox | [![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png)](https://addons.opera.com/en/extensions/details/install-chrome-extensions/)</br>Opera| [![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](https://www.apple.com/safari/)</br>Safari | [![Vivaldi](https://raw.githubusercontent.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png)](https://github.com/ric2b/Vivaldi-browser)</br>Vivaldi |
 | --------- | --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 0.52+ | 49.0+ | 49.0+ | 79.0+ | 44.0+ | 36.0+ | x.x+ | 1.0+ |
 </details>
