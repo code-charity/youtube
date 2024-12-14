@@ -3,7 +3,7 @@
 	"short_name": "ImprovedTube",
 	"name": "'Improve YouTube!' 🎧 (for YouTube & Videos)",
 	"description": "__MSG_description_ext__",
-	"version": "4.1077",
+	"version": "5.0.0",
 	"default_locale": "en",
 	"icons": {
 		"128": "menu/icons/128.png",
@@ -68,26 +68,24 @@
 		"contextMenus",
 		"storage"
 	],
-	"web_accessible_resources": [
-		{
-			"resources": [
-				"menu/index.html",
-				"js&css/web-accessible/core.js",
-				"js&css/web-accessible/functions.js",
-				"js&css/web-accessible/www.youtube.com/appearance.js",
-				"js&css/web-accessible/www.youtube.com/player.js",
-				"js&css/web-accessible/www.youtube.com/themes.js",
-				"js&css/web-accessible/www.youtube.com/playlist.js",
-				"js&css/web-accessible/www.youtube.com/channel.js",
-				"js&css/web-accessible/www.youtube.com/shortcuts.js",
-				"js&css/web-accessible/www.youtube.com/blocklist.js",
-				"js&css/web-accessible/www.youtube.com/settings.js",
-				"js&css/web-accessible/init.js",
-				"menu/icons/48.png"
-			],
-			"matches": [
-				"https://www.youtube.com/*"
-			]
-		}
-	]
+	"web_accessible_resources": [{
+		"resources": [
+			"menu/index.html",
+			"js&css/web-accessible/core.js",
+			"js&css/web-accessible/functions.js",
+			"js&css/web-accessible/www.youtube.com/appearance.js",
+			"js&css/web-accessible/www.youtube.com/player.js",
+			"js&css/web-accessible/www.youtube.com/themes.js",
+			"js&css/web-accessible/www.youtube.com/playlist.js",
+			"js&css/web-accessible/www.youtube.com/channel.js",
+			"js&css/web-accessible/www.youtube.com/shortcuts.js",
+			"js&css/web-accessible/www.youtube.com/blocklist.js",
+			"js&css/web-accessible/www.youtube.com/settings.js",
+			"js&css/web-accessible/init.js",
+			"menu/icons/48.png"
+		],
+		"matches": [
+			"https://www.youtube.com/*"
+		]
+	}]
 }

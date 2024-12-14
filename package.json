@@ -1,6 +1,6 @@
 {
   "name": "youtube",
-  "version": "4.1085",
+  "version": "5.0.0",
   "description": "",
   "main": "background.js",
   "type": "module",
