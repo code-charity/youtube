@@ -16,10 +16,7 @@
 		"id": "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}"
 		}
 	},
-	"background": {
-		"service_worker": "background.js",
-		"scripts": ["background.js"]
-	},
+	"background": { "service_worker": "background.js" },
 	"action": {
 		"default_popup": "menu/index.html",
 		"default_area": "navbar"
@@ -28,38 +25,36 @@
 	"options_ui": {
 		"page": "menu/index.html"
 	},
-	"content_scripts": [
-		{
-			"all_frames": true,
-			"css": [
-				"js&css/extension/www.youtube.com/styles.css",
-				"js&css/extension/www.youtube.com/night-mode/night-mode.css",
-				"js&css/extension/www.youtube.com/general/general.css",
-				"js&css/extension/www.youtube.com/appearance/header/header.css",
-				"js&css/extension/www.youtube.com/appearance/player/player.css",
-				"js&css/extension/www.youtube.com/appearance/details/details.css",
-				"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.css",
-				"js&css/extension/www.youtube.com/appearance/comments/comments.css"
-			],
-			"exclude_matches": [
-				"https://www.youtube.com/audiolibrary/*",
-				"https://www.youtube.com/tv*"
-			],
-			"js": [
-				"js&css/extension/core.js",
-				"js&css/extension/functions.js",
-				"js&css/extension/www.youtube.com/night-mode/night-mode.js",
-				"js&css/extension/www.youtube.com/general/general.js",
-				"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
-				"js&css/extension/www.youtube.com/appearance/comments/comments.js",
-				"js&css/extension/init.js"
-			],
-			"matches": [
-				"https://www.youtube.com/*"
-			],
-			"run_at": "document_start"
-		}
-	],
+	"content_scripts": [{
+		"all_frames": true,
+		"css": [
+			"js&css/extension/www.youtube.com/styles.css",
+			"js&css/extension/www.youtube.com/night-mode/night-mode.css",
+			"js&css/extension/www.youtube.com/general/general.css",
+			"js&css/extension/www.youtube.com/appearance/header/header.css",
+			"js&css/extension/www.youtube.com/appearance/player/player.css",
+			"js&css/extension/www.youtube.com/appearance/details/details.css",
+			"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.css",
+			"js&css/extension/www.youtube.com/appearance/comments/comments.css"
+		],
+		"exclude_matches": [
+			"https://www.youtube.com/audiolibrary/*",
+			"https://www.youtube.com/tv*"
+		],
+		"js": [
+			"js&css/extension/core.js",
+			"js&css/extension/functions.js",
+			"js&css/extension/www.youtube.com/night-mode/night-mode.js",
+			"js&css/extension/www.youtube.com/general/general.js",
+			"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
+			"js&css/extension/www.youtube.com/appearance/comments/comments.js",
+			"js&css/extension/init.js"
+		],
+		"matches": [
+			"https://www.youtube.com/*"
+		],
+		"run_at": "document_start"
+	}],
 	"host_permissions": [ "https://www.youtube.com/*" ],
 	"optional_permissions": [
 		"downloads"
