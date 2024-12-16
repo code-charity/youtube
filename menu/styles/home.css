@@ -1,25 +1,52 @@
 /*--------------------------------------------------------------
 >>> HOME:
 ----------------------------------------------------------------
+# Section
 # Buttons
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# SECTION
+--------------------------------------------------------------*/
+
+.satus-section--home {
+    display: flex/*grid*/;
+    flex-wrap: wrap;
+    padding: 8px;
+
+    /*grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 8px;*/
+}
 
 /*--------------------------------------------------------------
 # BUTTONS
 --------------------------------------------------------------*/
 
+.satus-button--general,
+.satus-button--player,
+.satus-button--appearance {
+	width: 33%;
+}
+
+.satus-button--shortcuts,
+.satus-button--channel,
+.satus-button--playlist,
+.satus-button--themes {
+	width: 25%;
+}
+
+.satus-button--blocklist,
+.satus-button--analyzer {
+	width: 50%;
+	transform: scale(.9);
+}
+
 .satus-section--home .satus-button {
 	display: flex;
 	flex-direction: column;
+    align-items: center;
 
-	width: calc(100% / 3);
 	height: unset;
-	margin: 8px 0 0;
-	padding: 8px 0;
-}
-
-.satus-base:not([improvedtube-home='list'])[page] .satus-section--home .satus-button {
-	width: 96px;
 }
 
 .satus-section--home .satus-button:focus,
@@ -55,10 +82,7 @@
 }
 
 .satus-section--home .satus-button> :nth-child(2) {
-	overflow: hidden;
-
 	width: 100%;
-	padding: 0 8px;
 
 	text-align: center;
 	white-space: nowrap;
