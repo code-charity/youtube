@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install --force
-      
+
       - name: Run eslint
         run: npx eslint --config=tests/eslint_rules.config.mjs
         continue-on-error: true
@@ -35,16 +35,40 @@ jobs:
       #   continue-on-error: true
 
       - name: Run Jest
-        run: npx jest  # --config=tests/jest.config.js
+        run: npx jest --coverage # --config=tests/jest.config.js
 
-      - name: Run npm test
-        run: npm test
+      - name: Coverage Badge
+        uses: ImBIOS/lcov-coverage-badge@v1
+        with:
+          file: ./coverage/lcov.info
 
-      - name: Install csslint using npm
-        run: npm install -g csslint@1.0.5
+      - name: Verify Changed files
+        uses: tj-actions/verify-changed-files@v20
+        id: verify-changed-files
+        with:
+          files: 'coverage.svg'
 
+      - name: Commit files
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add coverage.svg
+          git commit -m "Updated coverage.svg"
+
+      - name: Push changes
+        if: steps.verify-changed-files.outputs.files_changed == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          branch: ${{ github.ref }}
+
+      # - name: Run npm test
+      #   run: npm test
+
+      # - name: Install csslint using npm
+      #   run: npm install -g csslint@1.0.5
 #      - name: Lint CSS files
 #        run: |
 #          for file in $(grep -rl --include='*.css' '' ./); do npx csslint --config tests/csslint_rules.json "$file"; done
-
 
