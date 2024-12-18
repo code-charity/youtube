@@ -90,7 +90,7 @@ def chromium(manifest_version):
 
 def firefox(manifest_version):
     copy_src_to_tmp()
-    shutil.copy2('../build/manifest3Firefox.json', 'manifest.json')
+    shutil.copy2('../build/mv3ff', 'manifest.json')
 
     with open('background.js', 'r') as file:
         lines = file.readlines()
