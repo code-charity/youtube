@@ -374,8 +374,9 @@ ImprovedTube.shortcutResetPlaybackSpeed = function () {
 4.7.19 GO TO SEARCH BOX
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutGoToSearchBox = function () {
-	if (originalFocus) { HTMLElement.prototype.focus = originalFocus }
-	document.querySelector('input#search')?.focus(); //alternatively .click()
+	document.querySelector('input#search')?.click();
+	if (ImprovedTube.originalFocus) { HTMLElement.prototype.focus = originalFocus }
+	document.querySelector('input#search')?.focus(); 
 };
 /*------------------------------------------------------------------------------
 4.7.20 ACTIVATE FULLSCREEN
