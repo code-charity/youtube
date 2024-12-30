@@ -180,6 +180,15 @@ extension.skeleton.main.layers.section.player.on.click = {
 			max: 3.17,
 			step: .01
 		},
+    player_specific_playback_speed: {
+      component: 'slider',
+      text: 'specificPlaybackSpeed',
+      textarea: true,
+			value: 1,
+			min: .01,
+			max: 3.17,
+			step: .01
+    },
 		autofullscreen: {
 			component: 'switch',
 			text: 'autoFullscreen',

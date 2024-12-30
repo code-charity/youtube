@@ -233,6 +233,7 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'playerPlaybackSpeed':
 				case 'playerForcedPlaybackSpeed':
+        case '':
 					if (ImprovedTube.storage.player_forced_playback_speed === true && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {
 						ImprovedTube.playbackSpeed (Number(ImprovedTube.storage.player_playback_speed)); //new
 						ImprovedTube.elements.player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));
