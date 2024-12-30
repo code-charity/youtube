@@ -1,22 +1,22 @@
-{   
+{
     "qualityWhenRunningOnBattery":{
         "message": "Quality, when running on battery"
     },
     "pauseWhileIUnplugTheCharger":{
-        "message": "Pause when I unplug the charger" 
+        "message": "Pause when I unplug the charger"
     },
     "whenBatteryIslowDecreaseQuality":{
         "message": "Low battery: Decrease the quality"
     },
     "analytics": {
         "message": "Analytics"
-    }, 
+    },
     "purchase": {
         "message": "Purchase"
-    },    
+    },
     "join": {
         "message": "Join"
-    },  
+    },
     "improvedTubeSidePanel": {
         "message": "ImprovedTube: Browser Sidepanel"
     },
@@ -28,7 +28,7 @@
     },
 	"popupAd": {
         "message": "Pop-up ad: Hide"
-    },	
+    },
 	"hideWatchedVideos": {
         "message": "Hide watched videos"
     },
@@ -961,6 +961,9 @@
     },
     "playbackSpeed": {
         "message": "Playback speed"
+    },
+    "specificPlaybackSpeed": {
+        "message": "Enable specific playback speed for playlists"
     },
     "player": {
         "message": "Player"
