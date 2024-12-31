@@ -1,6 +1,6 @@
-name: "🐞Bug report form"
+name: "[🐞] Bug report form"
 description: "convenient?"
-title: "🐞"
+title: "[🐞]"
 labels:
   - "Bug"
   - "good first issue"

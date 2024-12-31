@@ -1,5 +1,5 @@
 ---
-name: Other topic, plan, mission, 3rd party solution,... (also check /discussions)
+name: Other topics (plans, missions, 3rd party solution...) Also check Discussions
 about: Other contributions / issues
 title: ''
 labels: ''
