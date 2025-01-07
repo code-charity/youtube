@@ -405,9 +405,6 @@ ImprovedTube.playerOnPause = function (event) {
 
 };
 
-// if ( document.documentElement.dataset.pageType === 'video'
-// && (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.transcript === true || ImprovedTube.storage.chapters === true )) { 
-// ImprovedTube.forbidFocus =  function (ms)
 /*--------------------------------------------------------------
 # HIDE PROGRESS BAR PREVIEW
 --------------------------------------------------------------*/
