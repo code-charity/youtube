@@ -83,9 +83,7 @@ html[data-page-type='video'][it-header-position=hidden_on_video_page] ytd-page-m
 html[it-header-position=hover] ytd-page-manager#page-manager,
 html[data-page-type='video'][it-header-position=hover_on_video_page] ytd-page-manager#page-manager,
 html[it-header-position=hidden][data-page-type='channel'] tp-yt-app-header#header,
-html[data-page-type='channel'][it-header-position=hidden_on_video_page] tp-yt-app-header#header,
 html[it-header-position=hover][data-page-type='channel'] tp-yt-app-header#header,
-html[data-page-type='channel'][it-header-position=hover_on_video_page] tp-yt-app-header#header,
 html[it-header-position=static] ytd-page-manager#page-manager {
 	margin-top: 0;
 }
