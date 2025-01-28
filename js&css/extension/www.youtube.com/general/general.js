@@ -334,8 +334,8 @@ extension.features.applyCustomFonts = function () {
 
 // Call the function on load and when the setting changes
 extension.features.applyCustomFonts();
-extension.storage.on("change", function (key) {
-  if (key === "enable_custom_fonts") {
+browser.storage.onChanged.addListener(function (changes, area) {
+  if (changes.enable_custom_fonts) {
     extension.features.applyCustomFonts();
   }
 });
