@@ -318,6 +318,28 @@ extension.features.font = function (changed) {
 	}
 };
 
+
+/*--------------------------------------------------------------
+# Apply custom fonts
+--------------------------------------------------------------*/
+extension.features.applyCustomFonts = function () {
+  var enableCustomFonts = extension.storage.get("enable_custom_fonts");
+
+  if (enableCustomFonts) {
+    document.documentElement.classList.add("custom-font");
+  } else {
+    document.documentElement.classList.remove("custom-font");
+  }
+};
+
+// Call the function on load and when the setting changes
+extension.features.applyCustomFonts();
+extension.storage.onChanged.addListener(function (changes, area) {
+  if (changes.enable_custom_fonts) {
+    extension.features.applyCustomFonts();
+  }
+});
+
 /*--------------------------------------------------------------
 # MARK WATCHED VIDEOS
 --------------------------------------------------------------*/
