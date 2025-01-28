@@ -41,8 +41,8 @@
 
 
 /* Added font Brush Script MT, Brush Script Std, cursive to the YouTube page. */
-body {
-    font-family: 'Brush Script MT', 'Brush Script Std', cursive;
+.custom-font {
+  font-family: 'Brush Script MT', 'Brush Script Std', cursive;
 }
 
 /*--------------------------------------------------------------
