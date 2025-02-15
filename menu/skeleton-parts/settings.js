@@ -858,5 +858,7 @@ function togglePasswordInput() {
 	// Sets input field to display current password
 	const passwordInput = document.getElementById('password-input');
 	passwordInput.placeholder = "Enter password";
-	passwordInput.value = satus.storage.get("password");
+
+	// If no password exists (undefined), set input value to empty string instead
+	passwordInput.value = satus.storage.get("password") || '';
 }
