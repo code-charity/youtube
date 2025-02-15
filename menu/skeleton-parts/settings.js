@@ -228,95 +228,95 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 				component: 'section',
 				variant: 'card',
 				languages: [
-					{value: 'default', text: 'default'},
-					{value: "ko", text: "한국어"},
-					{value: "en", text: "English"},
-					{value: "en-IN", text: "English (India)"},
-					{value: "en-GB", text: "English (UK)"},
-					{value: "en-US", text: "English (US)"},
-					{value: "ja", text: "日本語"},
-					{value: "ru", text: "Русский"},
-					{value: "pt", text: "Português (Brasil)"},
-					{value: "pt-PT", text: "Português"},
-					{value: "es-419", text: "Español (Latinoamérica)"},
-					{value: "es", text: "Español (España)"},
-					{value: "es-US", text: "Español (US)"},
-					{value: "fr", text: "Français"},
-					{value: "fr-CA", text: "Français (Canada)"},
-					{value: "de", text: "Deutsch"},
-					{value: "pl", text: "Polski"},
-					{value: "zh-CN", text: "中文 (简体)"},
-					{value: "zh-TW", text: "中文 (繁體)"},
-					{value: "zh-HK", text: "中文 (香港)"},
-					{value: "fil", text: "Filipino"},
-					{value: "af", text: "Afrikaans"},
-					{value: "az", text: "Azərbaycan"},
-					{value: "id", text: "Bahasa Indonesia"},
-					{value: "ms", text: "Bahasa Malaysia"},
-					{value: "bs", text: "Bosanski"},
-					{value: "ca", text: "Català"},
-					{value: "cs", text: "Čeština"},
-					{value: "da", text: "Dansk"},
-					{value: "et", text: "Eesti"},
-					{value: "eu", text: "Euskara"},
-					{value: "gl", text: "Galego"},
-					{value: "hr", text: "Hrvatski"},
-					{value: "zu", text: "IsiZulu"},
-					{value: "is", text: "Íslenska"},
-					{value: "it", text: "Italiano"},
-					{value: "sw", text: "Kiswahili"},
-					{value: "lv", text: "Latviešu valoda"},
-					{value: "lt", text: "Lietuvių"},
-					{value: "hu", text: "Magyar"},
-					{value: "nl", text: "Nederlands"},
-					{value: "no", text: "Norsk"},
-					{value: "nb-NO", text: "Norwegian Bokmål (not yet selectable on YouTube)"},
-					{value: "uz", text: "O‘zbek"},
-					{value: "ro", text: "Română"},
-					{value: "sq", text: "Shqip"},
-					{value: "sk", text: "Slovenčina"},
-					{value: "sl", text: "Slovenščina"},
-					{value: "sr-Latn", text: "Srpski"},
-					{value: "fi", text: "Suomi"},
-					{value: "sv", text: "Svenska"},
-					{value: "vi", text: "Tiếng Việt"},
-					{value: "tr", text: "Türkçe"},
-					{value: "be", text: "Беларуская"},
-					{value: "bg", text: "Български"},
-					{value: "ky", text: "Кыргызча"},
-					{value: "kk", text: "Қазақ Тілі"},
-					{value: "mk", text: "Македонски"},
-					{value: "mn", text: "Монгол"},
-					{value: "sr", text: "Српски"},
-					{value: "uk", text: "Українська"},
-					{value: "el", text: "Ελληνικά"},
-					{value: "hy", text: "Հայերեն"},
-					{value: "iw", text: "עברית"},
-					{value: "ur", text: "اردو"},
-					{value: "ar", text: "العربية"},
-					{value: "fa", text: "فارسی"},
-					{value: "fa-IR", text: "Iranian Persian (not yet selectable on YouTube)"},
-					{value: "ne", text: "नेपाली"},
-					{value: "mr", text: "मराठी"},
-					{value: "hi", text: "हिन्दी"},
-					{value: "bn", text: "বাংলা"},
-					{value: "pa", text: "ਪੰਜਾਬੀ"},
-					{value: "gu", text: "ગુજરાતી"},
-					{value: "ta", text: "தமிழ்"},
-					{value: "te", text: "తెలుగు"},
-					{value: "kn", text: "ಕನ್ನಡ"},
-					{value: "ml", text: "മലയാളം"},
-					{value: "si", text: "සිංහල"},
-					{value: "th", text: "ภาษาไทย"},
-					{value: "lo", text: "ລາວ"},
-					{value: "my", text: "ဗမာ"},
-					{value: "ka", text: "ქართული"},
-					{value: "am", text: "አማርኛ"},
-					{value: "km", text: "ខ្មែរ"},
-					{value: "zh-CN", text: "中文 (简体)"},
-					{value: "zh-TW", text: "中文 (繁體)"},
-					{value: "zh-HK", text: "中文 (香港)"},
-					{value: "ko", text: "한국어"}
+					{ value: 'default', text: 'default' },
+					{ value: "ko", text: "한국어" },
+					{ value: "en", text: "English" },
+					{ value: "en-IN", text: "English (India)" },
+					{ value: "en-GB", text: "English (UK)" },
+					{ value: "en-US", text: "English (US)" },
+					{ value: "ja", text: "日本語" },
+					{ value: "ru", text: "Русский" },
+					{ value: "pt", text: "Português (Brasil)" },
+					{ value: "pt-PT", text: "Português" },
+					{ value: "es-419", text: "Español (Latinoamérica)" },
+					{ value: "es", text: "Español (España)" },
+					{ value: "es-US", text: "Español (US)" },
+					{ value: "fr", text: "Français" },
+					{ value: "fr-CA", text: "Français (Canada)" },
+					{ value: "de", text: "Deutsch" },
+					{ value: "pl", text: "Polski" },
+					{ value: "zh-CN", text: "中文 (简体)" },
+					{ value: "zh-TW", text: "中文 (繁體)" },
+					{ value: "zh-HK", text: "中文 (香港)" },
+					{ value: "fil", text: "Filipino" },
+					{ value: "af", text: "Afrikaans" },
+					{ value: "az", text: "Azərbaycan" },
+					{ value: "id", text: "Bahasa Indonesia" },
+					{ value: "ms", text: "Bahasa Malaysia" },
+					{ value: "bs", text: "Bosanski" },
+					{ value: "ca", text: "Català" },
+					{ value: "cs", text: "Čeština" },
+					{ value: "da", text: "Dansk" },
+					{ value: "et", text: "Eesti" },
+					{ value: "eu", text: "Euskara" },
+					{ value: "gl", text: "Galego" },
+					{ value: "hr", text: "Hrvatski" },
+					{ value: "zu", text: "IsiZulu" },
+					{ value: "is", text: "Íslenska" },
+					{ value: "it", text: "Italiano" },
+					{ value: "sw", text: "Kiswahili" },
+					{ value: "lv", text: "Latviešu valoda" },
+					{ value: "lt", text: "Lietuvių" },
+					{ value: "hu", text: "Magyar" },
+					{ value: "nl", text: "Nederlands" },
+					{ value: "no", text: "Norsk" },
+					{ value: "nb-NO", text: "Norwegian Bokmål (not yet selectable on YouTube)" },
+					{ value: "uz", text: "O‘zbek" },
+					{ value: "ro", text: "Română" },
+					{ value: "sq", text: "Shqip" },
+					{ value: "sk", text: "Slovenčina" },
+					{ value: "sl", text: "Slovenščina" },
+					{ value: "sr-Latn", text: "Srpski" },
+					{ value: "fi", text: "Suomi" },
+					{ value: "sv", text: "Svenska" },
+					{ value: "vi", text: "Tiếng Việt" },
+					{ value: "tr", text: "Türkçe" },
+					{ value: "be", text: "Беларуская" },
+					{ value: "bg", text: "Български" },
+					{ value: "ky", text: "Кыргызча" },
+					{ value: "kk", text: "Қазақ Тілі" },
+					{ value: "mk", text: "Македонски" },
+					{ value: "mn", text: "Монгол" },
+					{ value: "sr", text: "Српски" },
+					{ value: "uk", text: "Українська" },
+					{ value: "el", text: "Ελληνικά" },
+					{ value: "hy", text: "Հայերեն" },
+					{ value: "iw", text: "עברית" },
+					{ value: "ur", text: "اردو" },
+					{ value: "ar", text: "العربية" },
+					{ value: "fa", text: "فارسی" },
+					{ value: "fa-IR", text: "Iranian Persian (not yet selectable on YouTube)" },
+					{ value: "ne", text: "नेपाली" },
+					{ value: "mr", text: "मराठी" },
+					{ value: "hi", text: "हिन्दी" },
+					{ value: "bn", text: "বাংলা" },
+					{ value: "pa", text: "ਪੰਜਾਬੀ" },
+					{ value: "gu", text: "ગુજરાતી" },
+					{ value: "ta", text: "தமிழ்" },
+					{ value: "te", text: "తెలుగు" },
+					{ value: "kn", text: "ಕನ್ನಡ" },
+					{ value: "ml", text: "മലയാളം" },
+					{ value: "si", text: "සිංහල" },
+					{ value: "th", text: "ภาษาไทย" },
+					{ value: "lo", text: "ລາວ" },
+					{ value: "my", text: "ဗမာ" },
+					{ value: "ka", text: "ქართული" },
+					{ value: "am", text: "አማርኛ" },
+					{ value: "km", text: "ខ្មែរ" },
+					{ value: "zh-CN", text: "中文 (简体)" },
+					{ value: "zh-TW", text: "中文 (繁體)" },
+					{ value: "zh-HK", text: "中文 (香港)" },
+					{ value: "ko", text: "한국어" }
 				],
 				improvedtube: {
 					component: 'select',
@@ -331,7 +331,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 					text: 'youtubeLanguage',
 					storage: 'youtube_language',
 					options: function () {
-						return [{value: 'disabled', text: "Disabled"}].concat(extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.language.on.click.section.languages);
+						return [{ value: 'disabled', text: "Disabled" }].concat(extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.language.on.click.section.languages);
 					},
 					on: {
 						change: function (event) {
@@ -769,3 +769,94 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 		}
 	}
 };
+
+/*--------------------------------------------------------------
+# PASSWORD OPTIONS
+--------------------------------------------------------------*/
+
+extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.usePassword = {
+	component: 'button',
+	text: 'passwordOptions',
+	before: {
+		svg: {
+			component: 'svg',
+			attr: {
+				'viewBox': '0 0 24 24',
+				'fill': 'currentColor',
+			},
+
+			path: {
+				component: 'path',
+				attr: {
+					'd': 'M 7 5 C 3.1545455 5 0 8.1545455 0 12 C 0 15.845455 3.1545455 19 7 19 C 9.7749912 19 12.089412 17.314701 13.271484 15 L 16 15 L 16 18 L 22 18 L 22 15 L 24 15 L 24 9 L 23 9 L 13.287109 9 C 12.172597 6.6755615 9.8391582 5 7 5 z M 7 7 C 9.2802469 7 11.092512 8.4210017 11.755859 10.328125 L 11.988281 11 L 22 11 L 22 13 L 20 13 L 20 16 L 18 16 L 18 13 L 12.017578 13 L 11.769531 13.634766 C 11.010114 15.575499 9.1641026 17 7 17 C 4.2454545 17 2 14.754545 2 12 C 2 9.2454545 4.2454545 7 7 7 z M 7 9 C 5.3549904 9 4 10.35499 4 12 C 4 13.64501 5.3549904 15 7 15 C 8.6450096 15 10 13.64501 10 12 C 10 10.35499 8.6450096 9 7 9 z M 7 11 C 7.5641294 11 8 11.435871 8 12 C 8 12.564129 7.5641294 13 7 13 C 6.4358706 13 6 12.564129 6 12 C 6 11.435871 6.4358706 11 7 11 z'
+				}
+			}
+		}
+	},
+	on: {
+		click: {
+			component: 'section',
+			variant: 'card',
+
+			require_password: {
+				component: 'switch',
+				text: 'requirePassword',
+				value: false,
+
+				on: {
+					click: function (event) {
+						// Ensures that clicking the switch does not load another section
+						event.preventDefault();
+
+						// 
+						togglePasswordInput();
+					}
+				}
+			},
+
+			password_input: {
+				component: 'section',
+				variant: 'card',
+				id: "password-input-card",
+				style: {
+					"padding": "0"
+				},
+				children: {
+					component: 'input',
+					id: "password-input",
+					type: 'text',
+					style: {
+						"padding": "0 10px 0 10px"
+					},
+
+					// 
+					function() {
+						togglePasswordInput();
+					},
+
+					// 
+					on: {
+						input: function (event) {
+							satus.storage.set("password", event.target.value);
+						}
+					}
+				}
+			}
+		}
+	}
+};
+
+function togglePasswordInput() {
+	// Sets the visibility of the password input field depending on the state of the requirement switch
+	let requirePassword = satus.storage.get("require_password");
+	const display = satus.storage.get("require_password") ? "" : "none";
+	document.getElementById('password-input-card').style.display = display;
+
+	// Avoids changing input field if input is not visible
+	if (!requirePassword) return;
+
+	// Sets input field to display current password
+	const passwordInput = document.getElementById('password-input');
+	passwordInput.placeholder = "Enter password";
+	passwordInput.value = satus.storage.get("password");
+}
