@@ -46,7 +46,6 @@ satus.storage.import(function (items) {
 					// Focuses text box when extension is opened
 					function() {
 						document.getElementById('login-input').focus();
-						console.log(satus.storage.get("password"));
 					},
 
 					on: {
@@ -64,7 +63,8 @@ satus.storage.import(function (items) {
 
 						// Refocuses on password input box if clicked away
 						blur: function () {
-							document.getElementById('login-input').focus();
+							const loginInput = document.getElementById('login-input');
+							if (loginInput) loginInput.focus();
 						}
 					}
 				}

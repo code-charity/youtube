@@ -774,6 +774,23 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 # PASSWORD OPTIONS
 --------------------------------------------------------------*/
 
+function togglePasswordInput() {
+	// Sets the visibility of the password input field depending on the state of the requirement switch
+	let requirePassword = satus.storage.get("require_password");
+	const display = satus.storage.get("require_password") ? "" : "none";
+	document.getElementById('password-input-card').style.display = display;
+
+	// Avoids changing input field if input is not visible
+	if (!requirePassword) return;
+
+	// Sets input field to display current password
+	const passwordInput = document.getElementById('password-input');
+	passwordInput.placeholder = "Enter password";
+
+	// If no password exists (undefined), set input value to empty string instead
+	passwordInput.value = satus.storage.get("password") || '';
+}
+
 extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.usePassword = {
 	component: 'button',
 	text: 'passwordOptions',
@@ -784,7 +801,6 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 				'viewBox': '0 0 24 24',
 				'fill': 'currentColor',
 			},
-
 			path: {
 				component: 'path',
 				attr: {
@@ -805,10 +821,10 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 
 				on: {
 					click: function (event) {
-						// Ensures that clicking the switch does not load another section
+						// Prevents clicking the toggle switch does not load another section
 						event.preventDefault();
 
-						// 
+						// Toggle the visibility of password input field
 						togglePasswordInput();
 					}
 				}
@@ -829,12 +845,12 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 						"padding": "0 10px 0 10px"
 					},
 
-					// 
+					// Sets password field's visibility when modal menu is rendered
 					function() {
 						togglePasswordInput();
 					},
 
-					// 
+					// Updates the stored password value on keyboard input
 					on: {
 						input: function (event) {
 							satus.storage.set("password", event.target.value);
@@ -845,20 +861,3 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 		}
 	}
 };
-
-function togglePasswordInput() {
-	// Sets the visibility of the password input field depending on the state of the requirement switch
-	let requirePassword = satus.storage.get("require_password");
-	const display = satus.storage.get("require_password") ? "" : "none";
-	document.getElementById('password-input-card').style.display = display;
-
-	// Avoids changing input field if input is not visible
-	if (!requirePassword) return;
-
-	// Sets input field to display current password
-	const passwordInput = document.getElementById('password-input');
-	passwordInput.placeholder = "Enter password";
-
-	// If no password exists (undefined), set input value to empty string instead
-	passwordInput.value = satus.storage.get("password") || '';
-}
