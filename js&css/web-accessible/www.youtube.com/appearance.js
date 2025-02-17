@@ -570,6 +570,44 @@ ImprovedTube.dayOfWeek = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+ APRIL FOOLS WARNING MESSAGE
+ -------------------------------------------------------------------------------*/
+ ImprovedTube.aprilFoolsWarning = function () {
+    let dateElement = document.querySelector("#info-strings yt-formatted-string");
+
+    if (dateElement) {
+        let uploadDate = dateElement.innerText.trim();
+
+        if (uploadDate.includes("April 1")) {
+            let titleElement = document.querySelector("#title");
+
+            if (titleElement && !document.querySelector("#april-fools-warning")) {
+                let warningMessage = document.createElement("div");
+                warningMessage.id = "april-fools-warning";
+                warningMessage.innerText = "⚠️ Warning: This video was uploaded on April Fools' Day!";
+                warningMessage.style.color = "red";
+                warningMessage.style.fontWeight = "bold";
+                warningMessage.style.marginTop = "10px";
+
+                titleElement.appendChild(warningMessage);
+            }
+        }
+    }
+};
+
+ImprovedTube.initAprilFoolsWarning = function () {
+    ImprovedTube.observer = new MutationObserver(() => {
+        ImprovedTube.aprilFoolsWarning();
+    });
+
+    ImprovedTube.observer.observe(document.body, { childList: true, subtree: true });
+
+    // Run once on page load
+    ImprovedTube.aprilFoolsWarning();
+};
+
+
+/*------------------------------------------------------------------------------
  HOW LONG AGO THE VIDEO WAS UPLOADED
 ------------------------------------------------------------------------------*/
 ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
