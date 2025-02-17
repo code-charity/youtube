@@ -706,16 +706,19 @@ REPEAT
 ImprovedTube.playerRepeat = function () {
 	setTimeout(function () {
 		if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
-			ImprovedTube.elements.video.setAttribute('loop', '');
+			// Prevent looping for Shorts videos
+			if (!location.href.includes("shorts/")) {
+				ImprovedTube.elements.video.setAttribute('loop', '');
+			}
 		}
-	   //ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';   //old class from version 3.x? that both repeat buttons could have
-		 	}, 200);
-}
+	}, 200);
+};
+
 /*------------------------------------------------------------------------------
 REPEAT BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerRepeatButton = function () {
-	if (this.storage.player_repeat_button === true) {
+	if (this.storage.player_repeat_button === true && !location.href.includes("shorts/")) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
@@ -1517,10 +1520,234 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 /*------------------------------------------------------------------------------
 HIDE PROGRESS BAR PREVIEW
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerHideProgressPreview = function () {
-	if (this.storage.player_hide_progress_preview === true) {
-		document.documentElement.setAttribute('it-hide-progress-preview', 'true');
-	} else {
-		document.documentElement.removeAttribute('it-hide-progress-preview');
-	}
-};
+
+
+
+/*------------------------------------------------------------------------------
+SHORTS LOOP PREVENTION & AD DETECTION
+Prevent Shorts from looping indefinitely.
+------------------------------------------------------------------------------*/
+(function () {
+    console.log("Initializing Shorts Loop Prevention");
+
+    let observer = null;
+    let lastVideoId = "";
+    let currentVideo = null;
+    let preloadedVideos = new Map();
+    let videoStartTime = new WeakMap(); 
+    let userInteractedVideos = new WeakSet(); 
+    let videoWasPausedByScript = new WeakSet(); 
+
+    function getShortsVideoElement() {
+        return document.querySelector("#shorts-player video");
+    }
+
+    function resetVideoListeners(video) {
+        if (!video) return;
+        console.log("Resetting event listeners for previous video");
+        video.onended = null;
+        video.onseeked = null;
+        video.removeEventListener("timeupdate", handleTimeUpdate);
+        video.removeEventListener("play", trackUserPlay);
+        video.removeEventListener("pause", trackPauseEvent);
+        videoStartTime.delete(video);
+        userInteractedVideos.delete(video);
+        videoWasPausedByScript.delete(video);
+    }
+
+    function handleTimeUpdate(event) {
+        let video = event.target;
+
+        if (!userInteractedVideos.has(video) || video.currentTime < 1) {
+            return; 
+        }
+
+        if (video.currentTime < 0.5 && !video.paused && !videoWasPausedByScript.has(video)) {
+            console.log("Detected auto-restart! Checking if stopping is safe.");
+            if (!isNaN(video.duration) && video.duration !== Infinity && video.duration > 0) {
+                console.log("Stopping video.");
+                video.pause();
+                video.currentTime = video.duration - 0.01;
+                videoWasPausedByScript.add(video);
+            } else {
+                console.warn("Skipped stopping video due to invalid duration:", video.duration);
+            }
+        }
+    }
+
+    function trackUserPlay(event) {
+        let video = event.target;
+        console.log("User interacted. Allowing natural playback.");
+        userInteractedVideos.add(video);
+        video.removeEventListener("play", trackUserPlay);
+    }
+
+    function trackPauseEvent(event) {
+        let video = event.target;
+        if (!videoWasPausedByScript.has(video)) {
+            console.log("User paused manually. Ignoring.");
+            videoWasPausedByScript.add(video);
+        }
+    }
+
+    function preventShortsLoop() {
+        let video = getShortsVideoElement();
+        if (!video) return;
+
+        let videoId = new URLSearchParams(window.location.search).get("v") || document.location.href;
+
+        if (preloadedVideos.has(video.src)) {
+            let preloadedData = preloadedVideos.get(video.src);
+            if (preloadedData.isAd) {
+                console.log("Ad detected from preload.");
+                resetVideoListeners(video);
+                return;
+            }
+        }
+
+        if (videoId === lastVideoId) {
+            console.log("Already processed this video. Skipping.");
+            return;
+        }
+
+        console.log("New Shorts video detected! Applying loop prevention.");
+        lastVideoId = videoId;
+
+        resetVideoListeners(currentVideo);
+        currentVideo = video;
+
+        videoStartTime.set(video, Date.now());
+
+        function handleLoadedMetadata() {
+            console.log("Video metadata loaded!");
+
+            video.onended = function () {
+                if (!this.paused) {
+                    console.log("Video ended, pausing.");
+                    this.pause();
+                }
+            };
+
+            video.onseeked = function () {
+                let startTime = videoStartTime.get(video) || 0;
+                let timeElapsed = (Date.now() - startTime) / 1000;
+
+                if (timeElapsed < 2 || videoWasPausedByScript.has(video)) {
+                    console.log("Ignoring seek event (video just started or script-paused)");
+                    return;
+                }
+
+                console.log("Blocked seek event!");
+                this.pause();
+            };
+
+            video.addEventListener("timeupdate", handleTimeUpdate);
+            video.addEventListener("pause", trackPauseEvent);
+        }
+
+        video.addEventListener("play", trackUserPlay, { once: true });
+
+        if (video.readyState >= 2) {
+            handleLoadedMetadata();
+        } else {
+            video.addEventListener("loadeddata", handleLoadedMetadata, { once: true });
+        }
+
+        preloadNextVideos();
+    }
+
+    function preloadNextVideos() {
+        console.log("Preloading metadata for upcoming Shorts...");
+        let videos = document.querySelectorAll("#shorts-player video");
+
+        videos.forEach(video => {
+            if (!preloadedVideos.has(video.src)) {
+                video.addEventListener("loadedmetadata", function () {
+                    let isAd = detectAdDuringPreload(video);
+                    preloadedVideos.set(video.src, { duration: video.duration, isAd: isAd });
+
+                    console.log(`Preloaded video: ${video.src}`);
+                    console.log(`   - Duration: ${video.duration}s`);
+                    console.log(`   - Detected as Ad? ${isAd}`);
+                }, { once: true });
+            }
+        });
+    }
+
+    function detectAdDuringPreload(video) {
+        if (!video) return false;
+
+        const player = video.closest('.html5-video-player') || video.closest('#movie_player');
+        if (player && player.classList.contains('ad-showing')) {
+            console.warn("Ad detected during preload (ad-showing class).");
+            return true;
+        }
+
+        if (video.closest("ytd-ad-slot-renderer, ytd-in-feed-ad-layout-renderer")) {
+            console.warn("Shorts ad detected during preload (Ad container found).");
+            return true;
+        }
+
+        let adBadge = document.querySelector(".badge-shape-wiz_text");
+        if (adBadge && adBadge.innerText.includes("Sponsored")) {
+            console.warn("Sponsored Shorts detected during preload.");
+            return true;
+        }
+
+        let skipButton = document.querySelector('.ytp-ad-skip-button-modern.ytp-button,[class*="ytp-ad-skip-button"].ytp-button');
+        if (skipButton) {
+            console.warn("Skippable Ad detected during preload.");
+            return true;
+        }
+
+        if (isNaN(video.duration) || video.duration === Infinity || video.duration < 3) {
+            console.warn("Possible ad detected during preload (Invalid duration).");
+            return true;
+        }
+
+        return false;
+    }
+
+    function observeShortsChanges() {
+        const shortsContainer = document.querySelector("#shorts-player");
+        if (!shortsContainer) {
+            console.warn("Shorts container not found. Retrying...");
+            setTimeout(observeShortsChanges, 1000);
+            return;
+        }
+
+        if (observer) observer.disconnect();
+
+        observer = new MutationObserver(() => {
+            let video = getShortsVideoElement();
+            if (video && video !== currentVideo) {
+                console.log("Shorts video changed! Reapplying loop prevention.");
+                preventShortsLoop();
+            }
+        });
+
+        observer.observe(shortsContainer, { childList: true, subtree: false });
+    }
+
+    document.addEventListener("DOMContentLoaded", preventShortsLoop);
+    document.addEventListener("yt-navigate-finish", preventShortsLoop);
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
