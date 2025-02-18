@@ -23,6 +23,7 @@
 	border-radius: 3px; 
 	background: var(--satus-section-background);
 	box-shadow: 0 0 2px 0 rgb(0 0 0 / 0%);
+	/* z-index: 2;  Added */
 }
 .satus-section--appearance .satus-button:hover {
 	z-index: 9;

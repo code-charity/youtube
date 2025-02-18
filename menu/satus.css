@@ -740,10 +740,14 @@ As our Syntax markup isnt read for <textarea>, is it?
 .satus-section--align-end {
 	align-items: center;
 	justify-content: flex-end;
+	display: flex;
+	flex-wrap: nowrap;
+	gap: .5px;
+	max-width: 180px;
 }
 
 .satus-section--align-end>*:not(:first-child) {
-	margin-left: 8px;
+	margin-left: 6px;
 }
 
 

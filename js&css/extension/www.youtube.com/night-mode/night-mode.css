@@ -47,7 +47,7 @@ html[it-bluelight]:not([it-bluelight='0']) .html5-video-player.ytp-fullscreen {
 
 	pointer-events: none !important;
 
-	background: #000 !important;
+	background: #087 !important;
 }
 
 #it-dim-player {
@@ -63,7 +63,7 @@ html[it-bluelight]:not([it-bluelight='0']) .html5-video-player.ytp-fullscreen {
 
 	pointer-events: none !important;
 
-	background: #000 !important;
+	background: #086 !important;
 }
 
 .html5-video-player.ytp-fullscreen #it-dim-player {

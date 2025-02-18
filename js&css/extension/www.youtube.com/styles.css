@@ -1,11 +1,11 @@
 /* fix for youtube's player moving in from the right side */
 html {overflow-x: hidden !important}
-/* html {overflow-x: hidden !important}
+/* html {overflow-x: hidden !important} */
 /* Fix to tame Youtube's page-load / make it more calm - the player wont annoyingly slide in from the right anymore */
 									/* previously also: html[it-transcript='true'] {overflow-x: hidden !important}*/
 @-moz-document url-prefix() {html {overflow-x: visible !important}} /* REMOVE ME SOON https://github.com/code-charity/youtube/issues/1649 */
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 10px) {
 	div#primary ytd-live-chat-frame {width: auto !important;}
 	html[it-pathname*="/shorts/"] #header.style-scope ytd-engagement-panel-title-header-renderer,
 	html[it-pathname*="/shorts/"] #content.style-scope ytd-engagement-panel-title-header-renderer {
@@ -638,7 +638,7 @@ html:not([data-page-type=channel]) .it-blocklisted-channel:hover ytd-thumbnail {
 /*------------NEW---------------*/
 
 .improvedtube-sidebar-a {
-	font-size: 1.4rem;
+	font-size: 14rem;
 	line-height: var(--yt-guide-highlight-line-height, 1.8rem);
 	position: relative;
 	display: flex;
