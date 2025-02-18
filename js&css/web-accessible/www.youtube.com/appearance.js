@@ -570,6 +570,54 @@ ImprovedTube.dayOfWeek = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+ SHOW EXACT UPLOAD DATE
+------------------------------------------------------------------------------*/
+ImprovedTube.exactUploadDate = function () {
+	if(this.exact_date==true && this.elements.yt_channel_link) {
+		// var xhr = new XMLHttpRequest(),
+		// 	key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey,
+		// 	id = this.getParam(location.href.slice(location.href.indexOf("?") + 1), "v");
+		// xhr.open("GET", "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + key, false);
+		// xhr.send();
+		// if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+		// 	var response = JSON.parse(xhr.responseText);
+		// 	var date = response.items[0].snippet.publishedA;
+		// 	var element = ImprovedTube.elements.exact_upload_date || document.createElement("div");
+		// 	ImprovedTube.empty(element);
+		// 	element.appendChild(document.createTextNode("• " + date.toLocaleDateString()));
+		// 	element.className = "it-exact-upload-date";
+		// 	ImprovedTube.elements.exact_upload_date = element;
+		// 	document.querySelector("#info #info-text").appendChild(element);
+		// }
+		var xhr = new XMLHttpRequest(),
+			key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey,
+			id = this.getParam(location.href.slice(location.href.indexOf("?") + 1), "v");
+		xhr.addEventListener("load", function () {
+			var response = JSON.parse(this.responseText);
+				var date = response.items[0].snippet.publishedA;
+				element = ImprovedTube.elements.exact_date || document.createElement("div");
+
+			ImprovedTube.empty(element);
+
+			if (response.error) {
+				element.appendChild(document.createTextNode("• Error: " + response.error.code));
+			} else {
+				element.appendChild(document.createTextNode("• " + response.items[0].snippet.publishedAt));
+			}
+
+			element.className = "it-channel-exact-upload-date";
+
+			ImprovedTube.elements.exact_date = element;
+
+			document.querySelector("#info #info-text").appendChild(element);
+		});
+
+		xhr.open("GET", "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + key, true);
+		xhr.send();
+	}
+};
+
+/*------------------------------------------------------------------------------
  HOW LONG AGO THE VIDEO WAS UPLOADED
 ------------------------------------------------------------------------------*/
 ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
@@ -617,7 +665,7 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 				element.appendChild(document.createTextNode("• " + timeSince(response.items[0].snippet.publishedAt)));
 			}
 
-			element.className = "it-how-long-ago-the-video-was-uploaded";
+			element.className = "it-how-long-ago-the-channel-was-uploaded";
 
 			ImprovedTube.elements.how_long_ago_the_video_was_uploaded = element;
 
