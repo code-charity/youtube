@@ -706,13 +706,11 @@ REPEAT
 ImprovedTube.playerRepeat = function () {
 	setTimeout(function () {
 		if (!/ad-showing/.test(ImprovedTube.elements.player.className)) {
-			// Prevent looping for Shorts videos
-			if (!location.href.includes("shorts/")) {
-				ImprovedTube.elements.video.setAttribute('loop', '');
-			}
+			ImprovedTube.elements.video.setAttribute('loop', '');
 		}
-	}, 200);
-};
+	   //ImprovedTube.elements.buttons['it-repeat-styles'].style.opacity = '1';   //old class from version 3.x? that both repeat buttons could have
+		 	}, 200);
+}
 
 /*------------------------------------------------------------------------------
 REPEAT BUTTON

@@ -97,11 +97,12 @@ ImprovedTube.init = function () {
 	this.channelCompactTheme();
 
 	
-	let preventShortsLooping = localStorage.getItem("prevent_shorts_looping") === "true";
-	if (preventShortsLooping) {
-		console.log("Prevent Shorts Looping is active!");
-		ImprovedTube.preventShortsLooping();  
-	}
+	chrome.storage.local.get("prevent_shorts_looping", function (data) {
+		if (data.prevent_shorts_looping) {
+			console.log("Prevent Shorts Looping is active!");
+			ImprovedTube.preventShortsLooping();
+		}
+	});	
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();
