@@ -275,7 +275,8 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 /*--------------------------------------------------------------
 # REMOVE MEMBER ONLY VIDEOS
 --------------------------------------------------------------*/
-html[it-remove-member-only='true'] ytd-grid-video-renderer:has(.badge-style-type-members-only) {
+html[it-remove-member-only='true'] ytd-grid-video-renderer:has(.badge-style-type-members-only),
+html[it-remove-member-only='true'] ytd-rich-item-renderer:has(.badge-style-type-members-only) {
     display: none !important;
 }
 /*--------------------------------------------------------------
