@@ -1,22 +1,26 @@
-{
-    "qualityWhenRunningOnBattery": {
+{   
+    "requirePassword": { "message": "Require password to change ImprovedTube settings" },
+    "passwordOptions": { "message": "Password options"},
+      "enterPassword": { "message": "Please enter your 4-digit code."},
+    
+    "qualityWhenRunningOnBattery":{
         "message": "Quality, when running on battery"
     },
-    "pauseWhileIUnplugTheCharger": {
-        "message": "Pause when I unplug the charger"
+    "pauseWhileIUnplugTheCharger":{
+        "message": "Pause when I unplug the charger" 
     },
-    "whenBatteryIslowDecreaseQuality": {
+    "whenBatteryIslowDecreaseQuality":{
         "message": "Low battery: Decrease the quality"
     },
     "analytics": {
         "message": "Analytics"
-    },
+    }, 
     "purchase": {
         "message": "Purchase"
-    },
+    },    
     "join": {
         "message": "Join"
-    },
+    },  
     "improvedTubeSidePanel": {
         "message": "ImprovedTube: Browser Sidepanel"
     },
@@ -26,10 +30,10 @@
     "youtubesLight": {
         "message": "YouTube's Light"
     },
-    "popupAd": {
+	"popupAd": {
         "message": "Pop-up ad: Hide"
-    },
-    "hideWatchedVideos": {
+    },	
+	"hideWatchedVideos": {
         "message": "Hide watched videos"
     },
     "ambientLighting": {
@@ -109,9 +113,6 @@
     },
     "appearance": {
         "message": "Appearance"
-    },
-    "enterPassword": {
-        "message": "Please enter your 4-digit code."
     },
     "areYouSureYouWantToExportTheData": {
         "message": "Are you sure you want to export the data?"
@@ -361,9 +362,6 @@
     },
     "dateAndTime": {
         "message": "Date & time"
-    },
-    "passwordOptions": {
-        "message": "Password options"
     },
     "dawn": {
         "message": "Dawn"
@@ -1345,9 +1343,6 @@
     },
     "use24HourFormat": {
         "message": "Use 24-hour format"
-    },
-    "requirePassword": {
-        "message": "Require password to change ImprovedTube settings"
     },
     "version": {
         "message": "Version"
