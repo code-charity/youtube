@@ -665,7 +665,7 @@ ImprovedTube.howLongAgoTheVideoWasUploaded = function () {
 				element.appendChild(document.createTextNode("• " + timeSince(response.items[0].snippet.publishedAt)));
 			}
 
-			element.className = "it-how-long-ago-the-channel-was-uploaded";
+			element.className = "it-how-long-ago-the-video-was-uploaded";
 
 			ImprovedTube.elements.how_long_ago_the_video_was_uploaded = element;
 
