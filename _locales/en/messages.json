@@ -1,4 +1,8 @@
 {   
+    "requirePassword": { "message": "Require password to change ImprovedTube settings" },
+    "passwordOptions": { "message": "Password options"},
+      "enterPassword": { "message": "Please enter your 4-digit code."},
+    
     "qualityWhenRunningOnBattery":{
         "message": "Quality, when running on battery"
     },
