@@ -619,7 +619,7 @@ ImprovedTube.dayOfWeek = function () {
 // 	console.log("exact date tesst")
 // };
 ImprovedTube.exactUploadDate = function () {
-    if (this.exact_date === true && this.elements.yt_channel_link) {
+    if (this.storage.exact_date === true) {
         const xhr = new XMLHttpRequest();
         const key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey;
         const id = this.getParam(location.href.slice(location.href.indexOf("?") + 1), "v");
