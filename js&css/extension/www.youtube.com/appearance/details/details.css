@@ -142,6 +142,8 @@ html[it-description='classic_hidden'] div.style-scope.ytd-watch-flexy + ytd-watc
 /*--------------------------------------------------------------
 # SHOW EXACT UPLOAD DATE
 --------------------------------------------------------------*/
+html[it-exact-upload-date='true'] #info #date,
+html[it-exact-upload-date='true'] #info #date + #info-strings>#dot,
 .it-channel-exact-upload-date {
 	float: right !important;
 	margin-left: 4px !important;
