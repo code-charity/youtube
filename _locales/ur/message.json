@@ -70,7 +70,7 @@
         "message": "میری فعال خصوصیات"
     },
     "addScrollToTop": {
-        "message": "شامل کریں "اوپر تک سکرول کریں""
+        "message": "شامل کریں اوپر تک سکرول کریں - "
     },
     "ads": {
         "message": "اشتہارات"
@@ -109,19 +109,19 @@
         "message": "تجزیہ کار"
     },
     "animations": {
-        "message": "Animations"
+        "message": "متحرک تصاویر"
     },
     "appearance": {
-        "message": "Appearance"
+        "message": "ظاہری شکل"
     },
     "areYouSureYouWantToExportTheData": {
-        "message": "Are you sure you want to export the data?"
+        "message": "کیا آپ واقعی ڈیٹا برآمد کرنا چاہتے ہیں؟"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Are you sure you want to import this data?"
+        "message": "کیا آپ واقعی یہ ڈیٹا درآمد کرنا چاہتے ہیں؟"
     },
     "areYouSureYouWantToSyncTheData": {
-        "message": "Are you sure you want to sync the current settings?"
+        "message": "کیا آپ واقعی موجودہ ترتیبات کو ہم آہنگ کرنا چاہتے ہیں؟"
     },
     "ARROWDOWN": {
         "message": "⇩"
@@ -136,70 +136,70 @@
         "message": "⇧"
     },
     "atHistory": {
-        "message": "at 'History'"
+        "message": "'تاریخ' میں"
     },
     "atSubscriptions": {
-        "message": "at 'Subscriptions'"
+        "message": "'سبسکرپشنز' پر"
     },
     "atTrending": {
-        "message": "at 'Trending'"
+        "message": "'رجحان' میں"
     },
     "audio": {
-        "message": "Audio"
+        "message": "آڈیو"
     },
     "audioFormats": {
-        "message": "Audio formats"
+        "message": "آڈیو فارمیٹس"
     },
     "auto": {
-        "message": "Auto"
+        "message": "آٹو"
     },
     "autoplay": {
-        "message": "Autoplay"
+        "message": "آٹو پلے"
     },
     "Auto_PiP_picture_in_picture": {
-        "message": "Auto-PiP (Picture in Picture)"
+        "message": "آٹو پی آئی پی (تصویر میں تصویر)"
     },
     "playerAutoPipOutside": {
-        "message": "Auto-PiP only outside source Tab"
+        "message": "آٹو پی آئی پی صرف ماخذ ٹیب سے باہر"
     },
     "PipRequiresUserInteraction": {
-        "message": "PiP requires recent User interaction with source page. This is Chrome Picture-in-Picture API limitations and we cant do anything to bypass it. Works best with Autoplay disabled and manual Play control or deliberately clicking somewhere on the page before switching Tabs."
+        "message": "PiP کو سورس پیج کے ساتھ صارف کے حالیہ تعامل کی ضرورت ہے۔ یہ Chrome Picture-in-Picture API حدود ہیں اور ہم اسے نظرانداز کرنے کے لیے کچھ نہیں کر سکتے۔ آٹو پلے غیر فعال اور دستی پلے کنٹرول کے ساتھ بہترین کام کرتا ہے یا ٹیبز کو سوئچ کرنے سے پہلے صفحہ پر کسی جگہ پر جان بوجھ کر کلک کرنے سے۔"
     },
     "autoFullscreen": {
-        "message": "Auto-fullscreen"
+        "message": "خودکار فل سکرین"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Auto-pause while I'm not in the tab"
+        "message": "جب میں ٹیب میں نہ ہوں خود بخود موقوف کریں۔"
     },
     "autoPictureInPicture": {
-        "message": "Auto Picture-In-Picture"
+        "message": "آٹو پکچر ان پکچر"
     },
     "autoplayDisable": {
-        "message": "Force Autoplay Off"
+        "message": "زبردستی آٹو پلے آف کریں۔"
     },
     "avoidAv1": {
-        "message": "Avoid AV1"
+        "message": "AV1 سے بچیں۔"
     },
     "avoidAv1Vp8Vp9": {
-        "message": "Avoid AV1, VP8, VP9"
+        "message": "AV1، VP8، VP9 سے بچیں۔"
     },
     "avoidAv1Vp9": {
-        "message": "Avoid AV1, VP9"
+        "message": "AV1، VP9 سے بچیں۔"
     },
     "avoidCpuRenderingWhenPossible": {
-        "message": "Avoid CPU rendering when possible"
+        "message": "جب ممکن ہو تو CPU رینڈرنگ سے گریز کریں۔"
     },
     "backgroundColor": {
-        "message": "Background color"
+        "message": "پس منظر کا رنگ"
     },
     "backgroundOpacity": {
-        "message": "Background opacity"
+        "message": "پس منظر کی دھندلاپن"
     },
     "backupAndReset": {
-        "message": "Backup & reset"
+        "message": "بیک اپ اور ری سیٹ کریں۔"
     },
     "baseOnSystemColorScheme": {
-        "message": "Base on system color scheme"
+        "message": "سسٹم کی رنگ سکیم کی بنیاد"
     },
     "belowPlayer": {
         "message": "Below player"
