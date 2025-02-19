@@ -1,8 +1,13 @@
 {   
-    "requirePassword": { "message": "ترتیبات کو تبدیل کرنے کے لیے پاس ورڈ درکار ہے" },
-    "passwordOptions": { "message": "پاس ورڈ کے اختیارات"},
-      "enterPassword": { "message": "براہ کرم اپنا 4 ہندسوں کا کوڈ درج کریں۔"},
-    
+    "requirePassword": { 
+	"message": "ترتیبات کو تبدیل کرنے کے لیے پاس ورڈ درکار ہے" 
+    },
+    "passwordOptions": { 
+        "message": "پاس ورڈ کے اختیارات"
+    },
+    "enterPassword": { 
+        "message": "براہ کرم اپنا 4 ہندسوں کا کوڈ درج کریں۔"
+    },
     "qualityWhenRunningOnBattery":{
         "message": "معیار، جب بیٹری پر چل رہا ہے"
     },
@@ -202,1224 +207,1223 @@
         "message": "سسٹم کی رنگ سکیم کی بنیاد"
     },
     "belowPlayer": {
-        "message": "Below player"
+        "message": "پلیئر کے نیچے"
     },
     "bitness": {
-        "message": "Bitness"
+        "message": "بِٹنِس"
     },
     "black": {
-        "message": "Black"
+        "message": "کالا"
     },
     "block_Codec_Alert_h264": {
-        "message": "You need either H.264 or VP9 enabled for Youtube to play videos."
+        "message": "یوٹیوب ویڈیوز چلانے کے لئے آپ کو H.264 یا VP9 فعال کرنے کی ضرورت ہے۔"
     },
     "block_Codec_Alert_VP9": {
-        "message": "You need either VP9 or H.264 enabled for Youtube to play videos."
+        "message": "یوٹیوب ویڈیوز چلانے کے لئے آپ کو VP9 یا H.264 فعال کرنے کی ضرورت ہے۔"
     },
     "blockAll": {
-        "message": "Off (block or skip)"
+        "message": "بند (روکیں یا چھوڑیں)"
     },
     "blockAv1": {
-        "message": "Block AV1"
+        "message": "AV1 روکیں"
     },
     "blockH264": {
-        "message": "Block H.264"
+        "message": "H.264 روکیں"
     },
     "blocklist": {
-        "message": "Blocklist"
+        "message": "بلاک لسٹ"
     },
     "blockMusic": {
-        "message": "Skip ads while I play music"
+        "message": "میوزک چلاتے وقت اشتہارات چھوڑیں"
     },
     "blockVp8": {
-        "message": "Block VP8"
+        "message": "VP8 روکیں"
     },
+    {
     "blockVp9": {
-        "message": "Block VP9"
+        "message": "VP9 روکیں"
     },
     "blue": {
-        "message": "Blue"
+        "message": "نیلا"
     },
     "blueGray": {
-        "message": "Blue gray"
+        "message": "نیلا سرمئی"
     },
     "bluelight": {
-        "message": "Bluelight"
+        "message": "نیلا روشنی"
     },
     "brightness": {
-        "message": "Brightness"
+        "message": "چمک"
     },
     "brown": {
-        "message": "Brown"
+        "message": "بھورا"
     },
     "browser": {
-        "message": "Browser"
+        "message": "براؤزر"
     },
     "browserAccountSync": {
-        "message": "Sync (Browser Account)"
+        "message": "ہم آہنگ کریں (براؤزر اکاؤنٹ)"
     },
     "browserVersion": {
-        "message": "Browser version"
+        "message": "براؤزر ورژن"
     },
     "bubbles": {
-        "message": "Bubbles"
+        "message": "بلبلے"
     },
     "bug": {
-        "message": "Bug"
+        "message": "خرابی"
     },
     "buttons": {
-        "message": "Buttons"
+        "message": "بٹن"
     },
     "cancel": {
-        "message": "Cancel"
+        "message": "منسوخ کریں"
     },
     "categories": {
-        "message": "Categories"
+        "message": "اقسام"
     },
     "channel": {
-        "message": "Channel"
+        "message": "چینل"
     },
     "channels": {
-        "message": "Channels"
+        "message": "چینلز"
     },
     "chapters": {
-        "message": "Chapters"
+        "message": "ابواب"
     },
     "chapterTitle": {
-        "message": "Chapter Title"
+        "message": "باب کا عنوان"
     },
     "characterEdgeStyle": {
-        "message": "Character edge style"
+        "message": "حروف کے کنارے کا انداز"
     },
     "clip": {
-        "message": "Clip"
+        "message": "کلپ"
     },
     "clipboard": {
-        "message": "Clipboard"
+        "message": "کلپ بورڈ"
     },
     "codecH264": {
-        "message": "Codec h.264"
+        "message": "کوڈیک h.264"
     },
     "codecs": {
-        "message": "Codecs"
+        "message": "کوڈیکس"
     },
     "collapsed": {
-        "message": "Collapsed"
+        "message": "منہدم"
     },
     "collapseOfSubscriptionSections": {
-        "message": "Fold subscriptions' sections (collapsed accordion)"
+        "message": "سبسکرپشن سیکشنز کو فولڈ کریں (منہدم اکارڈین)"
     },
     "columns": {
-        "message": "Extra sidebar column (without moving the related videos, if the window is wide enough)"
+        "message": "اضافی سائیڈبار کالم (اگر ونڈو کافی چوڑی ہو تو متعلقہ ویڈیوز کو منتقل کیے بغیر)"
     },
     "comments": {
-        "message": "Comments"
+        "message": "تبصرے"
     },
     "compact_spacing": {
-        "message": "Compact Spacing"
+        "message": "کمپیکٹ فاصلہ"
     },
     "compactTheme": {
-        "message": "Compact Theme"
+        "message": "کمپیکٹ تھیم"
     },
     "confirmationBeforeClosing": {
-        "message": "Confirmation before closing"
+        "message": "بند کرنے سے پہلے تصدیق"
     },
     "cookies": {
-        "message": "Cookies"
+        "message": "کوکیز"
     },
     "cores": {
-        "message": "Cores"
+        "message": "کورز"
     },
     "copyVideoId": {
-        "message": "Copy Video Id"
+        "message": "ویڈیو آئی ڈی کاپی کریں"
     },
     "cropChapterTitles": {
-        "message": "Crop chapter titles"
+        "message": "بابوں کے عنوانات کاٹیں"
     },
     "Currently_requiring_a_YouTube_API_key": {
-        "message": "(Currently requiring a YouTube-API-key: )"
+        "message": "(فی الحال یوٹیوب API-کی کی ضرورت ہے: )"
     },
     "custom": {
-        "message": "Custom"
+        "message": "حسب ضرورت"
     },
     "customCss": {
-        "message": "Custom CSS"
+        "message": "حسب ضرورت CSS"
     },
     "customJs": {
-        "message": "Custom JS"
+        "message": "حسب ضرورت JS"
     },
     "customMiniPlayer": {
-        "message": "Custom Mini-Player"
+        "message": "حسب ضرورت منی پلیئر"
     },
     "cyan": {
-        "message": "Cyan"
+        "message": "سائن"
     },
     "dark": {
-        "message": "Dark"
+        "message": "گہرا"
     },
     "darkTheme": {
-        "message": "Dark theme"
+        "message": "گہرا تھیم"
     },
     "dateAndTime": {
-        "message": "Date & time"
+        "message": "تاریخ اور وقت"
     },
     "dawn": {
-        "message": "Dawn"
+        "message": "طلوع صبح"
     },
     "decreasePlaybackSpeed": {
-        "message": "Decrease playback speed"
+        "message": "پلے بیک کی رفتار کو کم کریں"
     },
     "decreaseVolume": {
-        "message": "Decrease volume"
+        "message": "آواز کو کم کریں"
     },
     "deepOrange": {
-        "message": "Deep orange"
+        "message": "گہرا نارنجی"
     },
     "deepPurple": {
-        "message": "Deep purple"
+        "message": "گہرا جامنی"
     },
     "default": {
-        "message": "Default"
+        "message": "ڈیفالٹ"
     },
     "default_CC": {
-        "message": "default"
+        "message": "ڈیفالٹ"
     },
     "default_theme": {
-        "message": "default"
+        "message": "ڈیفالٹ"
     },
     "defaultChannelTab": {
-        "message": "Default channel tab"
+        "message": "ڈیفالٹ چینل ٹیب"
     },
     "defaultContentCountry": {
-        "message": "Country (virtual travel)"
+        "message": "ملک (ورچوئل سفر)"
     },
     "defaultPlaybackSpeed": {
-        "message": "Default Playback Speed"
+        "message": "ڈیفالٹ پلے بیک کی رفتار"
     },
     "deleteWatchedVideos": {
-        "message": "Delete watched videos"
+        "message": "دیکھی گئی ویڈیوز کو حذف کریں"
     },
     "deleteYoutubeCookies": {
-        "message": "Delete YouTube cookies"
+        "message": "یوٹیوب کوکیز کو حذف کریں"
     },
     "depressed": {
-        "message": "Depressed"
+        "message": "اداس"
     },
     "description": {
-        "message": "Description"
+        "message": "تفصیل"
     },
     "description_ext": {
-        "message": "YouTube, tidy & smart? Supercharge YouTube! Give it strong features, filter only the videos you want & exactly the look you like"
+        "message": "یوٹیوب، صاف اور سمارٹ؟ یوٹیوب کو مضبوط خصوصیات دیں، صرف وہ ویڈیوز فلٹر کریں جو آپ چاہتے ہیں اور وہی شکل حاصل کریں جو آپ کو پسند ہے۔"
     },
     "desert": {
-        "message": "Desert"
+        "message": "صحرا"
     },
     "details": {
-        "message": "Details"
+        "message": "تفصیلات"
     },
     "developerOptions": {
-        "message": "Developer options"
+        "message": "ڈویلپر کے اختیارات"
     },
     "device": {
-        "message": "Device"
+        "message": "ڈیوائس"
     },
     "dim": {
-        "message": "Dim"
+        "message": "مدھم"
     },
     "disabled": {
-        "message": "Disabled"
+        "message": "معذور"
     },
     "disableThumbnailPlayback": {
-        "message": "Disable video playback on hover"
+        "message": "تھمب نیل پر ویڈیو پلے بیک کو غیر فعال کریں"
     },
     "dislike": {
-        "message": "Dislike"
+        "message": "ناپسند"
     },
     "displayDayOfTheWeak": {
-        "message": "Display day of the week"
+        "message": "ہفتے کے دن کو ظاہر کریں"
     },
     "donate": {
-        "message": "Donate"
+        "message": "عطیہ کریں"
     },
     "doNotChange": {
-        "message": "Don't change"
+        "message": "تبدیل نہ کریں"
     },
-    "download": {
-        "message": "Download"
+    "download":{
+        "message": "ڈاؤن لوڈ کریں"
     },
+    
     "draggable": {
-        "message": "Draggable"
+        "message": "کھینچنے کے قابل"
     },
     "dropShadow": {
-        "message": "Drop shadow"
+        "message": "چھایا گرائیں"
     },
     "durationWithSpeed": {
-        "message": "Show time remaining with reference to playback speed"
+        "message": "پلے بیک کی رفتار کے مطابق باقی وقت دکھائیں"
     },
     "email": {
-        "message": "Email"
+        "message": "ای میل"
     },
     "embedded_Hide_Share": {
-        "message": "Embedded Hide Share"
+        "message": "سرایت شدہ اشتراک چھپائیں"
     },
     "Embedded_YouTube": {
-        "message": "Embedded YouTube"
+        "message": "سرایت شدہ یوٹیوب"
     },
     "empty": {
-        "message": "Empty"
+        "message": "خالی"
     },
     "enabled": {
-        "message": "Enabled"
+        "message": "فعال"
     },
     "enabledForced": {
-        "message": "Enabled (forced)"
+        "message": "فعال (زبردستی)"
     },
     "expanded": {
-        "message": "Expanded"
+        "message": "وسیع"
     },
     "exportSettings": {
-        "message": "Export settings"
+        "message": "ترتیبات برآمد کریں"
     },
     "extension": {
-        "message": "Extension"
+        "message": "ایکسٹینشن"
     },
     "ExtraButtons": {
-        "message": "Extra buttons"
+        "message": "اضافی بٹن"
     },
     "extraButtonsBelowThePlayer": {
-        "message": "Extra buttons below the player"
+        "message": "پلیئر کے نیچے اضافی بٹن"
     },
     "Feature_not_yet_available": {
-        "message": "Feature not yet available"
+        "message": "فیچر ابھی دستیاب نہیں"
     },
     "file": {
-        "message": "File"
+        "message": "فائل"
     },
     "filters": {
-        "message": "Filters"
+        "message": "فلٹرز"
     },
     "fitToWindow": {
-        "message": "Old alternative ('Fit to window')"
+        "message": "پرانا متبادل ('ونڈو کے مطابق فٹ کریں')"
     },
     "flash": {
-        "message": "Flash"
+        "message": "فلیش"
     },
     "font": {
-        "message": "Font"
+        "message": "فونٹ"
     },
     "fontColor": {
-        "message": "Font color"
+        "message": "فونٹ کا رنگ"
     },
     "fontFamily": {
-        "message": "Font family"
+        "message": "فونٹ کا خاندان"
     },
     "fontOpacity": {
-        "message": "Font opacity"
+        "message": "فونٹ کی شفافیت"
     },
     "fontSize": {
-        "message": "Font size"
+        "message": "فونٹ کا سائز"
     },
     "footer": {
-        "message": "Footer"
+        "message": "فوٹو"
     },
     "forcedPlaybackSpeed": {
-        "message": "Speed-watching: Permanent speed"
+        "message": "اسپیڈ دیکھنا: مستقل رفتار"
     },
     "forcedPlaybackSpeedMusic": {
-        "message": "(Force playback speed even for music?)"
+        "message": "(میوزک کے لئے بھی پلے بیک کی رفتار کو مجبور کریں؟)"
     },
     "forcedPlayVideoFromTheBeginning": {
-        "message": "Force video to play from the beginning"
+        "message": "ویڈیو کو شروع سے چلنے پر مجبور کریں"
     },
     "forcedTheaterMode": {
-        "message": "Forced theater mode"
+        "message": "زبردستی تھیٹر موڈ"
     },
     "forcedVolume": {
-        "message": "Forced volume"
+        "message": "زبردستی حجم"
     },
     "forceSDR": {
-        "message": "Avoid HDR, keep SDR"
+        "message": "HDR سے بچیں، SDR رکھیں"
     },
     "foundABug": {
-        "message": "Found a bug?"
+        "message": "خرابی ملی؟"
     },
     "fullWindow": {
-        "message": "Full height"
+        "message": "مکمل اونچائی"
     },
     "general": {
-        "message": "General"
+        "message": "عام"
     },
     "geoPreference": {
-        "message": "Geo Preference"
+        "message": "جیو ترجیح"
     },
     "github": {
-        "message": "GitHub"
+        "message": "گیٹ ہب"
     },
     "googleApiKey": {
-        "message": "Google API key"
+        "message": "گوگل API کلید"
     },
     "goToSearchBox": {
-        "message": "Go to search box"
+        "message": "تلاش والے باکس میں جائیں"
     },
     "gpu": {
         "message": "GPU"
     },
     "GPUnotindatabase": {
-        "message": "GPU not in database"
+        "message": "GPU ڈیٹا بیس میں نہیں"
     },
     "green": {
-        "message": "Green"
+        "message": "سبز"
     },
     "grey": {
-        "message": "Grey"
+        "message": "سرمئی"
     },
     "halfTransparent": {
-        "message": "Faint/half-transparent"
+        "message": "مدھم/نیم شفاف"
     },
     "Hamburger_Menu": {
-        "message": "Hamburger Menu"
+        "message": "ہیمبرگر مینو"
     },
     "hardwareInformation": {
-        "message": "Hardware information"
+        "message": "ہارڈ ویئر کی معلومات"
     },
     "hd": {
         "message": "HD"
     },
     "hdThumbnail": {
-        "message": "HD thumbnail"
+        "message": "HD تھمب نیل"
     },
     "header": {
-        "message": "Header"
+        "message": "ہیڈر"
     },
     "hidden": {
-        "message": "Hidden"
+        "message": "چھپا ہوا"
     },
     "hiddenOnVideoPage": {
-        "message": "Hidden on video page"
+        "message": "ویڈیو صفحے پر چھپا ہوا"
     },
     "hide_author_avatars": {
-        "message": "Hide author avatars"
+        "message": "مصنف کے اوتار چھپائیں"
     },
     "hide_labels": {
-        "message": "Hide names"
+        "message": "نام چھپائیں"
     },
     "Hide_Pause_Overlay": {
-        "message": "Hide Pause Overlay"
+        "message": "وقفے کی اوورلے چھپائیں"
     },
     "Hide_Shorts_remixing_this_video": {
-        "message": "Hide Shorts remixing this video"
+        "message": "اس ویڈیو کی ریمکسنگ شارٹس چھپائیں"
     },
     "Hide_sidebar": {
-        "message": "Hide sidebar "
+        "message": "سائڈبار چھپائیں"
     },
     "Hide_the_tabs_only": {
-        "message": "Hide the tabs only"
+        "message": "صرف ٹیبز چھپائیں"
     },
     "Hide_YouTube_Logo": {
-        "message": "Hide YouTube Logo"
+        "message": "یوٹیوب لوگو چھپائیں"
     },
     "hideAnimatedThumbnails": {
-        "message": "Hide animated thumbnails"
+        "message": "متحرک تھمب نیلز چھپائیں"
     },
     "hideAnnotations": {
-        "message": "Hide annotations"
+        "message": "تشریحات چھپائیں"
     },
     "hideCards": {
-        "message": "Hide cards"
+        "message": "کارڈز چھپائیں"
     },
     "hideCategories": {
-        "message": "Hide categories"
+        "message": "اقسام چھپائیں"
     },
     "hideCommentsCount": {
-        "message": "Hide comments count"
+        "message": "تبصرے کی تعداد چھپائیں"
     },
     "hideCountryCode": {
-        "message": "Hide country code"
+        "message": "ملک کا کوڈ چھپائیں"
     },
     "hideDate": {
-        "message": "Hide date"
+        "message": "تاریخ چھپائیں"
     },
     "hideDetailButton": {
-        "message": "Buttons (below the player)"
+        "message": "بٹن (پلیئر کے نیچے)"
     },
     "hideDetails": {
-        "message": "Hide details"
+        "message": "تفصیلات چھپائیں"
     },
     "hideEndscreen": {
-        "message": "Hide endscreen"
+        "message": "اختتامی اسکرین چھپائیں"
     },
     "hideFeaturedContent": {
-        "message": "Hide featured content"
+        "message": "نمایاں مواد چھپائیں"
     },
     "hideFooter": {
-        "message": "Hide footer"
+        "message": "فوٹو چھپائیں"
     },
     "hideGradientBottom": {
-        "message": "Hide shadow around player-bar"
+        "message": "پلیئر بار کے ارد گرد چھایا چھپائیں"
     },
     "hideHomePageShorts": {
-        "message": "Hide Shorts on the home page"
+        "message": "ہوم پیج پر شارٹس چھپائیں"
     },
     "hideIncludesPaidPromotion": {
-        "message": "Hide \"Includes Paid Promotion\""
+        "message": "\"ادائیگی شدہ پروموشن شامل ہے\" چھپائیں"
     },
     "hideMore": {
-        "message": "Hide '...'"
+        "message": "'...' چھپائیں"
     },
     "hidePlayerControlsBar": {
-        "message": "Hide player controls bar"
+        "message": "پلیئر کنٹرول بار چھپائیں"
     },
     "hidePlayerControlsBarButtons": {
-        "message": "Hide player controls buttons"
+        "message": "پلیئر کنٹرول کے بٹن چھپائیں"
     },
     "hidePlayerControlsBarOptions": {
-        "message": "Hide player controls options"
+        "message": "پلیئر کنٹرول کے اختیارات چھپائیں"
     },
     "hidePlaylist": {
-        "message": "Hide playlist"
+        "message": "پلے لسٹ چھپائیں"
     },
     "hideReport": {
-        "message": "Hide 'Report'"
+        "message": "'رپورٹ' چھپائیں"
     },
     "hideRightButtons": {
-        "message": "Hide right buttons"
+        "message": "دائیں بٹن چھپائیں"
     },
     "hideScrollForDetails": {
-        "message": "Hide «Scroll for details»"
+        "message": "تفصیلات کے لئے اسکرول چھپائیں"
     },
     "hideSkipOverlay": {
-        "message": "Hide 5 second skip animation"
+        "message": "5 سیکنڈ کا چھوڑنے کی حرکت پذیری چھپائیں"
     },
     "hideThumbnailOverlay": {
-        "message": "Hide buttons on thumbnails"
+        "message": "تھمب نیلز پر بٹن چھپائیں"
     },
     "hideThumbnailDots": {
-        "message": "Hide '⫶' (more actions) on thumbnails"
+        "message": "تھمب نیلز پر '⫶' (مزید کاروائیاں) چھپائیں"
     },
     "hideThumbnails": {
-        "message": "Hide thumbnails"
+        "message": "تھمب نیلز چھپائیں"
     },
     "hideVideoTitleFullScreen": {
-        "message": "Hide video title in fullscreen"
+        "message": "فل اسکرین میں ویڈیو کا عنوان چھپائیں"
     },
     "hideThumbnailIcon": {
-        "message": "Hide thumbnail icon"
+        "message": "تھمب نیل آئیکن چھپائیں"
     },
     "hideViewsCount": {
-        "message": "Hide views count"
+        "message": "نظریات کی تعداد چھپائیں"
     },
     "hideVoiceSearchButton": {
-        "message": "Hide voice search button"
+        "message": "وائس سرچ بٹن چھپائیں"
     },
     "high": {
-        "message": "High"
+        "message": "اعلی"
     },
     "history": {
-        "message": "History"
+        "message": "تاریخ"
     },
     "home": {
-        "message": "Home"
+        "message": "گھر"
     },
     "homeScreen": {
-        "message": "Home screen"
+        "message": "ہوم اسکرین"
     },
     "hover": {
-        "message": "Hover"
+        "message": "ہوور"
     },
     "hoverOnVideoPage": {
-        "message": "Hover on video page"
+        "message": "ویڈیو صفحے پر ہوور"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "Show video's age (how long ago it was uploaded)"
+        "message": "ویڈیو کی عمر دکھائیں (کتنی دیر پہلے اپ لوڈ کیا گیا)"
     },
     "icons": {
-        "message": "Icons"
+        "message": "شبیہیں"
     },
     "iconsOnly": {
-        "message": "Icon only"
+        "message": "صرف شبیہ"
     },
     "importSettings": {
-        "message": "Import settings"
+        "message": "درآمد کی ترتیبات"
     },
     "ImprovedTube": {
-        "message": "ImprovedTube"
+        "message": "بہتر یوٹیوب"
     },
     "improvedtubeButtons": {
-        "message": "ImprovedTube buttons"
+        "message": "بہتر یوٹیوب بٹن"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "ImprovedTube icon on YouTube"
+        "message": "یوٹیوب پر بہتر یوٹیوب آئیکن"
     },
     "improvedtubeLanguage": {
-        "message": "ImprovedTube"
+        "message": "بہتر یوٹیوب زبان"
     },
     "improvedtubeVersion": {
-        "message": "ImprovedTube version"
+        "message": "بہتر یوٹیوب ورژن"
     },
     "improveLogo": {
-        "message": "Logo: Monochrome!"
+        "message": "لوگو: یک رنگ!"
     },
     "increasePlaybackSpeed": {
-        "message": "Increase playback speed"
+        "message": "پلے بیک کی رفتار بڑھائیں"
     },
     "increaseVolume": {
-        "message": "Increase volume"
+        "message": "حجم بڑھائیں"
     },
     "indigo": {
-        "message": "Indigo"
+        "message": "جامنی نیلا"
     },
     "items": {
-        "message": "Items"
+        "message": "اشیاء"
     },
     "language": {
-        "message": "Language"
+        "message": "زبان"
     },
     "language_closed_caption": {
-        "message": "Language Default - Closed Captions"
+        "message": "زبان ڈیفالٹ - بند کیپشن"
     },
     "languages": {
-        "message": "Languages"
+        "message": "زبانیں"
     },
     "layerAnimationScale": {
-        "message": "Layer animation scale"
+        "message": "لیئر حرکت پیمانہ"
     },
     "layout": {
-        "message": "Layout"
+        "message": "لے آؤٹ"
     },
     "legacyYoutube": {
-        "message": "Legacy YouTube"
+        "message": "پرانا یوٹیوب"
     },
     "library": {
-        "message": "Library"
+        "message": "لائبریری"
     },
     "light": {
-        "message": "Light"
+        "message": "روشنی"
     },
     "lightBlue": {
-        "message": "Light blue"
+        "message": "ہلکا نیلا"
     },
     "lightGreen": {
-        "message": "Light green"
+        "message": "ہلکا سبز"
     },
     "like": {
-        "message": "Like"
+        "message": "پسند"
     },
     "liked": {
-        "message": "Liked"
+        "message": "پسند کیا"
     },
     "likes": {
-        "message": "Likes"
+        "message": "پسندیدگیاں"
     },
     "lime": {
-        "message": "Lime"
+        "message": "لیموں"
     },
     "limitPageWidth": {
-        "message": "Limit page width"
+        "message": "صفحے کی چوڑائی محدود کریں"
     },
     "list": {
-        "message": "List"
+        "message": "فہرست"
     },
     "liveChat": {
-        "message": "Live chat"
+        "message": "براہ راست چیٹ"
     },
     "liveChatType": {
-        "message": "Live chat type"
+        "message": "براہ راست چیٹ کی قسم"
     },
     "location": {
-        "message": "Location"
+        "message": "مقام"
     },
     "loop": {
-        "message": "Loop"
+        "message": "لوپ"
     },
     "loudnessNormalization": {
-        "message": "Loudness normalization"
+        "message": "بلندی کی عمومی حالت"
     },
     "low": {
-        "message": "Low"
+        "message": "کم"
     },
     "markWatchedVideos": {
-        "message": "Mark watched videos"
+        "message": "دیکھی ہوئی ویڈیوز کو نشان زد کریں"
     },
     "medium": {
-        "message": "Medium"
+        "message": "درمیانہ"
     },
     "mixer": {
-        "message": "Mixer"
+        "message": "مکسچر"
     },
     "more": {
-        "message": "More"
+        "message": "مزید"
     },
     "mostViewedChannels": {
-        "message": "Most viewed channels"
+        "message": "سب سے زیادہ دیکھے جانے والے چینلز"
     },
     "moveSidebarLeft": {
-        "message": "To the left!"
+        "message": "بائیں جانب!"
     },
     "moveThumbnailsRight": {
-        "message": "Thumbnails to the right!"
+        "message": "تھمب نیلز کو دائیں طرف!"
     },
     "My_specs": {
-        "message": "My specs"
+        "message": "میرے نردجات"
     },
     "myColors": {
-        "message": "My colors"
+        "message": "میرے رنگ"
     },
     "name": {
-        "message": "Name"
+        "message": "نام"
     },
     "nativeMiniPlayer": {
-        "message": "Native mini player"
+        "message": "مقامی منی پلیئر"
     },
     "new": {
-        "message": "New"
+        "message": "نیا"
     },
     "nextVideo": {
-        "message": "Next video"
+        "message": "اگلی ویڈیو"
     },
     "night": {
-        "message": "Night"
+        "message": "رات"
     },
     "nightMode": {
-        "message": "Night mode"
+        "message": "رات کا موڈ"
     },
     "noActiveFeatures": {
-        "message": "No active features"
+        "message": "کوئی فعال خصوصیات نہیں"
     },
     "none": {
-        "message": "None"
+        "message": "کوئی نہیں"
     },
     "noOpenVideoTabs": {
-        "message": "No open video tabs"
+        "message": "کوئی کھلی ویڈیو ٹیبز نہیں"
     },
     "normal": {
-        "message": "Normal"
+        "message": "معمولی"
     },
     "Not_optimal": {
-        "message": "Not optimal"
+        "message": "غیر معیاری"
     },
     "off": {
-        "message": "Off"
+        "message": "بند"
     },
     "ok": {
-        "message": "Ok"
+        "message": "ٹھیک ہے"
     },
     "old": {
-        "message": "Old"
+        "message": "پرانا"
     },
     "onAllVideos": {
-        "message": "On"
+        "message": "پر"
     },
     "onlyActiveOnYoutube": {
-        "message": "Only active on YouTube"
+        "message": "صرف یوٹیوب پر فعال"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Pause while I watch a 2nd video"
+        "message": "جب میں دوسری ویڈیو دیکھ رہا ہوں تو توقف کریں"
     },
     "onSmallCreators": {
-        "message": "Off, except for small channels"
+        "message": "بند، چھوٹے چینلز کے علاوہ"
     },
     "onSubscribedChannels": {
-        "message": "Off, except on my subscribed channels"
+        "message": "بند، میرے سبسکرائب کردہ چینلز پر"
     },
     "openNewTab": {
-        "message": "Open in a new tab"
+        "message": "نئے ٹیب میں کھولیں"
     },
     "openPopupPlayer": {
-        "message": "Open video/playlist in a new window"
+        "message": "ویڈیو / پلے لسٹ کو نئی ونڈو میں کھولیں"
     },
     "optimizeCodecForHardwareAcceleration": {
-        "message": "Optimize Codec for hardware acceleration"
+        "message": "ہارڈ ویئر ایکسلریشن کے لئے کوڈیک کو بہتر بنائیں"
     },
     "orange": {
-        "message": "Orange"
+        "message": "نارنجی"
     },
     "os": {
         "message": "OS"
     },
     "other": {
-        "message": "Other"
+        "message": "دیگر"
     },
     "outline": {
-        "message": "Outline"
+        "message": "خاکہ"
     },
     "overlay": {
-        "message": "Overlay"
+        "message": "اوورلے"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "اجازتیں"
     },
     "pictureInPicture": {
-        "message": "Picture-in-Picture"
+        "message": "تصویر میں تصویر"
     },
     "pink": {
-        "message": "Pink"
+        "message": "گلابی"
     },
     "plain": {
-        "message": "Plain"
+        "message": "سادہ"
     },
     "platform": {
-        "message": "Platform"
+        "message": "پلیٹ فارم"
     },
     "playAllButton": {
-        "message": "\"Play all\"button"
+        "message": "\"سب چلائیں\" بٹن"
     },
     "playbackSpeed": {
-        "message": "Playback speed"
+        "message": "پلے بیک کی رفتار"
     },
     "player": {
-        "message": "Player"
+        "message": "پلیئر"
     },
     "player_dont_speed_education": {
-        "message": "Don't speed up the (rare) category: Education"
+        "message": "(نایاب) زمرہ: تعلیم کی رفتار نہ بڑھائیں"
     },
     "player_fit_to_win_button": {
-        "message": "Fit to window"
+        "message": "ونڈو کے مطابق فٹ کریں"
     },
     "player_cinema_mode_button": {
-        "message": "Cinema Mode"
+        "message": "سینما موڈ"
     },
     "player_auto_hide_cinema_mode_when_paused": {
-        "message": "Auto Hide Cinema Mode on Pause"
+        "message": "وقفے پر سینما موڈ خودکار چھپائیں"
     },
     "player_auto_cinema_mode": {
-        "message": "Auto Cinema Mode"
+        "message": "خودکار سینما موڈ"
     },
     "player_rotate_button": {
-        "message": "Rotate video"
+        "message": "ویڈیو گھمائیں"
     },
     "playerColor": {
-        "message": "Progress bar color"
+        "message": "پروگریس بار کا رنگ"
     },
     "playerSize": {
-        "message": "Player size"
+        "message": "پلیئر کا سائز"
     },
-    "playlist": {
-        "message": "Playlist"
-    },
-    "playlists": {
-        "message": "Playlists"
+"playlists": {
+        "message": "پلے لسٹس"
     },
     "playPause": {
-        "message": "Play / Pause"
+        "message": "چلائیں / توقف کریں"
     },
     "popupPlayer": {
-        "message": "Popup player"
+        "message": "پاپ اپ پلیئر"
     },
     "popupWindowButtons": {
-        "message": "Add a popup-player-button to each thumbnail"
+        "message": "ہر تھمب نیل میں پاپ اپ پلیئر بٹن شامل کریں"
     },
     "position": {
-        "message": "Position"
+        "message": "پوزیشن"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Press any key or use mouse wheel."
+        "message": "کوئی بھی کلید دبائیں یا ماؤس وہیل کا استعمال کریں۔"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Press any key or use mouse wheel"
+        "message": "کوئی بھی کلید دبائیں یا ماؤس وہیل کا استعمال کریں"
     },
     "previousVideo": {
-        "message": "Previous video"
+        "message": "پچھلی ویڈیو"
     },
     "primaryColor": {
-        "message": "Primary color"
+        "message": "پہلا رنگ"
     },
     "pullSyncSettings": {
-        "message": "Pull"
+        "message": "کھینچیں"
     },
     "purple": {
-        "message": "Purple"
+        "message": "جامنی"
     },
     "pushSyncSettings": {
-        "message": "Push"
+        "message": "دھکیلیں"
     },
     "quality": {
-        "message": "Quality"
+        "message": "معیار"
     },
     "qualityWithoutFocus": {
-        "message": "Quality without focus"
+        "message": "فوکس کے بغیر معیار"
     },
     "raised": {
-        "message": "Raised"
+        "message": "اٹھایا"
     },
     "ram": {
         "message": "RAM"
     },
     "rateMe": {
-        "message": "Rate me"
+        "message": "مجھے درجہ دیں"
     },
     "rateUs": {
-        "message": "Rate us"
+        "message": "ہمیں درجہ دیں"
     },
     "red": {
-        "message": "Red"
+        "message": "سرخ"
     },
     "redDislikeButton": {
-        "message": "Red when disliked"
+        "message": "ناپسند کرنے پر سرخ"
     },
     "relatedVideos": {
-        "message": "Related videos"
+        "message": "متعلقہ ویڈیوز"
     },
     "remote": {
-        "message": "Play on TV"
+        "message": "ٹی وی پر چلائیں"
     },
     "Remove": {
-        "message": "Remove"
+        "message": "ہٹائیں"
     },
     "removeBlackBars": {
-        "message": "Remove black bars when full screen"
+        "message": "فل اسکرین کرتے وقت کالے بارز ہٹائیں"
     },
     "removeIcons": {
-        "message": "Remove icons"
+        "message": "شبیہیں ہٹائیں"
     },
     "removeName": {
-        "message": "Remove name"
+        "message": "نام ہٹائیں"
     },
     "removeNames": {
-        "message": "Remove names"
+        "message": "نام ہٹائیں"
     },
     "removeRelatedSearchResults": {
-        "message": "Remove related search results"
+        "message": "متعلقہ تلاش کے نتائج ہٹائیں"
     },
     "removeShortsReelSearchResults": {
-        "message": "Remove Shorts reel from search results"
+        "message": "تلاش کے نتائج سے شارٹس ریل ہٹائیں"
     },
     "repeat": {
-        "message": "Repeat"
+        "message": "دہرائیں"
     },
     "report": {
-        "message": "Report"
+        "message": "رپورٹ"
     },
     "reset": {
-        "message": "Reset"
+        "message": "ری سیٹ"
     },
     "resetAllSettings": {
-        "message": "Reset all settings"
+        "message": "تمام ترتیبات ری سیٹ کریں"
     },
     "resetAllShortcuts": {
-        "message": "Reset all shortcuts"
+        "message": "تمام شارٹ کٹس ری سیٹ کریں"
     },
     "reverse": {
-        "message": "Reverse"
+        "message": "الٹ"
     },
     "rotate": {
-        "message": "Rotate"
+        "message": "گھمائیں"
     },
     "save": {
-        "message": "Save"
+        "message": "محفوظ کریں"
     },
     "saveAs": {
-        "message": "Save as"
+        "message": "بطور محفوظ کریں"
     },
     "schedule": {
-        "message": "Schedule"
+        "message": "شیڈول"
     },
     "screen": {
-        "message": "Screen"
+        "message": "اسکرین"
     },
     "screenshot": {
-        "message": "Screenshot"
+        "message": "اسکرین شاٹ"
     },
     "scrollBar": {
-        "message": "Scroll Bar"
+        "message": "اسکرول بار"
     },
     "sd": {
-        "message": "SD"
+        "message": "ایس ڈی"
     },
     "search": {
-        "message": "Search"
+        "message": "تلاش"
     },
     "searchBarOnly": {
-        "message": "Search bar only"
+        "message": "صرف تلاش بار"
     },
     "seekBackward10Seconds": {
-        "message": "Seek backward 10 seconds"
+        "message": "10 سیکنڈ پیچھے جائیں"
     },
     "seekForward10Seconds": {
-        "message": "Seek forward 10 seconds"
+        "message": "10 سیکنڈ آگے جائیں"
     },
     "seekNextChapter": {
-        "message": "Seek Next Chapter"
+        "message": "اگلے باب کی تلاش کریں"
     },
     "seekPreviousChapter": {
-        "message": "Seek Previous Chapter"
+        "message": "پچھلے باب کی تلاش کریں"
     },
     "settings": {
-        "message": "Settings"
+        "message": "ترتیبات"
     },
     "settingsSuccessfullyImported": {
-        "message": "Settings successfully imported"
+        "message": "ترتیبات کامیابی سے درآمد ہو گئیں"
     },
     "share": {
-        "message": "Share"
+        "message": "اشتراک کریں"
     },
     "shortcut_chapters": {
-        "message": "Chapters (Sidebar) On/Off"
+        "message": "ابواب (سائڈبار) آن / آف"
     },
     "shortcut_screenshot": {
-        "message": "Screenshot"
+        "message": "اسکرین شاٹ"
     },
     "shortcut_transcript": {
-        "message": "Transcript (Sidebar) On/Off"
+        "message": "متن (سائڈبار) آن / آف"
     },
     "shortcuts": {
-        "message": "Shortcuts"
+        "message": "شارٹ کٹس"
     },
     "showCardsOnMouseHover": {
-        "message": "Show cards on mouse hover"
+        "message": "ماؤس ہوور پر کارڈز دکھائیں"
     },
     "showChannelVideosCount": {
-        "message": "Show channel videos count"
+        "message": "چینل ویڈیوز کی تعداد دکھائیں"
     },
     "showLess": {
-        "message": "Show less"
+        "message": "کم دکھائیں"
     },
     "showMore": {
-        "message": "Show more"
+        "message": "زیادہ دکھائیں"
     },
     "showRemainingDuration": {
-        "message": "Show video remaining duration"
+        "message": "ویڈیو کے باقی دورانیہ کو دکھائیں"
     },
     "showVersion": {
-        "message": "Show version"
+        "message": "ورژن دکھائیں"
     },
     "shuffle": {
-        "message": "Shuffle"
+        "message": "شفل"
     },
     "sidebar": {
-        "message": "Sidebar"
+        "message": "سائڈبار"
     },
     "Sidebar_simple_alternative": {
-        "message": "Sidebar (simple alternative)"
+        "message": "سائڈبار (سادہ متبادل)"
     },
     "softwareInformation": {
-        "message": "Software information"
+        "message": "سافٹ ویئر کی معلومات"
     },
     "spacebar": {
-        "message": "Spacebar"
+        "message": "اسپیس بار"
     },
     "squaredUserImages": {
-        "message": "Squared user images"
+        "message": "مربع صارف کی تصاویر"
     },
     "static": {
-        "message": "Static"
+        "message": "جامد"
     },
     "statsForNerds": {
-        "message": "Show Stats for Nerds"
+        "message": "نرڈز کے لئے شماریات دکھائیں"
     },
     "step": {
-        "message": "Step"
+        "message": "مرحلہ"
     },
     "stop": {
-        "message": "Stop"
+        "message": "روکیں"
     },
     "style": {
-        "message": "Style"
+        "message": "انداز"
     },
     "styles": {
-        "message": "Styles"
+        "message": "انداز"
     },
     "subscribe": {
-        "message": "Subscribe"
+        "message": "سبسکرائب کریں"
     },
     "subscriptions": {
-        "message": "Subscriptions"
+        "message": "سبسکرپشنز"
     },
     "Subtitle_Capture_including_the_current_words": {
-        "message": "Subtitle (Capture including the current words)"
+        "message": "سب ٹائٹل (موجودہ الفاظ سمیت کیپچر کریں)"
     },
     "subtitles": {
-        "message": "Subtitles"
+        "message": "سب ٹائٹلز"
     },
     "subtitleLine": {
-        "message": "Hide subtitle red line"
+        "message": "سب ٹائٹل کی لال لکیر چھپائیں"
     },
     "removeContextButtons": {
-        "message": "Remove context buttons on shorts"
+        "message": "شارٹس پر سیاق و سباق کے بٹن ہٹائیں"
     },
     "RemoveSubtitlesForLyrics": {
-        "message": "Remove subtitles for lyrics"
+        "message": "گیتوں کے لئے سب ٹائٹلز ہٹائیں"
     },
     "removeMemberOnly": {
-        "message": "Remove member only videos"
+        "message": "صرف ممبران کے لئے ویڈیوز ہٹائیں"
     },
     "sunset": {
-        "message": "Sunset"
+        "message": "غروب"
     },
     "sunsetToSunrise": {
-        "message": "Sunset to sunrise"
+        "message": "غروب سے طلوع تک"
     },
     "systemPeferenceDark": {
-        "message": "System preference: dark"
+        "message": "نظام کی ترجیح: گہرا"
     },
     "systemPeferenceLight": {
-        "message": "System preference: light"
+        "message": "نظام کی ترجیح: ہلکا"
     },
     "teal": {
-        "message": "Teal"
+        "message": "چائے"
     },
     "textColor": {
-        "message": "Text color"
+        "message": "متن کا رنگ"
     },
     "thanks": {
-        "message": "Thanks"
+        "message": "شکریہ"
     },
     "themes": {
-        "message": "Themes"
+        "message": "موضوعات"
     },
     "thisWillRemoveAllCookies": {
-        "message": "This will remove all cookies."
+        "message": "یہ سب کوکیز کو ہٹا دے گا۔"
     },
     "thisWillRemoveAllWatchedVideos": {
-        "message": "This will remove all watched videos."
+        "message": "یہ سب دیکھی ہوئی ویڈیوز کو ہٹا دے گا۔"
     },
     "thisWillRemoveAllYouTubeCookies": {
-        "message": "This will remove all YouTube cookies"
+        "message": "یہ تمام یوٹیوب کوکیز کو ہٹا دے گا"
     },
     "thisWillResetAllSettings": {
-        "message": "This will reset all settings."
+        "message": "یہ سب ترتیبات کو دوبارہ ترتیب دے گا۔"
     },
     "thisWillResetAllShortcuts": {
-        "message": "This will reset all shortcuts"
+        "message": "یہ سب شارٹ کٹس کو دوبارہ ترتیب دے گا"
     },
     "thumbnails": {
-        "message": "Thumbnails"
+        "message": "تھمب نیلز"
     },
     "thumbnailsQuality": {
-        "message": "Thumbnails Quality"
+        "message": "تھمب نیلز کا معیار"
     },
     "timeFrom": {
-        "message": "Time from"
+        "message": "سے وقت"
     },
     "timeTo": {
-        "message": "Time to"
+        "message": "تک وقت"
     },
     "To_the_side_No_page_margin": {
-        "message": "To the side! (No page margin)"
+        "message": "طرف! (صفحة کے بغیر حاشیہ)"
     },
     "todayAt": {
-        "message": "Today at"
+        "message": "آج"
     },
     "toggleAutoplay": {
-        "message": "Toggle autoplay"
+        "message": "خودکار کھیل کو ٹوگل کریں"
     },
     "toggleCards": {
-        "message": "Toggle cards"
+        "message": "کارڈز کو ٹوگل کریں"
     },
     "toggleControls": {
-        "message": "Toggle player controls Hiding"
+        "message": "پلیئر کنٹرولز کو ٹوگل کریں"
     },
     "topChat": {
-        "message": "Top chat"
+        "message": "اوپر کی چیٹ"
     },
     "trackWatchedVideos": {
-        "message": "Track watched videos"
+        "message": "دیکھی ہوئی ویڈیوز کو ٹریک کریں"
     },
     "trailerAutoplay": {
-        "message": "Trailer autoplay"
+        "message": "ٹریلر خودکار کھیل"
     },
     "Transcript": {
-        "message": "Transcript"
+        "message": "متن"
     },
     "translations": {
-        "message": "Translations"
+        "message": "ترجمے"
     },
     "transparentBackground": {
-        "message": "Transparent background"
+        "message": "شفاف پس منظر"
     },
     "transparentColor": {
-        "message": "Transparent"
+        "message": "شفاف"
     },
     "trending": {
-        "message": "Trending"
+        "message": "ٹرینڈنگ"
     },
     "tryToReloadThePage": {
-        "message": "Try to reload the page"
+        "message": "صفحے کو دوبارہ لوڈ کرنے کی کوشش کریں"
     },
     "type": {
-        "message": "Type"
+        "message": "قسم"
     },
     "upNextAutoplay": {
-        "message": "Up next autoplay"
+        "message": "اگلا خودکار کھیل"
     },
     "use24HourFormat": {
-        "message": "Use 24-hour format"
+        "message": "24 گھنٹے کی شکل کا استعمال کریں"
     },
     "version": {
-        "message": "Version"
+        "message": "ورژن"
     },
     "video": {
-        "message": "Video"
+        "message": "ویڈیو"
     },
     "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "The video description will be expanded to get the name of the category"
+        "message": "ویڈیو کی تفصیل کو زمرے کا نام حاصل کرنے کے لئے وسیع کیا جائے گا"
     },
     "videoFormats": {
-        "message": "Video formats"
+        "message": "ویڈیو فارمیٹس"
     },
     "videos": {
-        "message": "Videos"
+        "message": "ویڈیوز"
     },
     "viewMode": {
-        "message": "View Mode"
+        "message": "دیکھنے کا موڈ"
     },
     "volume": {
-        "message": "Volume"
+        "message": "حجم"
     },
     "watchedVideos": {
-        "message": "Watched videos"
+        "message": "دیکھی گئی ویڈیوز"
     },
     "watchLater": {
-        "message": "Watch later"
+        "message": "بعد میں دیکھیں"
     },
     "watchTime": {
-        "message": "Watch time"
+        "message": "دیکھنے کا وقت"
     },
     "whenPaused": {
-        "message": "When paused"
+        "message": "جب توقف کیا"
     },
     "whenTabIsChanged": {
-        "message": "When tab is changed"
+        "message": "جب ٹیب بدلی جائے"
     },
     "white": {
-        "message": "White"
+        "message": "سفید"
     },
     "windowColor": {
-        "message": "Window color"
+        "message": "ونڈو کا رنگ"
     },
     "windowOpacity": {
-        "message": "Window opacity"
+        "message": "ونڈو کی شفافیت"
     },
     "with_scrollbars": {
-        "message": "with scrollbars?"
+        "message": "اسکرول بار کے ساتھ؟"
     },
     "yellow": {
-        "message": "Yellow"
+        "message": "پیلا"
     },
     "Youtube_Search": {
-        "message": "Youtube-Search"
+        "message": "یوٹیوب تلاش"
     },
     "youTubeButtons": {
-        "message": "YouTube buttons"
+        "message": "یوٹیوب بٹن"
     },
     "youtubeHeaderLeft": {
-        "message": "YouTube Header (left)"
+        "message": "یوٹیوب ہیڈر (بائیں)"
     },
     "youtubeHeaderRight": {
-        "message": "YouTube Header (right)"
+        "message": "یوٹیوب ہیڈر (دائیں)"
     },
     "youtubeHomePage": {
-        "message": "YouTube home page"
+        "message": "یوٹیوب ہوم پیج"
     },
     "youtubeLanguage": {
-        "message": "YouTube language"
+        "message": "یوٹیوب زبان"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "YouTube limits video quality to 1080p for h.264 codec"
+        "message": "یوٹیوب h.264 کوڈیک کے لئے ویڈیو معیار کو 1080p تک محدود کرتی ہے"
     },
     "youtubesDark": {
-        "message": "YouTube's Dark"
+        "message": "یوٹیوب کا گہرا"
     },
     "pauseWhileIAmTypingOnYouTube": {
-        "message": "Pause when I'm typing on YouTube"
+        "message": "جب میں یوٹیوب پر ٹائپ کر رہا ہوں تو توقف کریں"
     }
 }
