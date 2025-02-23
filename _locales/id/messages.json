@@ -120,16 +120,16 @@
         "message": "Apakah Anda yakin ingin menyinkronkan pengaturan saat ini?"
     },
     "ARROWDOWN": {
-        "message": null
+        "message": "⇩"
     },
     "ARROWLEFT": {
-        "message": null
+        "message": "⇦"
     },
     "ARROWRIGHT": {
-        "message": null
+        "message": "⇨"
     },
     "ARROWUP": {
-        "message": null
+        "message": "⇧"
     },
     "atHistory": {
         "message": "di 'Sejarah'"
