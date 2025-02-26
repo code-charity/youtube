@@ -96,6 +96,8 @@ ImprovedTube.init = function () {
 	this.YouTubeExperiments();
 	this.channelCompactTheme();
 
+	ImprovedTube.initAprilFoolsWarning(); //initialization
+
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();
 		ImprovedTube.initPlayer();
