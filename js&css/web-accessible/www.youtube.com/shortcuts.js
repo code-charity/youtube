@@ -572,3 +572,6 @@ ImprovedTube.shortcutRotateVideo = function () {
 	}
 	video.style.setProperty("transform", transform);
 };
+ImprovedTube.shortcutActivateFitToWindow = function() {
+	document.querySelector('#it-fit-to-win-player-button')?.click()
+};
