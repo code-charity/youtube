@@ -30,10 +30,10 @@
     "youtubesLight": {
         "message": "YouTube's Light"
     },
-    "popupAd": {
+	"popupAd": {
         "message": "Pop-up ad: Hide"
     },	
-    "hideWatchedVideos": {
+	"hideWatchedVideos": {
         "message": "Hide watched videos"
     },
     "ambientLighting": {
