@@ -1,26 +1,26 @@
-{   
+{
     "requirePassword": { "message": "Require password to change ImprovedTube settings" },
     "passwordOptions": { "message": "Password options"},
       "enterPassword": { "message": "Please enter your 4-digit code."},
-    
+
     "qualityWhenRunningOnBattery":{
         "message": "Quality, when running on battery"
     },
     "pauseWhileIUnplugTheCharger":{
-        "message": "Pause when I unplug the charger" 
+        "message": "Pause when I unplug the charger"
     },
     "whenBatteryIslowDecreaseQuality":{
         "message": "Low battery: Decrease the quality"
     },
     "analytics": {
         "message": "Analytics"
-    }, 
+    },
     "purchase": {
         "message": "Purchase"
-    },    
+    },
     "join": {
         "message": "Join"
-    },  
+    },
     "improvedTubeSidePanel": {
         "message": "ImprovedTube: Browser Sidepanel"
     },
@@ -32,7 +32,7 @@
     },
 	"popupAd": {
         "message": "Pop-up ad: Hide"
-    },	
+    },
 	"hideWatchedVideos": {
         "message": "Hide watched videos"
     },
@@ -65,6 +65,9 @@
     },
     "activateFullscreen": {
         "message": "Activate fullscreen"
+    },
+    "activateFitToWindow": {
+        "message": "Activate Fit to window"
     },
     "activeFeatures": {
         "message": "My active features"
