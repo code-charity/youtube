@@ -344,12 +344,12 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function (decrease) {
 	}
 	if (decrease) {
 		// Slow down near 0   // Chrome's minimum is 0.0625. Otherwise this could seamlessly turn into single frame steps.
-		newSpeed = (speed - value < 0.1) ? Math.max(Number(speed*0.7).toFixed(2),0.0625) : (speed - value);
+		newSpeed = (speed - value < 0.1) ? Math.max(Number(speed*0.7).toFixed(2),0.0625) : (speed - value);  
 	} else {
-		// Aligning at 1.0 instead of passing by 1:
-		if (speed < 1 && speed > 1-ImprovedTube.storage.shortcuts_playback_speed_step ) {newSpeed = 1;
+		// Aligning at 1.0 instead of passing by 1:		
+		if (speed < 1 && speed > 1-ImprovedTube.storage.shortcuts_playback_speed_step ) {newSpeed = 1;  
 		// Firefox doesnt limit speed to 16x, we can allow more in Firefox.
-		} else { newSpeed = (speed + value > 16) ? 16 : (speed + value); }
+		} else { newSpeed = (speed + value > 16) ? 16 : (speed + value); } 
 	}
 	newSpeed = this.playbackSpeed(newSpeed);
 	if (!newSpeed) {
@@ -363,7 +363,7 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function (decrease) {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
 	ImprovedTube.shortcutIncreasePlaybackSpeed(true);
-};
+}; 
 /*------------------------------------------------------------------------------
 4.7.18 RESET PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
@@ -376,7 +376,7 @@ ImprovedTube.shortcutResetPlaybackSpeed = function () {
 ImprovedTube.shortcutGoToSearchBox = function () {
 	document.querySelector('input#search')?.click();
 	if (ImprovedTube.originalFocus) { HTMLElement.prototype.focus = originalFocus }
-	document.querySelector('input#search')?.focus();
+	document.querySelector('input#search')?.focus(); 
 };
 /*------------------------------------------------------------------------------
 4.7.20 ACTIVATE FULLSCREEN
