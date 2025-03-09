@@ -104,6 +104,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		if (document.documentElement.dataset.pageType === 'video') {
 			this.howLongAgoTheVideoWasUploaded();
 			this.channelVideosCount();
+			this.exactUploadDate();	
 		}
 	//} else if (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-video-primary-info-renderer')) {
 	// 	if (document.documentElement.dataset.pageType === 'video') {
@@ -275,6 +276,7 @@ ImprovedTube.videoPageUpdate = function () {
 
 		ImprovedTube.howLongAgoTheVideoWasUploaded();
 		ImprovedTube.dayOfWeek();
+		ImprovedTube.exactUploadDate();
 		ImprovedTube.channelVideosCount();
 		ImprovedTube.upNextAutoplay();
 		ImprovedTube.playerAutofullscreen();
