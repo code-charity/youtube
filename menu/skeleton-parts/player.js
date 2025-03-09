@@ -45,6 +45,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 	section_1: {
 		component: 'section',
 		variant: 'card',
+		prevent_shorts_looping: {
+			component: 'switch',
+			text: 'Prevent Shorts Looping',
+			storage: 'player_prevent_shorts_looping',
+			id: 'player_prevent_shorts_looping',
+			on: {
+				click: function () {
+					let isEnabled = this.dataset.value === 'true';
+					console.log(`🔁 Prevent Shorts Looping: ${isEnabled ? "Enabled" : "Disabled"}`);
+					chrome.storage.local.set({ "player_prevent_shorts_looping": isEnabled });
+				}
+			}
+		},	
 		autopause_when_switching_tabs: {
 			component: 'switch',
 			text: 'autopauseWhenSwitchingTabs',

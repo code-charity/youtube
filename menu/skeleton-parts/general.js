@@ -11,6 +11,26 @@ extension.skeleton.main.layers.section.general = {
 			section_1: {
 				component: 'section',
 				variant: 'card',
+				prevent_shorts_looping: {
+					component: 'switch',
+					text: 'Prevent Shorts Looping',
+					storage: 'prevent_shorts_looping', 
+					tags: 'shorts looping auto-play',
+			
+					on: {
+						change: function (event) {
+							const isEnabled = event.target.checked;
+							console.log("🔄 Prevent Shorts Looping is now " + (isEnabled ? "ENABLED" : "DISABLED"));
+			
+							
+							ImprovedTube.storage.prevent_shorts_looping = isEnabled;
+			
+							if (isEnabled) {
+								preventShortsLoop();
+							}
+						}
+					}
+				},
 				improvedtube_youtube_icon: {
 					text: 'improvedtubeIconOnYoutube',
 					component: 'select',

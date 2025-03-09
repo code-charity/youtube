@@ -96,6 +96,14 @@ ImprovedTube.init = function () {
 	this.YouTubeExperiments();
 	this.channelCompactTheme();
 
+	
+	chrome.storage.local.get("prevent_shorts_looping", function (data) {
+		if (data.prevent_shorts_looping) {
+			console.log("Prevent Shorts Looping is active!");
+			ImprovedTube.preventShortsLooping();
+		}
+	});	
+
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();
 		ImprovedTube.initPlayer();
@@ -146,6 +154,11 @@ document.addEventListener('yt-navigate-finish', function () {
 		document.querySelector('#search').click();
 	} else if (document.documentElement.dataset.pageType === 'channel') {
 		ImprovedTube.channelPlayAllButton();
+	}
+
+	let preventShortsLooping = localStorage.getItem("prevent_shorts_looping") === "true";
+	if (preventShortsLooping) {
+		ImprovedTube.preventShortsLooping();
 	}
 });
 
