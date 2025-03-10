@@ -249,6 +249,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 						}
 					}
 				},
+				shortcut_activate_fit_to_window: {
+					component: 'shortcut',
+					text: 'activateFitToWindow'
+				},
 				shortcut_activate_captions: {
 					component: 'shortcut',
 					text: 'activateCaptions',
