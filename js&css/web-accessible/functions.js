@@ -267,7 +267,6 @@ ImprovedTube.pageOnFocus = function () {
 };
 ImprovedTube.stop_shorts_autoloop =function(){
 	if(document.documentElement.dataset.pageType === 'shorts'){
-		console.log("===========")
 		const video = ImprovedTube.elements.shorts_player.querySelector('video')
 		video.removeAttribute('loop');
 		const observer = new MutationObserver((mutations) => {
