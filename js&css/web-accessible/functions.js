@@ -301,7 +301,7 @@ ImprovedTube.videoPageUpdate = function () {
 };
 
 ImprovedTube.playerOnPlay = function () {
-	HTMLMediaElement.prototype.play = (function (original) {
+	HTMLMediaElement.prototype.play = (function (original) {t
 		return function () {
 			if (!this.closest('#inline-preview-player')) {
 				this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
