@@ -570,6 +570,85 @@ ImprovedTube.dayOfWeek = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+ SHOW EXACT UPLOAD DATE
+------------------------------------------------------------------------------*/
+// ImprovedTube.exactUploadDate = function () {
+// 	if(this.exact_date==true && this.elements.yt_channel_link) {
+// 		// var xhr = new XMLHttpRequest(),
+// 		// 	key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey,
+// 		// 	id = this.getParam(location.href.slice(location.href.indexOf("?") + 1), "v");
+// 		// xhr.open("GET", "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + key, false);
+// 		// xhr.send();
+// 		// if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+// 		// 	var response = JSON.parse(xhr.responseText);
+// 		// 	var date = response.items[0].snippet.publishedA;
+// 		// 	var element = ImprovedTube.elements.exact_upload_date || document.createElement("div");
+// 		// 	ImprovedTube.empty(element);
+// 		// 	element.appendChild(document.createTextNode("• " + date.toLocaleDateString()));
+// 		// 	element.className = "it-exact-upload-date";
+// 		// 	ImprovedTube.elements.exact_upload_date = element;
+// 		// 	document.querySelector("#info #info-text").appendChild(element);
+// 		// }
+// 		var xhr = new XMLHttpRequest(),
+// 			key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey,
+			
+// 			id = this.getParam(location.href.slice(location.href.indexOf("?") + 1), "v");
+// 		xhr.addEventListener("load", function () {
+// 			var response = JSON.parse(this.responseText);
+// 				element = ImprovedTube.elements.exact_date || document.createElement("div");
+
+// 			ImprovedTube.empty(element);
+
+// 			if (response.error) {
+// 				element.appendChild(document.createTextNode("• Error: " + response.error.code));
+// 			} else {
+// 				element.appendChild(document.createTextNode("• " + response.items[0].snippet.publishedAt));
+// 			}
+
+// 			element.className = "it-channel-exact-upload-date";
+
+// 			ImprovedTube.elements.exact_date = element;
+
+// 			document.querySelector("#info #info-text").appendChild(element);
+// 		});
+
+// 		xhr.open("GET", "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + id + "&key=" + key, true);
+// 		xhr.send();
+// 		console.log("exact date toggle on")
+// 	}
+// 	console.log("exact date tesst")
+// };
+ImprovedTube.exactUploadDate = function () {
+    if (this.storage.exact_date === true) {
+        const xhr = new XMLHttpRequest();
+        const key = this.storage["google-api-key"] || ImprovedTube.defaultApiKey;
+        const id = this.getParam(location.href.slice(location.href.indexOf("?") + 1), "v");
+
+        xhr.addEventListener("load", function () {
+            const response = JSON.parse(this.responseText);
+            const element = ImprovedTube.elements.exact_date || document.createElement("div");
+
+            ImprovedTube.empty(element);
+
+            if (response.error) {
+                element.appendChild(document.createTextNode(`• Error: ${response.error.code}`));
+            } else {
+                const publishedDate = new Date(response.items[0].snippet.publishedAt);
+                element.appendChild(document.createTextNode(`• ${publishedDate.toLocaleDateString()}`));
+            }
+
+            element.className = "it-channel-exact-upload-date";
+            ImprovedTube.elements.exact_date = element;
+            document.querySelector("#info #info-text").appendChild(element);
+        });
+
+        xhr.open("GET", `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${key}`, true);
+        xhr.send();
+        console.log("exact date toggle on");
+    }
+    console.log("exact date test");
+};
+/*------------------------------------------------------------------------------
  HOW LONG AGO THE VIDEO WAS UPLOADED
 ------------------------------------------------------------------------------*/
 ImprovedTube.howLongAgoTheVideoWasUploaded = function () {

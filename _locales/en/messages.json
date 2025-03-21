@@ -1173,6 +1173,9 @@
     "showChannelVideosCount": {
         "message": "Show channel videos count"
     },
+    "showExactDate": {
+        "message": "Show Exact Date"
+    },
     "showLess": {
         "message": "Show less"
     },

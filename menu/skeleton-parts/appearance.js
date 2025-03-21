@@ -475,6 +475,10 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					component: "switch",
 					text: "howLongAgoTheVideoWasUploaded"
 				},
+				exact_date: {
+					component: "switch",
+					text: "showExactDate"
+				},
 				channel_videos_count: {
 					component: "switch",
 					text: "showChannelVideosCount"
