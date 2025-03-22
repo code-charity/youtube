@@ -287,6 +287,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
+		ImprovedTube.playerRewindAndForwardButtons()
 		ImprovedTube.playerCinemaModeButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
@@ -339,11 +340,13 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.batteryFeatures();
 		ImprovedTube.playerVolume();
 		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }
+		
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
+		ImprovedTube.playerRewindAndForwardButtons()
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 		ImprovedTube.playerHideProgressPreview();
@@ -659,6 +662,7 @@ ImprovedTube.createPlayerButton = function (options) {
 		}
 
 		controls.insertBefore(button, controls.childNodes[3]);
+		return button;
 	}
 };
 

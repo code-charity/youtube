@@ -224,7 +224,6 @@ document.addEventListener('it-message-from-extension', function () {
 					localStorage.removeItem('it-player30fps');
 				}
 			}
-
 			switch (camelized_key) {
 				case 'blocklist':
 				case 'blocklistActivate':
@@ -338,6 +337,15 @@ document.addEventListener('it-message-from-extension', function () {
 						document.querySelector("html")?.setAttribute("it-player-size", ImprovedTube.storage.player_size ?? "do_not_change");
 					}
 					break
+				case 'playerRewindAndForwardButtons':
+					if (ImprovedTube.storage.player_rewind_and_forward_buttons === false) {
+						ImprovedTube.elements.buttons['it-forward-player-button']?.remove();
+						ImprovedTube.elements.buttons['it-rewind-player-button']?.remove();
+						
+					}
+
+					break
+				
 
 				case 'playerHamburgerButton':
 					if (ImprovedTube.storage.player_hamburger_button == false) {
@@ -437,7 +445,6 @@ document.addEventListener('it-message-from-extension', function () {
 
 			// dont trigger shortcuts on config change, reinitialize handler instead
 			if (message.key.startsWith('shortcut_')) camelized_key = 'shortcuts';
-
 			if (ImprovedTube[camelized_key]) {
 				try {ImprovedTube[camelized_key]()} catch {};
 			}

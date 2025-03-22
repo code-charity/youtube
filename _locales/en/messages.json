@@ -489,6 +489,9 @@
     "extraButtonsBelowThePlayer": {
         "message": "Extra buttons below the player"
     },
+    "extraRightControlButtons":{
+        "message": "Extra buttons inside the player"
+    },
     "Feature_not_yet_available": {
         "message": "Feature not yet available"
     },
@@ -974,6 +977,9 @@
     },
     "player_fit_to_win_button": {
         "message": "Fit to window"
+    },
+    "player_rewind_and_forward_buttons":{
+        "message": "Rewind/forward buttons"
     },
     "player_cinema_mode_button": {
         "message": "Cinema Mode"
