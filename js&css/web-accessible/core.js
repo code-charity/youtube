@@ -245,6 +245,7 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'theme':
 				case 'themePrimaryColor':
+				case 'themeSecondaryColor':
 				case 'themeTextColor':
 					ImprovedTube.myColors();
 					ImprovedTube.setTheme();
