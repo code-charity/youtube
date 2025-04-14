@@ -322,5 +322,45 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 			break
 	}
 });
-/*-----# UNINSTALL URL-----------------------------------*/
+/*--------------------------------------------------------------
+# UNINSTALL URL
+--------------------------------------------------------------*/
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
+/*--------------------------------------------------------------
+# WINDOWED MODE
+--------------------------------------------------------------*/
+chrome.commands.onCommand.addListener(async (command) => {
+	if (command === "toggle_windowed_mode") {
+	  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  
+	  if (!tab || !tab.url.includes("youtube.com/watch")) return;
+  
+	  const videoId = new URL(tab.url).searchParams.get("v");
+  
+	  chrome.scripting.executeScript({
+		target: { tabId: tab.id },
+		func: (videoId) => {
+		  const existing = document.getElementById("yt-windowed-mode");
+		  if (existing) {
+			// Already in windowed mode, so go back to normal
+			location.href = `https://www.youtube.com/watch?v=${videoId}`;
+			return;
+		  }
+  
+		  // Clear and show embedded player
+		  document.body.innerHTML = `
+			<div id="yt-windowed-mode" style="height:100vh;display:flex;justify-content:center;align-items:center;background:black;">
+			  <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1"
+					  frameborder="0"
+					  allow="autoplay; encrypted-media"
+					  allowfullscreen
+					  style="width:100%; height:100%;">
+			  </iframe>
+			</div>
+		  `;
+		  document.title = "Windowed Mode";
+		},
+		args: [videoId],
+	  });
+	}
+  });
