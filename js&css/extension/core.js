@@ -292,6 +292,33 @@ extension.storage.listener = function () {
 	});
 };
 
+document.addEventListener("contextmenu", function (event) {
+	// Check if the clicked element is a yt-formatted-string with the class we're targeting
+	const clickedElement = event.target.closest(
+	  ".style-scope.ytd-video-renderer"
+	);
+  
+	if (clickedElement) {
+	  // Grab the plain text inside the yt-formatted-string (looking for links or URLs)
+	  const textContent = clickedElement.innerText;
+  
+	  // Extract URL using a simple regex (you can customize it to be more accurate)
+	  const urlRegex = /\bhttps?:\/\/[^\s]+/g;
+	  const match = textContent.match(urlRegex);
+  
+	  if (match) {
+		// Copy the found URL to the clipboard
+		navigator.clipboard.writeText(match[0]).catch((err) => {
+		  console.error("Failed to copy: ", err);
+		});
+  
+		// Prevent the default right-click menu from showing
+		event.preventDefault();
+	  }
+	  // If no URL found, the normal right-click behavior will happen
+	}
+  });
+
 /*--------------------------------------------------------------
 # LOAD
 --------------------------------------------------------------*/

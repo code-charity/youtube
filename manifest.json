@@ -58,6 +58,11 @@
 				"https://www.youtube.com/*"
 			],
 			"run_at": "document_start"
+		},
+		{
+		  "js": ["js&css/extension/core.js"],
+		  "matches": ["https://www.youtube.com/*"],
+		  "run_at": "document_idle"
 		}
 	],
 	"host_permissions": [ "https://www.youtube.com/*" ],
