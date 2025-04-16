@@ -13,7 +13,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "latest",
     "@eslint/js": "latest",
-    "eslint": "^9.6.0",
+    "eslint": "^8.57.0",
     "globals": "^15.8.0",
     "jest": "^29.7.0",
     "jslint": "^0.12.1"
