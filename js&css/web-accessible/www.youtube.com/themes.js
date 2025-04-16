@@ -5,6 +5,7 @@ ImprovedTube.myColors = function () {
 	if (this.storage.theme === 'custom') {
 		var style = this.elements.my_colors || document.createElement('style'),
 			primary_color = this.storage.theme_primary_color,
+			secondary_color = this.storage.theme_secondary_color,
 			text_color = this.storage.theme_text_color;
 
 		if (primary_color) {
@@ -14,6 +15,12 @@ ImprovedTube.myColors = function () {
 			primary_color = 'rgb(200, 200, 200)';
 		}
 
+		if (secondary_color) {
+			secondary_color = 'rgb(' + secondary_color.join(',') + ')';
+		} else {
+			// need better central place for storing default custom profile colors
+			secondary_color = 'rgb(100, 0, 0)';
+		}
 		if (text_color) {
 			text_color = 'rgb(' + text_color.join(',') + ')';
 		} else {
@@ -35,6 +42,13 @@ ImprovedTube.myColors = function () {
 					'--yt-spec-call-to-action-button-focus-outline:rgba(0,0,0, 0.30) !important;' +
 					'--yt-spec-brand-text-button-focus-outline:rgba(204, 0, 0, 0.30) !important;' +
 					'--yt-spec-10-percent-layer:rgba(136,136,136,1) !important;' +
+					'--yt-swatch-header-primary:'+ secondary_color + '!important;' +
+					'--ytd-masthead-background:' + secondary_color + '!important;' +
+					'--yt-spec-brand-background:' + secondary_color + '!important;' +
+					'--ytd-topbar-background-color:' + secondary_color + '!important;' +
+					'--ytd-topbar-dark-background-color:' + secondary_color + '!important;' +
+					'--yt-masthead-background:' + secondary_color + '!important;' +
+					'--yt-app-bar-background:' + secondary_color + '!important;' +
 					'--yt-swatch-primary:' + primary_color + '!important;' +
 					'--yt-swatch-primary-darker:' + primary_color + '!important;' +
 					'--yt-spec-brand-background-solid:' + primary_color + '!important;' +
@@ -68,7 +82,9 @@ ImprovedTube.myColors = function () {
 					'--ytd-searchbox-background:' + primary_color + '!important;' +
 					'--ytd-searchbox-legacy-button-color:' + 'var(--yt-spec-brand-background-primary)' + '!important;' +
 					'background-color: var(--yt-spec-base-background)!important;' +
-					'}';
+					'}' +
+					'ytd-masthead, #masthead, ytd-app #masthead { background-color: ' + secondary_color + ' !important; }';
+					//Tested, but still not sure if it's good enough
 
 		this.elements.my_colors = style;
 		document.documentElement.appendChild(style);

@@ -89,6 +89,11 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 							text: 'primaryColor',
 							value: [200, 200, 200]
 						},
+						theme_secondary_color: {
+							component: 'color-picker',
+							text: 'secondaryColor',
+							value: [100, 0, 0]
+						},
 						theme_text_color: {
 							component: 'color-picker',
 							text: 'textColor',
