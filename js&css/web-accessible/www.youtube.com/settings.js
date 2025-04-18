@@ -180,3 +180,19 @@ ImprovedTube.youtubeLanguage = function () {
 		}
 	}
 };
+
+/*------------------------------------------------------------------------------
+PREVENT SHORTS LOOPING
+------------------------------------------------------------------------------*/
+
+ImprovedTube.preventShortsLooping = function () {
+    let value = this.storage.prevent_shorts_looping;
+
+    if (value === true) {
+        console.log("Prevent Shorts Looping: Enabled");
+        localStorage.setItem("prevent_shorts_looping", "true");
+    } else {
+        console.log("Prevent Shorts Looping: Disabled");
+        localStorage.setItem("prevent_shorts_looping", "false");
+    }
+};

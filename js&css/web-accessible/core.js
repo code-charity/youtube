@@ -242,7 +242,10 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.elements.player.querySelector('video').playbackRate = 1;
 					}
 					break
-
+				
+				case 'preventShortsLooping':
+				ImprovedTube.preventShortsLooping();
+				break;
 				case 'theme':
 				case 'themePrimaryColor':
 				case 'themeSecondaryColor':
