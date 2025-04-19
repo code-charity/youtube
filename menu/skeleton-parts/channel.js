@@ -53,6 +53,42 @@ extension.skeleton.main.layers.section.channel = {
 			channel_compact_theme: {
 				component: 'switch',
 				text: 'compactTheme'
+			},
+			channel_details_button: {
+				component: 'switch',
+				text: 'Details',
+				value: false, // Default state is off
+				on: {
+					change: async function (event) {
+						const apiKey = YOUTUBE_API_KEY;
+						const switchElement = event.target.closest('.satus-switch');
+                        const isChecked = switchElement && switchElement.dataset.value === 'true';
+
+						// Store the switch state in chrome.storage.local
+						chrome.storage.local.set( { switchState: isChecked } );
+
+						try {
+							const videoId = await getCurrentVideoId();
+							const videoInfo = await getVideoInfo(apiKey, videoId);
+
+							const channelId = videoInfo.snippet.channelId
+							const channelInfo = await getChannelInfo(apiKey, channelId);
+							
+							chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+								//console.log("Sending message to content.js");
+								chrome.tabs.sendMessage(tabs[0].id, {
+									action: isChecked ? 'append-channel-info' : 'remove-channel-info',
+									channelName: channelInfo.channelName,
+									uploadTime: new Date(videoInfo.snippet.publishedAt).toLocaleString(),
+									videoCount: channelInfo.videoCount,
+									customUrl: channelInfo.customUrl
+								})
+							});
+						} catch (error){
+							console.error(error);
+						}
+					}
+				}
 			}
 		}
 	},
@@ -94,3 +130,36 @@ extension.skeleton.main.layers.section.channel = {
 		text: 'channel'
 	}
 };
+
+async function getCurrentVideoId() {
+    return new Promise((resolve, reject) => {
+        chrome.storage.local.get('videoId', (result) => {
+			//console.log('Retrieved video ID from storage:', result.videoId); // Debugging log
+            if (result.videoId) {
+                resolve(result.videoId);
+            } else {
+                reject('Video ID not found');
+            }
+        });
+    });
+}
+
+async function getVideoInfo(apiKey, videoId) {
+	const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet,contentDetails,statistics,status`);
+	const data = await response.json();
+	const video = data?.items[0];
+	
+	return video;
+}
+
+async function getChannelInfo(apiKey, channelId) {
+	const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?id=${channelId}&key=${apiKey}&part=snippet,contentDetails,statistics,status`);
+	const data = await response.json();
+	const channel = data.items[0];
+	const customUrl = channel.snippet.customUrl;
+	const channelName = channel.snippet.title;
+	const videoCount = channel.statistics.videoCount;
+
+	return {channelName, videoCount, customUrl};
+}
+
