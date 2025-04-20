@@ -98,6 +98,91 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 				});
 			}
 		});
+		chrome.storage.local.get('comments_sidebar_simple', function (result) {
+			if (result.comments_sidebar_simple === true) {
+				chrome.storage.local.set({comments_sidebar_simple: true});
+			}
+		});
+		chrome.storage.local.get('hide_animated_thumbnails', function (result) {
+			if (result.hide_animated_thumbnails === true) {
+				chrome.storage.local.set({hide_animated_thumbnails: true});
+			}
+		});
+		chrome.storage.local.get('hide_cards', function (result) {
+			if (result.hide_cards === true) {
+				chrome.storage.local.set({hide_cards: true});
+			}
+		});
+		chrome.storage.local.get('hide_comments', function (result) {
+			if (result.hide_comments === true) {
+				chrome.storage.local.set({hide_comments: true});
+			}
+		});
+		chrome.storage.local.get('hide_comments_count', function (result) {
+			if (result.hide_comments_count === true) {
+				chrome.storage.local.set({hide_comments_count: true});
+			}
+		});
+		chrome.storage.local.get('hide_details', function (result) {
+			if (result.hide_details === true) {
+				chrome.storage.local.set({hide_details: true});
+			}
+		});
+		chrome.storage.local.get('hide_views_count', function (result) {
+			if (result.hide_views_count === true) {
+				chrome.storage.local.set({hide_views_count: true});
+			}
+		});
+		chrome.storage.local.get('hide_date', function (result) {
+			if (result.hide_date === true) {
+				chrome.storage.local.set({hide_date: true});
+			}
+		});
+		chrome.storage.local.get('hide_share_button', function (result) {
+			if (result.hide_share_button === true) {
+				chrome.storage.local.set({hide_share_button: true});
+			}
+		});
+		chrome.storage.local.get('hide_save_button', function (result) {
+			if (result.hide_save_button === true) {
+				chrome.storage.local.set({hide_save_button: true});
+			}
+		});
+		chrome.storage.local.get('hide_more_button', function (result) {
+			if (result.hide_more_button === true) {
+				chrome.storage.local.set({hide_more_button: true});
+			}
+		});
+		chrome.storage.local.get('hide_download_button', function (result) {
+			if (result.hide_download_button === true) {
+				chrome.storage.local.set({hide_download_button: true});
+			}
+		});
+		chrome.storage.local.get('hide_clip_button', function (result) {
+			if (result.hide_clip_button === true) {
+				chrome.storage.local.set({hide_clip_button: true});
+			}
+		});
+		chrome.storage.local.get('hide_thanks_button', function (result) {
+			if (result.hide_thanks_button === true) {
+				chrome.storage.local.set({hide_thanks_button: true});
+			}
+		});
+		chrome.storage.local.get('hide_dislike_button', function (result) {
+			if (result.hide_dislike_button === true) {
+				chrome.storage.local.set({hide_dislike_button: true});
+			}
+		});
+		chrome.storage.local.get('hide_report_button', function (result) {
+			if (result.hide_report_button === true) {
+				chrome.storage.local.set({hide_report_button: true});
+			}
+		});
+		chrome.storage.local.get('hide_ai_summary', function (result) {
+			if (result.hide_ai_summary === true) {
+				chrome.storage.local.set({hide_ai_summary: true});
+			}
+		});
 	} else if (installed.reason == 'install') {
 		if (navigator.userAgent.indexOf("Firefox") != -1) {
 			chrome.storage.local.set({below_player_pip: false})
@@ -177,6 +262,19 @@ chrome.runtime.onInstalled.addListener(function () {
 chrome.storage.onChanged.addListener(function (changes) {
 	if (changes?.language) updateContextMenu(changes.language.newValue);
 	if (changes?.improvedTubeSidebar) chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes.language.newValue});
+
+	// Listen for hide_ai_summary changes and notify tabs
+	if (changes?.hide_ai_summary) {
+		// Query only active YouTube tabs and send the message
+		chrome.tabs.query({ url: "*://www.youtube.com/*" }, (tabs) => {
+			for (const tab of tabs) {
+				// Check if the tab is likely still connected (optional but good practice)
+				if (tabConnected[tab.id]) {
+					chrome.tabs.sendMessage(tab.id, { action: 'apply-hide-ai-summary' }).catch(error => console.log(`Could not send message to tab ${tab.id}: ${error.message}`)); // Add catch for potentially closed tabs
+				}
+			}
+		});
+	}
 });
 /*--------------------------------------------------------------
 # TAB Helper, prune stale connected tabs

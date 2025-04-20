@@ -125,6 +125,11 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'collapseOfSubscriptionSections'
 				},
+				hide_ai_summary: {
+					component: 'switch',
+					text: 'hideAISummary',
+					id: 'hide-ai-summary'
+				},
 				youtube_home_page: {
 					component: 'select',
 					text: 'youtubeHomePage',

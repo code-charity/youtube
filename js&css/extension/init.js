@@ -44,6 +44,7 @@ extension.events.on('init', function () {
 	extension.features.relatedVideos();
 	extension.features.comments();
 	extension.features.openNewTab();
+	extension.features.hideAISummary();
 	bodyReady();
 });
 
@@ -112,6 +113,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		});
 	} else if (request.action === "another-video-started-playing") {
 		extension.features.onlyOnePlayerInstancePlaying();
+	} else if (request.action === 'apply-hide-ai-summary') {
+		extension.features.hideAISummary();
 	}
 });
 
