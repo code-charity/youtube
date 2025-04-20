@@ -640,7 +640,7 @@
         "message": "Hide date"
     },
     "hideDetailButton": {
-        "message": "Buttons (below the player)"
+        "message": "Hide detail button"
     },
     "hideDetails": {
         "message": "Hide details"
@@ -1424,5 +1424,11 @@
     },
     "pauseWhileIAmTypingOnYouTube": {
         "message": "Pause when I'm typing on YouTube"
+    },
+    "hideCustomizeMenu": {
+        "message": "Hide customize menu"
+    },
+    "hideAISummary": {
+        "message": "Hide AI summary below player"
     }
 }

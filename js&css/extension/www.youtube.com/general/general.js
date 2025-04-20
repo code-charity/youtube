@@ -578,3 +578,14 @@ extension.features.openNewTab = function () {
 		}
 	}
 }
+
+/*--------------------------------------------------------------
+HIDE AI SUMMARY
+--------------------------------------------------------------*/
+extension.features.hideAISummary = function () {
+	if (isset(extension.storage.hide_ai_summary)) {
+		document.documentElement.setAttribute('it-hide-ai-summary', extension.storage.hide_ai_summary);
+	} else {
+		document.documentElement.removeAttribute('it-hide-ai-summary');
+	}
+};

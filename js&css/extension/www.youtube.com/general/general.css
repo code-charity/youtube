@@ -453,3 +453,10 @@ html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(4) > h3:active {
 	background-color: var(--yt-spec-10-percent-layer);
 }
+
+/*--------------------------------------------------------------
+# HIDE AI SUMMARY
+--------------------------------------------------------------*/
+html[it-hide-ai-summary="true"] ytd-engagement-panel-section-list-renderer[target-id*="description"] {
+	display: none !important;
+}
