@@ -213,9 +213,6 @@
     "block_Codec_Alert_h264": {
         "message": "You need either H.264 or VP9 enabled for Youtube to play videos."
     },
-    "block_Codec_Alert_VP9": {
-        "message": "You need either VP9 or H.264 enabled for Youtube to play videos."
-    },
     "blockAll": {
         "message": "Off (block or skip)"
     },
