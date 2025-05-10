@@ -400,6 +400,10 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'removeContextButtons',
 				},
+				remove_list_param_from_links: {
+					component: 'switch',
+					text: 'removePlaylistParam'
+				}
 			}
 		}
 	},

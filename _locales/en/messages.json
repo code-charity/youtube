@@ -1077,6 +1077,9 @@
     "removeNames": {
         "message": "Remove names"
     },
+    "removePlaylistParam": {
+	    "message": "Skip playlist when opening videos in new tab"
+    },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
     },
