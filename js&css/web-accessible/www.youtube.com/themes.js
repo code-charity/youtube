@@ -81,6 +81,7 @@ ImprovedTube.myColors = function () {
 					'--yt-spec-inverted-background: #fff;' +
 					'--ytd-searchbox-background:' + primary_color + '!important;' +
 					'--ytd-searchbox-legacy-button-color:' + 'var(--yt-spec-brand-background-primary)' + '!important;' +
+					'--yt-frosted-glass-desktop:' + primary_color + 'cc !important;' +
 					'background-color: var(--yt-spec-base-background)!important;' +
 					'}' +
 					'ytd-masthead, #masthead, ytd-app #masthead { background-color: ' + secondary_color + ' !important; }';
