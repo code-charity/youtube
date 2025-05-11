@@ -583,16 +583,14 @@ extension.features.openNewTab = function () {
 # REMOVE &list=... WHEN OPENING VIDEOS IN NEW TAB
 --------------------------------------------------------------*/
 extension.features.removeListParamOnNewTab = function () {
-	// 이전에 등록된 핸들러가 있다면 제거
-	if (this._removeListParamHandler) {
-		document.removeEventListener('click', this._removeListParamHandler, true);
-	}
-
 	// 옵션이 켜져있지 않으면 종료
 	if (extension.storage.get("remove_list_param_from_links") !== true) {
 		return;
 	}
-
+	// 이전에 등록된 핸들러가 있다면 제거
+	if (this._removeListParamHandler) {
+		document.removeEventListener('click', this._removeListParamHandler, true);
+	}
 	// 새로운 핸들러 정의
 	this._removeListParamHandler = function (event) {
 		if (event.ctrlKey || event.metaKey || event.button === 1) {
