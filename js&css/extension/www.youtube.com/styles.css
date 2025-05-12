@@ -787,6 +787,7 @@ html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #aaa !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #000000cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -1020,6 +1021,7 @@ html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference
 	--yt-spec-selected-nav-text: rgb(255, 255, 255) !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #773344cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -1256,6 +1258,7 @@ html[it-theme=desert][data-system-color-scheme=light][it-schedule=system_peferen
 	--yt-spec-selected-nav-text: #555 !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #faf9f9cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -1477,6 +1480,7 @@ html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #fff !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #003459cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -1712,6 +1716,7 @@ html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #666 !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #d3e1c6cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -1943,6 +1948,7 @@ html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peferen
 	--yt-spec-selected-nav-text: #fff !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #283567cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
