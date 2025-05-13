@@ -177,6 +177,9 @@
     "autoplayDisable": {
         "message": "Force Autoplay Off"
     },
+    "preventShortVideoAutoloop":{
+        "message": "Prevent short videos from auto-looping"
+    },
     "avoidAv1": {
         "message": "Avoid AV1"
     },

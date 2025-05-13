@@ -142,7 +142,11 @@ ImprovedTube.ytElementsHandler = function (node) {
 		if (!this.elements.ytd_player) {
 			ImprovedTube.elements.ytd_player = node;
 		}
-	} else if (id === 'movie_player') {
+	} else if (id === 'shorts-player') {
+		if (!this.elements.shorts_player) {
+		ImprovedTube.elements.shorts_player = node;
+		}
+	}else if (id === 'movie_player') {
 		if (!this.elements.player) {
 			ImprovedTube.elements.player = node;
 			// if (this.storage.player_autoplay === false)  {   ImprovedTube.elements.player.stopVideo();  }
@@ -249,7 +253,9 @@ ImprovedTube.pageType = function () {
 		document.documentElement.dataset.pageType = 'subscriptions';
 	} else if (/\/@|(\/(channel|user|c)\/)[^/]+(?!\/videos)/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'channel';
-	} else {
+	} else if (/\/shorts\//.test(location.href)) {
+        document.documentElement.dataset.pageType = 'shorts';
+    } else {
 		document.documentElement.dataset.pageType = 'other';
 	}
 };
@@ -259,7 +265,20 @@ ImprovedTube.pageOnFocus = function () {
 	ImprovedTube.playerAutoPip();
 	ImprovedTube.playerQualityWithoutFocus();
 };
-
+ImprovedTube.stop_shorts_autoloop =function(){
+	if(document.documentElement.dataset.pageType === 'shorts'){
+		const video = ImprovedTube.elements.shorts_player.querySelector('video')
+		video.removeAttribute('loop');
+		const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'loop') {
+                    video.removeAttribute('loop');
+                }
+            });
+        });
+        observer.observe(video, { attributes: true });
+	}
+}
 ImprovedTube.videoPageUpdate = function () {
 	if (document.documentElement.dataset.pageType === 'video') {
 		var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');

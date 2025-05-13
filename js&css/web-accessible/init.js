@@ -100,7 +100,11 @@ ImprovedTube.init = function () {
 		ImprovedTube.videoPageUpdate();
 		ImprovedTube.initPlayer();
 	}
-
+	if(ImprovedTube.elements.shorts_player){
+		if(ImprovedTube.storage.prevent_shorts_autoloop){
+			ImprovedTube.stop_shorts_autoloop();
+		}
+	}
 	if (window.matchMedia) {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
@@ -139,7 +143,11 @@ document.addEventListener('yt-navigate-finish', function () {
 		ImprovedTube.videoPageUpdate();
 		ImprovedTube.initPlayer();
 	}
-
+	if(ImprovedTube.elements.shorts_player){
+		if(ImprovedTube.storage.prevent_shorts_autoloop){
+			ImprovedTube.stop_shorts_autoloop();
+		}
+	}
 	if (document.documentElement.dataset.pageType === 'home' &&	 ImprovedTube.storage.youtube_home_page === 'search' ) {
 		document.querySelector('body').style.setProperty('visibility', 'visible', 'important');
 		ImprovedTube.shortcutGoToSearchBox();
