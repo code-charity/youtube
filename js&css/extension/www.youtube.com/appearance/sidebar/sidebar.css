@@ -261,3 +261,86 @@ html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-rende
 	order: 5 !important;
 }
 
+
+
+
+/*--------------------------------------------------------------
+# FIX FOR LIKE/DISLIKE BUTTONS BEING OBSTRUCTED BY PLAYLIST
+# When browser scale is 80% or less and "To the side! (No page margin)" is enabled
+--------------------------------------------------------------*/
+
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #top-level-buttons-computed,
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #menu-container,
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) ytd-menu-renderer {
+  z-index: 1001 !important; /* Higher z-index to ensure visibility */
+  position: relative !important;
+}
+
+
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #description,
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #description-inner,
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) ytd-expander {
+  z-index: 900 !important;
+  position: relative !important;
+}
+
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #info,
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #info-contents {
+  z-index: 950 !important;
+  position: relative !important;
+}
+
+
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) ytd-watch-metadata {
+  z-index: 900 !important;
+  position: relative !important;
+}
+
+
+html[data-page-type=video][it-no-page-margin='true'] ytd-playlist-panel-renderer#playlist {
+  z-index: 500 !important; /* Lower z-index than buttons and description */
+  margin-top: 10px !important;
+}
+
+@media screen and (max-width: 1920px) {
+  html[data-page-type=video][it-no-page-margin='true'][it-player-size='1080p'] #below {
+    margin-right: 220px !important; /* Provide space to prevent overlap */
+  }
+  
+
+  html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #below {
+    overflow: visible !important;
+    padding-bottom: 20px !important;
+  }
+  
+
+  html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #actions {
+    overflow: visible !important;
+    z-index: 1002 !important; /* Highest z-index for this critical UI element */
+    position: relative !important;
+  }
+  
+  html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #columns {
+    overflow: visible !important;
+  }
+  
+
+  html[data-page-type=video][it-no-page-margin='true'] ytd-playlist-panel-renderer#playlist {
+    margin-left: 5px !important;
+    position: relative !important;
+  }
+}
+
+html[data-page-type=video][it-no-page-margin='true'][it-sidebar-left='true'] ytd-watch-flexy:not([fullscreen]) #top-level-buttons-computed {
+  margin-right: 10px !important;
+}
+
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #owner {
+  z-index: 900 !important;
+  position: relative !important;
+}
+
+html[data-page-type=video][it-no-page-margin='true'] ytd-watch-flexy:not([fullscreen]) #subscribe-button {
+  z-index: 900 !important;
+  position: relative !important;
+}
