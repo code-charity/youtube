@@ -506,6 +506,10 @@
     "player_fit_to_win_button": {
         "message": "player fit to win button"
     },
+    "player_rewind_and_forward_buttons":{
+        "message": "player rewind and forward buttons"
+
+    },
     "player_rotate_button": {
         "message": "player rotate button"
     },
