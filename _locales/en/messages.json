@@ -66,6 +66,9 @@
     "activateFullscreen": {
         "message": "Activate fullscreen"
     },
+    "activateFitToWindow": {
+        "message": "Activate Fit to window"
+    },
     "activeFeatures": {
         "message": "My active features"
     },

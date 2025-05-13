@@ -348,6 +348,13 @@ document.addEventListener('it-message-from-extension', function () {
 					break
 				
 
+				case 'shortcutActivateFitToWindow':
+					if (ImprovedTube.storage.shortcut_activate_fit_to_window && ImprovedTube.storage.player_fit_to_win_button === false) {
+						// Activate the player_fit_to_win_button if the user has set a shortcut
+						ImprovedTube.messages.send({ action: 'set', key: 'player_fit_to_win_button', value: true });
+					}
+					break
+
 				case 'playerHamburgerButton':
 					if (ImprovedTube.storage.player_hamburger_button == false) {
 						document.querySelector('.custom-hamburger-menu')?.remove();

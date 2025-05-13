@@ -829,19 +829,21 @@ ImprovedTube.playerFitToWinButton = function () {
 			child: svg,
 			opacity: 0.85,
 			position: "right",
-			onclick: function () {
-				let previousSize = ImprovedTube.storage.player_size === "fit_to_window" ? "do_not_change" : (ImprovedTube.storage.player_size ?? "do_not_change");
-				let isFTW = document.querySelector("html").getAttribute("it-player-size") === "fit_to_window"
-				if (isFTW) {
-					document.querySelector("html").setAttribute("it-player-size", previousSize);
-				} else {
-					document.querySelector("html").setAttribute("it-player-size", "fit_to_window");
-				}
-				window.dispatchEvent(new Event("resize"));
-			},
+			onclick: ImprovedTube.toggleFitToWindow,
 			title: 'Fit To Window'
 		});
 	}
+};
+
+ImprovedTube.toggleFitToWindow = function() {
+	let previousSize = ImprovedTube.storage.player_size === "fit_to_window" ? "do_not_change" : (ImprovedTube.storage.player_size ?? "do_not_change");
+	let isFTW = document.querySelector("html").getAttribute("it-player-size") === "fit_to_window"
+	if (isFTW) {
+		document.querySelector("html").setAttribute("it-player-size", previousSize);
+	} else {
+		document.querySelector("html").setAttribute("it-player-size", "fit_to_window");
+	}
+	window.dispatchEvent(new Event("resize"));
 };
 
 /*------------------------------------------------------------------------------
