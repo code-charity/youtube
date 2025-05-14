@@ -1439,5 +1439,8 @@
     },
     "pauseWhileIAmTypingOnYouTube": {
         "message": "Pause when I'm typing on YouTube"
+    },
+    "clickableLinksInDescription": {
+        "message": "Right click to copy links in video descriptions"
     }
 }

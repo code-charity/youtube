@@ -616,3 +616,37 @@ extension.features.removeListParamOnNewTab = function () {
 };
 
 extension.features.removeListParamOnNewTab();
+
+/*--------------------------------------------------------------
+# CLICKABLE LINKS IN VIDEO DESCRIPTIONS
+--------------------------------------------------------------*/
+extension.features.clickableLinksInVideoDescriptions = function () {
+	if (extension.storage.get("clickable_links_in_description") !== true) {
+		return;
+	}
+
+	document.addEventListener("contextmenu", (e) => {
+		// Check if the clicked element is a yt-formatted-string with the class we're targeting
+		const clickedElement = e.target.closest(".style-scope.ytd-video-renderer");
+
+		if (clickedElement) {
+			// Grab the plain text inside the yt-formatted-string (looking for links or URLs)
+			const textContent = clickedElement.innerText;
+	
+			// Extract URL using a simple regex (you can customize it to be more accurate)
+			const urlRegex = /\bhttps?:\/\/[^\s]+/g;
+			const match = textContent.match(urlRegex);
+	
+			if (match) {
+				// Copy the found URL to the clipboard
+				navigator.clipboard.writeText(match[0]).catch((err) => {
+					console.error("Failed to copy: ", err);
+				});
+	
+				// Prevent the default right-click menu from showing
+				e.preventDefault();
+		}
+		// If no URL found, the normal right-click behavior will happen
+		}
+	});
+}
