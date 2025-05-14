@@ -66,6 +66,9 @@
     "activateFullscreen": {
         "message": "Activate fullscreen"
     },
+    "activateFitToWindow": {
+        "message": "Activate Fit to window"
+    },
     "activeFeatures": {
         "message": "My active features"
     },
@@ -176,6 +179,9 @@
     },
     "autoplayDisable": {
         "message": "Force Autoplay Off"
+    },
+    "preventShortVideoAutoloop":{
+        "message": "Prevent short videos from auto-looping"
     },
     "avoidAv1": {
         "message": "Avoid AV1"
@@ -488,6 +494,9 @@
     },
     "extraButtonsBelowThePlayer": {
         "message": "Extra buttons below the player"
+    },
+    "extraRightControlButtons":{
+        "message": "Extra buttons inside the player"
     },
     "Feature_not_yet_available": {
         "message": "Feature not yet available"
@@ -975,6 +984,9 @@
     "player_fit_to_win_button": {
         "message": "Fit to window"
     },
+    "player_rewind_and_forward_buttons":{
+        "message": "Rewind/forward buttons"
+    },
     "player_cinema_mode_button": {
         "message": "Cinema Mode"
     },
@@ -1076,6 +1088,9 @@
     },
     "removeNames": {
         "message": "Remove names"
+    },
+    "removePlaylistParam": {
+	    "message": "Skip playlist when opening videos in new tab"
     },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"

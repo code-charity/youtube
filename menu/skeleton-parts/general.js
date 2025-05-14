@@ -121,6 +121,11 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'atHistory'
 				},
+				hide_ai_summary: {
+					component: 'switch',
+					text: 'hideAISummary',
+					id: 'hide-ai-summary'
+				},
 				collapse_of_subscription_sections: {
 					component: 'switch',
 					text: 'collapseOfSubscriptionSections'
@@ -400,6 +405,10 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'removeContextButtons',
 				},
+				remove_list_param_from_links: {
+					component: 'switch',
+					text: 'removePlaylistParam'
+				}
 			}
 		}
 	},

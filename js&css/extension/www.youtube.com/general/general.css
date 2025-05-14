@@ -50,6 +50,10 @@ html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content,
 html[it-cursorLighting=true] ytd-mini-guide-renderer 		{opacity:.4; transition:2s}					
 html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content:hover,
 html[it-cursorLighting=true] ytd-mini-guide-renderer:hover	{opacity:1; transition:.3s}
+/*------------------------------------------------------------------------------
+# HIDE AI SUMMARY
+------------------------------------------------------------------------------*/
+html[it-hide-ai-summary='true'] ytd-engagement-panel-section-list-renderer[target-id*="description"] { display: none !important; }
 /*--------------------------------------------------------------
 # REMOVE RELATED SEARCH RESULTS
 --------------------------------------------------------------*/
