@@ -1439,5 +1439,8 @@
     },
     "pauseWhileIAmTypingOnYouTube": {
         "message": "Pause when I'm typing on YouTube"
+    },
+    "changeThumbnailsPerRow": {
+        "message": "Thumbnails per Row"
     }
 }

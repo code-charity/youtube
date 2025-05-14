@@ -616,3 +616,31 @@ extension.features.removeListParamOnNewTab = function () {
 };
 
 extension.features.removeListParamOnNewTab();
+
+/*--------------------------------------------------------------
+# CHANGE THE NUMBER OF THUMBNAILS PER ROW
+--------------------------------------------------------------*/
+extension.features.changeThumbnailsPerRow = async function () {
+	var value = await extension.storage.get('change_thumbnails_per_row');
+
+	if (!value || value === 'null') 
+		return;
+
+	const applyGridLayout = () => {
+		const grid = document.querySelector('ytd-rich-grid-renderer');
+		if (!grid) 
+			return;
+
+		// Apply custom values
+		grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
+		grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
+		grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+  	};
+
+	// Apply initially
+	applyGridLayout();
+
+	// Reapply when YouTube replaces content
+	const observer = new MutationObserver(applyGridLayout);
+	observer.observe(document.body, { childList: true, subtree: true });
+};
