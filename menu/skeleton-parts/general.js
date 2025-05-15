@@ -429,6 +429,10 @@ extension.skeleton.main.layers.section.general = {
 				remove_list_param_from_links: {
 					component: 'switch',
 					text: 'removePlaylistParam'
+				},
+				clickable_links_in_description: {
+					component: 'switch',
+					text: 'clickableLinksInDescription'
 				}
 			}
 		}
