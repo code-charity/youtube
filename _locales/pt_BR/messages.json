@@ -975,9 +975,6 @@
     "playbackSpeed": {
         "message": "Velocidade de reprodução"
     },
-    "player": {
-        "message": "Player"
-    },
     "player_dont_speed_educatione": {
         "message": "Não acelere na categoria (Rara): Educação"
     },
