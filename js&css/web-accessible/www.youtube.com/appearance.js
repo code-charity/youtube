@@ -156,6 +156,8 @@ ImprovedTube.formatSecond = function (rTime) {
 };
 
 ImprovedTube.playerRemainingDuration = function () {
+	document.querySelector('.ytp-time-contents').style.setProperty('display', 'none', 'important');
+	
 	var player = ImprovedTube.elements.player;
 	var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));
 	var element = document.querySelector(".ytp-time-remaining-duration");
@@ -163,7 +165,7 @@ ImprovedTube.playerRemainingDuration = function () {
 		var label = document.createElement("span");
 		label.textContent = " (-" + rTime + ")";
 		label.className = "ytp-time-remaining-duration";
-		document.querySelector(".ytp-time-display").appendChild(label);
+		document.querySelector(".ytp-time-display span").appendChild(label);
 	} else {
 		element.textContent = " (-" + rTime + ")";
 	}
