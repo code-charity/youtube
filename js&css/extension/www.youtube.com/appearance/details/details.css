@@ -84,10 +84,10 @@ html[it-hide-report-button='true'] #menu button:has(svg path[d^="m13.18 4 .24 1.
 html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]), 
 	/*------HIDE MORE BUTTON------*/
 html[it-hide-more-button='true'] #menu #button [class*="dropdown"],
-html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5 12c0 .83-.67 1.5-1. 1."]), 
+html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5 12c0 .83-.67 1."]),
    /* previous "more"-svg and dom: */
 html[it-hide-more-button='true'] #menu yt-button-shape#button-shape,
-html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]), 
+html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5"]),
 html[it-hide-more-button='true'] #flexible-item-buttons button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5-1.5"]),
 	/*------# HIDE DETAILS-------------*/
 html[it-hide-details='true'] ytd-video-primary-info-renderer,
@@ -164,4 +164,15 @@ html[it-exact-upload-date='true'] #info #date + #info-strings>#dot,
 	display: inline-block !important;
 	margin-left: 4px !important;
 	color: var(--yt-spec-text-secondary) !important;
+}
+/*--------------------------------------------------------------
+# DISABLE LIKES ANIMATION
+--------------------------------------------------------------*/
+html[it-disable-likes-animation='true'] yt-animated-rolling-number {
+	display: none !important;
+}
+
+html[it-disable-likes-animation='true'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer span {
+	font-variant-numeric: tabular-nums;
+	vertical-align: baseline;
 }
