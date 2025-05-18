@@ -466,6 +466,11 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 				text: "hideDate",
 				tags: "hide,remove"
 			},
+			disable_likes_animation: {
+                component: "switch",
+                text: "disableLikesAnimation",
+                tags: "likes,animation,disable"
+            },
 			api: {
 				component: 'section',
 				variant: 'card',
