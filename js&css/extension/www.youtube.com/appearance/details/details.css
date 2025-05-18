@@ -84,7 +84,7 @@ html[it-hide-report-button='true'] #menu button:has(svg path[d^="m13.18 4 .24 1.
 html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]), 
 	/*------HIDE MORE BUTTON------*/
 html[it-hide-more-button='true'] #menu #button [class*="dropdown"],
-html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5 12c0 .83-.67 1. 1."]),
+html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5 12c0 .83-.67 1."]),
    /* previous "more"-svg and dom: */
 html[it-hide-more-button='true'] #menu yt-button-shape#button-shape,
 html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5,12c0,0.83-0.67,1.5"]),
