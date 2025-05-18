@@ -811,3 +811,37 @@ if (ImprovedTube.storage.header_transparent2 === true) {
 		}
 	});
 }
+/*------------------------------------------------------------------------------
+DISABLE LIKES ANIMATION
+------------------------------------------------------------------------------*/
+ImprovedTube.disableLikesAnimation = function () {
+    if (this.storage.disable_likes_animation === true) {
+        // Find all like counters with animation
+        var likeAnimated = document.querySelectorAll('yt-animated-rolling-number');
+        likeAnimated.forEach(function (el) {
+            // Replace with static number
+            var staticValue = el.getAttribute('value') || el.textContent;
+            if (staticValue) {
+                var span = document.createElement('span');
+                span.textContent = staticValue;
+                span.style.verticalAlign = 'baseline';
+                span.style.fontVariantNumeric = 'tabular-nums'; // align digits
+                el.replaceWith(span);
+            }
+        });
+    }
+    if (this.storage.disable_likes_animation === true) {
+        document.documentElement.setAttribute('it-disable-likes-animation', 'true');
+    } else {
+        document.documentElement.removeAttribute('it-disable-likes-animation');
+    }
+};
+
+// Call this on page load and on navigation
+(function() {
+    var run = function() { ImprovedTube.disableLikesAnimation && ImprovedTube.disableLikesAnimation(); };
+    document.addEventListener('yt-page-data-updated', run);
+    document.addEventListener('yt-navigate-finish', run);
+    window.addEventListener('load', run);
+    setTimeout(run, 2000); // fallback for late loads
+})();
