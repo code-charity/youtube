@@ -830,11 +830,6 @@ ImprovedTube.disableLikesAnimation = function () {
             }
         });
     }
-    if (this.storage.disable_likes_animation === true) {
-        document.documentElement.setAttribute('it-disable-likes-animation', 'true');
-    } else {
-        document.documentElement.removeAttribute('it-disable-likes-animation');
-    }
 };
 
 // Call this on page load and on navigation
