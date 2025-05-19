@@ -619,10 +619,16 @@
         "message": "Ocultar Shorts remixando alguns videos"
     },
     "Hide_sidebar": {
+        "message": "Ocultar barra lateral de recomendações "
+    },
+    "Hide_subscriptionsShorts": {
         "message": "Ocultar Shorts das inscrições"
     },
     "Hide_the_tabs_only": {
         "message": "Ocultar somente as abas"
+    },
+    "Hide_trendingThis_Shorts": {
+        "message": "Ocultar Shorts do Em alta"
     },
     "Hide_YouTube_Logo": {
         "message": "Ocultar Logo do YouTube"
