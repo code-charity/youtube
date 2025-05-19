@@ -1108,13 +1108,13 @@
         "message": "Reportar"
     },
     "reset": {
-        "message": "Restaurar"
+        "message": "Resetar"
     },
     "resetAllSettings": {
-        "message": "Restaurar todas as configurações"
+        "message": "Resetar todas as configurações"
     },
     "resetAllShortcuts": {
-        "message": "Restaurar todos os atalhos"
+        "message": "Resetar todos os atalhos"
     },
     "reverse": {
         "message": "Inverter"
