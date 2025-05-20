@@ -239,19 +239,19 @@ extension.skeleton.main.layers.section.general = {
 					component: 'select',
 					text: 'changeThumbnailsPerRow',
 					options: [{
-						text: 'Four',
+						text: '4',
 						value: '4'
 					}, {
-						text: 'Five',
+						text: '5',
 						value: '5'
 					}, {
-						text: 'Six',
+						text: '6',
 						value: '6'
 					}, {
-						text: 'Seven',
+						text: '7',
 						value: '7'
 					}, {
-						text: 'Eight',
+						text: '8',
 						value: '8'
 					}],
 					tags: 'change thumbnails per row'
