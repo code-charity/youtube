@@ -142,7 +142,7 @@ html[it-header-position=hover]:not([data-page-type=video]) tp-yt-app-drawer:not(
 html[it-header-position=hidden]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
 html[it-header-position=static]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header {
 	position: absolute;
-	visibility: visible;
+	visibility: hidden;
 	left: 240px;
 	top: 120px;
 	padding: 0 16px;
