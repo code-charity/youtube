@@ -17,6 +17,7 @@ html[it-ambient-lighting='false'] #cinematics {display: none !important;}
 # ALWAYS SHOW PROGRESS BAR
 --------------------------------------------------------------*/
 
+
 html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom {
 	opacity: 1 !important;
 }
@@ -31,6 +32,9 @@ html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player
 
 html[it-always-show-progress-bar='true'] .DesktopShortsPlayerControlsHostHideProgressBar {
     visibility: visible;
+}
+html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom .ytp-scrubber-button {
+    display: none !important;
 }
 
 /*--------------------------------------------------------------
