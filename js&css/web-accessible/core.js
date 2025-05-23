@@ -413,6 +413,8 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerRemainingDuration':
 					if (ImprovedTube.storage.player_remaining_duration === false) {
 						document.querySelector(".ytp-time-remaining-duration")?.remove();
+						document.querySelector('.ytp-time-contents')?.removeAttribute('style');
+						document.querySelector('.ytp-time-contents')?.style.setProperty('display', 'block', 'important');						
 					} else if (ImprovedTube.storage.player_remaining_duration === true) {
 						ImprovedTube.playerRemainingDuration();
 					}
