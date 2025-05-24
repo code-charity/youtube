@@ -451,6 +451,11 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.playlistCopyVideoIdButton();
 					}
 					break
+				case 'disableAutoDubbing':
+					if (ImprovedTube.storage.disable_auto_dubbing === true) {
+						ImprovedTube.disableAutoDubbing();
+					}
+					break
 			}
 
 			// dont trigger shortcuts on config change, reinitialize handler instead

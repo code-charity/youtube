@@ -1448,5 +1448,8 @@
     },
     "disableLikesAnimation": {
         "message": "Disable likes animation"
+    },
+    "disableAutoDubbing": {
+        "message": "Disable auto dubbing"
     }
 }
