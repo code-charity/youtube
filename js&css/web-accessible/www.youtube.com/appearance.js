@@ -157,10 +157,10 @@ ImprovedTube.formatSecond = function (rTime) {
 
 ImprovedTube.playerRemainingDuration = function () {
 	var duration = document.querySelector(".ytp-time-duration").innerText;
-	var remainingDuration = ImprovedTube.storage.player_remaining_duration;
-	if (remainingDuration) {
+//	var remainingDuration = ImprovedTube.storage.player_remaining_duration;
+//	if (remainingDuration) {
 		document.querySelector('.ytp-time-contents').style.setProperty('display', 'none', 'important');
-	}
+//	}  https://github.com/code-charity/youtube/pull/2956/files
 
 	var player = ImprovedTube.elements.player;
 	var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));	
