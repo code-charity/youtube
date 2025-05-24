@@ -156,18 +156,22 @@ ImprovedTube.formatSecond = function (rTime) {
 };
 
 ImprovedTube.playerRemainingDuration = function () {
-	document.querySelector('.ytp-time-contents').style.setProperty('display', 'none', 'important');
-	
+	var duration = document.querySelector(".ytp-time-duration").innerText;
+//	var remainingDuration = ImprovedTube.storage.player_remaining_duration;
+//	if (remainingDuration) {
+		document.querySelector('.ytp-time-contents').style.setProperty('display', 'none', 'important');
+//	}  https://github.com/code-charity/youtube/pull/2956/files
+
 	var player = ImprovedTube.elements.player;
-	var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));
+	var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));	
 	var element = document.querySelector(".ytp-time-remaining-duration");
 	if (!element) {
 		var label = document.createElement("span");
-		label.textContent = " (-" + rTime + ")";
+		label.textContent = duration + " / (-" + rTime + ")";
 		label.className = "ytp-time-remaining-duration";
 		document.querySelector(".ytp-time-display span").appendChild(label);
-	} else {
-		element.textContent = " (-" + rTime + ")";
+	} else {		
+		return element.textContent = duration + " / (-" + rTime + ")";
 	}
 };
 /*------------------------------------------------------------------------------
