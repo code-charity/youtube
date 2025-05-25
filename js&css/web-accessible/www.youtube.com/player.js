@@ -1596,3 +1596,46 @@ ImprovedTube.playerRewindAndForwardButtons = function(){
 	
 	}
    }
+/*------------------------------------------------------------------------------
+# DISABLE AUTO DUBBING
+------------------------------------------------------------------------------*/
+ImprovedTube.disableAutoDubbing = function () {
+	const player = this.elements.player;
+	const tracks = player.getAvailableAudioTracks();
+	const originalTrack = findOriginalAudioTrack(tracks);
+	
+	if (originalTrack) {
+		player.setAudioTrack(originalTrack);
+	}
+
+	function findOriginalAudioTrack(audioTracks) {
+		// Score tracks based on likely original source
+		for (const track of audioTracks) {
+			if (hasOriginalKeyword(track)) {
+				return track;
+			}
+		}
+
+		for (const track of audioTracks) {
+			if (hasASR(track)) {
+				return track;
+			}
+		}
+
+		function hasASR(track) {
+			return Array.isArray(track.captionTracks) && 
+				track.captionTracks.some(ct => ct.kind === 'asr');
+		}
+
+		function hasOriginalKeyword(track) {
+			const name = track?.HB?.name?.toLowerCase() || '';
+			const localizedOriginalWords = ['original', 'originale', 'originalny', 'originalaudio', 'origineel', 'orijinal']; // Add more if needed
+			return localizedOriginalWords.some(word => name.includes(word));
+		}
+
+		// As a fallback: default or first item
+		const fallback = audioTracks.find(t => t?.HB?.isDefault) || audioTracks[0];
+		console.log(fallback);
+		return fallback;
+	}
+}

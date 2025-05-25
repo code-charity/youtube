@@ -204,7 +204,14 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.init();
 			ImprovedTube.blocklistInit();
 
-		// REACTION OR VISUAL FEEDBACK WHEN THE USER CHANGES A SETTING (already automated for our CSS features):
+/*--------------------------------------------------------------
+# Immediate reaction to any change of our extension storage (settings)
+    	While most of our features are chosen permanently (set and forget) and need to run with YouTube,
+	 we only started this section for feedback and reducing new user's misunderstandings.
+ 		(For our simple CSS-only features this isn't necessary, since a loop is doing it and there could be a shared loop for many JS feature too)
+	Yet doing this, it could also be used for big extra visual feedback pointing at or highlighing the immediate change on youtube. 
+		(to make it most intutive to the many new or visual users, bringing changes with simple css-transations or animation. Like an interactive tutorial.) 
+--------------------------------------------------------------*/
 		} else if (message.action === 'storage-changed') {
 			let camelized_key = message.camelizedKey;
 
@@ -449,6 +456,11 @@ document.addEventListener('it-message-from-extension', function () {
 						document.querySelectorAll('.it-playlist-copy-video-id').forEach(e => e.remove());
 					} else if (ImprovedTube.storage.playlist_copy_video_id === true) {
 						ImprovedTube.playlistCopyVideoIdButton();
+					}
+					break
+				case 'disableAutoDubbing':
+					if (ImprovedTube.storage.disable_auto_dubbing === true) {
+						ImprovedTube.disableAutoDubbing();
 					}
 					break
 			}

@@ -358,7 +358,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerQuality();
 		ImprovedTube.batteryFeatures();
 		ImprovedTube.playerVolume();
-		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }
+		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }	
 		
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
@@ -372,6 +372,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.expandDescription();
 		setTimeout(function () {ImprovedTube.forcedTheaterMode(); }, 150);
 		if (location.href.indexOf('/embed/') === -1) { ImprovedTube.miniPlayer(); }
+		if (ImprovedTube.storage.disable_auto_dubbing === true) { ImprovedTube.disableAutoDubbing(); }
 	}
 };
 
