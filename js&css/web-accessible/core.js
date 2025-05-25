@@ -204,7 +204,14 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.init();
 			ImprovedTube.blocklistInit();
 
-		// REACTION OR VISUAL FEEDBACK WHEN THE USER CHANGES A SETTING (already automated for our CSS features):
+/*--------------------------------------------------------------
+// # Immediately reacting to any change of our extension storage (settings)
+    	we only started this section for immediate feedback and reducing new user's misunderstandings/frustration
+		(Since most of our features a permanent (set and forget) and running at page load) 
+		(For our simple CSS-only features this isn't necessary, since a loop is doing it and there could be a streamlined loop for many JS feature too)
+	- Doing this at all, it could also be used for simply but nice and big visual feedback (animations / css-transations) - like a tutorial. 
+		which could make it much more convenient / intutive to new / visual users. 
+--------------------------------------------------------------*/
 		} else if (message.action === 'storage-changed') {
 			let camelized_key = message.camelizedKey;
 
