@@ -205,12 +205,12 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.blocklistInit();
 
 /*--------------------------------------------------------------
-// # Immediately reacting to any change of our extension storage (settings)
-    	we only started this section for immediate feedback and reducing new user's misunderstandings/frustration
-		(Since most of our features a permanent (set and forget) and running at page load) 
-		(For our simple CSS-only features this isn't necessary, since a loop is doing it and there could be a streamlined loop for many JS feature too)
-	- Doing this at all, it could also be used for simply but nice and big visual feedback (animations / css-transations) - like a tutorial. 
-		which could make it much more convenient / intutive to new / visual users. 
+# Immediate reaction to any change of our extension storage (settings)
+    	While most of our features are chosen permanently (set and forget) and need to run with YouTube,
+	 we only started this section for feedback and reducing new user's misunderstandings.
+ 		(For our simple CSS-only features this isn't necessary, since a loop is doing it and there could be a shared loop for many JS feature too)
+	Yet doing this, it could also be used for big extra visual feedback pointing at or highlighing the immediate change on youtube. 
+		(to make it most intutive to the many new or visual users, bringing changes with simple css-transations or animation. Like an interactive tutorial.) 
 --------------------------------------------------------------*/
 		} else if (message.action === 'storage-changed') {
 			let camelized_key = message.camelizedKey;
