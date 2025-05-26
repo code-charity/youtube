@@ -174,9 +174,6 @@
     "autopauseWhenSwitchingTabs": {
         "message": "Pausar vídeo automaticamente ao alternar entre abas"
     },
-    "autoplay": {
-        "message": "Reprodução automática"
-    },
     "autoplayDisable": {
         "message": "Forçar desativar reprodução automática"
     },
