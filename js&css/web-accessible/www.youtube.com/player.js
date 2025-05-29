@@ -764,16 +764,21 @@ ImprovedTube.playerRotateButton = function () {
 			id: 'it-rotate-button',
 			child: svg,
 			opacity: 0.85,
-			onclick: function () {
+			onclick: function (e) {
 				var player = ImprovedTube.elements.player,
 					video = ImprovedTube.elements.video,
 					rotate = Number(document.body.dataset.itRotate) || 0,
 					transform = '';
-
-				rotate += 90;
+				if(!e.ctrlKey){
+					rotate += 90;
+				} else {
+					rotate -= 90;
+				}
 
 				if (rotate === 360) {
 					rotate = 0;
+				} else if (rotate < 0){
+					rotate = 270;
 				}
 
 				document.body.dataset.itRotate = rotate;
