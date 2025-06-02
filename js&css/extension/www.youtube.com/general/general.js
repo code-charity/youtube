@@ -661,14 +661,25 @@ extension.features.changeThumbnailsPerRow = async function () {
 		return;
 
 	const applyGridLayout = () => {
-		const grid = document.querySelector('ytd-rich-grid-renderer');
-		if (!grid) 
-			return;
+		//Check if we are on the subscriptions page
+		if (location.href.indexOf('feed/subscriptions') !== -1) {
+			document.querySelectorAll('[style]').forEach(el => {
+				if (el.style.getPropertyValue('--ytd-rich-grid-items-per-row')) {
+					el.style.setProperty('--ytd-rich-grid-items-per-row', value);
+					el.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
+					el.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+				}
+			});
+		} else {		
+			const grid = document.querySelector('ytd-rich-grid-renderer');
+			if (!grid) 
+				return;
 
-		// Apply custom values
-		grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
-		grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
-		grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+			// Apply custom values
+			grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
+			grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
+			grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+		}
   	};
 
 	// Apply initially
