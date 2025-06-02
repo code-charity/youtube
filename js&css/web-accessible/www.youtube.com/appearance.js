@@ -157,17 +157,18 @@ ImprovedTube.formatSecond = function (rTime) {
 
 ImprovedTube.playerRemainingDuration = function () {
 	var duration = document.querySelector(".ytp-time-duration").innerText;
+	var current = document.querySelector(".ytp-time-current").innerText;
 	document.querySelector('.ytp-time-contents').style.setProperty('display', 'none', 'important');
 	var player = ImprovedTube.elements.player;
 	var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));	
 	var element = document.querySelector(".ytp-time-remaining-duration");
 	if (!element) {
 		var label = document.createElement("span");
-		label.textContent = duration + " / (-" + rTime + ")";
+		label.textContent = current + " / " + duration + " / (-" + rTime + ")";
 		label.className = "ytp-time-remaining-duration";
 		document.querySelector(".ytp-time-display span").appendChild(label);
 	} else {		
-		return element.textContent = duration + " / (-" + rTime + ")";
+		return element.textContent = current + " / " + duration + " (-" + rTime + ")";
 	}
 };
 /*------------------------------------------------------------------------------
