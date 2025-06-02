@@ -1633,8 +1633,13 @@ ImprovedTube.disableAutoDubbing = function () {
 		}
 
 		function hasOriginalKeyword(track) {
-			const name = track?.HB?.name?.toLowerCase() || '';
+			var name = track?.HB?.name?.toLowerCase() || '';
 			const localizedOriginalWords = ['original', 'originale', 'originalny', 'originalaudio', 'origineel', 'orijinal']; // Add more if needed
+			if (name === '') {
+				// Try to get the localized name from other variable
+				name = track?.Af.name?.toLowerCase() || '';
+			}
+			
 			return localizedOriginalWords.some(word => name.includes(word));
 		}
 
