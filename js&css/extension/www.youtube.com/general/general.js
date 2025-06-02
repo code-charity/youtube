@@ -681,8 +681,8 @@ extension.features.changeThumbnailsPerRow = async function () {
 /*--------------------------------------------------------------
 # HIDE AI SUMMARY
 --------------------------------------------------------------*/
-extension.features.hideAISummary = async function () {
-	var hide_ai_summary = await extension.storage.get("hide_ai_summary");
+extension.features.hideAISummary = function () {
+	var hide_ai_summary = extension.storage.get("hide_ai_summary");
 	if (!hide_ai_summary) {
 		return;
 	}
