@@ -53,7 +53,7 @@ html[it-cursorLighting=true] ytd-mini-guide-renderer:hover	{opacity:1; transitio
 /*------------------------------------------------------------------------------
 # HIDE AI SUMMARY
 ------------------------------------------------------------------------------*/
-html[it-hide-ai-summary='true'] ytd-engagement-panel-section-list-renderer[target-id*="description"] {display: none;}
+html[it-hide-ai-summary='true'] ytd-expandable-metadata-renderer[has-video-summary] {display: none;}
 /*--------------------------------------------------------------
 # REMOVE RELATED SEARCH RESULTS
 --------------------------------------------------------------*/
