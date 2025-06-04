@@ -111,7 +111,8 @@ extension.skeleton.main.layers.section.general = {
 				},
 				remove_subscriptions_shorts: {
 					component: 'switch',
-					text: 'atSubscriptions'
+					text: 'atSubscriptions',
+					id: 'remove-subscriptions-shorts'
 				},
 				remove_trending_shorts: {
 					component: 'switch',
