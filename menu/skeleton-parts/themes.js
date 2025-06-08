@@ -163,5 +163,63 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			group: 'theme',
 			value: 'desert'
 		}
+	},
+	// creates a new theme selectable
+	time_of_day: {
+		component: 'label',
+		variant: 'time-of-day-theme',
+		text: 'Time of Day',
+		radio:{
+			component: 'radio',
+			group: 'theme',
+			value: 'time_of_day',
+			on: {
+				click: {
+					//calculates time of day
+					exec: function () {
+						const now = new Date();
+						const hour = now.getHours();
+						const minute = now.getMinutes();
+						const totalMinutes = hour * 60 + minute;
+
+						//chooses theme based on time of day
+						let theme = 'default';
+						let label = 'Time of Day';
+						//calculates time of day
+						if (totalMinutes === 450) {
+							theme = 'dawn';
+							label = 'Dawn';
+						} else if (totalMinutes > 450 && totalMinutes < 1170) {
+							theme = 'light';
+							label = 'Light';
+						} else if (totalMinutes == 1170) {
+							theme = 'sunset';
+							label = 'Sunset';
+						} else if (totalMinutes > 1200 || totalMinutes < 0) {
+							theme = 'night';
+							label = 'Night';
+						} else if (totalMinutes >= 0 && totalMinutes < 360) {
+							theme = 'dark';
+							label = 'Dark';
+						} else if (totalMinutes > 361 && totalMinutes < 450) {
+							theme = 'night';
+							label = 'Night';
+						}
+
+						return {
+							component: 'label',
+							variant: theme + '-theme',
+							text: label,
+							radio: {
+								component: 'radio',
+								group: 'theme',
+								value: theme,
+								...(satus.storage.get('theme') == theme && {checked: true})
+							}
+						};
+					}
+				}
+			}
+		}
 	}
 };
