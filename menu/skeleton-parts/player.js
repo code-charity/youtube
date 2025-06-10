@@ -722,6 +722,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		disable_auto_dubbing: {
+			component: 'switch',
+			text: 'disableAutoDubbing'
+		},
 		player_quality: {
 			component: 'select',
 			text: 'quality',
@@ -1198,10 +1202,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			on: {
 				click: 'main.layers.section.appearance.on.click.player.on.click.player_hide_controls_options.on.click'
 			}
-		},
-		disable_auto_dubbing: {
-			component: 'switch',
-			text: 'disableAutoDubbing'
 		}
 	}
 };
