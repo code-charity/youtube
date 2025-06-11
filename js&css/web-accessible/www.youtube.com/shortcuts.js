@@ -138,8 +138,6 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.shift = false;
 	}
 };
-/*--- jump To Key Scene ----*/
-ImprovedTube.shortcutJumpToKeyScenet = ImprovedTube.jumpToKeyScene;
 /*------------------------------------------------------------------------------
 Ambient lighting
 ------------------------------------------------------------------------------*/
