@@ -1451,5 +1451,8 @@
     },
     "disableAutoDubbing": {
         "message": "Disable auto dubbing"
+    },
+    "jumpToKeyScene": {
+        "message": "Jump to the next key scene"
     }
 }

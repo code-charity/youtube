@@ -548,6 +548,11 @@ extension.skeleton.main.layers.section.appearance.on.click.hide_detail_button = 
 					component: 'switch',
 					text: 'loop',
 					value: true
+				},
+				below_player_keyscene: {
+					component: 'switch',
+					text: 'keyScene',
+					value: true
 				}
 			},
 			youtubeDetailButtons: {

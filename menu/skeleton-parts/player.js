@@ -1177,6 +1177,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'loop',
 				value: true
 			},
+			below_player_keyscene: {
+				component: 'switch',
+				text: 'keyScene',
+				value: true
+			},
 			copy_video_id: {
 				component: 'switch',
 				text: 'copyVideoId',
