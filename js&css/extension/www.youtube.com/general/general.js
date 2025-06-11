@@ -661,8 +661,6 @@ extension.features.changeThumbnailsPerRow = async function () {
 		return;
 
 	const applyGridLayout = () => {
-	if (!value || value === 'null') 
-		return;
 
 	if (value === 'undistracted') {
 		const contents = document.getElementById('contents');
