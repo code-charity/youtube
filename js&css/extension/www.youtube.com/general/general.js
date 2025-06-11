@@ -661,8 +661,18 @@ extension.features.changeThumbnailsPerRow = async function () {
 		return;
 
 	const applyGridLayout = () => {
-		//Check if we are on the subscriptions page
-		if (location.href.indexOf('feed/subscriptions') !== -1) {
+	if (!value || value === 'null') 
+		return;
+
+	if (value === 'undistracted') {
+		const contents = document.getElementById('contents');
+		const chips = document.getElementById('chips-wrapper')
+		if (contents) contents.style.display = 'none';
+		if (chips) chips.style.display = 'none';
+		return;
+	  }
+	else{
+		if (location.href.includes('feed/subscriptions')) {
 			document.querySelectorAll('[style]').forEach(el => {
 				if (el.style.getPropertyValue('--ytd-rich-grid-items-per-row')) {
 					el.style.setProperty('--ytd-rich-grid-items-per-row', value);
@@ -670,17 +680,15 @@ extension.features.changeThumbnailsPerRow = async function () {
 					el.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
 				}
 			});
-		} else {		
+		} else {
 			const grid = document.querySelector('ytd-rich-grid-renderer');
-			if (!grid) 
-				return;
-
-			// Apply custom values
+			if (!grid) return;
 			grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
 			grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
 			grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
 		}
-  	};
+	}
+}
 
 	// Apply initially
 	applyGridLayout();
