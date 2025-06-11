@@ -206,6 +206,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 						}
 					}
 				},
+				shortcut_jump_to_key_scene: {
+					component: 'shortcut',
+					text: 'jumpToKeyScene'
+				},
 				shortcut_seek_next_chapter: {
 					component: 'shortcut',
 					text: 'seekNextChapter'
