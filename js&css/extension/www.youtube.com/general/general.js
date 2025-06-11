@@ -661,6 +661,8 @@ extension.features.changeThumbnailsPerRow = async function () {
 		return;
 
 	const applyGridLayout = () => {
+
+
 		//Check if we are on the subscriptions page
 		if (location.href.indexOf('feed/subscriptions') !== -1) {
 			document.querySelectorAll('[style]').forEach(el => {
@@ -679,6 +681,11 @@ extension.features.changeThumbnailsPerRow = async function () {
 			grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
 			grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
 			grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+
+			if (value === 'undistracted') {
+            const contents = document.getElementById('contents');
+            if (contents) contents.remove();
+			}
 		}
   	};
 
