@@ -400,6 +400,15 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
+				case 'belowPlayerKeyScene':
+					if (ImprovedTube.storage.below_player_keyscene === false) {
+						document.querySelector('.improvedtube-player-button[data-tooltip="NextKeyScene"]')?.remove();
+					} else if (ImprovedTube.storage.below_player_keyscene === true) {
+						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
+						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+					}
+					break
+
 				case 'copyVideoId':
 					if (ImprovedTube.storage.copy_video_id === false) {
 						document.querySelector('.improvedtube-player-button[data-tooltip="CopyVideoId"]')?.remove();

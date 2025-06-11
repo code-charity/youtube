@@ -1649,3 +1649,52 @@ ImprovedTube.disableAutoDubbing = function () {
 		return fallback;
 	}
 }
+/*------------------------------------------------------------------------------
+# JUMP TO THE NEXT KEY SCENE
+------------------------------------------------------------------------------*/
+ImprovedTube.jumpToKeyScene = function () {
+	const player = document.querySelector('video');
+
+	const data = extractYtInitialData();
+	if (!data) 
+		return console.warn("Failed to extract ytInitialData.");  
+		
+	const markers = getMostReplayedMarkers(data);
+	if (!markers.length) 
+		return console.warn("No 'Most Replayed' markers found.");
+	
+	const currentMillis = player.currentTime * 1000;
+	const sortedMarkers = markers.slice().sort((a, b) => a.decorationTimeMillis - b.decorationTimeMillis);
+	const nextMarker = sortedMarkers.find(m => m.decorationTimeMillis > currentMillis) || sortedMarkers[0]; // fallback to first if none ahead
+	const targetSeconds = nextMarker.decorationTimeMillis / 1000;
+	
+	player.currentTime = targetSeconds;
+	player.play();
+	console.log(`Jumped to Most Replayed @ ${Math.floor(targetSeconds / 60)}:${Math.floor(targetSeconds % 60).toString().padStart(2, "0")}`);	
+
+	function extractYtInitialData() {		
+		const scriptTags = document.querySelectorAll('script');
+
+		for (let i = 0; i < scriptTags.length; i++) {
+			const scriptContent = scriptTags[i].textContent;
+			const match = scriptContent.match(/var ytInitialData = ({.*?});/s);
+		
+			if (match) {
+				try {
+					return JSON.parse(match[1]);
+				} catch (e) {
+					console.warn("Failed to parse ytInitialData JSON", e);
+					return null;
+				}	
+			}
+		}
+
+		return null;
+	}
+
+	function getMostReplayedMarkers(parsedJson) {    
+		const decorations = parsedJson?.['frameworkUpdates']?.['entityBatchUpdate']?.['mutations']?.[0]
+			?.['payload']?.['macroMarkersListEntity']?.['markersList']?.['markersDecoration']?.['timedMarkerDecorations'];
+		return decorations;
+	}
+}

@@ -476,6 +476,30 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				section.insertAdjacentElement('afterend', button)
 			}
 
+			if (this.storage.below_player_keyscene !== false) {
+				var button = document.createElement('button'),
+				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+				g = document.createElementNS('http://www.w3.org/2000/svg', 'g'),
+				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+				button.className = 'improvedtube-player-button';
+				button.style.marginRight = '-0.2px';
+				button.dataset.tooltip = 'Key Scene';
+				svg.style.opacity = '.55';
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				g.setAttributeNS(null, 'transform', 'translate(5, 0)');				
+				path.setAttributeNS(null, 'd', 'M13 2 L3 14 H10 L8 22 L20 10 H13 L15 2 Z');
+
+				button.onclick = ImprovedTube.jumpToKeyScene;
+
+				g.appendChild(path);
+				svg.appendChild(path);	
+				button.appendChild(svg);
+
+				const screenshotButton = document.querySelector('[data-tooltip="Screenshot"]');
+				screenshotButton.parentElement.insertBefore(button, screenshotButton);
+			}
+
 			if (this.storage.copy_video_id === true) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
