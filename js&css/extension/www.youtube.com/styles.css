@@ -2168,3 +2168,22 @@ html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1
 html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
 	stroke: var(--yt-spec-text-primary);
 }
+
+/* Thumbnail Sizes */
+
+html[it-thumbnail-size="x-small"] {
+  --yt-thumb-scale: 0.8;
+}
+html[it-thumbnail-size="small"] {
+  --yt-thumb-scale: 0.9;
+}
+html[it-thumbnail-size="default"] {
+  --yt-thumb-scale: 1;
+}
+
+ytd-rich-item-renderer.style-scope.ytd-rich-grid-renderer,
+ytd-rich-grid-media.style-scope.ytd-rich-item-renderer {
+  transform: scale(var(--yt-thumb-scale));
+  transform-origin: top left;
+  transition: transform 0.2s;
+}
