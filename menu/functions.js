@@ -40,16 +40,8 @@ extension.attributes = function () {
 
 		if (satus.isset(value)) {
 			extension.skeleton.rendered.setAttribute(attribute.replace('it_', '').replace(/_/g, '-'), value);
-
-        if (attribute === 'thumbnail_size') {
-          document.documentElement.setAttribute('it-thumbnail-size', value);
-      }
-		} else {
-        if (attribute === 'thumbnail_size') {
-          document.documentElement.removeAttribute('it-thumbnail-size');
-        }
-      }
-	  }
+		}
+	}
 };
 
 /*--------------------------------------------------------------
