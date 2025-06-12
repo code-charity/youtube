@@ -259,16 +259,6 @@ extension.skeleton.main.layers.section.general = {
 						value: 'undistracted'
 					}],
 					tags: 'change thumbnails per row'
-				},
-				thumbnail_size: {
-					component: "select",
-					text: "Thumbnail Size",
-					storage: "thumbnail_size",
-					options: [
-						{ text: "Default", value: "default" },
-						{ text: "Small", value: "small" },
-						{ text: "x-small", value: "x-small" }
-					]
 				}
 			}, section_2: {
 				component: 'section',
