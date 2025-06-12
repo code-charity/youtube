@@ -2513,6 +2513,7 @@ html
   stroke: var(--yt-spec-text-primary);
 }
 
+/* Resize thumbnails */
 ytd-rich-item-renderer.style-scope.ytd-rich-grid-renderer {
   max-width: 440px !important;
   min-width: 0 !important;
