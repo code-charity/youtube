@@ -230,8 +230,8 @@ extension.features.popupWindowButtons = function (event) {
 				var target = event.target,
 					detected = false;
 				while (detected === false && target.parentNode) {
-					if ( target.className && typeof target.className === 'string' && ((
-						target.id === 'thumbnail' && target.className.indexOf('ytd-thumbnail') !== -1 || target.className.indexOf('thumb-link') !== -1 )
+					if (target.className && typeof target.className === 'string' && ((
+						target.id === 'thumbnail' && target.className.indexOf('ytd-thumbnail') !== -1 || target.className.indexOf('thumb-link') !== -1)
 						|| (target.className.indexOf('video-preview') !== -1 || target.className.indexOf('ytp-inline-preview-scrim') !== -1 || target.className.indexOf('ytp-inline-preview-ui') !== -1)
 					)) {
 						if (!target.itPopupWindowButton) {
@@ -249,15 +249,15 @@ extension.features.popupWindowButtons = function (event) {
 							target.itPopupWindowButton.addEventListener('click', function (event) {
 								event.preventDefault();
 								event.stopPropagation();
-								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error)};
+								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error) };
 								ytPlayer = document.querySelector("#movie_player");
-								if (ytPlayer) {width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65}
+								if (ytPlayer) { width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65 }
 								else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
-		 if (!ytPlayer) {
+								if (!ytPlayer) {
 									let shorts = /short/.test(this.parentElement.href);
-									if ( width / height < 1 ) { let vertical = true } else { let vertical = false }
-									if ( !vertical && shorts ) { width = height * 0.6}
-									if ( vertical && !shorts ) { height = width * 0.6}
+									if (width / height < 1) { let vertical = true } else { let vertical = false }
+									if (!vertical && shorts) { width = height * 0.6 }
+									if (vertical && !shorts) { height = width * 0.6 }
 								}
 
 								window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay_disable') ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
@@ -446,7 +446,7 @@ extension.features.trackWatchedVideos = function () {
 extension.features.thumbnailsQuality = function (anything) {
 	var option = extension.storage.get('thumbnails_quality');
 
-	function handler (thumbnail) {
+	function handler(thumbnail) {
 		if (!thumbnail.dataset.defaultSrc && extension.features.thumbnailsQuality.regex.test(thumbnail.src)) {
 			thumbnail.dataset.defaultSrc = thumbnail.src;
 
@@ -537,8 +537,8 @@ extension.features.openNewTab = function () {
 			const inputField = document.querySelector("input#search");
 
 			searchButton.addEventListener("mousedown", (event) => {
-			  performSearchNewTab(inputField.value);
-		  });
+				performSearchNewTab(inputField.value);
+			});
 			inputField.addEventListener("keydown", function (event) {
 				if (event.key === "Enter") {
 					performSearchNewTab(inputField.value);
@@ -555,7 +555,7 @@ extension.features.openNewTab = function () {
 
 			inputField.addEventListener("input", () => searchedAlready = false);
 
-			function applySuggestionListeners () {
+			function applySuggestionListeners() {
 				const suggestionContainers = document.querySelectorAll("div[class^='sbqs'], div[class^='sbpqs']");
 				suggestionContainers.forEach((suggestionsContainer) => {
 					suggestionsContainer.addEventListener("mousedown", (event) => {
@@ -569,7 +569,7 @@ extension.features.openNewTab = function () {
 				});
 			}
 
-			function performSearchNewTab (query) {
+			function performSearchNewTab(query) {
 				inputField.value = "";
 				inputField.focus();
 				const newTabURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
@@ -632,21 +632,21 @@ extension.features.clickableLinksInVideoDescriptions = function () {
 		if (clickedElement) {
 			// Grab the plain text inside the yt-formatted-string (looking for links or URLs)
 			const textContent = clickedElement.innerText;
-	
+
 			// Extract URL using a simple regex (you can customize it to be more accurate)
 			const urlRegex = /\bhttps?:\/\/[^\s]+/g;
 			const match = textContent.match(urlRegex);
-	
+
 			if (match) {
 				// Copy the found URL to the clipboard
 				navigator.clipboard.writeText(match[0]).catch((err) => {
 					console.error("Failed to copy: ", err);
 				});
-	
+
 				// Prevent the default right-click menu from showing
 				e.preventDefault();
-		}
-		// If no URL found, the normal right-click behavior will happen
+			}
+			// If no URL found, the normal right-click behavior will happen
 		}
 	});
 }
@@ -657,41 +657,45 @@ extension.features.clickableLinksInVideoDescriptions = function () {
 extension.features.changeThumbnailsPerRow = async function () {
 	var value = await extension.storage.get('change_thumbnails_per_row');
 
-	if (!value || value === 'null') 
+	if (!value || value === 'null')
 		return;
 
 	const applyGridLayout = () => {
 
-	if (value === 'undistracted') {
-		const contents = document.getElementById('contents');
-		const chips = document.getElementById('chips-wrapper')
-		if (contents) contents.style.display = 'none';
-		if (chips) chips.style.display = 'none';
-		return;
-	  }
-	else{
-		if (location.href.includes('feed/subscriptions')) {
-			document.querySelectorAll('[style]').forEach(el => {
-				if (el.style.getPropertyValue('--ytd-rich-grid-items-per-row')) {
-					el.style.setProperty('--ytd-rich-grid-items-per-row', value);
-					el.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
-					el.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
-				}
-			});
-		} else {
-			const grid = document.querySelector('ytd-rich-grid-renderer');
-			if (!grid) return;
-			grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
-			grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
-			grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+		// detect YouTube homepage
+		const isYouTubeHomepage = location.hostname === 'www.youtube.com' && location.pathname === '/';
+
+		if (value === 'undistracted' && isYouTubeHomepage) {
+			const contents = document.getElementById('contents');
+			const chips = document.getElementById('chips-wrapper');
+			if (contents) contents.style.display = 'none';
+			if (chips) chips.style.display = 'none';
+			return;
+		}
+		else {
+			if (location.href.includes('feed/subscriptions')) {
+				document.querySelectorAll('[style]').forEach(el => {
+					if (el.style.getPropertyValue('--ytd-rich-grid-items-per-row')) {
+						el.style.setProperty('--ytd-rich-grid-items-per-row', value);
+						el.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
+						el.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+					}
+				});
+			} else {
+				const grid = document.querySelector('ytd-rich-grid-renderer');
+				if (!grid) return;
+				grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
+				grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
+				grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+			}
 		}
 	}
-}
 
 	// Apply initially
 	applyGridLayout();
 
-	// Reapply when YouTube replaces content
+	// Reapply when YouTube replaces content (SPA navigation)
 	const observer = new MutationObserver(applyGridLayout);
 	observer.observe(document.body, { childList: true, subtree: true });
 };
+
