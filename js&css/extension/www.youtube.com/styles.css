@@ -2169,46 +2169,27 @@ html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0
 	stroke: var(--yt-spec-text-primary);
 }
 
-/* Resize thumbnails */
-ytd-rich-item-renderer.style-scope.ytd-rich-grid-renderer {
-  max-width: 440px !important;
-  min-width: 0 !important;
-  flex: 0 0 440px !important;
-  margin: 8px 4px !important;
-  box-sizing: border-box;
+/* Thumbnail Sizes */
+/* Set a default scale */
+:root {
+  --yt-thumb-scale: 1;
 }
 
+/* Scale for each size */
+html[it-thumbnail-size="x-small"] {
+  --yt-thumb-scale: 0.8;
+}
+html[it-thumbnail-size="small"] {
+  --yt-thumb-scale: 0.9;
+}
+html[it-thumbnail-size="default"] {
+  --yt-thumb-scale: 1;
+}
+
+/* Apply scaling to grid items */
+ytd-rich-item-renderer.style-scope.ytd-rich-grid-renderer,
 ytd-rich-grid-media.style-scope.ytd-rich-item-renderer {
-  --ytd-rich-grid-media-min-width: 0px;
-  --ytd-rich-grid-media-max-width: 440px;
-  max-width: 440px !important;
-  min-width: 0 !important;
-  box-sizing: border-box;
-  font-size: 0.9em !important;
-}
-
-ytd-rich-grid-media ytd-thumbnail,
-ytd-rich-grid-media ytd-thumbnail img {
-  max-width: 800px !important;
-  max-height: 600px !important;
-  min-width: 400px !important;
-  min-height: 112px !important;
-  width: 100% !important;
-  height: auto !important;
-}
-
-ytd-rich-grid-media #details,
-ytd-rich-grid-media #meta,
-ytd-rich-grid-media #video-title,
-ytd-rich-grid-media #metadata,
-ytd-rich-grid-media #metadata-line,
-ytd-rich-grid-media #byline-container {
-  font-size: 1.1em !important;
-  line-height: 1.2 !important;
-}
-
-ytd-rich-grid-media #avatar-image,
-ytd-rich-grid-media #avatar img {
-  width: 32px !important;
-  height: 32px !important;
+  transform: scale(var(--yt-thumb-scale));
+  transform-origin: top left;
+  transition: transform 0.2s;
 }
