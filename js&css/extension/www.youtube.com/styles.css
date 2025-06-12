@@ -2170,9 +2170,6 @@ html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0
 }
 
 /* Thumbnail Sizes */
-:root {
-  --yt-thumb-scale: 1;
-}
 
 html[it-thumbnail-size="x-small"] {
   --yt-thumb-scale: 0.8;
