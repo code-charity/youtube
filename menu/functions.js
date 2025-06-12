@@ -40,7 +40,8 @@ extension.attributes = function () {
 
 		if (satus.isset(value)) {
 			extension.skeleton.rendered.setAttribute(attribute.replace('it_', '').replace(/_/g, '-'), value);
-	  }
+	  	}
+	}		
 };
 
 /*--------------------------------------------------------------
