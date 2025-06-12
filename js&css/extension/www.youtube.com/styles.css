@@ -2169,21 +2169,30 @@ html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0
 	stroke: var(--yt-spec-text-primary);
 }
 
-/* Thumbnail Sizes */
 
-html[it-thumbnail-size="x-small"] {
-  --yt-thumb-scale: 0.8;
+/* thumbnail sizes */
+html[it-thumbnail-size="default"] ytd-rich-grid-media,
+html[it-thumbnail-size="default"] ytd-grid-video-renderer,
+html[it-thumbnail-size="default"] ytd-thumbnail {
+    width: 100%;
+    max-width: 100%;
 }
-html[it-thumbnail-size="small"] {
-  --yt-thumb-scale: 0.9;
+html[it-thumbnail-size="small"] ytd-rich-grid-media,
+html[it-thumbnail-size="small"] ytd-grid-video-renderer,
+html[it-thumbnail-size="small"] ytd-thumbnail {
+    width: 90%;
+    max-width: 90%;
 }
-html[it-thumbnail-size="default"] {
-  --yt-thumb-scale: 1;
+html[it-thumbnail-size="x-small"] ytd-rich-grid-media,
+html[it-thumbnail-size="x-small"] ytd-grid-video-renderer,
+html[it-thumbnail-size="x-small"] ytd-thumbnail {
+    width: 80%;
+    max-width: 80%;
 }
 
-ytd-rich-item-renderer.style-scope.ytd-rich-grid-renderer,
-ytd-rich-grid-media.style-scope.ytd-rich-item-renderer {
-  transform: scale(var(--yt-thumb-scale));
-  transform-origin: top left;
-  transition: transform 0.2s;
+/* needed to prevent grey area from appearing when thumbnails change size*/
+html[it-thumbnail-size="small"] ytd-rich-grid-media,
+html[it-thumbnail-size="x-small"] ytd-rich-grid-media {
+    margin-left: auto;
+    margin-right: auto;
 }
