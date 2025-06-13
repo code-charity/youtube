@@ -28,15 +28,18 @@ extension.features.youtubeHomePage = function (anything) {
 			while (target.parentNode) {
 				if (target.nodeName === 'A' && target.id === 'logo') {
 					var option = extension.storage.get('youtube_home_page');
+					event.preventDefault();
+					event.stopPropagation();
 
-					if (option !== 'search') {
-						event.preventDefault();
-						event.stopPropagation();
 
+					if (option === '/results?search_query=') {
+						window.open('/results?search_query=', '_self'); // zen mode url
+
+					} else {
 						window.open(option, '_self');
-
-						return false;
 					}
+
+					return false;
 				} else {
 					target = target.parentNode;
 				}
@@ -44,6 +47,10 @@ extension.features.youtubeHomePage = function (anything) {
 		}
 	} else if (anything === 'init') {
 		extension.events.on('init', function (resolve) {
+			// console.log('INIT EVENT FIRED');
+			// console.log('PATH:', location.pathname);
+			// console.log('SEARCH:', location.search);
+
 			if (/(www|m)\.youtube\.com\/?(\?|\#|$)/.test(location.href)) {
 				chrome.storage.local.get('youtube_home_page', function (items) {
 					var option = items.youtube_home_page;
@@ -57,6 +64,9 @@ extension.features.youtubeHomePage = function (anything) {
 						option === '/feed/library'
 					) {
 						location.replace(option);
+					} else if (option === '/results?search_query=') {
+						location.replace('/results?search_query=');
+
 					} else {
 						resolve();
 					}
@@ -79,12 +89,33 @@ extension.features.youtubeHomePage = function (anything) {
 			option === '/feed/history' ||
 			option === '/playlist?list=WL' ||
 			option === '/playlist?list=LL' ||
-			option === '/feed/library'
+			option === '/feed/library' ||
+			option === '/results?search_query='
 		) {
 			window.addEventListener('click', this.youtubeHomePage, true);
 		}
 	}
 };
+
+// zen mode element hiding logic 
+if (
+	location.pathname === '/results' &&
+	location.search === '?search_query='
+) {
+	window.addEventListener('load', () => {
+		const contents = document.getElementById('contents');
+		const chips = document.getElementById('chips-wrapper');
+		if (contents || chips) {
+			const observer = new MutationObserver(() => {
+				if (contents) contents.style.display = 'none';
+				if (chips) chips.style.display = 'none';
+			});
+			observer.observe(document.body, { childList: true, subtree: true });
+		}
+	});
+}
+
+
 
 /*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
