@@ -97,23 +97,51 @@ extension.features.youtubeHomePage = function (anything) {
 	}
 };
 
-// zen mode element hiding logic 
-if (
-	location.pathname === '/results' &&
-	location.search === '?search_query='
-) {
-	window.addEventListener('load', () => {
-		const contents = document.getElementById('contents');
-		const chips = document.getElementById('chips-wrapper');
-		if (contents || chips) {
-			const observer = new MutationObserver(() => {
-				if (contents) contents.style.display = 'none';
-				if (chips) chips.style.display = 'none';
-			});
-			observer.observe(document.body, { childList: true, subtree: true });
+
+//zen mode content deletion logic
+document.addEventListener('DOMContentLoaded', () => {
+	const targetUrlPrefix = "https://www.youtube.com/results?search_query=";
+
+	if (!location.href.startsWith(targetUrlPrefix)) return;
+
+	let observer = null;
+
+	const removeNoResultsGraphic = () => {
+		if (!document.body.innerText.includes("No results found")) return false;
+
+		const el = document.querySelector('div#contents ytd-background-promo-renderer') ||
+			document.querySelector('ytd-background-promo-renderer');
+
+		if (el) {
+			el.remove();
+			if (observer) observer.disconnect();
+			return true;
 		}
-	});
-}
+		return false;
+	};
+
+	setTimeout(() => {
+		if (removeNoResultsGraphic()) return;
+
+		const targetNode = document.getElementById('contents') || document.body;
+		const config = { childList: true, subtree: true };
+
+		observer = new MutationObserver(mutations => {
+			for (const m of mutations) {
+				if (m.type === 'childList' && m.addedNodes.length > 0) {
+					if (removeNoResultsGraphic()) return;
+				}
+			}
+		});
+
+		observer.observe(targetNode, config);
+
+		setTimeout(() => observer.disconnect(), 15000);
+	}, 500);
+});
+
+
+
 
 
 
@@ -693,23 +721,23 @@ extension.features.changeThumbnailsPerRow = async function () {
 
 	const applyGridLayout = () => {
 
-	
-	
-			if (location.href.includes('feed/subscriptions')) {
-				document.querySelectorAll('[style]').forEach(el => {
-					if (el.style.getPropertyValue('--ytd-rich-grid-items-per-row')) {
-						el.style.setProperty('--ytd-rich-grid-items-per-row', value);
-						el.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
-						el.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
-					}
-				});
-			} else {
-				const grid = document.querySelector('ytd-rich-grid-renderer');
-				if (!grid) return;
-				grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
-				grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
-				grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
-			
+
+
+		if (location.href.includes('feed/subscriptions')) {
+			document.querySelectorAll('[style]').forEach(el => {
+				if (el.style.getPropertyValue('--ytd-rich-grid-items-per-row')) {
+					el.style.setProperty('--ytd-rich-grid-items-per-row', value);
+					el.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
+					el.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+				}
+			});
+		} else {
+			const grid = document.querySelector('ytd-rich-grid-renderer');
+			if (!grid) return;
+			grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
+			grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
+			grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+
 		}
 	}
 
