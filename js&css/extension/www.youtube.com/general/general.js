@@ -107,8 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	let observer = null;
 
 	const removeNoResultsGraphic = () => {
-		if (!document.body.innerText.includes("No results found")) return false;
-
 		const el = document.querySelector('div#contents ytd-background-promo-renderer') ||
 			document.querySelector('ytd-background-promo-renderer');
 
@@ -139,8 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		setTimeout(() => observer.disconnect(), 15000);
 	}, 500);
 });
-
-
 
 
 
