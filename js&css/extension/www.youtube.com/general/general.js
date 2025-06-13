@@ -693,17 +693,8 @@ extension.features.changeThumbnailsPerRow = async function () {
 
 	const applyGridLayout = () => {
 
-		// detect YouTube homepage
-		const isYouTubeHomepage = location.hostname === 'www.youtube.com' && location.pathname === '/';
-
-		if (value === 'undistracted' && isYouTubeHomepage) {
-			const contents = document.getElementById('contents');
-			const chips = document.getElementById('chips-wrapper');
-			if (contents) contents.style.display = 'none';
-			if (chips) chips.style.display = 'none';
-			return;
-		}
-		else {
+	
+	
 			if (location.href.includes('feed/subscriptions')) {
 				document.querySelectorAll('[style]').forEach(el => {
 					if (el.style.getPropertyValue('--ytd-rich-grid-items-per-row')) {
@@ -718,7 +709,7 @@ extension.features.changeThumbnailsPerRow = async function () {
 				grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
 				grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
 				grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
-			}
+			
 		}
 	}
 
