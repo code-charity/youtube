@@ -1185,8 +1185,14 @@ extension.skeleton.main.layers.section.player.on.click = {
 			copy_video_id: {
 				component: 'switch',
 				text: 'copyVideoId',
+				id: "copy-video-id",
 				value: false
-			}
+			},
+			copy_video_url: {
+				component: 'switch',
+				text: 'copyVideoUrl',
+				value: false
+			},
 		},
 		extraRightControlButtons: {
 			component: 'section',

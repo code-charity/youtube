@@ -45,7 +45,13 @@ extension.skeleton.main.layers.section.playlist = {
 				},
 				playlist_copy_video_id: {
 					component: 'switch',
+					id: 'playlist-copy-video-id',
 					text: 'copyVideoId'
+				},
+				playlist_copy_video_url: {
+					component: 'switch',
+					text: 'copyVideoUrl',
+					value: false
 				}
 			}
 		}
