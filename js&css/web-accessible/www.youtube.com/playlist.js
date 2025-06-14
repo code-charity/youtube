@@ -237,8 +237,13 @@ ImprovedTube.playlistCopyVideoIdButton = function () {
 				button.addEventListener('click', () => {
 					const playlistLink = item.querySelector('a#wc-endpoint');
 					if (playlistLink) {
-						const playlistURL = playlistLink.href.match(ImprovedTube.regex.video_id)?.[1];
-						navigator.clipboard.writeText(playlistURL);
+						if (this.storage.playlist_copy_video_url === true) {
+							const playlistURL = playlistLink.href.split('&')[0];
+							navigator.clipboard.writeText(playlistURL);
+						} else {
+							const playlistURL = playlistLink.href.match(ImprovedTube.regex.video_id)?.[1];
+							navigator.clipboard.writeText(playlistURL);
+						}
 					}
 					button.dataset.tooltip = 'Copied!';
 					setTimeout(function() {

@@ -500,6 +500,8 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				screenshotButton.parentElement.insertBefore(button, screenshotButton);
 			}
 
+			let copyVideoUrlButton = this.storage.copy_video_url === true;
+
 			if (this.storage.copy_video_id === true) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
@@ -513,8 +515,12 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				button.onclick = function () {
 					svg.style.opacity = '1';
 					const videoURL = ImprovedTube.elements.player?.getVideoUrl();
-					const videoId = videoURL.match(ImprovedTube.regex.video_id)?.[1];
-					navigator.clipboard.writeText(videoId);
+					if (copyVideoUrlButton) {
+						navigator.clipboard.writeText(videoURL);
+					} else {
+						const videoId = videoURL.match(ImprovedTube.regex.video_id)?.[1];
+						navigator.clipboard.writeText(videoId);
+					}					
 					button.dataset.tooltip = 'Copied!';
 					setTimeout(function() {
 						button.dataset.tooltip = 'CopyVideoID';
