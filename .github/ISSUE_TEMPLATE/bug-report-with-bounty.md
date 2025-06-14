@@ -1,5 +1,5 @@
 ---
-name: bug report    (for mark down authors)
+name: bug report  (for MarkDown authors)
 about: Create a report to help us improve
 title: ''
 labels: Bug, good first issue, help wanted, up-for-grabs
