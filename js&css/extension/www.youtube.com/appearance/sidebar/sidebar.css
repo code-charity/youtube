@@ -255,9 +255,26 @@ html[data-page-type=video][it-sidebar-left='true'] #columns>#secondary>#related 
 /*--------------------------------------------------------------
 # MOVE THUMBNAILS RIGHT
 --------------------------------------------------------------*/
+/* Move thumbnails to the right for video suggestions */
 html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-renderer ytd-thumbnail,
 html[it-thumbnails-right='true'] #related .modern-collection-parent,
-html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
+html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
+html[it-thumbnails-right='true'] #related ytd-compact-playlist-renderer ytd-thumbnail {
 	order: 5 !important;
 }
+
+/* Move thumbnails to the right for playlist suggestions (non-Polymer) */
+html[it-thumbnails-right='true'] #related yt-lockup-view-model .yt-lockup-view-model-wiz {
+	display: flex !important;
+	flex-direction: row-reverse !important;
+	align-items: flex-start !important;
+}
+
+/* Adjust spacing between image and metadata */
+html[it-thumbnails-right='true'] #related yt-lockup-view-model .yt-lockup-view-model-wiz__content-image {
+	margin-left: 12px !important;
+	margin-right: 0 !important;
+}
+
+  
 
