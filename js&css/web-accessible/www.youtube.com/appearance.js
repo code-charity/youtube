@@ -156,6 +156,11 @@ ImprovedTube.formatSecond = function (rTime) {
 };
 
 ImprovedTube.playerRemainingDuration = function () {
+	//If is a live stream, do not show remaining time
+	 const button = document.querySelector('button.ytp-live-badge.ytp-button.ytp-live-badge-is-livehead');
+	if (button) 
+		return;	
+
 	var duration = document.querySelector(".ytp-time-duration").innerText;
 	var current = document.querySelector(".ytp-time-current").innerText;
 	document.querySelector('.ytp-time-contents').style.setProperty('display', 'none', 'important');
