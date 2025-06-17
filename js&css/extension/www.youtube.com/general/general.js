@@ -66,38 +66,6 @@ extension.features.youtubeHomePage = function (anything) {
 						location.replace(option);
 					} else if (option === '/results?search_query=') {
 						location.replace('/results?search_query=');
-
-					} else {
-						resolve();
-					}
-				});
-			} else {
-				resolve();
-			}
-		}, {
-			async: true,
-			prepend: true
-		});
-	} else {
-		var option = extension.storage.get('youtube_home_page');
-
-		window.removeEventListener('click', this.youtubeHomePage);
-
-		if (
-			option === '/feed/trending' ||
-			option === '/feed/subscriptions' ||
-			option === '/feed/history' ||
-			option === '/playlist?list=WL' ||
-			option === '/playlist?list=LL' ||
-			option === '/feed/library' ||
-			option === '/results?search_query='
-		) {
-			window.addEventListener('click', this.youtubeHomePage, true);
-		}
-	}
-};
-
-
 //zen mode content deletion logic
 document.addEventListener('DOMContentLoaded', () => {
 	const targetUrlPrefix = "https://www.youtube.com/results?search_query=";
@@ -137,9 +105,35 @@ document.addEventListener('DOMContentLoaded', () => {
 		setTimeout(() => observer.disconnect(), 15000);
 	}, 500);
 });
+					} else {
+						resolve();
+					}
+				});
+			} else {
+				resolve();
+			}
+		}, {
+			async: true,
+			prepend: true
+		});
+	} else {
+		var option = extension.storage.get('youtube_home_page');
 
+		window.removeEventListener('click', this.youtubeHomePage);
 
-
+		if (
+			option === '/feed/trending' ||
+			option === '/feed/subscriptions' ||
+			option === '/feed/history' ||
+			option === '/playlist?list=WL' ||
+			option === '/playlist?list=LL' ||
+			option === '/feed/library' ||
+			option === '/results?search_query='
+		) {
+			window.addEventListener('click', this.youtubeHomePage, true);
+		}
+	}
+};
 
 /*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
