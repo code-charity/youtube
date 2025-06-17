@@ -140,7 +140,7 @@ html[it-pathname='/'][it-youtube-home-page='search'] #body,
 html[it-pathname='/'][it-youtube-home-page='search'] #content,
 html[it-pathname='/'][it-youtube-home-page='search'] #guide[opened] {
 	visibility: hidden !important; 
-	pointer-events: none !important;
+/*	pointer-events: none !important; */
 }
 html[it-pathname='/'][it-youtube-home-page='search'] body::-webkit-scrollbar {
   width: 0 !important;
@@ -150,8 +150,11 @@ html[it-pathname='/'][it-youtube-home-page='search']>body {
 	width: 100vw !important;
 	height: 100vh !important;
 }
+/* 
+html[it-pathname='/'][it-youtube-home-page='search'] yt-searchbox,
 html[it-pathname='/'][it-youtube-home-page='search'] ytd-searchbox,
-html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox {
+html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox
+{
 	position: fixed !important;
 	z-index: 99999 !important;
 	top: 0 !important;
@@ -170,16 +173,30 @@ html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox {
 
 	justify-content: center !important;
 	align-items: center !important;
+	
 }
-
+html[it-pathname='/'][it-youtube-home-page='search'] yt-searchbox>form,
 html[it-pathname='/'][it-youtube-home-page='search'] ytd-searchbox>form,
 html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox>form {
 	width: 100% !important;
 	max-width: 768px !important;
-}
+}  */
+
+html[it-pathname='/'][it-youtube-home-page='search'] yt-searchbox,
+html[it-pathname='/'][it-youtube-home-page='search'] ytd-searchbox,
+html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox,
+html[it-pathname='/'][it-youtube-home-page='search'] input[name="search_query"],
 html[it-pathname='/'][it-youtube-home-page='search'] #search {
-	height: calc(17px + 0.4vh + 0.4vw);
-	font-size: calc(15px + 0.4vh + 0.4vw);
+	visibility: visible !important;}
+
+html[it-pathname='/'][it-youtube-home-page='search'] input[name="search_query"],
+html[it-pathname='/'][it-youtube-home-page='search'] #search {
+	height: calc(16px + 0.4vh + 0.4vw);
+	font-size: calc(13px + 0.4vh + 0.4vw);
+}	
+html[it-pathname='/'][it-youtube-home-page='search'] div[role="listbox"],
+html[it-pathname='/'][it-youtube-home-page='search'] div[role="presentation"] {	
+	font-size: calc(12px + 0.2vh + 0.2vw);
 }
 
 /*--------------------------------------------------------------
