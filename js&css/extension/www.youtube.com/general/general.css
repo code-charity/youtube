@@ -198,7 +198,9 @@ html[it-pathname='/'][it-youtube-home-page='search'] div[role="listbox"],
 html[it-pathname='/'][it-youtube-home-page='search'] div[role="presentation"] {	
 	font-size: calc(12px + 0.2vh + 0.2vw);
 }
-
+html[it-pathname='/'][it-youtube-home-page='hidecontent'] div #content{	
+	display: none! important;
+}
 /*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
 -------------------------------------------------------------*/

@@ -87,6 +87,11 @@ extension.skeleton.main.layers.section.general = {
 					component: 'countComponent',
 					class: "count-component",
 				},
+/*				hide_banner_ads: {
+					component: 'switch',
+					text: 'atTrending'
+				},  
+*/				
 				search: {
 					component: 'section',
 					variant: 'card',
@@ -158,8 +163,11 @@ extension.skeleton.main.layers.section.general = {
 					}, {
 						text: 'library',
 						value: '/feed/library'
+					}, {
+						text: 'withoutVideos',
+						value: 'hidecontent'
 					}],
-					tags: 'trending,subscriptions,history,watch,search'
+					tags: 'trending,subscriptions,history,watch,search,undistracted,zen'
 				}
 			},
 			embed: {
