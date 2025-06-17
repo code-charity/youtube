@@ -342,7 +342,6 @@ ImprovedTube.playerOnPlay = function () {
 
 ImprovedTube.initPlayer = function () {
 	if (ImprovedTube.elements.player && ImprovedTube.video_url !== location.href) {
-
 		ImprovedTube.video_url = location.href;
 		ImprovedTube.user_interacted = false;
 		ImprovedTube.played_before_blur = false;
@@ -400,7 +399,9 @@ ImprovedTube.playerOnTimeUpdate = function () {
 
 			if (ImprovedTube.storage.always_show_progress_bar === true) {ImprovedTube.showProgressBar();}
 			if (ImprovedTube.storage.player_remaining_duration === true) {ImprovedTube.playerRemainingDuration();}
-			ImprovedTube.played_time += .5;
+			ImprovedTube.played_time += .5;  
+//Counting time of the player playing for the analyzer feature. (not equal to video time if playback speed isnt 1.00)
+//We can also allow to measure session times too and HID times.   
 		}, 500);
 	}
 	clearInterval(noTimeUpdate);
@@ -710,7 +711,7 @@ ImprovedTube.showStatus = function (value) {
 	this.elements.player.appendChild(this.elements.status);
 };
 
-ImprovedTube.videoId = function (url = document.URL) {return url.match(ImprovedTube.regex.video_id)[1] || url.searchParams.get('v') || movie_player.getVideoData().video_id};
+ImprovedTube.videoId = (url = document.URL) => url.match(ImprovedTube.regex.video_id)?.[1] || new URL(url).searchParams.get('v') || movie_player?.getVideoData?.().video_id || (console.log('No VIDEO ID URL MATCH match: Regex & url are:', ImprovedTube.regex.video_id, url), undefined);
 ImprovedTube.videoTitle = function () {return document.title?.replace(/\s*-\s*YouTube$/, '') || movie_player.getVideoData().title || document.querySelector('#title > h1 > *')?.textContent};
 
 // Function to extract and store the number of subscribers

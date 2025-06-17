@@ -682,9 +682,8 @@ ImprovedTube.exactUploadDate = function () {
 
         xhr.open("GET", `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${id}&key=${key}`, true);
         xhr.send();
-        console.log("exact date toggle on");
+        // console.log("exact date toggle on");
     }
-    console.log("exact date test");
 };
 /*------------------------------------------------------------------------------
  HOW LONG AGO THE VIDEO WAS UPLOADED
