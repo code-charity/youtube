@@ -156,6 +156,11 @@ ImprovedTube.formatSecond = function (rTime) {
 };
 
 ImprovedTube.playerRemainingDuration = function () {
+	//If is a live stream, do not show remaining time
+	 const button = document.querySelector('button.ytp-live-badge.ytp-button.ytp-live-badge-is-livehead');
+	if (button) 
+		return;	
+
 	var duration = document.querySelector(".ytp-time-duration").innerText;
 	var current = document.querySelector(".ytp-time-current").innerText;
 	document.querySelector('.ytp-time-contents').style.setProperty('display', 'none', 'important');
@@ -500,6 +505,8 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				screenshotButton.parentElement.insertBefore(button, screenshotButton);
 			}
 
+			let copyVideoUrlButton = this.storage.copy_video_url === true;
+
 			if (this.storage.copy_video_id === true) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
@@ -513,8 +520,12 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				button.onclick = function () {
 					svg.style.opacity = '1';
 					const videoURL = ImprovedTube.elements.player?.getVideoUrl();
-					const videoId = videoURL.match(ImprovedTube.regex.video_id)?.[1];
-					navigator.clipboard.writeText(videoId);
+					if (copyVideoUrlButton) {
+						navigator.clipboard.writeText(videoURL);
+					} else {
+						const videoId = videoURL.match(ImprovedTube.regex.video_id)?.[1];
+						navigator.clipboard.writeText(videoId);
+					}					
 					button.dataset.tooltip = 'Copied!';
 					setTimeout(function() {
 						button.dataset.tooltip = 'CopyVideoID';

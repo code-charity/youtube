@@ -339,6 +339,9 @@
     "copyVideoId": {
         "message": "Copy Video Id"
     },
+    "copyVideoUrl": {
+        "message": "Copy Video Full URL"
+    },
     "cropChapterTitles": {
         "message": "Crop chapter titles"
     },
