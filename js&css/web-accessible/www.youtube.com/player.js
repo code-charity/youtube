@@ -136,11 +136,11 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 	if (this.isset(option) === false) { option = 1; }
 	else if ( option !== 1 ) { 
 		const speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
-		 if ( speed !== option && (speed > 1 || speed < 1) )
-		   { console.log("skipping permanent speed, since speed was manually set differently for this video to:" + video.playbackRate); return; }
+		 if (speed !== option && speed !== 1 && speed !== Number((Math.floor(option / 0.05) * 0.05).toFixed(2)))
+		   { console.log("skipping permanent speed, since speed was manually set differently for this video to:" + video.playbackRate + ", was it?"); return; }
 	}
 	if (!(player.getVideoData() && player.getVideoData().isLive))
-	{ player.setPlaybackRate(Number(option)); if (!video) { video = { playbackRate: 1 }; };	video.playbackRate = Number(option); // #1729 q2	// hi! @raszpl
+	{ player.setPlaybackRate(Number(option)); if (!video) { video = { playbackRate: 1 }; };	video.playbackRate = Number(option); // #1729 q2 // hi! @raszpl
 		if ( (this.storage.player_force_speed_on_music !== true || this.storage.player_dont_speed_education === true)
 		 	&& option !== 1) {
 			ImprovedTube.speedException = function () {
@@ -205,33 +205,46 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 			//DATA  (TO-DO: make the Data available to more/all features? #1452  #1763  (Then can replace ImprovedTube.elements.category === 'music', VideoID is also used elsewhere)
 			DATA = {};
 			defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
-			DATA.keywords = false; keywords = false; amountOfSongs = false;
-			DATA.videoID = ImprovedTube.videoId() || false;
-			ImprovedTube.fetchDOMData = function () {
-			// if (history.length > 1 &&  history.state.endpoint.watchEndpoint) {
+			keywords = false; amountOfSongs = false; 
+			
+			ImprovedTube.fetchDOMData = function () {	
 				try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false; DATA.title = DATA.name;}
 			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false;
-					try {
+					try { 
 						DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
 						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
 						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
-			 } catch {}} if ( DATA.title === ImprovedTube.videoTitle() )
-				{ keywords = document.getElementsByTagName('meta')?.keywords?.content || false; if (!keywords) {keyword=''} ImprovedTube.speedException(); }
-				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
+			 } catch {}} 
+			  
+let tries = 0; const maxTries = 11; let intervalMs = 200;
+const waitForVideoTitle = setInterval(() => { const title = ImprovedTube.videoTitle?.();  tries++;
 
+if (title && title !== 'YouTube') {
+    clearInterval(waitForVideoTitle);
+			 DATA.videoID = ImprovedTube.videoId() || false;     // console.log("SPEED: TITLE:" + ImprovedTube.videoTitle() + DATA.title); 
+			 if ( DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle() )
+				{ keywords = document.querySelector('meta[name="keywords"]')?.content || ''; ImprovedTube.speedException(); }
+				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
+					console.log("loading the html source:" + `https://www.youtube.com/watch?v=${DATA.videoID}`);
 					const htmlContent = await response.text();
-					const metaRegex = /<meta[^>]+name=["'](keywords|genre|duration)["'][^>]+content=["']([^"']+)["'][^>]*>/gi;
-					let match; while ((match = metaRegex.exec(htmlContent)) !== null) {
+					const metaRegex = /<meta[^>]+(name|itemprop)=["'](keywords|genre|duration)["'][^>]+content=["']([^"']+)["'][^>]*>/gi;
+					let match; while ((match = metaRegex.exec(htmlContent)) !== null) { // console.log(match);
 						const [, property, value] = match;
 						if (property === 'keywords') { keywords = value;} else {DATA[property] = value;}
 					}
 					amountOfSongs = (htmlContent.slice(-80000).match(/},"subtitle":{"simpleText":"(\d*)\s/) || [])[1] || false;
 					if (keywords) { ImprovedTube.speedException(); }
 				} catch (error) { console.error('Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}', error); keywords = ''; }
-				})();
+				})(); 
 				}
+}
+
+if (tries >= maxTries) {  clearInterval(waitForVideoTitle); } intervalMs *= 1.11; }, intervalMs);
+window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});		 					
 			};
-			if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData();}
+			ImprovedTube.fetchDOMData();
+/*	
+			if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData(); }
 			else {
 				//Invidious instances. Should be updated automatically!...
 				const invidiousInstances = ['invidious.fdn.fr', 'inv.tux.pizza', 'invidious.flokinet.to', 'invidious.protokolla.fi', 'invidious.private.coffee', 'yt.artemislena.eu', 'invidious.materialio.us', 'iv.datura.network'];
@@ -251,10 +264,11 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 					else { ImprovedTube.fetchDOMData();} }
 				})();
 			}
+*/		
 		}	// else { }
 	}
 }
-}
+} 
 /*------------------------------------------------------------------------------
 SUBTITLES
 ------------------------------------------------------------------------------*/
@@ -1653,6 +1667,7 @@ ImprovedTube.disableAutoDubbing = function () {
 # JUMP TO THE NEXT KEY SCENE
 ------------------------------------------------------------------------------*/
 ImprovedTube.jumpToKeyScene = function () {
+	ImprovedTube.mostReplayed = function () {	
 	const player = document.querySelector('video');
 
 	const data = extractYtInitialData();
@@ -1675,13 +1690,16 @@ ImprovedTube.jumpToKeyScene = function () {
 	function extractYtInitialData() {		
 		const scriptTags = document.querySelectorAll('script');
 
-		for (let i = 0; i < scriptTags.length; i++) {
+		for (let i = 0; i < scriptTags.length; i++) {			
+			if (DATA.ytInitialData) { var ytIData = DATA.ytInitialData; }
+			else {
 			const scriptContent = scriptTags[i].textContent;
-			const match = scriptContent.match(/var ytInitialData = ({.*?});/s);
-		
-			if (match) {
+			var ytIData = scriptContent.match(/var ytInitialData = ({.*?});/s);
+			}
+			
+			if (ytIData) {
 				try {
-					return JSON.parse(match[1]);
+					return JSON.parse(ytIData[1]);
 				} catch (e) {
 					console.warn("Failed to parse ytInitialData JSON", e);
 					return null;
@@ -1697,4 +1715,48 @@ ImprovedTube.jumpToKeyScene = function () {
 			?.['payload']?.['macroMarkersListEntity']?.['markersList']?.['markersDecoration']?.['timedMarkerDecorations'];
 		return decorations;
 	}
+	}
+	
+		DATA = {};
+			ImprovedTube.fetchDOMData2 = function () {	
+				try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false; DATA.title = DATA.name;}
+			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false;
+					try { 
+						DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
+						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
+						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
+			 } catch {}} 
+			  
+let tries = 0; const maxTries = 3; let intervalMs = 25;
+const waitForVideoTitle = setInterval(() => { const title = ImprovedTube.videoTitle?.();  tries++;
+if (title && title !== 'YouTube') {
+    clearInterval(waitForVideoTitle);
+			 DATA.videoID = ImprovedTube.videoId() || false;  
+			 console.log("MOST REPLAYED: TITLE:" + ImprovedTube.videoTitle() + DATA.title); 
+			 if ( (DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle())
+				   && ((history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint)) 
+				   { ImprovedTube.mostReplayed(); }
+				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
+					console.log("loading the html source:" + `https://www.youtube.com/watch?v=${DATA.videoID}`);
+					const htmlContent = await response.text();
+					DATA.ytInitialData = htmlContent.match(/var ytInitialData = ({.*?});/s);
+					if (DATA.ytInitialData) { ImprovedTube.mostReplayed(); }
+				} catch (error) { 
+const o = Object.assign(document.createElement('div'), { innerText: 'too few views' });
+const keySceneButton = document.querySelector('button[data-tooltip="Key Scene"]');
+		if (keySceneButton) {  keySceneButton.style.transition = 'opacity 0.4s';  keySceneButton.style.opacity = '0.3'; 
+		setTimeout(() => {    keySceneButton.style.opacity = '0.8';    }, 5000);}
+		console.error(`Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}`, error);  }
+				})(); 
+				}
+}
+
+if (tries >= maxTries) {  clearInterval(waitForVideoTitle); } intervalMs *= 1.11; }, intervalMs);
+window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});		 					
+			};
+			ImprovedTube.fetchDOMData2();
+
+
+
+
 }
