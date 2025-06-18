@@ -1,4 +1,9 @@
-{   
+{
+  "hideTopLoadingBar": { "message": "Hide Top Loading Bar" },
+	  "withoutVideos": { "message": "'Empty', without video previews" },
+	  "hideBannerAds": { "message": "Hide Banner Ads (YouTube might deny)" },
+		   "keyScene": { "message": "⚡Jump to the Most Replayed Scene/s" },
+	  "hideAISummary": { "message": "Hide AI Summaries" },
     "requirePassword": { "message": "Require password to change ImprovedTube settings" },
     "passwordOptions": { "message": "Password options"},
       "enterPassword": { "message": "Please enter your 4-digit code."},
@@ -64,10 +69,10 @@
         "message": "Activated features"
     },
     "activateFullscreen": {
-        "message": "Activate fullscreen"
+        "message": "Fullscreen"
     },
     "activateFitToWindow": {
-        "message": "Activate Fit to window"
+        "message": "Fit to window"
     },
     "activeFeatures": {
         "message": "My active features"
@@ -76,7 +81,7 @@
         "message": "Add «Scroll to top»"
     },
     "ads": {
-        "message": "Ads"
+        "message": "Video Ads"
     },
     "all": {
         "message": "All"
@@ -85,7 +90,7 @@
         "message": "Allow"
     },
     "Allow_auto_generate": {
-        "message": "Allow auto generate"
+        "message": "Allow auto generation"
     },
     "allow60fps": {
         "message": "Allow 60fps"
@@ -103,7 +108,7 @@
         "message": "Always active"
     },
     "alwaysShowProgressBar": {
-        "message": "Always show progress bar"
+        "message": "Always show Progress Bar"
     },
     "amber": {
         "message": "Amber"
@@ -196,19 +201,19 @@
         "message": "Avoid CPU rendering when possible"
     },
     "backgroundColor": {
-        "message": "Background color"
+        "message": "Background Color"
     },
     "backgroundOpacity": {
-        "message": "Background opacity"
+        "message": "Background Opacity"
     },
     "backupAndReset": {
-        "message": "Backup & reset"
+        "message": "Backup & Reset"
     },
     "baseOnSystemColorScheme": {
-        "message": "Base on system color scheme"
+        "message": "Base on System Color Scheme"
     },
     "belowPlayer": {
-        "message": "Below player"
+        "message": "Below Player"
     },
     "bitness": {
         "message": "Bitness"
@@ -235,7 +240,7 @@
         "message": "Blocklist"
     },
     "blockMusic": {
-        "message": "Skip ads while I play music"
+        "message": "Skip Ads while I play music"
     },
     "blockVp8": {
         "message": "Block VP8"
@@ -265,7 +270,7 @@
         "message": "Sync (Browser Account)"
     },
     "browserVersion": {
-        "message": "Browser version"
+        "message": "Browser Version"
     },
     "bubbles": {
         "message": "Bubbles"
@@ -295,7 +300,7 @@
         "message": "Chapter Title"
     },
     "characterEdgeStyle": {
-        "message": "Character edge style"
+        "message": "Character Edge Style"
     },
     "clip": {
         "message": "Clip"
@@ -337,13 +342,13 @@
         "message": "Cores"
     },
     "copyVideoId": {
-        "message": "Copy Video Id"
+        "message": "📋 Copy Video ID"
     },
     "copyVideoUrl": {
         "message": "Copy Video Full URL"
     },
     "cropChapterTitles": {
-        "message": "Crop chapter titles"
+        "message": "Crop Chapter Titles"
     },
     "Currently_requiring_a_YouTube_API_key": {
         "message": "(Currently requiring a YouTube-API-key: )"
@@ -376,16 +381,16 @@
         "message": "Dawn"
     },
     "decreasePlaybackSpeed": {
-        "message": "Decrease playback speed"
+        "message": "Decrease Playback Speed"
     },
     "decreaseVolume": {
-        "message": "Decrease volume"
+        "message": "Decrease Volume"
     },
     "deepOrange": {
-        "message": "Deep orange"
+        "message": "Deep Orange"
     },
     "deepPurple": {
-        "message": "Deep purple"
+        "message": "Deep Purple"
     },
     "default": {
         "message": "Default"
@@ -535,7 +540,7 @@
         "message": "Footer"
     },
     "forcedPlaybackSpeed": {
-        "message": "Speed-watching: Permanent speed"
+        "message": "Speed-watching: Permanent Speed"
     },
     "forcedPlaybackSpeedMusic": {
         "message": "(Force playback speed even for music?)"
@@ -544,10 +549,10 @@
         "message": "Force video to play from the beginning"
     },
     "forcedTheaterMode": {
-        "message": "Forced theater mode"
+        "message": "Force Theater Mode"
     },
     "forcedVolume": {
-        "message": "Forced volume"
+        "message": "Force Volume"
     },
     "forceSDR": {
         "message": "Avoid HDR, keep SDR"
@@ -841,7 +846,7 @@
         "message": "Location"
     },
     "loop": {
-        "message": "Loop"
+        "message": "🔁 Loop"
     },
     "loudnessNormalization": {
         "message": "Loudness normalization"
@@ -1135,7 +1140,7 @@
         "message": "Screen"
     },
     "screenshot": {
-        "message": "Screenshot"
+        "message": "🖼️ Screenshot"
     },
     "scrollBar": {
         "message": "Scroll Bar"
@@ -1454,8 +1459,5 @@
     },
     "disableAutoDubbing": {
         "message": "Disable auto dubbing"
-    },
-    "jumpToKeyScene": {
-        "message": "Jump to the next key scene"
     }
 }

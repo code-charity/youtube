@@ -1162,6 +1162,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'section',
 			variant: 'card',
 			title: 'extraButtonsBelowThePlayer',
+			below_player_keyscene: {
+				component: 'switch',
+				text: 'keyScene',
+				value: true
+			},
 			below_player_screenshot: {
 				component: 'switch',
 				text: 'screenshot',
@@ -1175,11 +1180,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			below_player_loop: {
 				component: 'switch',
 				text: 'loop',
-				value: true
-			},
-			below_player_keyscene: {
-				component: 'switch',
-				text: 'keyScene',
 				value: true
 			},
 			copy_video_id: {

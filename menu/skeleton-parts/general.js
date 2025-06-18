@@ -46,6 +46,83 @@ extension.skeleton.main.layers.section.general = {
 				cursorLighting: {
 					component: 'switch',
 					text: 'cursorLighting',
+				},		
+				search: {
+					component: 'section',
+					variant: 'card',
+					title: 'Youtube_Search',
+					remove_related_search_results: {
+						component: 'switch',
+						text: 'removeRelatedSearchResults'
+					},
+					open_new_tab: {
+						component: "switch",
+						text: "openNewTab",
+					},
+					remove_shorts_reel_search_results: {
+						component: 'switch',
+						text: 'removeShortsReelSearchResults'
+					}
+				},
+				remove_home_page_shorts: {
+					component: 'switch',
+					text: 'hideHomePageShorts',
+					id: 'remove-home-page-shorts'
+				},
+				remove_subscriptions_shorts: {
+					component: 'switch',
+					text: 'atSubscriptions',
+					id: 'remove-subscriptions-shorts'
+				},
+				remove_trending_shorts: {
+					component: 'switch',
+					text: 'atTrending'
+				},
+				remove_history_shorts: {
+					component: 'switch',
+					text: 'atHistory'
+				},
+				hide_ai_summary: {
+					component: 'switch',
+					text: 'hideAISummary',
+					id: 'hide-ai-summary'
+				},
+				youtube_home_page: {
+					component: 'select',
+					text: 'youtubeHomePage',
+					options: [{
+						text: 'home',
+						value: '/'
+					}, {
+						text: 'trending',
+						value: '/feed/trending'
+					}, {
+						text: 'subscriptions',
+						value: '/feed/subscriptions'
+					}, {
+						text: 'history',
+						value: '/feed/history'
+					}, {
+						text: 'watchLater',
+						value: '/playlist?list=WL'
+					}, {
+						text: 'search',
+						value: 'search'
+					}, {
+						text: 'liked',
+						value: '/playlist?list=LL'
+					}, {
+						text: 'library',
+						value: '/feed/library'
+					}, {
+						text: 'withoutVideos',
+						value: 'hidecontent'
+					}],
+					tags: 'trending,subscriptions,history,watch,search,undistracted,zen'
+				},
+				collapse_of_subscription_sections: {
+					component: 'switch',
+					text: 'collapseOfSubscriptionSections'
 				},
 				ads: {
 					text: 'ads',
@@ -87,88 +164,10 @@ extension.skeleton.main.layers.section.general = {
 					component: 'countComponent',
 					class: "count-component",
 				},
-/*				hide_banner_ads: {
+				hide_banner_ads: {
 					component: 'switch',
-					text: 'atTrending'
-				},  
-*/				
-				search: {
-					component: 'section',
-					variant: 'card',
-					title: 'Youtube_Search',
-					remove_related_search_results: {
-						component: 'switch',
-						text: 'removeRelatedSearchResults'
-					},
-					open_new_tab: {
-						component: "switch",
-						text: "openNewTab",
-					},
-					remove_shorts_reel_search_results: {
-						component: 'switch',
-						text: 'removeShortsReelSearchResults'
-					}
-				},
-				remove_home_page_shorts: {
-					component: 'switch',
-					text: 'hideHomePageShorts',
-					id: 'remove-home-page-shorts'
-				},
-				remove_subscriptions_shorts: {
-					component: 'switch',
-					text: 'atSubscriptions',
-					id: 'remove-subscriptions-shorts'
-				},
-				remove_trending_shorts: {
-					component: 'switch',
-					text: 'atTrending'
-				},
-				remove_history_shorts: {
-					component: 'switch',
-					text: 'atHistory'
-				},
-				hide_ai_summary: {
-					component: 'switch',
-					text: 'hideAISummary',
-					id: 'hide-ai-summary'
-				},
-				collapse_of_subscription_sections: {
-					component: 'switch',
-					text: 'collapseOfSubscriptionSections'
-				},
-				youtube_home_page: {
-					component: 'select',
-					text: 'youtubeHomePage',
-					options: [{
-						text: 'home',
-						value: '/'
-					}, {
-						text: 'trending',
-						value: '/feed/trending'
-					}, {
-						text: 'subscriptions',
-						value: '/feed/subscriptions'
-					}, {
-						text: 'history',
-						value: '/feed/history'
-					}, {
-						text: 'watchLater',
-						value: '/playlist?list=WL'
-					}, {
-						text: 'search',
-						value: 'search'
-					}, {
-						text: 'liked',
-						value: '/playlist?list=LL'
-					}, {
-						text: 'library',
-						value: '/feed/library'
-					}, {
-						text: 'withoutVideos',
-						value: 'hidecontent'
-					}],
-					tags: 'trending,subscriptions,history,watch,search,undistracted,zen'
-				}
+					text: 'hideBannerAds'
+				} 
 			},
 			embed: {
 				component: 'section',
