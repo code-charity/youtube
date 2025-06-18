@@ -193,13 +193,11 @@ Chinese + Hindi + Spanish. <br></i>
 <br> (=here), or on ​<a href="https://crowdin.com/project/1655556">Crowdin</a></div>
 </td></tr></table><hr>
 
-##### 💡 Vision for Open-Source Efficiency: 🌱 [`Auto Contributors`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot)
-(Compare: Wikipedia Bots. Would especially help medium-size projects.) (+[list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
-##### 💡 Vision for the _(tweaking-/userStyle-/"modding-"_)Community:
-We can optimize the www's GUI, greatly prioritized: [<img src="github.png" height="18px">Crowd Fixes](https://github.com/code-charity/Universal-UserTweaks) <br> (<i> "insteada just tweakin@home like Sisyphos" </i>) <br>
-##### 💡 Got great ideas? - Notify us? - [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡")  (or ideas@improvedtube.com)
+##### 💡 [github/**Wish-Factory**](https://github.com/code-for-charity/wish-factory "💡") - Got great/er ideas? - Notify us? -   (or ideas@improvedtube.com)
+##### 💡 [<img src="github.png" height="18px">Crowd Fixes](https://github.com/code-charity/Universal-UserTweaks) - Vision for the _(tweaking-/userStyle-/"modding-"_)Community: We can optimize the www's GUI, greatly prioritized. <i>"insteada only tweakin uBlockRules @home like Sisyphos"</i>
+##### 💡 🌱 [`Auto Contributors`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot) - Vision for Open-Source Efficiency.  (Compare: Wikipedia Bots. Would especially help medium-size projects.) (+[list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
 
-<h4> <code>🎁</code>Our Extensions:</h4></summary>
+<h5> <code>🎁</code>Our Extensions:</h5></summary>
 	
 **Superb:** [**<code>History Manager</code>**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" height="18px"></a>
 <br> **Global / Filters:** <code>[unFreeze me](https://chrome.google.com/webstore/detail/ctrl-f-freedom-%20-right-cl/ijngdimmjkngoglcjaheoadciaalbafl " Unlock your right-click, ctrl+F, selection anywhere")</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/unlock-keyboard-and-mouse) <code>[Dark Mode](https://chrome.google.com/webstore/detail/dark-mode/declgfomkjdohhjbcfemjklfebflhefl " - Universal dark-mode!") </code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/dark-mode) <br> <b> Productivity & research: </b><br> [<code>Ultimate Regex](https://chrome.google.com/webstore/detail/regex-search/pmihaiejckejbpjdnildimfkpcpnohlo)<i>Regex-fix sites & "Ctrl+F+Shift"</i></code>[<img src="github.png" height="18px">](https://github.com/code-charity/ultimate-REGEX-extension/issues/4)  <br> **Browser:** [`Custom user agent`](https://chrome.google.com/webstore/detail/custom-user-agent/ncgbkkljbaojkhljombpjejedphfhdjj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/user-agent) [`auto-scroll`](https://chrome.google.com/webstore/detail/auto-scroll/kpfalbhnppkbokafignonoppegdndlch "(missing in Linux)")<a href="https://github.com/code-for-charity/auto-scroll"><img src="github.png" height="18px"></a> <br> **Video / Media:** (integrate them in this extension please) <br> <code>[Looper](https://chrome.google.com/webstore/detail/looper/hlnfnoahfgnjnbkdckfnolacbmoknlmi)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/looper) <code>[Frame by Frame](https://chrome.google.com/webstore/detail/frame-by-frame/cclnaabdfgnehogonpeddbgejclcjneh)</code>[<img src="github.png" height="18px">](https://github.com/code-for-charity/frame-by-frame) [`unBlob`](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)[<img src="github.png" height="18px">](https://github.com/code-for-charity/unblob "please fix/adopt me!") <br> <i><b>Home:</b></i> [<img src="github.png" height="18px">](https://github.com/code-for-charity/Editor), [`ToDo`](https://chrome.google.com/webstore/detail/to-do/mniboiicchcpkffcdlaocnkfpbdihgii)[<img src="github.png" height="18px">](https://github.com/code-for-charity/todo)  , [`TextEditor`](https://chrome.google.com/webstore/detail/text-editor/bnbgafdjiinlgnjaedmfaablklnafpka)  <br>  **Development:**  [**`Satus`**](https://github.com/code-for-charity/satus) (Our JS library); [`WebGL.js`](https://github.com/code-for-charity/webgl.js) Library <br>
@@ -227,7 +225,7 @@ Start Page tabs <a href="https://github.com/code-for-charity/start-page"><img sr
 <br>**0.1. <code>[ ]</code><i>** Tidy: <b> [<code>(Rest/Unsorted 'issues')</code>](https://github.com/code4charity/YouTube-Extension/issues?q=is%3Aissue+is%3Aopen+-label%3Abug+-label%3A%22Feature+Request%22+-label%3A%F0%9F%A7%A9Plan%20ready+-label%3A_+-label%3A%22not+Goo.+Chrome%22+sort%3Acreated-desc++-label%3A"Niche%2Frare+usecase%3F%2Ffun%3F"++-label%3Aunclear "Our github issues, which are not yet labled yet to appear in one of the ToDo-categories above")  </i></b>
 > Further reading: [***"Contributing without programming"***](https://github.com/ImprovedTube/YouTube-Extension/discussions/753)  & [*"Our CSS, JavaScript, json"*](https://github.com/ImprovedTube/ImprovedTube/pull/371#issuecomment-669725163)  <code>(<code> ***outdated**)* (*Newcomers are [we](https://github.com/ImprovedTube/ImprovedTube/issues/387#issuecomment-664980078)lcome tho! We review all edits & love to collaborate*</code>)</code> 
  </details> <br> 
-<details><summary align="left"><code><b>Features</b> 🧰⋮⚙️🎛️☕🎧🎞️🎬🔊📈🎨⏯️</code></summary>
+<details><summary align="left"><h4><code><b>Features</b> 🧰⋮⚙️🎛️☕🎧🎞️🎬🔊📈🎨⏯️</code></h4></summary>
 <hr><h3> https://www.youtube.com/watch?v=SLfff7Kw_Xc  </h2>
 <hr>
 https://github.com/code-charity/youtube/wiki/Manual  
@@ -240,6 +238,10 @@ https://github.com/code-charity/youtube/wiki/Manual
  - Customizable hotkeys / shortcuts
 <div align=center><a href="https://github.com/code4charity/YouTube-Extension/wiki/Features">[List of Features]</a></div>  
  </details> 
+
+---
+
+
 <details><summary>
 <code>📟</code> "ImprovedTube Ticker 2022" /Pinned Issues</summary>
 
