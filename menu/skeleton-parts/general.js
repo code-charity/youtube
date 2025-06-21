@@ -64,10 +64,6 @@ extension.skeleton.main.layers.section.general = {
 						text: 'removeShortsReelSearchResults'
 					}
 				},
-				redirect_shorts_to_watch: {
-					component: 'switch',
-					text:  'ShortsForceTheStandardPlayer',
-				},
 				remove_home_page_shorts: {
 					component: 'switch',
 					text: 'hideHomePageShorts',
@@ -85,11 +81,6 @@ extension.skeleton.main.layers.section.general = {
 				remove_history_shorts: {
 					component: 'switch',
 					text: 'atHistory'
-				},
-				remove_playables: {
-					component: 'switch',
-					text: 'removePlayables',
-					id: 'remove-playables'
 				},
 				hide_ai_summary: {
 					component: 'switch',
@@ -129,19 +120,9 @@ extension.skeleton.main.layers.section.general = {
 					}],
 					tags: 'trending,subscriptions,history,watch,search,undistracted,zen'
 				},
-				left: {
-				component: 'section',
-				variant: 'card',
-				title: 'Left_Side_Menu',
-					sticky_navigation: {
-						component: "switch",
-						text: 'stickyNavigation',
-						tags: 'navigation,auto-hide,sidebar'
-					},
-					collapse_of_subscription_sections: {
-						component: 'switch',
-						text: 'collapseOfSubscriptionSections'
-					}
+				collapse_of_subscription_sections: {
+					component: 'switch',
+					text: 'collapseOfSubscriptionSections'
 				},
 				ads: {
 					text: 'ads',
@@ -186,11 +167,7 @@ extension.skeleton.main.layers.section.general = {
 				hide_banner_ads: {
 					component: 'switch',
 					text: 'hideBannerAds'
-				},
-				hide_sponsored_videos_home: {
-					component: 'switch',
-					text: 'hideSponsoredVideosOnHome'
-				}
+				} 
 			},
 			embed: {
 				component: 'section',
@@ -270,14 +247,8 @@ extension.skeleton.main.layers.section.general = {
 					component: 'select',
 					text: 'changeThumbnailsPerRow',
 					options: [{
-						text: 'default',
-						value: 'default'
-					}, {
 						text: '4',
 						value: '4'
-					},{
-						text: '3',
-						value: '3'
 					}, {
 						text: '5',
 						value: '5'
@@ -290,64 +261,19 @@ extension.skeleton.main.layers.section.general = {
 					}, {
 						text: '8',
 						value: '8'
-					},{
-						text: '9',
-						value: '9'
-					},{
-						text: '10',
-						value: '10'
-					},{
-						text: '11 (experimental)',
-						value: '11'
-					},{
-						text: '12 (experimental)',
-						value: '12'
-					},{
-						text: '2',
-						value: '2'
-					},{
-						text: '1',
-						value: '1'
 					}],
 					tags: 'change thumbnails per row'
 				},
 				thumbnail_size: {
 					component: "select",
-					text: "thumbnailSize",
+					text: "Thumbnail Size",
+					storage: "thumbnail_size",
 					options: [
 						{ text: "Default", value: "default" },
 						{ text: "Small", value: "small" },
 						{ text: "x-small", value: "x-small" }
 					]
-				},
-                show_last_watched_overlay: {
-                    component: 'switch',
-                    text: 'showLastWatchedOverlay',
-                    value: true, // default aktiv
-                    tags: 'history overlay'
-                },
-                last_watched_overlay_position: {
-                    component: 'select',
-                    text: 'lastWatchedOverlayPosition',
-                    storage: 'last_watched_overlay_position',
-                    options: [
-                        { value: 'bottom-right', text: 'bottomRight' },
-                        { value: 'bottom-left',  text: 'bottomLeft'  },
-                        { value: 'top-right',    text: 'topRight'    },
-                        { value: 'top-left',     text: 'topLeft'     }
-                    ],
-                    value: 'bottom-right'
-                },
-                last_watched_format: {
-                    component: 'select',
-                    text: 'lastWatchedFormat',
-                    storage: 'last_watched_format',
-                    options: [
-                        { value: 'relative', text: 'relative' },
-                        { value: 'exact',    text: 'exact'    }
-                    ],
-                    value: 'relative'
-                }
+				}
 			}, section_2: {
 				component: 'section',
 				variant: 'card',
@@ -376,10 +302,6 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'hideWatchedVideos'
 				},
-				hide_watch_later: {
-                    component: 'switch',
-                    text: 'Hide Watch Later Videos'
-                },
 				delete_watched_videos: {
 					component: 'button',
 					text: 'deleteWatchedVideos',
@@ -529,10 +451,6 @@ extension.skeleton.main.layers.section.general = {
 				clickable_links_in_description: {
 					component: 'switch',
 					text: 'clickableLinksInDescription'
-				},
-				category_refresh_button: {
-    			component: 'switch',
-    			text: 'categoryRefreshButton'
 				}
 			}
 		}

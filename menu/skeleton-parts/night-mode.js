@@ -51,13 +51,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.nightMode = {
 					}, {
 						text: 'systemPeferenceLight',
 						value: 'system_peference_light'
-					}],
-					onchange: function () {
-						setTimeout(() => {
-						extension.features.bluelight();
-						extension.features.dim();
-						}, 100);
-					},
+					}]
 				},
 				schedule_time_from: {
 					component: 'time',
@@ -65,13 +59,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.nightMode = {
 					variant: 'from',
 					hour12: function () {
 						return satus.storage.get('use_24_hour_format') === false;
-					},
-					onchange: function () {
-						setTimeout(() => {
-						extension.features.bluelight();
-						extension.features.dim();
-						}, 100);
-					},
+					}
 				},
 				schedule_time_to: {
 					component: 'time',
@@ -79,13 +67,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.nightMode = {
 					variant: 'to',
 					hour12: function () {
 						return satus.storage.get('use_24_hour_format') === false;
-					},
-					onchange: function () {
-						setTimeout(() => {
-						extension.features.bluelight();
-						extension.features.dim();
-						}, 100);
-					},
+					}
 				}
 			}
 		}
