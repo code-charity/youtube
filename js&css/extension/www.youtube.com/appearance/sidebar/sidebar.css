@@ -142,56 +142,11 @@ html[it-hide-shorts-remixing='true'] #related ytd-reel-shelf-renderer,
 --------------------------------------------------------------*/
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail,
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
-/*update Aug 22th 2025 by @JadonDn:*/ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer .yt-lockup-view-model-wiz__content-image,
 /*--------------------------------------------------------------
 # LIVECHAT
 --------------------------------------------------------------*/
-html[it-livechat='hidden'] ytd-live-chat-frame#chat {
-	  display: none !important;
-}
-html[it-livechat='collapsed'] #chat-container:not([it-activated])::before {
-	content: 'Show live chat' !important;
-}
-
-html[it-livechat='collapsed'] #chat-container[it-activated]::before {
-	content: 'Collapse live chat' !important;
-}
-
-html[it-livechat='collapsed'] #chat-container::before {
-	font-family: inherit !important;
-	font-size: 1.6rem !important;
-	font-weight: 400 !important;
-
-	display: flex !important;
-
-	width: 100% !important;
-	height: 48px !important;
-	margin: 0 !important;
-
-	color: var(--yt-spec-text-primary) !important;
-	border-bottom: 1px solid var(--yt-spec-10-percent-layer) !important;
-
-	justify-content: center !important;
-	align-items: center !important;
-}
-
-html[it-livechat='collapsed'] #chat-container:not([it-activated]) > ytd-live-chat-frame#chat {
-	display: none !important;
-}
-
-html[it-livechat='collapsed'][it-livechat='hidden'] ytd-live-chat-frame#chat {
-  display: none !important;
-}
-
-html[it-livechat='collapsed'] 
-#chat-container:not([it-activated])::before, 
-#chat-container[it-activated]::before {
-	background-color: #272727 !important;
-	border-radius: 8px !important;
-	cursor: pointer;
-}
-
-
+html[it-livechat='hidden'] ytd-live-chat-frame#chat,
+html[it-livechat='hidden'] ytd-watch-flexy[fixed-panels] #panels-full-bleed-container,
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
 --------------------------------------------------------------*/
@@ -306,53 +261,6 @@ html[it-thumbnails-right='true'] #related .modern-collection-parent,
 html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
 html[it-thumbnails-right='true'] #related ytd-compact-playlist-renderer ytd-thumbnail {
 	order: 5 !important;
-}
-
-/*--------------------------------------------------------------
-# STICKY NAVIGATION
---------------------------------------------------------------*/
-/* Prevent left navigation from auto-hiding */
-html[it-sticky-navigation='true'] ytd-mini-guide-renderer {
-	transform: translateX(0) !important;
-	transition: none !important;
-}
-
-html[it-sticky-navigation='true'] ytd-mini-guide-renderer[hidden] {
-	display: block !important;
-	transform: translateX(0) !important;
-}
-
-html[it-sticky-navigation='true'] ytd-mini-guide-renderer[aria-hidden="true"] {
-	aria-hidden: false !important;
-	transform: translateX(0) !important;
-}
-
-/* Ensure the guide is always visible */
-html[it-sticky-navigation='true'] ytd-guide-renderer {
-	transform: translateX(0) !important;
-	transition: none !important;
-}
-
-html[it-sticky-navigation='true'] ytd-guide-renderer[hidden] {
-	display: block !important;
-	transform: translateX(0) !important;
-}
-
-html[it-sticky-navigation='true'] ytd-guide-renderer[aria-hidden="true"] {
-	aria-hidden: false !important;
-	transform: translateX(0) !important;
-}
-
-/* Override any auto-hide animations */
-html[it-sticky-navigation='true'] ytd-mini-guide-renderer,
-html[it-sticky-navigation='true'] ytd-guide-renderer {
-	animation: none !important;
-	transition: none !important;
-}
-
-/* Ensure the guide button doesn't hide the navigation */
-html[it-sticky-navigation='true'] ytd-masthead ytd-button-renderer[is="ytd-button-renderer"] {
-	display: none !important;
 }
 
 /* Move thumbnails to the right for playlist suggestions (non-Polymer) */

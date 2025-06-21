@@ -1,4 +1,7 @@
 {
+    "2160p": {
+        "message": "2160p - 4K"
+    },
     "about": {
         "message": "Sobre"
     },
@@ -373,9 +376,6 @@
     },
     "dislike": {
         "message": "Não Gostei."
-    },
-    "dislikingAVideoAddsItToBlocklist": {
-        "message": "'Não gostei' adiciona vídeo à lista de bloqueio"
     },
     "displayDayOfTheWeak": {
         "message": "Mostrar dia da Semana"

@@ -18,93 +18,66 @@ import shutil
 import sys
 import json
 import os
-import zipfile
+import pathlib
 import re
-#import pathlib
+import zipfile
 
-#---------------------------------------------------------------
-# Helpers
-#---------------------------------------------------------------
-
-EXCLUDE_TOP_LEVEL = {
-    'tests',
-    'jest.config.js',
-    'package-lock.json',
-    'package.json',
-    'README.md',
-    'LICENSE',
-    'CONTRIBUTING.md'
-}
-
-def _sanitize_name_for_store(name, store):
-    # remove non-ASCII (simple emoji removal) and replace single quote with '*' for Edge/Whale
-    sanitized = re.sub(r'[^\x00-\x7F]+', '', name or '')
-    if store in ('edge', 'whale'):
-        sanitized = sanitized.replace("'", "*")
-    return sanitized
 
 #---------------------------------------------------------------
 # 2.0 CHROMIUM
 #---------------------------------------------------------------
 
 def chromium(browser):
-    temporary_path = '../cached'
+	temporary_path = '../cached'
 
-    if os.path.isdir(temporary_path):
-        shutil.rmtree(temporary_path, ignore_errors=True)
+	if (os.path.isdir(temporary_path)):
+		shutil.rmtree(temporary_path, ignore_errors=True)
 
-    os.mkdir(temporary_path)
+	os.mkdir(temporary_path)
+	os.chdir(temporary_path)
 
-    for item in os.listdir('../'):
-        if (
-            item != '.git' and
-            item != '.github' and
-            item != 'cached' and
-            item != 'previews' and
-            item != 'py' and
-            item != 'wiki' and
-            item != 'LICENSE' and
-            item != 'README.md' and
-            item != 'SECURITY.md' and
-            item.find('.zip') == -1
-        ):
-            if item in EXCLUDE_TOP_LEVEL:
-                continue
-            s = os.path.join('.', item)
-            d = os.path.join(temporary_path, item)
-            if os.path.isdir(s):
-                shutil.copytree(s, d, True, None)
-            else:
-                shutil.copy2(s, d)
+	for item in os.listdir('../'):
+		if (
+			item != '.git' and
+			item != '.github' and
+			item != 'cached' and
+			item != 'previews' and
+			item != 'py' and
+			item != 'wiki' and
+			item != 'LICENSE' and
+			item != 'README.md' and
+			item != 'SECURITY.md' and
+			item.find('.zip') == -1
+		):
+			s = os.path.join('../', item)
+			d = os.path.join(temporary_path, item)
+			if os.path.isdir(s):
+				shutil.copytree(s, d, True, None)
+			else:
+				shutil.copy2(s, d)
 
-    os.chdir(temporary_path)
+	with open('manifest.json', 'r+') as json_file:
+		data = json.load(json_file)
 
-    with open('manifest.json', 'r+') as json_file:
-        data = json.load(json_file)
+		version = data['version']
 
-        version = data['version']
+		if (browser == 'beta'):
+			data['name'] = 'ImprovedTube (testing)';
 
-        if (browser == 'beta'):
-            data['name'] = 'ImprovedTube (testing)'
+		json_file.seek(0)
+		json.dump(data, json_file, indent=4, sort_keys=True)
+		json_file.truncate()
 
-        if browser in ('edge', 'whale'):
-            data['name'] = _sanitize_name_for_store(data.get('name', ''), browser)
+	archive = zipfile.ZipFile('../chromium-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
 
-        json_file.seek(0)
-        json.dump(data, json_file, indent=4, sort_keys=True)
-        json_file.truncate()
+	for root, dirs, files in os.walk('.'):
+		for file in files:
+			archive.write(os.path.join(root, file),
+						  os.path.relpath(os.path.join(root, file),
+						  				  os.path.join('.', '.')))
 
-    archive_name = os.path.join('..', f'chromium-{browser}-{version}.zip')
-    archive = zipfile.ZipFile(archive_name, 'w', zipfile.ZIP_DEFLATED)
-
-    for root, dirs, files in os.walk('.'):
-        for file in files:
-            archive.write(os.path.join(root, file),
-                          os.path.relpath(os.path.join(root, file),
-                          				  os.path.join('.', '.')))
-
-    archive.close()
-    shutil.rmtree(temporary_path)
+	archive.close()
+	shutil.rmtree(temporary_path)
 
 
 #---------------------------------------------------------------
@@ -112,66 +85,72 @@ def chromium(browser):
 #---------------------------------------------------------------
 
 def firefox():
-    temporary_path = './cached'
+	temporary_path = '../cached'
 
-    if os.path.isdir(temporary_path):
-        shutil.rmtree(temporary_path, ignore_errors=True)
+	if (os.path.isdir(temporary_path)):
+		shutil.rmtree(temporary_path, ignore_errors=True)
 
-    os.mkdir(temporary_path)
+	os.mkdir(temporary_path)
+	os.chdir(temporary_path)
 
-    for item in os.listdir('.'):
-        if (
-            item != '.git' and
-            item != '.github' and
-            item != 'cached' and
-            item != 'previews' and
-            item != 'py' and
-            item != 'wiki' and
-            item != 'LICENSE' and
-            item != 'README.md' and
-            item != 'SECURITY.md' and
-            item.find('.zip') == -1
-        ):
-            if item in EXCLUDE_TOP_LEVEL:
-                continue
-            s = os.path.join('.', item)
-            d = os.path.join(temporary_path, item)
-            if os.path.isdir(s):
-                shutil.copytree(s, d, True, None)
-            else:
-                shutil.copy2(s, d)
+	for item in os.listdir('../'):
+		if (
+			item != '.git' and
+			item != '.github' and
+			item != 'cached' and
+			item != 'previews' and
+			item != 'py' and
+			item != 'wiki' and
+			item != 'LICENSE' and
+			item != 'README.md' and
+			item != 'SECURITY.md' and
+			item.find('.zip') == -1
+		):
+			s = os.path.join('../', item)
+			d = os.path.join(temporary_path, item)
+			if os.path.isdir(s):
+				shutil.copytree(s, d, True, None)
+			else:
+				shutil.copy2(s, d)
 
-    os.chdir(temporary_path)
+	with open('background.js', 'r') as file:
+		lines = file.readlines()
 
-    with open('manifest.json', 'r+', encoding='utf8') as json_file:
-        data = json.load(json_file)
+	with open('background.js', 'w') as file:
+		skip = False
 
-        version = data['version']
+		for pos, line in enumerate(lines):
+			if (lines[pos].find('8.0 GOOGLE ANALYTICS') != -1):
+				skip = True
 
-        data.pop('content_security_policy', None)
-        data.pop('update_url', None)
+			if (skip == False):
+				file.write(line)
 
-        # Patch background for Firefox
-        if 'background' in data:
-            if 'service_worker' in data['background']:
-                del data['background']['service_worker']
-            data['background']['scripts'] = ['background.js']
+			if (line.find('/*--------------------------------------------------------------') != -1):
+				skip = False
 
-        json_file.seek(0)
-        json.dump(data, json_file, indent=4, sort_keys=True)
-        json_file.truncate()
+	with open('manifest.json', 'r+') as json_file:
+		data = json.load(json_file)
 
-    archive = zipfile.ZipFile('../firefox-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
+		version = data['version']
 
-    for root, dirs, files in os.walk('.'):
-        for file in files:
-            archive.write(os.path.join(root, file),
-                          os.path.relpath(os.path.join(root, file),
-                                          os.path.join('.', '.')))
+		del data['content_security_policy']
+		del data['update_url']
 
-    archive.close()
-    os.chdir('..')
-    shutil.rmtree(temporary_path)
+		json_file.seek(0)
+		json.dump(data, json_file, indent=4, sort_keys=True)
+		json_file.truncate()
+
+	archive = zipfile.ZipFile('../firefox-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
+
+	for root, dirs, files in os.walk('.'):
+		for file in files:
+			archive.write(os.path.join(root, file),
+						  os.path.relpath(os.path.join(root, file),
+						  				  os.path.join('.', '.')))
+
+	archive.close()
+	shutil.rmtree(temporary_path)
 
 
 #---------------------------------------------------------------
@@ -183,9 +162,5 @@ for arg in sys.argv:
         chromium('stable')
     elif arg == '-chromium-beta':
         chromium('beta')
-    elif arg == '-chromium-edge':
-        chromium('edge')
-    elif arg == '-chromium-whale':
-        chromium('whale')
     elif arg == '-firefox':
         firefox()
