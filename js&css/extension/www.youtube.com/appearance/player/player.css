@@ -38,25 +38,6 @@ html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player
 }
 
 /*--------------------------------------------------------------
-# FIX: hide full control strip in native miniplayer
---------------------------------------------------------------*/
-ytd-miniplayer .ytp-chrome-bottom,
-.html5-video-player.ytp-player-minimized .ytp-chrome-bottom,
-.html5-video-player.ytp-small-mode .ytp-chrome-bottom {
-	opacity: 0 !important;
-	pointer-events: none !important;
-}
-
-ytd-miniplayer .ytp-chrome-bottom .ytp-progress-bar-container,
-.html5-video-player.ytp-player-minimized .ytp-chrome-bottom .ytp-progress-bar-container,
-.html5-video-player.ytp-small-mode .ytp-chrome-bottom .ytp-progress-bar-container,
-ytd-miniplayer .ytp-chrome-bottom .ytp-scrubber-button,
-.html5-video-player.ytp-player-minimized .ytp-chrome-bottom .ytp-scrubber-button,
-.html5-video-player.ytp-small-mode .ytp-chrome-bottom .ytp-scrubber-button {
-	display: none !important;
-}
-
-/*--------------------------------------------------------------
 # COLOR
 --------------------------------------------------------------*/
 
@@ -185,42 +166,6 @@ html[it-player-transparent-background='true'] #movie_player video {
 --------------------------------------------------------------*/
 html[it-hide-video-title-fullScreen='true'] .ytp-title-text > a,
 /*--------------------------------------------------------------
-# YOUTUBE RETURN BUTTON IN FULLSCREEN
---------------------------------------------------------------*/
-#it-youtube-return-button {
-	position: absolute !important;
-	top: 20px !important;
-	left: 20px !important;
-	z-index: 9999 !important;
-	background: rgba(0, 0, 0, 0.8) !important;
-	border: none !important;
-	border-radius: 4px !important;
-	padding: 8px !important;
-	cursor: pointer !important;
-	transition: all 0.2s ease !important;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	width: 40px !important;
-	height: 40px !important;
-}
-
-#it-youtube-return-button:hover {
-	background: rgba(0, 0, 0, 0.9) !important;
-	transform: scale(1.1) !important;
-}
-
-#it-youtube-return-button svg {
-	width: 24px !important;
-	height: 24px !important;
-	fill: white !important;
-}
-
-.html5-video-player:not(.ytp-fullscreen) #it-youtube-return-button {
-	display: none !important;
-}
-
-/*--------------------------------------------------------------
 # SHADOW AROUND PLAYER BAR
 --------------------------------------------------------------*/
 html[it-hide-gradient-bottom='true'] .ytp-gradient-bottom,
@@ -254,7 +199,6 @@ html[it-player-hide-annotations='true'] .annotation-shape,
 # HIDE ENDSCREEN
 --------------------------------------------------------------*/
 html[it-player-hide-endscreen='true'] .html5-endscreen,
-html[it-player-hide-endscreen='true'] .ytp-fullscreen-grid-stills-container,
 /*--------------------------------------------------------------
 # HIDE CARDS
 --------------------------------------------------------------*/
@@ -722,72 +666,4 @@ html[data-page-type=video][it-hide-includes-paid-promotion=true] .ytp-paid-conte
 html[data-page-type=home][it-hide-includes-paid-promotion=true] .YtmPaidContentOverlayLink,
 html[data-page-type=other][it-hide-includes-paid-promotion=true] .YtmPaidContentOverlayLink  {
   display: none !important;
-}
-
-/*--------------------------------------------------------------
-# FIX FOR YOUTUBE'S NEW BIG PLAYER CONTROLS IN THEATER MODE
---------------------------------------------------------------*/
-
-/* This targets the player only when YouTube applies the .ytp-big-mode class */
-html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-chrome-bottom {
-    height: 51px !important;
-}
-
-html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-chrome-controls {
-    height: 48px !important;
-}
-
-html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-button {
-    width: 48px !important;
-    height: 48px !important;
-}
-
-html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-menu .ytp-menuitem {
-    height: 48px !important;
-    line-height: 48px !important;
-}
-
-html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-time-display {
-	height: 48px !important;
-	display: flex;
-	align-items: center;
-}
-
-html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-time-duration, html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-time-separator, html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-time-current {
-	font-size: 13.0691px !important;
-}
-
-html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-time-contents {
-	display: flex;
-	align-items: center;
-}
-
-/*--------------------------------------------------------------
-# FIX: SMALL IMPROVEDTUBE ICONS IN YOUTUBE NEW UI
---------------------------------------------------------------*/
-
-.ytp-chrome-controls .it-player-button > svg {
-	padding: 0 !important;
-}
-
-/*------------------------------------------------------------------------------
-ALWAYS SHOW CONTROL BUTTONS
-------------------------------------------------------------------------------*/
-html[it-shorts-always-show-fullscreen=true] ytd-shorts-player-controls:not([is-ads-overlay]) #fullscreen-button-shape.ytd-shorts-player-controls {
-	display: flex !important;
-}
-html[it-shorts-always-show-captions=true] ytd-shorts-player-controls:not([is-ads-overlay]) #closed-captioning-button-container.ytd-shorts-player-controls {
-	display: flex !important;
-}
-
-/*--------------------------------------------------------------
-# HIDE PAUSE OVERLAY (BEZEL)
---------------------------------------------------------------*/
-html[it-player-hide-pause-overlay='true'] .ytp-bezel-text-wrapper,
-html[it-player-hide-pause-overlay='true'] .ytp-bezel,
-html[it-player-hide-pause-overlay='true'] .ytp-bezel-text,
-html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
-	display: none !important;
-	opacity: 0 !important;
-	visibility: hidden !important;
 }
