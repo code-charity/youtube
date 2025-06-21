@@ -130,7 +130,7 @@ var satus = {
 /*--CAMELIZE--------------------------------------------------*/
 satus.camelize = function (string) {
 	var result = '';
-	for (var i = 0, l = string.length; i < l; i++) {
+	for (let i = 0, l = string.length; i < l; i++) {
 		var character = string[i];
 
 		if (character === '_' || character === '-') {
@@ -219,12 +219,12 @@ satus.data = function (element, data) {
 };
 /*---# ISSET-----------------------------------------------------*/
 satus.isset = function (target, is_object) {
-	if (is_object === true) {
+	if (is_object) {
 		var keys = target.split('.').filter(function (value) {
 			return value != '';
 		});
 
-		for (var i = 0, l = keys.length; i < l; i++) {
+		for (let i = 0, l = keys.length; i < l; i++) {
 			if (satus.isset(target[keys[i]])) {
 				target = target[keys[i]];
 			} else {
@@ -281,13 +281,13 @@ satus.setAttributes = satus.attr = function (element, attributes) {
 			}
 
 			if (element.namespaceURI) {
-				if (value === false) {
+				if (!value) {
 					element.removeAttributeNS(null, name);
 				} else {
 					element.setAttributeNS(null, name, value);
 				}
 			} else {
-				if (value === false) {
+				if (!value) {
 					element.removeAttribute(name);
 				} else {
 					element.setAttribute(name, value);
@@ -305,7 +305,7 @@ satus.clone = function (item) {
 		css = window.getComputedStyle(item),
 		style = '';
 
-	for (var i = 0, l = css.length; i < l; i++) {
+	for (let i = 0, l = css.length; i < l; i++) {
 		var property = css[i],
 			value = css.getPropertyValue(property);
 
@@ -488,7 +488,7 @@ satus.events.trigger = function (type, data) {
 	var handlers = this.data[type];
 
 	if (handlers) {
-		for (var i = 0, l = handlers.length; i < l; i++) {
+		for (let i = 0, l = handlers.length; i < l; i++) {
 			handlers[i](data);
 		}
 	}
@@ -579,7 +579,7 @@ satus.on = function (element, listeners) {
 						layers = this.baseProvider.layers[0];
 					}
 
-					if (target.prepend === true) {
+					if (target.prepend) {
 						satus.prepend(target, this.parentNode);
 					} else if (layers && target.component !== 'modal') {
 						layers.open(target);
@@ -717,7 +717,7 @@ satus.render = function (skeleton, container, property, childrenOnly, prepend, s
 			}
 
 			if (satus.isArray(variant)) {
-				for (var i = 0, l = variant.length; i < l; i++) {
+				for (let i = 0, l = variant.length; i < l; i++) {
 					element.className += ' satus-' + tagName + '--' + variant[i];
 				}
 			} else {
@@ -882,7 +882,7 @@ satus.storage.get = function (key) {
 		return value != '';
 	});
 
-	for (var i = 0, l = key.length; i < l; i++) {
+	for (let i = 0, l = key.length; i < l; i++) {
 		if (satus.isset(target[key[i]])) {
 			target = target[key[i]];
 		} else {
@@ -930,7 +930,7 @@ satus.storage.remove = function (key, callback) {
 		return value != '';
 	});
 
-	for (var i = 0, l = key.length; i < l; i++) {
+	for (let i = 0, l = key.length; i < l; i++) {
 		if (satus.isset(target[key[i]])) {
 			if (i === l - 1) {
 				delete target[key[i]];
@@ -967,7 +967,7 @@ satus.storage.set = function (key, value, callback) {
 		return value != '';
 	});
 
-	for (var i = 0, l = key.length; i < l; i++) {
+	for (let i = 0, l = key.length; i < l; i++) {
 		var item = key[i];
 
 		if (i < l - 1) {
@@ -1027,7 +1027,7 @@ satus.locale.get = function (string) {
 # IMPORT            								// old:  satus.locale.import(url, onload, onsuccess);
 --------------------------------------------------------------*/
 satus.locale.import = function (code, callback, path) {
-	// if (!path) {  path = '_locales/';   }
+	// if (!path) { path = '_locales/';   }
 	function importLocale (locale, successCallback) {
 		var url = chrome.runtime.getURL(path + locale + '/messages.json');
 		fetch(url)
@@ -1277,7 +1277,7 @@ satus.components.textField = function (component, skeleton) {
 				}
 
 				if (matches) {
-					for (var i = 0, l = matches.length; i < l; i++) {
+					for (let i = 0, l = matches.length; i < l; i++) {
 						var match = matches[i];
 
 						if (match[0] === '[') {
@@ -1313,7 +1313,7 @@ satus.components.textField = function (component, skeleton) {
 		this.autofocus = true;	this.input.focus();
 	};
 
-	if (skeleton.lineNumbers === false) {
+	if (!skeleton.lineNumbers) {
 		component.setAttribute('line-numbers', 'false');
 
 		component.lineNumbers.setAttribute('hidden', '');
@@ -1588,7 +1588,7 @@ satus.components.select = function (component, skeleton) {
 		}
 	}
 
-	for (var i = 0, l = component.options.length; i < l; i++) {
+	for (let i = 0, l = component.options.length; i < l; i++) {
 		var option = document.createElement('option');
 
 		option.value = component.options[i].value;
@@ -1666,11 +1666,11 @@ satus.components.time = function (component, skeleton) {
 		select_skeleton.hour12 = select_skeleton.hour12();
 	}
 
-	for (var i = 0, l = 24; i < l; i++) {
+	for (let i = 0, l = 24; i < l; i++) {
 		var hour = i,
 			value = i;
 
-		if (select_skeleton.hour12 === true && i > 12) {
+		if (select_skeleton.hour12  && i > 12) {
 			hour -= 12;
 		}
 
@@ -1679,7 +1679,7 @@ satus.components.time = function (component, skeleton) {
 			value = '0' + value;
 		}
 
-		if (select_skeleton.hour12 === true) {
+		if (select_skeleton.hour12 ) {
 			if (i > 12) {
 				hour += ':00 pm';
 			} else {
@@ -2316,7 +2316,7 @@ satus.components.shortcut = function (component, skeleton) {
 					render: function () {
 						component.primary = this;
 
-						if (component.skeleton.mouseButtons === true) {
+						if (component.skeleton.mouseButtons ) {
 							this.addEventListener('mousedown', function (event) {
 								if (
 									component.data.click && event.button === 0 ||
@@ -2462,7 +2462,7 @@ satus.components.checkbox = function (component, skeleton) {
 	component.input.addEventListener('change', function () {
 		var component = this.parentNode;
 
-		if (this.checked === true) {
+		if (this.checked ) {
 			component.storage.value = true;
 			component.dataset.value = 'true';
 		} else {
@@ -2565,7 +2565,7 @@ satus.events.on('render', function (component) {
 --------------------------------------------------------------*/
 
 satus.events.on('render', function (component) {
-	if (component.skeleton.sortable === true) {
+	if (component.skeleton.sortable ) {
 		component.addEventListener('mousedown', function (event) {
 			if (event.button !== 0) {
 				return false;
@@ -2602,7 +2602,7 @@ satus.events.on('render', function (component) {
 				window.removeEventListener('mousemove', mousemove, true);
 				window.removeEventListener('mouseup', mouseup, true);
 
-				for (var i = 0, l = children.length; i < l; i++) {
+				for (let i = 0, l = children.length; i < l; i++) {
 					var child = children[i];
 
 					if (child !== component) {
@@ -2638,7 +2638,7 @@ satus.events.on('render', function (component) {
 				}
 			}
 
-			for (var i = 0, l = children.length; i < l; i++) {
+			for (let i = 0, l = children.length; i < l; i++) {
 				var child = children[i];
 
 				if (child !== component) {
@@ -2685,7 +2685,7 @@ satus.color.stringToArray = function (string) {
 	var match = string.match(/[0-9.]+/g);
 
 	if (match) {
-		for (var i = 0, l = match.length; i < l; i++) {
+		for (let i = 0, l = match.length; i < l; i++) {
 			match[i] = parseFloat(match[i]);
 		}
 	}

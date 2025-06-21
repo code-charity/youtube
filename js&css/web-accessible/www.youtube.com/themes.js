@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------*/
 ImprovedTube.myColors = function () {
 	if (this.storage.theme === 'custom') {
-		var style = this.elements.my_colors || document.createElement('style'),
+		let style = this.elements.my_colors || document.createElement('style'),
 			primary_color = this.storage.theme_primary_color,
 			secondary_color = this.storage.theme_secondary_color,
 			text_color = this.storage.theme_text_color;
@@ -87,6 +87,7 @@ ImprovedTube.myColors = function () {
 					'ytd-masthead, #masthead, ytd-app #masthead { background-color: ' + secondary_color + ' !important; }';
 					//Tested, but still not sure if it's good enough
 
+
 		this.elements.my_colors = style;
 		document.documentElement.appendChild(style);
 		document.documentElement.removeAttribute('dark');
@@ -103,16 +104,16 @@ ImprovedTube.setTheme = function () {
 			document.documentElement.setAttribute('dark', '');
 			document.querySelector('ytd-masthead')?.setAttribute('dark', '');
 			ImprovedTube.setPrefCookieValueByName('f6', 400);
-			// fall through
+		// fall through
 		case 'black':
 			document.getElementById('cinematics')?.removeAttribute('style');
 			this.elements.my_colors?.remove();
 			break
 
 		case 'light':
-			ImprovedTube.messages.send({action: 'set', key: 'theme', value: null});
+			ImprovedTube.messages.send({ action: 'set', key: 'theme', value: null });
 			ImprovedTube.setPrefCookieValueByName('f6', null);
-			// fall through
+		// fall through
 		case 'dawn':
 		case 'sunset':
 		case 'night':
