@@ -112,7 +112,6 @@ html[data-page-type='video'][it-header-position=hover_on_video_page]:not([it-imp
 	transform: translateY(-38%);
 	height: 68px;
 	opacity: 0;
-	backdrop-filter: blur(4px);
 }
 
 html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]):focus-within,
@@ -169,15 +168,11 @@ html[it-header-hide-logo='true'] #logo-icon yt-icon-shape,
 html[it-header-hide-logo='true'] #logo-icon .yt-icon-shape {
 	visibility:hidden;
 }
-/* Simple fix: Add modern YouTube logo selectors */
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer path[fill='#FF0000'],
-html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'],
-html[it-header-improve-logo='true'] #logo path[fill='#FF0000'],
-html[it-header-improve-logo='true'] #logo polygon[fill='#FFFFFF'] {
+html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] {
 	fill: rgb(44, 44, 44) !important;
 }
-html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'],
-html[it-header-improve-logo='true'][dark] #logo path[fill='#FF0000'] {
+html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] {
 	fill: rgb(70, 70, 70) !important;
 }
 /*--------------------------------------------------------------

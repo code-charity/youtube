@@ -1,4 +1,55 @@
-{
+{   
+    "requirePassword": { 
+	"message": "ترتیبات کو تبدیل کرنے کے لیے پاس ورڈ درکار ہے" 
+    },
+    "passwordOptions": { 
+        "message": "پاس ورڈ کے اختیارات"
+    },
+    "enterPassword": { 
+        "message": "براہ کرم اپنا 4 ہندسوں کا کوڈ درج کریں۔"
+    },
+    "qualityWhenRunningOnBattery":{
+        "message": "معیار، جب بیٹری پر چل رہا ہے"
+    },
+    "pauseWhileIUnplugTheCharger":{
+        "message": "جب میں چارجر کو ان پلگ کرتا ہوں تو رکیں۔" 
+    },
+    "whenBatteryIslowDecreaseQuality":{
+        "message": "کم بیٹری: معیار کو کم کریں۔"
+    },
+    "analytics": {
+        "message": "تجزیات"
+    }, 
+    "purchase": {
+        "message": "خریداری"
+    },    
+    "join": {
+        "message": "شمولیت"
+    },  
+    "improvedTubeSidePanel": {
+        "message": "براؤزر سائڈ پینل"
+    },
+    "cursorLighting": {
+        "message": "مدھم یوٹیوب کے صفحات، سوائے اس کے جو میں ماؤس اوور کرتا ہوں!"
+    },
+    "youtubesLight": {
+        "message": "یوٹیوب کی روشنی"
+    },
+	"popupAd": {
+        "message": "پاپ اپ اشتہار: چھپائیں۔"
+    },	
+	"hideWatchedVideos": {
+        "message": "دیکھی ہوئی ویڈیوز چھپائیں۔"
+    },
+    "ambientLighting": {
+        "message": "محیطی روشنی"
+    },
+    "undoTheNewSidebar": {
+        "message": "نئی سائڈبار کو کالعدم کریں!"
+    },
+    "hideLogo": {
+        "message": "لوگو: چھپائیں!"
+    },
     "about": {
         "message": "متعلق"
     },
@@ -59,12 +110,6 @@
     "amber": {
         "message": "امبر"
     },
-    "ambientLighting": {
-        "message": "محیطی روشنی"
-    },
-    "analytics": {
-        "message": "تجزیات"
-    },
     "analyzer": {
         "message": "تجزیہ کار"
     },
@@ -113,8 +158,17 @@
     "auto": {
         "message": "آٹو"
     },
+    "autoplay": {
+        "message": "آٹو پلے"
+    },
     "Auto_PiP_picture_in_picture": {
         "message": "آٹو پی آئی پی (تصویر میں تصویر)"
+    },
+    "playerAutoPipOutside": {
+        "message": "آٹو پی آئی پی صرف ماخذ ٹیب سے باہر"
+    },
+    "PipRequiresUserInteraction": {
+        "message": "PiP کو سورس پیج کے ساتھ صارف کے حالیہ تعامل کی ضرورت ہے۔ یہ Chrome Picture-in-Picture API حدود ہیں اور ہم اسے نظرانداز کرنے کے لیے کچھ نہیں کر سکتے۔ آٹو پلے غیر فعال اور دستی پلے کنٹرول کے ساتھ بہترین کام کرتا ہے یا ٹیبز کو سوئچ کرنے سے پہلے صفحہ پر کسی جگہ پر جان بوجھ کر کلک کرنے سے۔"
     },
     "autoFullscreen": {
         "message": "خودکار فل سکرین"
@@ -124,9 +178,6 @@
     },
     "autoPictureInPicture": {
         "message": "آٹو پکچر ان پکچر"
-    },
-    "autoplay": {
-        "message": "آٹو پلے"
     },
     "autoplayDisable": {
         "message": "زبردستی آٹو پلے آف کریں۔"
@@ -281,20 +332,17 @@
     "cookies": {
         "message": "کوکیز"
     },
-    "copyVideoId": {
-        "message": "ویڈیو آئی ڈی کاپی کریں"
-    },
     "cores": {
         "message": "کورز"
+    },
+    "copyVideoId": {
+        "message": "ویڈیو آئی ڈی کاپی کریں"
     },
     "cropChapterTitles": {
         "message": "بابوں کے عنوانات کاٹیں"
     },
     "Currently_requiring_a_YouTube_API_key": {
         "message": "(فی الحال یوٹیوب API-کی کی ضرورت ہے: )"
-    },
-    "cursorLighting": {
-        "message": "مدھم یوٹیوب کے صفحات، سوائے اس کے جو میں ماؤس اوور کرتا ہوں!"
     },
     "custom": {
         "message": "حسب ضرورت"
@@ -401,9 +449,10 @@
     "doNotChange": {
         "message": "تبدیل نہ کریں"
     },
-    "download": {
+    "download":{
         "message": "ڈاؤن لوڈ کریں"
     },
+    
     "draggable": {
         "message": "کھینچنے کے قابل"
     },
@@ -430,9 +479,6 @@
     },
     "enabledForced": {
         "message": "فعال (زبردستی)"
-    },
-    "enterPassword": {
-        "message": "براہ کرم اپنا 4 ہندسوں کا کوڈ درج کریں۔"
     },
     "expanded": {
         "message": "وسیع"
@@ -623,9 +669,6 @@
     "hideIncludesPaidPromotion": {
         "message": "\"ادائیگی شدہ پروموشن شامل ہے\" چھپائیں"
     },
-    "hideLogo": {
-        "message": "لوگو: چھپائیں!"
-    },
     "hideMore": {
         "message": "'...' چھپائیں"
     },
@@ -653,14 +696,11 @@
     "hideSkipOverlay": {
         "message": "5 سیکنڈ کا چھوڑنے کی حرکت پذیری چھپائیں"
     },
-    "hideThumbnailDots": {
-        "message": "تھمب نیلز پر '⫶' (مزید کاروائیاں) چھپائیں"
-    },
-    "hideThumbnailIcon": {
-        "message": "تھمب نیل آئیکن چھپائیں"
-    },
     "hideThumbnailOverlay": {
         "message": "تھمب نیلز پر بٹن چھپائیں"
+    },
+    "hideThumbnailDots": {
+        "message": "تھمب نیلز پر '⫶' (مزید کاروائیاں) چھپائیں"
     },
     "hideThumbnails": {
         "message": "تھمب نیلز چھپائیں"
@@ -668,14 +708,14 @@
     "hideVideoTitleFullScreen": {
         "message": "فل اسکرین میں ویڈیو کا عنوان چھپائیں"
     },
+    "hideThumbnailIcon": {
+        "message": "تھمب نیل آئیکن چھپائیں"
+    },
     "hideViewsCount": {
         "message": "نظریات کی تعداد چھپائیں"
     },
     "hideVoiceSearchButton": {
         "message": "وائس سرچ بٹن چھپائیں"
-    },
-    "hideWatchedVideos": {
-        "message": "دیکھی ہوئی ویڈیوز چھپائیں۔"
     },
     "high": {
         "message": "اعلی"
@@ -719,9 +759,6 @@
     "improvedtubeLanguage": {
         "message": "بہتر یوٹیوب زبان"
     },
-    "improvedTubeSidePanel": {
-        "message": "براؤزر سائڈ پینل"
-    },
     "improvedtubeVersion": {
         "message": "بہتر یوٹیوب ورژن"
     },
@@ -739,9 +776,6 @@
     },
     "items": {
         "message": "اشیاء"
-    },
-    "join": {
-        "message": "شمولیت"
     },
     "language": {
         "message": "زبان"
@@ -917,15 +951,6 @@
     "overlay": {
         "message": "اوورلے"
     },
-    "passwordOptions": {
-        "message": "پاس ورڈ کے اختیارات"
-    },
-    "pauseWhileIAmTypingOnYouTube": {
-        "message": "جب میں یوٹیوب پر ٹائپ کر رہا ہوں تو توقف کریں"
-    },
-    "pauseWhileIUnplugTheCharger": {
-        "message": "جب میں چارجر کو ان پلگ کرتا ہوں تو رکیں۔"
-    },
     "permissions": {
         "message": "اجازتیں"
     },
@@ -934,9 +959,6 @@
     },
     "pink": {
         "message": "گلابی"
-    },
-    "PipRequiresUserInteraction": {
-        "message": "PiP کو سورس پیج کے ساتھ صارف کے حالیہ تعامل کی ضرورت ہے۔ یہ Chrome Picture-in-Picture API حدود ہیں اور ہم اسے نظرانداز کرنے کے لیے کچھ نہیں کر سکتے۔ آٹو پلے غیر فعال اور دستی پلے کنٹرول کے ساتھ بہترین کام کرتا ہے یا ٹیبز کو سوئچ کرنے سے پہلے صفحہ پر کسی جگہ پر جان بوجھ کر کلک کرنے سے۔"
     },
     "plain": {
         "message": "سادہ"
@@ -953,26 +975,23 @@
     "player": {
         "message": "پلیئر"
     },
-    "player_auto_cinema_mode": {
-        "message": "خودکار سینما موڈ"
-    },
-    "player_auto_hide_cinema_mode_when_paused": {
-        "message": "وقفے پر سینما موڈ خودکار چھپائیں"
-    },
-    "player_cinema_mode_button": {
-        "message": "سینما موڈ"
-    },
     "player_dont_speed_education": {
         "message": "(نایاب) زمرہ: تعلیم کی رفتار نہ بڑھائیں"
     },
     "player_fit_to_win_button": {
         "message": "ونڈو کے مطابق فٹ کریں"
     },
+    "player_cinema_mode_button": {
+        "message": "سینما موڈ"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "وقفے پر سینما موڈ خودکار چھپائیں"
+    },
+    "player_auto_cinema_mode": {
+        "message": "خودکار سینما موڈ"
+    },
     "player_rotate_button": {
         "message": "ویڈیو گھمائیں"
-    },
-    "playerAutoPipOutside": {
-        "message": "آٹو پی آئی پی صرف ماخذ ٹیب سے باہر"
     },
     "playerColor": {
         "message": "پروگریس بار کا رنگ"
@@ -980,14 +999,11 @@
     "playerSize": {
         "message": "پلیئر کا سائز"
     },
-    "playlists": {
+"playlists": {
         "message": "پلے لسٹس"
     },
     "playPause": {
         "message": "چلائیں / توقف کریں"
-    },
-    "popupAd": {
-        "message": "پاپ اپ اشتہار: چھپائیں۔"
     },
     "popupPlayer": {
         "message": "پاپ اپ پلیئر"
@@ -1013,9 +1029,6 @@
     "pullSyncSettings": {
         "message": "کھینچیں"
     },
-    "purchase": {
-        "message": "خریداری"
-    },
     "purple": {
         "message": "جامنی"
     },
@@ -1024,9 +1037,6 @@
     },
     "quality": {
         "message": "معیار"
-    },
-    "qualityWhenRunningOnBattery": {
-        "message": "معیار، جب بیٹری پر چل رہا ہے"
     },
     "qualityWithoutFocus": {
         "message": "فوکس کے بغیر معیار"
@@ -1061,14 +1071,8 @@
     "removeBlackBars": {
         "message": "فل اسکرین کرتے وقت کالے بارز ہٹائیں"
     },
-    "removeContextButtons": {
-        "message": "شارٹس پر سیاق و سباق کے بٹن ہٹائیں"
-    },
     "removeIcons": {
         "message": "شبیہیں ہٹائیں"
-    },
-    "removeMemberOnly": {
-        "message": "صرف ممبران کے لئے ویڈیوز ہٹائیں"
     },
     "removeName": {
         "message": "نام ہٹائیں"
@@ -1082,17 +1086,11 @@
     "removeShortsReelSearchResults": {
         "message": "تلاش کے نتائج سے شارٹس ریل ہٹائیں"
     },
-    "RemoveSubtitlesForLyrics": {
-        "message": "گیتوں کے لئے سب ٹائٹلز ہٹائیں"
-    },
     "repeat": {
         "message": "دہرائیں"
     },
     "report": {
         "message": "رپورٹ"
-    },
-    "requirePassword": {
-        "message": "ترتیبات کو تبدیل کرنے کے لیے پاس ورڈ درکار ہے"
     },
     "reset": {
         "message": "ری سیٹ"
@@ -1232,11 +1230,20 @@
     "Subtitle_Capture_including_the_current_words": {
         "message": "سب ٹائٹل (موجودہ الفاظ سمیت کیپچر کریں)"
     },
+    "subtitles": {
+        "message": "سب ٹائٹلز"
+    },
     "subtitleLine": {
         "message": "سب ٹائٹل کی لال لکیر چھپائیں"
     },
-    "subtitles": {
-        "message": "سب ٹائٹلز"
+    "removeContextButtons": {
+        "message": "شارٹس پر سیاق و سباق کے بٹن ہٹائیں"
+    },
+    "RemoveSubtitlesForLyrics": {
+        "message": "گیتوں کے لئے سب ٹائٹلز ہٹائیں"
+    },
+    "removeMemberOnly": {
+        "message": "صرف ممبران کے لئے ویڈیوز ہٹائیں"
     },
     "sunset": {
         "message": "غروب"
@@ -1334,9 +1341,6 @@
     "type": {
         "message": "قسم"
     },
-    "undoTheNewSidebar": {
-        "message": "نئی سائڈبار کو کالعدم کریں!"
-    },
     "upNextAutoplay": {
         "message": "اگلا خودکار کھیل"
     },
@@ -1372,9 +1376,6 @@
     },
     "watchTime": {
         "message": "دیکھنے کا وقت"
-    },
-    "whenBatteryIslowDecreaseQuality": {
-        "message": "کم بیٹری: معیار کو کم کریں۔"
     },
     "whenPaused": {
         "message": "جب توقف کیا"
@@ -1421,7 +1422,7 @@
     "youtubesDark": {
         "message": "یوٹیوب کا گہرا"
     },
-    "youtubesLight": {
-        "message": "یوٹیوب کی روشنی"
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "جب میں یوٹیوب پر ٹائپ کر رہا ہوں تو توقف کریں"
     }
 }

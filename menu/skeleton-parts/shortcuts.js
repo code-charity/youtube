@@ -80,7 +80,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 									component: 'slider',
 									text: 'step',
 									min: 1,
-									max: 25,
+									max: 10,
 									step: 1,
 									value: 5
 								}
@@ -129,7 +129,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 									component: 'slider',
 									text: 'step',
 									min: .05,
-									max: 2,
+									max: .5,
 									step: .05,
 									value: .05
 								}
@@ -165,49 +165,6 @@ extension.skeleton.main.layers.section.shortcuts = {
 									component: 'shortcut',
 									text: 'reset'
 								}
-							}
-						}
-					}
-				},
-				shortcut_playback_speed: {
-					component: 'button',
-					text: 'playbackSpeedHotkey',
-					on: {
-						click: {
-							component: 'section',
-							variant: 'card',
-
-							shortcut_playback_speed_0_25: {
-								component: 'shortcut',
-								text: '0.25x'
-							},
-							shortcut_playback_speed_0_5: {
-								component: 'shortcut',
-								text: '0.5x'
-							},
-							shortcut_playback_speed_0_75: {
-								component: 'shortcut',
-								text: '0.75x'
-							},
-							shortcut_playback_speed_1: {
-								component: 'shortcut',
-								text: '1x'
-							},
-							shortcut_playback_speed_1_25: {
-								component: 'shortcut',
-								text: '1.25x'
-							},
-							shortcut_playback_speed_1_5: {
-								component: 'shortcut',
-								text: '1.5x'
-							},
-							shortcut_playback_speed_1_75: {
-								component: 'shortcut',
-								text: '1.75x'
-							},
-							shortcut_playback_speed_2: {
-								component: 'shortcut',
-								text: '2x'
 							}
 						}
 					}
@@ -365,10 +322,6 @@ extension.skeleton.main.layers.section.shortcuts = {
 				shortcut_rotate_video: {
 					component: 'shortcut',
 					text: 'rotate'
-				},
-				shortcut_cinema_mode: {
-					component: 'shortcut',
-					text: 'cinemaMode'
 				}
 			},
 			section: {
@@ -414,10 +367,6 @@ extension.skeleton.main.layers.section.shortcuts = {
 				shortcut_dark_theme: {
 					component: 'shortcut',
 					text: 'darkTheme'
-				},
-				shortcut_refresh_categories: {
-					component: 'shortcut',
-					text: 'refreshCategories'
 				}
 			}
 		}
