@@ -150,57 +150,7 @@ ImprovedTube.blocklistChannel = function (node) {
 			node.parentNode.parentNode.appendChild(button);
 		}
 	});
-	this.blocklistChannelObserver.observe(node.parentNode.parentNode, {childList: true, subtree: true});
-};
-
-ImprovedTube.handleDislikeButton = function() {	
-	// Wait for the dislike button to exist. YouTube may create/remove it dynamically.
-	const findButton = () => document.querySelector('dislike-button-view-model button');
-
-	const attach = (dislikeButton) => {
-		if (!dislikeButton) return;
-
-		// Also observe aria-pressed changes directly (more robust than relying on click)
-		const observer = new MutationObserver((mutations) => {
-			for (const m of mutations) {
-				if (m.type === 'attributes' && m.attributeName === 'aria-pressed') {
-					const aria = dislikeButton.getAttribute('aria-pressed');
-					const isDisliked = aria === 'true';
-					console.log('ImprovedTube: aria-pressed changed ->', aria);
-					const videoId = location.href.match(ImprovedTube.regex.video_id)?.[1];
-					const title = document.querySelector('h1.style-scope.ytd-watch-metadata yt-formatted-string')?.textContent;
-					if (!videoId || !title) return;
-					if (!this.storage.blocklist_activate || !this.storage.blocklist_dislike_trigger) return;
-					ImprovedTube.messages.send({
-						action: 'blocklist',
-						added: isDisliked,
-						type: 'video',
-						id: videoId,
-						title: title,
-						when: Date.parse(new Date().toDateString()) / 100000
-					});
-				}
-			}
-		});
-		observer.observe(dislikeButton, { attributes: true, attributeFilter: ['aria-pressed'] });
-		dislikeButton._itDislikeObserver = observer;
-	};
-
-	const button = findButton();
-	if (button) {
-		attach(button);
-		return;
-	}
-
-	// If button not present yet, watch DOM for it (one-time observer)
-	const rootObserver = new MutationObserver((mutations, obs) => {
-		const b = findButton();
-		if (b) {
-			attach(b);
-			try { obs.disconnect(); } catch (e) {}
-		}
-	});
-	rootObserver.observe(document.documentElement || document.body, { childList: true, subtree: true });
+	this.blocklistChannelObserver.observe(node.parentNode.parentNode, { childList: true, subtree: true });
 };
 
 ImprovedTube.blocklistInit = function () {
@@ -208,7 +158,7 @@ ImprovedTube.blocklistInit = function () {
 		// initialize and (re)scan whole page. Called on load after 'storage-loaded'
 		// and blocklist 'storage-changed' event (adding/removing blocks)
 		if (!this.storage.blocklist || typeof this.storage.blocklist !== 'object') {
-			this.storage.blocklist = {videos: {}, channels: {}};
+			this.storage.blocklist = { videos: {}, channels: {} };
 		}
 		if (!this.storage.blocklist.videos || typeof this.storage.blocklist.channels !== 'object') {
 			this.storage.blocklist.videos = {};
@@ -221,11 +171,6 @@ ImprovedTube.blocklistInit = function () {
 		}
 		if (document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER, YT-SUBSCRIBE-BUTTON-VIEW-MODEL, YTD-BUTTON-RENDERER.ytd-c4-tabbed-header-renderer')) {
 			this.blocklistChannel(document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER, YT-SUBSCRIBE-BUTTON-VIEW-MODEL, YTD-BUTTON-RENDERER.ytd-c4-tabbed-header-renderer'));
-		}
-
-		// Initialize dislike button handler for video pages (if user enabled)
-		if (location.pathname === '/watch' && this.storage.blocklist_dislike_trigger) {
-			this.handleDislikeButton();
 		}
 	} else {
 		// Disable and unload Blocklist
@@ -288,31 +233,31 @@ ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 ImprovedTube.blocklistElementTypeHelper = function (node) {
 	switch (node.parentNode.className.replace('style-scope ', '')) {
 		case 'ytd-compact-video-renderer':
-			// list next to player
-			// node.parentNode.__dataHost.$.dismissible;
+		// list next to player
+		// node.parentNode.__dataHost.$.dismissible;
 		case 'ytd-rich-item-renderer':
-			// short reel
+		// short reel
 		case 'ytd-rich-grid-media':
-			// grid reel
+		// grid reel
 		case 'ytd-rich-grid-slim-media':
-			// short grid reel
+		// short grid reel
 		case 'ytd-playlist-video-renderer':
-			// playlist page
+		// playlist page
 		case 'ytd-playlist-panel-video-renderer':
-			// playlist next to player
-			// node.parentNode.closest('ytd-playlist-panel-video-renderer')
+		// playlist next to player
+		// node.parentNode.closest('ytd-playlist-panel-video-renderer')
 		case 'ytd-structured-description-video-lockup-renderer':
-			// list under the player
-			// node.parentNode.closest('ytd-structured-description-video-lockup-renderer')
-			// or even node.parentNode.closest('ytd-compact-infocard-renderer') === node.parentNode.parentNode.parentNode.parentNode
+		// list under the player
+		// node.parentNode.closest('ytd-structured-description-video-lockup-renderer')
+		// or even node.parentNode.closest('ytd-compact-infocard-renderer') === node.parentNode.parentNode.parentNode.parentNode
 		case 'ytd-video-renderer':
-			// search results
+		// search results
 		case 'ytd-video-preview':
 			// subscriptions/search thumbnail video-preview
 			return node.parentNode.parentNode.parentNode;
 
 		case 'ytd-grid-video-renderer':
-			// channel home screen grid
+		// channel home screen grid
 		case 'ytd-reel-item-renderer':
 			// reel
 			return node.parentNode.parentNode;

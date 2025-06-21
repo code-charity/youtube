@@ -17,28 +17,30 @@
 // const keepAliveInterval = setInterval(() => chrome.runtime.sendMessage({ status: 'keep-alive' }), 29.5 * 1000);
 
 /* Sidepanel Option
-  chrome.storage.local.get('improvedTubeSidePanel', function (result) {
-	if ( result.improvedTubeSidePanel && result.improvedTubeSidePanel === true) {
+  chrome.storage.local.get('improvedTubeSidePanel', result => {
+	if (result.improvedTubeSidePanel) {
 		chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true })
-	} else {chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false }) }
+	} else {
+        chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false })
+    }
   });
 */
 /*---------------------------
 # IMPORTING OLD (renamed) SETTINGS   (Each one is mostly needed once, but fine to stay unlimited. Legacy.)
 -----------------------------*/
-chrome.runtime.onInstalled.addListener(function (installed) {
+chrome.runtime.onInstalled.addListener(installed => {
 	if (installed.reason == 'update') {
-		//		var thisVersion = chrome.runtime.getManifest().version;
-		//		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
-		chrome.storage.local.get('description', function (result) {
+		//var thisVersion = chrome.runtime.getManifest().version;
+		//console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
+		chrome.storage.local.get('description', result => {
 			if (result.description === 'classic_expanded') {
 				chrome.storage.local.set({description: 'expanded'});
 			}
-		});		
+		});
 		// Shortcut renames:
 		chrome.storage.local.get(['shortcut_auto', 'shortcut_144p', 'shortcut_240p', 'shortcut_360p', 'shortcut_480p', 'shortcut_720p', 'shortcut_1080p', 'shortcut_1440p', 'shortcut_2160p', 'shortcut_2880p', 'shortcut_4320p'], function (result) {
-			// validate and move to new name
-			for (let [name, keys] of Object.entries(result)) {
+			// Validate and move to new name
+			for (const [name, keys] of Object.entries(result)) {
 				if (!keys) continue;
 				let newKeys = {},
 					newName = name.replace('shortcut_', 'shortcut_quality_');
@@ -54,26 +56,26 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 			chrome.storage.local.remove(Object.keys(result));
 		});
 		chrome.storage.local.get(['volume_step', 'playback_speed_step'], function (result) {
-			for (let [name, value] of Object.entries(result)) {
-				let newName = 'shortcuts_' + name;
+			for (const [name, value] of Object.entries(result)) {
+				const newName = `shortcuts_${name}`;
 				chrome.storage.local.set({[newName]: value});
 			}
 			chrome.storage.local.remove(Object.keys(result));
 		});
-		chrome.storage.local.get('player_autoplay', function (result) {
-			if (result.player_autoplay === false) {
+		chrome.storage.local.get('player_autoplay', result => {
+			if (!result.player_autoplay) {
 				chrome.storage.local.set({player_autoplay_disable: true});
 				chrome.storage.local.remove(['player_autoplay']);
 			}
 		});
-		chrome.storage.local.get('channel_default_tab', function (result) {
+		chrome.storage.local.get('channel_default_tab', result => {
 			if (result.channel_default_tab === '/home') {
 				chrome.storage.local.set({channel_default_tab: '/'});
 			}
 		});
-		chrome.storage.local.get('player_quality', function (result) {
+		chrome.storage.local.get('player_quality', result => {
 			if (result.player_quality === 'auto') {
-				chrome.storage.local.get('player_quality_auto', function (result) {
+				chrome.storage.local.get('player_quality_auto', result => {
 					if (result.player_quality_auto !== 'migrated') {
 						chrome.storage.local.set({player_quality: 'disabled'});
 						chrome.storage.local.set({player_quality_auto: 'migrated'});
@@ -81,17 +83,17 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 				});
 			}
 		});
-		chrome.storage.local.get('hideSubscribe', function (result) {
-			if (result.hideSubscribe === true) {
+		chrome.storage.local.get('hideSubscribe', result => {
+			if (result.hideSubscribe) {
 				chrome.storage.local.set({subscribe: 'hidden'});
 				chrome.storage.local.remove(['hideSubscribe']);
 			}
 		});
-		chrome.storage.local.get('limit_page_width', function (result) {
-			if (result.limit_page_width === false) {
+		chrome.storage.local.get('limit_page_width', result => {
+			if (!result.limit_page_width) {
 				chrome.storage.local.set({no_page_margin: true});
 				chrome.storage.local.remove(['limit_page_width']);
-				chrome.storage.local.get('player_size', function (r) {
+				chrome.storage.local.get('player_size', r => {
 					if (r.player_size == 'full_window' || r.player_size == 'fit_to_window') {
 						chrome.storage.local.set({player_size: 'max_width'});
 					}
@@ -105,9 +107,9 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 		if (navigator.userAgent.indexOf('Safari') !== -1
 		   && (!/Windows|Chrom/.test(navigator.userAgent)
 			   || /Macintosh|iPhone/.test(navigator.userAgent))) {
-			chrome.storage.local.set({below_player_pip: false})
+			chrome.storage.local.set({below_player_pip: false});
 			// still needed? (are screenshots broken in Safari?):
-			chrome.storage.local.set({below_player_screenshot: false})
+			chrome.storage.local.set({below_player_screenshot: false});
 		}
 		// console.log('Thanks for installing!');
 	}
@@ -117,20 +119,20 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 --------------------------------------------------------------*/
 function getLocale (language, callback) {
 	language = language.replace('-', '_');
-	fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
+	fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(response => {
 		if (response.ok) {
 			response.json().then(callback);
 		} else {
-			fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
+			fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(response => {
 				if (response.ok) {
 					response.json().then(callback);
 				} else {
 					getLocale('en', callback);
 				}
-			}).catch(function () { getLocale('en', callback); });
+			}).catch(() => {getLocale('en', callback);});
 			getLocale('en', callback);
 		}
-	}).catch(function () {
+	}).catch(() => {
 		getLocale('en', callback);
 	});
 }
@@ -139,7 +141,7 @@ function getLocale (language, callback) {
 --------------------------------------------------------------*/
 function updateContextMenu (language) {
 	if (!language || language === 'default') language = chrome.i18n.getUILanguage();
-	getLocale(language, function (response) {
+	getLocale(language, response => {
 		const items = [
 			'donate',
 			'rateMe',
@@ -157,7 +159,7 @@ function updateContextMenu (language) {
 				// contexts: ['browser_action'] //manifest2
 			});
 		}
-		chrome.contextMenus.onClicked.addListener(function (info) {
+		chrome.contextMenus.onClicked.addListener(info => {
 			const links = [
 				'https://www.improvedtube.com/donate',
 				'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
@@ -168,15 +170,17 @@ function updateContextMenu (language) {
 		});
 	});
 }
-chrome.runtime.onInstalled.addListener(function () {
-	chrome.storage.local.get(function (items) {
+chrome.runtime.onInstalled.addListener(() => {
+	chrome.storage.local.get(items => {
 		updateContextMenu(items.language);
 	});
 });
 
-chrome.storage.onChanged.addListener(function (changes) {
-	if (changes?.language) updateContextMenu(changes.language.newValue);
-	if (changes?.improvedTubeSidebar) chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes.language.newValue});
+chrome.storage.onChanged.addListener(changes => {
+	if (changes?.language)
+		updateContextMenu(changes.language.newValue);
+	if (changes?.improvedTubeSidebar)
+		chrome.sidePanel.setPanelBehavior({openPanelOnActionClick: changes.language.newValue});
 });
 /*--------------------------------------------------------------
 # TAB Helper, prune stale connected tabs
@@ -187,31 +191,31 @@ let tabConnected = {},
 	windowId;
 
 function tabPrune (callback) {
-	chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(function (tabs) {
+	chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(tabs => {
 		let tabIds = [];
-		for (let tab of tabs) {
+		for (const tab of tabs) {
 			if (!tab.discarded && tabConnected[tab.id]) {
 				tabIds.push(tab.id);
 			}
 		}
-		for (let id in tabConnected) {
+		for (const id in tabConnected) {
 			if (!tabIds.includes(Number(id))) {
 				delete tabConnected[id];
 			}
 		}
 		callback();
-	}, function () { console.log("Error querying Tabs") });
+	}, () => { console.log("Error querying Tabs") });
 };
 /*--------------------------------------------------------------
 # TAB FOCUS/BLUR
  commented out console.log left intentionally, to help understand
  https://issues.chromium.org/issues/41116352
 --------------------------------------------------------------*/
-chrome.tabs.onActivated.addListener(function (activeInfo) {
+chrome.tabs.onActivated.addListener(activeInfo => {
 	tabPrev = tab;
 	tab = activeInfo;
 	//console.log('activeInfo', windowId, tabPrev, tab);
-	tabPrune(function () {
+	tabPrune(() => {
 		if (windowId == tabPrev.windowId) {
 			if (tabConnected[tabPrev.tabId]) {
 				chrome.tabs.sendMessage(tabPrev.tabId, {action: 'blur'});
@@ -224,10 +228,9 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
 		}
 	});
 });
-chrome.windows.onFocusChanged.addListener(function (wId) {
-	windowId = wId;
+chrome.windows.onFocusChanged.addListener(windowId => {
 	//console.log('onFocusChanged', windowId, tabPrev, tab);
-	tabPrune(function () {
+	tabPrune(() => {
 		if (windowId != tab.windowId && tab.tabId && !tab.blur && tabConnected[tab.tabId]) {
 			tab.blur = true;
 			chrome.tabs.sendMessage(tab.tabId, {action: 'blur'});
@@ -242,13 +245,13 @@ chrome.windows.onFocusChanged.addListener(function (wId) {
 /*--------------------------------------------------------------
 # MESSAGE LISTENER
 --------------------------------------------------------------*/
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 	//console.log(message);
 	//console.log(sender);
 
 	switch (message.action || message.name || message) {
 		case 'play':
-			tabPrune(function () {
+			tabPrune(() => {
 				for (let id in tabConnected) {
 					id = Number(id);
 					if (id != sender.tab.id) {
@@ -279,15 +282,15 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 					active: true
 				}, ts => {
 					const tID = ts[0]?.id,
-						  data = { type: 'popup',
-								  state: w.state,
-								  width: parseInt(message.width, 10),
-								  height: parseInt(message.height, 10),
-								  left: 0,
-								  top: 20
-								 }
-
-					if (tID) {data.tabId = tID;}
+						data = {
+							type: 'popup',
+							state: w.state,
+							width: parseInt(message.width, 10),
+							height: parseInt(message.height, 10),
+							left: 0,
+							top: 20
+                        };
+					if (tID) data.tabId = tID;
 					chrome.windows.create(data);
 
 					//append to title?

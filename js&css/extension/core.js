@@ -21,7 +21,7 @@
 # GLOBAL VARIABLE
 --------------------------------------------------------------*/
 
-var extension = {
+let extension = {
 	domReady: false,
 	events: {
 		listeners: {}
@@ -42,15 +42,14 @@ var extension = {
 --------------------------------------------------------------*/
 
 extension.camelize = function (string) {
-	var result = '';
+	let result = '';
 
-	for (var i = 0, l = string.length; i < l; i++) {
-		var character = string[i];
+	for (let i = 0, l = string.length; i < l; i++) {
+		const character = string[i];
 
 		if (character === '_' || character === '-') {
+			result += character.toUpperCase();
 			i++;
-
-			result += string[i].toUpperCase();
 		} else {
 			result += character;
 		}
@@ -68,13 +67,13 @@ extension.camelize = function (string) {
 --------------------------------------------------------------*/
 
 extension.events.on = function (type, listener, options = {}) {
-	var listeners = extension.events.listeners;
+	let listeners = extension.events.listeners;
 
 	if (!listeners[type]) {
 		listeners[type] = [];
 	}
 
-	if (options.async === true) {
+	if (options.async) {
 		listener = (function (original) {
 			return async function () {
 				return new Promise(original);
@@ -82,7 +81,7 @@ extension.events.on = function (type, listener, options = {}) {
 		})(listener);
 	}
 
-	if (options.prepend === true) {
+	if (options.prepend) {
 		listeners[type].unshift(listener);
 	} else {
 		listeners[type].push(listener);
@@ -94,14 +93,14 @@ extension.events.on = function (type, listener, options = {}) {
 --------------------------------------------------------------*/
 
 extension.events.trigger = async function (type, data) {
-	var listeners = extension.events.listeners[type];
+	let listeners = extension.events.listeners[type];
 
 	if (listeners) {
-		for (var i = 0, l = listeners.length; i < l; i++) {
-			var listener = listeners[i];
+		for (let i = 0, l = listeners.length; i < l; i++) {
+			let listener = listeners[i];
 
 			if (typeof listener === 'function') {
-				if (listener instanceof (async function () { }).constructor === true) {
+				if (listener instanceof (async function () { }).constructor) {
 					await listener(data);
 				} else {
 					listener(data);
@@ -113,8 +112,6 @@ extension.events.trigger = async function (type, data) {
 
 /*--------------------------------------------------------------
 # INJECT
-----------------------------------------------------------------
-
 --------------------------------------------------------------*/
 
 extension.inject = function (paths, callback) {
@@ -124,12 +121,10 @@ extension.inject = function (paths, callback) {
 
 		if (path.indexOf('.css') !== -1) {
 			element = document.createElement('link');
-
 			element.rel = 'stylesheet';
 			element.href = path;
 		} else {
 			element = document.createElement('script');
-
 			element.src = path;
 		}
 
@@ -188,9 +183,7 @@ extension.inject = function (paths, callback) {
 
 extension.messages.create = function () {
 	this.element = document.createElement('div');
-
 	this.element.id = 'it-messages-from-extension';
-
 	this.element.style.display = 'none';
 
 	document.documentElement.appendChild(this.element);
@@ -242,10 +235,10 @@ extension.storage.get = function (key) {
 	if (key.indexOf('/') === -1) {
 		return this.data[key];
 	} else {
-		var target = this.data,
-			path = key.split('/').filter(function (value) {
-				return value != '';
-			});
+		var target = this.data;
+		/*path = key.split('/').filter(function (value) {
+			return value != '';
+		});*/
 
 		for (var i = 0, l = key.length; i < l; i++) {
 			var part = key[i];
@@ -274,7 +267,7 @@ extension.storage.listener = function () {
 			document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), value);
 
 			if (typeof extension.features[camelized_key] === 'function') {
-				extension.features[camelized_key](value);
+				extension.features[camelized_key](true);
 			}
 
 			extension.events.trigger('storage-changed', {

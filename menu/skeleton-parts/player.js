@@ -84,11 +84,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'preventShortVideoAutoloop',
 			storage: 'prevent_shorts_autoloop',
 		},
-		shorts_auto_scroll: {
-			component: 'switch',
-			text: 'autoPlayNextShort',
-			storage: 'shorts_auto_scroll'
-		},
 		autoplay_disable: {
 			component: 'switch',
 			text: 'autoplayDisable',
@@ -776,8 +771,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 				render: function () {
 					// relies on options.text above auto always starting with a number for parseInt to work
 					const options = this.childNodes[2].options,
-							index = this.childNodes[2].selectedIndex;
-							cutoff = 1080;
+						index = this.childNodes[2].selectedIndex;
+						cutoff = 1080;
 					if (satus.storage.get('player_h264')) {
 						if (parseInt(options[index].text) > cutoff) {
 							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
@@ -815,19 +810,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 				render: function () {
 					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
 				}
-			}
-		},
-		full_screen_quality: {
-			component: 'select',
-			text: 'fullScreenQuality',
-			id: 'full_screen_quality',
-			options: function () {
-				return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
-			},
-			on: {
-                 render: function () {
-					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this)
-				 }
 			}
 		},
 		/*
@@ -994,14 +976,13 @@ extension.skeleton.main.layers.section.player.on.click = {
 			custom: true,
 			on: {
 				click: function () {
-					let skeleton = this.parentNode.skeleton;
+					//let skeleton = this.parentNode.skeleton;
 					// refresh player_codecs/optimize_codec_for_hardware_acceleration elements when we change codecs
 					let refresh = function () {
 						document.getElementById('player_quality').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
-						document.getElementById('full_screen_quality')?.dispatchEvent(new CustomEvent('render'))
 						//document.getElementById('quality_when_low_battery').dispatchEvent(new CustomEvent('render'));
 					}
 					if (this.dataset.value === 'false') {
@@ -1036,13 +1017,13 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		optimize_codec_for_hardware_acceleration: {
 			component: 'button',
-			text: 'optimizeCodecForHardwareAcceleration',
+			text: 'Optimize Codec for hardware acceleration',
 			style: {
 				justifyContent: 'space-between'
 			},
 			on: {
 				click: function () {
-					//put some code here
+					// put some code here
 				}
 			},
 			list: {
@@ -1058,16 +1039,16 @@ extension.skeleton.main.layers.section.player.on.click = {
 
 						if (1) { // todo
 							this.style = '';
-							this.textContent = satus.locale.get('Feature_not_yet_available');
+							this.textContent = 'Feature not yet available';
 						} else if (2) { // todo
 							this.style = '';
-							this.textContent = satus.locale.get('GPUnotindatabase');
+							this.textContent = 'GPU not in database';
 						} else if (codecs) {
 							this.style = 'color: green!important; font-weight: bold;';
-							this.textContent = satus.locale.get('Optimal');
+							this.textContent = 'Optimal';
 						} else {
 							this.style = 'color: red!important; font-weight: bold;';
-							this.textContent = satus.locale.get('Not_optimal');
+							this.textContent = 'Not optimal';
 						}
 					}
 				}
@@ -1085,7 +1066,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_hide_progress_preview: {
 			component: 'switch',
-			text: 'hideProgressBarPreview',
+			text: 'Hide progress bar preview',
 			storage: 'player_hide_progress_preview'
 		},
 	},
@@ -1115,7 +1096,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_screenshot_button: {
 			component: 'switch',
-			text: 'screenshot',
+			text: 'Screenshot',
 			id: 'player_screenshot_button'
 		},
 		embed_subtitle: {
@@ -1139,24 +1120,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 				return options;
 			}
-		},
-
-		player_playback_speed_button: {
-			component: 'switch',
-			text: 'playbackSpeedButton',
-			storage: 'player_playback_speed_button',
-			id: 'player_playback_speed_button',
-			children: [{
-				id: 'player_custom_playback_speed',
-				storage: 'player_custom_playback_speed',
-				component: 'slider',
-				text: 'preferredSpeed',
-				min: 0.25,
-				max: 4,
-				step: 0.05,
-				textarea: true,
-				value: 1.25
-			}]
 		},
 	
 		player_cinema_mode_button: {
@@ -1194,12 +1157,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_hamburger_button: {
 			component: 'switch',
 			text: 'Hamburger_Menu'
-		},
-		theater_mode_icon_revert_button: {
-			component: 'switch',
-			text: 'revertTheaterModeButtonSizes',
-			storage: 'player_revert_theater_button_sizes',
-			value: false
 		},
 		extraButtons: {
 			component: 'section',
@@ -1249,30 +1206,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 				component: 'switch',
 				text: 'player_rewind_and_forward_buttons'
 			},
-			player_increase_decrease_speed_buttons: {
-				component: 'switch',
-				text: 'playerIncreaseDecreaseSpeedButtons',
-				id: 'player-increase-decrease-speed-buttons'
-			},
-			player_custom_playback_speed_step: {
-				storage: 'player_custom_playback_speed_step',
-				component: 'slider',
-				text: 'playerPlaybackSpeedStep',
-				textarea: true,
-				min: 0.05,
-				max: 1,
-				step: 0.05,
-				value: 0.25
-			},
-
-			player_playback_speed_button: {
-				component: 'switch',
-				text: 'player_playback_speed_button'
-			},
-		},
-		fullscreen_return_button: {
-			component: 'switch',
-			text: 'fullscreenReturn',
 		},
 		player_hide_controls_options: {
 			component: "button",

@@ -10,7 +10,7 @@
 html[it-header-transparent=true] ytd-masthead#masthead {background: transparent !important;}
 html[it-header-transparent=true] #background.ytd-masthead {background-color: rgba(230, 230, 230, 0.1) !important;}
 html[it-header-transparent=true] ytd-masthead[frosted-glass] #background.ytd-masthead {backdrop-filter: blur(1px) !important;}
-html[it-header-transparent=true] {  --ytd-searchbox-background: rgba(var(--ytd-searchbox-background), 0.5) !important;}
+html[it-header-transparent=true] { --ytd-searchbox-background: rgba(var(--ytd-searchbox-background), 0.5) !important;}
 
 /* Header-transparent alternative by @joaolscosta */
 /* Change opacity when scrolling down */
@@ -112,7 +112,6 @@ html[data-page-type='video'][it-header-position=hover_on_video_page]:not([it-imp
 	transform: translateY(-38%);
 	height: 68px;
 	opacity: 0;
-	backdrop-filter: blur(4px);
 }
 
 html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]):focus-within,
@@ -169,15 +168,11 @@ html[it-header-hide-logo='true'] #logo-icon yt-icon-shape,
 html[it-header-hide-logo='true'] #logo-icon .yt-icon-shape {
 	visibility:hidden;
 }
-/* Simple fix: Add modern YouTube logo selectors */
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer path[fill='#FF0000'],
-html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'],
-html[it-header-improve-logo='true'] #logo path[fill='#FF0000'],
-html[it-header-improve-logo='true'] #logo polygon[fill='#FFFFFF'] {
+html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] {
 	fill: rgb(44, 44, 44) !important;
 }
-html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'],
-html[it-header-improve-logo='true'][dark] #logo path[fill='#FF0000'] {
+html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] {
 	fill: rgb(70, 70, 70) !important;
 }
 /*--------------------------------------------------------------

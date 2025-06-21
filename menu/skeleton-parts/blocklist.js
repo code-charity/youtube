@@ -8,30 +8,12 @@ extension.skeleton.main.layers.section.blocklist = {
 	category: true,
 	on: {
 		click: {
-			section1: {
-				component: 'section',
-				variant: 'card',
-				
-				blocklist_activate: {
-					component: 'switch',
-					variant: 'activation',
-					text: 'activate'
-				},
+			blocklist_activate: {
+				component: 'switch',
+				variant: 'activation',
+				text: 'activate'
 			},
-			
 			section2: {
-				component: 'section',
-				variant: 'card',
-				blocklist_dislike_trigger: {
-					component: 'switch',
-					text: 'dislikingAVideoAddsItToBlocklist',
-					storage: 'blocklist_dislike_trigger',
-					id: 'blocklist_dislike_trigger'
-					
-				}
-			},
-
-			section3: {
 				component: 'section',
 				variant: 'card',
 
@@ -54,7 +36,7 @@ extension.skeleton.main.layers.section.blocklist = {
 										for (let key in blocklist.channels) {
 											let channel = blocklist.channels[key];
 
-											if (channel !== false) {
+											if (channel ) {
 												skeleton[key] = {
 													component: 'div',
 													variant: 'blocklist',
@@ -152,7 +134,7 @@ extension.skeleton.main.layers.section.blocklist = {
 										for (let key in blocklist.videos) {
 											let video = blocklist.videos[key];
 
-											if (video !== false) {
+											if (video ) {
 												skeleton[key] = {
 													component: 'div',
 													variant: 'blocklist',

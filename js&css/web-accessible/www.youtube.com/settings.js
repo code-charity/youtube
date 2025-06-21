@@ -7,7 +7,7 @@
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.improvedtubeYoutubeIcon = function () {
-	var data = localStorage.getItem('improvedtube-button-position'),
+	let data = localStorage.getItem('improvedtube-button-position'),
 		x = 0,
 		y = 0,
 		option = this.storage.improvedtube_youtube_icon,
@@ -21,18 +21,17 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 	}
 
 	if (!button) {
-		var label = document.createElement('span');
+		let label = document.createElement('span');
 
 		button = document.createElement('button');
-
 		button.className = 'it-button';
 
 		button.addEventListener('mousedown', function (event) {
 			if (ImprovedTube.storage.improvedtube_youtube_icon === 'draggable') {
-				var x2 = event.layerX,
+				let x2 = event.layerX,
 					y2 = event.layerY;
 
-				function mousemove (event) {
+				function mousemove(event) {
 					if (button.className.indexOf('dragging') === -1) {
 						button.classList.add('it-button--dragging');
 					}
@@ -44,30 +43,27 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 					button.style.top = y + 'px';
 				}
 
-				function mouseup () {
-					localStorage.setItem('improvedtube-button-position', JSON.stringify({x, y}));
-
+				function mouseup() {
+					localStorage.setItem('improvedtube-button-position', JSON.stringify({ x, y }));
 					window.removeEventListener('mousemove', mousemove);
 					window.removeEventListener('mouseup', mouseup);
 				}
 
-				function click () {
+				function click() {
 					button.classList.remove('it-button--dragging');
-
 					window.removeEventListener('click', click);
 				}
 
 				window.addEventListener('mousemove', mousemove);
 				window.addEventListener('mouseup', mouseup);
 				window.addEventListener('click', click);
-
 				event.preventDefault();
 			}
 		});
 
 		button.addEventListener('click', function () {
 			if (this.classList.contains('it-button--dragging') === false) {
-				var rect = this.getBoundingClientRect(),
+				let rect = this.getBoundingClientRect(),
 					left = rect.x,
 					top = rect.y,
 					scrim = document.createElement('div'),
@@ -95,7 +91,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 				document.body.appendChild(scrim);
 				document.body.appendChild(iframe);
 
-				ImprovedTube.messages.send({requestOptionsUrl: true});
+				ImprovedTube.messages.send({ requestOptionsUrl: true });
 			}
 		});
 
@@ -149,17 +145,17 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.deleteYoutubeCookies = function () {
-	var cookies = document.cookie.split(';');
+	let cookies = document.cookie.split(';');
 
-	for (var i = 0, l = cookies.length; i < l; i++) {
-		var cookie = cookies[i],
+	for (let i = 0, l = cookies.length; i < l; i++) {
+		let cookie = cookies[i],
 			eqPos = cookie.indexOf('='),
 			name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
 
 		document.cookie = name + '=; domain=.youtube.com; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
 	}
 
-	setTimeout(function () {location.reload();}, 100);
+	setTimeout(function () { location.reload(); }, 100);
 };
 
 /*-----------------------------------------------------------------------------

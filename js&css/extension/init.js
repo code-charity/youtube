@@ -10,8 +10,6 @@ window.addEventListener('yt-navigate-finish', function () {
 
 	extension.features.trackWatchedVideos();
 	extension.features.thumbnailsQuality();
-	extension.features.stickyNavigation();
-	extension.features.hideSponsoredVideosOnHome?.();
 });
 
 extension.messages.create();
@@ -46,19 +44,15 @@ extension.events.on('init', function () {
 	extension.features.disableThumbnailPlayback();
 	extension.features.markWatchedVideos();
 	extension.features.relatedVideos();
-	extension.features.stickyNavigation();
-	extension.features.liveChat();
 	extension.features.comments();
 	extension.features.openNewTab();
-	extension.features.removeListParamOnNewTab();
-	extension.features.removeMemberOnly();
-	// extension.features.hideSponsoredVideosOnHome?.();	
+	extension.features.removeListParamOnNewTab();	
 	bodyReady();
 });
 
 chrome.runtime.sendMessage({
 	action: 'tab-connected'
-}, function (response) {
+}, response => {
 	if (response) {
 		extension.tabId = response.tabId;
 	}
@@ -71,59 +65,65 @@ extension.inject([
 	'/js&css/web-accessible/www.youtube.com/themes.js',
 	'/js&css/web-accessible/www.youtube.com/player.js',
 	'/js&css/web-accessible/www.youtube.com/playlist.js',
-	'/js&css/web-accessible/www.youtube.com/playlist-complete-playlist.js',
 	'/js&css/web-accessible/www.youtube.com/channel.js',
 	'/js&css/web-accessible/www.youtube.com/shortcuts.js',
 	'/js&css/web-accessible/www.youtube.com/blocklist.js',
 	'/js&css/web-accessible/www.youtube.com/settings.js',
-	'/js&css/web-accessible/www.youtube.com/last-watched-overlay.js',  // Neue Zeile hinzufügen
 	'/js&css/web-accessible/init.js'
-], function () {
+], () => {
 	extension.ready = true;
-
 	extension.events.trigger('init');
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 	extension.domReady = true;
-
 	bodyReady();
 });
 
-chrome.runtime.onMessage.addListener(function (request, _sender, sendResponse) {
-	if (request.action === 'focus') {
-		extension.messages.send({
-			focus: true
-		});
-	} else if (request.action === 'blur') {
-		extension.messages.send({
-			blur: true
-		});
-	} else if (request.action === 'pause') {
-		extension.messages.send({
-			pause: true
-		});
-	} else if (request.action === 'set-volume') {
-		extension.messages.send({
-			setVolume: request.value
-		});
-	} else if (request.action === 'set-playback-speed') {
-		extension.messages.send({
-			setPlaybackSpeed: request.value
-		});
-	} else if (request.action === 'mixer') {
-		extension.messages.send({
-			mixer: true
-		}, sendResponse, 'mixer');
-
-		return true;
-	} else if (request.action === 'delete-youtube-cookies') {
-		extension.messages.send({
-			deleteCookies: true
-		});
-	} else if (request.action === "another-video-started-playing") {
-		extension.features.onlyOnePlayerInstancePlaying();
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+	switch (request.action) {
+		case 'focus':
+			extension.messages.send({
+				focus: true
+			});
+			break;
+		case 'blur':
+			extension.messages.send({
+				blur: true
+			});
+			break;
+		case 'pause':
+			extension.messages.send({
+				pause: true
+			});
+			break;
+		case 'set-volume':
+			extension.messages.send({
+				setVolume: request.value
+			});
+			break;
+		case 'set-playback-speed':
+			extension.messages.send({
+				setVolume: request.value
+			});
+			break;
+		case 'mixer':
+			extension.messages.send({
+				mixer: true
+			}, sendResponse, 'mixer');
+			break;
+		case 'delete-youtube-cookies':
+			extension.messages.send({
+				deleteCookies: true
+			});
+			break;
+		case 'another-video-started-playing':
+			extension.features.onlyOnePlayerInstancePlaying();
+			break;
+		default:
+			break;
 	}
+	return true;
 });
 
 document.addEventListener('it-message-from-youtube', function () {
@@ -142,11 +142,11 @@ document.addEventListener('it-message-from-youtube', function () {
 
 		//console.log(message);
 
-		if (message.requestOptionsUrl === true) {
+		if (message.requestOptionsUrl) {
 			extension.messages.send({
 				responseOptionsUrl: chrome.runtime.getURL('menu/index.html')
 			});
-		} else if (message.onlyOnePlayer === true) {
+		} else if (message.onlyOnePlayer) {
 			chrome.runtime.sendMessage({
 				name: 'only-one-player'
 			});
@@ -158,7 +158,7 @@ document.addEventListener('it-message-from-youtube', function () {
 				title: message.title,
 			});
 		} else if (message.action === 'analyzer') {
-			if (extension.storage.data.analyzer_activation === true) {
+			if (extension.storage.data.analyzer_activation) {
 				var data = message.name,
 					date = new Date().toDateString(),
 					hours = new Date().getHours() + ':00';
@@ -252,9 +252,16 @@ document.addEventListener('it-message-from-youtube', function () {
 	}
 });
 
-document.addEventListener('it-play', function () {
+document.addEventListener('it-play', () => {
 	// var videos = document.querySelectorAll('video');
 	try {
 		chrome.runtime.sendMessage({ action: 'play' })
-	} catch (error) { console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({ action: 'play' }, function (response) { console.log(response) }); } catch { } }, 321) }
+	} catch (error) {
+		console.log(error);
+		setTimeout(function () { try {
+			chrome.runtime.sendMessage({ action: 'play' }, response => {
+				console.log(response)
+			});
+		} catch (error){console.log(error)}}, 321);
+	}
 });
