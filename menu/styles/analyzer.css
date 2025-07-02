@@ -3,32 +3,32 @@
 --------------------------------------------------------------*/
 
 .analyzer-watch-time {
-	font-size: 13px;
-	display: flex;
-	margin: 16px 6px 0;
-	opacity: .72;
-	justify-content: space-between;
+  font-size: 13px;
+  display: flex;
+  margin: 16px 6px 0;
+  opacity: 0.72;
+  justify-content: space-between;
 }
 
 .analyzer-watch-time__label {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .satus-switch--activation {
-	padding: 12px;
-	border-radius: 3px;
-	background: rgba(var(--satus-light), .08);
-	--satus-switch-track: rgba(var(--satus-light), .1);
+  padding: 12px;
+  border-radius: 3px;
+  background: rgba(var(--satus-light), 0.08);
+  --satus-switch-track: rgba(var(--satus-light), 0.1);
 }
 
 .satus-switch--activation:focus {
-	background: rgba(var(--satus-light), .16);
+  background: rgba(var(--satus-light), 0.16);
 }
 
 .satus-switch--activation:hover {
-	background: rgba(var(--satus-light), .12);
+  background: rgba(var(--satus-light), 0.12);
 }
 
-.satus-switch--activation[data-value='true']>.satus-switch__i {
-	opacity: .88;
+.satus-switch--activation[data-value="true"] > .satus-switch__i {
+  opacity: 0.88;
 }

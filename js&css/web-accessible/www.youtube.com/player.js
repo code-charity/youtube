@@ -483,27 +483,27 @@ ImprovedTube.playerPlaybackSpeed = function () {
         };
         ImprovedTube.fetchDOMData();
         /*	
-			if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData(); }
-			else {
-				//Invidious instances. Should be updated automatically!...
-				const invidiousInstances = ['invidious.fdn.fr', 'inv.tux.pizza', 'invidious.flokinet.to', 'invidious.protokolla.fi', 'invidious.private.coffee', 'yt.artemislena.eu', 'invidious.materialio.us', 'iv.datura.network'];
-				function getRandomInvidiousInstance () { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
-
-				(async function () {	 let retries = 4;	let invidiousFetched = false;
-					async function fetchInvidiousData () {
-						try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
-			 DATA = await response.json();
-			 if (DATA.genre && DATA.title && DATA.keywords && DATA.lengthSeconds) { if (DATA.keywords.toString() === defaultKeywords ) {DATA.keywords = ''}
-				 ImprovedTube.speedException(); invidiousFetched = true;	}
-						} catch (error) { console.error('Error: Invidious API: ', error); }
-					}
-					while (retries > 0 && !invidiousFetched) { await fetchInvidiousData();
-						if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 4 ? 1500 : 876)); retries--; }	}
-					if (!invidiousFetched) { if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())}
-					else { ImprovedTube.fetchDOMData();} }
-				})();
-			}
-*/
+                    if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData(); }
+                    else {
+                        //Invidious instances. Should be updated automatically!...
+                        const invidiousInstances = ['invidious.fdn.fr', 'inv.tux.pizza', 'invidious.flokinet.to', 'invidious.protokolla.fi', 'invidious.private.coffee', 'yt.artemislena.eu', 'invidious.materialio.us', 'iv.datura.network'];
+                        function getRandomInvidiousInstance () { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
+        
+                        (async function () {	 let retries = 4;	let invidiousFetched = false;
+                            async function fetchInvidiousData () {
+                                try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
+                     DATA = await response.json();
+                     if (DATA.genre && DATA.title && DATA.keywords && DATA.lengthSeconds) { if (DATA.keywords.toString() === defaultKeywords ) {DATA.keywords = ''}
+                         ImprovedTube.speedException(); invidiousFetched = true;	}
+                                } catch (error) { console.error('Error: Invidious API: ', error); }
+                            }
+                            while (retries > 0 && !invidiousFetched) { await fetchInvidiousData();
+                                if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 4 ? 1500 : 876)); retries--; }	}
+                            if (!invidiousFetched) { if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())}
+                            else { ImprovedTube.fetchDOMData();} }
+                        })();
+                    }
+        */
       } // else { }
     }
   }
@@ -579,15 +579,15 @@ SUBTITLES WINDOW OPACITY
 SUBTITLES CHARACTER EDGE STYLE
 SUBTITLES FONT OPACITY
 default = {
-	"fontFamily": 4,
-	"color": "#fff",
-	"fontSizeIncrement": 0,
-	"background": "#080808",
-	"backgroundOpacity": 0.75,
-	"windowColor": "#080808",
-	"windowOpacity": 0,
-	"charEdgeStyle": 0,
-	"textOpacity": 1,
+    "fontFamily": 4,
+    "color": "#fff",
+    "fontSizeIncrement": 0,
+    "background": "#080808",
+    "backgroundOpacity": 0.75,
+    "windowColor": "#080808",
+    "windowOpacity": 0,
+    "charEdgeStyle": 0,
+    "textOpacity": 1,
 },
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesUserSettings = function () {
