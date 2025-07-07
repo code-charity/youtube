@@ -516,8 +516,8 @@ BATTERY FEATURES;   PLAYER QUALITY BASED ON POWER STATUS
 ------------------------------------------------------------------------------*/
 ImprovedTube.batteryFeatures = async function () {
 	if (ImprovedTube.storage.qualityWhenRunningOnBattery
-		  || ImprovedTube.storage.pauseWhileIUnplugTheCharger
-		  || ImprovedTube.storage.whenBatteryIslowDecreaseQuality) {
+		 	|| ImprovedTube.storage.pauseWhileIUnplugTheCharger
+		 	|| ImprovedTube.storage.whenBatteryIslowDecreaseQuality) {
 		  const updateQuality = async (battery, charging) => {
 			  if (battery) {
 				if (!battery.charging) {
@@ -557,53 +557,63 @@ ImprovedTube.batteryFeatures = async function () {
 FORCED VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVolume = function () {
-	if (this.storage.player_forced_volume === true) {
-		var volume = this.storage.player_volume;
+    if (this.storage.player_forced_volume === true) {
+        var volume = this.storage.player_volume;
+        var userVolume = this.storage.user_preferred_volume || 100;
 
-		if (!this.isset(volume)) {
-			volume = 100;
-		} else {
-			volume = Number(volume);
-		}
+        if (!this.isset(volume)) {
+            volume = 100;
+        } else {
+            volume = Number(volume);
+        }
 
-		if (!this.audioContextGain && volume <= 100) {
-			if (this.audioContext) {
-				this.audioContext.close();
-			}
-
-			this.elements.player.setVolume(volume);
-		} else {
-			if (!this.audioContext) {
-				this.audioContext = new AudioContext();
-
-				this.audioContextSource = this.audioContext.createMediaElementSource(document.querySelector('video'));
-				this.audioContextGain = this.audioContext.createGain();
-
-				this.audioContextGain.gain.value = 1;
-				this.audioContextSource.connect(this.audioContextGain);
-				this.audioContextGain.connect(this.audioContext.destination)
-			}
-			if (this.elements.player.getVolume() !== 100) { this.elements.player.setVolume(100);}
-			this.audioContextGain.gain.value = volume / 100;
-		}
-	}
+        if (!this.audioContextGain && volume <= 100) {
+            if (this.audioContext) {
+                this.audioContext.close();
+            }
+            this.elements.player.setVolume(userVolume);
+        } else {
+            if (!this.audioContext) {
+                this.audioContext = new AudioContext();
+                this.audioContextSource = this.audioContext.createMediaElementSource(document.querySelector('video'));
+                this.audioContextGain = this.audioContext.createGain();
+                this.audioContextGain.gain.value = 1;
+                this.audioContextSource.connect(this.audioContextGain);
+                this.audioContextGain.connect(this.audioContext.destination)
+            }
+            // Set the player volume to the user's preferred level
+            this.elements.player.setVolume(userVolume);
+            // Apply gain amplification based on both the forced volume and user's preferred volume
+            this.audioContextGain.gain.value = (volume / 100) * (userVolume / 100);
+        }
+    }
 };
+
+// Add a function to save the user's preferred volume
+ImprovedTube.saveUserPreferredVolume = function(value) {
+    this.storage.user_preferred_volume = value;
+};
+
+// Modify the volume change handler
+ImprovedTube.onvolumechange = function () {
+    if (document.querySelector('.ytp-volume-panel')) {
+        var volume = Number(document.querySelector('.ytp-volume-panel').getAttribute('aria-valuenow'));
+        this.volume = volume / 100;
+        // Save the user's preferred volume when they change it manually
+        this.saveUserPreferredVolume(volume);
+    }
+};
+
 /*------------------------------------------------------------------------------
 LOUDNESS NORMALIZATION
 ------------------------------------------------------------------------------*/
-ImprovedTube.onvolumechange = function () {
-	if (document.querySelector('.ytp-volume-panel') && ImprovedTube.storage.player_loudness_normalization === false) {
-		var volume = Number(document.querySelector('.ytp-volume-panel').getAttribute('aria-valuenow'));
-
-		this.volume = volume / 100;
-	}
-};
-
 ImprovedTube.playerLoudnessNormalization = function () {
 	var video = this.elements.video;
 
 	if (video) {
 		video.removeEventListener('volumechange', this.onvolumechange);
+		
+		// Add a new event listener for volume change
 		video.addEventListener('volumechange', this.onvolumechange);
 	}
 
