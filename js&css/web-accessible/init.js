@@ -3,6 +3,7 @@
 --------------------------------------------------------------*/
 if (document.body) { ImprovedTube.childHandler(document.body); }
 
+ImprovedTube.redirectShortsToWatch();
 ImprovedTube.observer = new MutationObserver(function (mutationList) {
 
 	for (var i = 0, l = mutationList.length; i < l; i++) {
