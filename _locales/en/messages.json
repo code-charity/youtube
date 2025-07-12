@@ -1,4 +1,5 @@
-{
+{ 
+  "ShortsForceTheStandardPlayer": { "message": "Shorts: Force to use the standard player" },
   "hideTopLoadingBar": { "message": "Hide Top Loading Bar" },
 	  "withoutVideos": { "message": "'Empty', without video previews" },
 	  "hideBannerAds": { "message": "Hide Banner Ads (YouTube might deny)" },

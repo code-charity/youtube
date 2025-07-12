@@ -64,6 +64,10 @@ extension.skeleton.main.layers.section.general = {
 						text: 'removeShortsReelSearchResults'
 					}
 				},
+				redirect_shorts_to_watch: {
+					component: 'switch',
+					text:  'ShortsForceTheStandardPlayer',
+				},
 				remove_home_page_shorts: {
 					component: 'switch',
 					text: 'hideHomePageShorts',

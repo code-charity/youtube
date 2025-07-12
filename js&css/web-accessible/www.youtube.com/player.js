@@ -1760,3 +1760,23 @@ window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitFo
 
 
 }
+
+/*------------------------------------------------------------------------------
+REDIRECT SHORTS TO WATCH URL
+------------------------------------------------------------------------------*/
+ImprovedTube.redirectShortsToWatch = function () {
+    if (this.storage.redirect_shorts_to_watch !== true) {
+        return;
+    }
+    const currentPath = window.location.pathname;
+    if (currentPath.startsWith('/shorts/')) {
+        const videoId = currentPath.substring('/shorts/'.length); 
+        if (videoId) {
+            const newUrl = `${window.location.origin}/watch?v=${videoId}${window.location.search}`;
+            if (window.location.href !== newUrl) {
+                console.log(`ImprovedTube: Redirecting Shorts to Watch: ${window.location.href} -> ${newUrl}`);
+                window.location.replace(newUrl); 
+            }
+        }
+    }
+};
