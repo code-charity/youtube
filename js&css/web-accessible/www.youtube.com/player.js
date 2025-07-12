@@ -1765,7 +1765,7 @@ window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitFo
 REDIRECT SHORTS TO WATCH URL
 ------------------------------------------------------------------------------*/
 ImprovedTube.redirectShortsToWatch = function () {
-    if (this.storage.enable_shorts_to_watch_redirect !== true) {
+    if (this.storage.redirect_shorts_to_watch !== true) {
         return;
     }
     const currentPath = window.location.pathname;
