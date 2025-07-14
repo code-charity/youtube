@@ -1460,5 +1460,8 @@
     },
     "disableAutoDubbing": {
         "message": "Disable auto dubbing"
+    },
+    "hideAISummary": {
+        "message": "Hide AI Summary"
     }
 }

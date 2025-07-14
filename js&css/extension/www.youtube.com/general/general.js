@@ -689,3 +689,28 @@ extension.features.changeThumbnailsPerRow = async function () {
 	const observer = new MutationObserver(applyGridLayout);
 	observer.observe(document.body, { childList: true, subtree: true });
 };
+/*--------------------------------------------------------------
+# HIDE AI SUMMARY
+--------------------------------------------------------------*/
+extension.features.hideAISummary = function () {
+	var hide_ai_summary = extension.storage.get("hide_ai_summary");
+	if (!hide_ai_summary) {
+		return;
+	}
+
+	const applyOption = () => {
+		const aiSummary = document.querySelectorAll('ytd-expandable-metadata-renderer[has-video-summary]');
+		if (aiSummary) {
+			aiSummary.forEach(el => {
+				el.style.display = 'none';
+			});
+		}
+	};
+	
+	// Apply initially
+	applyOption();
+
+	// Reapply when YouTube refresh the page
+	const observer = new MutationObserver(applyOption);
+	observer.observe(document.body, { childList: true, subtree: true });
+};
