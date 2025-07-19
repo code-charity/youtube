@@ -64,6 +64,10 @@ extension.skeleton.main.layers.section.general = {
 						text: 'removeShortsReelSearchResults'
 					}
 				},
+				redirect_shorts_to_watch: {
+					component: 'switch',
+					text:  'ShortsForceTheStandardPlayer',
+				},
 				remove_home_page_shorts: {
 					component: 'switch',
 					text: 'hideHomePageShorts',
@@ -249,6 +253,9 @@ extension.skeleton.main.layers.section.general = {
 					options: [{
 						text: '4',
 						value: '4'
+					},{
+						text: '3',
+						value: '3'
 					}, {
 						text: '5',
 						value: '5'
@@ -261,6 +268,24 @@ extension.skeleton.main.layers.section.general = {
 					}, {
 						text: '8',
 						value: '8'
+					},{
+						text: '9 (experimental)',
+						value: '9'
+					},{
+						text: '10 (experimental)',
+						value: '10'
+					},{
+						text: '11 (experimental)',
+						value: '11'
+					},{
+						text: '12 (experimental)',
+						value: '12'
+					},{
+						text: '2 (experimental)',
+						value: '2'
+					},{
+						text: '1 (experimental)',
+						value: '1'
 					}],
 					tags: 'change thumbnails per row'
 				},
