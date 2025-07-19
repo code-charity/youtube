@@ -1,8 +1,8 @@
 ---
-name: bug report    (for mark down authors)
+name: "\U0001F41E Bug Report  (mark down version)"
 about: Create a report to help us improve
-title: ''
-labels: Bug, good first issue, help wanted, up-for-grabs
+title: "\U0001F41E"
+labels: Bug, Feature request, good first issue, help wanted, up-for-grabs
 assignees: ''
 
 ---
