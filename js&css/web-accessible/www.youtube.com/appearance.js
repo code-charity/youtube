@@ -503,7 +503,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				if (this.storage.below_player_screenshot !== false) {
 					const screenshotButton = document.querySelector('[data-tooltip="Screenshot"]');
 					screenshotButton?.parentElement?.insertBefore(button, screenshotButton);
-				}
+				} else { section.insertAdjacentElement('afterend', button) }
 			}
 
 			let copyVideoUrlButton = this.storage.copy_video_url === true;
