@@ -500,9 +500,10 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				g.appendChild(path);
 				svg.appendChild(path);	
 				button.appendChild(svg);
-
-				const screenshotButton = document.querySelector('[data-tooltip="Screenshot"]');
-				screenshotButton.parentElement.insertBefore(button, screenshotButton);
+				if (this.storage.below_player_screenshot !== false) {
+					const screenshotButton = document.querySelector('[data-tooltip="Screenshot"]');
+					screenshotButton?.parentElement?.insertBefore(button, screenshotButton);
+				}
 			}
 
 			let copyVideoUrlButton = this.storage.copy_video_url === true;
