@@ -689,3 +689,35 @@ extension.features.changeThumbnailsPerRow = async function () {
 	const observer = new MutationObserver(applyGridLayout);
 	observer.observe(document.body, { childList: true, subtree: true });
 };
+
+/*--------------------------------------------------------------
+# HIDE SPONSORED VIDEOS ON HOME PAGE
+--------------------------------------------------------------*/
+
+extension.features.hideSponsoredVideosOnHome = function () {
+	console.log('[ImprovedTube] Hiding sponsored videos on Home is working!!')
+	if (!extension.storage.data.hide_sponsored_videos_home) return;
+
+	console.log('[ImprovedTube] Hiding sponsored videos on Home');
+
+	const hideSponsored = () => {
+		document.querySelectorAll('ytd-rich-item-renderer, ytd-video-renderer').forEach((el) => {
+			const text = el.innerText || '';
+			if (/sponsored/i.test(text)) {
+				el.style.display = 'none';
+			}
+		});
+	};
+
+	hideSponsored(); // Initial run
+
+	const observer = new MutationObserver(hideSponsored);
+	const pageManager = document.querySelector('ytd-page-manager') || document.body;
+
+	if (pageManager) {
+		observer.observe(pageManager, {
+			childList: true,
+			subtree: true
+		});
+	}
+};

@@ -87,6 +87,13 @@ html[it-hide-thumbnail-dots="true"] button.yt-spec-button-shape-next[aria-label=
     display: none;
 }
 /*--------------------------------------------------------------
+/*--------------------------------------------------------------
+# HIDE SPONSORED VIDEOS ON HOME PAGE
+--------------------------------------------------------------*/
+html[it-hide-sponsored-videos-home='true'] ytd-rich-item-renderer:has(ytd-badge-supported-renderer:has(span:matches-css-text("Sponsored"))) {
+  display: none !important;
+}
+/*--------------------------------------------------------------
 # EMBEDDED VIDEOS
  --------------------------------------------------------------*/
 html[it-embeddedHidePauseOverlay='true'] .ytp-pause-overlay,

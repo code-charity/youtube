@@ -1,32 +1,49 @@
-{ 
-  "ShortsForceTheStandardPlayer": { "message": "Shorts: Force to use the standard player" },
-  "hideTopLoadingBar": { "message": "Hide Top Loading Bar" },
-	  "withoutVideos": { "message": "'Empty', without video previews" },
-	  "hideBannerAds": { "message": "Hide Banner Ads (YouTube might deny)" },
-		   "keyScene": { "message": "⚡Jump to the Most Replayed Scene/s" },
-	  "hideAISummary": { "message": "Hide AI Summaries" },
-    "requirePassword": { "message": "Require password to change ImprovedTube settings" },
-    "passwordOptions": { "message": "Password options"},
-      "enterPassword": { "message": "Please enter your 4-digit code."},
-    
-    "qualityWhenRunningOnBattery":{
+{
+    "ShortsForceTheStandardPlayer": {
+        "message": "Shorts: Force to use the standard player"
+    },
+    "hideTopLoadingBar": {
+        "message": "Hide Top Loading Bar"
+    },
+    "withoutVideos": {
+        "message": "'Empty', without video previews"
+    },
+    "hideBannerAds": {
+        "message": "Hide Banner Ads (YouTube might deny)"
+    },
+    "keyScene": {
+        "message": "⚡Jump to the Most Replayed Scene/s"
+    },
+    "hideAISummary": {
+        "message": "Hide AI Summaries"
+    },
+    "requirePassword": {
+        "message": "Require password to change ImprovedTube settings"
+    },
+    "passwordOptions": {
+        "message": "Password options"
+    },
+    "enterPassword": {
+        "message": "Please enter your 4-digit code."
+    },
+    "qualityWhenRunningOnBattery": {
         "message": "Quality, when running on battery"
     },
-    "pauseWhileIUnplugTheCharger":{
-        "message": "Pause when I unplug the charger" 
+    "pauseWhileIUnplugTheCharger": {
+        "message": "Pause when I unplug the charger"
     },
-    "whenBatteryIslowDecreaseQuality":{
+    "whenBatteryIslowDecreaseQuality": {
         "message": "Low battery: Decrease the quality"
     },
     "analytics": {
         "message": "Analytics"
-    }, 
+    },
     "purchase": {
         "message": "Purchase"
-    },    
+    },
     "join": {
         "message": "Join"
-    },  
+    },
     "improvedTubeSidePanel": {
         "message": "ImprovedTube: Browser Sidepanel"
     },
@@ -36,10 +53,10 @@
     "youtubesLight": {
         "message": "YouTube's Light"
     },
-	"popupAd": {
+    "popupAd": {
         "message": "Pop-up ad: Hide"
-    },	
-	"hideWatchedVideos": {
+    },
+    "hideWatchedVideos": {
         "message": "Hide watched videos"
     },
     "ambientLighting": {
@@ -186,7 +203,7 @@
     "autoplayDisable": {
         "message": "Force Autoplay Off"
     },
-    "preventShortVideoAutoloop":{
+    "preventShortVideoAutoloop": {
         "message": "Prevent short videos from auto-looping"
     },
     "avoidAv1": {
@@ -504,7 +521,7 @@
     "extraButtonsBelowThePlayer": {
         "message": "Extra buttons below the player"
     },
-    "extraRightControlButtons":{
+    "extraRightControlButtons": {
         "message": "Extra buttons inside the player"
     },
     "Feature_not_yet_available": {
@@ -707,6 +724,9 @@
     },
     "hideSkipOverlay": {
         "message": "Hide 5 second skip animation"
+    },
+    "hideSponsoredVideosOnHome": {
+        "message": "Hide sponsored videos on Home page"
     },
     "hideThumbnailOverlay": {
         "message": "Hide buttons on thumbnails"
@@ -993,7 +1013,7 @@
     "player_fit_to_win_button": {
         "message": "Fit to window"
     },
-    "player_rewind_and_forward_buttons":{
+    "player_rewind_and_forward_buttons": {
         "message": "Rewind/forward buttons"
     },
     "player_cinema_mode_button": {
@@ -1099,7 +1119,7 @@
         "message": "Remove names"
     },
     "removePlaylistParam": {
-	    "message": "Skip playlist when opening videos in new tab"
+        "message": "Skip playlist when opening videos in new tab"
     },
     "removeRelatedSearchResults": {
         "message": "Remove related search results"
