@@ -695,11 +695,8 @@ extension.features.changeThumbnailsPerRow = async function () {
 --------------------------------------------------------------*/
 
 // extension.features.hideSponsoredVideosOnHome = function () {
-// 	console.log('[ImprovedTube] Hiding sponsored videos on Home is working!!')
-// 	if (!extension.storage.data.hide_sponsored_videos_home) return;
-
+// 	if (!extension.storage.get('hide_sponsored_videos_home')) return;
 // 	console.log('[ImprovedTube] Hiding sponsored videos on Home');
-
 // 	const hideSponsored = () => {
 // 		document.querySelectorAll('ytd-rich-item-renderer, ytd-video-renderer').forEach((el) => {
 // 			const text = el.innerText || '';
@@ -708,12 +705,9 @@ extension.features.changeThumbnailsPerRow = async function () {
 // 			}
 // 		});
 // 	};
-
 // 	hideSponsored(); // Initial run
-
 // 	const observer = new MutationObserver(hideSponsored);
 // 	const pageManager = document.querySelector('ytd-page-manager') || document.body;
-
 // 	if (pageManager) {
 // 		observer.observe(pageManager, {
 // 			childList: true,
