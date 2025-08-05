@@ -972,11 +972,6 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			hide_sidebar: {
 				component: "switch",
 				text: 'Hide_sidebar'
-			},
-			sticky_navigation: {
-				component: "switch",
-				text: 'stickyNavigation',
-				tags: 'navigation,auto-hide,sidebar'
 			}
 		}
 	}
