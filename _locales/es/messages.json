@@ -932,6 +932,9 @@
     "sidebar": {
         "message": "Barra lateral"
     },
+    "stickyNavigation": {
+        "message": "Navegación Fija"
+    },
     "softwareInformation": {
         "message": "Información del Software"
     },

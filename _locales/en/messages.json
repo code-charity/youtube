@@ -630,6 +630,9 @@
     "Hide_sidebar": {
         "message": "Hide sidebar "
     },
+    "stickyNavigation": {
+        "message": "Sticky Navigation"
+    },
     "Hide_the_tabs_only": {
         "message": "Hide the tabs only"
     },
