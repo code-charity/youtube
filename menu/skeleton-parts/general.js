@@ -181,7 +181,11 @@ extension.skeleton.main.layers.section.general = {
 				hide_banner_ads: {
 					component: 'switch',
 					text: 'hideBannerAds'
-				} 
+				},
+				hide_sponsored_videos_home: {
+					component: 'switch',
+					text: 'hideSponsoredVideosOnHome'
+				}
 			},
 			embed: {
 				component: 'section',
