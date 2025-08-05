@@ -296,21 +296,20 @@ extension.storage.listener = function () {
 # LOAD
 --------------------------------------------------------------*/
 // Default feature settings
-extension.storage.defaults = {
-	// Add your new feature here 👇
-	hide_sponsored_videos_home: true
-};
+// extension.storage.defaults = {
+// 	hide_sponsored_videos_home: true
+// };
 
 extension.storage.load = function (callback) {
 	chrome.storage.local.get(function (items) {
 		extension.storage.data = items;
 
-		// ✅ Add fallback default
-		if (typeof items.hide_sponsored_videos_home === 'undefined') {
-			items.hide_sponsored_videos_home = true;
-			extension.storage.data['hide_sponsored_videos_home'] = true;
-			chrome.storage.local.set({ hide_sponsored_videos_home: true });
-		}
+		// Add fallback default
+		// if (typeof items.hide_sponsored_videos_home === 'undefined') {
+		// 	items.hide_sponsored_videos_home = true;
+		// 	extension.storage.data['hide_sponsored_videos_home'] = true;
+		// 	chrome.storage.local.set({ hide_sponsored_videos_home: true });
+		// }
 
 
 		// initialize theme in case YT is in Dark cookie mode
@@ -329,10 +328,10 @@ extension.storage.load = function (callback) {
 			storage: items
 		});
 
-		// 👇 Call your feature manually (or inside a map of features)
-		if (typeof extension.features.hideSponsoredVideosOnHome === 'function') {
-			extension.features.hideSponsoredVideosOnHome();
-		}
+		// // Call your feature manually (or inside a map of features)
+		// if (typeof extension.features.hideSponsoredVideosOnHome === 'function') {
+		// 	extension.features.hideSponsoredVideosOnHome();
+		// }
 
 		if (callback) {
 			callback(extension.storage.data);

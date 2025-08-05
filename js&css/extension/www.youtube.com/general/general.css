@@ -90,9 +90,10 @@ html[it-hide-thumbnail-dots="true"] button.yt-spec-button-shape-next[aria-label=
 /*--------------------------------------------------------------
 # HIDE SPONSORED VIDEOS ON HOME PAGE
 --------------------------------------------------------------*/
-html[it-hide-sponsored-videos-home='true'] ytd-rich-item-renderer:has(ytd-badge-supported-renderer:has(span:matches-css-text("Sponsored"))) {
+html[it-pathname='/'][it-hide-sponsored-videos-home="true"] ytd-rich-item-renderer:has(a[href^="https://www.googleadservices.com/pagead/aclk"]) {
   display: none !important;
 }
+
 /*--------------------------------------------------------------
 # EMBEDDED VIDEOS
  --------------------------------------------------------------*/
