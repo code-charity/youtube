@@ -62,7 +62,7 @@ html[it-pathname='/results'][it-remove-related-search-results='true'] ytd-shelf-
 /*--------------------------------------------------------------
 # REMOVE SHOTS RELATED SEARCH RESULTS
 --------------------------------------------------------------*/
-html[it-pathname='/results'][it-remove-shorts-reel-search-results="true"] ytd-reel-shelf-renderer, 
+html[it-pathname='/results'][it-remove-shorts-reel-search-results="true"] grid-shelf-view-model,
 /*--------------------------------------------------------------
 # HIDE ANIMATED THUMBNAILS
 --------------------------------------------------------------*/
