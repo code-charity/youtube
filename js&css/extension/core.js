@@ -315,7 +315,7 @@ extension.storage.load = function (callback) {
 			action: 'storage-loaded',
 			storage: items
 		});
-		
+
 		if (callback) {
 			callback(extension.storage.data);
 		}
