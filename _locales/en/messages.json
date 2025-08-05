@@ -1,4 +1,5 @@
-{ 
+{   
+     "hideSponsoredVideosOnHome": { "message": "Hide sponsored videos on Home page"},
   "ShortsForceTheStandardPlayer": { "message": "Shorts: Force to use the standard player" },
   "hideTopLoadingBar": { "message": "Hide Top Loading Bar" },
 	  "withoutVideos": { "message": "'Empty', without video previews" },

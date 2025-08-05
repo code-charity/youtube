@@ -87,6 +87,14 @@ html[it-hide-thumbnail-dots="true"] button.yt-spec-button-shape-next[aria-label=
     display: none;
 }
 /*--------------------------------------------------------------
+/*------------------------------------------------------------------
+# HIDE SPONSORED VIDEOS ON HOME PAGE
+--------------------------------------------------------------*/
+html[it-pathname='/'][it-hide-sponsored-videos-home="true"] ytd-rich-item-renderer:has(a[href^="https://www.googleadservices.com/pagead/aclk"]) {
+  display: none !important;
+}
+
+/*--------------------------------------------------------------
 # EMBEDDED VIDEOS
  --------------------------------------------------------------*/
 html[it-embeddedHidePauseOverlay='true'] .ytp-pause-overlay,
