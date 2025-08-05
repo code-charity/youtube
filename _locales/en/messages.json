@@ -1,4 +1,5 @@
-{ 
+{
+	"Left_Side_Menu" : { "message":"Left Side Menu"},
   "ShortsForceTheStandardPlayer": { "message": "Shorts: Force to use the standard player" },
   "hideTopLoadingBar": { "message": "Hide Top Loading Bar" },
 	  "withoutVideos": { "message": "'Empty', without video previews" },
