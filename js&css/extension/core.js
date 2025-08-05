@@ -101,7 +101,7 @@ extension.events.trigger = async function (type, data) {
 			var listener = listeners[i];
 
 			if (typeof listener === 'function') {
-				if (listener instanceof (async function () { }).constructor === true) {
+				if (listener instanceof(async function () {}).constructor === true) {
 					await listener(data);
 				} else {
 					listener(data);
@@ -295,27 +295,17 @@ extension.storage.listener = function () {
 /*--------------------------------------------------------------
 # LOAD
 --------------------------------------------------------------*/
-// Default feature settings
-// extension.storage.defaults = {
-// 	hide_sponsored_videos_home: true
-// };
+
 
 extension.storage.load = function (callback) {
 	chrome.storage.local.get(function (items) {
 		extension.storage.data = items;
 
-		// Add fallback default
-		// if (typeof items.hide_sponsored_videos_home === 'undefined') {
-		// 	items.hide_sponsored_videos_home = true;
-		// 	extension.storage.data['hide_sponsored_videos_home'] = true;
-		// 	chrome.storage.local.set({ hide_sponsored_videos_home: true });
-		// }
-
 
 		// initialize theme in case YT is in Dark cookie mode
 		if (!extension.storage.data['theme'] && document.documentElement.hasAttribute('dark')) {
 			extension.storage.data['theme'] = 'dark';
-			chrome.storage.local.set({ theme: 'dark' });
+			chrome.storage.local.set({theme: 'dark'});
 		}
 
 		for (const key in items) {
@@ -328,10 +318,6 @@ extension.storage.load = function (callback) {
 			storage: items
 		});
 
-		// // Call your feature manually (or inside a map of features)
-		// if (typeof extension.features.hideSponsoredVideosOnHome === 'function') {
-		// 	extension.features.hideSponsoredVideosOnHome();
-		// }
 
 		if (callback) {
 			callback(extension.storage.data);
