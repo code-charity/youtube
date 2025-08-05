@@ -174,9 +174,7 @@ extension.skeleton.main.layers.section.general = {
 				},
 				hide_sponsored_videos_home: {
 					component: 'switch',
-					variant: 'checkbox',
-					text: 'hideSponsoredVideosOnHome',
-					id: 'hide_sponsored_videos_home'
+					text: 'hideSponsoredVideosOnHome'
 				}
 			},
 			embed: {
