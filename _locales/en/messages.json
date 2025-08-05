@@ -1,4 +1,5 @@
-{   
+{
+	"Left_Side_Menu" : { "message":"Left Side Menu"},  
      "hideSponsoredVideosOnHome": { "message": "Hide sponsored videos on Home page"},
   "ShortsForceTheStandardPlayer": { "message": "Shorts: Force to use the standard player" },
   "hideTopLoadingBar": { "message": "Hide Top Loading Bar" },
@@ -630,6 +631,9 @@
     },
     "Hide_sidebar": {
         "message": "Hide sidebar "
+    },
+    "stickyNavigation": {
+        "message": "Sticky Navigation"
     },
     "Hide_the_tabs_only": {
         "message": "Hide the tabs only"

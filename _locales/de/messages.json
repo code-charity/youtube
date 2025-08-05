@@ -674,6 +674,9 @@
     "sidebar": {
         "message": "Seitenleiste"
     },
+    "stickyNavigation": {
+        "message": "Feste Navigation"
+    },
     "spacebar": {
         "message": "Leertaste"
     },

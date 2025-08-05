@@ -10,7 +10,7 @@ window.addEventListener('yt-navigate-finish', function () {
 
 	extension.features.trackWatchedVideos();
 	extension.features.thumbnailsQuality();
-
+	extension.features.stickyNavigation();
 	extension.features.hideSponsoredVideosOnHome?.();
 });
 
@@ -46,6 +46,7 @@ extension.events.on('init', function () {
 	extension.features.disableThumbnailPlayback();
 	extension.features.markWatchedVideos();
 	extension.features.relatedVideos();
+	extension.features.stickyNavigation();
 	extension.features.comments();
 	extension.features.openNewTab();
 	extension.features.removeListParamOnNewTab();

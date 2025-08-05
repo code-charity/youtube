@@ -263,6 +263,53 @@ html[it-thumbnails-right='true'] #related ytd-compact-playlist-renderer ytd-thum
 	order: 5 !important;
 }
 
+/*--------------------------------------------------------------
+# STICKY NAVIGATION
+--------------------------------------------------------------*/
+/* Prevent left navigation from auto-hiding */
+html[it-sticky-navigation='true'] ytd-mini-guide-renderer {
+	transform: translateX(0) !important;
+	transition: none !important;
+}
+
+html[it-sticky-navigation='true'] ytd-mini-guide-renderer[hidden] {
+	display: block !important;
+	transform: translateX(0) !important;
+}
+
+html[it-sticky-navigation='true'] ytd-mini-guide-renderer[aria-hidden="true"] {
+	aria-hidden: false !important;
+	transform: translateX(0) !important;
+}
+
+/* Ensure the guide is always visible */
+html[it-sticky-navigation='true'] ytd-guide-renderer {
+	transform: translateX(0) !important;
+	transition: none !important;
+}
+
+html[it-sticky-navigation='true'] ytd-guide-renderer[hidden] {
+	display: block !important;
+	transform: translateX(0) !important;
+}
+
+html[it-sticky-navigation='true'] ytd-guide-renderer[aria-hidden="true"] {
+	aria-hidden: false !important;
+	transform: translateX(0) !important;
+}
+
+/* Override any auto-hide animations */
+html[it-sticky-navigation='true'] ytd-mini-guide-renderer,
+html[it-sticky-navigation='true'] ytd-guide-renderer {
+	animation: none !important;
+	transition: none !important;
+}
+
+/* Ensure the guide button doesn't hide the navigation */
+html[it-sticky-navigation='true'] ytd-masthead ytd-button-renderer[is="ytd-button-renderer"] {
+	display: none !important;
+}
+
 /* Move thumbnails to the right for playlist suggestions (non-Polymer) */
 html[it-thumbnails-right='true'] #related yt-lockup-view-model .yt-lockup-view-model-wiz {
 	display: flex !important;
