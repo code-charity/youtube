@@ -296,11 +296,9 @@ extension.storage.listener = function () {
 # LOAD
 --------------------------------------------------------------*/
 
-
 extension.storage.load = function (callback) {
 	chrome.storage.local.get(function (items) {
 		extension.storage.data = items;
-
 
 		// initialize theme in case YT is in Dark cookie mode
 		if (!extension.storage.data['theme'] && document.documentElement.hasAttribute('dark')) {
@@ -317,8 +315,7 @@ extension.storage.load = function (callback) {
 			action: 'storage-loaded',
 			storage: items
 		});
-
-
+		
 		if (callback) {
 			callback(extension.storage.data);
 		}
