@@ -667,3 +667,18 @@ html[data-page-type=home][it-hide-includes-paid-promotion=true] .YtmPaidContentO
 html[data-page-type=other][it-hide-includes-paid-promotion=true] .YtmPaidContentOverlayLink  {
   display: none !important;
 }
+
+/*--------------------------------------------------------------
+# REMOVE LIQUID GLASS EFFECT
+--------------------------------------------------------------*/
+
+html[data-page-type='video'] .ytp-chrome-controls .ytp-button {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+
+html[data-page-type='video'] .ytp-chrome-controls .ytp-button:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+}
