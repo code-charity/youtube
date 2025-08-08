@@ -1,0 +1,1 @@
+{"version":3,"names":["_identity","x"],"sources":["../../src/helpers/identity.js"],"sourcesContent":["/* @minVersion 7.17.0 */\n\nexport default function _identity(x) {\n  return x;\n}\n"],"mappings":";;;;;;AAEe,SAASA,SAASA,CAACC,CAAC,EAAE;EACnC,OAAOA,CAAC;AACV","ignoreList":[]}
