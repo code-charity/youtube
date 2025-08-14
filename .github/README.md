@@ -84,6 +84,8 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <a href="https://github.com/Raayib"><code>Raayib</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json" title="বাংলা">BN</a></code> :
 <a href="https://github.com/BRAVO68WEB" title="✨🏆"><code>BRAVO68WEB</code></a><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json" title="বাংলা(বাংলাদেশ)">bn_BD</a></code> :
+<a href="https://github.com/amitorko" title="✨🏆"><code>amitorko</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ru/messages.json" title="Русский">RU</a></code> :
 <a href="https://github.com/qweered"><code>qweered</code></a> 
 <a href="https://github.com/alexesprit"><code>alexesprit</code></a><br>
