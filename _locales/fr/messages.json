@@ -240,7 +240,7 @@
         "message": "Clignoter"
     },
     "font": {
-        "message": "Police"
+        "message": "Police d'écriture"
     },
     "footer": {
         "message": "Bas de page"
@@ -527,6 +527,9 @@
     "relatedVideos": {
         "message": "Vidéos associés"
     },
+    "removeMemberOnly": {
+        "message": "Supprimer les vidéos réservées aux membres"
+    },
     "removeRelatedSearchResults": {
         "message": "Supprimer les résultats de recherche associés"
     },
@@ -565,6 +568,9 @@
     },
     "screenshot": {
         "message": "Capture d'écran"
+    },
+    "scrollBar": {
+        "message": "Cacher la barre de défilement"
     },
     "search": {
         "message": "Rechercher"
@@ -742,5 +748,17 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube limite la qualité vidéo à 1080p pour le codec h.264"
+    },
+    "thumbnailsQuality": {
+        "message": "Résolution des miniatures"
+    },
+    "changeThumbnailsPerRow": {
+        "message": "Nombre de vidéos par ligne"
+    },
+    "mostViewedChannels": {
+        "message": "Chaînes les plus regardées"
+    },
+    "openNewTab": {
+        "message": "Ouvrir dans un nouvel onglet"
     }
 }
