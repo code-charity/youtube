@@ -39,7 +39,7 @@
         "message": "始终显示进度条"
     },
     "analyzer": {
-        "message": "分析仪"
+        "message": "观看数据分析"
     },
     "appearance": {
         "message": "外观"
@@ -151,46 +151,46 @@
     },
     "customCss": {
         "message": "自定义CSS"
-    },
+    }，
     "customJs": {
         "message": "自定义JS"
-    },
+    }，
     "customMiniPlayer": {
         "message": "自定义迷你播放器"
-    },
+    }，
     "dark": {
         "message": "黑暗"
-    },
+    }，
     "darkTheme": {
         "message": "夜间模式"
-    },
+    }，
     "dateAndTime": {
         "message": "时间与日期"
-    },
+    }，
     "decreasePlaybackSpeed": {
         "message": "视频减速"
-    },
+    }，
     "decreaseVolume": {
         "message": "降低音量"
-    },
+    }，
     "default": {
         "message": "默认"
-    },
+    }，
     "defaultChannelTab": {
         "message": "默认频道页"
-    },
+    }，
     "defaultContentCountry": {
-        "message": "默认内容国家"
-    },
+        "message": "(首页)默认显示内容的位置(国家/地区)"
+    }，
     "deleteYoutubeCookies": {
         "message": "清空 YouTube cookies"
-    },
+    }，
     "details": {
         "message": "细节信息"
-    },
+    }，
     "developerOptions": {
         "message": "开发者选项"
-    },
+    }，
     "device": {
         "message": "设备"
     },
@@ -199,6 +199,9 @@
     },
     "disabled": {
         "message": "停用"
+    },
+    "Disable video playback on hover": {
+        "meassage": "禁用鼠标悬停时播放"
     },
     "dislike": {
         "message": "踩一下"
@@ -212,6 +215,9 @@
     "draggable": {
         "message": "可拖动"
     },
+    "Dim Youtube's Pages, except what I mouse-over!": {
+        "message": "在当前页面上模糊除鼠标所在位置外的其他元素"
+    }
     "empty": {
         "message": "暂无"
     },
@@ -355,6 +361,24 @@
     },
     "history": {
         "message": "历史记录"
+    },
+    "Hide AI Summaries": {
+        "message": "隐藏AI摘要"
+    },
+    "Hide Banner Ads (YouTube might deny)": {
+        "message": "隐藏横幅广告 (YouTube可能会拒绝)"
+    },
+    "Hide Pause Overlay": {
+        "mssage": "隐藏暂停时的遮罩"
+    },
+    "Hide YouTube Logo": {
+        "message": "隐藏Youtube标志"
+    },
+    "Hide '⫶' (more actions) on thumbnails": {
+        "message": "缩略图上隐藏:(更多操作)"
+    },
+    "Hide watched videos": {
+        "message": "隐藏已观看的视频"
     },
     "home": {
         "message": "首页"
@@ -561,6 +585,9 @@
     "removeShortsReelSearchResults": {
         "message": "删除搜索结果中的 Shorts 轮播"
     },
+    "Remove member only videos": {
+        "message": "移除会员专享视频"
+    },
     "repeat": {
         "message": "循环"
     },
@@ -635,40 +662,40 @@
     },
     "sidebar": {
         "message": "侧边栏"
-    },
+    }，
     "spacebar": {
         "message": "空格"
-    },
+    }，
     "squaredUserImages": {
         "message": "方形用户头像"
-    },
+    }，
     "static": {
         "message": "静态"
-    },
+    }，
     "statsForNerds": {
         "message": "显示专业信息"
-    },
+    }，
     "style": {
         "message": "样式"
-    },
+    }，
     "styles": {
         "message": "样式"
-    },
+    }，
     "subscriptions": {
         "message": "订阅内容"
-    },
+    }，
     "sunset": {
         "message": "晚霞"
-    },
+    }，
     "sunsetToSunrise": {
         "message": "日落到日出"
-    },
+    }，
     "systemPeferenceDark": {
         "message": "系统偏好: 深色"
-    },
+    }，
     "systemPeferenceLight": {
         "message": "系统偏好: 浅色"
-    },
+    }，
     "teal": {
         "message": "蓝绿色"
     },
@@ -685,13 +712,19 @@
         "message": "将清空所有 YouTube cookies"
     },
     "thisWillResetAllSettings": {
-        "message": "将重置所有设置."
+        "message": "将重置所有设置"
     },
     "thisWillResetAllShortcuts": {
         "message": "将会重置所有快捷键"
     },
     "thumbnails": {
         "message": "缩略图"
+    },
+    "thumbnailsQuality": {
+        "message": "缩略图质量"
+    },
+    "Thumbnail Size": {
+        "message": "缩略图尺寸"
     },
     "timeFrom": {
         "message": "开始时间"
@@ -781,6 +814,9 @@
         "message": "YouTube 语言"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "采用 H.264 编解码时，YouTube 会将视频画质设为 1080p"
+        "message": "采用 H.264 编解码时,YouTube 会将视频画质设为 1080p"
+    },
+    "Youtube-Search": {
+        "massage": "Youtube搜索设置"
     }
 }
