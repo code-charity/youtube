@@ -180,7 +180,7 @@
         "message": "默认频道页"
     }，
     "defaultContentCountry": {
-        "message": "默认显示内容的位置(国家/地区)"
+        "message": "(首页)默认显示内容的位置(国家/地区)"
     }，
     "deleteYoutubeCookies": {
         "message": "清空 YouTube cookies"
@@ -193,19 +193,19 @@
     }，
     "device": {
         "message": "设备"
-    }，
+    },
     "dim": {
         "message": "遮罩层厚度"
-    }，
+    },
     "disabled": {
         "message": "停用"
-    }，
+    },
     "Disable video playback on hover": {
         "meassage": "禁用鼠标悬停时播放"
     },
     "dislike": {
         "message": "踩一下"
-    }，
+    },
     "donate": {
         "message": "支持"
     },
@@ -448,82 +448,82 @@
     },
     "liveChat": {
         "message": "实时聊天窗"
-    }，
+    },
     "liveChatType": {
         "message": "实时聊天窗类型"
-    }，
+    },
     "location": {
         "message": "地点"
-    }，
+    },
     "loudnessNormalization": {
         "message": "音量标准化"
-    }，
+    },
     "markWatchedVideos": {
         "message": "标记为已观看"
-    }，
+    },
     "mixer": {
         "message": "混音器"
-    }，
+    },
     "myColors": {
         "message": "自定义颜色"
-    }，
+    },
     "name": {
         "message": "名字"
-    }，
+    },
     "nativeMiniPlayer": {
         "message": "原版迷你播放器"
     },
     "new": {
         "message": "新的"
-    }，
+    },
     "nextVideo": {
         "message": "上一个视频"
-    }，
+    },
     "night": {
         "message": "夜色"
-    }，
+    },
     "noActiveFeatures": {
         "message": "没有已启用的功能"
-    }，
+    },
     "none": {
         "message": "无"
-    }，
+    },
     "noOpenVideoTabs": {
         "message": "没有已打开的视频标签"
-    }，
+    },
     "old": {
         "message": "旧版"
-    }，
+    },
     "onAllVideos": {
         "message": "在所有视频"
     },
     "onlyActiveOnYoutube": {
         "message": "仅在 YouTube 上启用"
-    }，
+    },
     "onlyOnePlayerInstancePlaying": {
         "message": "同时仅播放一个"
-    }，
+    },
     "onSubscribedChannels": {
         "message": "在订阅频道"
-    }，
+    },
     "openPopupPlayer": {
         "message": "在新窗口打开视频/播放列表"
-    }，
+    },
     "orange": {
         "message": "橙色"
-    }，
+    },
     "os": {
         "message": "操作系统"
-    }，
+    },
     "permissions": {
         "message": "许可"
-    }，
+    },
     "pictureInPicture": {
         "message": "画中画"
     },
     "pink": {
         "message": "粉色"
-    }，
+    },
     "plain": {
         "message": "野外"
     },
@@ -554,85 +554,85 @@
     },
     "pressAnyKeyOrScroll": {
         "message": "按下任意键或滚动鼠标滚轴."
-    }，
+    },
     "pressAnyKeyOrUseMouseWheel": {
         "message": "按下任意键或鼠标滚轴."
-    }，
+    },
     "previousVideo": {
         "message": "下一个视频"
-    }，
+    },
     "primaryColor": {
         "message": "主色调"
-    }，
+    },
     "quality": {
         "message": "画质"
-    }，
+    },
     "rateUs": {
         "message": "给我们评价"
-    }，
+    },
     "red": {
         "message": "红色"
-    }，
+    },
     "redDislikeButton": {
         "message": "将【踩一下】设置为红色"
-    }，
+    },
     "relatedVideos": {
         "message": "相关视频"
-    }，
+    },
     "removeRelatedSearchResults": {
         "message": "隐藏搜索相关结果"
-    }，
+    },
     "removeShortsReelSearchResults": {
         "message": "删除搜索结果中的 Shorts 轮播"
-    }，
+    },
     "Remove member only videos": {
         "message": "移除会员专享视频"
     },
     "repeat": {
         "message": "循环"
-    }，
+    },
     "reset": {
         "message": "重置"
-    }，
+    },
     "resetAllSettings": {
         "message": "重置所有设置"
-    }，
+    },
     "resetAllShortcuts": {
         "message": "重置所有快捷键"
-    }，
+    },
     "reverse": {
         "message": "逆序"
-    }，
+    },
     "rotate": {
         "message": "旋转"
-    }，
+    },
     "save": {
         "message": "保存"
-    }，
+    },
     "saveAs": {
         "message": "另存为"
-    }，
+    },
     "schedule": {
         "message": "定时开/关"
-    }，
+    },
     "screen": {
         "message": "屏幕"
-    }，
+    },
     "screenshot": {
         "message": "截图"
-    }，
+    },
     "search": {
         "message": "搜索"
-    }，
+    },
     "searchBarOnly": {
         "message": "仅搜索栏"
-    }，
+    },
     "seekForward10Seconds": {
         "message": "快进10秒"
-    }，
+    },
     "seekNextChapter": {
         "message": "寻找下一章"
-    }，
+    },
     "seekPreviousChapter": {
         "message": "寻找上一章"
     },
@@ -814,7 +814,7 @@
         "message": "YouTube 语言"
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "采用 H.264 编解码时，YouTube 会将视频画质设为 1080p"
+        "message": "采用 H.264 编解码时,YouTube 会将视频画质设为 1080p"
     },
     "Youtube-Search": {
         "massage": "Youtube搜索设置"
