@@ -662,40 +662,40 @@
     },
     "sidebar": {
         "message": "侧边栏"
-    },
+    }，
     "spacebar": {
         "message": "空格"
-    },
+    }，
     "squaredUserImages": {
         "message": "方形用户头像"
-    },
+    }，
     "static": {
         "message": "静态"
-    },
+    }，
     "statsForNerds": {
         "message": "显示专业信息"
-    },
+    }，
     "style": {
         "message": "样式"
-    },
+    }，
     "styles": {
         "message": "样式"
-    },
+    }，
     "subscriptions": {
         "message": "订阅内容"
-    },
+    }，
     "sunset": {
         "message": "晚霞"
-    },
+    }，
     "sunsetToSunrise": {
         "message": "日落到日出"
-    },
+    }，
     "systemPeferenceDark": {
         "message": "系统偏好: 深色"
-    },
+    }，
     "systemPeferenceLight": {
         "message": "系统偏好: 浅色"
-    },
+    }，
     "teal": {
         "message": "蓝绿色"
     },
@@ -705,14 +705,14 @@
     "themes": {
         "message": "主题"
     },
-    "thisWill移除AllCookies": {
+    "thisWillRemoveAllCookies": {
         "message": "将清空所有 cookies."
     },
-    "thisWill移除AllYouTubeCookies": {
+    "thisWillRemoveAllYouTubeCookies": {
         "message": "将清空所有 YouTube cookies"
     },
     "thisWillResetAllSettings": {
-        "message": "将重置所有设置."
+        "message": "将重置所有设置"
     },
     "thisWillResetAllShortcuts": {
         "message": "将会重置所有快捷键"
