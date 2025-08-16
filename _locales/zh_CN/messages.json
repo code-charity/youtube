@@ -216,7 +216,7 @@
         "message": "可拖动"
     },
     "Dim Youtube's Pages, except what I mouse-over!": {
-        "message": "模糊除鼠标所在位置外的其他位置"
+        "message": "在当前页面上模糊除鼠标所在位置外的其他元素"
     }
     "empty": {
         "message": "暂无"
