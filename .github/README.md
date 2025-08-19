@@ -79,7 +79,8 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json" title="Français">FR</a></code> :
 <a href="https://github.com/leghort"><code>leghort</code></a> 
 <a href="https://github.com/Eymiks"><code>Eymiks</code></a> 
-<a href="https://github.com/Solvabl"><code>Solvabl</code></a><br>
+<a href="https://github.com/Solvabl"><code>Solvabl</code></a>
+<a href="https://github.com/Tibood"><code>Tibood</code></a><br>
 <code><a href="https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json" title="العربية">AR</a></code> :
 <a href="https://github.com/Raayib"><code>Raayib</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json" title="বাংলা">BN</a></code> :
