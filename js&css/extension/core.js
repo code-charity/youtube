@@ -242,10 +242,10 @@ extension.storage.get = function (key) {
 	if (key.indexOf('/') === -1) {
 		return this.data[key];
 	} else {
-		var target = this.data,
-			path = key.split('/').filter(function (value) {
+		var target = this.data;
+			/*path = key.split('/').filter(function (value) {
 				return value != '';
-			});
+			});*/
 
 		for (var i = 0, l = key.length; i < l; i++) {
 			var part = key[i];
