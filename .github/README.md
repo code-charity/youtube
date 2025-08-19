@@ -172,7 +172,7 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <code>Urdu</code>
 <code>Nigerian Pidgin (English Creole)</code><br>
 <code>Western-&Eastern-Punjabi</code><br>
-<code>Marathi</code>(Indo-European)<code>Telugu</code><br>
+<code>Marathi</code>(Indo-European)<br><code><code>✔️</code>Telugu</code>:<code>​<a href="https://github.com/Akhil3236">Akhil3236</a></code><br>
 <code>Tamil</code> <code>Yue Chinese</code> (incl. Cantonese)<br>
 <code>Tagalog</code>(New name: Filipino)<br> <code>Wu Chinese</code> (incl. Shanghainese)<br>
 <code>Hausa</code> <code>Egyptian Spoken Arabic</code><br>
