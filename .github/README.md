@@ -97,7 +97,8 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <a href="https://github.com/unnamed-orbert"><code>unnamed-orbert</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json" title="Bahasa Indonesia">ID</a></code> :
 <a href="https://github.com/Bagus23"><code>Bagus23</code></a> 
-<a href="https://github.com/fdciabdul"><code>A.Muttaqin</code></a><br>
+<a href="https://github.com/fdciabdul"><code>A.Muttaqin</code></a>
+<a href="https://github.com/MoriMomo"><code>MoriMomo</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json" title="Deutsch">DE</a></code> :
 <a href="https://github.com/Termuellinator" title="✨🏆"><code>Termuellinator</code></a> 
 <a href="https://github.com/css-smueller"><code>css-smueller</code></a><br>
