@@ -108,9 +108,11 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <a href="https://github.com/0xUINTBEEF"><code>0xUINTBEEF</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vn/messages.json" title="Vietnamese">VN</a></code> :
 <a href="https://github.com/zeref-dragneel"><code>zeref-dragneel</code></a><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json" title="한국어">KO</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json" title="한국어"><b>KO</b></a></code> :
 <a href="https://github.com/msc9533"><code>msc9533</code></a> 
-<a href="https://github.com/LYHyoung"><code>LYHyoung</code></a><br>
+<a href="https://github.com/LYHyoung"><code>LYHyoung</code></a> 
+<a href="https://github.com/LYHyoung"><code>yheedev</code></a><br> 
+(<i>Many users are korean! Thanks for caring!</i>) <br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fa_IR/messages.json" title="فارسی">(Iranian) Persian</a></code> :
 <a href="https://github.com/AC-Lover"><code>AC Lover</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json" title="Italiano">IT</a></code> :
