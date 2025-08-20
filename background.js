@@ -210,6 +210,7 @@ function tabPrune (callback) {
 chrome.tabs.onActivated.addListener(function (activeInfo) {
 	tabPrev = tab;
 	tab = activeInfo;
+    windowId = activeInfo.windowId;
 	//console.log('activeInfo', windowId, tabPrev, tab);
 	tabPrune(function () {
 		if (windowId == tabPrev.windowId) {
