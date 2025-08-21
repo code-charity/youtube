@@ -142,6 +142,9 @@ html[it-hide-shorts-remixing='true'] #related ytd-reel-shelf-renderer,
 --------------------------------------------------------------*/
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail,
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
+html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer .yt-lockup-view-model-wiz__content-image {
+    display: none !important;
+}
 /*--------------------------------------------------------------
 # LIVECHAT
 --------------------------------------------------------------*/
