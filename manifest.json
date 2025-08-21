@@ -13,7 +13,7 @@
 	},
 	"browser_specific_settings": {
 		"gecko": {
-		"id": "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}"
+			"id": "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}"
 		}
 	},
 	"background": {
@@ -51,7 +51,8 @@
 				"js&css/extension/www.youtube.com/general/general.js",
 				"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
 				"js&css/extension/www.youtube.com/appearance/comments/comments.js",
-				"js&css/extension/init.js"
+				"js&css/extension/init.js",
+				"js&css/features/ctrl_scroll_speed.js"
 			],
 			"matches": [
 				"https://www.youtube.com/*"
