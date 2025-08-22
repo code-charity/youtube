@@ -312,6 +312,40 @@ extension.skeleton.main.layers.section.general = {
 						{ text: "Small", value: "small" },
 						{ text: "x-small", value: "x-small" }
 					]
+				},
+				show_last_watched_overlay: {
+					component: 'switch',
+					text: 'showLastWatchedOverlay',
+					value: true, // default jetzt aktiv
+					tags: 'history overlay'
+				},
+				last_watched_overlay_position: {
+					component: 'select',
+					text:      'lastWatchedOverlayPosition',
+					storage:   'last_watched_overlay_position',
+					options: [
+						{ value: 'bottom-right', text: 'bottomRight' },
+						{ value: 'bottom-left',  text: 'bottomLeft'  },
+						{ value: 'top-right',    text: 'topRight'    },
+						{ value: 'top-left',     text: 'topLeft'     }
+					],
+					value: 'bottom-right',
+					dependencies: [
+						['show_last_watched_overlay', true]
+					]
+				},
+				last_watched_format: {
+					component: 'select',
+					text:    'lastWatchedFormat',
+					storage: 'last_watched_format',
+					options: [
+						{ value: 'relative', text: 'relative' },
+						{ value: 'exact',    text: 'exact'    }
+					],
+					value: 'relative',
+					dependencies: [
+						['show_last_watched_overlay', true]
+					]
 				}
 			}, section_2: {
 				component: 'section',

@@ -832,5 +832,32 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "h.264 يحد اليوتيوب من جودة الفيديو الى ١٠٨٠ لـ الترميز"
+    },
+    "showLastWatchedOverlay": {
+        "message": "عرض 'آخر مشاهدة' على الصور المصغرة"
+    },
+    "lastWatchedOverlayPosition": {
+        "message": "'موضع 'آخر مشاهدة"
+    },
+    "bottomRight": {
+        "message": "أسفل اليمين"
+    },
+    "bottomLeft": {
+        "message": "أسفل اليسار"
+    },
+    "topRight": {
+        "message": "أعلى اليمين"
+    },
+    "topLeft": {
+        "message": "أعلى اليسار"
+    },
+    "lastWatchedFormat": {
+        "message": " 'شكل 'آخر مشاهدة"
+    },
+    "relative": {
+        "message": "نسبي (مثل: منذ 5 دقائق)"
+    },
+    "exact": {
+        "message": "تاريخ/وقت محدد"
     }
 }
