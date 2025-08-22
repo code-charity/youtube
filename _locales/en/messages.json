@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
 	"Left_Side_Menu" : { "message":"Left Side Menu"},  
      "hideSponsoredVideosOnHome": { "message": "Hide sponsored videos on Home page"},
   "ShortsForceTheStandardPlayer": { "message": "Shorts: Force to use the standard player" },
@@ -13,18 +12,6 @@
       "enterPassword": { "message": "Please enter your 4-digit code."},
     
     "qualityWhenRunningOnBattery":{
-=======
-    "requirePassword": {
-        "message": "Require password to change ImprovedTube settings"
-    },
-    "passwordOptions": {
-        "message": "Password options"
-    },
-    "enterPassword": {
-        "message": "Please enter your 4-digit code."
-    },
-    "qualityWhenRunningOnBattery": {
->>>>>>> 909480ab (feat(overlay): always-visible last watched badge + local persistence + exact/relative format + default on)
         "message": "Quality, when running on battery"
     },
     "pauseWhileIUnplugTheCharger": {
@@ -1467,7 +1454,6 @@
     "pauseWhileIAmTypingOnYouTube": {
         "message": "Pause when I'm typing on YouTube"
     },
-<<<<<<< HEAD
     "clickableLinksInDescription": {
         "message": "Right click to copy links in video descriptions"
     },
@@ -1479,12 +1465,12 @@
     },
     "disableAutoDubbing": {
         "message": "Disable auto dubbing"
-=======
+    },
     "showLastWatchedOverlay": {
         "message": "Show 'Last watched' overlay on thumbnails"
     },
-    "overlayPosition": {
-        "message": "Position"
+    "lastWatchedOverlayPosition": {
+        "message": "Overlay position"
     },
     "bottomRight": {
         "message": "Bottom right"
@@ -1506,6 +1492,5 @@
     },
     "exact": {
         "message": "Exact date/time"
->>>>>>> 909480ab (feat(overlay): always-visible last watched badge + local persistence + exact/relative format + default on)
     }
 }
