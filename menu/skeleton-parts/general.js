@@ -261,92 +261,92 @@ extension.skeleton.main.layers.section.general = {
 					}],
 					tags: 'preview quality'
 				},
+
+				// Upstream: Thumbnails pro Reihe
 				change_thumbnails_per_row: {
-					component: 'select',
-					text: 'changeThumbnailsPerRow',
-					options: [{
-						text: '4',
-						value: '4'
-					},{
-						text: '3',
-						value: '3'
-					}, {
-						text: '5',
-						value: '5'
-					}, {
-						text: '6',
-						value: '6'
-					}, {
-						text: '7',
-						value: '7'
-					}, {
-						text: '8',
-						value: '8'
-					},{
-						text: '9 (experimental)',
-						value: '9'
-					},{
-						text: '10 (experimental)',
-						value: '10'
-					},{
-						text: '11 (experimental)',
-						value: '11'
-					},{
-						text: '12 (experimental)',
-						value: '12'
-					},{
-						text: '2 (experimental)',
-						value: '2'
-					},{
-						text: '1 (experimental)',
-						value: '1'
-					}],
-					tags: 'change thumbnails per row'
-				},
-				thumbnail_size: {
-					component: "select",
-					text: "Thumbnail Size",
-					storage: "thumbnail_size",
-					options: [
-						{ text: "Default", value: "default" },
-						{ text: "Small", value: "small" },
-						{ text: "x-small", value: "x-small" }
-					]
-				},
-				show_last_watched_overlay: {
-					component: 'switch',
-					text: 'showLastWatchedOverlay',
-					value: true, // default jetzt aktiv
-					tags: 'history overlay'
-				},
-				last_watched_overlay_position: {
-					component: 'select',
-					text:      'lastWatchedOverlayPosition',
-					storage:   'last_watched_overlay_position',
-					options: [
-						{ value: 'bottom-right', text: 'bottomRight' },
-						{ value: 'bottom-left',  text: 'bottomLeft'  },
-						{ value: 'top-right',    text: 'topRight'    },
-						{ value: 'top-left',     text: 'topLeft'     }
-					],
-					value: 'bottom-right',
-					dependencies: [
-						['show_last_watched_overlay', true]
-					]
-				},
-				last_watched_format: {
-					component: 'select',
-					text:    'lastWatchedFormat',
-					storage: 'last_watched_format',
-					options: [
-						{ value: 'relative', text: 'relative' },
-						{ value: 'exact',    text: 'exact'    }
-					],
-					value: 'relative',
-					dependencies: [
-						['show_last_watched_overlay', true]
-					]
-				}
+                    component: 'select',
+                    text: 'changeThumbnailsPerRow',
+                    options: [{
+                        text: '4',
+                        value: '4'
+                    },{
+                        text: '3',
+                        value: '3'
+                    }, {
+                        text: '5',
+                        value: '5'
+                    }, {
+                        text: '6',
+                        value: '6'
+                    }, {
+                        text: '7',
+                        value: '7'
+                    }, {
+                        text: '8',
+                        value: '8'
+                    },{
+                        text: '9 (experimental)',
+                        value: '9'
+                    },{
+                        text: '10 (experimental)',
+                        value: '10'
+                    },{
+                        text: '11 (experimental)',
+                        value: '11'
+                    },{
+                        text: '12 (experimental)',
+                        value: '12'
+                    },{
+                        text: '2 (experimental)',
+                        value: '2'
+                    },{
+                        text: '1 (experimental)',
+                        value: '1'
+                    }],
+                    tags: 'change thumbnails per row'
+                },
+
+                // Upstream: Thumbnail-Größe
+                thumbnail_size: {
+                    component: "select",
+                    text: "Thumbnail Size",
+                    storage: "thumbnail_size",
+                    options: [
+                        { text: "Default", value: "default" },
+                        { text: "Small", value: "small" },
+                        { text: "x-small", value: "x-small" }
+                    ]
+                },
+
+                // Deine Feature-Optionen: Last-watched Overlay
+                show_last_watched_overlay: {
+                    component: 'switch',
+                    text: 'showLastWatchedOverlay',
+                    value: true, // default aktiv
+                    tags: 'history overlay'
+                },
+                last_watched_overlay_position: {
+                    component: 'select',
+                    text: 'lastWatchedOverlayPosition',
+                    storage: 'last_watched_overlay_position',
+                    options: [
+                        { value: 'bottom-right', text: 'bottomRight' },
+                        { value: 'bottom-left',  text: 'bottomLeft'  },
+                        { value: 'top-right',    text: 'topRight'    },
+                        { value: 'top-left',     text: 'topLeft'     }
+                    ],
+                    value: 'bottom-right'
+                },
+                last_watched_format: {
+                    component: 'select',
+                    text: 'lastWatchedFormat',
+                    storage: 'last_watched_format',
+                    options: [
+                        { value: 'relative', text: 'relative' },
+                        { value: 'exact',    text: 'exact'    }
+                    ],
+                    value: 'relative'
+                }
 			}, section_2: {
 				component: 'section',
 				variant: 'card',
