@@ -262,57 +262,57 @@ extension.skeleton.main.layers.section.general = {
 					tags: 'preview quality'
 				},
 				change_thumbnails_per_row: {
-                    component: 'select',
-                    text: 'changeThumbnailsPerRow',
-                    options: [{
-                        text: '4',
-                        value: '4'
-                    },{
-                        text: '3',
-                        value: '3'
-                    }, {
-                        text: '5',
-                        value: '5'
-                    }, {
-                        text: '6',
-                        value: '6'
-                    }, {
-                        text: '7',
-                        value: '7'
-                    }, {
-                        text: '8',
-                        value: '8'
-                    },{
-                        text: '9',
-                        value: '9'
-                    },{
-                        text: '10',
-                        value: '10'
-                    },{
-                        text: '11',
-                        value: '11'
-                    },{
-                        text: '12 (experimental)',
-                        value: '12'
-                    },{
-                        text: '2',
-                        value: '2'
-                    },{
-                        text: '1',
-                        value: '1'
-                    }],
-                    tags: 'change thumbnails per row'
-                },
-                thumbnail_size: {
-                    component: "select",
-                    text: "Thumbnail Size",
-                    storage: "thumbnail_size",
-                    options: [
-                        { text: "Default", value: "default" },
-                        { text: "Small", value: "small" },
-                        { text: "x-small", value: "x-small" }
-                    ]
-                },
+					component: 'select',
+					text: 'changeThumbnailsPerRow',
+					options: [{
+						text: '4',
+						value: '4'
+					},{
+						text: '3',
+						value: '3'
+					}, {
+						text: '5',
+						value: '5'
+					}, {
+						text: '6',
+						value: '6'
+					}, {
+						text: '7',
+						value: '7'
+					}, {
+						text: '8',
+						value: '8'
+					},{
+						text: '9',
+						value: '9'
+					},{
+						text: '10',
+						value: '10'
+					},{
+						text: '11 (experimental)',
+						value: '11'
+					},{
+						text: '12 (experimental)',
+						value: '12'
+					},{
+						text: '2',
+						value: '2'
+					},{
+						text: '1',
+						value: '1'
+					}],
+					tags: 'change thumbnails per row'
+				},
+				thumbnail_size: {
+					component: "select",
+					text: "Thumbnail Size",
+					storage: "thumbnail_size",
+					options: [
+						{ text: "Default", value: "default" },
+						{ text: "Small", value: "small" },
+						{ text: "x-small", value: "x-small" }
+					]
+				},
                 show_last_watched_overlay: {
                     component: 'switch',
                     text: 'showLastWatchedOverlay',
