@@ -2152,12 +2152,6 @@ html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0
 
 
 /* thumbnail sizes */
-html[it-thumbnail-size="default"] ytd-rich-grid-media,
-html[it-thumbnail-size="default"] ytd-grid-video-renderer,
-html[it-thumbnail-size="default"] ytd-thumbnail {
-    width: 100%;
-    max-width: 100%;
-}
 html[it-thumbnail-size="small"] ytd-rich-grid-media,
 html[it-thumbnail-size="small"] ytd-grid-video-renderer,
 html[it-thumbnail-size="small"] ytd-thumbnail {
