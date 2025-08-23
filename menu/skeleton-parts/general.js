@@ -261,7 +261,6 @@ extension.skeleton.main.layers.section.general = {
 					}],
 					tags: 'preview quality'
 				},
-
 				change_thumbnails_per_row: {
                     component: 'select',
                     text: 'changeThumbnailsPerRow',
@@ -304,8 +303,6 @@ extension.skeleton.main.layers.section.general = {
                     }],
                     tags: 'change thumbnails per row'
                 },
-
-                // Upstream: Thumbnail-Größe
                 thumbnail_size: {
                     component: "select",
                     text: "Thumbnail Size",
@@ -316,8 +313,6 @@ extension.skeleton.main.layers.section.general = {
                         { text: "x-small", value: "x-small" }
                     ]
                 },
-
-                // Deine Feature-Optionen: Last-watched Overlay
                 show_last_watched_overlay: {
                     component: 'switch',
                     text: 'showLastWatchedOverlay',
