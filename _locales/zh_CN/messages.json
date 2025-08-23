@@ -1,822 +1,821 @@
 {
-    "about": {
-        "message": "关于"
-    },
-    "activate": {
-        "message": "启用"
-    },
-    "activateCaptions": {
-        "message": "启用字幕"
-    },
-    "activated": {
-        "message": "启用"
-    },
-    "activatedFeatures": {
-        "message": "已启用功能"
-    },
-    "activateFullscreen": {
-        "message": "启用全屏"
-    },
-    "activeFeatures": {
-        "message": "启用功能"
-    },
-    "addScrollToTop": {
-        "message": "增加【返回顶部】按钮"
-    },
-    "ads": {
-        "message": "广告"
-    },
-    "allow": {
-        "message": "允许"
-    },
-    "allow60fps": {
-        "message": "允许60FPS"
-    },
-    "alwaysActive": {
-        "message": "始终启用"
-    },
-    "alwaysShowProgressBar": {
-        "message": "始终显示进度条"
-    },
-    "analyzer": {
-        "message": "观看数据分析"
-    },
-    "appearance": {
-        "message": "外观"
-    },
-    "areYouSureYouWantToExportTheData": {
-        "message": "你确定想要导出数据吗?"
-    },
-    "areYouSureYouWantToImportTheData": {
-        "message": "你确定想要导入数据吗?"
-    },
-    "audio": {
-        "message": "音频"
-    },
-    "audioFormats": {
-        "message": "音频格式"
-    },
-    "auto": {
-        "message": "自动"
-    },
-    "autoFullscreen": {
-        "message": "自动全屏"
-    },
-    "autopauseWhenSwitchingTabs": {
-        "message": "切换标签时暂停播放"
-    },
-    "autoplay": {
-        "message": "自动播放"
-    },
-    "backgroundColor": {
-        "message": "背景颜色"
-    },
-    "backupAndReset": {
-        "message": "备份与恢复"
-    },
-    "baseOnSystemColorScheme": {
-        "message": "使用系统配色"
-    },
-    "belowPlayer": {
-        "message": "在播放器下方"
-    },
-    "black": {
-        "message": "纯黑"
-    },
-    "blockAll": {
-        "message": "拦截所有"
-    },
-    "blocklist": {
-        "message": "黑名单"
-    },
-    "blue": {
-        "message": "蓝色"
-    },
-    "blueGray": {
-        "message": "蓝灰色"
-    },
-    "bluelight": {
-        "message": "色彩柔和度"
-    },
-    "browser": {
-        "message": "浏览器"
-    },
-    "browserVersion": {
-        "message": "浏览器版本"
-    },
-    "bubbles": {
-        "message": "网格"
-    },
-    "categories": {
-        "message": "分类"
-    },
-    "channel": {
-        "message": "频道"
-    },
-    "channels": {
-        "message": "频道"
-    },
-    "characterEdgeStyle": {
-        "message": "文字阴影风格"
-    },
-    "clipboard": {
-        "message": "粘贴板"
-    },
-    "codecH264": {
-        "message": "采用 h.264 编码"
-    },
-    "collapsed": {
-        "message": "收起"
-    },
-    "collapseOfSubscriptionSections": {
-        "message": "订阅区域显示展开/收起按钮"
-    },
-    "comments": {
-        "message": "评论"
-    },
-    "compact_spacing": {
-        "message": "compact spacing"
-    },
-    "confirmationBeforeClosing": {
-        "message": "页面关闭确认"
-    },
-    "cores": {
-        "message": "核心"
-    },
-    "copyVideoId": {
-        "message": "复制影片 ID"
-    },
-    "cropChapterTitles": {
-        "message": "裁剪章节标题"
-    },
-    "customCss": {
-        "message": "自定义CSS"
-    }，
-    "customJs": {
-        "message": "自定义JS"
-    }，
-    "customMiniPlayer": {
-        "message": "自定义迷你播放器"
-    }，
-    "dark": {
-        "message": "黑暗"
-    }，
-    "darkTheme": {
-        "message": "夜间模式"
-    }，
-    "dateAndTime": {
-        "message": "时间与日期"
-    }，
-    "decreasePlaybackSpeed": {
-        "message": "视频减速"
-    }，
-    "decreaseVolume": {
-        "message": "降低音量"
-    }，
-    "default": {
-        "message": "默认"
-    }，
-    "defaultChannelTab": {
-        "message": "默认频道页"
-    }，
-    "defaultContentCountry": {
-        "message": "(首页)默认显示内容的位置(国家/地区)"
-    }，
-    "deleteYoutubeCookies": {
-        "message": "清空 YouTube cookies"
-    }，
-    "details": {
-        "message": "细节信息"
-    }，
-    "developerOptions": {
-        "message": "开发者选项"
-    }，
-    "device": {
-        "message": "设备"
-    },
-    "dim": {
-        "message": "遮罩层厚度"
-    },
-    "disabled": {
-        "message": "停用"
-    },
-    "Disable video playback on hover": {
-        "meassage": "禁用鼠标悬停时播放"
-    },
-    "dislike": {
-        "message": "踩一下"
-    },
-    "donate": {
-        "message": "支持"
-    },
-    "doNotChange": {
-        "message": "不做改变"
-    },
-    "draggable": {
-        "message": "可拖动"
-    },
-    "Dim Youtube's Pages, except what I mouse-over!": {
-        "message": "在当前页面上模糊除鼠标所在位置外的其他元素"
-    }
-    "empty": {
-        "message": "暂无"
-    },
-    "enabled": {
-        "message": "启用"
-    },
-    "enabledForced": {
-        "message": "强制启用"
-    },
-    "expanded": {
-        "message": "展开"
-    },
-    "exportSettings": {
-        "message": "导出设置"
-    },
-    "extension": {
-        "message": "扩展"
-    },
-    "file": {
-        "message": "文件"
-    },
-    "filters": {
-        "message": "滤镜"
-    },
-    "fitToWindow": {
-        "message": "窗口自适应"
-    },
-    "flash": {
-        "message": "闪光"
-    },
-    "font": {
-        "message": "字体"
-    },
-    "fontColor": {
-        "message": "字体颜色"
-    },
-    "fontFamily": {
-        "message": "字体"
-    },
-    "fontOpacity": {
-        "message": "字体透明度"
-    },
-    "fontSize": {
-        "message": "字体大小"
-    },
-    "footer": {
-        "message": "底部栏"
-    },
-    "forcedPlaybackSpeed": {
-        "message": "强制设置播放速度"
-    },
-    "forcedTheaterMode": {
-        "message": "强制设置剧场模式"
-    },
-    "forcedVolume": {
-        "message": "强制修改音量"
-    },
-    "foundABug": {
-        "message": "遇到了Bug?"
-    },
-    "fullWindow": {
-        "message": "全屏"
-    },
-    "general": {
-        "message": "一般设置"
-    },
-    "geoPreference": {
-        "message": "地理偏好"
-    },
-    "goToSearchBox": {
-        "message": "转到搜索框"
-    },
-    "green": {
-        "message": "绿色"
-    },
-    "hdThumbnail": {
-        "message": "高清缩略图"
-    },
-    "header": {
-        "message": "顶部栏"
-    },
-    "hidden": {
-        "message": "隐藏"
-    },
-    "hiddenOnVideoPage": {
-        "message": "在视频播放页面时隐藏"
-    },
-    "hideAnimatedThumbnails": {
-        "message": "隐藏动态缩略图"
-    },
-    "hideAnnotations": {
-        "message": "隐藏预览图"
-    },
-    "hideCards": {
-        "message": "隐藏信息卡片"
-    },
-    "hideCountryCode": {
-        "message": "隐藏国家代码"
-    },
-    "hideDate": {
-        "message": "隐藏日期"
-    },
-    "hideDetails": {
-        "message": "隐藏详细信息"
-    },
-    "hideEndscreen": {
-        "message": "隐藏结束画面"
-    },
-    "hideFeaturedContent": {
-        "message": "隐藏精选频道"
-    },
-    "hideFooter": {
-        "message": "隐藏底部栏"
-    },
-    "hideGradientBottom": {
-        "message": "隐藏底部渐变层"
-    },
-    "hideHomePageShorts": {
-        "message": "移除主页的 Shorts"
-    },
-    "hidePlayerControlsBar": {
-        "message": "隐藏播放器控制栏"
-    },
-    "hidePlaylist": {
-        "message": "隐藏播放列表"
-    },
-    "hideRightButtons": {
-        "message": "隐藏右侧按钮"
-    },
-    "hideScrollForDetails": {
-        "message": "隐藏 «滚动至详细信息»"
-    },
-    "hideSkipOverlay": {
-        "message": "隐藏跳过叠加"
-    },
-    "hideThumbnailOverlay": {
-        "message": "隐藏缩略图上的按钮"
-    },
-    "hideViewsCount": {
-        "message": "隐藏观看量"
-    },
-    "history": {
-        "message": "历史记录"
-    },
-    "Hide AI Summaries": {
-        "message": "隐藏AI摘要"
-    },
-    "Hide Banner Ads (YouTube might deny)": {
-        "message": "隐藏横幅广告 (YouTube可能会拒绝)"
-    },
-    "Hide Pause Overlay": {
-        "mssage": "隐藏暂停时的遮罩"
-    },
-    "Hide YouTube Logo": {
-        "message": "隐藏Youtube标志"
-    },
-    "Hide '⫶' (more actions) on thumbnails": {
-        "message": "缩略图上隐藏:(更多操作)"
-    },
-    "Hide watched videos": {
-        "message": "隐藏已观看的视频"
-    },
-    "home": {
-        "message": "首页"
-    },
-    "hover": {
-        "message": "悬浮"
-    },
-    "hoverOnVideoPage": {
-        "message": "在视频播放页面时悬浮显示"
-    },
-    "howLongAgoTheVideoWasUploaded": {
-        "message": "投稿于多久之前"
-    },
-    "icons": {
-        "message": "图标"
-    },
-    "iconsOnly": {
-        "message": "仅显示图标"
-    },
-    "importSettings": {
-        "message": "导入设置"
-    },
-    "improvedtubeIconOnYoutube": {
-        "message": "在 YouTube 显示 ImprovedTube 图标"
-    },
-    "improvedtubeLanguage": {
-        "message": "ImprovedTube 语言"
-    },
-    "improveLogo": {
-        "message": "优化图标"
-    },
-    "increasePlaybackSpeed": {
-        "message": "视频加速"
-    },
-    "indigo": {
-        "message": "靛青色"
-    },
-    "items": {
-        "message": "项目"
-    },
-    "language": {
-        "message": "语言"
-    },
-    "languages": {
-        "message": "语言"
-    },
-    "legacyYoutube": {
-        "message": "旧版 YouTube"
-    },
-    "light": {
-        "message": "明亮"
-    },
-    "lightBlue": {
-        "message": "浅蓝色"
-    },
-    "lightGreen": {
-        "message": "浅绿色"
-    },
-    "like": {
-        "message": "顶一下"
-    },
-    "lime": {
-        "message": "石灰色"
-    },
-    "list": {
-        "message": "列表"
-    },
-    "liveChat": {
-        "message": "实时聊天窗"
-    },
-    "liveChatType": {
-        "message": "实时聊天窗类型"
-    },
-    "location": {
-        "message": "地点"
-    },
-    "loudnessNormalization": {
-        "message": "音量标准化"
-    },
-    "markWatchedVideos": {
-        "message": "标记为已观看"
-    },
-    "mixer": {
-        "message": "混音器"
-    },
-    "myColors": {
-        "message": "自定义颜色"
-    },
-    "name": {
-        "message": "名字"
-    },
-    "nativeMiniPlayer": {
-        "message": "原版迷你播放器"
-    },
-    "new": {
-        "message": "新的"
-    },
-    "nextVideo": {
-        "message": "上一个视频"
-    },
-    "night": {
-        "message": "夜色"
-    },
-    "noActiveFeatures": {
-        "message": "没有已启用的功能"
-    },
-    "none": {
-        "message": "无"
-    },
-    "noOpenVideoTabs": {
-        "message": "没有已打开的视频标签"
-    },
-    "old": {
-        "message": "旧版"
-    },
-    "onAllVideos": {
-        "message": "在所有视频"
-    },
-    "onlyActiveOnYoutube": {
-        "message": "仅在 YouTube 上启用"
-    },
-    "onlyOnePlayerInstancePlaying": {
-        "message": "同时仅播放一个"
-    },
-    "onSubscribedChannels": {
-        "message": "在订阅频道"
-    },
-    "openPopupPlayer": {
-        "message": "在新窗口打开视频/播放列表"
-    },
-    "orange": {
-        "message": "橙色"
-    },
-    "os": {
-        "message": "操作系统"
-    },
-    "permissions": {
-        "message": "许可"
-    },
-    "pictureInPicture": {
-        "message": "画中画"
-    },
-    "pink": {
-        "message": "粉色"
-    },
-    "plain": {
-        "message": "野外"
-    },
-    "player_fit_to_win_button": {
-        "message": "player fit to win button"
-    },
-    "player_rewind_and_forward_buttons":{
-        "message": "player rewind and forward buttons"
-
-    },
-    "player_rotate_button": {
-        "message": "player rotate button"
-    },
-    "playerColor": {
-        "message": "播放器颜色"
-    },
-    "playlists": {
-        "message": "稍后观看"
-    },
-    "playPause": {
-        "message": "播放/暂停"
-    },
-    "popupPlayer": {
-        "message": "弹出播放器"
-    },
-    "popupWindowButtons": {
-        "message": "添加弹出播放器按钮"
-    },
-    "pressAnyKeyOrScroll": {
-        "message": "按下任意键或滚动鼠标滚轴."
-    },
-    "pressAnyKeyOrUseMouseWheel": {
-        "message": "按下任意键或鼠标滚轴."
-    },
-    "previousVideo": {
-        "message": "下一个视频"
-    },
-    "primaryColor": {
-        "message": "主色调"
-    },
-    "quality": {
-        "message": "画质"
-    },
-    "rateUs": {
-        "message": "给我们评价"
-    },
-    "red": {
-        "message": "红色"
-    },
-    "redDislikeButton": {
-        "message": "将【踩一下】设置为红色"
-    },
-    "relatedVideos": {
-        "message": "相关视频"
-    },
-    "removeRelatedSearchResults": {
-        "message": "隐藏搜索相关结果"
-    },
-    "removeShortsReelSearchResults": {
-        "message": "删除搜索结果中的 Shorts 轮播"
-    },
-    "Remove member only videos": {
-        "message": "移除会员专享视频"
-    },
-    "repeat": {
-        "message": "循环"
-    },
-    "reset": {
-        "message": "重置"
-    },
-    "resetAllSettings": {
-        "message": "重置所有设置"
-    },
-    "resetAllShortcuts": {
-        "message": "重置所有快捷键"
-    },
-    "reverse": {
-        "message": "逆序"
-    },
-    "rotate": {
-        "message": "旋转"
-    },
-    "save": {
-        "message": "保存"
-    },
-    "saveAs": {
-        "message": "另存为"
-    },
-    "schedule": {
-        "message": "定时开/关"
-    },
-    "screen": {
-        "message": "屏幕"
-    },
-    "screenshot": {
-        "message": "截图"
-    },
-    "search": {
-        "message": "搜索"
-    },
-    "searchBarOnly": {
-        "message": "仅搜索栏"
-    },
-    "seekForward10Seconds": {
-        "message": "快进10秒"
-    },
-    "seekNextChapter": {
-        "message": "寻找下一章"
-    },
-    "seekPreviousChapter": {
-        "message": "寻找上一章"
-    },
-    "settings": {
-        "message": "ImprovedTube 设置"
-    },
-    "settingsSuccessfullyImported": {
-        "message": "设置导入成功"
-    },
-    "shortcuts": {
-        "message": "快捷键"
-    },
-    "showCardsOnMouseHover": {
-        "message": "鼠标悬浮时显示信息卡片"
-    },
-    "showChannelVideosCount": {
-        "message": "显示频道内视频数"
-    },
-    "showLess": {
-        "message": "显示较少"
-    },
-    "showMore": {
-        "message": "展示更多"
-    },
-    "shuffle": {
-        "message": "随机"
-    },
-    "sidebar": {
-        "message": "侧边栏"
-    }，
-    "spacebar": {
-        "message": "空格"
-    }，
-    "squaredUserImages": {
-        "message": "方形用户头像"
-    }，
-    "static": {
-        "message": "静态"
-    }，
-    "statsForNerds": {
-        "message": "显示专业信息"
-    }，
-    "style": {
-        "message": "样式"
-    }，
-    "styles": {
-        "message": "样式"
-    }，
-    "subscriptions": {
-        "message": "订阅内容"
-    }，
-    "sunset": {
-        "message": "晚霞"
-    }，
-    "sunsetToSunrise": {
-        "message": "日落到日出"
-    }，
-    "systemPeferenceDark": {
-        "message": "系统偏好: 深色"
-    }，
-    "systemPeferenceLight": {
-        "message": "系统偏好: 浅色"
-    }，
-    "teal": {
-        "message": "蓝绿色"
-    },
-    "textColor": {
-        "message": "文字颜色"
-    },
-    "themes": {
-        "message": "主题"
-    },
-    "thisWillRemoveAllCookies": {
-        "message": "将清空所有 cookies."
-    },
-    "thisWillRemoveAllYouTubeCookies": {
-        "message": "将清空所有 YouTube cookies"
-    },
-    "thisWillResetAllSettings": {
-        "message": "将重置所有设置"
-    },
-    "thisWillResetAllShortcuts": {
-        "message": "将会重置所有快捷键"
-    },
-    "thumbnails": {
-        "message": "缩略图"
-    },
-    "thumbnailsQuality": {
-        "message": "缩略图质量"
-    },
-    "Thumbnail Size": {
-        "message": "缩略图尺寸"
-    },
-    "timeFrom": {
-        "message": "开始时间"
-    },
-    "timeTo": {
-        "message": "结束时间"
-    },
-    "todayAt": {
-        "message": "截止今天"
-    },
-    "toggleCards": {
-        "message": "切换卡片"
-    },
-    "toggleControls": {
-        "message": "Toggle controls"
-    },
-    "topChat": {
-        "message": "热门聊天"
-    },
-    "trailerAutoplay": {
-        "message": "自动播放预告片"
-    },
-    "translations": {
-        "message": "翻译"
-    },
-    "trending": {
-        "message": "时下流行"
-    },
-    "tryToReloadThePage": {
-        "message": "尝试刷新页面"
-    },
-    "turnOff": {
-        "message": "关闭时间"
-    },
-    "turnOn": {
-        "message": "开启时间"
-    },
-    "type": {
-        "message": "类型"
-    },
-    "upNextAutoplay": {
-        "message": "自动播放下一视频"
-    },
-    "use24HourFormat": {
-        "message": "使用24小时制"
-    },
-    "video": {
-        "message": "视频"
-    },
-    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
-        "message": "扩展视频简介到分类"
-    },
-    "videoFormats": {
-        "message": "视频格式"
-    },
-    "videos": {
-        "message": "视频"
-    },
-    "watchLater": {
-        "message": "稍后观看"
-    },
-    "watchTime": {
-        "message": "观看时间"
-    },
-    "whenTabIsChanged": {
-        "message": "切换标签时"
-    },
-    "windowColor": {
-        "message": "窗口颜色"
-    },
-    "windowOpacity": {
-        "message": "窗口透明度"
-    },
-    "yellow": {
-        "message": "黄色"
-    },
-    "youtubeHeaderLeft": {
-        "message": "Youtube标题（左）"
-    },
-    "youtubeHeaderRight": {
-        "message": "Youtube标题（右）"
-    },
-    "youtubeHomePage": {
-        "message": "YouTube默认主页"
-    },
-    "youtubeLanguage": {
-        "message": "YouTube 语言"
-    },
-    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
-        "message": "采用 H.264 编解码时,YouTube 会将视频画质设为 1080p"
-    },
-    "Youtube-Search": {
-        "massage": "Youtube搜索设置"
-    }
+  "about": {
+    "message": "关于"
+  },
+  "activate": {
+    "message": "启用"
+  },
+  "activateCaptions": {
+    "message": "启用字幕"
+  },
+  "activated": {
+    "message": "启用"
+  },
+  "activatedFeatures": {
+    "message": "已启用功能"
+  },
+  "activateFullscreen": {
+    "message": "启用全屏"
+  },
+  "activeFeatures": {
+    "message": "启用功能"
+  },
+  "addScrollToTop": {
+    "message": "增加【返回顶部】按钮"
+  },
+  "ads": {
+    "message": "广告"
+  },
+  "allow": {
+    "message": "允许"
+  },
+  "allow60fps": {
+    "message": "允许60FPS"
+  },
+  "alwaysActive": {
+    "message": "始终启用"
+  },
+  "alwaysShowProgressBar": {
+    "message": "始终显示进度条"
+  },
+  "analyzer": {
+    "message": "观看数据分析"
+  },
+  "appearance": {
+    "message": "外观"
+  },
+  "areYouSureYouWantToExportTheData": {
+    "message": "你确定想要导出数据吗?"
+  },
+  "areYouSureYouWantToImportTheData": {
+    "message": "你确定想要导入数据吗?"
+  },
+  "audio": {
+    "message": "音频"
+  },
+  "audioFormats": {
+    "message": "音频格式"
+  },
+  "auto": {
+    "message": "自动"
+  },
+  "autoFullscreen": {
+    "message": "自动全屏"
+  },
+  "autopauseWhenSwitchingTabs": {
+    "message": "切换标签时暂停播放"
+  },
+  "autoplay": {
+    "message": "自动播放"
+  },
+  "backgroundColor": {
+    "message": "背景颜色"
+  },
+  "backupAndReset": {
+    "message": "备份与恢复"
+  },
+  "baseOnSystemColorScheme": {
+    "message": "使用系统配色"
+  },
+  "belowPlayer": {
+    "message": "在播放器下方"
+  },
+  "black": {
+    "message": "纯黑"
+  },
+  "blockAll": {
+    "message": "拦截所有"
+  },
+  "blocklist": {
+    "message": "黑名单"
+  },
+  "blue": {
+    "message": "蓝色"
+  },
+  "blueGray": {
+    "message": "蓝灰色"
+  },
+  "bluelight": {
+    "message": "色彩柔和度"
+  },
+  "browser": {
+    "message": "浏览器"
+  },
+  "browserVersion": {
+    "message": "浏览器版本"
+  },
+  "bubbles": {
+    "message": "网格"
+  },
+  "categories": {
+    "message": "分类"
+  },
+  "channel": {
+    "message": "频道"
+  },
+  "channels": {
+    "message": "频道"
+  },
+  "characterEdgeStyle": {
+    "message": "文字阴影风格"
+  },
+  "clipboard": {
+    "message": "粘贴板"
+  },
+  "codecH264": {
+    "message": "采用 h.264 编码"
+  },
+  "collapsed": {
+    "message": "收起"
+  },
+  "collapseOfSubscriptionSections": {
+    "message": "订阅区域显示展开/收起按钮"
+  },
+  "comments": {
+    "message": "评论"
+  },
+  "compact_spacing": {
+    "message": "compact spacing"
+  },
+  "confirmationBeforeClosing": {
+    "message": "页面关闭确认"
+  },
+  "cores": {
+    "message": "核心"
+  },
+  "copyVideoId": {
+    "message": "复制影片 ID"
+  },
+  "cropChapterTitles": {
+    "message": "裁剪章节标题"
+  },
+  "customCss": {
+    "message": "自定义CSS"
+  },
+  "customJs": {
+    "message": "自定义JS"
+  },
+  "customMiniPlayer": {
+    "message": "自定义迷你播放器"
+  },
+  "dark": {
+    "message": "黑暗"
+  },
+  "darkTheme": {
+    "message": "夜间模式"
+  },
+  "dateAndTime": {
+    "message": "时间与日期"
+  },
+  "decreasePlaybackSpeed": {
+    "message": "视频减速"
+  },
+  "decreaseVolume": {
+    "message": "降低音量"
+  },
+  "default": {
+    "message": "默认"
+  },
+  "defaultChannelTab": {
+    "message": "默认频道页"
+  },
+  "defaultContentCountry": {
+    "message": "(首页)默认显示内容的位置(国家/地区)"
+  },
+  "deleteYoutubeCookies": {
+    "message": "清空 YouTube cookies"
+  },
+  "details": {
+    "message": "细节信息"
+  },
+  "developerOptions": {
+    "message": "开发者选项"
+  },
+  "device": {
+    "message": "设备"
+  },
+  "dim": {
+    "message": "遮罩层厚度"
+  },
+  "disabled": {
+    "message": "停用"
+  },
+  "disable_video_playback_on_hover": {
+    "message": "disable video playback on hover"
+  },
+  "dislike": {
+    "message": "踩一下"
+  },
+  "donate": {
+    "message": "支持"
+  },
+  "doNotChange": {
+    "message": "不做改变"
+  },
+  "draggable": {
+    "message": "可拖动"
+  },
+  "dim_youtube_pages_mouseover": {
+    "message": "在当前页面上模糊除鼠标所在位置外的其他元素"
+  },
+  "empty": {
+    "message": "暂无"
+  },
+  "enabled": {
+    "message": "启用"
+  },
+  "enabledForced": {
+    "message": "强制启用"
+  },
+  "expanded": {
+    "message": "展开"
+  },
+  "exportSettings": {
+    "message": "导出设置"
+  },
+  "extension": {
+    "message": "扩展"
+  },
+  "file": {
+    "message": "文件"
+  },
+  "filters": {
+    "message": "滤镜"
+  },
+  "fitToWindow": {
+    "message": "窗口自适应"
+  },
+  "flash": {
+    "message": "闪光"
+  },
+  "font": {
+    "message": "字体"
+  },
+  "fontColor": {
+    "message": "字体颜色"
+  },
+  "fontFamily": {
+    "message": "字体"
+  },
+  "fontOpacity": {
+    "message": "字体透明度"
+  },
+  "fontSize": {
+    "message": "字体大小"
+  },
+  "footer": {
+    "message": "底部栏"
+  },
+  "forcedPlaybackSpeed": {
+    "message": "强制设置播放速度"
+  },
+  "forcedTheaterMode": {
+    "message": "强制设置剧场模式"
+  },
+  "forcedVolume": {
+    "message": "强制修改音量"
+  },
+  "foundABug": {
+    "message": "遇到了Bug?"
+  },
+  "fullWindow": {
+    "message": "全屏"
+  },
+  "general": {
+    "message": "一般设置"
+  },
+  "geoPreference": {
+    "message": "地理偏好"
+  },
+  "goToSearchBox": {
+    "message": "转到搜索框"
+  },
+  "green": {
+    "message": "绿色"
+  },
+  "hdThumbnail": {
+    "message": "高清缩略图"
+  },
+  "header": {
+    "message": "顶部栏"
+  },
+  "hidden": {
+    "message": "隐藏"
+  },
+  "hiddenOnVideoPage": {
+    "message": "在视频播放页面时隐藏"
+  },
+  "hideAnimatedThumbnails": {
+    "message": "隐藏动态缩略图"
+  },
+  "hideAnnotations": {
+    "message": "隐藏预览图"
+  },
+  "hideCards": {
+    "message": "隐藏信息卡片"
+  },
+  "hideCountryCode": {
+    "message": "隐藏国家代码"
+  },
+  "hideDate": {
+    "message": "隐藏日期"
+  },
+  "hideDetails": {
+    "message": "隐藏详细信息"
+  },
+  "hideEndscreen": {
+    "message": "隐藏结束画面"
+  },
+  "hideFeaturedContent": {
+    "message": "隐藏精选频道"
+  },
+  "hideFooter": {
+    "message": "隐藏底部栏"
+  },
+  "hideGradientBottom": {
+    "message": "隐藏底部渐变层"
+  },
+  "hideHomePageShorts": {
+    "message": "移除主页的 Shorts"
+  },
+  "hidePlayerControlsBar": {
+    "message": "隐藏播放器控制栏"
+  },
+  "hidePlaylist": {
+    "message": "隐藏播放列表"
+  },
+  "hideRightButtons": {
+    "message": "隐藏右侧按钮"
+  },
+  "hideScrollForDetails": {
+    "message": "隐藏 «滚动至详细信息»"
+  },
+  "hideSkipOverlay": {
+    "message": "隐藏跳过叠加"
+  },
+  "hideThumbnailOverlay": {
+    "message": "隐藏缩略图上的按钮"
+  },
+  "hideViewsCount": {
+    "message": "隐藏观看量"
+  },
+  "history": {
+    "message": "历史记录"
+  },
+  "Hide_AI_Summaries": {
+    "message": "隐藏AI摘要"
+  },
+  "Hide_Banner_Ads__YouTube_might_deny_": {
+    "message": "隐藏横幅广告 (YouTube可能会拒绝)"
+  },
+  "Hide_Pause_Overlay": {
+    "message": "Hide Pause Overlay"
+  },
+  "Hide_YouTube_Logo": {
+    "message": "隐藏Youtube标志"
+  },
+  "Hide______more_actions__on_thumbnails": {
+    "message": "缩略图上隐藏:(更多操作)"
+  },
+  "Hide_watched_videos": {
+    "message": "隐藏已观看的视频"
+  },
+  "home": {
+    "message": "首页"
+  },
+  "hover": {
+    "message": "悬浮"
+  },
+  "hoverOnVideoPage": {
+    "message": "在视频播放页面时悬浮显示"
+  },
+  "howLongAgoTheVideoWasUploaded": {
+    "message": "投稿于多久之前"
+  },
+  "icons": {
+    "message": "图标"
+  },
+  "iconsOnly": {
+    "message": "仅显示图标"
+  },
+  "importSettings": {
+    "message": "导入设置"
+  },
+  "improvedtubeIconOnYoutube": {
+    "message": "在 YouTube 显示 ImprovedTube 图标"
+  },
+  "improvedtubeLanguage": {
+    "message": "ImprovedTube 语言"
+  },
+  "improveLogo": {
+    "message": "优化图标"
+  },
+  "increasePlaybackSpeed": {
+    "message": "视频加速"
+  },
+  "indigo": {
+    "message": "靛青色"
+  },
+  "items": {
+    "message": "项目"
+  },
+  "language": {
+    "message": "语言"
+  },
+  "languages": {
+    "message": "语言"
+  },
+  "legacyYoutube": {
+    "message": "旧版 YouTube"
+  },
+  "light": {
+    "message": "明亮"
+  },
+  "lightBlue": {
+    "message": "浅蓝色"
+  },
+  "lightGreen": {
+    "message": "浅绿色"
+  },
+  "like": {
+    "message": "顶一下"
+  },
+  "lime": {
+    "message": "石灰色"
+  },
+  "list": {
+    "message": "列表"
+  },
+  "liveChat": {
+    "message": "实时聊天窗"
+  },
+  "liveChatType": {
+    "message": "实时聊天窗类型"
+  },
+  "location": {
+    "message": "地点"
+  },
+  "loudnessNormalization": {
+    "message": "音量标准化"
+  },
+  "markWatchedVideos": {
+    "message": "标记为已观看"
+  },
+  "mixer": {
+    "message": "混音器"
+  },
+  "myColors": {
+    "message": "自定义颜色"
+  },
+  "name": {
+    "message": "名字"
+  },
+  "nativeMiniPlayer": {
+    "message": "原版迷你播放器"
+  },
+  "new": {
+    "message": "新的"
+  },
+  "nextVideo": {
+    "message": "上一个视频"
+  },
+  "night": {
+    "message": "夜色"
+  },
+  "noActiveFeatures": {
+    "message": "没有已启用的功能"
+  },
+  "none": {
+    "message": "无"
+  },
+  "noOpenVideoTabs": {
+    "message": "没有已打开的视频标签"
+  },
+  "old": {
+    "message": "旧版"
+  },
+  "onAllVideos": {
+    "message": "在所有视频"
+  },
+  "onlyActiveOnYoutube": {
+    "message": "仅在 YouTube 上启用"
+  },
+  "onlyOnePlayerInstancePlaying": {
+    "message": "同时仅播放一个"
+  },
+  "onSubscribedChannels": {
+    "message": "在订阅频道"
+  },
+  "openPopupPlayer": {
+    "message": "在新窗口打开视频/播放列表"
+  },
+  "orange": {
+    "message": "橙色"
+  },
+  "os": {
+    "message": "操作系统"
+  },
+  "permissions": {
+    "message": "许可"
+  },
+  "pictureInPicture": {
+    "message": "画中画"
+  },
+  "pink": {
+    "message": "粉色"
+  },
+  "plain": {
+    "message": "野外"
+  },
+  "player_fit_to_win_button": {
+    "message": "player fit to win button"
+  },
+  "player_rewind_and_forward_buttons": {
+    "message": "player rewind and forward buttons"
+  },
+  "player_rotate_button": {
+    "message": "player rotate button"
+  },
+  "playerColor": {
+    "message": "播放器颜色"
+  },
+  "playlists": {
+    "message": "稍后观看"
+  },
+  "playPause": {
+    "message": "播放/暂停"
+  },
+  "popupPlayer": {
+    "message": "弹出播放器"
+  },
+  "popupWindowButtons": {
+    "message": "添加弹出播放器按钮"
+  },
+  "pressAnyKeyOrScroll": {
+    "message": "按下任意键或滚动鼠标滚轴."
+  },
+  "pressAnyKeyOrUseMouseWheel": {
+    "message": "按下任意键或鼠标滚轴."
+  },
+  "previousVideo": {
+    "message": "下一个视频"
+  },
+  "primaryColor": {
+    "message": "主色调"
+  },
+  "quality": {
+    "message": "画质"
+  },
+  "rateUs": {
+    "message": "给我们评价"
+  },
+  "red": {
+    "message": "红色"
+  },
+  "redDislikeButton": {
+    "message": "将【踩一下】设置为红色"
+  },
+  "relatedVideos": {
+    "message": "相关视频"
+  },
+  "removeRelatedSearchResults": {
+    "message": "隐藏搜索相关结果"
+  },
+  "removeShortsReelSearchResults": {
+    "message": "删除搜索结果中的 Shorts 轮播"
+  },
+  "Remove_member_only_videos": {
+    "message": "移除会员专享视频"
+  },
+  "repeat": {
+    "message": "循环"
+  },
+  "reset": {
+    "message": "重置"
+  },
+  "resetAllSettings": {
+    "message": "重置所有设置"
+  },
+  "resetAllShortcuts": {
+    "message": "重置所有快捷键"
+  },
+  "reverse": {
+    "message": "逆序"
+  },
+  "rotate": {
+    "message": "旋转"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "saveAs": {
+    "message": "另存为"
+  },
+  "schedule": {
+    "message": "定时开/关"
+  },
+  "screen": {
+    "message": "屏幕"
+  },
+  "screenshot": {
+    "message": "截图"
+  },
+  "search": {
+    "message": "搜索"
+  },
+  "searchBarOnly": {
+    "message": "仅搜索栏"
+  },
+  "seekForward10Seconds": {
+    "message": "快进10秒"
+  },
+  "seekNextChapter": {
+    "message": "寻找下一章"
+  },
+  "seekPreviousChapter": {
+    "message": "寻找上一章"
+  },
+  "settings": {
+    "message": "ImprovedTube 设置"
+  },
+  "settingsSuccessfullyImported": {
+    "message": "设置导入成功"
+  },
+  "shortcuts": {
+    "message": "快捷键"
+  },
+  "showCardsOnMouseHover": {
+    "message": "鼠标悬浮时显示信息卡片"
+  },
+  "showChannelVideosCount": {
+    "message": "显示频道内视频数"
+  },
+  "showLess": {
+    "message": "显示较少"
+  },
+  "showMore": {
+    "message": "展示更多"
+  },
+  "shuffle": {
+    "message": "随机"
+  },
+  "sidebar": {
+    "message": "侧边栏"
+  },
+  "spacebar": {
+    "message": "空格"
+  },
+  "squaredUserImages": {
+    "message": "方形用户头像"
+  },
+  "static": {
+    "message": "静态"
+  },
+  "statsForNerds": {
+    "message": "显示专业信息"
+  },
+  "style": {
+    "message": "样式"
+  },
+  "styles": {
+    "message": "样式"
+  },
+  "subscriptions": {
+    "message": "订阅内容"
+  },
+  "sunset": {
+    "message": "晚霞"
+  },
+  "sunsetToSunrise": {
+    "message": "日落到日出"
+  },
+  "systemPeferenceDark": {
+    "message": "系统偏好: 深色"
+  },
+  "systemPeferenceLight": {
+    "message": "系统偏好: 浅色"
+  },
+  "teal": {
+    "message": "蓝绿色"
+  },
+  "textColor": {
+    "message": "文字颜色"
+  },
+  "themes": {
+    "message": "主题"
+  },
+  "thisWillRemoveAllCookies": {
+    "message": "将清空所有 cookies."
+  },
+  "thisWillRemoveAllYouTubeCookies": {
+    "message": "将清空所有 YouTube cookies"
+  },
+  "thisWillResetAllSettings": {
+    "message": "将重置所有设置"
+  },
+  "thisWillResetAllShortcuts": {
+    "message": "将会重置所有快捷键"
+  },
+  "thumbnails": {
+    "message": "缩略图"
+  },
+  "thumbnailsQuality": {
+    "message": "缩略图质量"
+  },
+  "Thumbnail_Size": {
+    "message": "缩略图尺寸"
+  },
+  "timeFrom": {
+    "message": "开始时间"
+  },
+  "timeTo": {
+    "message": "结束时间"
+  },
+  "todayAt": {
+    "message": "截止今天"
+  },
+  "toggleCards": {
+    "message": "切换卡片"
+  },
+  "toggleControls": {
+    "message": "Toggle controls"
+  },
+  "topChat": {
+    "message": "热门聊天"
+  },
+  "trailerAutoplay": {
+    "message": "自动播放预告片"
+  },
+  "translations": {
+    "message": "翻译"
+  },
+  "trending": {
+    "message": "时下流行"
+  },
+  "tryToReloadThePage": {
+    "message": "尝试刷新页面"
+  },
+  "turnOff": {
+    "message": "关闭时间"
+  },
+  "turnOn": {
+    "message": "开启时间"
+  },
+  "type": {
+    "message": "类型"
+  },
+  "upNextAutoplay": {
+    "message": "自动播放下一视频"
+  },
+  "use24HourFormat": {
+    "message": "使用24小时制"
+  },
+  "video": {
+    "message": "视频"
+  },
+  "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+    "message": "扩展视频简介到分类"
+  },
+  "videoFormats": {
+    "message": "视频格式"
+  },
+  "videos": {
+    "message": "视频"
+  },
+  "watchLater": {
+    "message": "稍后观看"
+  },
+  "watchTime": {
+    "message": "观看时间"
+  },
+  "whenTabIsChanged": {
+    "message": "切换标签时"
+  },
+  "windowColor": {
+    "message": "窗口颜色"
+  },
+  "windowOpacity": {
+    "message": "窗口透明度"
+  },
+  "yellow": {
+    "message": "黄色"
+  },
+  "youtubeHeaderLeft": {
+    "message": "Youtube标题（左）"
+  },
+  "youtubeHeaderRight": {
+    "message": "Youtube标题（右）"
+  },
+  "youtubeHomePage": {
+    "message": "YouTube默认主页"
+  },
+  "youtubeLanguage": {
+    "message": "YouTube 语言"
+  },
+  "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+    "message": "采用 H.264 编解码时,YouTube 会将视频画质设为 1080p"
+  },
+  "Youtube_Search": {
+    "message": "Youtube Search"
+  }
 }
