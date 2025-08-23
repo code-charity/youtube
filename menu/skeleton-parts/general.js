@@ -262,7 +262,6 @@ extension.skeleton.main.layers.section.general = {
 					tags: 'preview quality'
 				},
 
-				// Upstream: Thumbnails pro Reihe
 				change_thumbnails_per_row: {
                     component: 'select',
                     text: 'changeThumbnailsPerRow',
@@ -285,22 +284,22 @@ extension.skeleton.main.layers.section.general = {
                         text: '8',
                         value: '8'
                     },{
-                        text: '9 (experimental)',
+                        text: '9',
                         value: '9'
                     },{
-                        text: '10 (experimental)',
+                        text: '10',
                         value: '10'
                     },{
-                        text: '11 (experimental)',
+                        text: '11',
                         value: '11'
                     },{
                         text: '12 (experimental)',
                         value: '12'
                     },{
-                        text: '2 (experimental)',
+                        text: '2',
                         value: '2'
                     },{
-                        text: '1 (experimental)',
+                        text: '1',
                         value: '1'
                     }],
                     tags: 'change thumbnails per row'
