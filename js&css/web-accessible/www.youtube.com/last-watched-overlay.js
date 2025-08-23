@@ -1,9 +1,11 @@
 /*------------------------------------------------------------------------------
 LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 ------------------------------------------------------------------------------*/
-
-// Füge das Style-Element einmal hinzu
-(function addStyles() {
+ImprovedTube.lastWatchedOverlay = function() {
+    if (ImprovedTube.storage.show_last_watched_overlay === true)  {
+    console.log("[LWO] Feature function called");
+    
+    (function addStyles() {
     if (document.getElementById('it-last-watched-overlay-style')) return;
     
     const style = document.createElement('style');
@@ -27,19 +29,6 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
     `;
     document.head.appendChild(style);
 })();
-
-// Die Hauptfunktion - überschreibt jede existierende Version
-ImprovedTube.lastWatchedOverlay = function() {
-    console.log("[LWO] Feature function called");
-    
-    // Sofort beenden, wenn Feature deaktiviert
-    // Standard: Wenn nicht gesetzt, aktivieren
-    if (ImprovedTube.storage.show_last_watched_overlay === undefined) {
-        ImprovedTube.storage.show_last_watched_overlay = true;
-    }
-    if (ImprovedTube.storage.show_last_watched_overlay === false) {
-        return;
-    }
     
     // Track der Container (Element -> videoId) für Updates
     const overlayMap = new WeakMap();
@@ -332,3 +321,5 @@ const debouncedProcessPage = debounce(() => {
         ImprovedTube.lastWatchedOverlayProcess();
     }
 }, 300);
+}
+}
