@@ -64,6 +64,7 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json" title="中文 (简体)">CN(zh_CN)</a></code> :
 <a href="https://github.com/niceRAM" title="✨🏆"><code>niceRAM</code></a> 
 <a href="https://github.com/ausers"><code>ausers</code></a><br>
+<a href="https://github.com/FlootingDream"><code>FlootingDream</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json" title="中文 (繁體)">CN(zh_TW)</a></code> :
 <a href="https://github.com/Still34" title="✨🏆"><code>Still34</code></a> 
 <a href="https://github.com/water903"><code>water903</code></a>  <br>
@@ -79,7 +80,8 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fr/messages.json" title="Français">FR</a></code> :
 <a href="https://github.com/leghort"><code>leghort</code></a> 
 <a href="https://github.com/Eymiks"><code>Eymiks</code></a> 
-<a href="https://github.com/Solvabl"><code>Solvabl</code></a><br>
+<a href="https://github.com/Solvabl"><code>Solvabl</code></a>
+<a href="https://github.com/Tibood"><code>Tibood</code></a><br>
 <code><a href="https://github.com/code4charity/YouTube-Extension/blob/master/_locales/ar/messages.json" title="العربية">AR</a></code> :
 <a href="https://github.com/Raayib"><code>Raayib</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/bn/messages.json" title="বাংলা">BN</a></code> :
@@ -97,7 +99,8 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <a href="https://github.com/unnamed-orbert"><code>unnamed-orbert</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json" title="Bahasa Indonesia">ID</a></code> :
 <a href="https://github.com/Bagus23"><code>Bagus23</code></a> 
-<a href="https://github.com/fdciabdul"><code>A.Muttaqin</code></a><br>
+<a href="https://github.com/fdciabdul"><code>A.Muttaqin</code></a>
+<a href="https://github.com/MoriMomo"><code>MoriMomo</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/de/messages.json" title="Deutsch">DE</a></code> :
 <a href="https://github.com/Termuellinator" title="✨🏆"><code>Termuellinator</code></a> 
 <a href="https://github.com/css-smueller"><code>css-smueller</code></a><br>
@@ -108,9 +111,11 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <a href="https://github.com/0xUINTBEEF"><code>0xUINTBEEF</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/vn/messages.json" title="Vietnamese">VN</a></code> :
 <a href="https://github.com/zeref-dragneel"><code>zeref-dragneel</code></a><br>
-<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json" title="한국어">KO</a></code> :
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ko/messages.json" title="한국어"><b>KO</b></a></code> :
 <a href="https://github.com/msc9533"><code>msc9533</code></a> 
-<a href="https://github.com/LYHyoung"><code>LYHyoung</code></a><br>
+<a href="https://github.com/LYHyoung"><code>LYHyoung</code></a> 
+<a href="https://github.com/LYHyoung"><code>yheedev</code></a><br> 
+(<i>Many users are korean! Thanks for caring!</i>) <br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fa_IR/messages.json" title="فارسی">(Iranian) Persian</a></code> :
 <a href="https://github.com/AC-Lover"><code>AC Lover</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/it/messages.json" title="Italiano">IT</a></code> :
@@ -172,7 +177,7 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <code>Urdu</code>
 <code>Nigerian Pidgin (English Creole)</code><br>
 <code>Western-&Eastern-Punjabi</code><br>
-<code>Marathi</code>(Indo-European)<code>Telugu</code><br>
+<code>Marathi</code>(Indo-European)<br><code><code>✔️</code>Telugu</code>:<code>​<a href="https://github.com/Akhil3236">Akhil3236</a></code><br>
 <code>Tamil</code> <code>Yue Chinese</code> (incl. Cantonese)<br>
 <code>Tagalog</code>(New name: Filipino)<br> <code>Wu Chinese</code> (incl. Shanghainese)<br>
 <code>Hausa</code> <code>Egyptian Spoken Arabic</code><br>

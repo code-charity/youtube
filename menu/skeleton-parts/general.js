@@ -124,9 +124,19 @@ extension.skeleton.main.layers.section.general = {
 					}],
 					tags: 'trending,subscriptions,history,watch,search,undistracted,zen'
 				},
-				collapse_of_subscription_sections: {
-					component: 'switch',
-					text: 'collapseOfSubscriptionSections'
+				left: {
+				component: 'section',
+				variant: 'card',
+				title: 'Left_Side_Menu',
+					sticky_navigation: {
+						component: "switch",
+						text: 'stickyNavigation',
+						tags: 'navigation,auto-hide,sidebar'
+					},
+					collapse_of_subscription_sections: {
+						component: 'switch',
+						text: 'collapseOfSubscriptionSections'
+					}
 				},
 				ads: {
 					text: 'ads',
@@ -171,7 +181,11 @@ extension.skeleton.main.layers.section.general = {
 				hide_banner_ads: {
 					component: 'switch',
 					text: 'hideBannerAds'
-				} 
+				},
+				hide_sponsored_videos_home: {
+					component: 'switch',
+					text: 'hideSponsoredVideosOnHome'
+				}
 			},
 			embed: {
 				component: 'section',

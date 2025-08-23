@@ -611,6 +611,9 @@
     "sidebar": {
         "message": "Barre latérale"
     },
+    "stickyNavigation": {
+        "message": "Navigation Fixe"
+    },
     "spacebar": {
         "message": "Barre d'espace"
     },
