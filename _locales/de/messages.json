@@ -844,5 +844,32 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube begrenzt die Qualität auf 1080p für den h.264 Codec"
+    },
+    "showLastWatchedOverlay": {
+        "message": "Zeige 'Zuletzt angesehen'-Overlay auf Vorschaubildern"
+    },
+    "lastWatchedOverlayPosition": {
+        "message": "Position des Overlays"
+    },
+    "bottomRight": {
+        "message": "Unten rechts"
+    },
+    "bottomLeft": {
+        "message": "Unten links"
+    },
+    "topRight": {
+        "message": "Oben rechts"
+    },
+    "topLeft": {
+        "message": "Oben links"
+    },
+    "lastWatchedFormat": {
+        "message": "Zeitformat"
+    },
+    "relative": {
+        "message": "Relativ (z.B. vor 5 Min.)"
+    },
+    "exact": {
+        "message": "Genaues Datum/Uhrzeit"
     }
 }
