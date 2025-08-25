@@ -3,7 +3,6 @@
 --------------------------------------------------------------*/
 if (document.body) { ImprovedTube.childHandler(document.body); }
 
-ImprovedTube.redirectShortsToWatch();
 ImprovedTube.observer = new MutationObserver(function (mutationList) {
 
 	for (var i = 0, l = mutationList.length; i < l; i++) {
@@ -145,6 +144,7 @@ document.addEventListener('yt-navigate-finish', function () {
 		ImprovedTube.initPlayer();
 	}
 	if(ImprovedTube.elements.shorts_player){
+		ImprovedTube.redirectShortsToWatch();
 		if(ImprovedTube.storage.prevent_shorts_autoloop){
 			ImprovedTube.stop_shorts_autoloop();
 		}
