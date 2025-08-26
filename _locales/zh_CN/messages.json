@@ -201,7 +201,7 @@
         "message": "停用"
     },
     "Disable video playback on hover": {
-        "meassage": "禁用鼠标悬停时播放"
+        "message": "禁用鼠标悬停时播放"
     },
     "dislike": {
         "message": "踩一下"
@@ -369,7 +369,7 @@
         "message": "隐藏横幅广告 (YouTube可能会拒绝)"
     },
     "Hide Pause Overlay": {
-        "mssage": "隐藏暂停时的遮罩"
+        "message": "隐藏暂停时的遮罩"
     },
     "Hide YouTube Logo": {
         "message": "隐藏Youtube标志"
@@ -817,6 +817,6 @@
         "message": "采用 H.264 编解码时,YouTube 会将视频画质设为 1080p"
     },
     "Youtube-Search": {
-        "massage": "Youtube搜索设置"
+        "message": "Youtube搜索设置"
     }
 }
