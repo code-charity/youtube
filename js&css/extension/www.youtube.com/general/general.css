@@ -80,6 +80,9 @@ html[it-hide-thumbnail-overlay='true'] #player-controls.ytd-video-preview,
 # HIDE THUMBNAIL ICON
 --------------------------------------------------------------*/
 html[it-hide-thumbnail-icon='true'] .yt-spec-avatar-shape.yt-spec-avatar-shape__button.yt-spec-avatar-shape__button--button-medium.yt-spec-avatar-shape__button--tappable,
+html[it-hide-thumbnail-icon] :is(ytd-video-renderer,ytd-promoted-video-renderer) a#channel-thumbnail {
+  display: none !important;
+}
 /*--------------------------------------------------------------
 # HIDE DOTS ON THUMBNAILS
 --------------------------------------------------------------*/
