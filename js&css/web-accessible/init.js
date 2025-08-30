@@ -138,6 +138,7 @@ document.addEventListener('yt-navigate-finish', function () {
 	ImprovedTube.pageType();
 	ImprovedTube.YouTubeExperiments();
 	ImprovedTube.commentsSidebar();
+	ImprovedTube.lastWatchedOverlay();
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();

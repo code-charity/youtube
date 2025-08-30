@@ -283,10 +283,10 @@ extension.skeleton.main.layers.section.general = {
 						text: '8',
 						value: '8'
 					},{
-						text: '9 (experimental)',
+						text: '9',
 						value: '9'
 					},{
-						text: '10 (experimental)',
+						text: '10',
 						value: '10'
 					},{
 						text: '11 (experimental)',
@@ -295,10 +295,10 @@ extension.skeleton.main.layers.section.general = {
 						text: '12 (experimental)',
 						value: '12'
 					},{
-						text: '2 (experimental)',
+						text: '2',
 						value: '2'
 					},{
-						text: '1 (experimental)',
+						text: '1',
 						value: '1'
 					}],
 					tags: 'change thumbnails per row'
@@ -312,7 +312,35 @@ extension.skeleton.main.layers.section.general = {
 						{ text: "Small", value: "small" },
 						{ text: "x-small", value: "x-small" }
 					]
-				}
+				},
+                show_last_watched_overlay: {
+                    component: 'switch',
+                    text: 'showLastWatchedOverlay',
+                    value: true, // default aktiv
+                    tags: 'history overlay'
+                },
+                last_watched_overlay_position: {
+                    component: 'select',
+                    text: 'lastWatchedOverlayPosition',
+                    storage: 'last_watched_overlay_position',
+                    options: [
+                        { value: 'bottom-right', text: 'bottomRight' },
+                        { value: 'bottom-left',  text: 'bottomLeft'  },
+                        { value: 'top-right',    text: 'topRight'    },
+                        { value: 'top-left',     text: 'topLeft'     }
+                    ],
+                    value: 'bottom-right'
+                },
+                last_watched_format: {
+                    component: 'select',
+                    text: 'lastWatchedFormat',
+                    storage: 'last_watched_format',
+                    options: [
+                        { value: 'relative', text: 'relative' },
+                        { value: 'exact',    text: 'exact'    }
+                    ],
+                    value: 'relative'
+                }
 			}, section_2: {
 				component: 'section',
 				variant: 'card',
