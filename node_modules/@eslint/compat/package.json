@@ -1,0 +1,61 @@
+{
+  "name": "@eslint/compat",
+  "version": "1.1.0",
+  "description": "Compatibility utilities for ESLint",
+  "type": "module",
+  "main": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "exports": {
+    "require": {
+      "types": "./dist/cjs/index.d.cts",
+      "default": "./dist/cjs/index.cjs"
+    },
+    "import": {
+      "types": "./dist/esm/index.d.ts",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build:cts": "node -e \"fs.copyFileSync('dist/esm/index.d.ts', 'dist/cjs/index.d.cts')\"",
+    "build": "rollup -c && tsc -p tsconfig.esm.json && npm run build:cts",
+    "test:jsr": "npx jsr@latest publish --dry-run",
+    "test": "mocha tests/*.js",
+    "test:coverage": "c8 npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eslint/rewrite.git"
+  },
+  "keywords": [
+    "eslint",
+    "compatibility",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Nicholas C. Zakas",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/eslint/rewrite/issues"
+  },
+  "homepage": "https://github.com/eslint/rewrite#readme",
+  "devDependencies": {
+    "@types/eslint": "^8.56.10",
+    "c8": "^9.1.0",
+    "eslint": "^9.0.0",
+    "mocha": "^10.4.0",
+    "rollup": "^4.16.2",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+  }
+}
