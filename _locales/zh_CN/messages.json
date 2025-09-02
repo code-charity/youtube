@@ -816,6 +816,6 @@
         "message": "使用 H.264 编码时，YouTube 会将视频画质限制在 1080p"
     },
     "YoutubeSearch": {
-        "message": "YouTube 搜索"
+        "message": "YouTube 搜索 "
     }
 }
