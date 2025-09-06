@@ -166,6 +166,42 @@ html[it-player-transparent-background='true'] #movie_player video {
 --------------------------------------------------------------*/
 html[it-hide-video-title-fullScreen='true'] .ytp-title-text > a,
 /*--------------------------------------------------------------
+# YOUTUBE RETURN BUTTON IN FULLSCREEN
+--------------------------------------------------------------*/
+#it-youtube-return-button {
+	position: absolute !important;
+	top: 20px !important;
+	left: 20px !important;
+	z-index: 9999 !important;
+	background: rgba(0, 0, 0, 0.8) !important;
+	border: none !important;
+	border-radius: 4px !important;
+	padding: 8px !important;
+	cursor: pointer !important;
+	transition: all 0.2s ease !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 40px !important;
+	height: 40px !important;
+}
+
+#it-youtube-return-button:hover {
+	background: rgba(0, 0, 0, 0.9) !important;
+	transform: scale(1.1) !important;
+}
+
+#it-youtube-return-button svg {
+	width: 24px !important;
+	height: 24px !important;
+	fill: white !important;
+}
+
+.html5-video-player:not(.ytp-fullscreen) #it-youtube-return-button {
+	display: none !important;
+}
+
+/*--------------------------------------------------------------
 # SHADOW AROUND PLAYER BAR
 --------------------------------------------------------------*/
 html[it-hide-gradient-bottom='true'] .ytp-gradient-bottom,
