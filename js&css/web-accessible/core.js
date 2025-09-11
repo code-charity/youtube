@@ -92,6 +92,53 @@ var ImprovedTube = {
 	status_timer: false,
 	defaultApiKey: 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA'
 };
+/*--------------------------------------------------------------
+Below player buttons (append to right of container)
+--------------------------------------------------------------*/
+ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
+	const container = document.querySelector('#above-the-fold #top-row') ||
+		document.querySelector('#above-the-fold #title') ||
+		document.querySelector('#above-the-fold #primary-inner') ||
+		document.querySelector('#above-the-fold #primary');
+
+	if (!container) return;
+
+	// Remove any existing ImprovedTube buttons to avoid duplicates
+	container.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
+
+	// Create and append buttons to the right
+	const buttons = [];
+	if (ImprovedTube.storage.below_player_screenshot) {
+		const screenshotBtn = ImprovedTube.createPlayerButton({
+			className: 'improvedtube-player-button',
+			title: 'Screenshot',
+			position: 'right',
+			onclick: ImprovedTube.playerScreenshotButton
+		});
+		buttons.push(screenshotBtn);
+	}
+	if (ImprovedTube.storage.below_player_pip) {
+		const pipBtn = ImprovedTube.createPlayerButton({
+			className: 'improvedtube-player-button',
+			title: 'PiP',
+			position: 'right',
+			onclick: ImprovedTube.enterPip
+		});
+		buttons.push(pipBtn);
+	}
+	if (ImprovedTube.storage.below_player_loop) {
+		const loopBtn = ImprovedTube.createPlayerButton({
+			className: 'improvedtube-player-button',
+			title: 'Loop',
+			position: 'right',
+			onclick: ImprovedTube.playerRepeatButton
+		});
+		buttons.push(loopBtn);
+	}
+
+	// Append all buttons to the container (to the right)
+	buttons.forEach(btn => container.appendChild(btn));
+};
 
 /*--------------------------------------------------------------
 CODEC || 30FPS
@@ -206,9 +253,9 @@ document.addEventListener('it-message-from-extension', function () {
 
 /*--------------------------------------------------------------
 # Immediate reaction to any change of our extension storage (settings)
-    	While most of our features are chosen permanently (set and forget) and need to run with YouTube,
+		While most of our features are chosen permanently (set and forget) and need to run with YouTube,
 	 we only started this section for feedback and reducing new user's misunderstandings.
- 		(For our simple CSS-only features this isn't necessary, since a loop is doing it and there could be a shared loop for many JS feature too)
+		(For our simple CSS-only features this isn't necessary, since a loop is doing it and there could be a shared loop for many JS feature too)
 	Yet doing this, it could also be used for big extra visual feedback pointing at or highlighing the immediate change on youtube. 
 		(to make it most intutive to the many new or visual users, bringing changes with simple css-transations or animation. Like an interactive tutorial.) 
 --------------------------------------------------------------*/
