@@ -1166,6 +1166,8 @@ ImprovedTube.miniPlayer_scroll = function () {
 
 		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__width, ImprovedTube.mini_player__height, true, true);
 
+		window.addEventListener('mousedown', ImprovedTube.miniPlayer_mouseDown);
+		window.addEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
 		window.addEventListener('resize', ImprovedTube.miniPlayer_scroll);
 	} else if (window.scrollY < 256 && ImprovedTube.mini_player__mode === true || ImprovedTube.elements.player.classList.contains('ytp-player-minimized') === true) {
 		ImprovedTube.mini_player__mode = false;
@@ -1184,7 +1186,6 @@ ImprovedTube.miniPlayer_scroll = function () {
 		window.removeEventListener('mousemove', ImprovedTube.miniPlayer_mouseMove);
 		window.removeEventListener('mouseup', ImprovedTube.miniPlayer_mouseUp);
 		window.removeEventListener('click', ImprovedTube.miniPlayer_click);
-		window.removeEventListener('scroll', ImprovedTube.miniPlayer_scroll);
 		window.removeEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
 	}
 };
