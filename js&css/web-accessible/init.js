@@ -179,3 +179,9 @@ window.addEventListener('load', function () {
 	}
 	//document.querySelector('#content, #guide[opened]').remove() }
 });
+
+document.addEventListener("visibilitychange", () => {
+	 if (typeof ImprovedTube.playerAutopauseWhenSwitchingTabs === "function") {
+         ImprovedTube.playerAutopauseWhenSwitchingTabs();
+  }
+});
