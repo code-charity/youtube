@@ -701,13 +701,17 @@ extension.features.changeThumbnailsPerRow = async function () {
 			});
 		} else {
 			const grid = document.querySelector('ytd-rich-grid-renderer');
-			if (!grid)
-				return;
-
-			// Apply custom values
-			grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
-			grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
-			grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+			if (grid) {
+				// Apply custom values
+				grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
+				grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
+				grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
+			}
+			const shelf = document.querySelector('ytd-rich-shelf-renderer');
+			if (shelf) {
+				// Apply custom values
+				shelf.style.setProperty('--ytd-rich-grid-items-per-row', value);
+			}
 		}
 	};
 
