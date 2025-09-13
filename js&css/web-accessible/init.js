@@ -151,9 +151,11 @@ document.addEventListener('yt-navigate-finish', function () {
 		}
 	}
 	if (document.documentElement.dataset.pageType === 'home' &&	 ImprovedTube.storage.youtube_home_page === 'search' ) {
-		document.querySelector('body').style.setProperty('visibility', 'visible', 'important');
-		ImprovedTube.shortcutGoToSearchBox();
-		document.querySelector('#search').click();
+		// open empty search page
+		window.location.href = 'https://www.youtube.com/results';
+		//document.querySelector('body').style.setProperty('visibility', 'visible', 'important');
+		//ImprovedTube.shortcutGoToSearchBox();
+		//document.querySelector('#search').click();
 	} else if (document.documentElement.dataset.pageType === 'channel') {
 		ImprovedTube.channelPlayAllButton();
 	}
