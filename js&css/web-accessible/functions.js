@@ -373,6 +373,7 @@ ImprovedTube.initPlayer = function () {
 		if (location.href.indexOf('/embed/') === -1) { ImprovedTube.miniPlayer(); }
 		if (ImprovedTube.storage.disable_auto_dubbing === true) { ImprovedTube.disableAutoDubbing(); }
 	}
+	this.handleBackgroundPlayback();
 };
 
 var timeUpdateInterval = null;
@@ -461,15 +462,27 @@ ImprovedTube.playerHideProgressPreview = function () {
 };
 
 ImprovedTube.playerOnEnded = function (event) {
-	ImprovedTube.playlistUpNextAutoplay(event);
 
-	ImprovedTube.messages.send({action: 'analyzer',
-		//adding "?" (not a fix)
-		name: ImprovedTube.elements.yt_channel_name?.__data.tooltipText,
-		time: ImprovedTube.played_time
-							   });
+	if (document.hidden) { 
+    	const nextButton = document.querySelector('.ytp-next-button');
+    	if (nextButton) {
+      	nextButton.click();
+      	ImprovedTube.showStatus('Playlist continues in background');
+    	}
+  } else { 
+    ImprovedTube.playlistUpNextAutoplay(event);
+  }
+  
 
-	ImprovedTube.played_time = 0;
+  ImprovedTube.messages.send({
+    action: 'analyzer',
+    name: ImprovedTube.elements.yt_channel_name?.__data.tooltipText,
+    time: ImprovedTube.played_time
+  });
+
+  ImprovedTube.played_time = 0;
+	/////////////////
+	
 };
 
 // https://github.com/code-charity/youtube/pull/2431
@@ -730,4 +743,20 @@ ImprovedTube.extractSubscriberCount = function (subscriberCountNode) {
 
 		ImprovedTube.subscriberCount = subscriberCount;
 	}
+	
 };
+
+ImprovedTube.handleBackgroundPlayback = function() {
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { 
+      const player = document.querySelector('video');
+      if (player) {
+        player.addEventListener('ended', () => {
+          
+          document.querySelector('.ytp-next-button')?.click();
+        }, { once: true });
+      }
+    }
+  });
+};
+
