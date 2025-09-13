@@ -2386,6 +2386,8 @@ satus.components.shortcut = function (component, skeleton) {
 							component.data = component.skeleton.value || {};
 							satus.storage.remove(component.storage.key);
 
+							component.storage.value = component.data;
+
 							component.render(component.valueElement);
 
 							this.parentNode.parentNode.parentNode.close();
