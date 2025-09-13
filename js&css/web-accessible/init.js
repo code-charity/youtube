@@ -95,6 +95,7 @@ ImprovedTube.init = function () {
 	this.myColors();
 	this.YouTubeExperiments();
 	this.channelCompactTheme();
+	this.channelDetails();
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();

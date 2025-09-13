@@ -144,3 +144,114 @@ ImprovedTube.channelCompactTheme = function () {
 		compact.styles = []
 	}
 }
+
+/*------------------------------------------------------------------------------
+4.6.4 Details
+------------------------------------------------------------------------------*/
+ImprovedTube.channelDetails = function () {
+	function createChannelInfo(channelName, uploadTime, videoCount, customUrl) {
+		//console.log('Creating channel info:', channelName, uploadTime, videoCount, customUrl); // Debugging log
+		const container = document.createElement('div');
+		container.className = 'channel-info';
+
+		const channelInfoContainer = document.createElement('div');
+
+		if (uploadTime) {
+			const uploadTimeElement = document.createElement('span');
+			uploadTimeElement.className = 'upload-time';
+			uploadTimeElement.textContent = `${uploadTime}`;
+			channelInfoContainer.appendChild(uploadTimeElement);
+			container.appendChild(channelInfoContainer);
+		}
+		if (videoCount) {
+			const videoCountElement = document.createElement('span');
+			videoCountElement.className = 'video-count';
+			videoCountElement.textContent = ` (${videoCount} videos)`;
+			channelInfoContainer.appendChild(videoCountElement);
+			container.appendChild(channelInfoContainer);
+		}
+
+		// All Videos Link
+		const allVideosLink = document.createElement('a');
+		allVideosLink.className = 'all-videos-link';
+		allVideosLink.href = `https://www.youtube.com/${customUrl}/videos`;
+		allVideosLink.title = 'All Videos';
+
+		const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svgElement.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        svgElement.setAttribute('viewBox', '0 0 24 24');
+        svgElement.setAttribute('width', '24px');
+        svgElement.setAttribute('height', '24px');
+        svgElement.setAttribute('fill', 'gray');
+		container.appendChild(allVideosLink);
+
+		const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        pathElement.setAttribute('d', 'M4 4h6v6H4V4zm0 10h6v6H4v-6zm10-10h6v6h-6V4zm0 10h6v6h-6v-6z');
+        svgElement.appendChild(pathElement);
+
+		allVideosLink.appendChild(svgElement);
+        container.appendChild(allVideosLink);
+
+		// View Data Link 
+		const viewDataLink = document.createElement('a');
+		viewDataLink.className = 'view-data-link';
+		viewDataLink.href = 'https://ytlarge.com/youtube/video-data-viewer/';
+		// Tooltip text using `title`
+		viewDataLink.title = 'View detailed video data';
+
+		const svgElement2 = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svgElement2.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        svgElement2.setAttribute('viewBox', '0 0 24 24');
+        svgElement2.setAttribute('width', '24px');
+        svgElement2.setAttribute('height', '24px');
+        svgElement2.setAttribute('fill', 'gray');
+		container.appendChild(viewDataLink);
+
+		const pathElement2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        pathElement2.setAttribute('d', 'M11 7h2V5h-2v2zm1 14c-5.52 0-10-4.48-10-10S6.48 1 12 1s10 4.48 10 10-4.48 10-10 10zm-1-5h2v-6h-2v6z');
+        svgElement2.appendChild(pathElement2);
+
+		viewDataLink.appendChild(svgElement2);
+        container.appendChild(viewDataLink);	
+		
+		// CSS for this Detail area is added in extension/styles.css
+		return container;
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		// Listen for messages from the content.js script
+		window.addEventListener('message', (event) => {
+			// Only process messages with the expected type
+			if (event.source === window && event.data.type === 'CHANNEL_INFO') {
+				const { channelName, uploadTime, videoCount, customUrl, switchState } = event.data;
+				
+				const observer = new MutationObserver((mutationsList, observer) => {
+					const targetElement = document.querySelector('ytd-video-owner-renderer.style-scope.ytd-watch-metadata');
+	
+					if (targetElement) {
+						// Stop observing once the target is found
+						observer.disconnect();
+	
+						if(switchState) {
+							const channelInfo = createChannelInfo(channelName, uploadTime, videoCount, customUrl);
+
+							// Removing existing channel info if present
+							const existingChannelInfo = targetElement.querySelector('.channel-info');
+							if (existingChannelInfo) {
+								existingChannelInfo.remove();
+							}
+							targetElement.appendChild(channelInfo);
+						} else {
+							targetElement.remove();
+						}
+					} else {
+						console.log('Target element not found');
+					}
+				});
+	
+				// Start observing the body for child node changes
+				observer.observe(document.body, { childList: true, subtree: true });
+			}
+		});
+	});
+}
