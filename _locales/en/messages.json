@@ -1319,6 +1319,9 @@
     "thumbnailsQuality": {
         "message": "Thumbnails Quality"
     },
+    "Thumbnail_Size": {
+        "message": "Thumbnail Size"
+    },
     "timeFrom": {
         "message": "Time from"
     },

@@ -110,8 +110,13 @@ ImprovedTube.ytElementsHandler = function (node) {
 	// 	if (document.documentElement.dataset.pageType === 'video') {
 	// 		this.hideDetailButton(node.querySelector('#flexible-item-buttons').children);
 	// 	}
-	} else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
-		this.playlistPopup();
+    } else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer'))) {
+        this.playlistPopup();
+        // Integrate playlist cleaner controls when header appears
+        try { if (this.playlistCleanerInitControls) this.playlistCleanerInitControls(); } catch (e) {}
+    } else if (name === 'YTD-PLAYLIST-VIDEO-RENDERER') {
+        // Attach quick actions per item via central handler
+        try { if (this.playlistCleanerEnsureQuickButtons) this.playlistCleanerEnsureQuickButtons(node); } catch (e) {}
 	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER'
 		   || name === 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL'
 		   || (name === 'YTD-BUTTON-RENDERER' && node.classList.contains('ytd-c4-tabbed-header-renderer'))) {

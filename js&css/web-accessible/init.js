@@ -84,6 +84,7 @@ ImprovedTube.init = function () {
 			ImprovedTube.playlistPopup();
 			ImprovedTube.playlistCopyVideoIdButton();
 		}
+		try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] page-data-updated error', e); }
 	});
 	this.pageType();
 	this.playerOnPlay();
@@ -138,7 +139,7 @@ document.addEventListener('yt-navigate-finish', function () {
 	ImprovedTube.pageType();
 	ImprovedTube.YouTubeExperiments();
 	ImprovedTube.commentsSidebar();
-	ImprovedTube.lastWatchedOverlay();
+	try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] nav-finish error', e); }
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();

@@ -62,18 +62,18 @@ chrome.runtime.sendMessage({
 	}
 });
 
-extension.inject([
+	extension.inject([
 	'/js&css/web-accessible/core.js',
 	'/js&css/web-accessible/functions.js',
 	'/js&css/web-accessible/www.youtube.com/appearance.js',
 	'/js&css/web-accessible/www.youtube.com/themes.js',
 	'/js&css/web-accessible/www.youtube.com/player.js',
 	'/js&css/web-accessible/www.youtube.com/playlist.js',
+	'/js&css/web-accessible/www.youtube.com/playlist-cleaner.js',
 	'/js&css/web-accessible/www.youtube.com/channel.js',
 	'/js&css/web-accessible/www.youtube.com/shortcuts.js',
 	'/js&css/web-accessible/www.youtube.com/blocklist.js',
 	'/js&css/web-accessible/www.youtube.com/settings.js',
-	'/js&css/web-accessible/www.youtube.com/last-watched-overlay.js',  // Neue Zeile hinzufügen
 	'/js&css/web-accessible/init.js'
 ], function () {
 	extension.ready = true;

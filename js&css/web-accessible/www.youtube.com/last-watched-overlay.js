@@ -321,5 +321,3 @@ const debouncedProcessPage = debounce(() => {
         ImprovedTube.lastWatchedOverlayProcess();
     }
 }, 300);
-}
-}
