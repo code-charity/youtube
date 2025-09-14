@@ -120,16 +120,20 @@ ImprovedTube.ytElementsHandler = function (node) {
 	else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer')) || (name === 'YTD-PAGE-HEADER-RENDERER' && node.classList.contains('page-header-sidebar'))) {
 		this.playlistPopup();
 
-		// This is for the playlist page sidebar, the one that appears when you click on "show all playlist"
+		// Initialize playlist complete functionality for both custom and default playlists
+		console.log('[ImprovedTube] Detected playlist header renderer:', name);
+		this.playlistCompleteInit();
+
+		// This is for the playlist page sidebar, the one that appears when you click on "show all playlist"  
 		// For default playlist (such as watch later) we have a different header renderer than for custom playlists
 		if (name === 'YTD-PAGE-HEADER-RENDERER' || (name === 'YTD-PAGE-HEADER-RENDERER' && node.classList.contains('page-header-sidebar'))) {
 			this.elements.playlist_header_sidebar = node
 			this.elements.playlist_header_sidebar_buttons_section = name === 'YTD-PAGE-HEADER-RENDERER' ? node.querySelector('.yt-page-header-view-model__page-header-headline-info') : node.querySelector('.play-menu')
-			// Integrate playlist cleaner controls when header appears
-			if (this.playlistCleanerInitControls) this.playlistCleanerInitControls();
-			// Attach quick actions per item via central handler
-			if (this.playlistCleanerEnsureQuickButtons) this.playlistCleanerEnsureQuickButtons(node);
 		}
+	} else if (name === 'YTD-PLAYLIST-VIDEO-RENDERER') {
+		console.log('[ImprovedTube] Detected playlist video renderer');
+		// Attach quick action buttons to playlist video items
+		this.playlistEnsureQuickButtons(node);
 	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER'
 		|| name === 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL'
 		|| (name === 'YTD-BUTTON-RENDERER' && node.classList.contains('ytd-c4-tabbed-header-renderer'))) {
