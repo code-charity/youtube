@@ -78,15 +78,12 @@ ImprovedTube.init = function () {
 	window.addEventListener('yt-page-data-updated', function () {
 		ImprovedTube.pageType();
 		if (location.search.match(ImprovedTube.regex.playlist_id)) {
-			console.log('[ImprovedTube] Page data updated - playlist detected, initializing playlist features');
 			ImprovedTube.playlistRepeat();
 			ImprovedTube.playlistShuffle();
 			ImprovedTube.playlistReverse();
 			ImprovedTube.playlistPopup();
 			ImprovedTube.playlistCopyVideoIdButton();
 			ImprovedTube.playlistCompleteInit();
-		} else {
-			console.log('[ImprovedTube] Page data updated - not a playlist page');
 		}
 		try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] page-data-updated error', e); }
 	});

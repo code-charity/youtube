@@ -470,19 +470,13 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 				case 'playlistQuickDeleteShortcut':
-					console.log('[ImprovedTube] Settings change: playlistQuickDeleteShortcut =', ImprovedTube.storage.playlist_quick_delete_shortcut);
 					if (typeof ImprovedTube.playlistQuickDeleteShortcut === 'function') {
 						ImprovedTube.playlistQuickDeleteShortcut();
-					} else {
-						console.warn('[ImprovedTube] playlistQuickDeleteShortcut function not available');
 					}
 					break
 				case 'playlistBulkDeleteByProgress':
-					console.log('[ImprovedTube] Settings change: playlistBulkDeleteByProgress =', ImprovedTube.storage.playlist_bulk_delete_by_progress);
 					if (typeof ImprovedTube.playlistBulkDeleteByProgress === 'function') {
 						ImprovedTube.playlistBulkDeleteByProgress();
-					} else {
-						console.warn('[ImprovedTube] playlistBulkDeleteByProgress function not available');
 					}
 					break
 				case 'disableAutoDubbing':

@@ -121,7 +121,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 		this.playlistPopup();
 
 		// Initialize playlist complete functionality for both custom and default playlists
-		console.log('[ImprovedTube] Detected playlist header renderer:', name);
 		this.playlistCompleteInit();
 
 		// This is for the playlist page sidebar, the one that appears when you click on "show all playlist"  
@@ -131,7 +130,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 			this.elements.playlist_header_sidebar_buttons_section = name === 'YTD-PAGE-HEADER-RENDERER' ? node.querySelector('.yt-page-header-view-model__page-header-headline-info') : node.querySelector('.play-menu')
 		}
 	} else if (name === 'YTD-PLAYLIST-VIDEO-RENDERER') {
-		console.log('[ImprovedTube] Detected playlist video renderer');
 		// Attach quick action buttons to playlist video items
 		this.playlistEnsureQuickButtons(node);
 	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER'

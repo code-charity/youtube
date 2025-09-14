@@ -3,14 +3,26 @@
 ------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------
 Playlist management: delete videos and reset progress based on watch status
+- Quick delete buttons: Add delete icon buttons next to each video
+- Bulk delete controls: Add slider control to bulk delete videos by watch percentage
 ----------------------------------------------------------------------------*/
 
+/**
+ * Parse percentage value from CSS style string
+ * @param {string} style - CSS style string containing percentage
+ * @returns {number} - Percentage value between 0-100
+ */
 function parsePercentFromStyle(style) {
     if (!style) return 0;
     const m = String(style).match(/([0-9]+(?:\.[0-9]+)?)%/);
     return m ? Math.min(100, Math.max(0, parseFloat(m[1]))) : 0;
 }
 
+/**
+ * Extract video ID from playlist video renderer element
+ * @param {Element} renderer - Playlist video renderer element
+ * @returns {string|null} - Video ID or null if not found
+ */
 function getVideoIdFromRenderer(renderer) {
     try {
         // YouTube custom element often exposes internal data with .data
@@ -26,6 +38,11 @@ function getVideoIdFromRenderer(renderer) {
     return null;
 }
 
+/**
+ * Extract set video ID from playlist video renderer element
+ * @param {Element} renderer - Playlist video renderer element
+ * @returns {string|null} - Set video ID or null if not found
+ */
 function getSetVideoIdFromRenderer(renderer) {
     try {
         if (renderer && renderer.data && renderer.data.setVideoId) return renderer.data.setVideoId;
@@ -33,6 +50,11 @@ function getSetVideoIdFromRenderer(renderer) {
     return null;
 }
 
+/**
+ * Get watched percentage from video renderer overlays
+ * @param {Element} renderer - Playlist video renderer element
+ * @returns {number} - Watched percentage (0-100)
+ */
 function getWatchedPercentFromRenderer(renderer) {
     // Prefer explicit resume overlay progress
     const progress = renderer.querySelector('ytd-thumbnail-overlay-resume-playback-renderer #progress');
@@ -45,6 +67,12 @@ function getWatchedPercentFromRenderer(renderer) {
     return 0;
 }
 
+/**
+ * Remove video from playlist using YouTube's internal event system
+ * @param {string} videoId - Video ID to remove
+ * @param {string} setVideoId - Set video ID (optional)
+ * @returns {boolean} - Success status
+ */
 function removeFromPlaylist(videoId, setVideoId) {
     try {
         const app = document.querySelector('ytd-app');
@@ -66,6 +94,11 @@ function removeFromPlaylist(videoId, setVideoId) {
     } catch (e) { return false; }
 }
 
+/**
+ * Generate SHA-1 hex hash for authentication
+ * @param {string} str - String to hash
+ * @returns {Promise<string>} - Hex hash string
+ */
 async function sha1Hex(str) {
     const enc = new TextEncoder();
     const buf = await crypto.subtle.digest('SHA-1', enc.encode(str));
@@ -73,6 +106,12 @@ async function sha1Hex(str) {
     return bytes.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+/**
+ * Remove videos from playlist using YouTube's modify API
+ * @param {string} playlistId - Playlist ID
+ * @param {string[]} videoIds - Array of video IDs to remove
+ * @returns {Promise<boolean>} - Success status
+ */
 async function removeVideosPersistentlyModify(playlistId, videoIds) {
     if (!playlistId || !videoIds || videoIds.length === 0) return false;
     try {
@@ -100,6 +139,7 @@ async function removeVideosPersistentlyModify(playlistId, videoIds) {
         const actionName = isWatchLater ? 'ACTION_REMOVE_VIDEO_FROM_WATCH_LATER' : 'ACTION_REMOVE_VIDEO_FROM_PLAYLIST';
         const actions = videoIds.map(id => ({ action: actionName, playlistId, removedVideoId: id }));
         const url = `${location.origin}/youtubei/v1/playlist/modify?key=${encodeURIComponent(key)}`;
+
         // Build SAPISIDHASH Authorization header
         const sapisid = (window.ImprovedTube?.getCookieValueByName && window.ImprovedTube.getCookieValueByName('SAPISID')) || (document.cookie.match(/(?:^|;\s*)SAPISID=([^;]+)/)?.[1] || '');
         const origin = location.origin;
@@ -110,6 +150,7 @@ async function removeVideosPersistentlyModify(playlistId, videoIds) {
             const hash = await sha1Hex(toSign);
             authHeader = `SAPISIDHASH ${timestamp}_${hash}`;
         }
+
         const headers = {
             'content-type': 'application/json',
             'X-YouTube-Client-Name': clientName,
@@ -146,6 +187,12 @@ async function removeVideosPersistentlyModify(playlistId, videoIds) {
     }
 }
 
+/**
+ * Remove videos from playlist using YouTube's edit_playlist API
+ * @param {string} playlistId - Playlist ID
+ * @param {string[]} setVideoIds - Array of set video IDs to remove
+ * @returns {Promise<boolean>} - Success status
+ */
 async function removeVideosPersistentlyEdit(playlistId, setVideoIds) {
     if (!playlistId || !setVideoIds || setVideoIds.length === 0) return false;
     try {
@@ -170,6 +217,7 @@ async function removeVideosPersistentlyEdit(playlistId, setVideoIds) {
         const actions = setVideoIds.map(id => ({ action: 'ACTION_REMOVE_VIDEO', setVideoId: id }));
         const body = { context, actions, playlistId, params: 'CAFAAQ==' };
         const url = `${location.origin}/youtubei/v1/browse/edit_playlist?prettyPrint=false`;
+
         // Build SAPISIDHASH Authorization header
         const sapisid = (window.ImprovedTube?.getCookieValueByName && window.ImprovedTube.getCookieValueByName('SAPISID')) || (document.cookie.match(/(?:^|;\s*)SAPISID=([^;]+)/)?.[1] || '');
         const origin = location.origin;
@@ -180,6 +228,7 @@ async function removeVideosPersistentlyEdit(playlistId, setVideoIds) {
             const hash = await sha1Hex(toSign);
             authHeader = `SAPISIDHASH ${timestamp}_${hash}`;
         }
+
         const headers = {
             'content-type': 'application/json',
             'X-YouTube-Client-Name': String(cfg.INNERTUBE_CONTEXT_CLIENT_NAME || '1'),
@@ -212,6 +261,9 @@ async function removeVideosPersistentlyEdit(playlistId, setVideoIds) {
     }
 }
 
+/**
+ * Save watch history to local storage
+ */
 function saveLocalWatchHistory() {
     try {
         const key = 'it_watch_history';
@@ -224,6 +276,11 @@ function saveLocalWatchHistory() {
     } catch (e) { }
 }
 
+/**
+ * Reset watch progress for a specific video
+ * @param {string} videoId - Video ID to reset
+ * @param {Element} renderer - Video renderer element (optional)
+ */
 function resetWatchForVideo(videoId, renderer) {
     // Remove local overlay info and UI traces
     if (ImprovedTube.storage.watch_history && ImprovedTube.storage.watch_history[videoId]) {
@@ -244,42 +301,27 @@ function resetWatchForVideo(videoId, renderer) {
     } catch (e) { }
 }
 
+/*------------------------------------------------------------------------------
+4.5.7.1 QUICK DELETE BUTTONS
+------------------------------------------------------------------------------*/
+
+/**
+ * Add quick delete icon button to playlist video renderer
+ * @param {Element} renderer - Playlist video renderer element
+ */
 ImprovedTube.playlistEnsureQuickButtons = function (renderer) {
-    console.log('[ImprovedTube] playlistEnsureQuickButtons called', {
-        delete_enabled: this.storage.playlist_quick_delete_shortcut,
-        renderer: !!renderer
-    });
-
-    if (!this.storage.playlist_quick_delete_shortcut) {
-        console.log('[ImprovedTube] Quick delete feature disabled, skipping');
-        return;
-    }
-
-    if (!renderer || renderer.dataset.itQuickActions === '1') {
-        console.log('[ImprovedTube] Renderer invalid or already processed');
-        return;
-    }
+    if (!this.storage.playlist_quick_delete_shortcut) return;
+    if (!renderer || renderer.dataset.itQuickActions === '1') return;
 
     const videoId = getVideoIdFromRenderer(renderer);
-    if (!videoId) {
-        console.log('[ImprovedTube] No video ID found for renderer');
-        return;
-    }
-
-    const menu = renderer.querySelector('#menu');
-    if (!menu) {
-        console.log('[ImprovedTube] No menu found for renderer');
-        return;
-    }
+    if (!videoId) return;
 
     // Find the dropdown trigger button to insert before it
-    const dropdownTrigger = menu.querySelector('.dropdown-trigger, #button');
-    if (!dropdownTrigger) {
-        console.log('[ImprovedTube] No dropdown trigger found for renderer');
-        return;
-    }
+    const menu = renderer.querySelector('#menu');
+    if (!menu) return;
 
-    console.log('[ImprovedTube] Adding quick delete button for video:', videoId);
+    const dropdownTrigger = menu.querySelector('.dropdown-trigger, #button');
+    if (!dropdownTrigger) return;
 
     // Create icon button for delete
     const btnDelete = document.createElement('button');
@@ -299,7 +341,7 @@ ImprovedTube.playlistEnsureQuickButtons = function (renderer) {
     iconDiv.style.display = 'block';
     iconDiv.style.fill = 'currentcolor';
 
-    // Create SVG
+    // Create SVG with trash icon
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
     svg.setAttribute('enable-background', 'new 0 0 24 24');
@@ -313,7 +355,7 @@ ImprovedTube.playlistEnsureQuickButtons = function (renderer) {
     svg.style.width = '100%';
     svg.style.height = '100%';
 
-    // Create path
+    // Create path for trash icon
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute('d', 'M11 17H9V8h2v9zm4-9h-2v9h2V8zm4-4v1h-1v16H6V5H5V4h4V3h6v1h4zm-2 1H7v15h10V5z');
 
@@ -323,17 +365,20 @@ ImprovedTube.playlistEnsureQuickButtons = function (renderer) {
     iconSpan.appendChild(iconDiv);
     btnDelete.appendChild(iconSpan);
 
-    // Add click handler
+    // Add click handler for video removal
     btnDelete.addEventListener('click', async function (e) {
         e.preventDefault(); e.stopPropagation();
         const playlistId = new URLSearchParams(location.search).get('list');
         const setId = getSetVideoIdFromRenderer(renderer);
+
+        // Try multiple removal methods for reliability
         let ok = await removeVideosPersistentlyEdit(playlistId, setId ? [setId] : []);
         if (!ok) ok = await removeVideosPersistentlyModify(playlistId, [videoId]);
         if (!ok) {
             ok = await clickMenuRemove(renderer);
             if (!ok) ok = removeFromPlaylist(videoId, setId);
         }
+
         if (ok) {
             try { renderer.remove(); } catch (err) { }
             decrementPlaylistCount(1);
@@ -345,6 +390,9 @@ ImprovedTube.playlistEnsureQuickButtons = function (renderer) {
     renderer.dataset.itQuickActions = '1';
 };
 
+/**
+ * Attach quick delete buttons to all playlist video renderers
+ */
 ImprovedTube.playlistAttachQuickButtons = function () {
     if (!this.storage.playlist_quick_delete_shortcut) return;
     const list = document.querySelectorAll('ytd-playlist-video-renderer');
@@ -353,13 +401,28 @@ ImprovedTube.playlistAttachQuickButtons = function () {
     }
 };
 
+/*------------------------------------------------------------------------------
+4.5.7.2 BULK DELETE CONTROLS
+------------------------------------------------------------------------------*/
+
+/**
+ * Utility function for async delays
+ * @param {number} ms - Milliseconds to wait
+ * @returns {Promise} - Promise that resolves after delay
+ */
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
+/**
+ * Click the menu remove option for a video renderer
+ * @param {Element} renderer - Video renderer element
+ * @returns {Promise<boolean>} - Success status
+ */
 async function clickMenuRemove(renderer) {
     try {
         const menuButton = renderer.querySelector('#menu #button, #menu tp-yt-paper-icon-button, #menu ytd-button-renderer button');
         if (!menuButton) return false;
         menuButton.click();
+
         // Wait for popup items to render
         let tries = 0, item = null;
         while (tries++ < 20 && !item) {
@@ -380,15 +443,21 @@ async function clickMenuRemove(renderer) {
     } catch (e) { return false; }
 }
 
+/**
+ * Load all playlist items by scrolling and clicking continuation buttons
+ * @param {Function} statusCb - Callback function for status updates
+ */
 async function loadAllPlaylistItems(statusCb) {
     const list = document.querySelector('ytd-playlist-video-list-renderer #contents') ||
         document.querySelector('ytd-playlist-video-list-renderer');
     if (!list) return;
+
     let lastCount = 0;
     let stable = 0;
     const maxStable = 3;
+
     for (let i = 0; i < 300; i++) {
-        // Scroll to end
+        // Scroll to end to trigger loading
         try { list.scrollTop = list.scrollHeight; } catch (e) { }
         window.scrollTo(0, document.documentElement.scrollHeight);
 
@@ -406,6 +475,11 @@ async function loadAllPlaylistItems(statusCb) {
     }
 }
 
+/**
+ * Collect video candidates for removal based on watch threshold
+ * @param {number} threshold - Watch percentage threshold (0-100)
+ * @returns {Array} - Array of candidate objects
+ */
 function collectCandidates(threshold) {
     const nodes = Array.from(document.querySelectorAll('ytd-playlist-video-renderer'));
     const candidates = [];
@@ -421,6 +495,10 @@ function collectCandidates(threshold) {
     return candidates;
 }
 
+/**
+ * Update playlist count display after removing videos
+ * @param {number} by - Number of videos removed
+ */
 function decrementPlaylistCount(by) {
     try {
         const el = document.querySelector('ytd-playlist-byline-renderer yt-formatted-string span');
@@ -430,11 +508,18 @@ function decrementPlaylistCount(by) {
     } catch (e) { }
 }
 
+/**
+ * Execute bulk removal of videos based on watch threshold
+ * @param {number} threshold - Watch percentage threshold (0-100)
+ * @returns {Promise<number>} - Number of videos removed
+ */
 async function runRemoval(threshold) {
     const items = collectCandidates(threshold);
     if (items.length === 0) return 0;
+
     const playlistId = new URLSearchParams(location.search).get('list');
-    // Try edit_playlist with setVideoIds first (closer to native). Use single-action requests for reliability.
+
+    // Try edit_playlist with setVideoIds first (closer to native)
     let ok = true;
     const setIds = items.map(i => i.setId).filter(Boolean);
     if (setIds.length) {
@@ -446,8 +531,10 @@ async function runRemoval(threshold) {
     } else {
         ok = false;
     }
+
     // Fallback to modify with removedVideoId (batch)
     if (!ok) ok = await removeVideosPersistentlyModify(playlistId, items.map(i => i.id).filter(Boolean));
+
     if (!ok) {
         // Fallback to UI-driven removal (more reliable, slower)
         for (const { node, id, setId } of items) {
@@ -455,30 +542,21 @@ async function runRemoval(threshold) {
             if (!did) removeFromPlaylist(id, setId);
         }
     }
+
     // Optimistically remove DOM nodes for immediate feedback
     for (const { node } of items) { try { node.remove(); } catch (e) { } }
     decrementPlaylistCount(items.length);
     return items.length;
 }
 
+/**
+ * Create bulk delete controls in playlist header
+ */
 ImprovedTube.playlistCreateBulkControls = function () {
-    console.log('[ImprovedTube] playlistCreateBulkControls called', {
-        bulk_enabled: this.storage.playlist_bulk_delete_by_progress,
-        existing_controls: !!document.getElementById('it-playlist-cleaner-controls')
-    });
+    if (!this.storage.playlist_bulk_delete_by_progress) return;
+    if (document.getElementById('it-playlist-cleaner-controls')) return;
 
-    if (!this.storage.playlist_bulk_delete_by_progress) {
-        console.log('[ImprovedTube] Bulk delete feature disabled, skipping');
-        return;
-    }
-
-    // Avoid duplicating controls
-    if (document.getElementById('it-playlist-cleaner-controls')) {
-        console.log('[ImprovedTube] Bulk controls already exist, skipping');
-        return;
-    }
-
-    // Try modern header first (M3 view-model layout) - prioritize visible elements
+    // Find suitable mount point, prioritizing visible elements
     const vmRow = document.querySelector('yt-flexible-actions-view-model .ytFlexibleActionsViewModelActionRow');
     const mounts = [
         vmRow,
@@ -493,6 +571,7 @@ ImprovedTube.playlistCreateBulkControls = function () {
         document.querySelector('ytd-playlist-sidebar-primary-info-renderer:not([hidden])'),
         document.querySelector('ytd-playlist-byline-renderer')
     ];
+
     // Find the first visible mount point
     let parent = null;
     for (const mount of mounts) {
@@ -508,12 +587,9 @@ ImprovedTube.playlistCreateBulkControls = function () {
     }
 
     if (!parent) {
-        console.log('[ImprovedTube] No suitable visible parent found for bulk controls, retrying in 500ms');
         setTimeout(() => this.playlistCreateBulkControls(), 500);
         return;
     }
-
-    console.log('[ImprovedTube] Found visible parent for bulk controls:', parent.tagName, parent.className);
 
     const wrapper = document.createElement('div');
     wrapper.id = 'it-playlist-cleaner-controls';
@@ -525,7 +601,7 @@ ImprovedTube.playlistCreateBulkControls = function () {
     wrapper.style.zIndex = '2';
     wrapper.style.position = 'relative';
 
-    // If we found the flexible actions row, create our own row
+    // Special handling for modern flexible actions layout
     if (vmRow && parent === vmRow) {
         // Create a new action row for our controls
         const newActionRow = document.createElement('div');
@@ -535,7 +611,7 @@ ImprovedTube.playlistCreateBulkControls = function () {
         wrapper.className = 'ytFlexibleActionsViewModelAction ytFlexibleActionsViewModelActionRowAction';
         wrapper.style.marginTop = '0';
 
-        // Create the control elements first
+        // Create the control elements
         const label = document.createElement('span');
         label.textContent = 'Remove watched ≥';
         label.style.opacity = '0.85';
@@ -599,13 +675,12 @@ ImprovedTube.playlistCreateBulkControls = function () {
         const flexibleActionsContainer = vmRow.parentElement;
         if (flexibleActionsContainer) {
             flexibleActionsContainer.appendChild(newActionRow);
-            console.log('[ImprovedTube] Created new action row for bulk controls');
-            // Ensure current items have quick buttons
             this.playlistAttachQuickButtons();
-            return; // Exit early since we handled the mounting differently
+            return;
         }
     }
 
+    // Standard mounting for other layouts
     const label = document.createElement('span');
     label.textContent = 'Remove watched ≥';
     label.style.opacity = '0.85';
@@ -664,34 +739,23 @@ ImprovedTube.playlistCreateBulkControls = function () {
     wrapper.appendChild(status);
 
     // Insert near playlist metadata
-    // If mounted into an actions bar, keep it compact
     if (parent.id === 'actions' || (parent.closest && parent.closest('#actions'))) {
         wrapper.style.marginTop = '0';
     }
     parent.appendChild(wrapper);
 
-    // Since we already checked visibility above, no need for relocation logic
-
-    // Ensure current items have quick buttons
     this.playlistAttachQuickButtons();
 };
 
-// Initialize functions for playlist pages
-ImprovedTube.playlistCompleteInit = function () {
-    console.log('[ImprovedTube] playlistCompleteInit called');
-    console.log('[ImprovedTube] Storage check:', {
-        quick_delete: this.storage.playlist_quick_delete_shortcut,
-        bulk_delete: this.storage.playlist_bulk_delete_by_progress,
-        storage_keys: Object.keys(this.storage).filter(k => k.includes('playlist'))
-    });
+/*------------------------------------------------------------------------------
+4.5.7.3 INITIALIZATION AND SETTINGS HANDLERS
+------------------------------------------------------------------------------*/
 
-    // If storage isn't loaded yet, retry after a short delay
-    if (typeof this.storage.playlist_quick_delete_shortcut === 'undefined' &&
-        typeof this.storage.playlist_bulk_delete_by_progress === 'undefined') {
-        console.log('[ImprovedTube] Settings not loaded yet, retrying in 100ms');
-        setTimeout(() => this.playlistCompleteInit(), 100);
-        return;
-    }
+/**
+ * Initialize playlist complete functionality on playlist pages
+ */
+ImprovedTube.playlistCompleteInit = function () {
+    if (!location.search.match(ImprovedTube.regex.playlist_id)) return;
 
     // Set defaults if settings don't exist
     if (typeof this.storage.playlist_quick_delete_shortcut === 'undefined') {
@@ -701,91 +765,41 @@ ImprovedTube.playlistCompleteInit = function () {
         this.storage.playlist_bulk_delete_by_progress = false;
     }
 
-    if (location.search.match(ImprovedTube.regex.playlist_id)) {
-        console.log('[ImprovedTube] On playlist page, initializing features');
-        this.playlistCreateBulkControls();
-        this.playlistAttachQuickButtons();
-    } else {
-        console.log('[ImprovedTube] Not on playlist page, skipping initialization');
-    }
+    this.playlistCreateBulkControls();
+    this.playlistAttachQuickButtons();
 };
 
-// Settings change handlers for real-time updates
+/**
+ * Handle real-time settings changes for quick delete buttons
+ */
 ImprovedTube.playlistQuickDeleteShortcut = function () {
-    console.log('[ImprovedTube] playlistQuickDeleteShortcut setting changed:', this.storage.playlist_quick_delete_shortcut);
-    if (location.search.match(ImprovedTube.regex.playlist_id)) {
-        // Remove existing buttons first
-        document.querySelectorAll('ytd-playlist-video-renderer').forEach(renderer => {
-            const existingButton = renderer.querySelector('button[title*="Remove this video from playlist"]');
-            if (existingButton) {
-                existingButton.remove();
-            }
-            delete renderer.dataset.itQuickActions;
-        });
-        // Re-attach with new settings
-        this.playlistAttachQuickButtons();
-    }
-};
+    if (!location.search.match(ImprovedTube.regex.playlist_id)) return;
 
-
-ImprovedTube.playlistBulkDeleteByProgress = function () {
-    console.log('[ImprovedTube] playlistBulkDeleteByProgress setting changed:', this.storage.playlist_bulk_delete_by_progress);
-    if (location.search.match(ImprovedTube.regex.playlist_id)) {
-        // Remove existing controls
-        const existingControls = document.getElementById('it-playlist-cleaner-controls');
-        if (existingControls) {
-            existingControls.remove();
+    // Remove existing buttons first
+    document.querySelectorAll('ytd-playlist-video-renderer').forEach(renderer => {
+        const existingButton = renderer.querySelector('button[title*="Remove this video from playlist"]');
+        if (existingButton) {
+            existingButton.remove();
         }
-        // Re-create with new settings
-        this.playlistCreateBulkControls();
+        delete renderer.dataset.itQuickActions;
+    });
+
+    // Re-attach with new settings
+    this.playlistAttachQuickButtons();
+};
+
+/**
+ * Handle real-time settings changes for bulk delete controls
+ */
+ImprovedTube.playlistBulkDeleteByProgress = function () {
+    if (!location.search.match(ImprovedTube.regex.playlist_id)) return;
+
+    // Remove existing controls
+    const existingControls = document.getElementById('it-playlist-cleaner-controls');
+    if (existingControls) {
+        existingControls.remove();
     }
-};
 
-// Debug function for manual testing
-ImprovedTube.debugPlaylistComplete = function () {
-    console.log('=== DEBUG PLAYLIST COMPLETE ===');
-    console.log('Current URL:', location.href);
-    console.log('Location search:', location.search);
-    console.log('Playlist regex test:', location.search.match(ImprovedTube.regex.playlist_id));
-    console.log('Settings:', {
-        quick_delete: this.storage.playlist_quick_delete_shortcut,
-        bulk_delete: this.storage.playlist_bulk_delete_by_progress
-    });
-
-    // Test DOM elements
-    const mounts = [
-        document.querySelector('yt-flexible-actions-view-model .ytFlexibleActionsViewModelActionRow'),
-        document.querySelector('ytd-playlist-header-renderer #top-row #actions'),
-        document.querySelector('ytd-playlist-header-renderer #actions'),
-        document.querySelector('ytd-playlist-header-renderer .immersive-header-content'),
-        document.querySelector('ytd-playlist-header-renderer #header #actions'),
-        document.querySelector('ytd-playlist-header-renderer #header ytd-playlist-byline-renderer'),
-        document.querySelector('ytd-playlist-sidebar-primary-info-renderer #actions'),
-        document.querySelector('ytd-playlist-sidebar-primary-info-renderer'),
-        document.querySelector('ytd-playlist-byline-renderer')
-    ];
-
-    console.log('Available mount points:');
-    mounts.forEach((mount, i) => {
-        console.log(`  ${i}: ${mount ? `${mount.tagName} (${mount.className})` : 'null'}`);
-    });
-
-    console.log('Existing controls:', document.getElementById('it-playlist-cleaner-controls'));
-    console.log('Playlist video renderers:', document.querySelectorAll('ytd-playlist-video-renderer').length);
-
-    // Manual trigger
-    console.log('Manually triggering initialization...');
-    this.playlistCompleteInit();
-};
-
-// Manual settings test
-ImprovedTube.testPlaylistSettings = function () {
-    console.log('=== MANUAL SETTINGS TEST ===');
-    console.log('Enable quick delete...');
-    this.storage.playlist_quick_delete_shortcut = true;
-    this.playlistQuickDeleteShortcut();
-
-    console.log('Enable bulk delete...');
-    this.storage.playlist_bulk_delete_by_progress = true;
-    this.playlistBulkDeleteByProgress();
+    // Re-create with new settings
+    this.playlistCreateBulkControls();
 };
