@@ -18,8 +18,6 @@ import shutil
 import sys
 import json
 import os
-import pathlib
-import re
 import zipfile
 
 
@@ -85,72 +83,65 @@ def chromium(browser):
 #---------------------------------------------------------------
 
 def firefox():
-	temporary_path = '../cached'
+    temporary_path = './cached'
 
-	if (os.path.isdir(temporary_path)):
-		shutil.rmtree(temporary_path, ignore_errors=True)
+    if os.path.isdir(temporary_path):
+        shutil.rmtree(temporary_path, ignore_errors=True)
 
-	os.mkdir(temporary_path)
-	os.chdir(temporary_path)
+    os.mkdir(temporary_path)
 
-	for item in os.listdir('../'):
-		if (
-			item != '.git' and
-			item != '.github' and
-			item != 'cached' and
-			item != 'previews' and
-			item != 'py' and
-			item != 'wiki' and
-			item != 'LICENSE' and
-			item != 'README.md' and
-			item != 'SECURITY.md' and
-			item.find('.zip') == -1
-		):
-			s = os.path.join('../', item)
-			d = os.path.join(temporary_path, item)
-			if os.path.isdir(s):
-				shutil.copytree(s, d, True, None)
-			else:
-				shutil.copy2(s, d)
+    for item in os.listdir('.'):
+        if (
+            item != '.git' and
+            item != '.github' and
+            item != 'cached' and
+            item != 'previews' and
+            item != 'py' and
+            item != 'wiki' and
+            item != 'LICENSE' and
+            item != 'README.md' and
+            item != 'SECURITY.md' and
+            item.find('.zip') == -1 and
+            item != 'build'
+        ):
+            s = os.path.join('.', item)
+            d = os.path.join(temporary_path, item)
+            if os.path.isdir(s):
+                shutil.copytree(s, d, True, None)
+            else:
+                shutil.copy2(s, d)
 
-	with open('background.js', 'r') as file:
-		lines = file.readlines()
+    os.chdir(temporary_path)
 
-	with open('background.js', 'w') as file:
-		skip = False
+    with open('manifest.json', 'r+') as json_file:
+        data = json.load(json_file)
 
-		for pos, line in enumerate(lines):
-			if (lines[pos].find('8.0 GOOGLE ANALYTICS') != -1):
-				skip = True
+        version = data['version']
 
-			if (skip == False):
-				file.write(line)
+        data.pop('content_security_policy', None)
+        data.pop('update_url', None)
 
-			if (line.find('/*--------------------------------------------------------------') != -1):
-				skip = False
+        # Patch background for Firefox
+        if 'background' in data:
+            if 'service_worker' in data['background']:
+                del data['background']['service_worker']
+            data['background']['scripts'] = ['background.js']
 
-	with open('manifest.json', 'r+') as json_file:
-		data = json.load(json_file)
+        json_file.seek(0)
+        json.dump(data, json_file, indent=4, sort_keys=True)
+        json_file.truncate()
 
-		version = data['version']
+    archive = zipfile.ZipFile('../firefox-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
 
-		del data['content_security_policy']
-		del data['update_url']
+    for root, dirs, files in os.walk('.'):
+        for file in files:
+            archive.write(os.path.join(root, file),
+                          os.path.relpath(os.path.join(root, file),
+                                          os.path.join('.', '.')))
 
-		json_file.seek(0)
-		json.dump(data, json_file, indent=4, sort_keys=True)
-		json_file.truncate()
-
-	archive = zipfile.ZipFile('../firefox-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
-
-	for root, dirs, files in os.walk('.'):
-		for file in files:
-			archive.write(os.path.join(root, file),
-						  os.path.relpath(os.path.join(root, file),
-						  				  os.path.join('.', '.')))
-
-	archive.close()
-	shutil.rmtree(temporary_path)
+    archive.close()
+    os.chdir('..')
+    shutil.rmtree(temporary_path)
 
 
 #---------------------------------------------------------------
