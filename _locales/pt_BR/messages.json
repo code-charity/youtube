@@ -73,7 +73,7 @@
         "message": "Recursos ativos"
     },
     "addScrollToTop": {
-        "message": "Adicionar «Voltar ao Topo»"
+        "message": "Adicionar 'Voltar ao Topo'"
     },
     "ads": {
         "message": "Anúncios"
@@ -697,7 +697,7 @@
         "message": "Ocultar botões à direita"
     },
     "hideScrollForDetails": {
-        "message": "Ocultar «Rolar para ver detalhes»"
+        "message": "Ocultar 'Rolar para ver detalhes'"
     },
     "hideSkipOverlay": {
         "message": "Esconder animação de salto de 5 segundos"
@@ -1441,9 +1441,96 @@
         "message": "Pausar ao digitar no YouTube"
     },
     "clickableLinksInDescription": {
-        "message": "Clique direio para copiar links na descrição dos vídeos"
+        "message": "Clique direito para copiar links na descrição dos vídeos"
     },
     "changeThumbnailsPerRow": {
         "message": "Miniaturas por linha"
+    },
+	"Left_Side_Menu" : { 
+        "message":"Menu do lado esquerdo"
+    },  
+    "hideSponsoredVideosOnHome": { 
+        "message": "Ocultar vídeos patrocinados na página inicial"
+    },
+    "ShortsForceTheStandardPlayer": { 
+        "message": "Shorts: Força o uso do player padrão" 
+    },
+    "hideTopLoadingBar": { 
+        "message": "Ocultar barra de carregamento do topo" 
+    },
+	"withoutVideos": { 
+        "message": "'Vazio', sem prévias de videos" 
+    },
+	"hideBannerAds": { 
+        "message": "Oculta banner de anúncios (YouTube pode negar)" 
+    },
+	"keyScene": { 
+        "message": "⚡Pula para a(s) cena(s) mais repetida(s)" 
+    },
+	"hideAISummary": { 
+        "message": "Oculta Resumos por IA" 
+    },
+    "autoPictureInPicture": {
+        "message": "Picture-In-Picture automático"
+    },
+    "block_Codec_Alert_h264": {
+        "message": "Você precisa do H.264 ou VP9 ativado para o YouTube reproduzir os vídeos."
+    },
+    "block_Codec_Alert_VP9": {
+        "message": "Você precisa do H.264 ou VP9 ativado para o YouTube reproduzir os vídeos."
+    },
+    "buttons": {
+        "message": "Botões"
+    },
+    "copyVideoUrl": {
+        "message": "Copiar URL completa do video"
+    },
+    "stickyNavigation": {
+        "message": "Sticky Navigation (menu fixo)" 
+    },
+    "player": {
+        "message": "Player"
+    },
+    "player_dont_speed_education": {
+        "message": "Não acelere a categoria (rara): Educação"
+    },
+    "Youtube_Search": {
+        "message": "Youtube-Search"
+    },
+    "youTubeButtons": {
+        "message": "Botões do YouTube"
+    },
+    "disableLikesAnimation": {
+        "message": "Desativar animação do Like"
+    },
+    "disableAutoDubbing": {
+        "message": "Desabilitar dublagem automática"
+    },
+    "showLastWatchedOverlay": {
+        "message": "Mostrar sobreposição 'Último assistido' na miniatura"
+    },
+    "lastWatchedOverlayPosition": {
+        "message": "Posição da sobreposição"
+    },
+    "bottomRight": {
+        "message": "Canto inferior direito"
+    },
+    "bottomLeft": {
+        "message": "Canto inferior esquerdo"
+    },
+    "topRight": {
+        "message": "Canto superior direito"
+    },
+    "topLeft": {
+        "message": "Canto superior esquerdo"
+    },
+    "lastWatchedFormat": {
+        "message": "Formato da hora"
+    },
+    "relative": {
+        "message": "Relativo (ex.: '5min atrás')"
+    },
+    "exact": {
+        "message": "Dia/hora exato"
     }
 }
