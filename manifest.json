@@ -3,18 +3,13 @@
 	"short_name": "ImprovedTube",
 	"name": "'Improve YouTube!' 🎧 (for YouTube & Videos)",
 	"description": "__MSG_description_ext__",
-	"version": "4",
+	"version": "4.1077",
 	"default_locale": "en",
 	"icons": {
 		"128": "menu/icons/128.png",
 		"16": "menu/icons/16.png",
 		"32": "menu/icons/32.png",
 		"48": "menu/icons/48.png"
-	},
-	"browser_specific_settings": {
-		"gecko": {
-		"id": "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}"
-		}
 	},
 	"background": {
 		"service_worker": "background.js"
