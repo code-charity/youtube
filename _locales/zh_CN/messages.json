@@ -200,7 +200,7 @@
     "disabled": {
         "message": "停用"
     },
-    "Disable video playback on hover": {
+    "disableThumbnailPlayback": {
         "message": "禁用鼠标悬停时播放"
     },
     "dislike": {
@@ -215,7 +215,7 @@
     "draggable": {
         "message": "可拖动"
     },
-    "Dim Youtube's Pages, except what I mouse-over!": {
+    "cursorLighting": {
         "message": "在当前页面上模糊除鼠标所在位置外的其他元素"
     },
     "empty": {
@@ -362,22 +362,22 @@
     "history": {
         "message": "历史记录"
     },
-    "Hide AI Summaries": {
+    "hideAISummary": {
         "message": "隐藏AI摘要"
     },
-    "Hide Banner Ads (YouTube might deny)": {
+    "hideBannerAds": {
         "message": "隐藏横幅广告 (YouTube可能会拒绝)"
     },
-    "Hide Pause Overlay": {
+    "Hide_Pause_Overlay": {
         "message": "隐藏暂停时的遮罩"
     },
-    "Hide YouTube Logo": {
+    "Hide_YouTube_Logo": {
         "message": "隐藏Youtube标志"
     },
-    "Hide '⫶' (more actions) on thumbnails": {
+    "hideThumbnailDots": {
         "message": "缩略图上隐藏:(更多操作)"
     },
-    "Hide watched videos": {
+    "hideWatchedVideos": {
         "message": "隐藏已观看的视频"
     },
     "home": {
@@ -585,7 +585,7 @@
     "removeShortsReelSearchResults": {
         "message": "删除搜索结果中的 Shorts 轮播"
     },
-    "Remove member only videos": {
+    "removeMemberOnly": {
         "message": "移除会员专享视频"
     },
     "repeat": {
@@ -723,7 +723,7 @@
     "thumbnailsQuality": {
         "message": "缩略图质量"
     },
-    "Thumbnail Size": {
+    "thumbnailSize": {
         "message": "缩略图尺寸"
     },
     "timeFrom": {
@@ -816,7 +816,7 @@
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "采用 H.264 编解码时,YouTube 会将视频画质设为 1080p"
     },
-    "Youtube-Search": {
+    "Youtube_Search": {
         "message": "Youtube搜索设置"
     }
 }
