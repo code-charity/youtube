@@ -202,7 +202,7 @@
         "message": "停用"
     },
     "disableThumbnailPlayback": {
-        "message": "禁用缩略图悬停预览"
+        "message": "禁用缩略图悬停预览 (禁用鼠标悬停时播放)"
     },
     "dislike": {
         "message": "踩"
@@ -217,7 +217,7 @@
         "message": "可拖动"
     },
     "cursorLighting": {
-        "message": "鼠标聚光灯"
+        "message": "鼠标聚光灯 (在当前页面上模糊除鼠标所在位置外的其他元素)"
     },
     "empty": {
         "message": "空"
@@ -363,6 +363,9 @@
     "history": {
         "message": "历史记录"
     },
+    "hideThumbnailDots": {
+        "message": "缩略图上隐藏:(更多操作)  (隐藏缩略图上的“更多操作”按钮)"
+    },
     "hideAiSummaries": {
         "message": "隐藏 AI 摘要"
     },
@@ -370,13 +373,10 @@
         "message": "隐藏横幅广告 (YouTube 可能会拦截)"
     },
     "hidePauseOverlay": {
-        "message": "隐藏暂停遮罩"
+        "message": "隐藏暂停遮罩 (隐藏暂停时的遮罩)"
     },
     "hideYouTubeLogo": {
         "message": "隐藏 YouTube 标志"
-    },
-    "hideMoreActionsOnThumbnails": {
-        "message": "隐藏缩略图上的“更多操作”按钮"
     },
     "hideWatchedVideos": {
         "message": "隐藏已观看的视频"
@@ -585,8 +585,8 @@
     "removeShortsReelSearchResults": {
         "message": "移除搜索结果中的 Shorts"
     },
-    "RemoveMemberOnlyVideos": {
-        "message": "移除会员专属视频"
+    "removeMemberOnly": {
+        "message": "移除会员专属视频 (移除会员专享视频)"
     },
     "repeat": {
         "message": "重复"
@@ -724,7 +724,7 @@
     "thumbnailsQuality": {
         "message": "缩略图质量"
     },
-    "ThumbnailSize": {
+    "Thumbnail_Size": {
         "message": "缩略图尺寸"
     },
     "timeFrom": {
@@ -817,7 +817,7 @@
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "使用 H.264 编码时，YouTube 会将视频画质限制在 1080p"
     },
-    "YoutubeSearch": {
+    "Youtube_Search": {
         "message": "YouTube 搜索(设置)"
     }
 }
