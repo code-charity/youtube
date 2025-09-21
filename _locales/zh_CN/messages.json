@@ -724,7 +724,7 @@
     "thumbnailsQuality": {
         "message": "缩略图质量"
     },
-    "Thumbnail_Size": {
+    "thumbnailSize": {
         "message": "缩略图尺寸"
     },
     "timeFrom": {
@@ -819,5 +819,6 @@
     },
     "Youtube_Search": {
         "message": "YouTube 搜索(设置)"
+        "description": "_'s are allowed. We can search & replace this one with youtubeSearch everywhere"
     }
 }
