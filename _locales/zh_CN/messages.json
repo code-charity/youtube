@@ -159,16 +159,16 @@
         "message": "自定义迷你播放器"
     },
     "dark": {
-        "message": "深色"
+        "message": "深色 (黑暗)"
     },
     "darkTheme": {
         "message": "夜间模式"
     },
     "dateAndTime": {
-        "message": "日期与时间"
+        "message": "日期与时间  (时间与日期)"
     },
     "decreasePlaybackSpeed": {
-        "message": "降低播放速度"
+        "message": "降低播放速度  (视频减速)"
     },
     "decreaseVolume": {
         "message": "降低音量"
@@ -177,16 +177,17 @@
         "message": "默认"
     },
     "defaultChannelTab": {
-        "message": "默认频道标签页"
+        "message": "默认频道(标签)页 "
     },
     "defaultContentCountry": {
-        "message": "首页内容默认地区"
+        "message": "首页内容默认地区   
+        "description": "(首页)默认显示内容的位置(国家/地区)",
     },
     "deleteYoutubeCookies": {
-        "message": "清除 YouTube Cookie"
+        "message": "清除 YouTube Cookie/s"
     },
     "details": {
-        "message": "详情"
+        "message": "详情 (细节信息)"
     },
     "developerOptions": {
         "message": "开发者选项"
@@ -664,6 +665,7 @@
     },
     "spacebar": {
         "message": "空格键"
+
     },
     "squaredUserImages": {
         "message": "方形用户头像"
@@ -672,7 +674,7 @@
         "message": "静态"
     },
     "statsForNerds": {
-        "message": "详细统计信息"
+        "message": "详细统计信息 (显示专业)"
     },
     "style": {
         "message": "样式"
@@ -681,10 +683,10 @@
         "message": "样式"
     },
     "subscriptions": {
-        "message": "订阅"
+        "message": "订阅(内容)"
     },
     "sunset": {
-        "message": "日落"
+        "message": "日落 (晚霞)"
     },
     "sunsetToSunrise": {
         "message": "从日落到日出"
@@ -816,6 +818,6 @@
         "message": "使用 H.264 编码时，YouTube 会将视频画质限制在 1080p"
     },
     "YoutubeSearch": {
-        "message": "YouTube 搜索 "
+        "message": "YouTube 搜索(设置)"
     }
 }
