@@ -2,6 +2,7 @@
 LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 ------------------------------------------------------------------------------*/
 ImprovedTube.lastWatchedOverlay = function () {
+        if (ImprovedTube.storage.show_last_watched_overlay === true) {
         console.log("[LWO] Feature function called");
 
         (function addStyles() {
@@ -280,24 +281,15 @@ ImprovedTube.lastWatchedOverlay = function () {
         // Regelmäßige Überprüfung für dynamisch geladene Inhalte
         setInterval(processPage, 5000);
 
-// WICHTIG: Entferne alle alten Versionen oder Stubs
-if (ImprovedTube.appearance && ImprovedTube.appearance.lastWatchedOverlay) {
-    delete ImprovedTube.appearance.lastWatchedOverlay;
-}
-
-// Sofort ausführen und initialisieren
-ImprovedTube.lastWatchedOverlay();
-
-// Manuelle Re-Initialisierung bei Seitenänderungen
-document.addEventListener('yt-page-data-updated', function () {
-    setTimeout(() => ImprovedTube.lastWatchedOverlay(), 800);
-});
-
-// Bei Inhalt-Updates (nutzt exponierte Funktion)
+// "AI hallucination"  // WICHTIG: Entferne alle alten Versionen oder Stubs   if (ImprovedTube.appearance && ImprovedTube.appearance.lastWatchedOverlay) {    delete ImprovedTube.appearance.lastWatchedOverlay; }
 document.addEventListener('yt-page-data-updated', () => {
-    setTimeout(() => ImprovedTube.lastWatchedOverlayProcess && ImprovedTube.lastWatchedOverlayProcess(), 800);
+    setTimeout(() => {
+        ImprovedTube.lastWatchedOverlay();
+        if (ImprovedTube.lastWatchedOverlayProcess) {
+            ImprovedTube.lastWatchedOverlayProcess();
+        }
+    }, 800);
 });
-
 
 function debounce(func, wait) {
     let timeout;
@@ -319,4 +311,8 @@ const debouncedProcessPage = debounce(() => {
 }, 300);
 
         return true; // Erfolgreiche Initialisierung
+        }
 };
+
+// Sofort ausführen und initialisieren
+ImprovedTube.lastWatchedOverlay();
