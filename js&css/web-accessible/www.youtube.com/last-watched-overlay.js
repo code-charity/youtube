@@ -2,7 +2,6 @@
 LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 ------------------------------------------------------------------------------*/
 ImprovedTube.lastWatchedOverlay = function () {
-    if (ImprovedTube.storage.show_last_watched_overlay === true) {
         console.log("[LWO] Feature function called");
 
         (function addStyles() {
@@ -281,10 +280,6 @@ ImprovedTube.lastWatchedOverlay = function () {
         // Regelmäßige Überprüfung für dynamisch geladene Inhalte
         setInterval(processPage, 5000);
 
-        return true; // Erfolgreiche Initialisierung
-    }
-};
-
 // WICHTIG: Entferne alle alten Versionen oder Stubs
 if (ImprovedTube.appearance && ImprovedTube.appearance.lastWatchedOverlay) {
     delete ImprovedTube.appearance.lastWatchedOverlay;
@@ -322,3 +317,6 @@ const debouncedProcessPage = debounce(() => {
         ImprovedTube.lastWatchedOverlayProcess();
     }
 }, 300);
+
+        return true; // Erfolgreiche Initialisierung
+};
