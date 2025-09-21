@@ -26,7 +26,7 @@ extension.events.on('init', function (resolve) {
 	async: true
 });
 
-function bodyReady () {
+function bodyReady() {
 	if (extension.ready && extension.domReady) {
 		extension.features.addScrollToTop();
 		extension.features.font();
@@ -69,6 +69,7 @@ extension.inject([
 	'/js&css/web-accessible/www.youtube.com/themes.js',
 	'/js&css/web-accessible/www.youtube.com/player.js',
 	'/js&css/web-accessible/www.youtube.com/playlist.js',
+	'/js&css/web-accessible/www.youtube.com/playlist-complete-playlist.js',
 	'/js&css/web-accessible/www.youtube.com/channel.js',
 	'/js&css/web-accessible/www.youtube.com/shortcuts.js',
 	'/js&css/web-accessible/www.youtube.com/blocklist.js',
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	bodyReady();
 });
 
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, _sender, sendResponse) {
 	if (request.action === 'focus') {
 		extension.messages.send({
 			focus: true
@@ -151,7 +152,7 @@ document.addEventListener('it-message-from-youtube', function () {
 			chrome.runtime.sendMessage({
 				action: 'fixPopup',
 				width: message.width,
-		        height: message.height,
+				height: message.height,
 				title: message.title,
 			});
 		} else if (message.action === 'analyzer') {
@@ -184,7 +185,7 @@ document.addEventListener('it-message-from-youtube', function () {
 			}
 		} else if (message.action === 'blocklist') {
 			if (!extension.storage.data.blocklist || typeof extension.storage.data.blocklist !== 'object') {
-				extension.storage.data.blocklist = {videos: {}, channels: {}};
+				extension.storage.data.blocklist = { videos: {}, channels: {} };
 			}
 
 			switch (message.type) {
@@ -241,7 +242,7 @@ document.addEventListener('it-message-from-youtube', function () {
 			});
 		} else if (message.action === 'set') {
 			if (message.value) {
-				chrome.storage.local.set({[message.key]: message.value});
+				chrome.storage.local.set({ [message.key]: message.value });
 			} else {
 				chrome.storage.local.remove([message.key]);
 			}
@@ -250,7 +251,8 @@ document.addEventListener('it-message-from-youtube', function () {
 });
 
 document.addEventListener('it-play', function () {
-	 // var videos = document.querySelectorAll('video');
-	try {chrome.runtime.sendMessage({action: 'play'})
-	} catch (error) {console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({action: 'play'}, function (response) { console.log(response) } ); } catch { } }, 321) }
+	// var videos = document.querySelectorAll('video');
+	try {
+		chrome.runtime.sendMessage({ action: 'play' })
+	} catch (error) { console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({ action: 'play' }, function (response) { console.log(response) }); } catch { } }, 321) }
 });

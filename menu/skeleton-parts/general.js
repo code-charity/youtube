@@ -305,8 +305,7 @@ extension.skeleton.main.layers.section.general = {
 				},
 				thumbnail_size: {
 					component: "select",
-					text: "Thumbnail Size",
-					storage: "thumbnail_size",
+					text: "thumbnailSize",
 					options: [
 						{ text: "Default", value: "default" },
 						{ text: "Small", value: "small" },
