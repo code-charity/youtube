@@ -190,6 +190,24 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'autoFullscreen',
 			storage: 'player_autofullscreen'
 		},
+		player_youtube_return_button: {
+			component: 'switch',
+			text: 'youTubeReturnButton',
+			storage: 'player_youtube_return_button'
+		},
+		player_youtube_return_destination: {
+			component: 'select',
+			text: 'returnDestination',
+			storage: 'player_youtube_return_destination',
+			options: [{
+				text: 'homepage',
+				value: 'homepage'
+			}, {
+				text: 'subscriptions',
+				value: 'subscriptions'
+			}],
+			value: 'homepage'
+		},
 		subtitles: {
 			component: 'button',
 			text: 'subtitles',
@@ -1157,24 +1175,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 		player_hamburger_button: {
 			component: 'switch',
 			text: 'Hamburger_Menu'
-		},
-		player_youtube_return_button: {
-			component: 'switch',
-			text: 'youTubeReturnButton',
-			storage: 'player_youtube_return_button'
-		},
-		player_youtube_return_destination: {
-			component: 'select',
-			text: 'returnDestination',
-			storage: 'player_youtube_return_destination',
-			options: [{
-				text: 'homepage',
-				value: 'homepage'
-			}, {
-				text: 'subscriptions',
-				value: 'subscriptions'
-			}],
-			value: 'homepage'
 		},
 		extraButtons: {
 			component: 'section',
