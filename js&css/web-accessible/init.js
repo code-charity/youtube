@@ -85,7 +85,7 @@ ImprovedTube.init = function () {
 			ImprovedTube.playlistCopyVideoIdButton();
 			ImprovedTube.playlistCompleteInit();
 		}
-		try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] page-data-updated error', e); }
+	    if (ImprovedTube.storage.show_last_watched_overlay === true) {try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] page-data-updated error', e); }]
 	});
 	this.pageType();
 	this.playerOnPlay();
@@ -140,7 +140,7 @@ document.addEventListener('yt-navigate-finish', function () {
 	ImprovedTube.pageType();
 	ImprovedTube.YouTubeExperiments();
 	ImprovedTube.commentsSidebar();
-	try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] nav-finish error', e); }
+    if (ImprovedTube.storage.show_last_watched_overlay === true) { try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] nav-finish error', e); }}
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();
