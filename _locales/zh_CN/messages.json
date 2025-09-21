@@ -180,8 +180,8 @@
         "message": "默认频道(标签)页 "
     },
     "defaultContentCountry": {
-        "message": "首页内容默认地区   
-        "description": "(首页)默认显示内容的位置(国家/地区)",
+        "message": "首页内容默认地区",
+        "description": "(首页)默认显示内容的位置(国家/地区)"
     },
     "deleteYoutubeCookies": {
         "message": "清除 YouTube Cookie/s"
