@@ -1166,6 +1166,8 @@ ImprovedTube.miniPlayer_scroll = function () {
 
 		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__width, ImprovedTube.mini_player__height, true, true);
 
+		window.addEventListener('mousedown', ImprovedTube.miniPlayer_mouseDown);
+		window.addEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
 		window.addEventListener('resize', ImprovedTube.miniPlayer_scroll);
 	} else if (window.scrollY < 256 && ImprovedTube.mini_player__mode === true || ImprovedTube.elements.player.classList.contains('ytp-player-minimized') === true) {
 		ImprovedTube.mini_player__mode = false;
@@ -1184,7 +1186,6 @@ ImprovedTube.miniPlayer_scroll = function () {
 		window.removeEventListener('mousemove', ImprovedTube.miniPlayer_mouseMove);
 		window.removeEventListener('mouseup', ImprovedTube.miniPlayer_mouseUp);
 		window.removeEventListener('click', ImprovedTube.miniPlayer_click);
-		window.removeEventListener('scroll', ImprovedTube.miniPlayer_scroll);
 		window.removeEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
 	}
 };
@@ -1777,6 +1778,79 @@ ImprovedTube.redirectShortsToWatch = function () {
                 console.log(`ImprovedTube: Redirecting Shorts to Watch: ${window.location.href} -> ${newUrl}`);
                 window.location.replace(newUrl); 
             }
+        }
+    }
+};
+
+/*------------------------------------------------------------------------------
+YOUTUBE RETURN BUTTON IN FULLSCREEN
+------------------------------------------------------------------------------*/
+ImprovedTube.addYouTubeReturnButton = function () {
+    if (this.storage.fullscreen_return_button === true) {
+        // Remove existing button if it exists
+        const existingButton = document.querySelector('#it-youtube-return-button');
+        if (existingButton) {
+            existingButton.remove();
+        }
+
+        // Create the return button
+        const returnButton = document.createElement('button');
+        returnButton.id = 'it-youtube-return-button';
+        returnButton.className = 'ytp-button it-youtube-return-btn';
+        returnButton.title = 'Return to YouTube';
+        returnButton.setAttribute('aria-label', 'Return to YouTube');
+        
+        // Create YouTube logo SVG
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('width', '24');
+        svg.setAttribute('height', '24');
+        svg.style.fill = 'white';
+        
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z');
+        
+        svg.appendChild(path);
+        returnButton.appendChild(svg);
+        
+        // Add click handler
+        returnButton.addEventListener('click', function(e) {
+			history.back();
+            e.preventDefault();
+            e.stopPropagation();			
+        });
+        
+        // Insert button into player controls
+        const insertButton = () => {
+            const player = document.querySelector('.html5-video-player');
+            const titleContainer = document.querySelector('.ytp-title-text');
+            
+            if (player && titleContainer && player.classList.contains('ytp-fullscreen')) {
+                // Position button in top-left corner of fullscreen player
+                titleContainer.parentNode.insertBefore(returnButton, titleContainer);
+            }
+        };
+        
+        // Insert button when entering fullscreen
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    const player = mutation.target;
+                    if (player.classList.contains('ytp-fullscreen')) {
+                        setTimeout(insertButton, 100); // Small delay to ensure DOM is ready
+                    }
+                }
+            });
+        });
+        
+        const player = document.querySelector('.html5-video-player');
+        if (player) {
+            observer.observe(player, { attributes: true, attributeFilter: ['class'] });
+        }
+        
+        // Also check if already in fullscreen
+        if (player && player.classList.contains('ytp-fullscreen')) {
+            insertButton();
         }
     }
 };
