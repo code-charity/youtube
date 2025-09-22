@@ -1814,15 +1814,9 @@ ImprovedTube.addYouTubeReturnButton = function () {
         
         // Add click handler
         returnButton.addEventListener('click', function(e) {
+			history.back();
             e.preventDefault();
-            e.stopPropagation();
-            
-            // Navigate to YouTube homepage or subscriptions
-            if (ImprovedTube.storage.player_youtube_return_destination === 'subscriptions') {
-                window.location.href = '/feed/subscriptions';
-            } else {
-                window.location.href = '/';
-            }
+            e.stopPropagation();			
         });
         
         // Insert button into player controls
