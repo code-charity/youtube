@@ -333,6 +333,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerSize();
 		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); };
 		ImprovedTube.playerScreenshotButton();
+		ImprovedTube.addYouTubeReturnButton();
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();

@@ -1207,6 +1207,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'player_rewind_and_forward_buttons'
 			},
 		},
+		fullscreen_return_button: {
+			component: 'switch',
+			text: 'fullscreenReturn',
+		},
 		player_hide_controls_options: {
 			component: "button",
 			text: "hidePlayerControlsBarButtons",
