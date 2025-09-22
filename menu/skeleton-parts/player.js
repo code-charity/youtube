@@ -1207,24 +1207,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'player_rewind_and_forward_buttons'
 			},
 		},
-		player_youtube_return_button: {
+		fullscreen_return_button: {
 			component: 'switch',
-			text: 'youTubeReturnButton',
-			storage: 'player_youtube_return_button'
+			text: 'fullscreenReturn',
 		},
-		player_youtube_return_destination: {
-			component: 'select',
-			text: 'returnDestination',
-			storage: 'player_youtube_return_destination',
-			options: [{
-				text: 'homepage',
-				value: 'homepage'
-			}, {
-				text: 'subscriptions',
-				value: 'subscriptions'
-			}],
-			value: 'homepage'
-		},		
 		player_hide_controls_options: {
 			component: "button",
 			text: "hidePlayerControlsBarButtons",
