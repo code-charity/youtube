@@ -41,7 +41,7 @@ extension.features.relatedVideos = function (anything) {
 /*--------------------------------------------------------------
 # LIVECHAT
 --------------------------------------------------------------*/
-
+if (extension.storage.get('livechat') === 'collapsed') {
 window.addEventListener('click', function(event) {
     if (extension.storage.get('livechat') !== 'collapsed') return;
 
@@ -58,6 +58,7 @@ window.addEventListener('click', function(event) {
         chat.toggleAttribute('it-activated');
     }
 }, true);
+}
 
 /*--------------------------------------------------------------
 # STICKY NAVIGATION
