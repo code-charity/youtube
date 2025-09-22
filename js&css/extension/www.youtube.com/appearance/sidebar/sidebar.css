@@ -146,8 +146,44 @@ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-pl
 /*--------------------------------------------------------------
 # LIVECHAT
 --------------------------------------------------------------*/
-html[it-livechat='hidden'] ytd-live-chat-frame#chat,
-html[it-livechat='hidden'] ytd-watch-flexy[fixed-panels] #panels-full-bleed-container,
+html[it-livechat='hidden'] ytd-live-chat-frame#chat {
+	  display: none !important;
+}
+html[it-livechat='collapsed'] #chat-container:not([it-activated])::before {
+	content: 'Show live chat' !important;
+}
+
+html[it-livechat='collapsed'] #chat-container[it-activated]::before {
+	content: 'Collapse live chat' !important;
+}
+
+html[it-livechat='collapsed'] #chat-container::before {
+	font-family: inherit !important;
+	font-size: 1.6rem !important;
+	font-weight: 400 !important;
+
+	display: flex !important;
+
+	width: 100% !important;
+	height: 48px !important;
+	margin: 0 !important;
+
+	color: var(--yt-spec-text-primary) !important;
+	border-bottom: 1px solid var(--yt-spec-10-percent-layer) !important;
+
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+html[it-livechat='collapsed'] #chat-container:not([it-activated]) > ytd-live-chat-frame#chat {
+	display: none !important;
+}
+
+html[it-livechat='collapsed'][it-livechat='hidden'] ytd-live-chat-frame#chat {
+  display: none !important;
+}
+
+
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
 --------------------------------------------------------------*/
