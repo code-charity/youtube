@@ -1785,7 +1785,7 @@ ImprovedTube.redirectShortsToWatch = function () {
 YOUTUBE RETURN BUTTON IN FULLSCREEN
 ------------------------------------------------------------------------------*/
 ImprovedTube.addYouTubeReturnButton = function () {
-    if (this.storage.player_youtube_return_button === true) {
+    if (this.storage.fullscreen_return_button === true) {
         // Remove existing button if it exists
         const existingButton = document.querySelector('#it-youtube-return-button');
         if (existingButton) {
