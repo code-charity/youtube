@@ -667,3 +667,41 @@ html[data-page-type=home][it-hide-includes-paid-promotion=true] .YtmPaidContentO
 html[data-page-type=other][it-hide-includes-paid-promotion=true] .YtmPaidContentOverlayLink  {
   display: none !important;
 }
+
+/*--------------------------------------------------------------
+# FIX FOR YOUTUBE'S NEW BIG PLAYER CONTROLS IN THEATER MODE
+--------------------------------------------------------------*/
+
+/* This targets the player only when YouTube applies the .ytp-big-mode class */
+html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-chrome-bottom {
+    height: 51px !important;
+}
+
+html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-chrome-controls {
+    height: 48px !important;
+}
+
+html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-button {
+    width: 48px !important;
+    height: 48px !important;
+}
+
+html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-menu .ytp-menuitem {
+    height: 48px !important;
+    line-height: 48px !important;
+}
+
+html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-time-display {
+	height: 48px !important;
+	display: flex;
+	align-items: center;
+}
+
+html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-time-duration, html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-time-separator, html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-time-current {
+	font-size: 13.0691px !important;
+}
+
+html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp-time-contents {
+	display: flex;
+	align-items: center;
+}
