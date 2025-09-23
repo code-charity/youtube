@@ -1158,6 +1158,12 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'Hamburger_Menu'
 		},
+		theater_mode_icon_revert_button: {
+			component: 'switch',
+			text: 'Revert Theater Mode Button Sizes',
+			storage: 'player_revert_theater_button_sizes',
+			value: false
+		},
 		extraButtons: {
 			component: 'section',
 			variant: 'card',

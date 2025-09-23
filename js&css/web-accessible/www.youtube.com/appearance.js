@@ -847,6 +847,31 @@ if (ImprovedTube.storage.header_transparent2 === true) {
 		}
 	});
 }
+
+/*------------------------------------------------------------------------------
+REVERT THEATER MODE BUTTON SIZES
+------------------------------------------------------------------------------*/
+// sets variable condition based on player switch
+ImprovedTube.playerRevertTheaterButtonSize = function () {
+	if (ImprovedTube.storage.player_revert_theater_button_sizes === true) {
+		document.documentElement.setAttribute('it-revert-theater-button-size', 'true');
+	} else {
+		document.documentElement.removeAttribute('it-revert-theater-button-size');
+	}
+}
+
+// initializer
+ImprovedTube.playerRevertTheaterButtonSize();
+
+// call function on page load and on navigation
+(function() {
+    var run = function() { ImprovedTube.playerRevertTheaterButtonSize && ImprovedTube.playerRevertTheaterButtonSize(); };
+    document.addEventListener('yt-page-data-updated', run);
+    document.addEventListener('yt-navigate-finish', run);
+    window.addEventListener('load', run);
+	etTimeout(run, 2000); // fallback for late loads
+})();
+
 /*------------------------------------------------------------------------------
 DISABLE LIKES ANIMATION
 ------------------------------------------------------------------------------*/
