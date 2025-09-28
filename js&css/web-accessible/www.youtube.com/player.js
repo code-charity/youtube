@@ -625,6 +625,82 @@ ImprovedTube.playerLoudnessNormalization = function () {
 		} catch (err) {}
 	}
 };
+ImprovedTube.playerPlaybackSpeedButton = function () {
+  if (this.storage.player_playback_speed_button === true) {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+
+    svg.setAttribute("viewBox", "0 0 36 36");
+    svg.style.width = "100%";
+    svg.style.height = "100%";
+
+    // Simple speedometer icon
+    path.setAttribute(
+      "d",
+      "M25.9,13.1A8.2,8.2,0,0,0,18,10a8.2,8.2,0,0,0-7.9,3.1L8,12.2V22h9.8l-1-2H10v-2h3.3l1.1-2.2a6.1,6.1,0,0,1,11.2,0L26.7,18H30v2H21.8l-1-2h4.1A8.2,8.2,0,0,0,25.9,13.1Z"
+    );
+    path.setAttribute("fill", "#fff");
+
+    // Text element to show current speed
+    text.setAttribute("x", "18");
+    text.setAttribute("y", "23");
+    text.setAttribute("font-size", "8px");
+    text.setAttribute("font-weight", "bold");
+    text.setAttribute("text-anchor", "middle");
+    text.setAttribute("fill", "#fff");
+    text.setAttribute("class", "it-speed-text");
+    text.textContent = (this.elements.video?.playbackRate || 1.0).toFixed(2);
+
+    svg.appendChild(path);
+    svg.appendChild(text);
+
+    const button = this.createPlayerButton({
+      id: "it-playback-speed-button",
+      child: svg,
+      opacity: 0.85,
+      title: "Playback Speed Control",
+    });
+
+    const updateSpeedText = () => {
+      const currentSpeed = (this.elements.video?.playbackRate || 1.0).toFixed(
+        2
+      );
+      if (button) {
+        const textElement = button.querySelector(".it-speed-text");
+        if (textElement) textElement.textContent = currentSpeed;
+      }
+    };
+
+    // --- Event Listeners ---
+    button.onclick = () => {
+      const customSpeed = this.storage.player_custom_playback_speed || 1.25;
+      this.playbackSpeed(customSpeed);
+    };
+
+    button.oncontextmenu = (e) => {
+      e.preventDefault();
+      this.playbackSpeed(1.0);
+      return false;
+    };
+
+    button.onwheel = (e) => {
+      e.preventDefault();
+      const currentSpeed = this.playbackSpeed();
+      const direction = e.deltaY < 0 ? 1 : -1;
+      let newSpeed = Math.round((currentSpeed + direction * 0.05) * 100) / 100;
+
+      if (newSpeed > 4) newSpeed = 4;
+      if (newSpeed < 0.1) newSpeed = 0.1;
+
+      this.playbackSpeed(newSpeed);
+    };
+
+    this.elements.video.addEventListener("ratechange", updateSpeedText);
+    updateSpeedText(); // Set initial value
+  }
+};
+
 /*------------------------------------------------------------------------------
 SCREENSHOT
 ------------------------------------------------------------------------------*/
