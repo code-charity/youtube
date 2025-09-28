@@ -1522,5 +1522,8 @@
   },
   "exact": {
     "message": "Genaues Datum/Uhrzeit"
+  },
+  "player_playback_speed_button": {
+    "message": "Wiedergabegeschwindigkeit-Button"
   }
 }

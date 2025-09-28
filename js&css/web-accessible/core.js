@@ -375,6 +375,14 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
+				case 'playerPlaybackSpeedButton':
+					if (ImprovedTube.storage.player_playback_speed_button === false) {
+						document.querySelector('#it-playback-speed-button')?.remove();
+					} else if (ImprovedTube.storage.player_playback_speed_button === true) {
+						ImprovedTube.playerPlaybackSpeedButton();
+					}
+					break
+
 				case 'belowPlayerPip':
 					if (ImprovedTube.storage.below_player_pip === false) {
 						document.querySelector('.improvedtube-player-button[data-tooltip="PiP"]')?.remove();

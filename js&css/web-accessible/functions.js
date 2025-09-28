@@ -396,7 +396,8 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
-		ImprovedTube.playerRewindAndForwardButtons()
+		ImprovedTube.playerRewindAndForwardButtons();
+		ImprovedTube.playerPlaybackSpeedButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 		ImprovedTube.playerHideProgressPreview();

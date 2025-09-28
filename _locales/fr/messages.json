@@ -950,7 +950,10 @@
     "hardwareInformation": {
         "message": "Informations sur le matériel"
     },
-	"popupAd": {
+        "popupAd": {
         "message": "Pop-up pub: Masquer"
+    },
+    "player_playback_speed_button": {
+        "message": "Bouton de Vitesse de Lecture"
     }
 }
