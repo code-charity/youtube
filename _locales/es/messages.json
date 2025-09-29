@@ -1111,5 +1111,8 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube limita calidad de video a 1080p para el codec h.264"
+    },
+    "player_playback_speed_button": {
+        "message": "Botón de Velocidad de Reproducción"
     }
 }

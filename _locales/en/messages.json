@@ -1013,6 +1013,9 @@
   "player_rewind_and_forward_buttons": {
     "message": "Rewind/forward buttons"
   },
+  "player_playback_speed_button": {
+    "message": "Playback Speed Button"
+  },
   "player_cinema_mode_button": {
     "message": "Cinema Mode"
   },

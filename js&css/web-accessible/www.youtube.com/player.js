@@ -821,6 +821,62 @@ ImprovedTube.playerRotateButton = function () {
 };
 
 /*------------------------------------------------------------------------------
+PLAYBACK SPEED BUTTON
+------------------------------------------------------------------------------*/
+ImprovedTube.playerPlaybackSpeedButton = function () {
+	if (this.storage.player_playback_speed_button === true) {
+		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+		path.setAttributeNS(null, 'd', 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z');
+
+		svg.appendChild(path);
+
+		var button = this.createPlayerButton({
+			id: 'it-playback-speed-button',
+			child: svg,
+			opacity: 0.7,
+			onclick: function (e) {
+				// Left click: set to custom speed from settings
+				if (e.button === 0) {
+					var customSpeed = ImprovedTube.storage.player_playback_speed || 1.25;
+					ImprovedTube.playbackSpeed(customSpeed);
+					ImprovedTube.showStatus(customSpeed + 'x');
+				}
+			},
+			title: 'Playback Speed (Scroll: adjust, Left: custom, Right: 1.0x)'
+		});
+
+		// Add right-click handler
+		button.addEventListener('contextmenu', function (e) {
+			e.preventDefault();
+			ImprovedTube.playbackSpeed(1.0);
+			ImprovedTube.showStatus('1.0x');
+		});
+
+		// Add wheel handler
+		button.addEventListener('wheel', function (e) {
+			e.preventDefault();
+			var step = Number(ImprovedTube.storage.shortcuts_playback_speed_step) || 0.1;
+			var currentSpeed = ImprovedTube.playbackSpeed();
+			var newSpeed;
+			
+			if (e.deltaY < 0) {
+				// Scroll up: increase speed
+				newSpeed = Math.min(currentSpeed + step, 16);
+			} else {
+				// Scroll down: decrease speed
+				newSpeed = Math.max(currentSpeed - step, 0.0625);
+			}
+			
+			ImprovedTube.playbackSpeed(newSpeed);
+			ImprovedTube.showStatus(newSpeed.toFixed(2) + 'x');
+		});
+	}
+};
+
+/*------------------------------------------------------------------------------
 FIT-TO-WIN BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerFitToWinButton = function () {
