@@ -378,6 +378,8 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerPlaybackSpeedButton':
 					if (ImprovedTube.storage.player_playback_speed_button === false) {
 						document.querySelector('#it-playback-speed-button')?.remove();
+						document.querySelector('#it-playback-speed-inc')?.remove();
+						document.querySelector('#it-playback-speed-dec')?.remove();
 					} else if (ImprovedTube.storage.player_playback_speed_button === true) {
 						ImprovedTube.playerPlaybackSpeedButton();
 					}
