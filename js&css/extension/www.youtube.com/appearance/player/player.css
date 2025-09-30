@@ -38,6 +38,25 @@ html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player
 }
 
 /*--------------------------------------------------------------
+# FIX: hide full control strip in native miniplayer
+--------------------------------------------------------------*/
+ytd-miniplayer .ytp-chrome-bottom,
+.html5-video-player.ytp-player-minimized .ytp-chrome-bottom,
+.html5-video-player.ytp-small-mode .ytp-chrome-bottom {
+	opacity: 0 !important;
+	pointer-events: none !important;
+}
+
+ytd-miniplayer .ytp-chrome-bottom .ytp-progress-bar-container,
+.html5-video-player.ytp-player-minimized .ytp-chrome-bottom .ytp-progress-bar-container,
+.html5-video-player.ytp-small-mode .ytp-chrome-bottom .ytp-progress-bar-container,
+ytd-miniplayer .ytp-chrome-bottom .ytp-scrubber-button,
+.html5-video-player.ytp-player-minimized .ytp-chrome-bottom .ytp-scrubber-button,
+.html5-video-player.ytp-small-mode .ytp-chrome-bottom .ytp-scrubber-button {
+	display: none !important;
+}
+
+/*--------------------------------------------------------------
 # COLOR
 --------------------------------------------------------------*/
 
