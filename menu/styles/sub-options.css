@@ -4,6 +4,7 @@ NESTED (CONDITIONAL) SWITCHES
 #remove-home-page-shorts:not([data-value=true]) + .satus-switch,
 #remove-home-page-shorts:not([data-value=true]) + .satus-switch + .satus-switch,
 #remove-home-page-shorts:not([data-value=true]) + .satus-switch + .satus-switch + .satus-switch,
+#channel_play_all_button:not([data-value=true]) + .satus-switch,
 /*-----------------
 >>> Appearance
 -----------------*/
@@ -38,12 +39,14 @@ NIGHT MODE
 --------------------------------------------------------------*/
 #activate:not([data-value='sunset_to_sunrise']) + .satus-time--from,
 #activate:not([data-value='sunset_to_sunrise']) + * + .satus-time--to 
+
 /*====================================*/
 	{display: none !important;}
 
 #remove-home-page-shorts[data-value=true] + .satus-switch,
 #remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch,
 #remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch + .satus-switch,
+#channel_play_all_button[data-value=true] + .satus-switch,
 /*-----------------
 >>> Appearance
 -----------------*/
@@ -78,13 +81,14 @@ NIGHT MODE
 NIGHT MODE
 --------------------------------------------------------------*/
 #activate[data-value='sunset_to_sunrise'] + .satus-time--from,
-#activate[data-value='sunset_to_sunrise'] + * + .satus-time--to 
+#activate[data-value='sunset_to_sunrise'] + * + .satus-time--to
 /*====================================*/
 	{margin-left:20px; margin-top:-4px; margin-bottom:2px; max-width: calc( 100% - 22px ) !important; border-radius: 2px; border-left: 1px inset;}
 
 #remove-home-page-shorts[data-value=true] + .satus-switch:not(:hover),
 #remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch:not(:hover),
 #remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch + .satus-switch:not(:hover),
+#channel_play_all_button[data-value=true] + .satus-switch:not(:hover),
 /*-----------------
 >>> Appearance
 -----------------*/
