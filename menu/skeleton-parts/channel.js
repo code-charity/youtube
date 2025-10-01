@@ -46,6 +46,11 @@ extension.skeleton.main.layers.section.channel = {
 				component: 'switch',
 				text: 'playAllButton'
 			},
+			exclude_shorts_in_play_all: {
+				component: 'switch',
+				text: 'excludeShortsInPlayAll',
+				value: true
+			  },
 			channel_hide_featured_content: {
 				component: 'switch',
 				text: 'hideFeaturedContent'

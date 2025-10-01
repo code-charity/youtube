@@ -1510,5 +1510,8 @@
   },
   "exact": {
     "message": "Exact date/time"
+  },
+  "excludeShortsInPlayAll": {
+    "message": "Exclude Shorts when using \"Play all\""
   }
 }
