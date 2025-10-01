@@ -565,6 +565,16 @@ ImprovedTube.playerVolume = function () {
 		} else {
 			volume = Number(volume);
 		}
+		// Fix: Explicitly handle mute state
+		if (volume === 0) {
+			if (!this.elements.player.isMuted()) {
+				this.elements.player.mute();
+			}
+		} else {
+			if (this.elements.player.isMuted()) {
+				this.elements.player.unMute();
+			}
+		}
 
 		if (!this.audioContextGain && volume <= 100) {
 			if (this.audioContext) {
