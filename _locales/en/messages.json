@@ -1513,5 +1513,8 @@
   },
   "excludeShortsInPlayAll": {
     "message": "Exclude Shorts when using \"Play all\""
+  },
+  "disableHoldToPlay2x":{
+    "message": "Disable hold to play 2x"
   }
 }

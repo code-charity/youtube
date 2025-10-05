@@ -73,6 +73,14 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		/* DISABLE/ENABLE HOLD TO PLAY 2X UI */
+			disable_hold_to_play_2x: {
+				component: 'switch',
+				text: 'disableHoldToPlay2x', // YOU CAN CHANGE IF YOU SEE FIT
+				storage: 'disable_hold_to_play_2x',
+				value: false, // STAYS FALSE UNLESS TOGGLED
+		},
+		/* END OF DISABLE/ENABLE HOLD TO PLAY 2X UI */		
 		pause_while_typing_on_youtube: {
 			component: 'switch',
 			text: 'pauseWhileIAmTypingOnYouTube',
