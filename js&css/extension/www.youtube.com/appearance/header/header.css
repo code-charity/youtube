@@ -112,6 +112,7 @@ html[data-page-type='video'][it-header-position=hover_on_video_page]:not([it-imp
 	transform: translateY(-38%);
 	height: 68px;
 	opacity: 0;
+	backdrop-filter: blur(4px);
 }
 
 html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]):focus-within,
