@@ -838,6 +838,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'customMiniPlayer'
 		},
+		disable_hold_to_play_2x: {
+				component: 'switch',
+				text: 'disableHoldToPlay2x', 
+				value: false,
+		},
 		forced_play_video_from_the_beginning: {
 			component: 'switch',
 			text: 'forcedPlayVideoFromTheBeginning'
