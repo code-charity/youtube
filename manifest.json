@@ -64,6 +64,7 @@
     {
       "resources": [
         "menu/index.html",
+        "menu/*",
         "js&css/web-accessible/core.js",
         "js&css/web-accessible/functions.js",
         "js&css/web-accessible/www.youtube.com/appearance.js",
