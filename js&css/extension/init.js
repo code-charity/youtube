@@ -50,6 +50,9 @@ extension.events.on('init', function () {
 	extension.features.comments();
 	extension.features.openNewTab();
 	extension.features.removeListParamOnNewTab();
+	extension.features.playerTextSize();
+	extension.features.endCardGridLayout();
+	extension.features.endCardTitleHover();
 	// extension.features.hideSponsoredVideosOnHome?.();	
 	bodyReady();
 });

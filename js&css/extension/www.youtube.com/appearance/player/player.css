@@ -760,3 +760,147 @@ html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp
 	display: flex;
 	align-items: center;
 }
+
+/*--------------------------------------------------------------
+# PLAYER TEXT SIZE
+--------------------------------------------------------------*/
+
+html[it-player-text-size='compact'] .html5-video-player .ytp-chrome-bottom .ytp-time-display,
+html[it-player-text-size='compact'] .html5-video-player .ytp-chrome-bottom .ytp-time-current,
+html[it-player-text-size='compact'] .html5-video-player .ytp-chrome-bottom .ytp-time-duration,
+html[it-player-text-size='compact'] .html5-video-player .ytp-chrome-bottom .ytp-time-separator {
+	font-size: 12px !important;
+}
+
+html[it-player-text-size='compact'] ytd-video-primary-info-renderer h1.title,
+html[it-player-text-size='compact'] ytd-video-primary-info-renderer .ytd-video-primary-info-renderer h1,
+html[it-player-text-size='compact'] ytd-video-primary-info-renderer .ytd-video-primary-info-renderer .title {
+	font-size: 20px !important;
+	line-height: 1.2 !important;
+}
+
+html[it-player-text-size='compact'] ytd-video-primary-info-renderer #info,
+html[it-player-text-size='compact'] ytd-video-primary-info-renderer #info-strings,
+html[it-player-text-size='compact'] ytd-video-primary-info-renderer #info #count,
+html[it-player-text-size='compact'] ytd-video-primary-info-renderer #info span {
+	font-size: 14px !important;
+}
+
+html[it-player-text-size='compact'] ytd-video-secondary-info-renderer #description,
+html[it-player-text-size='compact'] ytd-video-secondary-info-renderer .ytd-video-secondary-info-renderer #description {
+	font-size: 14px !important;
+}
+
+html[it-player-text-size='compact'] #secondary ytd-compact-video-renderer h3,
+html[it-player-text-size='compact'] #secondary ytd-video-renderer h3,
+html[it-player-text-size='compact'] #secondary ytd-compact-video-renderer .title,
+html[it-player-text-size='compact'] #secondary ytd-video-renderer .title {
+	font-size: 14px !important;
+	line-height: 1.3 !important;
+	font-weight: 500 !important;
+}
+
+html[it-player-text-size='compact'] #secondary ytd-compact-video-renderer #metadata,
+html[it-player-text-size='compact'] #secondary ytd-video-renderer #metadata,
+html[it-player-text-size='compact'] #secondary ytd-compact-video-renderer #metadata-line,
+html[it-player-text-size='compact'] #secondary ytd-video-renderer #metadata-line {
+	font-size: 12px !important;
+}
+
+html[it-player-text-size='compact'] ytd-rich-item-renderer h3,
+html[it-player-text-size='compact'] ytd-rich-item-renderer .title,
+html[it-player-text-size='compact'] ytd-rich-item-renderer .ytd-rich-item-renderer h3,
+html[it-player-text-size='compact'] ytd-rich-item-renderer .ytd-rich-item-renderer .title {
+	font-size: 16px !important;
+	line-height: 1.3 !important;
+	font-weight: 500 !important;
+}
+
+html[it-player-text-size='compact'] ytd-rich-item-renderer .ytd-rich-item-renderer #metadata,
+html[it-player-text-size='compact'] ytd-rich-item-renderer .ytd-rich-item-renderer #metadata-line {
+	font-size: 12px !important;
+}
+
+/*--------------------------------------------------------------
+# END CARD GRID LAYOUT
+--------------------------------------------------------------*/
+
+html[it-end-card-grid-layout='classic'] .html5-endscreen,
+html[it-end-card-grid-layout='classic'] .ytp-endscreen {
+	display: grid !important;
+	grid-template-columns: repeat(4, 1fr) !important;
+	grid-template-rows: repeat(3, 1fr) !important;
+	gap: 8px !important;
+	padding: 8px !important;
+	max-width: 100% !important;
+	width: 100% !important;
+}
+
+html[it-end-card-grid-layout='classic'] .html5-endscreen ytd-compact-video-renderer,
+html[it-end-card-grid-layout='classic'] .html5-endscreen ytd-video-renderer,
+html[it-end-card-grid-layout='classic'] .ytp-endscreen ytd-compact-video-renderer,
+html[it-end-card-grid-layout='classic'] .ytp-endscreen ytd-video-renderer {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 0 !important;
+	padding: 4px !important;
+	display: block !important;
+}
+
+html[it-end-card-grid-layout='classic'] .html5-endscreen ytd-compact-video-renderer #thumbnail,
+html[it-end-card-grid-layout='classic'] .html5-endscreen ytd-video-renderer #thumbnail,
+html[it-end-card-grid-layout='classic'] .ytp-endscreen ytd-compact-video-renderer #thumbnail,
+html[it-end-card-grid-layout='classic'] .ytp-endscreen ytd-video-renderer #thumbnail {
+	width: 100% !important;
+	height: auto !important;
+	aspect-ratio: 16/9 !important;
+	object-fit: cover !important;
+}
+
+@media (max-width: 768px) {
+	html[it-end-card-grid-layout='classic'] .html5-endscreen,
+	html[it-end-card-grid-layout='classic'] .ytp-endscreen {
+		grid-template-columns: repeat(2, 1fr) !important;
+		grid-template-rows: repeat(6, 1fr) !important;
+	}
+}
+
+@media (max-width: 480px) {
+	html[it-end-card-grid-layout='classic'] .html5-endscreen,
+	html[it-end-card-grid-layout='classic'] .ytp-endscreen {
+		grid-template-columns: 1fr !important;
+		grid-template-rows: repeat(12, 1fr) !important;
+	}
+}
+
+/*--------------------------------------------------------------
+# END CARD TITLE HOVER
+--------------------------------------------------------------*/
+
+html[it-end-card-title-hover='true'] .html5-endscreen ytd-compact-video-renderer h3,
+html[it-end-card-title-hover='true'] .html5-endscreen ytd-video-renderer h3,
+html[it-end-card-title-hover='true'] .ytp-endscreen ytd-compact-video-renderer h3,
+html[it-end-card-title-hover='true'] .ytp-endscreen ytd-video-renderer h3,
+html[it-end-card-title-hover='true'] .html5-endscreen ytd-compact-video-renderer .title,
+html[it-end-card-title-hover='true'] .html5-endscreen ytd-video-renderer .title,
+html[it-end-card-title-hover='true'] .ytp-endscreen ytd-compact-video-renderer .title,
+html[it-end-card-title-hover='true'] .ytp-endscreen ytd-video-renderer .title {
+	opacity: 0 !important;
+	visibility: hidden !important;
+	transition: opacity 0.2s ease !important;
+	font-size: 14px !important;
+	line-height: 1.3 !important;
+	font-weight: 500 !important;
+}
+
+html[it-end-card-title-hover='true'] .html5-endscreen ytd-compact-video-renderer:hover h3,
+html[it-end-card-title-hover='true'] .html5-endscreen ytd-video-renderer:hover h3,
+html[it-end-card-title-hover='true'] .ytp-endscreen ytd-compact-video-renderer:hover h3,
+html[it-end-card-title-hover='true'] .ytp-endscreen ytd-video-renderer:hover h3,
+html[it-end-card-title-hover='true'] .html5-endscreen ytd-compact-video-renderer:hover .title,
+html[it-end-card-title-hover='true'] .html5-endscreen ytd-video-renderer:hover .title,
+html[it-end-card-title-hover='true'] .ytp-endscreen ytd-compact-video-renderer:hover .title,
+html[it-end-card-title-hover='true'] .ytp-endscreen ytd-video-renderer:hover .title {
+	opacity: 1 !important;
+	visibility: visible !important;
+}
