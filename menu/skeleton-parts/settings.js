@@ -23,7 +23,13 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings = {
 				component: 'section',
 				variant: 'card'
 			},
-			secondSection: {
+                disableAutoTranslation: {
+                    component: 'switch',
+                    text: 'disableYouTubeAutoTranslation',
+                    storage: 'disable_auto_translation',
+                    value: false
+                },
+				exportSettings: {
 				component: 'section',
 				variant: 'card'
 			}
@@ -57,7 +63,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings = {
 		component: 'span',
 		text: 'settings'
 	}
-};
+				}
 
 /*--------------------------------------------------------------
 # APPEARANCE
@@ -318,6 +324,13 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 					{value: "zh-HK", text: "中文 (香港)"},
 					{value: "ko", text: "한국어"}
 				],
+	                disableAutoTranslation: {
+	                    component: 'switch',
+	                    text: 'disableYouTubeAutoTranslation',
+	                    storage: 'disable_auto_translation',
+	                    value: false
+	                }
+				},
 				improvedtube: {
 					component: 'select',
 					text: 'improvedtubeLanguage',
@@ -369,188 +382,192 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 			}
 		}
 	},
-	on: {
-		click: {
-			section: {
-				component: 'section',
-				variant: 'card',
-
 				importSettings: {
 					component: 'button',
 					text: 'importSettings',
 					on: {
 						click: function () {
 							if (location.href.indexOf('/index.html?action=import-settings') !== -1) {
-								extension.importSettings();
-							} else {
-								window.open(chrome.runtime.getURL('menu/index.html?action=import-settings'), '_blank');
-							}
-						}
-					}
-				},
-				exportSettings: {
-					component: 'button',
-					text: 'exportSettings',
-					on: {
-						click: function () {
-							if (location.href.indexOf('/index.html?action=export-settings') !== -1) {
-								extension.exportSettings();
-							} else {
-								window.open(chrome.runtime.getURL('menu/index.html?action=export-settings'), '_blank');
-							}
-						}
-					}
-				}
-			},
-			sync: {
-				component: 'section',
-				variant: 'card',
-				title: 'browserAccountSync',
-
-				pushSyncSettings: {
-					component: 'button',
-					text: 'pushSyncSettings',
-					on: {
-						click: function () {
-							extension.pushSettings();
-						}
-					}
-				},
-				pullSyncSettings: {
-					component: 'button',
-					text: 'pullSyncSettings',
-					on: {
-						click: function () {
-							extension.pullSettings();
-						}
-					}
-				}
-			},
-			reset: {
-				component: 'section',
-				variant: 'card',
-				delete_youtube_cookies: {
-					component: 'button',
-					text: 'deleteYoutubeCookies',
-
 					on: {
 						click: {
-							component: 'modal',
-
-							message: {
-								component: 'span',
-								text: 'thisWillRemoveAllYouTubeCookies'
-							},
 							section: {
 								component: 'section',
-								variant: 'actions',
-
-								cancel: {
+								variant: 'card',
+								importSettings: {
 									component: 'button',
-									text: 'cancel',
+									text: 'importSettings',
 									on: {
 										click: function () {
-											this.parentNode.parentNode.parentNode.close();
+											if (location.href.indexOf('/index.html?action=import-settings') !== -1) {
+												extension.importSettings();
+											} else {
+												window.open(chrome.runtime.getURL('menu/index.html?action=import-settings'), '_blank');
+											}
 										}
 									}
 								},
-								accept: {
+								exportSettings: {
 									component: 'button',
-									text: 'accept',
+									text: 'exportSettings',
 									on: {
 										click: function () {
-											chrome.tabs.query({}, function (tabs) {
-												for (var i = 0, l = tabs.length; i < l; i++) {
-													if (tabs[i].hasOwnProperty('url')) {
-														chrome.tabs.sendMessage(tabs[i].id, {
-															action: 'delete-youtube-cookies'
-														});
+											if (location.href.indexOf('/index.html?action=export-settings') !== -1) {
+												extension.exportSettings();
+											} else {
+												window.open(chrome.runtime.getURL('menu/index.html?action=export-settings'), '_blank');
+											}
+										}
+									}
+								}
+							},
+							sync: {
+								component: 'section',
+								variant: 'card',
+								title: 'browserAccountSync',
+								pushSyncSettings: {
+									component: 'button',
+									text: 'pushSyncSettings',
+									on: {
+										click: function () {
+											extension.pushSettings();
+										}
+									}
+								},
+								pullSyncSettings: {
+									component: 'button',
+									text: 'pullSyncSettings',
+									on: {
+										click: function () {
+											extension.pullSettings();
+										}
+									}
+								}
+							},
+							reset: {
+								component: 'section',
+								variant: 'card',
+								delete_youtube_cookies: {
+									component: 'button',
+									text: 'deleteYoutubeCookies',
+									on: {
+										click: {
+											component: 'modal',
+											message: {
+												component: 'span',
+												text: 'thisWillRemoveAllYouTubeCookies'
+											},
+											section: {
+												component: 'section',
+												variant: 'actions',
+												cancel: {
+													component: 'button',
+													text: 'cancel',
+													on: {
+														click: function () {
+															this.parentNode.parentNode.parentNode.close();
+														}
+													}
+												},
+												accept: {
+													component: 'button',
+													text: 'accept',
+													on: {
+														click: function () {
+															chrome.tabs.query({}, function (tabs) {
+																for (var i = 0, l = tabs.length; i < l; i++) {
+																	if (tabs[i].hasOwnProperty('url')) {
+																		chrome.tabs.sendMessage(tabs[i].id, {
+																			action: 'delete-youtube-cookies'
+																		});
+																	}
+																}
+															});
+															this.parentNode.parentNode.parentNode.close();
+														}
 													}
 												}
-											});
-
-											this.parentNode.parentNode.parentNode.close();
-										}
-									}
-								}
-							}
-						}
-					}
-				},
-				resetAllSettings: {
-					component: 'button',
-					text: 'resetAllSettings',
-					on: {
-						click: {
-							component: 'modal',
-							variant: 'confirm',
-							content: 'allYourSettingsWillBeErasedAndCanTBeRecovered',
-							buttons: {
-								cancel: {
-									component: 'button',
-									text: 'cancel',
-									on: {
-										click: function () {
-											this.modalProvider.close();
+											}
 										}
 									}
 								},
-								reset: {
+								resetAllSettings: {
 									component: 'button',
-									text: 'reset',
+									text: 'resetAllSettings',
 									on: {
-										click: function () {
-											satus.storage.clear(function () {
-												window.close();
-											});
-										}
-									}
-								}
-							}
-						}
-					}
-				},
-				resetAllShortcuts: {
-					component: 'button',
-					text: 'resetAllShortcuts',
-					on: {
-						click: {
-							component: 'modal',
-							variant: 'confirm',
-							content: 'allYourShortcutsWillBeErasedAndCanTBeRecovered',
-							buttons: {
-								cancel: {
-									component: 'button',
-									text: 'cancel',
-									on: {
-										click: function () {
-											this.modalProvider.close();
-										}
-									}
-								},
-								reset: {
-									component: 'button',
-									text: 'reset',
-									on: {
-										click: function () {
-											for (var key in satus.storage.data) {
-												if (key.indexOf('shortcut_') === 0) {
-													satus.storage.remove(key);
+										click: {
+											component: 'modal',
+											variant: 'confirm',
+											content: 'allYourSettingsWillBeErasedAndCanTBeRecovered',
+											buttons: {
+												cancel: {
+													component: 'button',
+													text: 'cancel',
+													on: {
+														click: function () {
+															this.modalProvider.close();
+														}
+													}
+												},
+												reset: {
+													component: 'button',
+													text: 'reset',
+													on: {
+														click: function () {
+															satus.storage.clear(function () {
+																window.close();
+															});
+														}
+													}
 												}
 											}
-
-											this.modalProvider.close();
+										}
+									}
+								},
+								resetAllShortcuts: {
+									component: 'button',
+									text: 'resetAllShortcuts',
+									on: {
+										click: {
+											component: 'modal',
+											variant: 'confirm',
+											content: 'allYourShortcutsWillBeErasedAndCanTBeRecovered',
+											buttons: {
+												cancel: {
+													component: 'button',
+													text: 'cancel',
+													on: {
+														click: function () {
+															this.modalProvider.close();
+														}
+													}
+												},
+												reset: {
+													component: 'button',
+													text: 'reset',
+													on: {
+														click: function () {
+															for (var key in satus.storage.data) {
+																if (key.indexOf('shortcut_') === 0) {
+																	satus.storage.remove(key);
+																}
+															}
+															this.modalProvider.close();
+														}
+													}
+												}
+											}
 										}
 									}
 								}
 							}
 						}
 					}
-				}
-			}
-		}
-	}
-};
+				};
+								}
+							}
+						}
+					}
+				};
 
 /*--------------------------------------------------------------
 # DEVELOPER OPTIONS
@@ -713,6 +730,12 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 					text: 'hardwareInformation',
 					on: {
 						click: {
+		                disableAutoTranslation: {
+		                    component: 'switch',
+		                    text: 'disableYouTubeAutoTranslation',
+		                    storage: 'disable_auto_translation',
+		                    value: false
+		                },
 							component: 'section',
 							variant: 'card',
 
