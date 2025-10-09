@@ -110,7 +110,22 @@ ImprovedTube.init = function () {
 	if (window.matchMedia) {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
+	
+	if (!('full_screen_quality' in ImprovedTube.storage)) {
+	  ImprovedTube.storage.full_screen_quality = 'auto';
+	}
+	if (!ImprovedTube._fullscreenQualityBound) {
+   const fsHandler = () => ImprovedTube.playerQualityFullScreen();
+   document.addEventListener('fullscreenchange', fsHandler, { passive: true });
+   document.addEventListener('webkitfullscreenchange', fsHandler, { passive: true });
+   document.addEventListener('mozfullscreenchange', fsHandler, { passive: true });
+   document.addEventListener('MSFullscreenChange', fsHandler, { passive: true });
+   ImprovedTube._fullscreenQualityBound = true;
+   ImprovedTube.playerQualityFullScreen();
+ }
 };
+
+
 
 document.addEventListener('yt-navigate-finish', function () {
 	/* 			if (name === 'META') {			   //<META> infos are not updated when clicking related videos...

@@ -1513,5 +1513,8 @@
   },
   "excludeShortsInPlayAll": {
     "message": "Exclude Shorts when using \"Play all\""
+  },
+  "fullScreenQuality": { 
+    "message": "Fullscreen quality" 
   }
 }
