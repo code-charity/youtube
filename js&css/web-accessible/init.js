@@ -111,18 +111,12 @@ ImprovedTube.init = function () {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
 	
-	if (!('full_screen_quality' in ImprovedTube.storage)) {
-	  ImprovedTube.storage.full_screen_quality = 'auto';
-	}
-	if (!ImprovedTube._fullscreenQualityBound) {
-   const fsHandler = () => ImprovedTube.playerQualityFullScreen();
-   document.addEventListener('fullscreenchange', fsHandler, { passive: true });
-   document.addEventListener('webkitfullscreenchange', fsHandler, { passive: true });
-   document.addEventListener('mozfullscreenchange', fsHandler, { passive: true });
-   document.addEventListener('MSFullscreenChange', fsHandler, { passive: true });
-   ImprovedTube._fullscreenQualityBound = true;
-   ImprovedTube.playerQualityFullScreen();
- }
+	if (!ImprovedTube._fsqBound) {
+  document.addEventListener('fullscreenchange', () => ImprovedTube.playerQualityFullScreen(), { passive: true });
+  ImprovedTube._fsqBound = true;
+  ImprovedTube.playerQualityFullScreen();
+}
+
 };
 
 
