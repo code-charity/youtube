@@ -488,7 +488,18 @@ ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
 		player.setPlaybackQuality(quality);
 		player.dataset.defaultQuality = quality;
 	}
+
+    // --- Place your advanced buffering logic here ---
+    const video = this.elements.video;
+    if (ImprovedTube.storage.get('advanced_video_buffering') === true && video) {
+      video.preload = 'auto';
+      let originalTime = video.currentTime;
+      let bufferTime = Math.min(video.duration || (originalTime + 30), originalTime + 30);
+      video.currentTime = bufferTime;
+      video.currentTime = originalTime;
+    }
 };
+
 /*------------------------------------------------------------------------------
 QUALITY WITHOUT FOCUS
 ------------------------------------------------------------------------------*/
