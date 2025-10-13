@@ -111,10 +111,12 @@ ImprovedTube.init = function () {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
 	
-	if (!ImprovedTube._fsqBound) {
-  document.addEventListener('fullscreenchange', () => ImprovedTube.playerQualityFullScreen(), { passive: true });
-  ImprovedTube._fsqBound = true;
-  ImprovedTube.playerQualityFullScreen();
+	if (ImprovedTube.storage.full_screen_quality) {
+       if (!ImprovedTube._fsqBound) {
+          document.addEventListener('fullscreenchange', () => ImprovedTube.playerQualityFullScreen(), { passive: true });
+          ImprovedTube._fsqBound = true;
+        }
+        ImprovedTube.playerQualityFullScreen();
 }
 
 };
