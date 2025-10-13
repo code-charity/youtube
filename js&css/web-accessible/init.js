@@ -110,7 +110,18 @@ ImprovedTube.init = function () {
 	if (window.matchMedia) {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
+	
+	if (ImprovedTube.storage.full_screen_quality) {
+       if (!ImprovedTube._fsqBound) {
+          document.addEventListener('fullscreenchange', () => ImprovedTube.playerQualityFullScreen(), { passive: true });
+          ImprovedTube._fsqBound = true;
+        }
+        ImprovedTube.playerQualityFullScreen();
+}
+
 };
+
+
 
 document.addEventListener('yt-navigate-finish', function () {
 	/* 			if (name === 'META') {			   //<META> infos are not updated when clicking related videos...
