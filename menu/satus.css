@@ -15,11 +15,9 @@ div:not([home-style="list"]) .satus-button--themes, div:not([home-style="list"])
 	margin-left: -5px !important;
 	margin-right: -28px !important;
 }
-div:not([home-style="list"]) .satus-button--blocklist, div:not([home-style="list"]) .satus-button--analyzer {
+div:not([home-style="list"]) .satus-button--blocklist, div:not([home-style="list"]) .satus-button--analyzer, div:not([home-style="list"]) .satus-button--refresh-categories {
 	transform: scale(0.78);
 	margin-top: -22px !important;
-	margin-left: 110px !important;
-	margin-right: -150px !important;
 }
 
 div[home-style="list"] .satus-button--themes, div[home-style="list"] .satus-button--playlist,div[home-style="list"]  .satus-button--channel, div[home-style="list"] .satus-button--shortcuts {
@@ -29,7 +27,7 @@ div[home-style="list"] .satus-button--themes, div[home-style="list"] .satus-butt
 	max-width: 197px !important;
 	margin-top:2px !important;
 }
-div[home-style="list"] .satus-button--blocklist, div[home-style="list"] .satus-button--analyzer {
+div[home-style="list"] .satus-button--blocklist, div[home-style="list"] .satus-button--analyzer , div[home-style="list"] .satus-button--refresh-categories {
 	transform: scale(0.75);
 	margin-left: 165px !important;
 	max-width: 141px !important;
