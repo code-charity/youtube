@@ -311,6 +311,9 @@
   "characterEdgeStyle": {
     "message": "Character Edge Style"
   },
+  "cinemaMode": {
+    "message": "Cinema Mode"
+  },
   "clip": {
     "message": "Clip"
   },
