@@ -33,7 +33,7 @@
         "message": "ImprovedTube: پنل کناری مرورگر"
     },
     "cursorLighting": {
-        "message": "تاریک کردن صفحات یوتیوب، به جز جایی که ماوس روی آن است!"
+        "message": "! تاریک کردن صفحات یوتیوب، به جز جایی که ماوس روی آن است"
     },
     "youtubesLight": {
         "message": "روشن یوتیوب"
@@ -48,10 +48,10 @@
         "message": "نورپردازی محیطی"
     },
     "undoTheNewSidebar": {
-        "message": "بازگرداندن نوار کناری جدید!"
+        "message": "! بازگرداندن نوار کناری جدید"
     },
     "hideLogo": {
-        "message": "لوگو: پنهان کردن!"
+        "message": "! لوگو: پنهان کردن"
     },
     "about": {
         "message": "درباره"
@@ -60,7 +60,7 @@
         "message": "پذیرفتن"
     },
     "activate": {
-        "message": "فعال‌سازی"
+        "message": "فعال‌ سازی"
     },
     "activateCaptions": {
         "message": "فعال کردن زیرنویس"
@@ -350,6 +350,12 @@
     "copyVideoUrl": {
         "message": "کپی آدرس کامل ویدیو"
     },
+    "quickDeleteShortcut": {
+        "message": "دکمه‌های حذف سریع میانبر"
+    },
+    "bulkDeleteByProgress": {
+        "message": "حذف به صورت یکجا ویدیوها بر اساس پیشرفت تماشا"
+    },
     "cropChapterTitles": {
         "message": "برش عناوین فصل"
     },
@@ -381,7 +387,7 @@
         "message": "تاریخ و زمان"
     },
     "dawn": {
-        "message": "سپیده‌دم"
+        "message": "طلوع"
     },
     "decreasePlaybackSpeed": {
         "message": "کاهش سرعت پخش"
@@ -441,7 +447,7 @@
         "message": "دستگاه"
     },
     "dim": {
-        "message": "کم‌نور"
+        "message": "کم‌ نور"
     },
     "disabled": {
         "message": "غیرفعال"
@@ -586,6 +592,9 @@
     },
     "GPUnotindatabase": {
         "message": "پردازنده گرافیکی در پایگاه داده نیست"
+    },
+    "Optimal": {
+        "message": "بهینه"
     },
     "green": {
         "message": "سبز"
@@ -780,7 +789,7 @@
         "message": "نسخه ImprovedTube"
     },
     "improveLogo": {
-        "message": "لوگو: تک‌رنگ!"
+        "message": "! لوگو: تک‌رنگ"
     },
     "increasePlaybackSpeed": {
         "message": "افزایش سرعت پخش"
@@ -876,10 +885,10 @@
         "message": "پربازدیدترین کانال‌ها"
     },
     "moveSidebarLeft": {
-        "message": "به سمت چپ!"
+        "message": "! به سمت چپ"
     },
     "moveThumbnailsRight": {
-        "message": "تصاویر کوچک به سمت راست!"
+        "message": "! تصاویر کوچک به سمت راست"
     },
     "My_specs": {
         "message": "مشخصات من"
@@ -998,8 +1007,11 @@
     "player_fit_to_win_button": {
         "message": "اندازه کردن به اندازه پنجره"
     },
-    "player_rewind_and_forward_buttons":{
+    "player_rewind_and_forward_buttons": {
         "message": "دکمه‌های عقب/جلو بردن"
+            },
+    "player_playback_speed_button": {
+        "message": "دکمه سرعت پخش"
     },
     "player_cinema_mode_button": {
         "message": "حالت سینما"
@@ -1319,6 +1331,9 @@
     "thumbnailsQuality": {
         "message": "کیفیت تصاویر کوچک"
     },
+    "thumbnailSize": {
+        "message": "اندازه تصاویر کوچک"
+    },
     "timeFrom": {
         "message": "از زمان"
     },
@@ -1326,7 +1341,7 @@
         "message": "تا زمان"
     },
     "To_the_side_No_page_margin": {
-        "message": "به کنار! (بدون حاشیه صفحه)"
+        "message": "! به کنار (بدون حاشیه صفحه)"
     },
     "todayAt": {
         "message": "امروز ساعت"
@@ -1492,5 +1507,26 @@
     },
     "exact": {
         "message": "تاریخ/زمان دقیق"
-    }
+    },
+    "excludeShortsInPlayAll": {
+        "message": "حذف شورت‌ها هنگام استفاده از \"پخش همه\""
+    },
+    "secondaryColor": {
+        "message": "رنگ ثانویه"
+    },
+    "transparentBackgroundAlternative": {
+        "message": "جایگزین پس‌زمینه شفاف"
+    },
+   "hideProgressBarPreview": {
+        "message": "پنهان کردن پیش‌نمایش نوار پیشرفت"
+   },
+   "revertTheaterModeButtonSizes": {
+        "message": "بازگردانی اندازه دکمه‌های حالت تئاتر"
+    },
+    "playbackSpeedButton": {
+        "message": "دکمه سرعت پخش"
+    },
+    "fullscreenReturn": {
+        "message": "بازگشت از تمام‌صفحه"
+   }
 }

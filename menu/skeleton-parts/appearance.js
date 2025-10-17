@@ -109,7 +109,7 @@ extension.skeleton.main.layers.section.appearance.on.click.header = {
 			},
 			header_transparent_alternative: {
 				component: "switch",
-				text: "Transparent background alternative"
+				text: "transparentBackgroundAlternative"
 			},
 			header_hide_country_code: {
 				component: "switch",
@@ -253,7 +253,7 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 			},		
 			player_hide_progress_preview: {
 			component: 'switch',
-			text: 'Hide progress bar preview',
+			text: 'hideProgressBarPreview',
 			storage: 'player_hide_progress_preview',
 			},			
 			player_hide_controls_options: {
@@ -523,7 +523,7 @@ extension.skeleton.main.layers.section.appearance.on.click.description = {
 
 extension.skeleton.main.layers.section.appearance.on.click.hide_detail_button = {
 	component: "button",
-	text: "Buttons",
+	text: "buttons",
 	variant: "detailButton",
 	on: {
 		click: {
@@ -687,7 +687,7 @@ extension.skeleton.main.layers.section.appearance.on.click.hide_detail_button = 
 				},
 				hide_download_button: {
 					component: "select",
-					text: 'Download',
+					text: 'download',
 					options: [{
 						text: "normal",
 						value: "normal"
