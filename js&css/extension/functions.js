@@ -11,58 +11,41 @@ extension.functions.getUrlParameter = function (url, parameter) {
 /*--------------------------------------------------------------
 # REFRESH YOUTUBE CATEGORIES 
 --------------------------------------------------------------*/
-console.log('Content script loaded!', window.location.href);
-
-if (!window.improvedTubeListenerAdded && chrome && chrome.runtime) {
-    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+if (!window.improvedTubeRefreshCategoriesAdded && typeof chrome !== 'undefined' && chrome.runtime) {
+    chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         if (request.action === 'refresh-youtube-categories') {
-            console.log('Refresh categories request received');
-
-            let responded = false;
-
-            function refreshChipBar(chipContainer) {
-                const parent = chipContainer.parentNode;
-                const nextSibling = chipContainer.nextSibling;
-                
-                parent.removeChild(chipContainer);
-                
-                void parent.offsetHeight;
-                
-                requestAnimationFrame(() => {
-                    parent.insertBefore(chipContainer, nextSibling);
-                    if (!responded) {
-                        sendResponse({ success: true });
-                        responded = true;
-                    }
-                });
-            }
-
             let chipContainer = document.querySelector('ytd-feed-filter-chip-bar-renderer');
+            
             if (chipContainer) {
-                refreshChipBar(chipContainer);
+                chipContainer.style.display = '';
+                chipContainer.style.visibility = 'visible';
+                chipContainer.style.opacity = '1';
+                chipContainer.hidden = false;
+                
+                let parent = chipContainer.parentElement;
+                while (parent && parent !== document.body) {
+                    parent.style.display = '';
+                    parent.style.visibility = 'visible';
+                    parent = parent.parentElement;
+                }
+                
+                const allChips = chipContainer.querySelectorAll('yt-chip-cloud-chip-renderer button');
+                if (allChips.length > 1) {
+                    allChips[1].click();
+                    setTimeout(function() {
+                        allChips[0].click();
+                    }, 200);
+                }
+                
+                sendResponse({ success: true });
             } else {
-                console.log('Chip bar not found, observing DOM...');
-                const observer = new MutationObserver((mutations, obs) => {
-                    chipContainer = document.querySelector('ytd-feed-filter-chip-bar-renderer');
-                    if (chipContainer) {
-                        refreshChipBar(chipContainer);
-                        obs.disconnect();
-                    }
-                });
-                observer.observe(document.body, { childList: true, subtree: true });
-
-                setTimeout(() => {
-                    if (!responded) {
-                        sendResponse({ success: false, error: 'Chip container not found in time' });
-                        responded = true;
-                        observer.disconnect();
-                    }
-                }, 5000);
+                window.location.reload();
+                sendResponse({ success: true });
             }
-
-            return true; 
+            
+            return true;
         }
     });
-
-    window.improvedTubeListenerAdded = true;
+    
+    window.improvedTubeRefreshCategoriesAdded = true;
 }
