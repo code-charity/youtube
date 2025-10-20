@@ -1093,7 +1093,7 @@
 	    "message": "Pular playlist ao abrir vídeos em nova aba"
     },
     "removeRelatedSearchResults": {
-        "message": "Remover os respectivos resultados de pesquisa"
+        "message": "Remover resultados de pesquisa relacionados"
     },
     "removeShortsReelSearchResults": {
         "message": "Remover fileiras de Shorts dos resultados de pesquisa"
