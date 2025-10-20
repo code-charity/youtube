@@ -1,0 +1,39 @@
+name: Semgrep (Code Scanning)
+
+on:
+  push:
+    branches: [ master, refactor ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: '0 3 * * 1'
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run Semgrep
+        uses: returntocorp/semgrep-action@v1
+        with:
+          generateSarif: true
+          publishToken: ''
+        env:
+          SEMGREP_RULES: >-
+            p/ci         # CI best practices
+            p/javascript # JS best-practice + security rules
+            p/security-audit # broader security audit rules
+
+      - name: Upload SARIF to code scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: semgrep.sarif
+

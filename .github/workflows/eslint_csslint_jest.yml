@@ -4,11 +4,17 @@ on:
   push:
     branches:
       - master
+      - refactor
       - 'feature/*'
       - ESlint
   pull_request:
     branches:
       - master
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
 
 jobs:
   lint-and-test:
@@ -26,9 +32,32 @@ jobs:
       - name: Install dependencies
         run: npm install --force
       
+      - name: Install ESLint formatters
+        run: npm install --no-fund --no-audit --save-dev @microsoft/eslint-formatter-sarif eslint-formatter-html
+
       - name: Run eslint
-        run: npx eslint --config=tests/eslint_rules.config.mjs
+        run: |
+          npx eslint --config=tests/eslint_rules.config.mjs -f json -o eslint-report.json || true
+          npx eslint --config=tests/eslint_rules.config.mjs -f @microsoft/eslint-formatter-sarif -o eslint-report.sarif || true
         continue-on-error: true
+
+      - name: Upload ESLint SARIF to code scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: eslint-report.sarif
+
+      - name: Generate HTML report from ESLint JSON
+        if: always()
+        run: |
+          npx eslint-formatter-html eslint-report.json -o eslint-report.html || echo "HTML formatter not available"
+
+      - name: Upload HTML report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eslint-html-report
+          path: eslint-report.html
 
       # - name: Run JSLint
       #   run: npx jslint "**/*.js"
