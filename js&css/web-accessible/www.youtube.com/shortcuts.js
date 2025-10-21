@@ -579,3 +579,22 @@ ImprovedTube.shortcutRotateVideo = function () {
 ImprovedTube.shortcutActivateFitToWindow = function() {
 	ImprovedTube.toggleFitToWindow();
 };
+
+/*------------------------------------------------------------------------------
+4.7.31 CINEMA MODE
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutCinemaMode = function () {
+	var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+	if (player.style.zIndex == 10000) {
+		player.style.zIndex = 1;
+	} else {
+		player.style.zIndex = 10000;
+	}
+	
+	var overlay = document.getElementById('overlay_cinema');
+	if (!overlay) {
+		createOverlay();
+	} else {
+		overlay.style.display = overlay.style.display === 'none' || overlay.style.display === '' ? 'block' : 'none';
+	}
+}
