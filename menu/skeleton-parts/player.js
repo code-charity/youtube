@@ -1017,7 +1017,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		optimize_codec_for_hardware_acceleration: {
 			component: 'button',
-			text: 'Optimize Codec for hardware acceleration',
+			text: 'optimizeCodecForHardwareAcceleration',
 			style: {
 				justifyContent: 'space-between'
 			},
@@ -1039,16 +1039,16 @@ extension.skeleton.main.layers.section.player.on.click = {
 
 						if (1) { // todo
 							this.style = '';
-							this.textContent = 'Feature not yet available';
+							this.textContent = satus.locale.get('Feature_not_yet_available');
 						} else if (2) { // todo
 							this.style = '';
-							this.textContent = 'GPU not in database';
+							this.textContent = satus.locale.get('GPUnotindatabase');
 						} else if (codecs) {
 							this.style = 'color: green!important; font-weight: bold;';
-							this.textContent = 'Optimal';
+							this.textContent = satus.locale.get('Optimal');
 						} else {
 							this.style = 'color: red!important; font-weight: bold;';
-							this.textContent = 'Not optimal';
+							this.textContent = satus.locale.get('Not_optimal');
 						}
 					}
 				}
@@ -1066,7 +1066,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_hide_progress_preview: {
 			component: 'switch',
-			text: 'Hide progress bar preview',
+			text: 'hideProgressBarPreview',
 			storage: 'player_hide_progress_preview'
 		},
 	},
@@ -1096,7 +1096,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_screenshot_button: {
 			component: 'switch',
-			text: 'Screenshot',
+			text: 'screenshot',
 			id: 'player_screenshot_button'
 		},
 		embed_subtitle: {
@@ -1178,7 +1178,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		theater_mode_icon_revert_button: {
 			component: 'switch',
-			text: 'Revert Theater Mode Button Sizes',
+			text: 'revertTheaterModeButtonSizes',
 			storage: 'player_revert_theater_button_sizes',
 			value: false
 		},

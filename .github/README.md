@@ -61,6 +61,8 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <a href="https://github.com/Korbough" title="✨🏆"><code>Korbough</code></a><br>
 <code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ur/messages.json" title="Urdu">UR</a></code> :
 <a href="https://github.com/faisal-mintroute" title="✨🏆"><code>Faisal</code></a><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/fa/messages.json" title="English">FA</a></code> :
+<a href="https://github.com/Neutron84" title="✨🏆"><code>Neutron84</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_CN/messages.json" title="中文 (简体)">CN(zh_CN)</a></code> :
 <a href="https://github.com/niceRAM" title="✨🏆"><code>niceRAM</code></a> 
 <a href="https://github.com/ausers"><code>ausers</code></a><br>
