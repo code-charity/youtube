@@ -168,7 +168,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'forcedPlaybackSpeed',
 			id: 'forced-playback-speed'
 		},
-		player_force_speed_on_music: {
+		player_forced_playback_speed_music: {
 			component: 'switch',
 			text: 'forcedPlaybackSpeedMusic'
 		},
@@ -181,9 +181,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'playbackSpeed',
 			textarea: true,
 			value: 1,
-			min: .01,
+			min: 0.1,
 			max: 3.17,
-			step: .01
+			step: 0.01
 		},
 		autofullscreen: {
 			component: 'switch',

@@ -16,7 +16,9 @@ var ImprovedTube = {
 	messages: {
 		queue: []
 	},
-	storage: {},
+	storage: {
+		isMusic: false
+	},
 	elements: {
 		buttons: {},
 		masthead: {},
@@ -38,7 +40,80 @@ var ImprovedTube = {
 		video_id: /(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/,
 		video_time: /[?&](?:t|start)=([^&]+)|#t=(\w+)/,
 		playlist_id: /[?&]list=([^&]+)/,
-		channel_link: /https:\/\/www.youtube.com\/@|((channel|user|c)\/)/
+		channel_link: /https:\/\/www.youtube.com\/@|((channel|user|c)\/)/,
+		keywords: 'video, sharing, camera phone, video phone, free, upload',
+		music: {
+			music_identifier: new RegExp([
+				// Musical videos
+				'(official|music|lyrics?) ?[- ]?video',
+				'(cover|studio|radio|album|alternate)[- ]version',
+				'soundtrack',
+				'unplugged',
+				'\\bmedley\\b',
+				'\\blo[- ]?fi\\b',
+				'a(lla)? cappella',
+				'OST',
+
+				// Featuring / collaborations
+				'feat\\.',
+				'featuring',
+				'Guest (vocals|musician)',
+
+				// Instrumental versions
+				'(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)',
+				'karaok',
+				'backing[- ]track',
+				'instrumental',
+				'(sing|play)[- ]?along',
+
+				// Karaoke translations
+				'卡拉OK',
+				'الكاريوكي',
+				'караоке',
+				'カラオケ',
+				'노래방',
+
+				// Edits and mixes
+				'bootleg',
+				'mashup',
+				'Radio edit',
+
+				// Tracks and live versions
+				'(title|opening|closing|bonus|hidden)[ -]track',
+				'live acoustic',
+				'interlude',
+				'recorded (at|live)',
+
+				// Specific patterns
+				'lyrics',
+				'theme song',
+				'\\bremix',
+				'\\bAMV ?[^a-z0-9]',
+				'[^a-z0-9] ?AMV\\b',
+				'\\bfull song\\b',
+				'\\bsong:',
+				'\\bsong[!$]',
+				'^song\\b',
+				'( - .*\\bSong\\b|\\bSong\\b.* - )',
+				'cover ?[^a-z0-9]',
+				'[^a-z0-9] ?cover',
+				'\\bconcert\\b',
+
+				// Album / Collection related
+				'album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\\b'
+			].join('|'), 'i'),
+
+			music_tags: new RegExp([
+				'\\b(lyrics|remix|song|music|AMV|theme song|full song)\\b',
+				'\\(Musical Genre\\)',
+				'\\bjazz\\b',
+				'\\breggae\\b'
+			].join('|'), 'i'),
+
+			not_music_identifier: new RegExp([
+				'\\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный'
+			].join('|'), 'i')
+		}
 	},
 	button_icons: {
 		blocklist: {
@@ -237,9 +312,21 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'blocklist':
 				case 'blocklistActivate':
 					ImprovedTube.blocklistInit();
-					break
-
+					break;
+				case 'playerForcedPlaybackSpeedMusic':
+					// Force playback speed on music videos
+					if (ImprovedTube.storage.player_forced_playback_speed_music === true) {
+						ImprovedTube.playbackSpeed(Number(ImprovedTube.storage.player_playback_speed));
+					} else if (ImprovedTube.storage.isMusic === true && ImprovedTube.storage.player_forced_playback_speed_music === false) {
+						ImprovedTube.playbackSpeed(1);
+					} else {
+						ImprovedTube.playbackSpeed(Number(ImprovedTube.storage.player_playback_speed));
+					}
+					break;
 				case 'playerPlaybackSpeed':
+					// Slider for change video speed
+					// alert("Slider for change video speed");
+					break;
 				case 'playerForcedPlaybackSpeed':
 					if (ImprovedTube.storage.player_forced_playback_speed === true && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {
 						ImprovedTube.playbackSpeed(Number(ImprovedTube.storage.player_playback_speed)); //new
