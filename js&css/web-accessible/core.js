@@ -104,10 +104,10 @@ var ImprovedTube = {
 			].join('|'), 'i'),
 
 			music_tags: new RegExp([
-				', (lyrics|remix|song|music|AMV|theme song|full song),',
+				'\\b(lyrics|remix|song|music|AMV|theme song|full song)\\b',
 				'\\(Musical Genre\\)',
-				', jazz',
-				', reggae'
+				'\\bjazz\\b',
+				'\\breggae\\b'
 			].join('|'), 'i'),
 
 			not_music_identifier: new RegExp([
