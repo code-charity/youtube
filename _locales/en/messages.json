@@ -464,6 +464,9 @@
   "dislike": {
     "message": "Dislike"
   },
+  "dislikingAVideoAddsItToBlocklist": {
+    "message": "Disliking a video adds it to Blocklist"
+  },
   "displayDayOfTheWeak": {
     "message": "Display day of the week"
   },
