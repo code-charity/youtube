@@ -161,6 +161,28 @@ html[it-popup-ad='true'] yt-mealbar-promo-renderer
  /*=================================*/
         {display: none !important;}  
  /*---------------------------------*/
+
+	/*------# ICON ONLY MODE MARGIN FIX, BUTTONS ------*/
+html[it-hide-share-button='icons_only'] #menu button:has(svg path[d^="M10 3.158V7.51c"]) .yt-spec-button-shape-next__icon,
+html[it-hide-ask-button='icons_only'] #menu button:has(svg path[d^="M480-80q0-83-31.5"]) .yt-spec-button-shape-next__icon,
+/*------# TODO: ADD DOWNLOAD BUTTON------*/
+html[it-hide-thanks-button='icons_only'] #menu button:has(svg path[d^="M16.25 2A6.7 6.7"]) .yt-spec-button-shape-next__icon,
+html[it-hide-clip-button='icons_only'] #menu button:has(svg path[d^="M6 2.002a4 4 0 102.03"]) .yt-spec-button-shape-next__icon,
+html[it-hide-save-button='icons_only'] #menu button:has(svg path[d^="M19 2H5a2 2 0 00-2"]) .yt-spec-button-shape-next__icon,
+html[it-hide-report-button='icons_only'] #menu button:has(svg path[d^="m4 2.999-.146.073A1.55"]) .yt-spec-button-shape-next__icon
+ /*=================================*/
+    	{margin-right: -6px !important;}
+
+  	/*------# ICON ONLY MODE MARGIN FIX, DROPDOWN ITEMS ------*/
+html[it-hide-share-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="M10 3.158V7.51c"]) yt-icon,
+html[it-hide-ask-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="M480-80q0-83-31.5"]) yt-icon,
+/*------# TODO: ADD DOWNLOAD BUTTON------*/
+html[it-hide-thanks-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="M16.25 2A6.7 6.7"]) yt-icon,
+html[it-hide-clip-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="M6 2.002a4 4 0 102.03"]) yt-icon,
+html[it-hide-save-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="M19 2H5a2 2 0 00-2"]) yt-icon,
+html[it-hide-report-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="m4 2.999-.146.073A1.55"]) yt-icon
+ /*=================================*/
+    	{margin-right: 4px !important;}
 /*  Dated:
 html[it-description='classic'] .ytd-watch-flexy #info-contents, 
 html[it-description='classic'] .ytd-watch-flexy #meta-contents { display: block !important; } 
