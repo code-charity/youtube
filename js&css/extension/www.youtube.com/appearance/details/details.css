@@ -120,10 +120,11 @@ html[it-hide-report-button='hidden'] tp-yt-paper-listbox tp-yt-paper-item:has(sv
 html[it-hide-report-button='icons_only'] #menu button:has(svg path[d^="m4 2.999-.146.073A1.55"]) div:nth-child(2),
 html[it-hide-report-button='icons_only'] #menu button:has(svg path[d^="m4 2.999-.146.073A1.55"]) .yt-spec-button-shape-next__button-text-content,
 html[it-hide-report-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="m4 2.999-.146.073A1.55"]) yt-formatted-string, 
-/*previous:*/
+/*previous, with current options:*/
 html[it-hide-report-button='hidden'] #top-level-buttons-computed button#Report-button,
 html[it-hide-report-button='hidden'] #menu button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]),
 html[it-hide-report-button='hidden'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]), 
+/*previous, literally:*/
 html[it-hide-report-button='true'] #top-level-buttons-computed button#Report-button,
 html[it-hide-report-button='true'] #menu button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]),
 html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]), 
