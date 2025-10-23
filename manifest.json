@@ -59,7 +59,7 @@
   ],
   "host_permissions": ["https://www.youtube.com/*"],
   "optional_permissions": ["downloads"],
-  "permissions": ["contextMenus", "storage"],
+  "permissions": ["contextMenus", "storage" , "tabs"],
   "web_accessible_resources": [
     {
       "resources": [
