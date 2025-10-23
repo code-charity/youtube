@@ -210,10 +210,6 @@ ImprovedTube.blocklistInit = function () {
 		if (!this.storage.blocklist || typeof this.storage.blocklist !== 'object') {
 			this.storage.blocklist = {videos: {}, channels: {}};
 		}
-		// ensure dislike trigger setting exists (default: false)
-		if (typeof this.storage.blocklist_dislike_trigger === 'undefined') {
-			this.storage.blocklist_dislike_trigger = false;
-		}
 		if (!this.storage.blocklist.videos || typeof this.storage.blocklist.channels !== 'object') {
 			this.storage.blocklist.videos = {};
 		}
