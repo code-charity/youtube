@@ -1136,7 +1136,6 @@ ImprovedTube.playerHamburgerButton = function () {
 			hamburgerMenu.style.right = '0';
 			hamburgerMenu.style.marginTop = '8px';
 			hamburgerMenu.style.cursor = 'pointer';
-			hamburgerMenu.style.zIndex = 9999;
 
 			const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
@@ -1152,13 +1151,16 @@ ImprovedTube.playerHamburgerButton = function () {
 			controlsContainer.style.paddingRight = '40px';
 			controlsContainer.parentNode.appendChild(hamburgerMenu);
 
-			controlsContainer.style.display = 'none';
-			hamburgerMenu.style.opacity = '0.65';
+			let controlsVisible = true;
+			controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
+			controlsVisible = false;
 
 			hamburgerMenu.addEventListener('click', function () {
-				const isHidden = controlsContainer.style.display === 'none';
-				controlsContainer.style.display = isHidden ? 'flex' : 'none';
-				hamburgerMenu.style.opacity = isHidden ? '0.85' : '0.65';
+				controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
+				controlsVisible = !controlsVisible;
+
+				// Change the opacity of hamburgerMenu based on controls visibility
+				hamburgerMenu.style.opacity = controlsVisible ? '0.85' : '0.65';
 			});
 		}
 	}
