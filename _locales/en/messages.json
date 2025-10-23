@@ -152,6 +152,9 @@
   "ARROWUP": {
     "message": "⇧"
   },
+  "ask": {
+    "message": "Ask"
+  },
   "atHistory": {
     "message": "at 'History'"
   },

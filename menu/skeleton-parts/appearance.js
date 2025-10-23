@@ -685,6 +685,21 @@ extension.skeleton.main.layers.section.appearance.on.click.hide_detail_button = 
 					}],
 					tags: "hide,remove"
 				},
+				hide_ask_button: {
+					component: "select",
+					text: "ask",
+					options: [{
+						text: "normal",
+						value: "normal"
+					}, {
+						text: "iconsOnly",
+						value: "icons_only"
+					}, {
+						text: "hidden",
+						value: "hidden"
+					}],
+					tags: "hide,remove"
+				},
 				hide_download_button: {
 					component: "select",
 					text: 'download',
@@ -746,8 +761,18 @@ extension.skeleton.main.layers.section.appearance.on.click.hide_detail_button = 
 					tags: "hide,remove"
 				},
 				hide_report_button: {
-					component: "switch",
-					text: 'hideReport',
+					component: "select",
+					text: 'report',
+					options: [{
+						text: 'normal',
+						value: "normal"
+					}, {
+						text: 'iconsOnly',
+						value: "icons_only"
+					}, {
+						text: 'hidden',
+						value: "hidden"
+					}],
 					tags: "hide,remove"
 				},
 				hide_more_button: {
