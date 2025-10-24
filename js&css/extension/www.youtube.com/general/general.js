@@ -748,3 +748,56 @@ extension.features.changeThumbnailsPerRow = async function () {
 // 		});
 // 	}
 // };
+
+/*--------------------------------------------------------------
+# PLAYER TEXT SIZE
+--------------------------------------------------------------*/
+
+extension.features.playerTextSize = function () {
+	var option = extension.storage.get('player_text_size');
+
+	// Default to 'compact' to fix YouTube's new large text
+	if (!option) {
+		option = 'compact';
+	}
+
+	if (option === 'normal') {
+		document.documentElement.setAttribute('it-player-text-size', 'normal');
+	} else if (option === 'compact') {
+		document.documentElement.setAttribute('it-player-text-size', 'compact');
+	}
+};
+
+/*--------------------------------------------------------------
+# END CARD GRID LAYOUT
+--------------------------------------------------------------*/
+
+extension.features.endCardGridLayout = function () {
+	var option = extension.storage.get('end_card_grid_layout');
+
+	// Default to 'classic' to restore 3x4 grid layout
+	if (!option) {
+		option = 'classic';
+	}
+
+	if (option === 'classic') {
+		document.documentElement.setAttribute('it-end-card-grid-layout', 'classic');
+	}
+};
+
+/*--------------------------------------------------------------
+# END CARD TITLE HOVER
+--------------------------------------------------------------*/
+
+extension.features.endCardTitleHover = function () {
+	var option = extension.storage.get('end_card_title_hover');
+
+	// Default to 'true' to enable hover behavior for titles
+	if (option === undefined || option === null) {
+		option = true;
+	}
+
+	if (option === true || option === 'true') {
+		document.documentElement.setAttribute('it-end-card-title-hover', 'true');
+	}
+};
