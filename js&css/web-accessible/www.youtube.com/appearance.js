@@ -107,7 +107,6 @@ ImprovedTube.showProgressBar = function () {
 		for (let i = 0, l = play_bars.length; i < l; i++) {
 			width += play_bars[i].offsetWidth;
 		}
-
 		const width_percent = width / 100;
 
 		for (let i = 0, l = play_bars.length; i < l; i++) {

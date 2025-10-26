@@ -152,6 +152,9 @@
   "ARROWUP": {
     "message": "⇧"
   },
+  "ask": {
+    "message": "Ask"
+  },
   "atHistory": {
     "message": "at 'History'"
   },
@@ -467,6 +470,9 @@
   "dislike": {
     "message": "Dislike"
   },
+  "dislikingAVideoAddsItToBlocklist": {
+    "message": "Disliking a video adds it to Blocklist"
+  },
   "displayDayOfTheWeak": {
     "message": "Display day of the week"
   },
@@ -601,6 +607,9 @@
   },
   "GPUnotindatabase": {
     "message": "GPU not in database"
+  },
+  "Optimal": {
+    "message": "Optimal"
   },
   "green": {
     "message": "Green"
@@ -1516,5 +1525,25 @@
   },
   "excludeShortsInPlayAll": {
     "message": "Exclude Shorts when using \"Play all\""
+  },
+  "fullScreenQuality": { 
+    "message": "Fullscreen quality" 
+  "secondaryColor": {
+    "message": "Secondary color"
+  },
+  "transparentBackgroundAlternative": {
+     "message": "Transparent background alternative"
+  },
+  "hideProgressBarPreview": {
+    "message": "Hide progress bar preview"
+  },
+  "revertTheaterModeButtonSizes": {
+    "message": "Revert Theater Mode Button Sizes"
+  },
+  "playbackSpeedButton": {
+    "message": "Playback speed button"
+  },
+  "fullscreenReturn": {
+    "message": "Fullscreen return"
   }
 }
