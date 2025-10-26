@@ -404,6 +404,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerControls();
 		ImprovedTube.playerHideProgressPreview();
 		ImprovedTube.expandDescription();
+		ImprovedTube.playerHideEndscreen();
 		setTimeout(function () { ImprovedTube.forcedTheaterMode(); }, 150);
 		if (location.href.indexOf('/embed/') === -1) { ImprovedTube.miniPlayer(); }
 		if (ImprovedTube.storage.disable_auto_dubbing === true) { ImprovedTube.disableAutoDubbing(); }

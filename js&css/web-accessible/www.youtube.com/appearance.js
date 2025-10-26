@@ -78,9 +78,23 @@ ImprovedTube.forcedTheaterMode = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+HIDE END SCREEN SMARTCARDS
+------------------------------------------------------------------------------*/
+ImprovedTube.playerHideEndscreen = function () {
+	var endscreen = ImprovedTube.elements.player.querySelector(".ytp-fullscreen-grid-stills-container");
+	if (ImprovedTube.storage.player_hide_endscreen === true) {
+	if (endscreen) {
+			endscreen.style.display = "none";
+		}
+	} else {
+		endscreen.style.display = "";
+	}
+};
+/*------------------------------------------------------------------------------
  HD THUMBNAIL
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerHdThumbnail = function () {
+	alert("hd thumbnail function called");
 	if (this.storage.player_hd_thumbnail === true) {
 		var thumbnail = ImprovedTube.elements.player_thumbnail;
 
@@ -107,7 +121,6 @@ ImprovedTube.showProgressBar = function () {
 		for (let i = 0, l = play_bars.length; i < l; i++) {
 			width += play_bars[i].offsetWidth;
 		}
-
 		const width_percent = width / 100;
 
 		for (let i = 0, l = play_bars.length; i < l; i++) {
