@@ -643,6 +643,39 @@ if (qualityWithoutFocus && qualityWithoutFocus !== 'auto' && player && player.ge
 }
 };
 /*------------------------------------------------------------------------------
+QUALITY FULL SCREEN
+------------------------------------------------------------------------------*/
+ImprovedTube.playerQualityFullScreen = function () {
+   var isFs = !!(
+     document.fullscreenElement ||
+     document.webkitFullscreenElement ||
+     document.mozFullScreenElement ||
+     document.msFullscreenElement ||
+     document.webkitIsFullScreen ||
+     document.mozFullScreen
+   );
+
+   var target = isFs ? fsq : ImprovedTube.storage.player_quality;
+
+   var map = {
+     '144p':'tiny','240p':'small','360p':'medium','480p':'large',
+     '720p':'hd720','1080p':'hd1080','1440p':'hd1440','2160p':'hd2160','4320p':'highres',
+     'tiny':'tiny','small':'small','medium':'medium','large':'large',
+     'hd720':'hd720','hd1080':'hd1080','hd1440':'hd1440','hd2160':'hd2160','highres':'highres'
+   };
+   var desired = map[target] || target;
+
+   var player = ImprovedTube.elements && ImprovedTube.elements.player;
+   if (!player) return;
+
+   if (typeof ImprovedTube.playerQuality === 'function') {
+     ImprovedTube.playerQuality(desired);
+     return;
+   }
+   try { if (typeof player.setPlaybackQualityRange === 'function') player.setPlaybackQualityRange(desired, desired); } catch(e) {}
+   try { if (typeof player.setPlaybackQuality === 'function') player.setPlaybackQuality(desired); } catch(e) {}
+ }
+/*------------------------------------------------------------------------------
 BATTERY FEATURES;   PLAYER QUALITY BASED ON POWER STATUS
 ------------------------------------------------------------------------------*/
 ImprovedTube.batteryFeatures = async function () {
@@ -1259,14 +1292,15 @@ if (this.storage.player_hamburger_button === true) {
 		return;
 	}
 
-	let hamburgerMenu = document.querySelector('.custom-hamburger-menu');
-	if (!hamburgerMenu) {
-		hamburgerMenu = document.createElement('div');
-		hamburgerMenu.className = 'custom-hamburger-menu';
-		hamburgerMenu.style.position = 'absolute';
-		hamburgerMenu.style.right = '0';
-		hamburgerMenu.style.marginTop = '8px';
-		hamburgerMenu.style.cursor = 'pointer';
+		let hamburgerMenu = document.querySelector('.custom-hamburger-menu');
+		if (!hamburgerMenu) {
+			hamburgerMenu = document.createElement('div');
+			hamburgerMenu.className = 'custom-hamburger-menu';
+			hamburgerMenu.style.position = 'absolute';
+			hamburgerMenu.style.right = '0';
+			hamburgerMenu.style.marginTop = '8px';
+			hamburgerMenu.style.cursor = 'pointer';
+			hamburgerMenu.style.zIndex = 9999;
 
 		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
@@ -1286,13 +1320,15 @@ if (this.storage.player_hamburger_button === true) {
 		controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
 		controlsVisible = false;
 
-		hamburgerMenu.addEventListener('click', function () {
-			controlsContainer.style.display = controlsVisible ? 'none' : 'flex';
-			controlsVisible = !controlsVisible;
+			controlsContainer.style.display = 'none';
+			hamburgerMenu.style.opacity = '0.65';
 
-			// Change the opacity of hamburgerMenu based on controls visibility
-			hamburgerMenu.style.opacity = controlsVisible ? '0.85' : '0.65';
-		});
+			hamburgerMenu.addEventListener('click', function () {
+				const isHidden = controlsContainer.style.display === 'none';
+				controlsContainer.style.display = isHidden ? 'flex' : 'none';
+				hamburgerMenu.style.opacity = isHidden ? '0.85' : '0.65';
+			});
+		}
 	}
 }
 };
