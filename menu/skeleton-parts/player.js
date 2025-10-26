@@ -168,7 +168,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'forcedPlaybackSpeed',
 			id: 'forced-playback-speed'
 		},
-		player_forced_playback_speed_music: {
+		player_force_speed_on_music: {
 			component: 'switch',
 			text: 'forcedPlaybackSpeedMusic'
 		},
@@ -181,9 +181,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'playbackSpeed',
 			textarea: true,
 			value: 1,
-			min: 0.1,
+			min: .01,
 			max: 3.17,
-			step: 0.01
+			step: .01
 		},
 		autofullscreen: {
 			component: 'switch',
@@ -812,6 +812,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		full_screen_quality: {
+			component: 'select',
+			text: 'fullScreenQuality',
+			id: 'full_screen_quality',
+			options: function () {
+				return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
+			},
+			on: {
+                 render: function () {
+					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this)
+				 }
+			}
+		},
 		/*
 	qualityWhenRunningOnBattery: {
 			component: 'select',
@@ -983,6 +996,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
+						document.getElementById('full_screen_quality')?.dispatchEvent(new CustomEvent('render'))
 						//document.getElementById('quality_when_low_battery').dispatchEvent(new CustomEvent('render'));
 					}
 					if (this.dataset.value === 'false') {
@@ -1017,7 +1031,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		optimize_codec_for_hardware_acceleration: {
 			component: 'button',
-			text: 'Optimize Codec for hardware acceleration',
+			text: 'optimizeCodecForHardwareAcceleration',
 			style: {
 				justifyContent: 'space-between'
 			},
@@ -1039,16 +1053,16 @@ extension.skeleton.main.layers.section.player.on.click = {
 
 						if (1) { // todo
 							this.style = '';
-							this.textContent = 'Feature not yet available';
+							this.textContent = satus.locale.get('Feature_not_yet_available');
 						} else if (2) { // todo
 							this.style = '';
-							this.textContent = 'GPU not in database';
+							this.textContent = satus.locale.get('GPUnotindatabase');
 						} else if (codecs) {
 							this.style = 'color: green!important; font-weight: bold;';
-							this.textContent = 'Optimal';
+							this.textContent = satus.locale.get('Optimal');
 						} else {
 							this.style = 'color: red!important; font-weight: bold;';
-							this.textContent = 'Not optimal';
+							this.textContent = satus.locale.get('Not_optimal');
 						}
 					}
 				}
@@ -1066,7 +1080,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_hide_progress_preview: {
 			component: 'switch',
-			text: 'Hide progress bar preview',
+			text: 'hideProgressBarPreview',
 			storage: 'player_hide_progress_preview'
 		},
 	},
@@ -1096,7 +1110,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_screenshot_button: {
 			component: 'switch',
-			text: 'Screenshot',
+			text: 'screenshot',
 			id: 'player_screenshot_button'
 		},
 		embed_subtitle: {
@@ -1178,7 +1192,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		theater_mode_icon_revert_button: {
 			component: 'switch',
-			text: 'Revert Theater Mode Button Sizes',
+			text: 'revertTheaterModeButtonSizes',
 			storage: 'player_revert_theater_button_sizes',
 			value: false
 		},
