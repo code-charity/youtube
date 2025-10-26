@@ -515,9 +515,6 @@ ImprovedTube.playerQualityWithoutFocus = function () {
 QUALITY FULL SCREEN
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerQualityFullScreen = function () {
-   var fsq = ImprovedTube.storage && ImprovedTube.storage.full_screen_quality;
-   if (!fsq || fsq === 'auto') return;
-
    var isFs = !!(
      document.fullscreenElement ||
      document.webkitFullscreenElement ||
