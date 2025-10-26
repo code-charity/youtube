@@ -868,7 +868,7 @@ ImprovedTube.playerRevertTheaterButtonSize();
     document.addEventListener('yt-page-data-updated', run);
     document.addEventListener('yt-navigate-finish', run);
     window.addEventListener('load', run);
-	setTimeout(run, 2000); // fallback for late loads
+    setTimeout(run, 2000); // fallback for late loads
 })();
 
 /*------------------------------------------------------------------------------
