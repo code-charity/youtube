@@ -408,8 +408,8 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 		||  this.storage.description == "classic_expanded" || this.storage.description == "classic_hidden"  )
 	   {var section = document.querySelector('#flex.ytd-video-primary-info-renderer');}
    */
-		if (section && !section.querySelector('.improvedtube-player-button')) {
-			if (this.storage.below_player_loop !== false) {
+		if (section) {
+			if (this.storage.below_player_loop !== false && !document.querySelector('#it-below-player-loop')) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -444,12 +444,13 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				svg.appendChild(path); 	button.appendChild(svg);
 				section.insertAdjacentElement('afterend', button)
 			}
-			if (this.storage.below_player_pip !== false) {
+			if (this.storage.below_player_pip !== false && !document.querySelector('#it-below-player-pip')) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 				button.className = 'improvedtube-player-button';
+				button.id = 'it-below-player-pip';
 				button.dataset.tooltip = 'PiP';
 				svg.style.opacity = '.64';
 				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
@@ -463,12 +464,13 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				section.insertAdjacentElement('afterend', button)
 			}
 
-			if (this.storage.below_player_screenshot !== false) {
+			if (this.storage.below_player_screenshot !== false && !document.querySelector('#it-below-player-screenshot')) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 				button.className = 'improvedtube-player-button';
+				button.id = 'it-below-player-screenshot';
 				button.dataset.tooltip = 'Screenshot';
 				svg.style.opacity = '.55';
 				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
@@ -480,13 +482,14 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				section.insertAdjacentElement('afterend', button)
 			}
 
-			if (this.storage.below_player_keyscene !== false) {
+			if (this.storage.below_player_keyscene !== false && !document.querySelector('#it-below-player-keyscene')) {
 				var button = document.createElement('button'),
 				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 				g = document.createElementNS('http://www.w3.org/2000/svg', 'g'),
 				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 				button.className = 'improvedtube-player-button';
+				button.id = 'it-below-player-keyscene';
 				button.style.marginRight = '-0.2px';
 				button.dataset.tooltip = 'Key Scene';
 				svg.style.opacity = '.55';
@@ -507,12 +510,13 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 
 			let copyVideoUrlButton = this.storage.copy_video_url === true;
 
-			if (this.storage.copy_video_id === true) {
+			if (this.storage.copy_video_id === true && !document.querySelector('#it-below-player-copy-video-id')) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
 				button.className = 'improvedtube-player-button';
+				button.id = 'it-below-player-copy-video-id';
 				button.dataset.tooltip = 'CopyVideoId';
 				svg.style.opacity = '.5';
 				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
