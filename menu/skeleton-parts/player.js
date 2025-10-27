@@ -1240,14 +1240,18 @@ extension.skeleton.main.layers.section.player.on.click = {
 				component: 'switch',
 				text: 'player_fit_to_win_button'
 			},
-		player_rewind_and_forward_buttons: {
-			component: 'switch',
-			text: 'player_rewind_and_forward_buttons'
-		},
-		player_playback_speed_button: {
-			component: 'switch',
-			text: 'player_playback_speed_button'
-		},
+			player_rewind_and_forward_buttons: {
+				component: 'switch',
+				text: 'player_rewind_and_forward_buttons'
+			},
+			player_increase_decrease_speed_buttons: {
+				component: 'switch',
+				text: 'player_increase_decrease_speed_buttons'
+			},
+			player_playback_speed_button: {
+				component: 'switch',
+				text: 'player_playback_speed_button'
+			},
 		},
 		fullscreen_return_button: {
 			component: 'switch',

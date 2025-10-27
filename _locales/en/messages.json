@@ -1025,6 +1025,9 @@
   "player_rewind_and_forward_buttons": {
     "message": "Rewind/forward buttons"
   },
+  "player_increase_decrease_speed_buttons": {
+    "message": "Increase/Decrease Speed buttons"
+  },
   "player_playback_speed_button": {
     "message": "Playback Speed Button"
   },
@@ -1528,6 +1531,7 @@
   },
   "fullScreenQuality": { 
     "message": "Fullscreen quality" 
+  },
   "secondaryColor": {
     "message": "Secondary color"
   },

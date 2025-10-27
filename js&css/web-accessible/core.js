@@ -347,13 +347,19 @@ document.addEventListener('it-message-from-extension', function () {
 						document.querySelector("html")?.setAttribute("it-player-size", ImprovedTube.storage.player_size ?? "do_not_change");
 					}
 					break
+
 				case 'playerRewindAndForwardButtons':
 					if (ImprovedTube.storage.player_rewind_and_forward_buttons === false) {
 						ImprovedTube.elements.buttons['it-forward-player-button']?.remove();
 						ImprovedTube.elements.buttons['it-rewind-player-button']?.remove();
-
 					}
-
+					break
+				
+				case 'playerIncreaseDecreaseSpeedButtons':
+					if (ImprovedTube.storage.player_increase_decrease_speed_buttons === false) {
+						ImprovedTube.elements.buttons['it-increase-speed-button']?.remove();
+						ImprovedTube.elements.buttons['it-decrease-speed-button']?.remove();
+					}
 					break
 
 
