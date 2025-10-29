@@ -1905,7 +1905,7 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
             onclick: function () {
 				const step = ImprovedTube.storage.player_custom_playback_speed_step || 0.25;
                 const currentSpeed = ImprovedTube.playbackSpeed();
-                let newSpeed = Math.max(currentSpeed - step, step); // minimum speed is step value
+                let newSpeed = Math.max(currentSpeed - step, step);
                 const appliedSpeed = ImprovedTube.playbackSpeed(newSpeed);
                 ImprovedTube.showStatus(appliedSpeed + 'x');
             },
