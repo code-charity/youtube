@@ -1876,11 +1876,11 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
             position: "right",
             child: svgIncrease,
             onclick: function () {
-				const step = ImprovedTube.storage.player_custom_playback_speed_step || 0.25;
-				const currentSpeed = ImprovedTube.playbackSpeed();
-				let newSpeed = Math.min(currentSpeed + step, 16);
-				const appliedSpeed = ImprovedTube.playbackSpeed(newSpeed);
-				ImprovedTube.showStatus(appliedSpeed + 'x');
+                const step = ImprovedTube.storage.player_custom_playback_speed_step || 0.25;
+                const currentSpeed = ImprovedTube.playbackSpeed();
+                let newSpeed = Math.min(currentSpeed + step, 16);
+                const appliedSpeed = ImprovedTube.playbackSpeed(newSpeed);
+                ImprovedTube.showStatus(appliedSpeed + 'x');
             },
             title: `increase speed by ${ImprovedTube.storage.player_custom_playback_speed_step || 0.25}x`,
         }).classList.remove('it-player-button');
