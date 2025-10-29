@@ -1149,7 +1149,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 				min: 0.25,
 				max: 4,
 				step: 0.05,
-				text: true,
+				textarea: true,
 				value: 1.25
 			}]
 		},
@@ -1246,8 +1246,20 @@ extension.skeleton.main.layers.section.player.on.click = {
 			},
 			player_increase_decrease_speed_buttons: {
 				component: 'switch',
-				text: 'player_increase_decrease_speed_buttons'
+				text: 'playerIncreaseDecreaseSpeedButtons',
+				id: 'player-increase-decrease-speed-buttons'
 			},
+			player_custom_playback_speed_step: {
+				storage: 'player_custom_playback_speed_step',
+				component: 'slider',
+				text: 'playerPlaybackSpeedStep',
+				textarea: true,
+				min: 0.05,
+				max: 1,
+				step: 0.05,
+				value: 0.25
+			},
+
 			player_playback_speed_button: {
 				component: 'switch',
 				text: 'player_playback_speed_button'

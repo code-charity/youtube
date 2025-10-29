@@ -1876,12 +1876,13 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
             position: "right",
             child: svgIncrease,
             onclick: function () {
+				const step = ImprovedTube.storage.player_custom_playback_speed_step || 0.25;
                 const currentSpeed = ImprovedTube.playbackSpeed();
-                let newSpeed = Math.min(currentSpeed + 0.25, 2);
+                let newSpeed = Math.min(currentSpeed + step, 16); // cap at 16x
                 const appliedSpeed = ImprovedTube.playbackSpeed(newSpeed);
                 ImprovedTube.showStatus(appliedSpeed + 'x');
             },
-            title: 'increase speed by 0.25x',
+            title: `increase speed by ${ImprovedTube.storage.player_custom_playback_speed_step || 0.25}x`,
         }).classList.remove('it-player-button');
 
         this.createPlayerButton({
@@ -1902,12 +1903,13 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
             position: "right",
             child: svgDecrease,
             onclick: function () {
+				const step = ImprovedTube.storage.player_custom_playback_speed_step || 0.25;
                 const currentSpeed = ImprovedTube.playbackSpeed();
-                let newSpeed = Math.max(currentSpeed - 0.25, 0.25);
+                let newSpeed = Math.max(currentSpeed - step, step); // minimum speed is step value
                 const appliedSpeed = ImprovedTube.playbackSpeed(newSpeed);
                 ImprovedTube.showStatus(appliedSpeed + 'x');
             },
-            title: 'decrease speed by 0.25x',
+            title: `decrease speed by ${ImprovedTube.storage.player_custom_playback_speed_step || 0.25}x`,
         }).classList.remove('it-player-button');
     }
 }
