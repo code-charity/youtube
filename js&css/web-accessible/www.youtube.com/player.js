@@ -1896,7 +1896,6 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
             title: 'set speed to 1x',
         }).classList.remove('it-player-button');
 
-        // Bloco "decrease" (diminuir) movido para cá
         this.createPlayerButton({
             id: 'it-decrease-speed-button',
             opacity: 0.85,
@@ -1910,7 +1909,6 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
             },
             title: 'decrease speed by 0.25x',
         }).classList.remove('it-player-button');
-        // --- FIM DA MUDANÇA ---
     }
 }
 
