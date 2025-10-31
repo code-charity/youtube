@@ -1528,6 +1528,7 @@
   },
   "fullScreenQuality": { 
     "message": "Fullscreen quality" 
+  },
   "secondaryColor": {
     "message": "Secondary color"
   },
