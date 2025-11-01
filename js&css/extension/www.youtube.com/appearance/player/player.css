@@ -254,6 +254,7 @@ html[it-player-hide-annotations='true'] .annotation-shape,
 # HIDE ENDSCREEN
 --------------------------------------------------------------*/
 html[it-player-hide-endscreen='true'] .html5-endscreen,
+html[it-player-hide-endscreen='true'] .ytp-fullscreen-grid-stills-container,
 /*--------------------------------------------------------------
 # HIDE CARDS
 --------------------------------------------------------------*/

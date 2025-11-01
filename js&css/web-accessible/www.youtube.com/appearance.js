@@ -107,7 +107,6 @@ ImprovedTube.showProgressBar = function () {
 		for (let i = 0, l = play_bars.length; i < l; i++) {
 			width += play_bars[i].offsetWidth;
 		}
-
 		const width_percent = width / 100;
 
 		for (let i = 0, l = play_bars.length; i < l; i++) {
@@ -869,8 +868,7 @@ ImprovedTube.playerRevertTheaterButtonSize();
     document.addEventListener('yt-page-data-updated', run);
     document.addEventListener('yt-navigate-finish', run);
     window.addEventListener('load', run);
-    setTimeout(run, 2000); // fallback for late loads 
-
+    setTimeout(run, 2000); // fallback for late loads
 })();
 
 /*------------------------------------------------------------------------------
