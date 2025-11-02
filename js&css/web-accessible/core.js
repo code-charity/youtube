@@ -314,28 +314,13 @@ document.addEventListener('it-message-from-extension', function () {
 					ImprovedTube.blocklistInit();
 					break;
 				case 'playerForcedPlaybackSpeedMusic':
-					// Force playback speed on music videos
-					if (ImprovedTube.storage.player_forced_playback_speed_music === true) {
-						ImprovedTube.playbackSpeed(Number(ImprovedTube.storage.player_playback_speed));
-					} else if (ImprovedTube.storage.isMusic === true && ImprovedTube.storage.player_forced_playback_speed_music === false) {
-						ImprovedTube.playbackSpeed(1);
-					} else {
-						ImprovedTube.playbackSpeed(Number(ImprovedTube.storage.player_playback_speed));
-					}
+					ImprovedTube.playerPlaybackSpeed();
 					break;
 				case 'playerPlaybackSpeed':
-					// Slider for change video speed
-					// alert("Slider for change video speed");
+					let newSpeed = Number(ImprovedTube.storage.player_playback_speed);
+					ImprovedTube.playbackSpeed(newSpeed);
 					break;
 				case 'playerForcedPlaybackSpeed':
-					if (ImprovedTube.storage.player_forced_playback_speed === true && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {
-						ImprovedTube.playbackSpeed(Number(ImprovedTube.storage.player_playback_speed)); //new
-						ImprovedTube.elements.player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));
-						// ImprovedTube.elements.player.querySelector('video').playbackRate = Number(ImprovedTube.storage.player_playback_speed.toFixed(2));
-					} else if (ImprovedTube.storage.player_forced_playback_speed === false) {
-						ImprovedTube.elements.player.setPlaybackRate(1);
-						ImprovedTube.elements.player.querySelector('video').playbackRate = 1;
-					}
 					break
 
 				case 'theme':
