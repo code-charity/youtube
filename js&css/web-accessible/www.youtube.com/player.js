@@ -260,9 +260,6 @@ ImprovedTube.fetchDOMData = function (DATA = {}) {
 						amountOfSongs =
 							(htmlContent.slice(-80000).match(/},"subtitle":{"simpleText":"(\d*)\s/) || [])[1] ||
 							false;
-						if (keywords) {
-							ImprovedTube.speedException();
-						}
 					} catch (error) {
 						console.error(
 							'Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}',
