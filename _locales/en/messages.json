@@ -1527,7 +1527,8 @@
     "message": "Exclude Shorts when using \"Play all\""
   },
   "fullScreenQuality": { 
-    "message": "Fullscreen quality" 
+    "message": "Fullscreen quality"
+  },
   "secondaryColor": {
     "message": "Secondary color"
   },

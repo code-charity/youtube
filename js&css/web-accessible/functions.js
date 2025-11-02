@@ -381,8 +381,10 @@ ImprovedTube.initPlayer = function () {
 
 		delete ImprovedTube.elements.player.dataset.defaultQuality;
 
-		ImprovedTube.forcedPlayVideoFromTheBeginning();
+		ImprovedTube.playbackSpeed(ImprovedTube.storage.player_playback_speed);
 		ImprovedTube.playerPlaybackSpeed();
+
+		ImprovedTube.forcedPlayVideoFromTheBeginning();
 		ImprovedTube.playerSubtitles();
 		ImprovedTube.subtitlesLanguage();
 		ImprovedTube.subtitlesUserSettings();
@@ -399,7 +401,6 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
 		ImprovedTube.playerRewindAndForwardButtons();
-		ImprovedTube.playerPlaybackSpeedButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 		ImprovedTube.playerHideProgressPreview();
