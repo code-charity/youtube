@@ -13,7 +13,7 @@ ImprovedTube.originalTitleToggle = function() {
 	
 	// If storage value is explicitly false, disable the feature
 	if (storageValue === false) {
-		console.log('Original title toggle is disabled');
+		// console.log('Original title toggle is disabled');
 		// Remove any existing toggle functionality
 		const titleElement = document.querySelector('h1.style-scope.ytd-watch-metadata yt-formatted-string');
 		if (titleElement) {
