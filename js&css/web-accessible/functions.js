@@ -343,6 +343,11 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerCinemaModeButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
+		
+		// Initialize original title toggle for each new video
+		if (typeof ImprovedTube.initOriginalTitleToggle === 'function') {
+			ImprovedTube.initOriginalTitleToggle();
+		}
 	}
 };
 

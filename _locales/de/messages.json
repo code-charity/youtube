@@ -983,6 +983,9 @@
   "orange": {
     "message": "Orange"
   },
+  "originalTitleToggle": {
+    "message": "Originalen/übersetzten Titel umschalten"
+  },
   "os": {
     "message": "Betriebsystem"
   },

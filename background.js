@@ -320,6 +320,54 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 				} else { console.error('Permission is not granted.'); }
 			})
 			break
+		case 'get-original-title':
+		case 'fetch-video-page':
+			// Fetch the original title without CORS restrictions
+			if (message.videoId) {
+				fetch(`https://www.youtube.com/watch?v=${message.videoId}`)
+					.then(response => response.text())
+					.then(html => {
+						// Helper function to decode HTML entities (without DOM)
+						function decodeHtmlEntities(text) {
+							return text
+								.replace(/&amp;/g, '&')
+								.replace(/&lt;/g, '<')
+								.replace(/&gt;/g, '>')
+								.replace(/&quot;/g, '"')
+								.replace(/&#39;/g, "'")
+								.replace(/&#(\d+);/g, (match, dec) => String.fromCharCode(dec))
+								.replace(/&#x([0-9a-f]+);/gi, (match, hex) => String.fromCharCode(parseInt(hex, 16)));
+						}
+						
+						// Extract title from HTML
+						const titleMatch = html.match(/<meta\s+name="title"\s+content="([^"]+)"/i);
+						if (titleMatch && titleMatch[1]) {
+							const decodedTitle = decodeHtmlEntities(titleMatch[1]);
+							console.log('Background: Found title from meta tag:', decodedTitle);
+							sendResponse({ title: decodedTitle });
+						} else {
+							// Try alternate method
+							const altMatch = html.match(/"title":"([^"]+)"/);
+							if (altMatch && altMatch[1]) {
+								// This one might have unicode escapes, decode them too
+								let title = altMatch[1];
+								title = title.replace(/\\u([0-9a-fA-F]{4})/g, (match, code) => String.fromCharCode(parseInt(code, 16)));
+								const decodedTitle = decodeHtmlEntities(title);
+								console.log('Background: Found title from JSON:', decodedTitle);
+								sendResponse({ title: decodedTitle });
+							} else {
+								console.log('Background: No title found in HTML');
+								sendResponse({ title: null });
+							}
+						}
+					})
+					.catch(error => {
+						console.error('Background: Error fetching original title:', error);
+						sendResponse({ title: null });
+					});
+				return true; // Keep the message channel open for async response
+			}
+			break
 	}
 });
 /*-----# UNINSTALL URL-----------------------------------*/

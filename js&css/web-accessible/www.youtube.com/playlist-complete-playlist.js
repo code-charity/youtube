@@ -354,8 +354,6 @@ ImprovedTube.playlistEnsureQuickButtons = function (renderer) {
     svg.style.display = 'inherit';
     svg.style.width = '100%';
     svg.style.height = '100%';
-    svg.style.mixBlendMode = 'difference';
-    svg.style.filter = 'invert(1)';
 
     // Create path for trash icon
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');

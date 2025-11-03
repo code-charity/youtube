@@ -683,6 +683,9 @@
     "orange": {
         "message": "オレンジ"
     },
+    "originalTitleToggle": {
+        "message": "元のタイトル/翻訳されたタイトルを切り替え"
+    },
     "other": {
         "message": "その他"
     },

@@ -75,6 +75,7 @@ extension.inject([
 	'/js&css/web-accessible/www.youtube.com/blocklist.js',
 	'/js&css/web-accessible/www.youtube.com/settings.js',
 	'/js&css/web-accessible/www.youtube.com/last-watched-overlay.js',  // Neue Zeile hinzufügen
+	'/js&css/web-accessible/www.youtube.com/original-title.js',
 	'/js&css/web-accessible/init.js'
 ], function () {
 	extension.ready = true;
@@ -255,4 +256,28 @@ document.addEventListener('it-play', function () {
 	try {
 		chrome.runtime.sendMessage({ action: 'play' })
 	} catch (error) { console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({ action: 'play' }, function (response) { console.log(response) }); } catch { } }, 321) }
+});
+
+// Listen for original title fetch requests from web-accessible scripts
+window.addEventListener('message', function(event) {
+	if (event.data && event.data.type === 'IT_FETCH_ORIGINAL_TITLE' && event.data.videoId) {
+		const videoId = event.data.videoId;
+		const messageId = event.data.messageId;
+		
+		console.log('Content script received title fetch request for video:', videoId, 'messageId:', messageId);
+		
+		// Forward to background script
+		chrome.runtime.sendMessage({
+			action: 'fetch-video-page',
+			videoId: videoId
+		}, function(response) {
+			console.log('Content script received response from background:', response);
+			// Send response back to web-accessible script
+			window.postMessage({
+				type: 'IT_ORIGINAL_TITLE_RESPONSE',
+				messageId: messageId,
+				title: response ? response.title : null
+			}, '*');
+		});
+	}
 });

@@ -314,9 +314,6 @@
   "characterEdgeStyle": {
     "message": "Character Edge Style"
   },
-  "cinemaMode": {
-    "message": "Cinema Mode"
-  },
   "clip": {
     "message": "Clip"
   },
@@ -691,6 +688,9 @@
   },
   "hideDetails": {
     "message": "Hide details"
+  },
+  "originalTitleToggle": {
+    "message": "Toggle original/translated title"
   },
   "hideEndscreen": {
     "message": "Hide endscreen"
@@ -1526,8 +1526,6 @@
   "excludeShortsInPlayAll": {
     "message": "Exclude Shorts when using \"Play all\""
   },
-  "fullScreenQuality": { 
-    "message": "Fullscreen quality" 
   "secondaryColor": {
     "message": "Secondary color"
   },

@@ -38,6 +38,7 @@
 				"js&css/extension/www.youtube.com/appearance/header/header.css",
 				"js&css/extension/www.youtube.com/appearance/player/player.css",
 				"js&css/extension/www.youtube.com/appearance/details/details.css",
+				"js&css/extension/www.youtube.com/appearance/details/original-title.css",
 				"js&css/extension/www.youtube.com/appearance/sidebar/sidebar.css",
 				"js&css/extension/www.youtube.com/appearance/comments/comments.css"
 			],
@@ -82,6 +83,7 @@
 				"js&css/web-accessible/www.youtube.com/shortcuts.js",
 				"js&css/web-accessible/www.youtube.com/blocklist.js",
 				"js&css/web-accessible/www.youtube.com/settings.js",
+				"js&css/web-accessible/www.youtube.com/original-title.js",
 				"js&css/web-accessible/init.js",
 				"menu/icons/48.png"
 			],

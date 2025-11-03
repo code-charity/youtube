@@ -977,6 +977,9 @@
     "orange": {
         "message": "주황"
     },
+    "originalTitleToggle": {
+        "message": "원본/번역된 제목 전환"
+    },
     "os": {
         "message": "운영체제"
     },
