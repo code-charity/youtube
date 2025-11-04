@@ -734,6 +734,9 @@
     "orange": {
         "message": "Naranja"
     },
+    "originalTitleToggle": {
+        "message": "Alternar título original/traducido"
+    },
     "os": {
         "message": "OS"
     },

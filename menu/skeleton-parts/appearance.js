@@ -457,6 +457,12 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 				text: "hideDetails",
 				tags: "hide,remove"
 			},
+			original_title_toggle: {
+				component: "switch",
+				text: "originalTitleToggle",
+				tags: "title,translate,language",
+				value: true
+			},
 			day_of_week: {
 				component: "switch",
 				text: "displayDayOfTheWeak"

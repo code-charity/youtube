@@ -614,6 +614,9 @@
     "orange": {
         "message": "Arancione"
     },
+    "originalTitleToggle": {
+        "message": "Alterna titolo originale/tradotto"
+    },
     "os": {
         "message": "Sistema Operativo"
     },

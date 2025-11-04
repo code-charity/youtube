@@ -512,6 +512,9 @@
     "orange": {
         "message": "برتقالي"
     },
+    "originalTitleToggle": {
+        "message": "التبديل بين العنوان الأصلي/المترجم"
+    },
     "os": {
         "message": "نظام التشغيل"
     },

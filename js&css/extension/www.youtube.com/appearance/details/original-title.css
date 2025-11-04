@@ -1,0 +1,45 @@
+/*------------------------------------------------------------------------------
+>>> ORIGINAL TITLE TOGGLE
+------------------------------------------------------------------------------*/
+
+/* Make clickable title have a subtle hover effect */
+h1.style-scope.ytd-watch-metadata yt-formatted-string[data-it-original-title] {
+	transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+h1.style-scope.ytd-watch-metadata yt-formatted-string[data-it-original-title]:hover {
+	opacity: 0.8;
+}
+
+/* Style the toggle indicator */
+.it-title-toggle-indicator {
+	display: inline-block;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+	user-select: none;
+	vertical-align: middle;
+}
+
+.it-title-toggle-indicator:hover {
+	transform: scale(1.1);
+}
+
+/* Add a subtle underline when hovering over clickable titles */
+h1.style-scope.ytd-watch-metadata yt-formatted-string[style*="cursor: pointer"]:hover {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-underline-offset: 4px;
+}
+
+/* Smooth transition when title text changes */
+h1.style-scope.ytd-watch-metadata yt-formatted-string[data-it-original-title] {
+	animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 1;
+	}
+}

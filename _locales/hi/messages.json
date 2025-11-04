@@ -545,6 +545,9 @@
     "orange": {
         "message": "नारंगी रंग"
     },
+    "originalTitleToggle": {
+        "message": "मूल/अनुवादित शीर्षक टॉगल करें"
+    },
     "os": {
         "message": "ओ एस"
     },
