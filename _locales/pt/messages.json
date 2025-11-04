@@ -377,6 +377,9 @@
     "dislike": {
         "message": "Não Gostei."
     },
+    "dislikingAVideoAddsItToBlocklist": {
+        "message": "'Não gostei' adiciona vídeo à lista de bloqueio"
+    },
     "displayDayOfTheWeak": {
         "message": "Mostrar dia da Semana"
     },
