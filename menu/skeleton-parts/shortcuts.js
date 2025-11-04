@@ -367,6 +367,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 				shortcut_dark_theme: {
 					component: 'shortcut',
 					text: 'darkTheme'
+				},
+				shortcut_refresh_categories: {
+					component: 'shortcut',
+					text: 'refreshCategories'
 				}
 			}
 		}

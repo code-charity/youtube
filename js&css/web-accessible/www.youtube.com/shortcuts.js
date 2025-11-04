@@ -579,3 +579,33 @@ ImprovedTube.shortcutRotateVideo = function () {
 ImprovedTube.shortcutActivateFitToWindow = function() {
 	ImprovedTube.toggleFitToWindow();
 };
+/*------------------------------------------------------------------------------
+4.7.31 REFRESH CATEGORIES
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutRefreshCategories = function () {
+	let chipContainer = document.querySelector('ytd-feed-filter-chip-bar-renderer');
+	
+	if (chipContainer) {
+		chipContainer.style.display = '';
+		chipContainer.style.visibility = 'visible';
+		chipContainer.style.opacity = '1';
+		chipContainer.hidden = false;
+		
+		let parent = chipContainer.parentElement;
+		while (parent && parent !== document.body) {
+			parent.style.display = '';
+			parent.style.visibility = 'visible';
+			parent = parent.parentElement;
+		}
+		
+		const allChips = chipContainer.querySelectorAll('yt-chip-cloud-chip-renderer button');
+		if (allChips.length > 1) {
+			allChips[1].click();
+			setTimeout(function() {
+				allChips[0].click();
+			}, 200);
+		}
+	} else {
+		window.location.reload();
+	}
+};
