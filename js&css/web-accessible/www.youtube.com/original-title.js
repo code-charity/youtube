@@ -7,6 +7,12 @@ and the original title without refreshing the page.
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.originalTitleToggle = function() {
+	// Check if required functions exist
+	if (typeof ImprovedTube.videoId !== 'function') {
+		console.log('ImprovedTube.videoId function not available, skipping original title toggle');
+		return;
+	}
+
 	// Check if feature is enabled - default to TRUE unless explicitly disabled
 	const storageValue = this.storage?.original_title_toggle ?? 
 	                     ImprovedTube.storage?.original_title_toggle;
@@ -166,6 +172,7 @@ ImprovedTube.originalTitleToggle = function() {
 
 /*------------------------------------------------------------------------------
 Fetch the original title from the video metadata
+Reuses existing DATA from fetchDOMData if available to avoid duplication
 ------------------------------------------------------------------------------*/
 ImprovedTube.fetchOriginalTitle = function(videoId, callback) {
 	if (!videoId) {
@@ -175,13 +182,20 @@ ImprovedTube.fetchOriginalTitle = function(videoId, callback) {
 
 	let originalTitle = null;
 
-	// Method 1: Try from microformat (JSON-LD) - this usually has original title
+	// Method 1: Try existing DATA object first (if fetchDOMData was already called)
+	if (typeof DATA !== 'undefined' && DATA && DATA.title && DATA.videoID === videoId) {
+		console.log('Found title in existing DATA:', DATA.title);
+		callback(DATA.title);
+		return;
+	}
+
+	// Method 2: Try from microformat (JSON-LD) - reuses existing pattern
 	try {
-		const microformatScript = document.querySelector('script[type="application/ld+json"]');
+		const microformatScript = document.querySelector('#microformat script, script[type="application/ld+json"]');
 		if (microformatScript) {
 			const data = JSON.parse(microformatScript.textContent);
-			if (data && data.name) {
-				originalTitle = data.name;
+			if (data && (data.name || data.title)) {
+				originalTitle = data.name || data.title;
 				console.log('Found title in microformat:', originalTitle);
 				callback(originalTitle);
 				return;
@@ -191,12 +205,12 @@ ImprovedTube.fetchOriginalTitle = function(videoId, callback) {
 		console.log('Could not parse microformat:', e);
 	}
 
-	// Method 2: Try from meta tags
+	// Method 3: Try from meta tags - consolidated approach
 	try {
-		const metaTitle = document.querySelector('meta[property="og:title"]')?.content;
+		const metaTitle = document.querySelector('meta[property="og:title"], meta[name="title"]')?.content;
 		if (metaTitle) {
 			originalTitle = metaTitle;
-			console.log('Found title in og:title meta:', originalTitle);
+			console.log('Found title in meta tags:', originalTitle);
 			callback(originalTitle);
 			return;
 		}
@@ -204,11 +218,11 @@ ImprovedTube.fetchOriginalTitle = function(videoId, callback) {
 		console.log('Could not get title from meta tags:', e);
 	}
 
-	// Method 3: Try from player API (getVideoData)
+	// Method 4: Try from player API (if available)
 	try {
-		if (typeof movie_player !== 'undefined' && movie_player.getVideoData) {
+		if (typeof movie_player !== 'undefined' && movie_player?.getVideoData) {
 			const videoData = movie_player.getVideoData();
-			if (videoData && videoData.title) {
+			if (videoData?.title) {
 				originalTitle = videoData.title;
 				console.log('Found title in player API:', originalTitle);
 				callback(originalTitle);
@@ -219,23 +233,17 @@ ImprovedTube.fetchOriginalTitle = function(videoId, callback) {
 		console.log('Could not get title from player API:', e);
 	}
 
-	// Method 4: Try from window.ytplayer.config
+	// Method 5: Try from ytplayer config (if available)
 	try {
-		if (typeof ytplayer !== 'undefined' && ytplayer.config) {
-			const args = ytplayer.config.args;
-			if (args && args.title) {
-				originalTitle = args.title;
-				console.log('Found title in ytplayer.config:', originalTitle);
-				callback(originalTitle);
-				return;
-			}
+		if (typeof ytplayer !== 'undefined' && ytplayer?.config?.args?.title) {
+			originalTitle = ytplayer.config.args.title;
+			console.log('Found title in ytplayer.config:', originalTitle);
+			callback(originalTitle);
+			return;
 		}
 	} catch (e) {
 		console.log('Could not get title from ytplayer.config:', e);
 	}
-
-	// SKIP ytInitialData as it contains translated titles
-	// ytInitialData is server-rendered with user's language preference
 
 	// If all methods fail
 	console.log('Could not fetch original title for video:', videoId);
@@ -246,6 +254,12 @@ ImprovedTube.fetchOriginalTitle = function(videoId, callback) {
 Initialize on page load and navigation
 ------------------------------------------------------------------------------*/
 ImprovedTube.initOriginalTitleToggle = function() {
+	// Check if required functions exist before proceeding
+	if (typeof ImprovedTube.videoId !== 'function') {
+		console.log('ImprovedTube.videoId function not available, skipping initialization');
+		return;
+	}
+
 	// Clear any existing intervals
 	if (this.originalTitleInterval) {
 		clearInterval(this.originalTitleInterval);
@@ -322,6 +336,12 @@ by Ctrl+Clicking on them throughout YouTube
 ------------------------------------------------------------------------------*/
 
 ImprovedTube.originalTitleThumbnails = function() {
+	// Check if required functions exist
+	if (typeof ImprovedTube.videoId !== 'function') {
+		console.log('ImprovedTube.videoId function not available, skipping thumbnail toggle');
+		return;
+	}
+
 	// Check if feature is enabled
 	const storageValue = this.storage?.original_title_toggle ?? 
 	                     ImprovedTube.storage?.original_title_toggle;
