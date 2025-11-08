@@ -2145,7 +2145,6 @@ html[dark][darker-dark-theme][it-theme="black"] ytd-watch-flexy[fullscreen] .yt-
     fill: var(--yt-spec-text-primary);
 }
 
-
 /* Light Mode + Fullscreen */
 html:not([dark])[it-theme="default"] ytd-watch-flexy[fullscreen] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
     fill: var(--yt-spec-text-primary-inverse);
@@ -2161,12 +2160,6 @@ html[dark] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opac
 html[dark][darker-dark-theme][it-theme="black"] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
 	stroke: var(--yt-spec-text-primary);
 }
-
-/*override bell and thumbs up icons hardcoded colors inside SVG data*/
-/*bell icon*/
-/* html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
-	fill: var(--yt-spec-text-primary);
-} */
 
 /* thumbnail sizes */
 html[it-thumbnail-size="small"] ytd-rich-grid-media,
