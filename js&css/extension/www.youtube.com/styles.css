@@ -198,6 +198,8 @@ html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 	padding: 0 !important;
 	justify-content: center !important;
 	align-items: center !important;
+	background: rgba(0, 0, 0, 0.7) !important;
+	border-radius: 50px !important;
 }
 
 .it-player-button>svg {
