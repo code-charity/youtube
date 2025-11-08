@@ -198,6 +198,11 @@ html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 	padding: 0 !important;
 	justify-content: center !important;
 	align-items: center !important;
+	background: rgba(0, 0, 0, .3) !important;
+	width: var(--yt-delhi-pill-height, 48px) !important;
+	height: var(--yt-delhi-pill-height, 48px) !important;
+	border-radius: 50% !important;
+	margin: 8px 0px 0px !important;
 }
 
 .it-player-button>svg {
