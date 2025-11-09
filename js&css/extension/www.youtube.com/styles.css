@@ -204,7 +204,7 @@ html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 	flex: 0 0 36px !important;
 	align-self: center !important;
 	margin: 0 6px !important;
-	background: rgba(0, 0, 0, 0.7) !important;
+	background: rgba(0, 0, 0, 0.3) !important;
 	border-radius: 50% !important;
 }
 
