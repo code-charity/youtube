@@ -193,18 +193,27 @@ html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 }
 .it-player-button {
 	position: relative !important;
-	display: flex !important;
-	min-width: 40px !important;
+	display: inline-flex !important;
+	width: 36px !important;
+	height: 36px !important;
 	padding: 0 !important;
 	justify-content: center !important;
 	align-items: center !important;
+	vertical-align: middle !important;
+	box-sizing: border-box !important;
+	flex: 0 0 36px !important;
+	align-self: center !important;
+	margin: 0 6px !important;
 	background: rgba(0, 0, 0, 0.7) !important;
-	border-radius: 50px !important;
+	border-radius: 50% !important;
 }
 
 .it-player-button>svg {
-	width: 56% !important;
-	height: auto !important;
+	display: block !important;
+	width: calc(100% - 6px) !important;
+	height: calc(100% - 6px) !important;
+	margin: 0 !important;
+	transform: none !important;
 	fill: #fff;
 }
 
