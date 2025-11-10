@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ImprovedTube — Settings (Mock)</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>ImprovedTube — Settings</h1>
+        <p class="subtitle">Minimal, professional, and futuristic</p>
+      </header>
+
+      <section class="grid" aria-label="feature-grid">
+        <!-- 3x3 grid of circular buttons -->
+         <div class="card">
+           <button class="circle" aria-label="General">
+             <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+               <path d="M12 8a4 4 0 100 8 4 4 0 000-8z" />
+             </svg>
+           </button>
+           <span class="label">General</span>
+         </div>
+
+         <div class="card">
+           <button class="circle" aria-label="Player">
+             <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+               <path d="M5 3v18l15-9L5 3z" />
+             </svg>
+           </button>
+           <span class="label">Player</span>
+         </div>
+
+         <div class="card">
+           <button class="circle" aria-label="Appearance">
+             <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+               <path d="M12 2l2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5z" />
+             </svg>
+           </button>
+           <span class="label">Appearance</span>
+         </div>
+
+         <div class="card">
+           <button class="circle" aria-label="Shortcuts">
+             <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+               <path d="M3 3h18v4H3zM3 10h18v11H3z" />
+             </svg>
+           </button>
+           <span class="label">Shortcuts</span>
+         </div>
+
+         <div class="card">
+           <button class="circle" aria-label="Channel">
+             <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+               <path
+                 d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 4v2h16v-2c0-2-4-4-8-4z"
+               />
+             </svg>
+           </button>
+           <span class="label">Channel</span>
+         </div>
+
+         <div class="card">
+           <button class="circle" aria-label="Playlist">
+             <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+               <path d="M3 6h14v2H3V6zm0 4h10v2H3v-2zm0 4h6v2H3v-2z" />
+             </svg>
+           </button>
+           <span class="label">Playlist</span>
+         </div>
+
+         <div class="card">
+           <button class="circle" aria-label="Themes">
+             <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+               <path d="M12 2l3 7h7l-5.7 4.1L21 22l-9-6-9 6 3.7-8.9L0 9h7l5-7z" />
+             </svg>
+           </button>
+           <span class="label">Themes</span>
+         </div>
+
+         <div class="card">
+           <button class="circle" aria-label="Blocklist">
+             <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+               <path d="M3 3l18 18M21 3L3 21" />
+             </svg>
+           </button>
+           <span class="label">Blocklist</span>
+         </div>
+
+         <div class="card">
+           <button class="circle" aria-label="Analyzer">
+             <svg viewBox="0 0 24 24" class="icon" aria-hidden="true">
+               <path d="M3 3h4v18H3zM10 10h4v11h-4zM18 6h4v15h-4z" />
+             </svg>
+           </button>
+           <span class="label">Analyzer</span>
+         </div>
+       </section>
+      </section>
+
+      <section class="browsers">
+        <div class="browser" title="Edge">
+          <svg viewBox="0 0 24 24" class="b-icon">
+            <circle cx="12" cy="12" r="10" />
+          </svg>
+          <span class="b-label">Edge</span>
+        </div>
+        <div class="browser" title="Firefox">
+          <svg viewBox="0 0 24 24" class="b-icon">
+            <path d="M12 2C8 2 5 6 5 9c0 4 3 8 7 8s7-4 7-8c0-3-3-7-7-7z" />
+          </svg>
+          <span class="b-label">Firefox</span>
+        </div>
+        <div class="browser" title="Chrome">
+          <svg viewBox="0 0 24 24" class="b-icon">
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+          <span class="b-label">Chrome</span>
+        </div>
+        <div class="browser" title="Safari">
+          <svg viewBox="0 0 24 24" class="b-icon">
+            <path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6z" />
+          </svg>
+          <span class="b-label">Safari</span>
+        </div>
+        <div class="browser" title="Brave">
+          <svg viewBox="0 0 24 24" class="b-icon">
+            <path d="M12 2l3 7h7l-5.7 4.1L21 22l-9-6-9 6 3.7-8.9L0 9h7l5-7z" />
+          </svg>
+          <span class="b-label">Brave</span>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <nav>
+          <a href="#" class="tab tab-white">Found a bug?</a>
+          <a href="#" class="tab tab-blue">Wish/Idea</a>
+          <a href="#" class="tab tab-yellow">Help/Join</a>
+        </nav>
+      </footer>
+    </main>
+  </body>
+</html>

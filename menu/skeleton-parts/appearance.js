@@ -997,6 +997,16 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			hide_sidebar: {
 				component: "switch",
 				text: 'Hide_sidebar'
+			},
+			hide_more_explore: {
+				component: "switch",
+				text: 'Hide "More from YouTube" and "Explore"',
+				storage: 'hide_more_explore'
+			},
+			hide_shorts_button: {
+				component: "switch",
+				text: 'Hide Shorts button',
+				storage: 'hide_shorts_button'
 			}
 		}
 	}
