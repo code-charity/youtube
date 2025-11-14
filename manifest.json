@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "short_name": "ImprovedTube",
   "name": "'Improve YouTube!' 🎧 (for YouTube & Videos)",
+  "short_name": "ImprovedTube",
   "description": "__MSG_description_ext__",
   "version": "4",
   "default_locale": "en",
@@ -11,14 +11,9 @@
     "32": "menu/icons/32.png",
     "48": "menu/icons/48.png"
   },
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}"
-    }
+  "background": {
+    "service_worker": "background.js"
   },
-	"background": 	{	
-		"service_worker": "background.js"
-	},
   "action": {
     "default_popup": "menu/index.html",
     "default_area": "navbar"
@@ -29,7 +24,17 @@
   },
   "content_scripts": [
     {
-      "all_frames": true,
+      "matches": ["https://www.youtube.com/*"],
+      "js": [
+        "js&css/extension/core.js",
+        "js&css/extension/functions.js",
+        "js&css/extension/www.youtube.com/night-mode/night-mode.js",
+        "js&css/extension/www.youtube.com/general/general.js",
+        "js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
+        "js&css/extension/www.youtube.com/appearance/comments/comments.js",
+        "js&css/extension/init.js",
+        "js&css/extension/www.youtube.com/features/channel-blocker.js"
+      ],
       "css": [
         "js&css/extension/www.youtube.com/styles.css",
         "js&css/extension/www.youtube.com/night-mode/night-mode.css",
@@ -44,43 +49,10 @@
         "https://www.youtube.com/audiolibrary/*",
         "https://www.youtube.com/tv*"
       ],
-      "js": [
-        "js&css/extension/core.js",
-        "js&css/extension/functions.js",
-        "js&css/extension/www.youtube.com/night-mode/night-mode.js",
-        "js&css/extension/www.youtube.com/general/general.js",
-        "js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
-        "js&css/extension/www.youtube.com/appearance/comments/comments.js",
-        "js&css/extension/init.js"
-      ],
-      "matches": ["https://www.youtube.com/*"],
       "run_at": "document_start"
     }
   ],
   "host_permissions": ["https://www.youtube.com/*"],
-  "optional_permissions": ["downloads"],
-  "permissions": ["contextMenus", "storage"],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "menu/index.html",
-        "js&css/web-accessible/core.js",
-        "js&css/web-accessible/functions.js",
-        "js&css/web-accessible/www.youtube.com/appearance.js",
-        "js&css/web-accessible/www.youtube.com/player.js",
-        "js&css/web-accessible/www.youtube.com/themes.js",
-        "js&css/web-accessible/www.youtube.com/playlist.js",
-        "js&css/web-accessible/www.youtube.com/playlist-complete-playlist.js",
-        "js&css/web-accessible/www.youtube.com/playlist-cleaner.js",
-        "js&css/web-accessible/www.youtube.com/channel.js",
-        "js&css/web-accessible/www.youtube.com/shortcuts.js",
-        "js&css/web-accessible/www.youtube.com/blocklist.js",
-        "js&css/web-accessible/www.youtube.com/settings.js",
-        "js&css/web-accessible/www.youtube.com/last-watched-overlay.js",
-        "js&css/web-accessible/init.js",
-        "menu/icons/48.png"
-      ],
-      "matches": ["https://www.youtube.com/*"]
-    }
-  ]
+  "permissions": ["storage", "contextMenus"],
+  "optional_permissions": ["downloads"]
 }
