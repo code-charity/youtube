@@ -105,6 +105,7 @@ html[it-embeddedHideShare='true'] .ytp-share-button-visible:has(.ytp-share-icon)
 --------------------------------------------------------------*/
 html[it-remove-member-only='true'] ytd-grid-video-renderer:has(.badge-style-type-members-only),
 html[it-remove-member-only='true'] ytd-rich-item-renderer:has(.badge-style-type-members-only),
+html[it-remove-member-only='true'] yt-lockup-view-model:has(.yt-badge-shape--commerce),
 /*--------------------------------------------------------------
 # REMOVE CONTEXT BUTTONS ON SHORTS
 --------------------------------------------------------------*/
