@@ -41,24 +41,27 @@ extension.features.relatedVideos = function (anything) {
 /*--------------------------------------------------------------
 # LIVECHAT
 --------------------------------------------------------------*/
-if (extension.storage.get('livechat') === 'collapsed') {
-window.addEventListener('click', function(event) {
-    if (extension.storage.get('livechat') !== 'collapsed') return;
 
-    var chat = event.target.closest('#chat-container');
-    if (!chat) return;
+extension.features.liveChat = function () {
+	if (extension.storage.get('livechat') === 'collapsed') {
+		window.addEventListener('click', function(event) {
+			if (extension.storage.get('livechat') !== 'collapsed') return;
 
-    var rect = chat.getBoundingClientRect();
-    if (
-        event.clientX - rect.left >= 0 &&
-        event.clientX - rect.left < rect.width &&
-        event.clientY - rect.top >= 0 &&
-        event.clientY - rect.top < 48
-    ) {
-        chat.toggleAttribute('it-activated');
-    }
-}, true);
-}
+			var chat = event.target.closest('#chat-container');
+			if (!chat) return;
+
+			var rect = chat.getBoundingClientRect();
+			if (
+				event.clientX - rect.left >= 0 &&
+				event.clientX - rect.left < rect.width &&
+				event.clientY - rect.top >= 0 &&
+				event.clientY - rect.top < 48
+			) {
+				chat.toggleAttribute('it-activated');
+			}
+		}, true);
+	}
+};
 
 /*--------------------------------------------------------------
 # STICKY NAVIGATION

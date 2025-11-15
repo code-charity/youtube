@@ -47,6 +47,7 @@ extension.events.on('init', function () {
 	extension.features.markWatchedVideos();
 	extension.features.relatedVideos();
 	extension.features.stickyNavigation();
+	extension.features.liveChat();
 	extension.features.comments();
 	extension.features.openNewTab();
 	extension.features.removeListParamOnNewTab();
