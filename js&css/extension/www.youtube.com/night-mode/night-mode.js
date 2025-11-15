@@ -18,6 +18,11 @@
 extension.features.bluelight = function () {
 	var value = extension.storage.get('bluelight');
 
+	// Ensure feature state container exists to avoid reading properties of undefined
+	if (!this.bluelight || typeof this.bluelight !== 'object') {
+		this.bluelight = {};
+	}
+
 	if (extension.features.schedule() === false) {
 		return false;
 	}
@@ -82,6 +87,11 @@ extension.features.bluelight = function () {
 
 extension.features.dim = function () {
 	var value = extension.storage.get('dim');
+
+	// Ensure feature state container exists
+	if (!this.dim || typeof this.dim !== 'object') {
+		this.dim = {};
+	}
 	if (extension.features.schedule() === false) { return false;}
 
 	if (!value) { value = 0;}

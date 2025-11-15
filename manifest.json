@@ -38,6 +38,7 @@
         "js&css/extension/www.youtube.com/appearance/player/player.css",
         "js&css/extension/www.youtube.com/appearance/details/details.css",
         "js&css/extension/www.youtube.com/appearance/sidebar/sidebar.css",
+        "js&css/extension/www.youtube.com/appearance/sidebar/hide-elements.css",
         "js&css/extension/www.youtube.com/appearance/comments/comments.css"
       ],
       "exclude_matches": [
@@ -50,10 +51,11 @@
         "js&css/extension/www.youtube.com/night-mode/night-mode.js",
         "js&css/extension/www.youtube.com/general/general.js",
         "js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
+        "js&css/extension/www.youtube.com/appearance/sidebar/hide-elements.js",
         "js&css/extension/www.youtube.com/appearance/comments/comments.js",
         "js&css/extension/init.js"
       ],
-      "matches": ["https://www.youtube.com/*"],
+  "matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
       "run_at": "document_start"
     }
   ],
