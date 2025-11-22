@@ -254,6 +254,29 @@ async function removeVideosPersistentlyEdit(playlistId, setVideoIds) {
             const txt = await res.text();
             console.warn('[ImprovedTube] edit_playlist failed', res.status, txt);
         }
+
+        const response = await res.json();
+
+        if (response?.newHeader?.playlistHeaderRenderer) {
+            document.querySelector("ytd-playlist-header-renderer")?.dispatchEvent(
+                new CustomEvent("yt-new-playlist-header", {
+                    detail: response.newHeader.playlistHeaderRenderer
+                })
+            );
+        }
+
+        if (response?.frameworkUpdates?.entityBatchUpdate) {
+            document.querySelector("ytd-app")?.dispatchEvent(
+                new CustomEvent("yt-action", {
+                    detail: {
+                        actionName: "yt-entity-update-command",
+                        args: [{ entityUpdateCommand: { entityBatchUpdate: response.frameworkUpdates.entityBatchUpdate } }],
+                        returnValue: []
+                    }
+                })
+            );
+        }
+
         return res.ok;
     } catch (e) {
         console.warn('[ImprovedTube] edit_playlist error', e);
@@ -383,7 +406,6 @@ ImprovedTube.playlistEnsureQuickButtons = function (renderer) {
 
         if (ok) {
             try { renderer.remove(); } catch (err) { }
-            decrementPlaylistCount(1);
         }
     }, true);
 
@@ -498,19 +520,6 @@ function collectCandidates(threshold) {
 }
 
 /**
- * Update playlist count display after removing videos
- * @param {number} by - Number of videos removed
- */
-function decrementPlaylistCount(by) {
-    try {
-        const el = document.querySelector('ytd-playlist-byline-renderer yt-formatted-string span');
-        if (!el) return;
-        const current = parseInt(el.textContent.replace(/\D+/g, ''), 10);
-        if (Number.isFinite(current)) el.textContent = String(Math.max(0, current - by));
-    } catch (e) { }
-}
-
-/**
  * Execute bulk removal of videos based on watch threshold
  * @param {number} threshold - Watch percentage threshold (0-100)
  * @returns {Promise<number>} - Number of videos removed
@@ -547,7 +556,7 @@ async function runRemoval(threshold) {
 
     // Optimistically remove DOM nodes for immediate feedback
     for (const { node } of items) { try { node.remove(); } catch (e) { } }
-    decrementPlaylistCount(items.length);
+
     return items.length;
 }
 
