@@ -1,0 +1,13 @@
+/*--------------------------------------------------------------
+# HIDE MORE FROM YOUTUBE AND EXPLORE
+html[it-hide-more-explore='true'] ytd-guide-section-renderer[it-section="more-from-youtube"],
+html[it-hide-more-explore='true'] ytd-guide-section-renderer[it-section="explore"] {
+    display: none !important;
+}
+
+/*--------------------------------------------------------------
+# HIDE SHORTS BUTTON
+html[it-hide-shorts='true'] ytd-guide-entry-renderer[guide-entry-id="SPunlimited"],
+html[it-hide-shorts='true'] ytd-mini-guide-entry-renderer[guide-entry-id="SPunlimited"] {
+    display: none !important;
+}
