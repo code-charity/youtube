@@ -31,3 +31,29 @@ jobs:
 
       - name: Validate generated manifest
         run: node scripts/validate-manifest3.js build/manifest3.json
+
+      - name: Check for generated artifacts
+        id: check
+        run: |
+          echo "found_sw=false" >> $GITHUB_OUTPUT
+          if [ -f build/generated_service_worker.js ]; then
+            echo "found_sw=true" >> $GITHUB_OUTPUT
+          fi
+          echo "found_manifest=false" >> $GITHUB_OUTPUT
+          if [ -f build/manifest3.json ]; then
+            echo "found_manifest=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Upload generated service worker
+        if: steps.check.outputs.found_sw == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated_service_worker.js
+          path: build/generated_service_worker.js
+
+      - name: Upload generated manifest
+        if: steps.check.outputs.found_manifest == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: manifest3.json
+          path: build/manifest3.json
