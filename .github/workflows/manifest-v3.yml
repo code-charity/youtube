@@ -102,5 +102,18 @@ jobs:
               const body = `Artifacts for this PR:\n\n- **Bundle**: [Download artifact](${downloadUrl})\n\n*(You must be authenticated to download artifacts via the API URL.)*`;
               await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
             }
+            // Add label to PR to indicate artifacts are available
+            const labelName = 'artifact-ready';
+            try {
+              await github.rest.issues.addLabels({ owner, repo, issue_number: prNumber, labels: [labelName] });
+            } catch (err) {
+              // If adding failed (label might not exist), try creating it then add
+              try {
+                await github.rest.issues.createLabel({ owner, repo, name: labelName, color: '0e8a16', description: 'CI: generated artifacts available' });
+                await github.rest.issues.addLabels({ owner, repo, issue_number: prNumber, labels: [labelName] });
+              } catch (err2) {
+                core.info('Failed to create or add label: ' + err2.message);
+              }
+            }
         env:
           ARTIFACT_PREFIX: ${{ steps.check.outputs.artifact_prefix }}
