@@ -169,6 +169,49 @@ extension.skeleton.main.layers.section.shortcuts = {
 						}
 					}
 				},
+				shortcut_playback_speed: {
+					component: 'button',
+					text: 'playbackSpeedHotkey',
+					on: {
+						click: {
+							component: 'section',
+							variant: 'card',
+
+							shortcut_playback_speed_0_25: {
+								component: 'shortcut',
+								text: '0.25x'
+							},
+							shortcut_playback_speed_0_5: {
+								component: 'shortcut',
+								text: '0.5x'
+							},
+							shortcut_playback_speed_0_75: {
+								component: 'shortcut',
+								text: '0.75x'
+							},
+							shortcut_playback_speed_1: {
+								component: 'shortcut',
+								text: '1x'
+							},
+							shortcut_playback_speed_1_25: {
+								component: 'shortcut',
+								text: '1.25x'
+							},
+							shortcut_playback_speed_1_5: {
+								component: 'shortcut',
+								text: '1.5x'
+							},
+							shortcut_playback_speed_1_75: {
+								component: 'shortcut',
+								text: '1.75x'
+							},
+							shortcut_playback_speed_2: {
+								component: 'shortcut',
+								text: '2x'
+							}
+						}
+					}
+				},
 				shortcut_play_pause: {
 					component: 'shortcut',
 					text: 'playPause',
