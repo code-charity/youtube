@@ -99,7 +99,13 @@ jobs:
               core.info(`No artifact named ${prefix}-bundle found for run ${runId}`);
             } else {
               const downloadUrl = `https://api.github.com/repos/${owner}/${repo}/actions/artifacts/${art.id}/zip`;
-              const body = `Artifacts for this PR:\n\n- **Bundle**: [Download artifact](${downloadUrl})\n\n*(You must be authenticated to download artifacts via the API URL.)*`;
+              // Build mention list: PR author + requested reviewers (if any)
+              const prAuthor = context.payload.pull_request.user.login;
+              const requestedReviewers = (context.payload.pull_request.requested_reviewers || []).map(r => r.login);
+              const mentions = [prAuthor, ...requestedReviewers].filter(Boolean).map(u => `@${u}`);
+              const mentionLine = mentions.length > 0 ? `FYI: ${mentions.join(' ')}` : '';
+
+              const body = `Artifacts for this PR:\n\n- **Bundle**: [Download artifact](${downloadUrl})\n\n${mentionLine}\n\n*(You must be authenticated to download artifacts via the API URL.)*`;
               await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
             }
             // Add label to PR to indicate artifacts are available
