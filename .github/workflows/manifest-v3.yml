@@ -35,19 +35,30 @@ jobs:
       - name: Check for generated artifacts and set prefix
         id: check
         run: |
-          echo "found_sw=false" >> $GITHUB_OUTPUT
+          set -e
+          found_sw=false
+          found_manifest=false
           if [ -f build/generated_service_worker.js ]; then
-            echo "found_sw=true" >> $GITHUB_OUTPUT
+            found_sw=true
           fi
-          echo "found_manifest=false" >> $GITHUB_OUTPUT
           if [ -f build/manifest3.json ]; then
-            echo "found_manifest=true" >> $GITHUB_OUTPUT
+            found_manifest=true
           fi
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            echo "artifact_prefix=pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          echo "found_sw=$found_sw" >> $GITHUB_OUTPUT
+          echo "found_manifest=$found_manifest" >> $GITHUB_OUTPUT
+
+          # Determine branch name and short SHA
+          if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
+            BRANCH_NAME="${GITHUB_HEAD_REF}"
           else
-            echo "artifact_prefix=run-${{ github.run_number }}" >> $GITHUB_OUTPUT
+            # extract branch from ref like refs/heads/<branch>
+            BRANCH_NAME="${GITHUB_REF#refs/heads/}"
           fi
+          SHORT_SHA="${GITHUB_SHA:0:7}"
+          # sanitize branch for filesystem (replace / with -)
+          SANITIZED_BRANCH=$(echo "$BRANCH_NAME" | tr '/' '-')
+          ARTIFACT_PREFIX="${{ github.event_name == 'pull_request' && 'pr' || 'run' }}-${SANITIZED_BRANCH}-${SHORT_SHA}"
+          echo "artifact_prefix=$ARTIFACT_PREFIX" >> $GITHUB_OUTPUT
 
       - name: Prepare artifacts folder
         if: steps.check.outputs.found_sw == 'true' || steps.check.outputs.found_manifest == 'true'
@@ -69,3 +80,27 @@ jobs:
         with:
           name: ${{ steps.check.outputs.artifact_prefix }}-bundle
           path: artifacts/${{ steps.check.outputs.artifact_prefix }}
+
+      - name: Comment PR with artifact download link
+        if: github.event_name == 'pull_request' && (steps.check.outputs.found_sw == 'true' || steps.check.outputs.found_manifest == 'true')
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prefix = process.env.ARTIFACT_PREFIX || '${{ steps.check.outputs.artifact_prefix }}';
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const runId = process.env.GITHUB_RUN_ID;
+            const prNumber = context.payload.pull_request.number;
+
+            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({ owner, repo, run_id: Number(runId) });
+            const art = artifacts.data.artifacts.find(a => a.name === `${prefix}-bundle`);
+            if (!art) {
+              core.info(`No artifact named ${prefix}-bundle found for run ${runId}`);
+            } else {
+              const downloadUrl = `https://api.github.com/repos/${owner}/${repo}/actions/artifacts/${art.id}/zip`;
+              const body = `Artifacts for this PR:\n\n- **Bundle**: [Download artifact](${downloadUrl})\n\n*(You must be authenticated to download artifacts via the API URL.)*`;
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+            }
+        env:
+          ARTIFACT_PREFIX: ${{ steps.check.outputs.artifact_prefix }}
