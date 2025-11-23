@@ -1,0 +1,33 @@
+name: Build & Validate Manifest V3
+
+on:
+  pull_request:
+    paths:
+      - 'build/**'
+      - 'scripts/**'
+      - 'package.json'
+      - '.github/workflows/**'
+  push:
+    branches:
+      - 'feature/**'
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Run bundling (rollup)
+        run: node scripts/convert-manifest.js --input build/manifest2.json --output build/manifest3.json --bundle-sw
+
+      - name: Validate generated manifest
+        run: node scripts/validate-manifest3.js build/manifest3.json
