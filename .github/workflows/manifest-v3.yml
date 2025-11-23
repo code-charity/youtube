@@ -121,5 +121,14 @@ jobs:
                 core.info('Failed to create or add label: ' + err2.message);
               }
             }
+            // Add assignees: PR author + requested reviewers (if any)
+            try {
+              const assignees = Array.from(new Set([prAuthor, ...requestedReviewers].filter(Boolean)));
+              if (assignees.length > 0) {
+                await github.rest.issues.addAssignees({ owner, repo, issue_number: prNumber, assignees });
+              }
+            } catch (err3) {
+              core.info('Failed to add assignees: ' + err3.message);
+            }
         env:
           ARTIFACT_PREFIX: ${{ steps.check.outputs.artifact_prefix }}
