@@ -169,15 +169,17 @@ ImprovedTube.shortcutPlaybackSpeed = function (key) {
 	let speed;
 	if (num.startsWith("0")) {
 		speed = parseFloat("0." + num.slice(1));
+	} else if (num.length === 1) {
+		speed = parseFloat(num);
+	} else if (num.length === 2) {
+		speed = parseFloat(num[0] + "." + num[1]);
 	} else {
-		if (num.length == 1) {
-			speed = parseFloat(num);
-		} else {
-			speed = parseFloat(num.slice(0, -2) + "." + num.slice(-2));
-		}
+		speed = parseFloat(num.slice(0, -2) + "." + num.slice(-2));
 	}
 
-	if (speed === undefined) return;
+	//console.log(speed);
+
+	if (speed === undefined || isNaN(speed)) return;
 
 	ImprovedTube.playbackSpeed(speed);
 	ImprovedTube.showStatus(speed);

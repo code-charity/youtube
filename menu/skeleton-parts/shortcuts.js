@@ -177,7 +177,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 							component: 'section',
 							variant: 'card',
 
-							shortcut_playback_speed_0_3: {
+							shortcut_playback_speed_0_25: {
 								component: 'shortcut',
 								text: '0.25x'
 							},
