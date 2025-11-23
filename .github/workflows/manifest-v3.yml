@@ -32,7 +32,7 @@ jobs:
       - name: Validate generated manifest
         run: node scripts/validate-manifest3.js build/manifest3.json
 
-      - name: Check for generated artifacts
+      - name: Check for generated artifacts and set prefix
         id: check
         run: |
           echo "found_sw=false" >> $GITHUB_OUTPUT
@@ -43,17 +43,29 @@ jobs:
           if [ -f build/manifest3.json ]; then
             echo "found_manifest=true" >> $GITHUB_OUTPUT
           fi
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "artifact_prefix=pr-${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          else
+            echo "artifact_prefix=run-${{ github.run_number }}" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Upload generated service worker
-        if: steps.check.outputs.found_sw == 'true'
+      - name: Prepare artifacts folder
+        if: steps.check.outputs.found_sw == 'true' || steps.check.outputs.found_manifest == 'true'
+        run: |
+          set -e
+          PREFIX=${{ steps.check.outputs.artifact_prefix }}
+          mkdir -p artifacts/${PREFIX}
+          if [ -f build/generated_service_worker.js ]; then
+            cp build/generated_service_worker.js artifacts/${PREFIX}/generated_service_worker.js
+          fi
+          if [ -f build/manifest3.json ]; then
+            cp build/manifest3.json artifacts/${PREFIX}/manifest3.json
+          fi
+          ls -la artifacts/${PREFIX}
+
+      - name: Upload artifacts bundle
+        if: steps.check.outputs.found_sw == 'true' || steps.check.outputs.found_manifest == 'true'
         uses: actions/upload-artifact@v4
         with:
-          name: generated_service_worker.js
-          path: build/generated_service_worker.js
-
-      - name: Upload generated manifest
-        if: steps.check.outputs.found_manifest == 'true'
-        uses: actions/upload-artifact@v4
-        with:
-          name: manifest3.json
-          path: build/manifest3.json
+          name: ${{ steps.check.outputs.artifact_prefix }}-bundle
+          path: artifacts/${{ steps.check.outputs.artifact_prefix }}
