@@ -83,6 +83,8 @@ ImprovedTube.shortcutsHandler = function () {
 
 		if (key.startsWith('shortcutQuality')) {
 			ImprovedTube['shortcutQuality'](key);
+		} else if (key.startsWith('shortcutPlaybackSpeed')) {
+			ImprovedTube['shortcutPlaybackSpeed'](key);
 		} else if (typeof ImprovedTube[key] === 'function') {
 			ImprovedTube[key]();
 		}
@@ -154,6 +156,31 @@ ImprovedTube.shortcutQuality = function (key) {
 		resolution = ['auto', '144p', '240p', '360p', '480p', '720p', '1080p', '1440p', '2160p', '2880p', '4320p'];
 
 	ImprovedTube.playerQuality(label[resolution.indexOf(key.replace('shortcutQuality', ''))]);
+};
+/*------------------------------------------------------------------------------
+4.7.1B PLAYBACK SPEED
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutPlaybackSpeed = function (key) {
+	const match = key.match(/^shortcutPlaybackSpeed(\d+)$/);
+	if (!match) return;
+
+	let num = match[1];
+
+	let speed;
+	if (num.startsWith("0")) {
+		speed = parseFloat("0." + num.slice(1));
+	} else {
+		if (num.length == 1) {
+			speed = parseFloat(num);
+		} else {
+			speed = parseFloat(num.slice(0, -2) + "." + num.slice(-2));
+		}
+	}
+
+	if (speed === undefined) return;
+
+	ImprovedTube.playbackSpeed(speed);
+	ImprovedTube.showStatus(speed);
 };
 /*------------------------------------------------------------------------------
 4.7.2 PICTURE IN PICTURE (PIP)

@@ -1013,6 +1013,9 @@
   "playbackSpeed": {
     "message": "Playback speed"
   },
+  "playbackSpeedHotkey": {
+    "message": "Playback speed hotkeys"
+  },
   "player": {
     "message": "Player"
   },
