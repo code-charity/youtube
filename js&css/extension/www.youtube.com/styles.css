@@ -2150,7 +2150,7 @@ html:not([dark])[it-theme="default"] ytd-watch-flexy[fullscreen] .yt-spec-button
 }
 
 /* Like button splash effect light mode */
-html :not([dark])[it-theme="default"] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
+html:not([dark])[it-theme="default"] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
 	stroke: var(--yt-spec-text-primary-inverse);
 }
 
