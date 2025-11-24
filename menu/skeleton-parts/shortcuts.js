@@ -129,7 +129,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 									component: 'slider',
 									text: 'step',
 									min: .05,
-									max: .5,
+									max: 2,
 									step: .05,
 									value: .05
 								}
