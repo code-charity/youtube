@@ -1535,6 +1535,12 @@
   "excludeShortsInPlayAll": {
     "message": "Exclude Shorts when using \"Play all\""
   },
+  "categoryRefreshButton": {
+    "message": "Add category refresh button"
+  },
+  "refreshCategories": {
+    "message": "Refresh categories"
+  },
   "fullScreenQuality": { 
     "message": "Fullscreen quality" 
   },
