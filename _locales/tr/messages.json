@@ -725,6 +725,9 @@
     "orange": {
         "message": "Turuncu"
     },
+    "originalTitleToggle": {
+        "message": "Orijinal/çevrilmiş başlığı değiştir"
+    },
     "other": {
         "message": "Diğer"
     },

@@ -68,7 +68,11 @@ extension.features.bluelight = function () {
 		} else {
 			this.bluelight.feColorMatrix.values.baseVal[12].value = 1 - parseFloat(value) / 100;
 		}
-	} else if (this.bluelight.bluelight) {
+	}
+};
+
+extension.features.bluelightDisable = function () {
+	if (this.bluelight.bluelight) {
 		this.bluelight.bluelight.remove();
 
 		delete this.bluelight.bluelight;
@@ -99,9 +103,12 @@ extension.features.dim = function () {
 		} else {
 			this.dim.element.style.opacity = parseInt(Number(value)) / 100 || 0;
 		}
-	} else if (this.dim.element) {
-		this.dim.element.remove();
+	}
+};
 
+extension.features.dimDisable = function () {
+	if (this.dim.element) {
+		this.dim.element.remove();
 		delete this.dim.element;
 	}
 };

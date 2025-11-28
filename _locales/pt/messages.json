@@ -869,6 +869,9 @@
     "orange": {
         "message": "Laranja"
     },
+    "originalTitleToggle": {
+        "message": "Alternar título original/traduzido"
+    },
     "os": {
         "message": "Sistema Operacional"
     },

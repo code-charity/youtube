@@ -677,6 +677,9 @@
     "orange": {
         "message": "Оранжевый"
     },
+    "originalTitleToggle": {
+        "message": "Переключить оригинальное/переведённое название"
+    },
     "os": {
         "message": "ОС"
     },

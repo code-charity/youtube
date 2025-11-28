@@ -365,10 +365,6 @@ extension.skeleton.main.layers.section.shortcuts = {
 				shortcut_rotate_video: {
 					component: 'shortcut',
 					text: 'rotate'
-				},
-				shortcut_cinema_mode: {
-					component: 'shortcut',
-					text: 'cinemaMode'
 				}
 			},
 			section: {

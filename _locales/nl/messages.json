@@ -566,6 +566,9 @@
     "orange": {
         "message": "Oranje"
     },
+    "originalTitleToggle": {
+        "message": "Schakel tussen originele/vertaalde titel"
+    },
     "os": {
         "message": "Besturingssysteem"
     },
