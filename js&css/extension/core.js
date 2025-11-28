@@ -57,7 +57,44 @@ var extension = {
 			}
 			// Add more features here as needed
 		}
-	}
+	},
+	// Feature registry for lazy loading
+	featureRegistry: {
+		// Define all features with their module paths and run conditions
+		// Format: 'feature_name': { path: '...', run_on_pages: '...', section: '...' }
+		
+		// General features
+		youtubeHomePage: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		collapseOfSubscriptionSections: { path: 'www.youtube.com/general/general.js', run_on_pages: 'feed', section: 'general' },
+		onlyOnePlayerInstancePlaying: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		addScrollToTop: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		confirmationBeforeClosing: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		defaultContentCountry: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		popupWindowButtons: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		font: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		markWatchedVideos: { path: 'www.youtube.com/general/general.js', run_on_pages: 'home, results, feed', section: 'general' },
+		trackWatchedVideos: { path: 'www.youtube.com/general/general.js', run_on_pages: 'watch', section: 'general' },
+		thumbnailsQuality: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		disableThumbnailPlayback: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		openNewTab: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		removeListParamOnNewTab: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		clickableLinksInVideoDescriptions: { path: 'www.youtube.com/general/general.js', run_on_pages: 'watch', section: 'general' },
+		changeThumbnailsPerRow: { path: 'www.youtube.com/general/general.js', run_on_pages: 'home, results, feed', section: 'general' },
+		removeMemberOnly: { path: 'www.youtube.com/general/general.js', run_on_pages: '*', section: 'general' },
+		
+		// Sidebar features
+		relatedVideos: { path: 'www.youtube.com/appearance/sidebar/sidebar.js', run_on_pages: 'watch', section: 'sidebar' },
+		stickyNavigation: { path: 'www.youtube.com/appearance/sidebar/sidebar.js', run_on_pages: '*', section: 'sidebar' },
+		
+		// Night mode features
+		bluelight: { path: 'www.youtube.com/night-mode/night-mode.js', run_on_pages: '*', section: 'night-mode' },
+		dim: { path: 'www.youtube.com/night-mode/night-mode.js', run_on_pages: '*', section: 'night-mode' },
+		
+		// Comments
+		comments: { path: 'www.youtube.com/appearance/comments/comments.js', run_on_pages: 'watch', section: 'comments' }
+	},
+	// Track loaded modules to avoid duplicate loads
+	loadedModules: {}
 };
 
 /*--------------------------------------------------------------
@@ -181,6 +218,96 @@ extension.getUserHash = function() {
 		hash = hash & hash; // Convert to 32bit integer
 	}
 	return Math.abs(hash);
+};
+
+/*--------------------------------------------------------------
+# PAGE DETECTION
+--------------------------------------------------------------*/
+
+extension.getCurrentPage = function() {
+	var pathname = location.pathname;
+	
+	if (pathname === '/' || pathname === '') return 'home';
+	if (pathname.startsWith('/watch')) return 'watch';
+	if (pathname.startsWith('/results')) return 'results';
+	if (pathname.startsWith('/feed/subscriptions')) return 'feed';
+	if (pathname.startsWith('/feed')) return 'feed';
+	if (pathname.startsWith('/channel') || pathname.startsWith('/c/') || pathname.startsWith('/user/') || pathname.startsWith('/@')) return 'channel';
+	if (pathname.startsWith('/playlist')) return 'playlist';
+	
+	return 'other';
+};
+
+/*--------------------------------------------------------------
+# LAZY LOAD FEATURE MODULE
+--------------------------------------------------------------*/
+
+extension.loadFeatureModule = function(modulePath) {
+	// Return existing promise if module is already loading/loaded
+	if (this.loadedModules[modulePath]) {
+		return this.loadedModules[modulePath];
+	}
+	
+	this.log('Loading module:', modulePath);
+	
+	// Create promise for this module load
+	var loadPromise = new Promise(function(resolve, reject) {
+		var script = document.createElement('script');
+		script.src = chrome.runtime.getURL('/js&css/extension/' + modulePath);
+		script.onload = function() {
+			extension.log('Module loaded:', modulePath);
+			script.remove();
+			resolve();
+		};
+		script.onerror = function() {
+			extension.logError('Failed to load module:', modulePath);
+			reject(new Error('Failed to load: ' + modulePath));
+		};
+		(document.head || document.documentElement).appendChild(script);
+	});
+	
+	// Cache the promise
+	this.loadedModules[modulePath] = loadPromise;
+	
+	return loadPromise;
+};
+
+/*--------------------------------------------------------------
+# LOAD AND ENABLE FEATURE
+--------------------------------------------------------------*/
+
+extension.loadAndEnableFeature = function(featureKey, value) {
+	var featureInfo = this.featureRegistry[featureKey];
+	
+	if (!featureInfo) {
+		this.log('Feature not in registry:', featureKey);
+		return Promise.resolve();
+	}
+	
+	// Check if feature should run on current page
+	var currentPage = this.getCurrentPage();
+	var runOnPages = featureInfo.run_on_pages.split(',').map(function(p) { return p.trim(); });
+	var shouldRun = runOnPages.includes('*') || runOnPages.includes(currentPage);
+	
+	if (!shouldRun) {
+		this.log('Feature', featureKey, 'not applicable on page:', currentPage);
+		return Promise.resolve();
+	}
+	
+	// Load the module
+	return this.loadFeatureModule(featureInfo.path).then(function() {
+		// Module loaded, now call the feature function
+		var camelizedKey = extension.camelize(featureKey);
+		
+		if (typeof extension.features[camelizedKey] === 'function') {
+			extension.logFeature(camelizedKey, 'ENABLE', value);
+			extension.features[camelizedKey](value);
+		} else {
+			extension.log('Feature function not found after load:', camelizedKey);
+		}
+	}).catch(function(err) {
+		extension.logError('Failed to load feature', featureKey, err);
+	});
 };
 
 /*--------------------------------------------------------------
@@ -425,19 +552,16 @@ extension.storage.listener = function () {
 				continue;
 			}
 
-			// Handle enabling/disabling features automatically
-			if (typeof extension.features[camelized_key] === 'function') {
-				if (value === true || (typeof value === 'string' && value !== 'false' && value !== '')) {
-					// Enable the feature
-					extension.logFeature(camelized_key, 'ENABLE', value);
-					extension.features[camelized_key](value);
-				} else if (value === false || value === '' || value === null || value === undefined) {
-					// Disable the feature if a disable function exists
-					var disableFunction = extension.features[camelized_key + 'Disable'];
-					if (typeof disableFunction === 'function') {
-						extension.logFeature(camelized_key, 'DISABLE');
-						disableFunction();
-					}
+			// Handle enabling/disabling features with lazy loading
+			if (value === true || (typeof value === 'string' && value !== 'false' && value !== '')) {
+				// Enable the feature - load module if needed
+				extension.loadAndEnableFeature(key, value);
+			} else if (value === false || value === '' || value === null || value === undefined) {
+				// Disable the feature if already loaded and disable function exists
+				var disableFunction = extension.features[camelized_key + 'Disable'];
+				if (typeof disableFunction === 'function') {
+					extension.logFeature(camelized_key, 'DISABLE');
+					disableFunction();
 				}
 			}
 

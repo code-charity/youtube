@@ -49,10 +49,6 @@
       "js": [
         "js&css/extension/core.js",
         "js&css/extension/functions.js",
-        "js&css/extension/www.youtube.com/night-mode/night-mode.js",
-        "js&css/extension/www.youtube.com/general/general.js",
-        "js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
-        "js&css/extension/www.youtube.com/appearance/comments/comments.js",
         "js&css/extension/init.js"
       ],
       "matches": ["https://www.youtube.com/*"],
@@ -81,6 +77,10 @@
         "js&css/web-accessible/www.youtube.com/last-watched-overlay.js",
         "js&css/web-accessible/www.youtube.com/original-title.js",
         "js&css/web-accessible/init.js",
+        "js&css/extension/www.youtube.com/night-mode/night-mode.js",
+        "js&css/extension/www.youtube.com/general/general.js",
+        "js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
+        "js&css/extension/www.youtube.com/appearance/comments/comments.js",
         "menu/icons/48.png"
       ],
       "matches": ["https://www.youtube.com/*"]

@@ -2,18 +2,24 @@
 >>> INITIALIZATION
 --------------------------------------------------------------*/
 
-// Call special init function for youtube home page
-extension.features.youtubeHomePageInit();
-
 document.documentElement.setAttribute('it-pathname', location.pathname);
 
 window.addEventListener('yt-navigate-finish', function () {
 	document.documentElement.setAttribute('it-pathname', location.pathname);
 
-	extension.features.trackWatchedVideos();
-	extension.features.thumbnailsQuality();
-	extension.features.stickyNavigation();
-	extension.features.hideSponsoredVideosOnHome?.();
+	// Trigger features that need to run on navigation
+	if (typeof extension.features.trackWatchedVideos === 'function') {
+		extension.features.trackWatchedVideos();
+	}
+	if (typeof extension.features.thumbnailsQuality === 'function') {
+		extension.features.thumbnailsQuality();
+	}
+	if (typeof extension.features.stickyNavigation === 'function') {
+		extension.features.stickyNavigation();
+	}
+	if (typeof extension.features.hideSponsoredVideosOnHome === 'function') {
+		extension.features.hideSponsoredVideosOnHome?.();
+	}
 });
 
 extension.messages.create();
@@ -30,22 +36,33 @@ extension.events.on('init', function (resolve) {
 
 function bodyReady() {
 	if (extension.ready && extension.domReady) {
-		extension.features.addScrollToTop();
-		extension.features.font();
-		extension.features.changeThumbnailsPerRow?.();
-		extension.features.clickableLinksInVideoDescriptions();
+		// These features will be loaded via lazy loading if enabled
+		if (typeof extension.features.addScrollToTop === 'function') {
+			extension.features.addScrollToTop();
+		}
+		if (typeof extension.features.font === 'function') {
+			extension.features.font();
+		}
+		if (typeof extension.features.changeThumbnailsPerRow === 'function') {
+			extension.features.changeThumbnailsPerRow?.();
+		}
+		if (typeof extension.features.clickableLinksInVideoDescriptions === 'function') {
+			extension.features.clickableLinksInVideoDescriptions();
+		}
 	}
 }
 
 extension.events.on('init', function () {
-	// Auto-enable all features based on storage values
+	// Auto-enable all features using lazy loading
 	var storage = extension.storage.data;
 	
-	extension.log('Initializing features from storage...');
+	extension.log('Initializing features with lazy loading...');
+	
+	// Collect all features to load
+	var featuresToLoad = [];
 	
 	for (var key in storage) {
 		var value = storage[key];
-		var camelizedKey = extension.camelize(key);
 		
 		// Skip if feature is not eligible for this user
 		if (!extension.isFeatureEligibleForUser(key)) {
@@ -53,38 +70,30 @@ extension.events.on('init', function () {
 			continue;
 		}
 		
-		// Call the feature function if it exists and value is truthy
-		if (typeof extension.features[camelizedKey] === 'function') {
-			// Skip special functions that have their own logic
-			if (camelizedKey === 'youtubeHomePage' || camelizedKey === 'youtubeHomePageInit') {
-				continue;
-			}
-			
-			// Only enable if value is truthy
-			if (value === true || (typeof value === 'string' && value !== 'false' && value !== '')) {
-				extension.logFeature(camelizedKey, 'INIT', value);
-				// Call the feature with its value (for features that check settings internally)
-				extension.features[camelizedKey](value);
+		// Only load features that are enabled
+		if (value === true || (typeof value === 'string' && value !== 'false' && value !== '')) {
+			// Check if feature is in registry
+			if (extension.featureRegistry[key]) {
+				featuresToLoad.push({ key: key, value: value });
 			}
 		}
 	}
 	
-	// Call features that need to run regardless of settings
-	extension.features.youtubeHomePage();
-	extension.features.collapseOfSubscriptionSections();
-	extension.features.confirmationBeforeClosing();
-	extension.features.defaultContentCountry();
-	extension.features.popupWindowButtons();
-	extension.features.disableThumbnailPlayback();
-	extension.features.markWatchedVideos();
-	extension.features.relatedVideos();
-	extension.features.stickyNavigation();
-	extension.features.comments();
-	extension.features.openNewTab();
-	extension.features.removeListParamOnNewTab();
-	extension.features.removeMemberOnly();
-	// extension.features.hideSponsoredVideosOnHome?.();	
-	bodyReady();
+	// Load all enabled features
+	extension.log('Loading', featuresToLoad.length, 'enabled features');
+	
+	var loadPromises = featuresToLoad.map(function(feature) {
+		return extension.loadAndEnableFeature(feature.key, feature.value);
+	});
+	
+	// Wait for all features to load
+	Promise.all(loadPromises).then(function() {
+		extension.log('All features loaded and initialized');
+		bodyReady();
+	}).catch(function(err) {
+		extension.logError('Error loading features:', err);
+		bodyReady();
+	});
 });
 
 chrome.runtime.sendMessage({
