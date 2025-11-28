@@ -1,7 +1,9 @@
 /*--------------------------------------------------------------
 >>> INITIALIZATION
 --------------------------------------------------------------*/
-extension.features.youtubeHomePage('init');
+
+// Call special init function for youtube home page
+extension.features.youtubeHomePageInit();
 
 document.documentElement.setAttribute('it-pathname', location.pathname);
 
@@ -36,21 +38,43 @@ function bodyReady() {
 }
 
 extension.events.on('init', function () {
-	extension.features.bluelight();
-	extension.features.dim();
+	// Auto-enable all features based on storage values
+	var storage = extension.storage.data;
+	
+	extension.log('Initializing features from storage...');
+	
+	for (var key in storage) {
+		var value = storage[key];
+		var camelizedKey = extension.camelize(key);
+		
+		// Skip if feature is not eligible for this user
+		if (!extension.isFeatureEligibleForUser(key)) {
+			extension.log('Feature', key, 'skipped - not eligible for this user');
+			continue;
+		}
+		
+		// Call the feature function if it exists and value is truthy
+		if (typeof extension.features[camelizedKey] === 'function') {
+			// Skip special functions that have their own logic
+			if (camelizedKey === 'youtubeHomePage' || camelizedKey === 'youtubeHomePageInit') {
+				continue;
+			}
+			
+			// Only enable if value is truthy
+			if (value === true || (typeof value === 'string' && value !== 'false' && value !== '')) {
+				extension.logFeature(camelizedKey, 'INIT', value);
+				// Call the feature with its value (for features that check settings internally)
+				extension.features[camelizedKey](value);
+			}
+		}
+	}
+	
+	// Call features that need to run regardless of settings
 	extension.features.youtubeHomePage();
-	extension.features.collapseOfSubscriptionSections();
-	extension.features.confirmationBeforeClosing();
-	extension.features.defaultContentCountry();
-	extension.features.popupWindowButtons();
-	extension.features.disableThumbnailPlayback();
-	extension.features.markWatchedVideos();
-	extension.features.relatedVideos();
-	extension.features.stickyNavigation();
-	extension.features.comments();
-	extension.features.openNewTab();
-	extension.features.removeListParamOnNewTab();
-	// extension.features.hideSponsoredVideosOnHome?.();	
+	extension.features.onlyOnePlayerInstancePlaying();
+	
+	extension.log('Feature initialization complete');
+	
 	bodyReady();
 });
 

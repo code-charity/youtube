@@ -34,7 +34,153 @@ var extension = {
 	ready: false,
 	storage: {
 		data: {}
+	},
+	// Feature configuration and rollout control
+	featureConfig: {
+		// Debug mode - set to false to disable console logs in production
+		debug: false,
+		
+		// Feature metadata for gradual rollout and targeting
+		// Each feature can specify: defaultEnabled, targetCohorts, experimentalPercentage
+		metadata: {
+			// Example: Original title feature
+			original_title: {
+				defaultEnabled: false,  // Don't enable by default (experimental)
+				experimental: true,     // Mark as experimental
+				targetCohorts: [        // Which user groups benefit most?
+					'multilingual',     // Users with multiple languages
+					'multilingual_countries', // Users from countries with multiple languages
+					'subtitle_users'    // Users who regularly use subtitles
+				],
+				description: 'Show original video titles in their native language',
+				estimatedAppreciation: 40  // ~40% of users likely to appreciate
+			}
+			// Add more features here as needed
+		}
 	}
+};
+
+/*--------------------------------------------------------------
+# DEBUG LOGGING
+--------------------------------------------------------------*/
+
+extension.log = function() {
+	if (extension.featureConfig.debug) {
+		console.log.apply(console, ['[ImprovedTube]'].concat(Array.prototype.slice.call(arguments)));
+	}
+};
+
+extension.logError = function() {
+	console.error.apply(console, ['[ImprovedTube Error]'].concat(Array.prototype.slice.call(arguments)));
+};
+
+extension.logFeature = function(featureName, action, details) {
+	if (extension.featureConfig.debug) {
+		console.log('[ImprovedTube Feature]', featureName, '→', action, details || '');
+	}
+};
+
+/*--------------------------------------------------------------
+# USER COHORT DETECTION
+--------------------------------------------------------------*/
+
+extension.detectUserCohort = function() {
+	var cohorts = [];
+	
+	// Detect multilingual users (browser has multiple language preferences)
+	var languages = navigator.languages || [navigator.language];
+	if (languages.length > 1) {
+		cohorts.push('multilingual');
+	}
+	
+	// Detect users from multilingual countries
+	var multilingualCountries = ['CH', 'BE', 'CA', 'IN', 'SG', 'ZA', 'PH', 'MY']; // Switzerland, Belgium, Canada, India, Singapore, South Africa, Philippines, Malaysia
+	var userLanguage = navigator.language || '';
+	var countryCode = userLanguage.split('-')[1];
+	if (countryCode && multilingualCountries.includes(countryCode.toUpperCase())) {
+		cohorts.push('multilingual_countries');
+	}
+	
+	// Check if user regularly uses subtitles (stored in extension data)
+	if (extension.storage.data.subtitle_language || extension.storage.data.subtitles) {
+		cohorts.push('subtitle_users');
+	}
+	
+	// Check if logged in to YouTube
+	if (document.cookie.indexOf('LOGIN_INFO') !== -1) {
+		cohorts.push('logged_in');
+	}
+	
+	extension.log('Detected user cohorts:', cohorts);
+	return cohorts;
+};
+
+/*--------------------------------------------------------------
+# FEATURE ELIGIBILITY CHECK
+--------------------------------------------------------------*/
+
+extension.isFeatureEligibleForUser = function(featureKey) {
+	var metadata = extension.featureConfig.metadata[featureKey];
+	
+	// If no metadata, feature is eligible by default (legacy features)
+	if (!metadata) {
+		return true;
+	}
+	
+	// If feature is not experimental, it's available to everyone
+	if (!metadata.experimental) {
+		return true;
+	}
+	
+	// If user has explicitly enabled/disabled it, respect their choice
+	if (extension.storage.data.hasOwnProperty(featureKey)) {
+		return true;
+	}
+	
+	// For experimental features, check if user is in target cohort
+	if (metadata.targetCohorts && metadata.targetCohorts.length > 0) {
+		var userCohorts = extension.detectUserCohort();
+		var isInTargetCohort = metadata.targetCohorts.some(function(cohort) {
+			return userCohorts.includes(cohort);
+		});
+		
+		if (isInTargetCohort) {
+			extension.log('Feature', featureKey, 'enabled for user cohort');
+			return true;
+		}
+	}
+	
+	// If experimental percentage is set, do gradual rollout
+	if (metadata.experimentalPercentage) {
+		// Use a deterministic hash of user agent to assign users to groups
+		var userHash = extension.getUserHash();
+		var isInExperiment = (userHash % 100) < metadata.experimentalPercentage;
+		
+		if (isInExperiment) {
+			extension.log('Feature', featureKey, 'enabled via experimental rollout');
+			return true;
+		}
+	}
+	
+	// Feature not eligible for this user yet
+	extension.log('Feature', featureKey, 'not eligible for this user');
+	return false;
+};
+
+/*--------------------------------------------------------------
+# USER HASH (for consistent A/B testing)
+--------------------------------------------------------------*/
+
+extension.getUserHash = function() {
+	// Create a simple hash from user agent for consistent feature assignment
+	var str = navigator.userAgent + (navigator.language || '');
+	var hash = 0;
+	for (var i = 0; i < str.length; i++) {
+		var char = str.charCodeAt(i);
+		hash = ((hash << 5) - hash) + char;
+		hash = hash & hash; // Convert to 32bit integer
+	}
+	return Math.abs(hash);
 };
 
 /*--------------------------------------------------------------
@@ -266,15 +412,33 @@ extension.storage.get = function (key) {
 extension.storage.listener = function () {
 	chrome.storage.onChanged.addListener(function (changes) {
 		for (var key in changes) {
-			var value = changes[key].newValue,
-				camelized_key = extension.camelize(key);
+			var value = changes[key].newValue;
+			var camelized_key = extension.camelize(key);
 
 			extension.storage.data[key] = value;
 
 			document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), value);
 
+			// Check if feature is eligible for this user before enabling
+			if (!extension.isFeatureEligibleForUser(key)) {
+				extension.log('Feature', key, 'skipped - not eligible for this user');
+				continue;
+			}
+
+			// Handle enabling/disabling features automatically
 			if (typeof extension.features[camelized_key] === 'function') {
-				extension.features[camelized_key](value);
+				if (value === true || (typeof value === 'string' && value !== 'false' && value !== '')) {
+					// Enable the feature
+					extension.logFeature(camelized_key, 'ENABLE', value);
+					extension.features[camelized_key](value);
+				} else if (value === false || value === '' || value === null || value === undefined) {
+					// Disable the feature if a disable function exists
+					var disableFunction = extension.features[camelized_key + 'Disable'];
+					if (typeof disableFunction === 'function') {
+						extension.logFeature(camelized_key, 'DISABLE');
+						disableFunction();
+					}
+				}
 			}
 
 			extension.events.trigger('storage-changed', {
