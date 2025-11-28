@@ -600,6 +600,7 @@ ImprovedTube.playlistCreateBulkControls = function () {
     wrapper.style.flexWrap = 'wrap';
     wrapper.style.zIndex = '2';
     wrapper.style.position = 'relative';
+    wrapper.style.color = 'white';
 
     // Special handling for modern flexible actions layout
     if (vmRow && parent === vmRow) {

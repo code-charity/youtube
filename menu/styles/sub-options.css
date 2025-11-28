@@ -23,6 +23,7 @@ NESTED (CONDITIONAL) SWITCHES
 #forced-playback-speed:not([data-value=true]) + .satus-switch,
 #forced-playback-speed:not([data-value=true]) + .satus-switch + .satus-switch,
 #forced-playback-speed:not([data-value=true]) + .satus-switch + .satus-switch + .satus-slider, 
+#player-increase-decrease-speed-buttons:not([data-value=true]) + .satus-slider,
 /* #player_repeat_button:not([data-value=true]) + .satus-switch, */
 #player_screenshot_button:not([data-value=true]) + .satus-switch,
 #player_screenshot_button:not([data-value=true]) + .satus-switch + .satus-select,
@@ -64,6 +65,7 @@ NIGHT MODE
 #forced-playback-speed[data-value=true] + .satus-switch,
 #forced-playback-speed[data-value=true] + .satus-switch + .satus-switch,
 #forced-playback-speed[data-value=true] + .satus-switch + .satus-switch + .satus-slider, 
+#player-increase-decrease-speed-buttons[data-value=true] + .satus-slider, 
 #player_repeat_button + .satus-switch, 
 #player_cinema_mode_button +.satus-switch,
 #player_auto_cinema_mode +.satus-switch,
@@ -105,6 +107,7 @@ NIGHT MODE
 #forced-playback-speed[data-value=true] + .satus-switch:not(:hover),
 #forced-playback-speed[data-value=true] + .satus-switch + .satus-switch:not(:hover),
 #forced-playback-speed[data-value=true] + .satus-switch + .satus-switch + .satus-slider:not(:hover), 
+#player-increase-decrease-speed-buttons[data-value=true] + .satus-slider:not(:hover), 
 #player_screenshot_button[data-value=true] + .satus-switch:not(:hover),
 #player_screenshot_button[data-value=true] + .satus-switch + .satus-select:not(:hover),
 /*-COPY VIDEO FULL URL-*/

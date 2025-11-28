@@ -71,10 +71,19 @@ extension.events.on('init', function () {
 	
 	// Call features that need to run regardless of settings
 	extension.features.youtubeHomePage();
-	extension.features.onlyOnePlayerInstancePlaying();
-	
-	extension.log('Feature initialization complete');
-	
+	extension.features.collapseOfSubscriptionSections();
+	extension.features.confirmationBeforeClosing();
+	extension.features.defaultContentCountry();
+	extension.features.popupWindowButtons();
+	extension.features.disableThumbnailPlayback();
+	extension.features.markWatchedVideos();
+	extension.features.relatedVideos();
+	extension.features.stickyNavigation();
+	extension.features.comments();
+	extension.features.openNewTab();
+	extension.features.removeListParamOnNewTab();
+	extension.features.removeMemberOnly();
+	// extension.features.hideSponsoredVideosOnHome?.();	
 	bodyReady();
 });
 

@@ -764,3 +764,25 @@ extension.features.changeThumbnailsPerRow = async function () {
 // 		});
 // 	}
 // };
+
+/*--------------------------------------------------------------
+# REMOVE MEMBER ONLY VIDEOS FROM HOME PAGE
+--------------------------------------------------------------*/
+extension.features.removeMemberOnly = function () {
+	if (extension.storage.get('remove_member_only')) {
+		const style = document.createElement('style');
+		style.id = 'remove-member-only-style';
+		style.textContent = `
+			badge-shape.yt-badge-shape--membership {
+				display: none !important;
+			}
+			ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
+			ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership) {
+				display: none !important;
+			}
+		`;
+		document.head.appendChild(style);
+	}
+
+};
+
