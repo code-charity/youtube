@@ -7,18 +7,16 @@ document.documentElement.setAttribute('it-pathname', location.pathname);
 window.addEventListener('yt-navigate-finish', function () {
 	document.documentElement.setAttribute('it-pathname', location.pathname);
 
-	// Trigger features that need to run on navigation
-	if (typeof extension.features.trackWatchedVideos === 'function') {
+	// Features will be available if loaded via lazy loading
+	// These will execute only if user has them enabled
+	if (extension.features.trackWatchedVideos) {
 		extension.features.trackWatchedVideos();
 	}
-	if (typeof extension.features.thumbnailsQuality === 'function') {
+	if (extension.features.thumbnailsQuality) {
 		extension.features.thumbnailsQuality();
 	}
-	if (typeof extension.features.stickyNavigation === 'function') {
+	if (extension.features.stickyNavigation) {
 		extension.features.stickyNavigation();
-	}
-	if (typeof extension.features.hideSponsoredVideosOnHome === 'function') {
-		extension.features.hideSponsoredVideosOnHome?.();
 	}
 });
 
@@ -36,17 +34,18 @@ extension.events.on('init', function (resolve) {
 
 function bodyReady() {
 	if (extension.ready && extension.domReady) {
-		// These features will be loaded via lazy loading if enabled
-		if (typeof extension.features.addScrollToTop === 'function') {
+		// Features will be available if loaded via lazy loading
+		// Only execute if user has them enabled
+		if (extension.features.addScrollToTop) {
 			extension.features.addScrollToTop();
 		}
-		if (typeof extension.features.font === 'function') {
+		if (extension.features.font) {
 			extension.features.font();
 		}
-		if (typeof extension.features.changeThumbnailsPerRow === 'function') {
-			extension.features.changeThumbnailsPerRow?.();
+		if (extension.features.changeThumbnailsPerRow) {
+			extension.features.changeThumbnailsPerRow();
 		}
-		if (typeof extension.features.clickableLinksInVideoDescriptions === 'function') {
+		if (extension.features.clickableLinksInVideoDescriptions) {
 			extension.features.clickableLinksInVideoDescriptions();
 		}
 	}
