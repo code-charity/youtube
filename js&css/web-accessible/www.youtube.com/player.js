@@ -2166,3 +2166,44 @@ ImprovedTube.addYouTubeReturnButton = function () {
         }
     }
 };
+
+/*------------------------------------------------------------------------------
+SHORTS AUTO SCROLL
+------------------------------------------------------------------------------*/
+ImprovedTube.shortsAutoScroll = function () {
+    if (this.storage.shorts_auto_scroll) {
+        if (!ImprovedTube.shortsAutoScrollInterval) {
+            ImprovedTube.shortsAutoScrollInterval = setInterval(() => {
+                if (!location.pathname.startsWith('/shorts/')) return;
+                
+                const activeRenderer = document.querySelector('ytd-reel-video-renderer[is-active]');
+                const video = activeRenderer ? activeRenderer.querySelector('video') : null;
+
+                if (video && !video.dataset.itShortsScrollAttached) {
+                    video.dataset.itShortsScrollAttached = 'true';
+                    
+                    video.addEventListener('timeupdate', function () {
+                        if (!ImprovedTube.storage.shorts_auto_scroll) return;
+                        if (this.paused) return;
+
+                        if (this.duration && this.currentTime >= this.duration - 0.25) {
+                            const nextButton = activeRenderer.querySelector('#navigation-button-down button') 
+                                            || document.querySelector('#navigation-button-down button')
+                                            || document.querySelector('button[aria-label="Next video"]');
+                            
+                            if (nextButton) {
+                                this.pause();
+                                nextButton.click();
+                            }
+                        }
+                    });
+                }
+            }, 1000);
+        }
+    } else {
+        if (ImprovedTube.shortsAutoScrollInterval) {
+            clearInterval(ImprovedTube.shortsAutoScrollInterval);
+            ImprovedTube.shortsAutoScrollInterval = null;
+        }
+    }
+};

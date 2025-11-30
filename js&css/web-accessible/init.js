@@ -106,6 +106,7 @@ ImprovedTube.init = function () {
 		if (ImprovedTube.storage.prevent_shorts_autoloop) {
 			ImprovedTube.stop_shorts_autoloop();
 		}
+		ImprovedTube.shortsAutoScroll();
 	}
 	if (window.matchMedia) {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -162,6 +163,7 @@ document.addEventListener('yt-navigate-finish', function () {
 		if (ImprovedTube.storage.prevent_shorts_autoloop) {
 			ImprovedTube.stop_shorts_autoloop();
 		}
+		ImprovedTube.shortsAutoScroll();
 	}
 	if (document.documentElement.dataset.pageType === 'home' && ImprovedTube.storage.youtube_home_page === 'search') {
 		document.querySelector('body').style.setProperty('visibility', 'visible', 'important');
