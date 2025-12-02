@@ -8,7 +8,6 @@
 describe('Lazy Loading and Feature Eligibility System', () => {
 	let extension;
 	let mockNavigator;
-	let mockDocument;
 	let mockChrome;
 
 	beforeEach(() => {
@@ -46,23 +45,36 @@ describe('Lazy Loading and Feature Eligibility System', () => {
 			log: jest.fn()
 		};
 
-		// Mock navigator (stub)
+		// Mock navigator (stub) - Single language by default
 		mockNavigator = {
 			languages: ['en-US'],
 			language: 'en-US',
 			userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
 		};
-		global.navigator = mockNavigator;
+		// Delete and redefine to allow updates in tests
+		delete global.navigator;
+		Object.defineProperty(global, 'navigator', {
+			get: () => mockNavigator,
+			configurable: true
+		});
 
-		// Mock document (stub)
-		mockDocument = {
-			cookie: ''
-		};
-		global.document = mockDocument;
+		// Reset document.cookie (jsdom provides document object)
+		if (global.document) {
+			// Clear all cookies by setting them to expired
+			const cookies = global.document.cookie.split(';');
+			for (let cookie of cookies) {
+				const eqPos = cookie.indexOf('=');
+				const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+				global.document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+			}
+		}
 
-		// Mock location (stub) - use delete and Object.defineProperty for jsdom compatibility
+		// Mock location (stub) - Avoid jsdom navigation issues
 		delete global.location;
-		global.location = { pathname: '/watch' };
+		global.location = { 
+			pathname: '/watch',
+			href: 'https://www.youtube.com/watch'
+		};
 
 		// Mock chrome runtime (fake)
 		mockChrome = {
@@ -117,8 +129,8 @@ describe('Lazy Loading and Feature Eligibility System', () => {
 		});
 
 		test('should detect users from multilingual countries', () => {
-			// Arrange - Mock Swiss user (CH) - need to reset languages array
-			mockNavigator.languages = ['de-CH'];  // Reset to single language
+			// Arrange - Mock Swiss user (CH) with exactly ONE language to avoid multilingual flag
+			mockNavigator.languages = ['de-CH']; // Only ONE language
 			mockNavigator.language = 'de-CH';
 
 			// Act
@@ -126,6 +138,7 @@ describe('Lazy Loading and Feature Eligibility System', () => {
 
 			// Assert
 			expect(cohorts).toContain('multilingual_countries');
+			expect(cohorts).not.toContain('multilingual'); // Should NOT be multilingual with 1 language
 		});
 
 		test('should detect subtitle users when subtitle_language is set', () => {
@@ -140,9 +153,8 @@ describe('Lazy Loading and Feature Eligibility System', () => {
 		});
 
 		test('should detect logged-in users via cookie', () => {
-			// Arrange - Mock logged-in user with fake cookie, reset languages
-			mockNavigator.languages = ['en-US'];  // Reset to single language
-			mockDocument.cookie = 'LOGIN_INFO=somevalue; other=data';
+			// Arrange - Mock logged-in user with fake cookie
+			document.cookie = 'LOGIN_INFO=somevalue; other=data';
 
 			// Act
 			const cohorts = detectUserCohort();
@@ -156,7 +168,7 @@ describe('Lazy Loading and Feature Eligibility System', () => {
 			mockNavigator.languages = ['en-CA', 'fr-CA']; // Multilingual
 			mockNavigator.language = 'en-CA'; // Canadian (multilingual country)
 			extension.storage.data.subtitles = true; // Subtitle user
-			mockDocument.cookie = 'LOGIN_INFO=test'; // Logged in
+			document.cookie = 'LOGIN_INFO=test'; // Logged in
 
 			// Act
 			const cohorts = detectUserCohort();
@@ -170,17 +182,14 @@ describe('Lazy Loading and Feature Eligibility System', () => {
 		});
 
 		test('should return empty array for user matching no cohort criteria', () => {
-			// Arrange - Basic user with single language, reset all
-			mockNavigator.languages = ['en-US'];
-			mockNavigator.language = 'en-US';
-			mockDocument.cookie = '';
-			extension.storage.data = {};  // Clear subtitle data
+			// Arrange - Basic user with defaults set in beforeEach
 
 			// Act
 			const cohorts = detectUserCohort();
 
 			// Assert
 			expect(cohorts).toEqual([]);
+			expect(cohorts.length).toBe(0);
 		});
 	});
 
@@ -328,16 +337,17 @@ describe('Lazy Loading and Feature Eligibility System', () => {
 		});
 
 		test('should generate different hash for different user agents', () => {
-			// Arrange
-			mockNavigator.userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)';
+			// Arrange - Get hash with first user agent
 			const hash1 = getUserHash();
 			
-			// Change user agent to something different
+			// Change user agent
 			mockNavigator.userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)';
 			const hash2 = getUserHash();
 
 			// Assert
 			expect(hash1).not.toBe(hash2);
+			expect(typeof hash1).toBe('number');
+			expect(typeof hash2).toBe('number');
 		});
 
 		test('should always return positive number', () => {

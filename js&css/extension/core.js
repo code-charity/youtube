@@ -315,21 +315,14 @@ extension.loadAndEnableFeature = function(featureKey, value) {
 --------------------------------------------------------------*/
 
 extension.camelize = function (string) {
-	var result = '';
-
-	for (var i = 0, l = string.length; i < l; i++) {
-		var character = string[i];
-
-		if (character === '_' || character === '-') {
-			i++;
-
-			result += string[i].toUpperCase();
-		} else {
-			result += character;
-		}
+	// Optimized: Single-pass regex replacement for both _ and -
+	// Early exit if no transformations needed (common case)
+	if (string.indexOf('_') !== -1 || string.indexOf('-') !== -1) {
+		return string.replace(/[-_][a-z]/g, function(match) {
+			return match[1].toUpperCase();
+		});
 	}
-
-	return result;
+	return string;
 };
 
 /*--------------------------------------------------------------
