@@ -1,0 +1,2 @@
+ {
+  "code": "const video = document.querySelector('video');\n\nfunction togglePIP() {\n  if (document.pictureInPictureElement) {\n    document.exitPictureInPicture();\n  } else {\n    video.requestPictureInPicture();\n  }\n}\n\nvide
