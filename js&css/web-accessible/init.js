@@ -149,6 +149,31 @@ document.addEventListener('yt-navigate-finish', function () {
 				// if(node.getAttribute('itemprop') === 'uploadDate')   {ImprovedTube.uploadDate = node.content;}
 	*/
 	ImprovedTube.pageType();
+
+	// Disable auto-translation logic
+	if (ImprovedTube.storage.disable_auto_translation) {
+		// Revert translated video title
+		let originalTitle = document.querySelector('meta[name="title"]');
+		if (originalTitle && originalTitle.content) {
+			let titleEl = document.querySelector('h1.title, h1.ytd-watch-metadata');
+			if (titleEl) titleEl.textContent = originalTitle.content;
+		}
+
+		// Revert translated video description
+		let originalDesc = document.querySelector('meta[name="description"]');
+		if (originalDesc && originalDesc.content) {
+			let descEl = document.querySelector('#description, .ytd-video-secondary-info-renderer #description');
+			if (descEl) descEl.textContent = originalDesc.content;
+		}
+
+		// Attempt to revert auto-translated captions (if available)
+		let captionEls = document.querySelectorAll('.ytp-caption-segment');
+		captionEls.forEach(function (el) {
+			if (el.dataset.originalText) {
+				el.textContent = el.dataset.originalText;
+			}
+		});
+	}
 	ImprovedTube.YouTubeExperiments();
 	ImprovedTube.commentsSidebar();
     try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] nav-finish error', e); }
