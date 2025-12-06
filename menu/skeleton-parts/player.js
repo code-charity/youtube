@@ -84,6 +84,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'preventShortVideoAutoloop',
 			storage: 'prevent_shorts_autoloop',
 		},
+		shorts_auto_scroll: {
+			component: 'switch',
+			text: 'autoPlayNextShort',
+			storage: 'shorts_auto_scroll'
+		},
 		autoplay_disable: {
 			component: 'switch',
 			text: 'autoplayDisable',
