@@ -455,6 +455,9 @@
     "openPopupPlayer": {
         "message": "Ouvrir Video/playlist dans un nouvelle onglet"
     },
+    "originalTitleToggle": {
+        "message": "Basculer entre titre original/traduit"
+    },
     "other": {
         "message": "Autres"
     },

@@ -632,6 +632,9 @@
     "orange": {
         "message": "Pomarańczowy"
     },
+    "originalTitleToggle": {
+        "message": "Przełącz tytuł oryginalny/przetłumaczony"
+    },
     "other": {
         "message": "Inne"
     },

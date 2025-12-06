@@ -194,6 +194,9 @@
     "ok": {
         "message": "確定"
     },
+    "originalTitleToggle": {
+        "message": "切换原始/翻译标题"
+    },
     "other": {
         "message": "其他"
     },

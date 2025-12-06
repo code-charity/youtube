@@ -102,6 +102,12 @@ ImprovedTube.init = function () {
 		ImprovedTube.videoPageUpdate();
 		ImprovedTube.initPlayer();
 	}
+	
+	// Initialize original title toggle on initial load if on video page
+	if (document.documentElement.dataset.pageType === 'video' && typeof ImprovedTube.initOriginalTitleToggle === 'function') {
+		ImprovedTube.initOriginalTitleToggle();
+	}
+	
 	if (ImprovedTube.elements.shorts_player) {
 		if (ImprovedTube.storage.prevent_shorts_autoloop) {
 			ImprovedTube.stop_shorts_autoloop();
@@ -112,17 +118,11 @@ ImprovedTube.init = function () {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
 	
-	if (ImprovedTube.storage.full_screen_quality) {
-       if (!ImprovedTube._fsqBound) {
-          document.addEventListener('fullscreenchange', () => ImprovedTube.playerQualityFullScreen(), { passive: true });
-          ImprovedTube._fsqBound = true;
-        }
-        ImprovedTube.playerQualityFullScreen();
-}
-
+	// Initialize thumbnail title toggle (for home, search, sidebar)
+	if (typeof ImprovedTube.originalTitleThumbnails === 'function') {
+		ImprovedTube.originalTitleThumbnails();
+	}
 };
-
-
 
 document.addEventListener('yt-navigate-finish', function () {
 	/* 			if (name === 'META') {			   //<META> infos are not updated when clicking related videos...
@@ -158,6 +158,12 @@ document.addEventListener('yt-navigate-finish', function () {
 		ImprovedTube.videoPageUpdate();
 		ImprovedTube.initPlayer();
 	}
+	
+	// Initialize original title toggle on every navigation
+	if (document.documentElement.dataset.pageType === 'video' && typeof ImprovedTube.initOriginalTitleToggle === 'function') {
+		ImprovedTube.initOriginalTitleToggle();
+	}
+	
 	if (ImprovedTube.elements.shorts_player) {
 		ImprovedTube.redirectShortsToWatch();
 		if (ImprovedTube.storage.prevent_shorts_autoloop) {

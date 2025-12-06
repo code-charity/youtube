@@ -455,6 +455,9 @@
     "orange": {
         "message": "Oranžová"
     },
+    "originalTitleToggle": {
+        "message": "Prepnúť pôvodný/preložený názov"
+    },
     "other": {
         "message": "Ostatné"
     },

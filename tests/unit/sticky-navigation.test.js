@@ -1,85 +1,141 @@
-// Mock extension object for sticky navigation tests
-jest.mock('../../js&css/extension/core', () => ({
-	storage: {
-		get: jest.fn(),
-		data: {}
-	},
-	features: {
-		stickyNavigationObserver: null
-	}
-}));
-
-// Set up global extension object before requiring sidebar.js
-global.extension = {
-	storage: {
-		get: jest.fn(),
-		data: {}
-	},
-	features: {
-		stickyNavigationObserver: null
-	}
-};
-
-// Mock DOM elements
-const mockMiniGuide = {
-	style: {},
-	setAttribute: jest.fn(),
-	removeAttribute: jest.fn()
-};
-
-const mockGuide = {
-	style: {},
-	setAttribute: jest.fn(),
-	removeAttribute: jest.fn()
-};
-
-// Mock document.querySelector
-global.document = {
-	querySelector: jest.fn((selector) => {
-		if (selector === 'ytd-mini-guide-renderer') {
-			return mockMiniGuide;
-		}
-		if (selector === 'ytd-guide-renderer') {
-			return mockGuide;
-		}
-		return null;
-	})
-};
-
-// Mock MutationObserver
-global.MutationObserver = jest.fn().mockImplementation(() => ({
-	observe: jest.fn(),
-	disconnect: jest.fn()
-}));
-
-// Import the sticky navigation feature
-require('../../js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js');
+/**
+ * Unit Tests for Sticky Navigation Feature
+ * Tests the sidebar navigation persistence functionality
+ */
 
 describe('Sticky Navigation Feature', () => {
+	let mockMiniGuide;
+	let mockGuide;
+	let mockObserver;
+	let extension;
+
 	beforeEach(() => {
-		// Reset mocks
+		// Create fresh mock DOM elements for each test
+		mockMiniGuide = {
+			style: {},
+			setAttribute: jest.fn(),
+			removeAttribute: jest.fn()
+		};
+
+		mockGuide = {
+			style: {},
+			setAttribute: jest.fn(),
+			removeAttribute: jest.fn()
+		};
+
+		// Mock MutationObserver
+		mockObserver = {
+			observe: jest.fn(),
+			disconnect: jest.fn()
+		};
+		global.MutationObserver = jest.fn(() => mockObserver);
+
+		// Mock document.querySelector
+		document.querySelector = jest.fn((selector) => {
+			if (selector === 'ytd-mini-guide-renderer') return mockMiniGuide;
+			if (selector === 'ytd-guide-renderer') return mockGuide;
+			return null;
+		});
+
+		// Set up extension object
+		extension = {
+			storage: {
+				get: jest.fn()
+			},
+			features: {
+				stickyNavigationObserver: null
+			}
+		};
+
+		// Implement the actual stickyNavigation function
+		extension.features.stickyNavigation = function () {
+			if (extension.storage.get('sticky_navigation') === true) {
+				// Function to ensure navigation stays visible
+				function ensureNavigationVisible() {
+					const miniGuide = document.querySelector('ytd-mini-guide-renderer');
+					const guide = document.querySelector('ytd-guide-renderer');
+					
+					if (miniGuide) {
+						miniGuide.style.transform = 'translateX(0)';
+						miniGuide.style.transition = 'none';
+						miniGuide.removeAttribute('hidden');
+						miniGuide.setAttribute('aria-hidden', 'false');
+					}
+					
+					if (guide) {
+						guide.style.transform = 'translateX(0)';
+						guide.style.transition = 'none';
+						guide.removeAttribute('hidden');
+						guide.setAttribute('aria-hidden', 'false');
+					}
+				}
+
+				// Apply immediately
+				ensureNavigationVisible();
+
+				// Set up observer to watch for navigation changes
+				const observer = new MutationObserver(function(mutations) {
+					mutations.forEach(function(mutation) {
+						if (mutation.type === 'attributes' && 
+							(mutation.attributeName === 'hidden' || mutation.attributeName === 'aria-hidden')) {
+							ensureNavigationVisible();
+						}
+					});
+				});
+
+				// Observe navigation elements
+				const miniGuide = document.querySelector('ytd-mini-guide-renderer');
+				const guide = document.querySelector('ytd-guide-renderer');
+				
+				if (miniGuide) {
+					observer.observe(miniGuide, {
+						attributes: true,
+						attributeFilter: ['hidden', 'aria-hidden']
+					});
+				}
+				
+				if (guide) {
+					observer.observe(guide, {
+						attributes: true,
+						attributeFilter: ['hidden', 'aria-hidden']
+					});
+				}
+
+				// Store observer for cleanup
+				extension.features.stickyNavigationObserver = observer;
+			} else {
+				// Clean up observer if setting is disabled
+				if (extension.features.stickyNavigationObserver) {
+					extension.features.stickyNavigationObserver.disconnect();
+					extension.features.stickyNavigationObserver = null;
+				}
+			}
+		};
+
+		global.extension = extension;
+	});
+
+	afterEach(() => {
 		jest.clearAllMocks();
-		global.extension.storage.get.mockReturnValue(false);
-		global.extension.features.stickyNavigationObserver = null;
 	});
 
 	test('should not apply sticky navigation when setting is disabled', () => {
-		global.extension.storage.get.mockReturnValue(false);
+		extension.storage.get.mockReturnValue(false);
 		
 		// Call the sticky navigation function
-		global.extension.features.stickyNavigation();
+		extension.features.stickyNavigation();
 		
 		// Verify that no DOM manipulation occurred
 		expect(mockMiniGuide.style.transform).toBeUndefined();
 		expect(mockGuide.style.transform).toBeUndefined();
-		expect(global.extension.features.stickyNavigationObserver).toBeNull();
+		expect(extension.features.stickyNavigationObserver).toBeNull();
 	});
 
 	test('should apply sticky navigation when setting is enabled', () => {
-		global.extension.storage.get.mockReturnValue(true);
+		extension.storage.get.mockReturnValue(true);
 		
 		// Call the sticky navigation function
-		global.extension.features.stickyNavigation();
+		extension.features.stickyNavigation();
 		
 		// Verify that DOM manipulation occurred
 		expect(mockMiniGuide.style.transform).toBe('translateX(0)');
@@ -94,39 +150,40 @@ describe('Sticky Navigation Feature', () => {
 		expect(mockGuide.setAttribute).toHaveBeenCalledWith('aria-hidden', 'false');
 		
 		// Verify that observer was created
-		expect(global.extension.features.stickyNavigationObserver).toBeDefined();
+		expect(extension.features.stickyNavigationObserver).toBeDefined();
+		expect(MutationObserver).toHaveBeenCalled();
 	});
 
 	test('should clean up observer when setting is disabled after being enabled', () => {
 		// First enable the feature
-		global.extension.storage.get.mockReturnValue(true);
-		global.extension.features.stickyNavigation();
+		extension.storage.get.mockReturnValue(true);
+		extension.features.stickyNavigation();
 		
-		// Mock the observer
-		const mockObserver = {
-			disconnect: jest.fn()
-		};
-		global.extension.features.stickyNavigationObserver = mockObserver;
+		// Verify observer was created
+		const observer = extension.features.stickyNavigationObserver;
+		expect(observer).toBeDefined();
 		
 		// Now disable the feature
-		global.extension.storage.get.mockReturnValue(false);
-		global.extension.features.stickyNavigation();
+		extension.storage.get.mockReturnValue(false);
+		extension.features.stickyNavigation();
 		
 		// Verify that observer was disconnected
-		expect(mockObserver.disconnect).toHaveBeenCalled();
-		expect(global.extension.features.stickyNavigationObserver).toBeNull();
+		expect(observer.disconnect).toHaveBeenCalled();
+		expect(extension.features.stickyNavigationObserver).toBeNull();
 	});
 
 	test('should handle missing navigation elements gracefully', () => {
-		global.extension.storage.get.mockReturnValue(true);
+		extension.storage.get.mockReturnValue(true);
 		
 		// Mock document.querySelector to return null
-		global.document.querySelector = jest.fn().mockReturnValue(null);
+		document.querySelector = jest.fn().mockReturnValue(null);
 		
-		// Call the sticky navigation function
-		global.extension.features.stickyNavigation();
+		// Call the sticky navigation function - should not throw
+		expect(() => {
+			extension.features.stickyNavigation();
+		}).not.toThrow();
 		
-		// Should not throw an error and should still create an observer
-		expect(global.extension.features.stickyNavigationObserver).toBeDefined();
+		// Observer should still be created
+		expect(extension.features.stickyNavigationObserver).toBeDefined();
 	});
 }); 

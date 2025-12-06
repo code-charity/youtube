@@ -526,39 +526,6 @@ ImprovedTube.playerQualityWithoutFocus = function () {
 	}
 };
 /*------------------------------------------------------------------------------
-QUALITY FULL SCREEN
-------------------------------------------------------------------------------*/
-ImprovedTube.playerQualityFullScreen = function () {
-   var isFs = !!(
-     document.fullscreenElement ||
-     document.webkitFullscreenElement ||
-     document.mozFullScreenElement ||
-     document.msFullscreenElement ||
-     document.webkitIsFullScreen ||
-     document.mozFullScreen
-   );
-
-   var target = isFs ? fsq : ImprovedTube.storage.player_quality;
-
-   var map = {
-     '144p':'tiny','240p':'small','360p':'medium','480p':'large',
-     '720p':'hd720','1080p':'hd1080','1440p':'hd1440','2160p':'hd2160','4320p':'highres',
-     'tiny':'tiny','small':'small','medium':'medium','large':'large',
-     'hd720':'hd720','hd1080':'hd1080','hd1440':'hd1440','hd2160':'hd2160','highres':'highres'
-   };
-   var desired = map[target] || target;
-
-   var player = ImprovedTube.elements && ImprovedTube.elements.player;
-   if (!player) return;
-
-   if (typeof ImprovedTube.playerQuality === 'function') {
-     ImprovedTube.playerQuality(desired);
-     return;
-   }
-   try { if (typeof player.setPlaybackQualityRange === 'function') player.setPlaybackQualityRange(desired, desired); } catch(e) {}
-   try { if (typeof player.setPlaybackQuality === 'function') player.setPlaybackQuality(desired); } catch(e) {}
- }
-/*------------------------------------------------------------------------------
 BATTERY FEATURES;   PLAYER QUALITY BASED ON POWER STATUS
 ------------------------------------------------------------------------------*/
 ImprovedTube.batteryFeatures = async function () {
