@@ -51,6 +51,8 @@
         "js&css/extension/www.youtube.com/general/general.js",
         "js&css/extension/www.youtube.com/appearance/sidebar/sidebar.js",
         "js&css/extension/www.youtube.com/appearance/comments/comments.js",
+        "js&css/extension/www.youtube.com/player/media-keys.js",
+        "js&css/extension/www.youtube.com/player/media-keys-content.js",
         "js&css/extension/init.js"
       ],
       "matches": ["https://www.youtube.com/*"],
@@ -58,8 +60,31 @@
     }
   ],
   "host_permissions": ["https://www.youtube.com/*"],
-  "optional_permissions": ["downloads"],
-  "permissions": ["contextMenus", "storage"],
+  "optional_permissions": [
+    "downloads"
+  ],
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "tabs",
+    "scripting",
+    "webNavigation",
+    "commands"
+  ],
+  "commands": {
+    "mediaPrevTrack": {
+      "suggested_key": {
+        "default": "MediaPrevTrack"
+      },
+      "description": "Rewind video by 10 seconds"
+    },
+    "mediaNextTrack": {
+      "suggested_key": {
+        "default": "MediaNextTrack"
+      },
+      "description": "Fast forward video by 10 seconds"
+    }
+  },
   "web_accessible_resources": [
     {
       "resources": [
@@ -68,6 +93,8 @@
         "js&css/web-accessible/functions.js",
         "js&css/web-accessible/www.youtube.com/appearance.js",
         "js&css/web-accessible/www.youtube.com/player.js",
+        "js&css/web-accessible/www.youtube.com/player/media-keys.js",
+        "js&css/web-accessible/www.youtube.com/player/media-keys-content.js",
         "js&css/web-accessible/www.youtube.com/themes.js",
         "js&css/web-accessible/www.youtube.com/playlist.js",
         "js&css/web-accessible/www.youtube.com/playlist-complete-playlist.js",
