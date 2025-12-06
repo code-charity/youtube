@@ -250,10 +250,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					text: "always",
 					value: "always"
 				}]
-			},
-			player_undo_liquid_glass_2025: {
-			component: 'switch',
-			text: 'undoLiquidGlass2025',
 			},	
 			player_hide_progress_preview: {
 			component: 'switch',
