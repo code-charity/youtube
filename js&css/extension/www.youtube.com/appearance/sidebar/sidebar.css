@@ -183,6 +183,14 @@ html[it-livechat='collapsed'][it-livechat='hidden'] ytd-live-chat-frame#chat {
   display: none !important;
 }
 
+html[it-livechat='collapsed'] 
+#chat-container:not([it-activated])::before, 
+#chat-container[it-activated]::before {
+	background-color: #272727 !important;
+	border-radius: 8px !important;
+	cursor: pointer;
+}
+
 
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
