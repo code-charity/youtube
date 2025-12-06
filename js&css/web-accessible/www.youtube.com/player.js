@@ -464,8 +464,8 @@ ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
 	if (quality && quality !== 'disabled'
 		&& player && player.getAvailableQualityLevels
 		&& (!player.dataset.defaultQuality || player.dataset.defaultQuality != quality)) {
+		let available_quality_levels = player.getAvailableQualityLevels();
 		try {
-			const available_quality_levels = player.getAvailableQualityLevels?.() || [];
 			const hasTrue1080pOrHigher = available_quality_levels.some(q =>
 				['hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'].includes(q)
 			);
