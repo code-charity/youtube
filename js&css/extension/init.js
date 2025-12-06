@@ -50,6 +50,7 @@ extension.events.on('init', function () {
 	extension.features.comments();
 	extension.features.openNewTab();
 	extension.features.removeListParamOnNewTab();
+	extension.features.removeMemberOnly();
 	// extension.features.hideSponsoredVideosOnHome?.();	
 	bodyReady();
 });

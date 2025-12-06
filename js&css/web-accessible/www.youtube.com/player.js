@@ -1733,6 +1733,11 @@ ImprovedTube.playerHideProgressPreview = function () {
 		document.documentElement.removeAttribute('it-hide-progress-preview');
 	}
 };
+
+
+/*------------------------------------------------------------------------------
+Rewind and Forward Buttons
+------------------------------------------------------------------------------*/
 ImprovedTube.playerRewindAndForwardButtons = function(){
 	if(this.storage.player_rewind_and_forward_buttons===true){
 	 const svgNamespace = "http://www.w3.org/2000/svg";
@@ -1798,11 +1803,131 @@ ImprovedTube.playerRewindAndForwardButtons = function(){
 	  },
 	  title: 'rewind 5 seconds',
 	 }).classList.remove('it-player-button');
-	
-   
-	
 	}
    }
+
+/*------------------------------------------------------------------------------
+Increase and Decrease Playback Speed Buttons
+------------------------------------------------------------------------------*/
+ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
+    if (this.storage.player_increase_decrease_speed_buttons === true) {
+        const svgNamespace = "http://www.w3.org/2000/svg";
+        
+        const svgDecrease = document.createElementNS(svgNamespace, "svg");
+        const path1 = document.createElementNS(svgNamespace, "path");
+        svgDecrease.setAttribute("class", "icon");
+        svgDecrease.setAttribute("viewBox", "0 0 1024 1024");
+        svgDecrease.setAttribute("version", "1.1");
+        svgDecrease.setAttribute("xmlns", svgNamespace);
+        svgDecrease.setAttribute("width", "90%");
+        svgDecrease.setAttribute("height", "90%");
+        svgDecrease.style.display = "block";
+        svgDecrease.style.margin = "0 auto";
+        path1.setAttribute("d", `M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5
+                c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z
+                M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2
+                c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1
+                c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z
+                M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5
+                c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z`);
+        path1.setAttribute("fill", "#ffffff");
+        
+        path1.setAttribute("transform", "translate(520, 0)");
+
+        svgDecrease.appendChild(path1);
+
+        const svg1x = document.createElementNS(svgNamespace, "svg");
+        svg1x.setAttribute("t", "1742599438764");
+        svg1x.setAttribute("class", "icon");
+
+        svg1x.setAttribute("viewBox", "0 0 1024 1024");
+        svg1x.setAttribute("version", "1.1");
+        svg1x.setAttribute("xmlns", svgNamespace);
+        svg1x.setAttribute("p-id", "1636");
+
+        const text1 = document.createElementNS(svgNamespace, "text");
+        text1.setAttribute("x", "512"); 
+        text1.setAttribute("y", "512"); 
+
+        text1.setAttribute("fill", "#ffffff");
+        text1.setAttribute("font-size", "550"); 
+
+        text1.setAttribute("font-weight", "bold");
+        text1.setAttribute("font-family", "Arial, sans-serif");
+        text1.setAttribute("text-anchor", "middle");
+        text1.setAttribute("dominant-baseline", "central");
+        text1.textContent = "1x";
+        svg1x.appendChild(text1);
+
+        const svgIncrease = document.createElementNS(svgNamespace, "svg");
+        const path2 = document.createElementNS(svgNamespace, "path");
+        svgIncrease.setAttribute("class", "icon");
+        svgIncrease.setAttribute("viewBox", "0 0 1024 1024");
+        svgIncrease.setAttribute("version", "1.1");
+        svgIncrease.setAttribute("xmlns", svgNamespace);
+        svgIncrease.setAttribute("width", "90%");
+        svgIncrease.setAttribute("height", "90%");
+        svgIncrease.style.display = "block";
+        svgIncrease.style.margin = "0 auto";
+        
+        svgDecrease.style.transform = "scaleX(-1)";
+        
+        path2.setAttribute("d", `M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5
+                c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z
+                M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2
+                c-8,0-16-3.1-22.1-9.2C209.6,328.1,209.6,308.3,221.9,296.1z M440.2,341.4c0-34.6-9.1-68.6-26.4-98.3c-6.7-11.6-2.8-26.4,8.8-33.1
+                c11.6-6.7,26.4-2.8,33.1,8.8c21.5,37.1,32.9,79.5,32.9,122.6c0,13.4-10.8,24.2-24.2,24.2C451.1,365.6,440.2,354.8,440.2,341.4z
+                M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5
+                c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z`);
+        path2.setAttribute("fill", "#ffffff");
+
+        svgIncrease.appendChild(path2);
+        path2.setAttribute("transform", "translate(-20, 0)");
+
+        this.createPlayerButton({
+            id: 'it-increase-speed-button',
+            opacity: 0.85,
+            position: "right",
+            child: svgIncrease,
+            onclick: function () {
+                const step = ImprovedTube.storage.player_custom_playback_speed_step || 0.25;
+                const currentSpeed = ImprovedTube.playbackSpeed();
+                let newSpeed = Math.min(currentSpeed + step, 16);
+                const appliedSpeed = ImprovedTube.playbackSpeed(newSpeed);
+                ImprovedTube.showStatus(appliedSpeed + 'x');
+            },
+            title: `increase speed by ${ImprovedTube.storage.player_custom_playback_speed_step || 0.25}x`,
+        }).classList.remove('it-player-button');
+
+        this.createPlayerButton({
+            id: 'it-1x-speed-button',
+            opacity: 0.85,
+            position: "right",
+            child: svg1x,
+            onclick: function () {
+                ImprovedTube.playbackSpeed(1);
+                ImprovedTube.showStatus('1x');
+            },
+            title: 'set speed to 1x',
+        }).classList.remove('it-player-button');
+
+        this.createPlayerButton({
+            id: 'it-decrease-speed-button',
+            opacity: 0.85,
+            position: "right",
+            child: svgDecrease,
+            onclick: function () {
+				const step = ImprovedTube.storage.player_custom_playback_speed_step || 0.25;
+                const currentSpeed = ImprovedTube.playbackSpeed();
+                let newSpeed = Math.max(currentSpeed - step, step);
+                const appliedSpeed = ImprovedTube.playbackSpeed(newSpeed);
+                ImprovedTube.showStatus(appliedSpeed + 'x');
+            },
+            title: `decrease speed by ${ImprovedTube.storage.player_custom_playback_speed_step || 0.25}x`,
+        }).classList.remove('it-player-button');
+    }
+}
+
 /*------------------------------------------------------------------------------
 # DISABLE AUTO DUBBING
 ------------------------------------------------------------------------------*/
