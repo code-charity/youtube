@@ -83,6 +83,8 @@ ImprovedTube.shortcutsHandler = function () {
 
 		if (key.startsWith('shortcutQuality')) {
 			ImprovedTube['shortcutQuality'](key);
+		} else if (key.startsWith('shortcutPlaybackSpeed')) {
+			ImprovedTube['shortcutPlaybackSpeed'](key);
 		} else if (typeof ImprovedTube[key] === 'function') {
 			ImprovedTube[key]();
 		}
@@ -154,6 +156,33 @@ ImprovedTube.shortcutQuality = function (key) {
 		resolution = ['auto', '144p', '240p', '360p', '480p', '720p', '1080p', '1440p', '2160p', '2880p', '4320p'];
 
 	ImprovedTube.playerQuality(label[resolution.indexOf(key.replace('shortcutQuality', ''))]);
+};
+/*------------------------------------------------------------------------------
+4.7.1B PLAYBACK SPEED
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutPlaybackSpeed = function (key) {
+	const match = key.match(/^shortcutPlaybackSpeed(\d+)$/);
+	if (!match) return;
+
+	let num = match[1];
+
+	let speed;
+	if (num.startsWith("0")) {
+		speed = parseFloat("0." + num.slice(1));
+	} else if (num.length === 1) {
+		speed = parseFloat(num);
+	} else if (num.length === 2) {
+		speed = parseFloat(num[0] + "." + num[1]);
+	} else {
+		speed = parseFloat(num.slice(0, -2) + "." + num.slice(-2));
+	}
+
+	//console.log(speed);
+
+	if (speed === undefined || isNaN(speed)) return;
+
+	ImprovedTube.playbackSpeed(speed);
+	ImprovedTube.showStatus(speed);
 };
 /*------------------------------------------------------------------------------
 4.7.2 PICTURE IN PICTURE (PIP)
@@ -579,7 +608,6 @@ ImprovedTube.shortcutRotateVideo = function () {
 ImprovedTube.shortcutActivateFitToWindow = function() {
 	ImprovedTube.toggleFitToWindow();
 };
-
 /*------------------------------------------------------------------------------
 4.7.31 CINEMA MODE
 ------------------------------------------------------------------------------*/
@@ -598,3 +626,33 @@ ImprovedTube.shortcutCinemaMode = function () {
 		overlay.style.display = overlay.style.display === 'none' || overlay.style.display === '' ? 'block' : 'none';
 	}
 }
+/*------------------------------------------------------------------------------
+4.7.32 REFRESH CATEGORIES
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutRefreshCategories = function () {
+	let chipContainer = document.querySelector('ytd-feed-filter-chip-bar-renderer');
+	
+	if (chipContainer) {
+		chipContainer.style.display = '';
+		chipContainer.style.visibility = 'visible';
+		chipContainer.style.opacity = '1';
+		chipContainer.hidden = false;
+		
+		let parent = chipContainer.parentElement;
+		while (parent && parent !== document.body) {
+			parent.style.display = '';
+			parent.style.visibility = 'visible';
+			parent = parent.parentElement;
+		}
+		
+		const allChips = chipContainer.querySelectorAll('yt-chip-cloud-chip-renderer button');
+		if (allChips.length > 1) {
+			allChips[1].click();
+			setTimeout(function() {
+				allChips[0].click();
+			}, 200);
+		}
+	} else {
+		window.location.reload();
+	}
+};

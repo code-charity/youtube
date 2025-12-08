@@ -84,6 +84,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'preventShortVideoAutoloop',
 			storage: 'prevent_shorts_autoloop',
 		},
+		shorts_auto_scroll: {
+			component: 'switch',
+			text: 'autoPlayNextShort',
+			storage: 'shorts_auto_scroll'
+		},
 		autoplay_disable: {
 			component: 'switch',
 			text: 'autoplayDisable',
@@ -1149,7 +1154,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 				min: 0.25,
 				max: 4,
 				step: 0.05,
-				text: true,
+				textarea: true,
 				value: 1.25
 			}]
 		},
@@ -1240,14 +1245,30 @@ extension.skeleton.main.layers.section.player.on.click = {
 				component: 'switch',
 				text: 'player_fit_to_win_button'
 			},
-		player_rewind_and_forward_buttons: {
-			component: 'switch',
-			text: 'player_rewind_and_forward_buttons'
-		},
-		player_playback_speed_button: {
-			component: 'switch',
-			text: 'player_playback_speed_button'
-		},
+			player_rewind_and_forward_buttons: {
+				component: 'switch',
+				text: 'player_rewind_and_forward_buttons'
+			},
+			player_increase_decrease_speed_buttons: {
+				component: 'switch',
+				text: 'playerIncreaseDecreaseSpeedButtons',
+				id: 'player-increase-decrease-speed-buttons'
+			},
+			player_custom_playback_speed_step: {
+				storage: 'player_custom_playback_speed_step',
+				component: 'slider',
+				text: 'playerPlaybackSpeedStep',
+				textarea: true,
+				min: 0.05,
+				max: 1,
+				step: 0.05,
+				value: 0.25
+			},
+
+			player_playback_speed_button: {
+				component: 'switch',
+				text: 'player_playback_speed_button'
+			},
 		},
 		fullscreen_return_button: {
 			component: 'switch',

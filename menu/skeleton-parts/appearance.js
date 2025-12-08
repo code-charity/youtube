@@ -250,7 +250,7 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					text: "always",
 					value: "always"
 				}]
-			},		
+			},	
 			player_hide_progress_preview: {
 			component: 'switch',
 			text: 'hideProgressBarPreview',

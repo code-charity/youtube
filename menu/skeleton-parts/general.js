@@ -517,6 +517,10 @@ extension.skeleton.main.layers.section.general = {
 				clickable_links_in_description: {
 					component: 'switch',
 					text: 'clickableLinksInDescription'
+				},
+				category_refresh_button: {
+    			component: 'switch',
+    			text: 'categoryRefreshButton'
 				}
 			}
 		}
