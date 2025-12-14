@@ -265,6 +265,9 @@ extension.skeleton.main.layers.section.general = {
 					component: 'select',
 					text: 'changeThumbnailsPerRow',
 					options: [{
+						text: 'default',
+						value: 'default'
+					}, {
 						text: '4',
 						value: '4'
 					},{
