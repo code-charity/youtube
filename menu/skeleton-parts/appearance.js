@@ -403,6 +403,12 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				value: false,
 				tags: "remove,hide"
 			},
+			player_hide_pause_overlay: {
+				component: "switch",
+				text: "hidePauseOverlay",
+				value: false,
+				tags: "remove,hide,pause,bezel"
+			},
 			player_remaining_duration: {
 				component: "switch",
 				text: "showRemainingDuration",

@@ -737,6 +737,9 @@
   "hideSkipOverlay": {
     "message": "Hide 5 second skip animation"
   },
+  "hidePauseOverlay": {
+    "message": "Hide Pause Overlay"
+  },
   "hideThumbnailOverlay": {
     "message": "Hide buttons on thumbnails"
   },
