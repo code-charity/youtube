@@ -686,7 +686,7 @@ extension.features.clickableLinksInVideoDescriptions = function () {
 extension.features.changeThumbnailsPerRow = async function () {
 	var value = await extension.storage.get('change_thumbnails_per_row');
 
-	if (!value || value === 'null')
+	if (!value || value === 'null' || value === 'default')
 		return;
 
 	const applyGridLayout = () => {
