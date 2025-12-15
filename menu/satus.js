@@ -1852,6 +1852,13 @@ satus.components.colorPicker = function (component, skeleton) {
 
 							palette.nextSibling.children[0].style.backgroundColor = 'hsl(' + hsl[0] + 'deg,' + hsl[1] + '%, ' + hsl[2] + '%)';
 
+							// Update hex input
+							var hexInput = palette.parentNode.querySelector('.satus-color-picker__hex-input');
+							if (hexInput) {
+								var rgb = satus.color.hslToRgb(hsl);
+								hexInput.value = satus.color.rgbToHex(rgb);
+							}
+
 							event.preventDefault();
 						}
 
