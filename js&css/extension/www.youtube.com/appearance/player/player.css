@@ -761,3 +761,15 @@ html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp
 	display: flex;
 	align-items: center;
 }
+
+/*--------------------------------------------------------------
+# HIDE PAUSE OVERLAY (BEZEL)
+--------------------------------------------------------------*/
+html[it-player-hide-pause-overlay='true'] .ytp-bezel-text-wrapper,
+html[it-player-hide-pause-overlay='true'] .ytp-bezel,
+html[it-player-hide-pause-overlay='true'] .ytp-bezel-text,
+html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
+	display: none !important;
+	opacity: 0 !important;
+	visibility: hidden !important;
+}
