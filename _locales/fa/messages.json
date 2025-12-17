@@ -1,58 +1,4 @@
 {
-	"Left_Side_Menu" : { "message":"منوی سمت چپ"},  
-     "hideSponsoredVideosOnHome": { "message": "پنهان کردن ویدیوهای حمایت شده در صفحه اصلی"},
-  "ShortsForceTheStandardPlayer": { "message": "شورت‌ها: اجبار به استفاده از پخش‌کننده استاندارد" },
-  "hideTopLoadingBar": { "message": "پنهان کردن نوار بارگذاری بالا" },
-	  "withoutVideos": { "message": "'خالی'، بدون پیش‌نمایش ویدیو" },
-	  "hideBannerAds": { "message": "پنهان کردن تبلیغات بنری (یوتیوب ممکن است مخالفت کند)" },
-		   "keyScene": { "message": "⚡پرش به پربازدیدترین صحنه(ها)" },
-	  "hideAISummary": { "message": "پنهان کردن خلاصه‌های هوش مصنوعی" },
-    "requirePassword": { "message": "برای تغییر تنظیمات ImprovedTube نیاز به رمز عبور است" },
-    "passwordOptions": { "message": "گزینه‌های رمز عبور"},
-      "enterPassword": { "message": "لطفاً کد ۴ رقمی خود را وارد کنید."},
-    
-    "qualityWhenRunningOnBattery":{
-        "message": "کیفیت، هنگام استفاده از باتری"
-    },
-    "pauseWhileIUnplugTheCharger": {
-        "message": "توقف هنگام جدا کردن شارژر"
-    },
-    "whenBatteryIslowDecreaseQuality": {
-        "message": "باتری کم: کاهش کیفیت"
-    },
-    "analytics": {
-        "message": "تجزیه و تحلیل"
-    },
-    "purchase": {
-        "message": "خرید"
-    },
-    "join": {
-        "message": "پیوستن"
-    },
-    "improvedTubeSidePanel": {
-        "message": "ImprovedTube: پنل کناری مرورگر"
-    },
-    "cursorLighting": {
-        "message": "! تاریک کردن صفحات یوتیوب، به جز جایی که ماوس روی آن است"
-    },
-    "youtubesLight": {
-        "message": "روشن یوتیوب"
-    },
-    "popupAd": {
-        "message": "تبلیغ پاپ آپ: پنهان کردن"
-    },
-    "hideWatchedVideos": {
-        "message": "پنهان کردن ویدیوهای تماشا شده"
-    },
-    "ambientLighting": {
-        "message": "نورپردازی محیطی"
-    },
-    "undoTheNewSidebar": {
-        "message": "! بازگرداندن نوار کناری جدید"
-    },
-    "hideLogo": {
-        "message": "! لوگو: پنهان کردن"
-    },
     "about": {
         "message": "درباره"
     },
@@ -71,11 +17,11 @@
     "activatedFeatures": {
         "message": "ویژگی‌های فعال شده"
     },
-    "activateFullscreen": {
-        "message": "تمام صفحه"
-    },
     "activateFitToWindow": {
         "message": "اندازه کردن به اندازه پنجره"
+    },
+    "activateFullscreen": {
+        "message": "تمام صفحه"
     },
     "activeFeatures": {
         "message": "ویژگی‌های فعال من"
@@ -115,6 +61,12 @@
     },
     "amber": {
         "message": "کهربایی"
+    },
+    "ambientLighting": {
+        "message": "نورپردازی محیطی"
+    },
+    "analytics": {
+        "message": "تجزیه و تحلیل"
     },
     "analyzer": {
         "message": "تحلیلگر"
@@ -164,17 +116,8 @@
     "auto": {
         "message": "خودکار"
     },
-    "autoplay": {
-        "message": "پخش خودکار"
-    },
     "Auto_PiP_picture_in_picture": {
         "message": "تصویر در تصویر خودکار (PiP)"
-    },
-    "playerAutoPipOutside": {
-        "message": "تصویر در تصویر خودکار فقط خارج از تب منبع"
-    },
-    "PipRequiresUserInteraction": {
-        "message": "تصویر در تصویر به تعامل اخیر کاربر با صفحه منبع نیاز دارد. این به دلیل محدودیت‌های API تصویر در تصویر کروم است و ما نمی‌توانیم آن را دور بزنیم. با غیرفعال کردن پخش خودکار و کنترل دستی پخش یا کلیک عمدی روی قسمتی از صفحه قبل از تغییر تب، بهترین عملکرد را دارد."
     },
     "autoFullscreen": {
         "message": "تمام صفحه خودکار"
@@ -185,11 +128,11 @@
     "autoPictureInPicture": {
         "message": "تصویر در تصویر خودکار"
     },
+    "autoplay": {
+        "message": "پخش خودکار"
+    },
     "autoplayDisable": {
         "message": "اجبار به غیرفعال کردن پخش خودکار"
-    },
-    "preventShortVideoAutoloop":{
-        "message": "جلوگیری از پخش خودکار حلقه‌ای ویدیوهای کوتاه"
     },
     "avoidAv1": {
         "message": "پرهیز از AV1"
@@ -260,6 +203,12 @@
     "bluelight": {
         "message": "نور آبی"
     },
+    "bottomLeft": {
+        "message": "پایین چپ"
+    },
+    "bottomRight": {
+        "message": "پایین راست"
+    },
     "brightness": {
         "message": "روشنایی"
     },
@@ -281,6 +230,9 @@
     "bug": {
         "message": "اشکال"
     },
+    "bulkDeleteByProgress": {
+        "message": "حذف به صورت یکجا ویدیوها بر اساس پیشرفت تماشا"
+    },
     "buttons": {
         "message": "دکمه‌ها"
     },
@@ -289,6 +241,9 @@
     },
     "categories": {
         "message": "دسته‌بندی‌ها"
+    },
+    "changeThumbnailsPerRow": {
+        "message": "تصاویر کوچک در هر ردیف"
     },
     "channel": {
         "message": "کانال"
@@ -304,6 +259,9 @@
     },
     "characterEdgeStyle": {
         "message": "سبک لبه کاراکتر"
+    },
+    "clickableLinksInDescription": {
+        "message": "برای کپی کردن لینک‌ها در توضیحات ویدیو، راست کلیک کنید"
     },
     "clip": {
         "message": "کلیپ"
@@ -341,26 +299,23 @@
     "cookies": {
         "message": "کوکی‌ها"
     },
-    "cores": {
-        "message": "هسته‌ها"
-    },
     "copyVideoId": {
         "message": "📋 کپی شناسه ویدیو"
     },
     "copyVideoUrl": {
         "message": "کپی آدرس کامل ویدیو"
     },
-    "quickDeleteShortcut": {
-        "message": "دکمه‌های حذف سریع میانبر"
-    },
-    "bulkDeleteByProgress": {
-        "message": "حذف به صورت یکجا ویدیوها بر اساس پیشرفت تماشا"
+    "cores": {
+        "message": "هسته‌ها"
     },
     "cropChapterTitles": {
         "message": "برش عناوین فصل"
     },
     "Currently_requiring_a_YouTube_API_key": {
         "message": "(در حال حاضر نیاز به کلید API یوتیوب دارد: )"
+    },
+    "cursorLighting": {
+        "message": "! تاریک کردن صفحات یوتیوب، به جز جایی که ماوس روی آن است"
     },
     "custom": {
         "message": "سفارشی"
@@ -449,8 +404,14 @@
     "dim": {
         "message": "کم‌ نور"
     },
+    "disableAutoDubbing": {
+        "message": "غیرفعال کردن دوبله خودکار"
+    },
     "disabled": {
         "message": "غیرفعال"
+    },
+    "disableLikesAnimation": {
+        "message": "غیرفعال کردن انیمیشن لایک‌ها"
     },
     "disableThumbnailPlayback": {
         "message": "غیرفعال کردن پخش ویدیو هنگام قرار گرفتن ماوس روی آن"
@@ -497,6 +458,15 @@
     "enabledForced": {
         "message": "فعال (اجباری)"
     },
+    "enterPassword": {
+        "message": "لطفاً کد ۴ رقمی خود را وارد کنید."
+    },
+    "exact": {
+        "message": "تاریخ/زمان دقیق"
+    },
+    "excludeShortsInPlayAll": {
+        "message": "حذف شورت‌ها هنگام استفاده از \"پخش همه\""
+    },
     "expanded": {
         "message": "باز شده"
     },
@@ -512,7 +482,7 @@
     "extraButtonsBelowThePlayer": {
         "message": "دکمه‌های اضافی زیر پخش‌کننده"
     },
-    "extraRightControlButtons":{
+    "extraRightControlButtons": {
         "message": "دکمه‌های اضافی داخل پخش‌کننده"
     },
     "Feature_not_yet_available": {
@@ -569,6 +539,9 @@
     "foundABug": {
         "message": "اشکالی پیدا کردید؟"
     },
+    "fullscreenReturn": {
+        "message": "بازگشت از تمام‌صفحه"
+    },
     "fullWindow": {
         "message": "ارتفاع کامل"
     },
@@ -592,9 +565,6 @@
     },
     "GPUnotindatabase": {
         "message": "پردازنده گرافیکی در پایگاه داده نیست"
-    },
-    "Optimal": {
-        "message": "بهینه"
     },
     "green": {
         "message": "سبز"
@@ -641,20 +611,23 @@
     "Hide_sidebar": {
         "message": "پنهان کردن نوار کناری "
     },
-    "stickyNavigation": {
-        "message": "ناوبری چسبان"
-    },
     "Hide_the_tabs_only": {
         "message": "فقط تب‌ها را پنهان کن"
     },
     "Hide_YouTube_Logo": {
         "message": "پنهان کردن لوگوی یوتیوب"
     },
+    "hideAISummary": {
+        "message": "پنهان کردن خلاصه‌های هوش مصنوعی"
+    },
     "hideAnimatedThumbnails": {
         "message": "پنهان کردن تصاویر کوچک متحرک"
     },
     "hideAnnotations": {
         "message": "پنهان کردن حاشیه‌نویسی‌ها"
+    },
+    "hideBannerAds": {
+        "message": "پنهان کردن تبلیغات بنری (یوتیوب ممکن است مخالفت کند)"
     },
     "hideCards": {
         "message": "پنهان کردن کارت‌ها"
@@ -695,6 +668,9 @@
     "hideIncludesPaidPromotion": {
         "message": "پنهان کردن «شامل تبلیغات پولی است»"
     },
+    "hideLogo": {
+        "message": "! لوگو: پنهان کردن"
+    },
     "hideMore": {
         "message": "پنهان کردن '...'"
     },
@@ -710,6 +686,9 @@
     "hidePlaylist": {
         "message": "پنهان کردن لیست پخش"
     },
+    "hideProgressBarPreview": {
+        "message": "پنهان کردن پیش‌نمایش نوار پیشرفت"
+    },
     "hideReport": {
         "message": "پنهان کردن 'گزارش'"
     },
@@ -722,26 +701,35 @@
     "hideSkipOverlay": {
         "message": "پنهان کردن انیمیشن 5 ثانیه‌ای رد کردن"
     },
-    "hideThumbnailOverlay": {
-        "message": "پنهان کردن دکمه‌ها روی تصاویر کوچک"
+    "hideSponsoredVideosOnHome": {
+        "message": "پنهان کردن ویدیوهای حمایت شده در صفحه اصلی"
     },
     "hideThumbnailDots": {
         "message": "پنهان کردن '⫶' (اقدامات بیشتر) روی تصاویر کوچک"
     },
+    "hideThumbnailIcon": {
+        "message": "پنهان کردن آیکون تصویر کوچک"
+    },
+    "hideThumbnailOverlay": {
+        "message": "پنهان کردن دکمه‌ها روی تصاویر کوچک"
+    },
     "hideThumbnails": {
         "message": "پنهان کردن تصاویر کوچک"
     },
+    "hideTopLoadingBar": {
+        "message": "پنهان کردن نوار بارگذاری بالا"
+    },
     "hideVideoTitleFullScreen": {
         "message": "پنهان کردن عنوان ویدیو در حالت تمام صفحه"
-    },
-    "hideThumbnailIcon": {
-        "message": "پنهان کردن آیکون تصویر کوچک"
     },
     "hideViewsCount": {
         "message": "پنهان کردن تعداد بازدیدها"
     },
     "hideVoiceSearchButton": {
         "message": "پنهان کردن دکمه جستجوی صوتی"
+    },
+    "hideWatchedVideos": {
+        "message": "پنهان کردن ویدیوهای تماشا شده"
     },
     "high": {
         "message": "زیاد"
@@ -785,6 +773,9 @@
     "improvedtubeLanguage": {
         "message": "ImprovedTube"
     },
+    "improvedTubeSidePanel": {
+        "message": "ImprovedTube: پنل کناری مرورگر"
+    },
     "improvedtubeVersion": {
         "message": "نسخه ImprovedTube"
     },
@@ -803,6 +794,12 @@
     "items": {
         "message": "موارد"
     },
+    "join": {
+        "message": "پیوستن"
+    },
+    "keyScene": {
+        "message": "⚡پرش به پربازدیدترین صحنه(ها)"
+    },
     "language": {
         "message": "زبان"
     },
@@ -812,11 +809,20 @@
     "languages": {
         "message": "زبان‌ها"
     },
+    "lastWatchedFormat": {
+        "message": "فرمت زمان"
+    },
+    "lastWatchedOverlayPosition": {
+        "message": "موقعیت روکش"
+    },
     "layerAnimationScale": {
         "message": "مقیاس انیمیشن لایه"
     },
     "layout": {
         "message": "چیدمان"
+    },
+    "Left_Side_Menu": {
+        "message": "منوی سمت چپ"
     },
     "legacyYoutube": {
         "message": "یوتیوب قدیمی"
@@ -959,6 +965,9 @@
     "openPopupPlayer": {
         "message": "باز کردن ویدیو/لیست پخش در پنجره جدید"
     },
+    "Optimal": {
+        "message": "بهینه"
+    },
     "optimizeCodecForHardwareAcceleration": {
         "message": "بهینه‌سازی کدک برای شتاب سخت‌افزاری"
     },
@@ -977,6 +986,15 @@
     "overlay": {
         "message": "روکش"
     },
+    "passwordOptions": {
+        "message": "گزینه‌های رمز عبور"
+    },
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "توقف هنگام تایپ در یوتیوب"
+    },
+    "pauseWhileIUnplugTheCharger": {
+        "message": "توقف هنگام جدا کردن شارژر"
+    },
     "permissions": {
         "message": "مجوزها"
     },
@@ -985,6 +1003,9 @@
     },
     "pink": {
         "message": "صورتی"
+    },
+    "PipRequiresUserInteraction": {
+        "message": "تصویر در تصویر به تعامل اخیر کاربر با صفحه منبع نیاز دارد. این به دلیل محدودیت‌های API تصویر در تصویر کروم است و ما نمی‌توانیم آن را دور بزنیم. با غیرفعال کردن پخش خودکار و کنترل دستی پخش یا کلیک عمدی روی قسمتی از صفحه قبل از تغییر تب، بهترین عملکرد را دارد."
     },
     "plain": {
         "message": "ساده"
@@ -998,8 +1019,20 @@
     "playbackSpeed": {
         "message": "سرعت پخش"
     },
+    "playbackSpeedButton": {
+        "message": "دکمه سرعت پخش"
+    },
     "player": {
         "message": "پخش‌کننده"
+    },
+    "player_auto_cinema_mode": {
+        "message": "حالت سینمای خودکار"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "پنهان کردن خودکار حالت سینما هنگام توقف"
+    },
+    "player_cinema_mode_button": {
+        "message": "حالت سینما"
     },
     "player_dont_speed_education": {
         "message": "دسته‌بندی (نادر) آموزش را سریع نکنید"
@@ -1007,23 +1040,17 @@
     "player_fit_to_win_button": {
         "message": "اندازه کردن به اندازه پنجره"
     },
-    "player_rewind_and_forward_buttons": {
-        "message": "دکمه‌های عقب/جلو بردن"
-            },
     "player_playback_speed_button": {
         "message": "دکمه سرعت پخش"
     },
-    "player_cinema_mode_button": {
-        "message": "حالت سینما"
-    },
-    "player_auto_hide_cinema_mode_when_paused": {
-        "message": "پنهان کردن خودکار حالت سینما هنگام توقف"
-    },
-    "player_auto_cinema_mode": {
-        "message": "حالت سینمای خودکار"
+    "player_rewind_and_forward_buttons": {
+        "message": "دکمه‌های عقب/جلو بردن"
     },
     "player_rotate_button": {
         "message": "چرخش ویدیو"
+    },
+    "playerAutoPipOutside": {
+        "message": "تصویر در تصویر خودکار فقط خارج از تب منبع"
     },
     "playerColor": {
         "message": "رنگ نوار پیشرفت"
@@ -1040,6 +1067,9 @@
     "playPause": {
         "message": "پخش / توقف"
     },
+    "popupAd": {
+        "message": "تبلیغ پاپ آپ: پنهان کردن"
+    },
     "popupPlayer": {
         "message": "پخش‌کننده پاپ‌آپ"
     },
@@ -1055,6 +1085,9 @@
     "pressAnyKeyOrUseMouseWheel": {
         "message": "هر کلیدی را فشار دهید یا از چرخ ماوس استفاده کنید"
     },
+    "preventShortVideoAutoloop": {
+        "message": "جلوگیری از پخش خودکار حلقه‌ای ویدیوهای کوتاه"
+    },
     "previousVideo": {
         "message": "ویدیوی قبلی"
     },
@@ -1063,6 +1096,9 @@
     },
     "pullSyncSettings": {
         "message": "دریافت"
+    },
+    "purchase": {
+        "message": "خرید"
     },
     "purple": {
         "message": "بنفش"
@@ -1073,8 +1109,14 @@
     "quality": {
         "message": "کیفیت"
     },
+    "qualityWhenRunningOnBattery": {
+        "message": "کیفیت، هنگام استفاده از باتری"
+    },
     "qualityWithoutFocus": {
         "message": "کیفیت بدون فوکوس"
+    },
+    "quickDeleteShortcut": {
+        "message": "دکمه‌های حذف سریع میانبر"
     },
     "raised": {
         "message": "برجسته"
@@ -1097,6 +1139,9 @@
     "relatedVideos": {
         "message": "ویدیوهای مرتبط"
     },
+    "relative": {
+        "message": "نسبی (مثلاً ۵ دقیقه پیش)"
+    },
     "remote": {
         "message": "پخش در تلویزیون"
     },
@@ -1106,8 +1151,14 @@
     "removeBlackBars": {
         "message": "حذف نوارهای سیاه در حالت تمام صفحه"
     },
+    "removeContextButtons": {
+        "message": "حذف دکمه‌های زمینه در شورت‌ها"
+    },
     "removeIcons": {
         "message": "حذف آیکون‌ها"
+    },
+    "removeMemberOnly": {
+        "message": "حذف ویدیوهای مخصوص اعضا"
     },
     "removeName": {
         "message": "حذف نام"
@@ -1116,7 +1167,7 @@
         "message": "حذف نام‌ها"
     },
     "removePlaylistParam": {
-	    "message": "رد کردن لیست پخش هنگام باز کردن ویدیوها در تب جدید"
+        "message": "رد کردن لیست پخش هنگام باز کردن ویدیوها در تب جدید"
     },
     "removeRelatedSearchResults": {
         "message": "حذف نتایج جستجوی مرتبط"
@@ -1124,11 +1175,17 @@
     "removeShortsReelSearchResults": {
         "message": "حذف حلقه شورت‌ها از نتایج جستجو"
     },
+    "RemoveSubtitlesForLyrics": {
+        "message": "حذف زیرنویس برای متن آهنگ"
+    },
     "repeat": {
         "message": "تکرار"
     },
     "report": {
         "message": "گزارش"
+    },
+    "requirePassword": {
+        "message": "برای تغییر تنظیمات ImprovedTube نیاز به رمز عبور است"
     },
     "reset": {
         "message": "بازنشانی"
@@ -1141,6 +1198,9 @@
     },
     "reverse": {
         "message": "معکوس"
+    },
+    "revertTheaterModeButtonSizes": {
+        "message": "بازگردانی اندازه دکمه‌های حالت تئاتر"
     },
     "rotate": {
         "message": "چرخش"
@@ -1171,6 +1231,9 @@
     },
     "searchBarOnly": {
         "message": "فقط نوار جستجو"
+    },
+    "secondaryColor": {
+        "message": "رنگ ثانویه"
     },
     "seekBackward10Seconds": {
         "message": "۱۰ ثانیه به عقب"
@@ -1205,6 +1268,9 @@
     "shortcuts": {
         "message": "میانبر‌ها"
     },
+    "ShortsForceTheStandardPlayer": {
+        "message": "شورت‌ها: اجبار به استفاده از پخش‌کننده استاندارد"
+    },
     "showCardsOnMouseHover": {
         "message": "نمایش کارت‌ها هنگام قرار گرفتن ماوس"
     },
@@ -1213,6 +1279,9 @@
     },
     "showExactDate": {
         "message": "نمایش تاریخ دقیق"
+    },
+    "showLastWatchedOverlay": {
+        "message": "نمایش روکش 'آخرین بار تماشا شده' روی تصاویر کوچک"
     },
     "showLess": {
         "message": "نمایش کمتر"
@@ -1253,6 +1322,9 @@
     "step": {
         "message": "گام"
     },
+    "stickyNavigation": {
+        "message": "ناوبری چسبان"
+    },
     "stop": {
         "message": "توقف"
     },
@@ -1271,20 +1343,11 @@
     "Subtitle_Capture_including_the_current_words": {
         "message": "زیرنویس (ضبط شامل کلمات فعلی)"
     },
-    "subtitles": {
-        "message": "زیرنویس‌ها"
-    },
     "subtitleLine": {
         "message": "پنهان کردن خط قرمز زیرنویس"
     },
-    "removeContextButtons": {
-        "message": "حذف دکمه‌های زمینه در شورت‌ها"
-    },
-    "RemoveSubtitlesForLyrics": {
-        "message": "حذف زیرنویس برای متن آهنگ"
-    },
-    "removeMemberOnly": {
-        "message": "حذف ویدیوهای مخصوص اعضا"
+    "subtitles": {
+        "message": "زیرنویس‌ها"
     },
     "sunset": {
         "message": "غروب"
@@ -1328,11 +1391,11 @@
     "thumbnails": {
         "message": "تصاویر کوچک"
     },
-    "thumbnailsQuality": {
-        "message": "کیفیت تصاویر کوچک"
-    },
     "thumbnailSize": {
         "message": "اندازه تصاویر کوچک"
+    },
+    "thumbnailsQuality": {
+        "message": "کیفیت تصاویر کوچک"
     },
     "timeFrom": {
         "message": "از زمان"
@@ -1358,6 +1421,12 @@
     "topChat": {
         "message": "چت برتر"
     },
+    "topLeft": {
+        "message": "بالا چپ"
+    },
+    "topRight": {
+        "message": "بالا راست"
+    },
     "trackWatchedVideos": {
         "message": "ردیابی ویدیوهای تماشا شده"
     },
@@ -1373,6 +1442,9 @@
     "transparentBackground": {
         "message": "پس‌زمینه شفاف"
     },
+    "transparentBackgroundAlternative": {
+        "message": "جایگزین پس‌زمینه شفاف"
+    },
     "transparentColor": {
         "message": "شفاف"
     },
@@ -1384,6 +1456,9 @@
     },
     "type": {
         "message": "نوع"
+    },
+    "undoTheNewSidebar": {
+        "message": "! بازگرداندن نوار کناری جدید"
     },
     "upNextAutoplay": {
         "message": "پخش خودکار بعدی"
@@ -1421,6 +1496,9 @@
     "watchTime": {
         "message": "زمان تماشا"
     },
+    "whenBatteryIslowDecreaseQuality": {
+        "message": "باتری کم: کاهش کیفیت"
+    },
     "whenPaused": {
         "message": "هنگام توقف"
     },
@@ -1438,6 +1516,9 @@
     },
     "with_scrollbars": {
         "message": "با نوارهای اسکرول؟"
+    },
+    "withoutVideos": {
+        "message": "'خالی'، بدون پیش‌نمایش ویدیو"
     },
     "yellow": {
         "message": "زرد"
@@ -1466,67 +1547,7 @@
     "youtubesDark": {
         "message": "تاریک یوتیوب"
     },
-    "pauseWhileIAmTypingOnYouTube": {
-        "message": "توقف هنگام تایپ در یوتیوب"
-    },
-    "clickableLinksInDescription": {
-        "message": "برای کپی کردن لینک‌ها در توضیحات ویدیو، راست کلیک کنید"
-    },
-    "changeThumbnailsPerRow": {
-        "message": "تصاویر کوچک در هر ردیف"
-    },
-    "disableLikesAnimation": {
-        "message": "غیرفعال کردن انیمیشن لایک‌ها"
-    },
-    "disableAutoDubbing": {
-        "message": "غیرفعال کردن دوبله خودکار"
-    },
-    "showLastWatchedOverlay": {
-        "message": "نمایش روکش 'آخرین بار تماشا شده' روی تصاویر کوچک"
-    },
-    "lastWatchedOverlayPosition": {
-        "message": "موقعیت روکش"
-    },
-    "bottomRight": {
-        "message": "پایین راست"
-    },
-    "bottomLeft": {
-        "message": "پایین چپ"
-    },
-    "topRight": {
-        "message": "بالا راست"
-    },
-    "topLeft": {
-        "message": "بالا چپ"
-    },
-    "lastWatchedFormat": {
-        "message": "فرمت زمان"
-    },
-    "relative": {
-        "message": "نسبی (مثلاً ۵ دقیقه پیش)"
-    },
-    "exact": {
-        "message": "تاریخ/زمان دقیق"
-    },
-    "excludeShortsInPlayAll": {
-        "message": "حذف شورت‌ها هنگام استفاده از \"پخش همه\""
-    },
-    "secondaryColor": {
-        "message": "رنگ ثانویه"
-    },
-    "transparentBackgroundAlternative": {
-        "message": "جایگزین پس‌زمینه شفاف"
-    },
-   "hideProgressBarPreview": {
-        "message": "پنهان کردن پیش‌نمایش نوار پیشرفت"
-   },
-   "revertTheaterModeButtonSizes": {
-        "message": "بازگردانی اندازه دکمه‌های حالت تئاتر"
-    },
-    "playbackSpeedButton": {
-        "message": "دکمه سرعت پخش"
-    },
-    "fullscreenReturn": {
-        "message": "بازگشت از تمام‌صفحه"
-   }
+    "youtubesLight": {
+        "message": "روشن یوتیوب"
+    }
 }

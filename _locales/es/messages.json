@@ -764,6 +764,9 @@
     "player": {
         "message": "Reproductor"
     },
+    "player_playback_speed_button": {
+        "message": "Botón de Velocidad de Reproducción"
+    },
     "playerColor": {
         "message": "Color del reproductor"
     },
@@ -932,9 +935,6 @@
     "sidebar": {
         "message": "Barra lateral"
     },
-    "stickyNavigation": {
-        "message": "Navegación Fija"
-    },
     "softwareInformation": {
         "message": "Información del Software"
     },
@@ -952,6 +952,9 @@
     },
     "step": {
         "message": "Paso"
+    },
+    "stickyNavigation": {
+        "message": "Navegación Fija"
     },
     "stop": {
         "message": "Detener"
@@ -1111,8 +1114,5 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "YouTube limita calidad de video a 1080p para el codec h.264"
-    },
-    "player_playback_speed_button": {
-        "message": "Botón de Velocidad de Reproducción"
     }
 }
