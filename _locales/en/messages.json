@@ -1561,5 +1561,8 @@
   },
   "fullscreenReturn": {
     "message": "Fullscreen return"
+  },
+  "autoPlayNextShort": {
+    "message": "Shorts up next autoplay"
   }
 }
