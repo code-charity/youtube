@@ -2,6 +2,15 @@
   "about": {
     "message": "About"
   },
+  "shortsAlwaysShowButtons": {
+    "message": "Shorts Always Show Control Buttons"
+  },
+  "shortsAlwaysShowCaptions": {
+    "message": "Captions Button"
+  },
+  "shortsAlwaysShowFullscreen": {
+    "message": "Fullscreen Button"
+  },
   "accept": {
     "message": "Accept"
   },
