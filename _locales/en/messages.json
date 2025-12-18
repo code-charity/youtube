@@ -730,6 +730,11 @@
   },
   "hideSponsoredVideosOnHome": {
     "message": "Hide sponsored videos on Home page"
+  "hidePauseOverlay": {
+    "message": "Hide Pause Overlay"
+  },
+  "hideThumbnailOverlay": {
+    "message": "Hide buttons on thumbnails"
   },
   "hideThumbnailDots": {
     "message": "Hide '⫶' (more actions) on thumbnails"

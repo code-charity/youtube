@@ -770,3 +770,15 @@ html[it-shorts-always-show-fullscreen=true] ytd-shorts-player-controls:not([is-a
 html[it-shorts-always-show-captions=true] ytd-shorts-player-controls:not([is-ads-overlay]) #closed-captioning-button-container.ytd-shorts-player-controls {
 	display: flex !important;
 }
+
+/*--------------------------------------------------------------
+# HIDE PAUSE OVERLAY (BEZEL)
+--------------------------------------------------------------*/
+html[it-player-hide-pause-overlay='true'] .ytp-bezel-text-wrapper,
+html[it-player-hide-pause-overlay='true'] .ytp-bezel,
+html[it-player-hide-pause-overlay='true'] .ytp-bezel-text,
+html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
+	display: none !important;
+	opacity: 0 !important;
+	visibility: hidden !important;
+}

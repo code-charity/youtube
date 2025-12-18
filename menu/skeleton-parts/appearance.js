@@ -430,6 +430,123 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					text: "hideTopLoadingBar",
 					tags: "remove,hide"
 				},
+				}
+			},
+			hide_gradient_bottom: {
+				component: "switch",
+				text: "hideGradientBottom"
+			},
+			always_show_progress_bar: {
+				component: "switch",
+				text: "alwaysShowProgressBar"
+			},
+			player_color: {
+				component: "select",
+				text: "playerColor",
+				options: [{
+					text: "default",
+					value: "default"
+				}, {
+					text: "red",
+					value: "red"
+				}, {
+					text: "pink",
+					value: "pink"
+				}, {
+					text: "purple",
+					value: "purple"
+				}, {
+					text: "deepPurple",
+					value: "deep_purple"
+				}, {
+					text: "indigo",
+					value: "indigo"
+				}, {
+					text: "blue",
+					value: "blue"
+				}, {
+					text: "lightBlue",
+					value: "light_blue"
+				}, {
+					text: "cyan",
+					value: "cyan"
+				}, {
+					text: "teal",
+					value: "teal"
+				}, {
+					text: "green",
+					value: "green"
+				}, {
+					text: "lightGreen",
+					value: "light_green"
+				}, {
+					text: "lime",
+					value: "lime"
+				}, {
+					text: "yellow",
+					value: "yellow"
+				}, {
+					text: "amber",
+					value: "amber"
+				}, {
+					text: "orange",
+					value: "orange"
+				}, {
+					text: "deepOrange",
+					value: "deep_orange"
+				}, {
+					text: "brown",
+					value: "brown"
+				}, {
+					text: "blueGray",
+					value: "blue_gray"
+				}, {
+					text: "white",
+					value: "white"
+				}],
+				tags: "style"
+			},
+			player_transparent_background: {
+				component: "switch",
+				text: "transparentBackground"
+			},
+			player_hide_skip_overlay: {
+				component: "switch",
+				text: "hideSkipOverlay",
+				value: false,
+				tags: "remove,hide"
+			},
+			player_hide_pause_overlay: {
+				component: "switch",
+				text: "hidePauseOverlay",
+				value: false,
+				tags: "remove,hide,pause,bezel"
+			},
+			player_remaining_duration: {
+				component: "switch",
+				text: "showRemainingDuration",
+				id: "show-remaining-duration",
+				value: false
+			},
+			duration_with_speed: {
+				component: "switch",
+				text: "durationWithSpeed",
+				value: false
+			},
+			player_hd_thumbnail: {
+				component: "switch",
+				text: "hdThumbnail",
+				tags: "preview"
+			},
+			hide_scroll_for_details: {
+				component: "switch",
+				text: "hideScrollForDetails",
+				tags: "remove,hide"
+			},
+			hide_top_loading_bar: {
+				component: "switch",
+				text: "hideTopLoadingBar",
+				tags: "remove,hide"
 			},
 			section_2: {
 				component: 'section',
