@@ -143,7 +143,7 @@ def firefox():
 
     os.chdir(temporary_path)
 
-    with open('manifest.json', 'r+') as json_file:
+    with open('manifest.json', 'r+', encoding='utf8') as json_file:
         data = json.load(json_file)
 
         version = data['version']
