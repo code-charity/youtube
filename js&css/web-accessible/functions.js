@@ -435,7 +435,7 @@ ImprovedTube.playerOnTimeUpdate = function () {
 			}
 
 			if (ImprovedTube.storage.always_show_progress_bar === true) { ImprovedTube.showProgressBar(); }
-			if (ImprovedTube.storage.player_remaining_duration === true) { ImprovedTube.playerRemainingDuration(); }
+			if (ImprovedTube.storage.player_remaining_duration === true && document.documentElement.dataset.pageType === 'video') { ImprovedTube.playerRemainingDuration(); }
 			ImprovedTube.played_time += .5;
 			//Counting time of the player playing for the analyzer feature. (not equal to video time if playback speed isnt 1.00)
 			//We can also allow to measure session times too and HID times.   

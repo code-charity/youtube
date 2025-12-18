@@ -140,14 +140,17 @@
     "confirmationBeforeClosing": {
         "message": "关闭页面前确认"
     },
-    "cores": {
-        "message": "核心"
-    },
     "copyVideoId": {
         "message": "复制视频 ID"
     },
+    "cores": {
+        "message": "核心"
+    },
     "cropChapterTitles": {
         "message": "裁剪章节标题"
+    },
+    "cursorLighting": {
+        "message": "鼠标聚光灯 (在当前页面上模糊除鼠标所在位置外的其他元素)"
     },
     "customCss": {
         "message": "自定义 CSS"
@@ -180,8 +183,8 @@
         "message": "默认频道(标签)页 "
     },
     "defaultContentCountry": {
-        "message": "首页内容默认地区",
-        "description": "(首页)默认显示内容的位置(国家/地区)"
+        "description": "(首页)默认显示内容的位置(国家/地区)",
+        "message": "首页内容默认地区"
     },
     "deleteYoutubeCookies": {
         "message": "清除 YouTube Cookie/s"
@@ -215,9 +218,6 @@
     },
     "draggable": {
         "message": "可拖动"
-    },
-    "cursorLighting": {
-        "message": "鼠标聚光灯 (在当前页面上模糊除鼠标所在位置外的其他元素)"
     },
     "empty": {
         "message": "空"
@@ -306,11 +306,17 @@
     "hiddenOnVideoPage": {
         "message": "在视频页面隐藏"
     },
+    "hideAiSummaries": {
+        "message": "隐藏 AI 摘要"
+    },
     "hideAnimatedThumbnails": {
         "message": "隐藏动态缩略图"
     },
     "hideAnnotations": {
         "message": "隐藏视频注解"
+    },
+    "hideBannerAds": {
+        "message": "隐藏横幅广告 (YouTube 可能会拦截)"
     },
     "hideCards": {
         "message": "隐藏信息卡片"
@@ -339,6 +345,9 @@
     "hideHomePageShorts": {
         "message": "隐藏主页的 Shorts"
     },
+    "hidePauseOverlay": {
+        "message": "隐藏暂停遮罩 (隐藏暂停时的遮罩)"
+    },
     "hidePlayerControlsBar": {
         "message": "隐藏播放器控制栏"
     },
@@ -354,32 +363,23 @@
     "hideSkipOverlay": {
         "message": "隐藏跳过按钮"
     },
+    "hideThumbnailDots": {
+        "message": "缩略图上隐藏:(更多操作)  (隐藏缩略图上的“更多操作”按钮)"
+    },
     "hideThumbnailOverlay": {
         "message": "隐藏缩略图上的按钮"
     },
     "hideViewsCount": {
         "message": "隐藏播放量"
     },
-    "history": {
-        "message": "历史记录"
-    },
-    "hideThumbnailDots": {
-        "message": "缩略图上隐藏:(更多操作)  (隐藏缩略图上的“更多操作”按钮)"
-    },
-    "hideAiSummaries": {
-        "message": "隐藏 AI 摘要"
-    },
-    "hideBannerAds": {
-        "message": "隐藏横幅广告 (YouTube 可能会拦截)"
-    },
-    "hidePauseOverlay": {
-        "message": "隐藏暂停遮罩 (隐藏暂停时的遮罩)"
+    "hideWatchedVideos": {
+        "message": "隐藏已观看的视频"
     },
     "hideYouTubeLogo": {
         "message": "隐藏 YouTube 标志"
     },
-    "hideWatchedVideos": {
-        "message": "隐藏已观看的视频"
+    "history": {
+        "message": "历史记录"
     },
     "home": {
         "message": "主页"
@@ -579,14 +579,14 @@
     "relatedVideos": {
         "message": "相关视频"
     },
+    "removeMemberOnly": {
+        "message": "移除会员专属视频 (移除会员专享视频)"
+    },
     "removeRelatedSearchResults": {
         "message": "移除相关搜索结果"
     },
     "removeShortsReelSearchResults": {
         "message": "移除搜索结果中的 Shorts"
-    },
-    "removeMemberOnly": {
-        "message": "移除会员专属视频 (移除会员专享视频)"
     },
     "repeat": {
         "message": "重复"
@@ -665,7 +665,6 @@
     },
     "spacebar": {
         "message": "空格键"
-
     },
     "squaredUserImages": {
         "message": "方形用户头像"
@@ -721,11 +720,11 @@
     "thumbnails": {
         "message": "缩略图"
     },
-    "thumbnailsQuality": {
-        "message": "缩略图质量"
-    },
     "thumbnailSize": {
         "message": "缩略图尺寸"
+    },
+    "thumbnailsQuality": {
+        "message": "缩略图质量"
     },
     "timeFrom": {
         "message": "从"
@@ -802,6 +801,10 @@
     "yellow": {
         "message": "黄色"
     },
+    "Youtube_Search": {
+        "description": "_'s are allowed. We can search & replace this one with youtubeSearch everywhere",
+        "message": "YouTube 搜索(设置)"
+    },
     "youtubeHeaderLeft": {
         "message": "YouTube 页眉左侧"
     },
@@ -816,9 +819,5 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "使用 H.264 编码时，YouTube 会将视频画质限制在 1080p"
-    },
-    "Youtube_Search": {
-        "message": "YouTube 搜索(设置)",
-        "description": "_'s are allowed. We can search & replace this one with youtubeSearch everywhere"
     }
 }
