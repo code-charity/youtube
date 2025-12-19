@@ -730,6 +730,7 @@
   },
   "hideSponsoredVideosOnHome": {
     "message": "Hide sponsored videos on Home page"
+  },
   "hidePauseOverlay": {
     "message": "Hide Pause Overlay"
   },

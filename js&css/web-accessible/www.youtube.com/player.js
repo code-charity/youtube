@@ -538,7 +538,10 @@ ImprovedTube.playerQualityFullScreen = function () {
      document.mozFullScreen
    );
 
+   var fsq=ImprovedTube.storage.full_screen_quality;
    var target = isFs ? fsq : ImprovedTube.storage.player_quality;
+
+
 
    var map = {
      '144p':'tiny','240p':'small','360p':'medium','480p':'large',
@@ -548,16 +551,25 @@ ImprovedTube.playerQualityFullScreen = function () {
    };
    var desired = map[target] || target;
 
-   var player = ImprovedTube.elements && ImprovedTube.elements.player;
-   if (!player) return;
+   function applyQuality(){
+		 var player = ImprovedTube.elements && ImprovedTube.elements.player;
+   		if (!player) return;
 
-   if (typeof ImprovedTube.playerQuality === 'function') {
-     ImprovedTube.playerQuality(desired);
-     return;
+   		if (typeof ImprovedTube.playerQuality === 'function') {
+     	ImprovedTube.playerQuality(desired);
+
+     	return;
+		
    }
-   try { if (typeof player.setPlaybackQualityRange === 'function') player.setPlaybackQualityRange(desired, desired); } catch(e) {}
-   try { if (typeof player.setPlaybackQuality === 'function') player.setPlaybackQuality(desired); } catch(e) {}
+   try { if (typeof player.setPlaybackQualityRange === 'function') player.setPlaybackQualityRange(desired, desired); } catch(e) {console.log(e)}
+   try { if (typeof player.setPlaybackQuality === 'function') player.setPlaybackQuality(desired); } catch(e) {console.log(e)}
  }
+
+  setTimeout(applyQuality, 300);
+  setTimeout(applyQuality, 800);
+   }
+
+  
 /*------------------------------------------------------------------------------
 BATTERY FEATURES;   PLAYER QUALITY BASED ON POWER STATUS
 ------------------------------------------------------------------------------*/
