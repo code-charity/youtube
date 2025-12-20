@@ -429,8 +429,8 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					component: "switch",
 					text: "hideTopLoadingBar",
 					tags: "remove,hide"
-				},
 				}
+			
 			},
 			hide_gradient_bottom: {
 				component: "switch",
@@ -521,12 +521,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				text: "hidePauseOverlay",
 				value: false,
 				tags: "remove,hide,pause,bezel"
-			},
-			player_remaining_duration: {
-				component: "switch",
-				text: "showRemainingDuration",
-				id: "show-remaining-duration",
-				value: false
 			},
 			duration_with_speed: {
 				component: "switch",
