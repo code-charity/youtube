@@ -52,7 +52,9 @@ extension.events.on('init', function () {
 	extension.features.openNewTab();
 	extension.features.removeListParamOnNewTab();
 	extension.features.removeMemberOnly();
-	// extension.features.hideSponsoredVideosOnHome?.();	
+	// extension.features.hideSponsoredVideosOnHome?.();
+	extension.features.channelBlocker?.();
+
 	bodyReady();
 });
 
