@@ -155,26 +155,39 @@ ImprovedTube.formatSecond = function (rTime) {
 };
 
 ImprovedTube.playerRemainingDuration = function () {
-	//If is a live stream, do not show remaining time
-	 const button = document.querySelector('button.ytp-live-badge.ytp-button.ytp-live-badge-is-livehead');
-	if (button) 
-		return;	
+	const liveBadge = document.querySelector('button.ytp-live-badge.ytp-button.ytp-live-badge-is-livehead');
+	if (liveBadge) return;
 
-	var duration = document.querySelector(".ytp-time-duration").innerText;
-	var current = document.querySelector(".ytp-time-current").innerText;
-	document.querySelector('.ytp-time-contents').style.setProperty('display', 'none', 'important');
-	var player = ImprovedTube.elements.player;
-	var rTime = ImprovedTube.formatSecond((player.getDuration() - player.getCurrentTime()).toFixed(0));	
-	var element = document.querySelector(".ytp-time-remaining-duration");
-	if (!element) {
-		var label = document.createElement("span");
-		label.textContent = current + " / " + duration + " / (-" + rTime + ")";
-		label.className = "ytp-time-remaining-duration";
-		document.querySelector(".ytp-time-display span").appendChild(label);
-	} else {		
-		return element.textContent = current + " / " + duration + " (-" + rTime + ")";
+	const currentEl = document.querySelector('.ytp-time-current');
+	const durationEl = document.querySelector('.ytp-time-duration');
+
+	if (!currentEl || !durationEl) return;
+
+	const player = ImprovedTube.elements.player;
+	if (!player) return;
+
+	const currentTime = player.getCurrentTime();
+	const duration = player.getDuration();
+
+	if (!isFinite(duration) || !isFinite(currentTime) || duration <= 0) return;
+
+	const remainingSeconds = Math.max(0, duration - currentTime);
+	const rTime = ImprovedTube.formatSecond(Math.floor(remainingSeconds));
+	
+	if (!rTime || rTime.includes('NaN')) return;
+
+	if (!currentEl.dataset.itOriginal) {
+		currentEl.dataset.itOriginal = currentEl.textContent;
+		durationEl.dataset.itOriginal = durationEl.textContent;
 	}
+
+	// Overwrite text 
+	currentEl.textContent = currentEl.dataset.itOriginal;
+	durationEl.textContent =
+		durationEl.dataset.itOriginal + ' (-' + rTime + ')';
 };
+
+
 /*------------------------------------------------------------------------------
  Comments Sidebar Simple
 ------------------------------------------------------------------------------*/
