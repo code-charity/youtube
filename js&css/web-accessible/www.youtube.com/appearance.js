@@ -176,15 +176,13 @@ ImprovedTube.playerRemainingDuration = function () {
 	
 	if (!rTime || rTime.includes('NaN')) return;
 
-	if (!currentEl.dataset.itOriginal) {
-		currentEl.dataset.itOriginal = currentEl.textContent;
+	if (!durationEl.dataset.itOriginal) {
 		durationEl.dataset.itOriginal = durationEl.textContent;
 	}
 
 	// Overwrite text 
-	currentEl.textContent = currentEl.dataset.itOriginal;
 	durationEl.textContent =
-		durationEl.dataset.itOriginal + ' (-' + rTime + ')';
+		durationEl.dataset.itOriginal + '  (-' + rTime + ')';
 };
 
 
