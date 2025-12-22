@@ -140,11 +140,11 @@
     "confirmationBeforeClosing": {
         "message": "關閉前先確認"
     },
-    "cores": {
-        "message": "核心數"
-    },
     "copyVideoId": {
         "message": "複製影片 ID"
+    },
+    "cores": {
+        "message": "核心數"
     },
     "cropChapterTitles": {
         "message": "截斷章節名稱"

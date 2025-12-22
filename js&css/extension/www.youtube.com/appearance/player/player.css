@@ -761,3 +761,24 @@ html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp
 	display: flex;
 	align-items: center;
 }
+/*------------------------------------------------------------------------------
+ALWAYS SHOW CONTROL BUTTONS
+------------------------------------------------------------------------------*/
+html[it-shorts-always-show-fullscreen=true] ytd-shorts-player-controls:not([is-ads-overlay]) #fullscreen-button-shape.ytd-shorts-player-controls {
+	display: flex !important;
+}
+html[it-shorts-always-show-captions=true] ytd-shorts-player-controls:not([is-ads-overlay]) #closed-captioning-button-container.ytd-shorts-player-controls {
+	display: flex !important;
+}
+
+/*--------------------------------------------------------------
+# HIDE PAUSE OVERLAY (BEZEL)
+--------------------------------------------------------------*/
+html[it-player-hide-pause-overlay='true'] .ytp-bezel-text-wrapper,
+html[it-player-hide-pause-overlay='true'] .ytp-bezel,
+html[it-player-hide-pause-overlay='true'] .ytp-bezel-text,
+html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
+	display: none !important;
+	opacity: 0 !important;
+	visibility: hidden !important;
+}
