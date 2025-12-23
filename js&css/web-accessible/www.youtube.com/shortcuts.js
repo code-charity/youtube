@@ -122,16 +122,24 @@ ImprovedTube.shortcutsListeners = {
 		}
 	},
 	wheel: function (event) {
-		// shortcuts with wheel allowed ONLY inside player
-		if (!ImprovedTube.elements.player?.contains(event.target)) return;
+	const player = ImprovedTube.elements.player;
+	if (!player) return;
 
-		ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
-		ImprovedTube.input.pressed.alt = event.altKey;
-		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
-		ImprovedTube.input.pressed.shift = event.shiftKey;
+	const path = event.composedPath?.() || [];
 
-		ImprovedTube.shortcutsHandler();
-	},
+	if (
+		!player.matches(':hover') &&
+		!path.includes(player) &&
+		!path.includes(ImprovedTube.elements.video)
+	) return;
+
+	ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
+	ImprovedTube.input.pressed.alt = event.altKey;
+	ImprovedTube.input.pressed.ctrl = event.ctrlKey;
+	ImprovedTube.input.pressed.shift = event.shiftKey;
+
+	ImprovedTube.shortcutsHandler();
+},
 	'improvedtube-blur': function () {
 		ImprovedTube.input.pressed.keys.clear();
 		ImprovedTube.input.pressed.wheel = 0
