@@ -48,7 +48,7 @@
     "message": "サイドバーを非表示"
   },
   "Hide_the_tabs_only": {
-    "message": "タブのみを非表示"
+    "message": "タブのみの場合は非表示"
   },
   "ImprovedTube": {
     "message": "ImprovedTube"
@@ -93,7 +93,7 @@
     "message": "YouTube検索"
   },
   "about": {
-    "message": "概要"
+    "message": "About"
   },
   "accept": {
     "message": "承諾"
@@ -177,7 +177,7 @@
     "message": "現在の設定を同期してもよろしいですか？"
   },
   "ask": {
-    "message": "質問する"
+    "message": "尋ねる"
   },
   "atHistory": {
     "message": "「履歴」タブで"
@@ -312,7 +312,7 @@
     "message": "バグ"
   },
   "bulkDeleteByProgress": {
-    "message": "視聴進捗に基づいて動画を一括削除"
+    "message": "視聴の進行状況に応じて動画を一括削除"
   },
   "buttons": {
     "message": "ボタン"
@@ -336,19 +336,19 @@
     "message": "チャンネル"
   },
   "chapterTitle": {
-    "message": "章タイトル"
+    "message": "チャプタータイトル"
   },
   "chapters": {
-    "message": "章"
+    "message": "チャプター"
   },
   "characterEdgeStyle": {
-    "message": "文字エッジスタイル"
+    "message": "文字のエッジスタイル"
   },
   "cinemaMode": {
     "message": "シネマモード"
   },
   "clickableLinksInDescription": {
-    "message": "動画説明欄のリンクを右クリックでコピーできます"
+    "message": "動画説明欄のリンクを右クリックでコピーする"
   },
   "clip": {
     "message": "クリップ"
@@ -363,10 +363,10 @@
     "message": "コーデック"
   },
   "collapseOfSubscriptionSections": {
-    "message": "サブスクリプションセクションを折り畳む（アコーディオン形式で折り畳まれた状態）"
+    "message": "サブスクリプションセクションを折り畳む（アコーディオンを折り畳んだ状態）"
   },
   "collapsed": {
-    "message": "折り畳まれた状態"
+    "message": "折り畳む"
   },
   "columns": {
     "message": "サイドバーの追加列（ウィンドウが十分な幅がある場合、関連する動画は移動しません）"
@@ -429,10 +429,10 @@
     "message": "夜明け"
   },
   "decreasePlaybackSpeed": {
-    "message": "再生速度を低下"
+    "message": "再生速度を下げる"
   },
   "decreaseVolume": {
-    "message": "音量を低下"
+    "message": "音量を下げる"
   },
   "deepOrange": {
     "message": "ディープオレンジ"
@@ -471,7 +471,7 @@
     "message": "説明"
   },
   "description_ext": {
-    "message": "YouTubeをもっと快適に？ 超パワーアップ！ 強力な機能を追加し、見たい動画だけをフィルタリングして、好みの表示スタイルにカスタマイズできます"
+    "message": "YouTubeを整理整頓＆スマートに？YouTubeをパワーアップ！強力な機能で見たい動画だけをフィルターし、好みの外観にしましょう"
   },
   "desert": {
     "message": "砂漠"
@@ -489,7 +489,7 @@
     "message": "暗くする"
   },
   "disableAutoDubbing": {
-    "message": "自動字幕吹き替えを無効化する"
+    "message": "自動吹き替えを無効化する"
   },
   "disableLikesAnimation": {
     "message": "いいね！アニメーションを無効化する"
@@ -501,10 +501,10 @@
     "message": "無効"
   },
   "dislike": {
-    "message": "嫌い"
+    "message": "低評価"
   },
   "dislikingAVideoAddsItToBlocklist": {
-    "message": "動画に嫌い評価を付けるとブロックリストに追加されます"
+    "message": "動画に低評価を付けたらブロックリストに追加する"
   },
   "displayDayOfTheWeak": {
     "message": "Display day of the week"
@@ -543,7 +543,7 @@
     "message": "有効"
   },
   "enabledForced": {
-    "message": "強制有効"
+    "message": "有効（強制）"
   },
   "enterPassword": {
     "message": "4桁のコードを入力してください"
@@ -630,7 +630,7 @@
     "message": "フルスクリーンモードからの復帰"
   },
   "general": {
-    "message": "全般設定"
+    "message": "全般"
   },
   "geoPreference": {
     "message": "地域設定"
@@ -693,13 +693,13 @@
     "message": "カテゴリを非表示"
   },
   "hideCommentsCount": {
-    "message": "コメント数の表示を非表示"
+    "message": "コメント数を非表示"
   },
   "hideCountryCode": {
     "message": "国コードを非表示"
   },
   "hideDate": {
-    "message": "日付の表示を非表示"
+    "message": "日付を非表示"
   },
   "hideDetailButton": {
     "message": "ボタン要素（プレイヤー下部）"
@@ -711,7 +711,7 @@
     "message": "エンドスクリーンを非表示"
   },
   "hideFeaturedContent": {
-    "message": "特集コンテンツを非表示"
+    "message": "注目コンテンツを非表示"
   },
   "hideFooter": {
     "message": "フッターを非表示"
@@ -720,16 +720,16 @@
     "message": "プレイヤーバー周辺の影を非表示"
   },
   "hideHomePageShorts": {
-    "message": "ホームページ上のショート動画を非表示"
+    "message": "ホームページのショート動画を非表示"
   },
   "hideIncludesPaidPromotion": {
-    "message": "「有料プロモーションを含む」の表示を非表示"
+    "message": "「有料プロモーションを含む」を非表示"
   },
   "hideLogo": {
-    "message": "ロゴ: 非表示!"
+    "message": "ロゴを非表示"
   },
   "hideMore": {
-    "message": "「...」の表示を非表示"
+    "message": "「...」を非表示"
   },
   "hidePauseOverlay": {
     "message": "Hide Pause Overlay"
@@ -747,7 +747,7 @@
     "message": "プレイリストを非表示"
   },
   "hideProgressBarPreview": {
-    "message": "再生進捗バーのプレビューを非表示にする"
+    "message": "進捗バーのプレビューを非表示"
   },
   "hideReport": {
     "message": "「報告」ボタンを非表示"
@@ -756,16 +756,16 @@
     "message": "右端のボタンを非表示"
   },
   "hideScrollForDetails": {
-    "message": "「詳細を表示するためにスクロール」の表示を非表示"
+    "message": "「詳細はスクロール」を非表示"
   },
   "hideSkipOverlay": {
     "message": "5秒スキップアニメーションを非表示"
   },
   "hideSponsoredVideosOnHome": {
-    "message": "ホーム画面でスポンサー動画を表示しない"
+    "message": "ホームページのスポンサー動画を非表示"
   },
   "hideThumbnailDots": {
-    "message": "サムネイル上の「⫶」（その他の操作）アイコンを非表示"
+    "message": "サムネイルの「⫶」（その他の操作）アイコンを非表示"
   },
   "hideThumbnailIcon": {
     "message": "サムネイルアイコンを非表示"
@@ -780,10 +780,10 @@
     "message": "トップローディングバーを非表示"
   },
   "hideVideoTitleFullScreen": {
-    "message": "フルスクリーン時の動画タイトルを非表示"
+    "message": "フルスクリーン時に動画タイトルを非表示"
   },
   "hideViewsCount": {
-    "message": "視聴回数カウントを非表示"
+    "message": "視聴回数を非表示"
   },
   "hideVoiceSearchButton": {
     "message": "音声検索ボタンを非表示"
@@ -792,7 +792,7 @@
     "message": "視聴済み動画を非表示"
   },
   "hide_author_avatars": {
-    "message": "著者のアバターを非表示"
+    "message": "作者のアバターを非表示"
   },
   "hide_labels": {
     "message": "名前を非表示"
@@ -846,10 +846,10 @@
     "message": "ImprovedTubeバージョン"
   },
   "increasePlaybackSpeed": {
-    "message": "再生速度を高速化"
+    "message": "再生速度を上げる"
   },
   "increaseVolume": {
-    "message": "音量を増加"
+    "message": "音量を上げる"
   },
   "indigo": {
     "message": "インディゴ"
@@ -900,13 +900,13 @@
     "message": "ライトグリーン"
   },
   "like": {
-    "message": "いいね"
+    "message": "高評価"
   },
   "liked": {
-    "message": "いいね済み"
+    "message": "高評価済み"
   },
   "likes": {
-    "message": "いいね数"
+    "message": "高評価数"
   },
   "lime": {
     "message": "ライム"
@@ -957,7 +957,7 @@
     "message": "サムネイルを右に配置！"
   },
   "myColors": {
-    "message": "私のカラー設定"
+    "message": "カラー設定"
   },
   "name": {
     "message": "名前"
@@ -1011,7 +1011,7 @@
     "message": "YouTubeのみで有効"
   },
   "onlyOnePlayerInstancePlaying": {
-    "message": "2つ目の動画を見ている間は一時停止します"
+    "message": "2番目のビデオを見る間は一時停止する"
   },
   "openNewTab": {
     "message": "新しいタブで開く"
@@ -1086,10 +1086,10 @@
     "message": "プログレスバーの色"
   },
   "playerIncreaseDecreaseSpeedButtons": {
-    "message": "再生速度増加/減少ボタン"
+    "message": "速度を上げる/下げるボタン"
   },
   "playerPlaybackSpeedStep": {
-    "message": "再生速度ステップ"
+    "message": "再生速度のステップ"
   },
   "playerSize": {
     "message": "プレイヤーのサイズ"
@@ -1104,7 +1104,7 @@
     "message": "シネマモード"
   },
   "player_dont_speed_education": {
-    "message": "（稀な）カテゴリ「教育」の再生速度を速めない"
+    "message": "（稀な）カテゴリ「教育」の速度を上げない"
   },
   "player_fit_to_win_button": {
     "message": "ウィンドウに合わせる"
@@ -1182,16 +1182,16 @@
     "message": "RAM"
   },
   "rateMe": {
-    "message": "評価をお願いします"
+    "message": "評価してください"
   },
   "rateUs": {
-    "message": "当社を評価してください"
+    "message": "評価してください"
   },
   "red": {
     "message": "赤"
   },
   "redDislikeButton": {
-    "message": "不評の場合は赤表示"
+    "message": "低評価にした場合は赤で表示"
   },
   "refreshCategories": {
     "message": "カテゴリを更新する"
@@ -1296,10 +1296,10 @@
     "message": "10秒早送り"
   },
   "seekNextChapter": {
-    "message": "次の章に移動"
+    "message": "次のチャプターに移動"
   },
   "seekPreviousChapter": {
-    "message": "前の章に移動"
+    "message": "前のチャプターに移動"
   },
   "settings": {
     "message": "設定"
@@ -1311,7 +1311,7 @@
     "message": "共有"
   },
   "shortcut_chapters": {
-    "message": "章表示（サイドバー） オン/オフ"
+    "message": "チャプター（サイドバー） オン/オフ"
   },
   "shortcut_screenshot": {
     "message": "スクリーンショット"
@@ -1392,13 +1392,13 @@
     "message": "スタイル"
   },
   "subscribe": {
-    "message": "購読"
+    "message": "登録"
   },
   "subscriptions": {
-    "message": "購読一覧"
+    "message": "サブスクリプション"
   },
   "subtitleLine": {
-    "message": "字幕の赤い表示ラインを非表示"
+    "message": "字幕の赤い線を非表示"
   },
   "subtitles": {
     "message": "字幕"
@@ -1422,7 +1422,7 @@
     "message": "テキストカラー"
   },
   "thanks": {
-    "message": "ありがとう"
+    "message": "感謝"
   },
   "themes": {
     "message": "テーマ"
@@ -1461,16 +1461,16 @@
     "message": "本日の時刻"
   },
   "toggleAutoplay": {
-    "message": "自動再生の切り替え"
+    "message": "自動再生のオンオフ"
   },
   "toggleCards": {
-    "message": "カード表示の切り替え"
+    "message": "カード表示のオンオフ"
   },
   "toggleControls": {
     "message": "プレイヤーコントロールの非表示切り替え"
   },
   "topChat": {
-    "message": "上部チャット"
+    "message": "トップチャット"
   },
   "topLeft": {
     "message": "画面左上"
@@ -1506,7 +1506,7 @@
     "message": "タイプ"
   },
   "undoTheNewSidebar": {
-    "message": "新しいサイドバーを元に戻せ!"
+    "message": "新しいサイドバーを元に戻す!"
   },
   "upNextAutoplay": {
     "message": "次の動画の自動再生"
@@ -1545,7 +1545,7 @@
     "message": "視聴済み動画"
   },
   "whenBatteryIslowDecreaseQuality": {
-    "message": "バッテリー残量低下時: 画質を低下"
+    "message": "バッテリー残量低下時: 画質を下げる"
   },
   "whenPaused": {
     "message": "再生が一時停止された時"
