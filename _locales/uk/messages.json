@@ -1,4 +1,97 @@
 {
+  "ARROWDOWN": {
+    "message": "⇩"
+  },
+  "ARROWLEFT": {
+    "message": "⇦"
+  },
+  "ARROWRIGHT": {
+    "message": "⇨"
+  },
+  "ARROWUP": {
+    "message": "⇧"
+  },
+  "Allow_auto_generate": {
+    "message": "Дозволити автогенерацію"
+  },
+  "Auto_PiP_picture_in_picture": {
+    "message": "Автоматичний режим «Картинка в картинці»"
+  },
+  "Currently_requiring_a_YouTube_API_key": {
+    "message": "(Наразі вимагає ключ YouTube-API: )"
+  },
+  "Embedded_YouTube": {
+    "message": "Вбудований YouTube"
+  },
+  "ExtraButtons": {
+    "message": "Додаткові кнопки"
+  },
+  "Feature_not_yet_available": {
+    "message": "Функція ще не доступна"
+  },
+  "GPUnotindatabase": {
+    "message": "Графічний процесор не знайдено в базі даних"
+  },
+  "Hamburger_Menu": {
+    "message": "Гамбургер-меню"
+  },
+  "Hide_Pause_Overlay": {
+    "message": "Приховати накладення паузи"
+  },
+  "Hide_Shorts_remixing_this_video": {
+    "message": "Приховати Shorts, що використовують це відео"
+  },
+  "Hide_YouTube_Logo": {
+    "message": "Приховати логотип YouTube"
+  },
+  "Hide_sidebar": {
+    "message": "Приховати бічну панель "
+  },
+  "Hide_the_tabs_only": {
+    "message": "Приховати лише вкладки"
+  },
+  "ImprovedTube": {
+    "message": "ImprovedTube"
+  },
+  "Left_Side_Menu": {
+    "message": "Ліве бічне меню"
+  },
+  "My_specs": {
+    "message": "Мої характеристики"
+  },
+  "Not_optimal": {
+    "message": "Не оптимально"
+  },
+  "Optimal": {
+    "message": "Optimal"
+  },
+  "PipRequiresUserInteraction": {
+    "message": "Режим «Картинка в картинці» вимагає недавньої взаємодії користувача зі сторінкою-джерелом. Це обмеження API Picture-in-Picture від Chrome, і ми не можемо нічого зробити, щоб обійти його. Найкраще працює з вимкненим автовідтворенням та ручним керуванням відтворенням або навмисним кліком десь на сторінці перед перемиканням вкладок."
+  },
+  "Remove": {
+    "message": "Видалити"
+  },
+  "RemoveSubtitlesForLyrics": {
+    "message": "Видалити субтитри для текстів пісень"
+  },
+  "ShortsForceTheStandardPlayer": {
+    "message": "Shorts: Примусово використовувати стандартний програвач"
+  },
+  "Sidebar_simple_alternative": {
+    "message": "Бічна панель (проста альтернатива)"
+  },
+  "Subtitle_Capture_including_the_current_words": {
+    "message": "Субтитри (Захопити, включаючи поточні слова)"
+  },
+  "To_the_side_No_page_margin": {
+    "message": "Збоку! (Без полів сторінки)"
+  },
+  "Transcript": {
+    "message": "Текст відео"
+  },
+  "Youtube_Search": {
+    "message": "Пошук YouTube"
+  },
   "about": {
     "message": "Про додаток"
   },
@@ -11,17 +104,17 @@
   "activateCaptions": {
     "message": "Активувати субтитри"
   },
-  "activated": {
-    "message": "Активовано"
-  },
-  "activatedFeatures": {
-    "message": "Активовані функції"
-  },
   "activateFitToWindow": {
     "message": "За розміром вікна"
   },
   "activateFullscreen": {
     "message": "На весь екран"
+  },
+  "activated": {
+    "message": "Активовано"
+  },
+  "activatedFeatures": {
+    "message": "Активовані функції"
   },
   "activeFeatures": {
     "message": "Мої активні функції"
@@ -35,20 +128,17 @@
   "all": {
     "message": "Усі"
   },
-  "allow": {
-    "message": "Дозволити"
-  },
-  "Allow_auto_generate": {
-    "message": "Дозволити автогенерацію"
-  },
-  "allow60fps": {
-    "message": "Дозволити 60fps"
-  },
   "allYourSettingsWillBeErasedAndCanTBeRecovered": {
     "message": "Усі ваші налаштування буде видалено без можливості відновлення"
   },
   "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
     "message": "Усі ваші гарячі клавіші буде видалено без можливості відновлення"
+  },
+  "allow": {
+    "message": "Дозволити"
+  },
+  "allow60fps": {
+    "message": "Дозволити 60fps"
   },
   "always": {
     "message": "Завжди"
@@ -86,17 +176,8 @@
   "areYouSureYouWantToSyncTheData": {
     "message": "Ви впевнені, що хочете синхронізувати поточні налаштування?"
   },
-  "ARROWDOWN": {
-    "message": "⇩"
-  },
-  "ARROWLEFT": {
-    "message": "⇦"
-  },
-  "ARROWRIGHT": {
-    "message": "⇨"
-  },
-  "ARROWUP": {
-    "message": "⇧"
+  "ask": {
+    "message": "Ask"
   },
   "atHistory": {
     "message": "в 'Історії'"
@@ -116,17 +197,17 @@
   "auto": {
     "message": "Авто"
   },
-  "Auto_PiP_picture_in_picture": {
-    "message": "Автоматичний режим «Картинка в картинці»"
-  },
   "autoFullscreen": {
     "message": "Автоматичний повноекранний режим"
   },
-  "autopauseWhenSwitchingTabs": {
-    "message": "Автоматична пауза, коли я не у вкладці"
-  },
   "autoPictureInPicture": {
     "message": "Автоматичний режим «Картинка в картинці»"
+  },
+  "autoPlayNextShort": {
+    "message": "Shorts up next autoplay"
+  },
+  "autopauseWhenSwitchingTabs": {
+    "message": "Автоматична пауза, коли я не у вкладці"
   },
   "autoplay": {
     "message": "Автовідтворення"
@@ -167,12 +248,6 @@
   "black": {
     "message": "Чорний"
   },
-  "block_Codec_Alert_h264": {
-    "message": "Для відтворення відео на Youtube потрібно увімкнути H.264 або VP9."
-  },
-  "block_Codec_Alert_VP9": {
-    "message": "Для відтворення відео на Youtube потрібно увімкнути VP9 або H.264."
-  },
   "blockAll": {
     "message": "Вимкнено (блокувати або пропускати)"
   },
@@ -182,9 +257,6 @@
   "blockH264": {
     "message": "Блокувати H.264"
   },
-  "blocklist": {
-    "message": "Чорний список"
-  },
   "blockMusic": {
     "message": "Пропускати рекламу під час відтворення музики"
   },
@@ -193,6 +265,15 @@
   },
   "blockVp9": {
     "message": "Блокувати VP9"
+  },
+  "block_Codec_Alert_VP9": {
+    "message": "Для відтворення відео на Youtube потрібно увімкнути VP9 або H.264."
+  },
+  "block_Codec_Alert_h264": {
+    "message": "Для відтворення відео на Youtube потрібно увімкнути H.264 або VP9."
+  },
+  "blocklist": {
+    "message": "Чорний список"
   },
   "blue": {
     "message": "Синій"
@@ -242,6 +323,9 @@
   "categories": {
     "message": "Категорії"
   },
+  "categoryRefreshButton": {
+    "message": "Add category refresh button"
+  },
   "changeThumbnailsPerRow": {
     "message": "Мініатюр у рядку"
   },
@@ -251,14 +335,17 @@
   "channels": {
     "message": "Канали"
   },
-  "chapters": {
-    "message": "Розділи"
-  },
   "chapterTitle": {
     "message": "Назва розділу"
   },
+  "chapters": {
+    "message": "Розділи"
+  },
   "characterEdgeStyle": {
     "message": "Стиль краю символів"
+  },
+  "cinemaMode": {
+    "message": "Cinema Mode"
   },
   "clickableLinksInDescription": {
     "message": "Клацніть правою кнопкою миші, щоб скопіювати посилання в описах відео"
@@ -275,11 +362,11 @@
   "codecs": {
     "message": "Кодеки"
   },
-  "collapsed": {
-    "message": "Згорнуто"
-  },
   "collapseOfSubscriptionSections": {
     "message": "Згортати розділи підписок (акордеон)"
+  },
+  "collapsed": {
+    "message": "Згорнуто"
   },
   "columns": {
     "message": "Додаткова колонка бічної панелі (без переміщення пов'язаних відео, якщо вікно достатньо широке)"
@@ -287,11 +374,11 @@
   "comments": {
     "message": "Коментарі"
   },
-  "compact_spacing": {
-    "message": "Компактний інтервал"
-  },
   "compactTheme": {
     "message": "Компактна тема"
+  },
+  "compact_spacing": {
+    "message": "Компактний інтервал"
   },
   "confirmationBeforeClosing": {
     "message": "Підтвердження перед закриттям"
@@ -310,9 +397,6 @@
   },
   "cropChapterTitles": {
     "message": "Обрізати назви розділів"
-  },
-  "Currently_requiring_a_YouTube_API_key": {
-    "message": "(Наразі вимагає ключ YouTube-API: )"
   },
   "cursorLighting": {
     "message": "Затемнити сторінки Youtube, окрім тієї, на яку наведено курсор!"
@@ -359,12 +443,6 @@
   "default": {
     "message": "За замовчуванням"
   },
-  "default_CC": {
-    "message": "за замовчуванням"
-  },
-  "default_theme": {
-    "message": "за замовчуванням"
-  },
   "defaultChannelTab": {
     "message": "Вкладка каналу за замовчуванням"
   },
@@ -373,6 +451,12 @@
   },
   "defaultPlaybackSpeed": {
     "message": "Швидкість відтворення за замовчуванням"
+  },
+  "default_CC": {
+    "message": "за замовчуванням"
+  },
+  "default_theme": {
+    "message": "за замовчуванням"
   },
   "deleteWatchedVideos": {
     "message": "Видалити переглянуті відео"
@@ -407,26 +491,29 @@
   "disableAutoDubbing": {
     "message": "Вимкнути автоматичне дублювання"
   },
-  "disabled": {
-    "message": "Вимкнено"
-  },
   "disableLikesAnimation": {
     "message": "Вимкнути анімацію вподобань"
   },
   "disableThumbnailPlayback": {
     "message": "Вимкнути відтворення відео при наведенні"
   },
+  "disabled": {
+    "message": "Вимкнено"
+  },
   "dislike": {
     "message": "Не подобається"
+  },
+  "dislikingAVideoAddsItToBlocklist": {
+    "message": "Disliking a video adds it to Blocklist"
   },
   "displayDayOfTheWeak": {
     "message": "Показувати день тижня"
   },
-  "donate": {
-    "message": "Пожертвувати"
-  },
   "doNotChange": {
     "message": "Не змінювати"
+  },
+  "donate": {
+    "message": "Пожертвувати"
   },
   "download": {
     "message": "Завантажити"
@@ -446,9 +533,6 @@
   "embedded_Hide_Share": {
     "message": "Вбудовані: Приховати кнопку 'Поділитися'"
   },
-  "Embedded_YouTube": {
-    "message": "Вбудований YouTube"
-  },
   "empty": {
     "message": "Порожньо"
   },
@@ -464,6 +548,9 @@
   "exact": {
     "message": "Точна дата/час"
   },
+  "excludeShortsInPlayAll": {
+    "message": "Exclude Shorts when using \"Play all\""
+  },
   "expanded": {
     "message": "Розгорнуто"
   },
@@ -473,17 +560,11 @@
   "extension": {
     "message": "Розширення"
   },
-  "ExtraButtons": {
-    "message": "Додаткові кнопки"
-  },
   "extraButtonsBelowThePlayer": {
     "message": "Додаткові кнопки під програвачем"
   },
   "extraRightControlButtons": {
     "message": "Додаткові кнопки всередині програвача"
-  },
-  "Feature_not_yet_available": {
-    "message": "Функція ще не доступна"
   },
   "file": {
     "message": "Файл"
@@ -515,14 +596,17 @@
   "footer": {
     "message": "Нижній колонтитул"
   },
+  "forceSDR": {
+    "message": "Уникати HDR, залишати SDR"
+  },
+  "forcedPlayVideoFromTheBeginning": {
+    "message": "Примусово відтворювати відео з початку"
+  },
   "forcedPlaybackSpeed": {
     "message": "Швидкий перегляд: Постійна швидкість"
   },
   "forcedPlaybackSpeedMusic": {
     "message": "(Примусова швидкість відтворення навіть для музики?)"
-  },
-  "forcedPlayVideoFromTheBeginning": {
-    "message": "Примусово відтворювати відео з початку"
   },
   "forcedTheaterMode": {
     "message": "Примусовий режим кінотеатру"
@@ -530,14 +614,17 @@
   "forcedVolume": {
     "message": "Примусова гучність"
   },
-  "forceSDR": {
-    "message": "Уникати HDR, залишати SDR"
-  },
   "foundABug": {
     "message": "Знайшли помилку?"
   },
+  "fullScreenQuality": {
+    "message": "Fullscreen quality"
+  },
   "fullWindow": {
     "message": "На всю висоту"
+  },
+  "fullscreenReturn": {
+    "message": "Fullscreen return"
   },
   "general": {
     "message": "Загальні"
@@ -548,17 +635,14 @@
   "github": {
     "message": "GitHub"
   },
-  "googleApiKey": {
-    "message": "Ключ Google API"
-  },
   "goToSearchBox": {
     "message": "Перейти до поля пошуку"
   },
+  "googleApiKey": {
+    "message": "Ключ Google API"
+  },
   "gpu": {
     "message": "Графічний процесор"
-  },
-  "GPUnotindatabase": {
-    "message": "Графічний процесор не знайдено в базі даних"
   },
   "green": {
     "message": "Зелений"
@@ -568,9 +652,6 @@
   },
   "halfTransparent": {
     "message": "Блідий/напівпрозорий"
-  },
-  "Hamburger_Menu": {
-    "message": "Гамбургер-меню"
   },
   "hardwareInformation": {
     "message": "Інформація про обладнання"
@@ -589,27 +670,6 @@
   },
   "hiddenOnVideoPage": {
     "message": "Приховано на сторінці відео"
-  },
-  "hide_author_avatars": {
-    "message": "Приховати аватари авторів"
-  },
-  "hide_labels": {
-    "message": "Приховати імена"
-  },
-  "Hide_Pause_Overlay": {
-    "message": "Приховати накладення паузи"
-  },
-  "Hide_Shorts_remixing_this_video": {
-    "message": "Приховати Shorts, що використовують це відео"
-  },
-  "Hide_sidebar": {
-    "message": "Приховати бічну панель "
-  },
-  "Hide_the_tabs_only": {
-    "message": "Приховати лише вкладки"
-  },
-  "Hide_YouTube_Logo": {
-    "message": "Приховати логотип YouTube"
   },
   "hideAISummary": {
     "message": "Приховати підсумки від ШІ"
@@ -668,6 +728,9 @@
   "hideMore": {
     "message": "Приховати '...'"
   },
+  "hidePauseOverlay": {
+    "message": "Hide Pause Overlay"
+  },
   "hidePlayerControlsBar": {
     "message": "Приховати панель керування програвачем"
   },
@@ -679,6 +742,9 @@
   },
   "hidePlaylist": {
     "message": "Приховати список відтворення"
+  },
+  "hideProgressBarPreview": {
+    "message": "Hide progress bar preview"
   },
   "hideReport": {
     "message": "Приховати 'Поскаржитися'"
@@ -722,6 +788,12 @@
   "hideWatchedVideos": {
     "message": "Приховати переглянуті відео"
   },
+  "hide_author_avatars": {
+    "message": "Приховати аватари авторів"
+  },
+  "hide_labels": {
+    "message": "Приховати імена"
+  },
   "high": {
     "message": "Висока"
   },
@@ -752,8 +824,11 @@
   "importSettings": {
     "message": "Імпортувати налаштування"
   },
-  "ImprovedTube": {
-    "message": "ImprovedTube"
+  "improveLogo": {
+    "message": "Логотип: Монохромний!"
+  },
+  "improvedTubeSidePanel": {
+    "message": "ImprovedTube: Бічна панель браузера"
   },
   "improvedtubeButtons": {
     "message": "Кнопки ImprovedTube"
@@ -764,14 +839,8 @@
   "improvedtubeLanguage": {
     "message": "ImprovedTube"
   },
-  "improvedTubeSidePanel": {
-    "message": "ImprovedTube: Бічна панель браузера"
-  },
   "improvedtubeVersion": {
     "message": "Версія ImprovedTube"
-  },
-  "improveLogo": {
-    "message": "Логотип: Монохромний!"
   },
   "increasePlaybackSpeed": {
     "message": "Збільшити швидкість відтворення"
@@ -811,9 +880,6 @@
   },
   "layout": {
     "message": "Макет"
-  },
-  "Left_Side_Menu": {
-    "message": "Ліве бічне меню"
   },
   "legacyYoutube": {
     "message": "Старий YouTube"
@@ -887,9 +953,6 @@
   "moveThumbnailsRight": {
     "message": "Мініатюри праворуч!"
   },
-  "My_specs": {
-    "message": "Мої характеристики"
-  },
   "myColors": {
     "message": "Мої кольори"
   },
@@ -914,17 +977,14 @@
   "noActiveFeatures": {
     "message": "Немає активних функцій"
   },
-  "none": {
-    "message": "Немає"
-  },
   "noOpenVideoTabs": {
     "message": "Немає відкритих вкладок з відео"
   },
+  "none": {
+    "message": "Немає"
+  },
   "normal": {
     "message": "Звичайний"
-  },
-  "Not_optimal": {
-    "message": "Не оптимально"
   },
   "off": {
     "message": "Вимк."
@@ -938,17 +998,17 @@
   "onAllVideos": {
     "message": "Увімк."
   },
-  "onlyActiveOnYoutube": {
-    "message": "Активно лише на YouTube"
-  },
-  "onlyOnePlayerInstancePlaying": {
-    "message": "Призупинити, коли я дивлюся 2-ге відео"
-  },
   "onSmallCreators": {
     "message": "Вимкнено, крім невеликих каналів"
   },
   "onSubscribedChannels": {
     "message": "Вимкнено, крім каналів, на які я підписаний"
+  },
+  "onlyActiveOnYoutube": {
+    "message": "Активно лише на YouTube"
+  },
+  "onlyOnePlayerInstancePlaying": {
+    "message": "Призупинити, коли я дивлюся 2-ге відео"
   },
   "openNewTab": {
     "message": "Відкрити в новій вкладці"
@@ -992,9 +1052,6 @@
   "pink": {
     "message": "Рожевий"
   },
-  "PipRequiresUserInteraction": {
-    "message": "Режим «Картинка в картинці» вимагає недавньої взаємодії користувача зі сторінкою-джерелом. Це обмеження API Picture-in-Picture від Chrome, і ми не можемо нічого зробити, щоб обійти його. Найкраще працює з вимкненим автовідтворенням та ручним керуванням відтворенням або навмисним кліком десь на сторінці перед перемиканням вкладок."
-  },
   "plain": {
     "message": "Простий"
   },
@@ -1004,11 +1061,35 @@
   "playAllButton": {
     "message": "Кнопка 'Відтворити все'"
   },
+  "playPause": {
+    "message": "Відтворити / Пауза"
+  },
   "playbackSpeed": {
     "message": "Швидкість відтворення"
   },
+  "playbackSpeedButton": {
+    "message": "Playback speed button"
+  },
+  "playbackSpeedHotkey": {
+    "message": "Playback speed hotkeys"
+  },
   "player": {
     "message": "Програвач"
+  },
+  "playerAutoPipOutside": {
+    "message": "Автоматичний режим «Картинка в картинці» лише поза вкладкою-джерелом"
+  },
+  "playerColor": {
+    "message": "Колір панелі прогресу"
+  },
+  "playerIncreaseDecreaseSpeedButtons": {
+    "message": "Increase/Decrease Speed buttons"
+  },
+  "playerPlaybackSpeedStep": {
+    "message": "Playback Speed Step"
+  },
+  "playerSize": {
+    "message": "Розмір програвача"
   },
   "player_auto_cinema_mode": {
     "message": "Автоматичний режим кінотеатру"
@@ -1025,29 +1106,20 @@
   "player_fit_to_win_button": {
     "message": "Вписати у вікно"
   },
+  "player_playback_speed_button": {
+    "message": "Playback Speed Button"
+  },
   "player_rewind_and_forward_buttons": {
     "message": "Кнопки перемотування назад/вперед"
   },
   "player_rotate_button": {
     "message": "Повернути відео"
   },
-  "playerAutoPipOutside": {
-    "message": "Автоматичний режим «Картинка в картинці» лише поза вкладкою-джерелом"
-  },
-  "playerColor": {
-    "message": "Колір панелі прогресу"
-  },
-  "playerSize": {
-    "message": "Розмір програвача"
-  },
   "playlist": {
     "message": "Список відтворення"
   },
   "playlists": {
     "message": "Списки відтворення"
-  },
-  "playPause": {
-    "message": "Відтворити / Пауза"
   },
   "popupAd": {
     "message": "Спливаюча реклама: Приховати"
@@ -1118,6 +1190,9 @@
   "redDislikeButton": {
     "message": "Червоний, коли не подобається"
   },
+  "refreshCategories": {
+    "message": "Refresh categories"
+  },
   "relatedVideos": {
     "message": "Схожі відео"
   },
@@ -1126,9 +1201,6 @@
   },
   "remote": {
     "message": "Відтворити на телевізорі"
-  },
-  "Remove": {
-    "message": "Видалити"
   },
   "removeBlackBars": {
     "message": "Прибрати чорні смуги в повноекранному режимі"
@@ -1157,9 +1229,6 @@
   "removeShortsReelSearchResults": {
     "message": "Видалити стрічку Shorts з результатів пошуку"
   },
-  "RemoveSubtitlesForLyrics": {
-    "message": "Видалити субтитри для текстів пісень"
-  },
   "repeat": {
     "message": "Повторити"
   },
@@ -1180,6 +1249,9 @@
   },
   "reverse": {
     "message": "Реверс"
+  },
+  "revertTheaterModeButtonSizes": {
+    "message": "Revert Theater Mode Button Sizes"
   },
   "rotate": {
     "message": "Повернути"
@@ -1210,6 +1282,9 @@
   },
   "searchBarOnly": {
     "message": "Лише панель пошуку"
+  },
+  "secondaryColor": {
+    "message": "Secondary color"
   },
   "seekBackward10Seconds": {
     "message": "Перемотати назад на 10 секунд"
@@ -1244,8 +1319,14 @@
   "shortcuts": {
     "message": "Гарячі клавіші"
   },
-  "ShortsForceTheStandardPlayer": {
-    "message": "Shorts: Примусово використовувати стандартний програвач"
+  "shortsAlwaysShowButtons": {
+    "message": "Shorts Always Show Control Buttons"
+  },
+  "shortsAlwaysShowCaptions": {
+    "message": "Captions Button"
+  },
+  "shortsAlwaysShowFullscreen": {
+    "message": "Fullscreen Button"
   },
   "showCardsOnMouseHover": {
     "message": "Показувати картки при наведенні миші"
@@ -1276,9 +1357,6 @@
   },
   "sidebar": {
     "message": "Бічна панель"
-  },
-  "Sidebar_simple_alternative": {
-    "message": "Бічна панель (проста альтернатива)"
   },
   "softwareInformation": {
     "message": "Інформація про програмне забезпечення"
@@ -1315,9 +1393,6 @@
   },
   "subscriptions": {
     "message": "Підписки"
-  },
-  "Subtitle_Capture_including_the_current_words": {
-    "message": "Субтитри (Захопити, включаючи поточні слова)"
   },
   "subtitleLine": {
     "message": "Приховати червону лінію субтитрів"
@@ -1364,11 +1439,11 @@
   "thisWillResetAllShortcuts": {
     "message": "Це скине всі гарячі клавіші"
   },
-  "thumbnails": {
-    "message": "Мініатюри"
-  },
   "thumbnailSize": {
     "message": "Розмір мініатюр"
+  },
+  "thumbnails": {
+    "message": "Мініатюри"
   },
   "thumbnailsQuality": {
     "message": "Якість мініатюр"
@@ -1378,9 +1453,6 @@
   },
   "timeTo": {
     "message": "Час до"
-  },
-  "To_the_side_No_page_margin": {
-    "message": "Збоку! (Без полів сторінки)"
   },
   "todayAt": {
     "message": "Сьогодні о"
@@ -1409,14 +1481,14 @@
   "trailerAutoplay": {
     "message": "Автовідтворення трейлера"
   },
-  "Transcript": {
-    "message": "Текст відео"
-  },
   "translations": {
     "message": "Переклади"
   },
   "transparentBackground": {
     "message": "Прозорий фон"
+  },
+  "transparentBackgroundAlternative": {
+    "message": "Transparent background alternative"
   },
   "transparentColor": {
     "message": "Прозорий"
@@ -1460,14 +1532,14 @@
   "volume": {
     "message": "Гучність"
   },
-  "watchedVideos": {
-    "message": "Переглянуті відео"
-  },
   "watchLater": {
     "message": "Переглянути пізніше"
   },
   "watchTime": {
     "message": "Час перегляду"
+  },
+  "watchedVideos": {
+    "message": "Переглянуті відео"
   },
   "whenBatteryIslowDecreaseQuality": {
     "message": "Низький заряд батареї: Знизити якість"
@@ -1495,9 +1567,6 @@
   },
   "yellow": {
     "message": "Жовтий"
-  },
-  "Youtube_Search": {
-    "message": "Пошук YouTube"
   },
   "youTubeButtons": {
     "message": "Кнопки YouTube"
