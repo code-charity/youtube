@@ -78,6 +78,10 @@ html[it-ads=block_all] #player .ytp-ad-skip-button-container {
 /*-----------------------------------------------------------------------------
 # POSITION & SIZE
 -----------------------------------------------------------------------------*/
+#player-container {
+    z-index: 2005 !important;
+}
+
 .it-mini-player {
 	position: fixed !important;
 	z-index: 2006 !important;
