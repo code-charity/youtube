@@ -16,7 +16,7 @@
   },
   "passwordOptions": { "message": "パスワードオプション" },
   "enterPassword": { "message": "4桁のコードを入力してください" }
-},
+,
 
   "qualityWhenRunningOnBattery": {
     "message": "バッテリー駆動時の画質設定"
@@ -349,8 +349,7 @@
     "message": "コンパクトテーマ"
   },
   "confirmationBeforeClosing": {
-    "message": "閉じる前に確認
-を表示"
+    "message": "閉じる前に確認 を表示"
   },
   "cookies": {
     "message": "Cookies"
