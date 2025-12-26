@@ -2224,19 +2224,17 @@ ImprovedTube.shortsAutoScroll = function () {
 	if (typeof document === 'undefined') return;
 
 	// --- Configuration ---
+	const FEATURE_KEY = 'bl_draggable_buttons'; // The switch key in settings
+	const STORAGE_KEY = 'player_element_layout'; // The saved order key
 	const HOLD_DURATION = 1500;
-	const STORAGE_KEY = 'player_element_layout';
 
 	// Selectors
-	// We target the main controls and any divs/spans inside them that might act as wrappers
 	const CONTAINER_SELECTOR = '.ytp-left-controls, .ytp-right-controls, .ytp-left-controls > div, .ytp-right-controls > div';
-	// Elements we want to manage: buttons, volume area, and wrapper divs
 	const DRAGGABLE_SELECTOR = '.ytp-button, .it-player-button, .ytp-left-controls > div, .ytp-right-controls > div, .ytp-volume-area';
-
-	// Protected inner elements that should trigger drag of their parent
 	const PROTECTED_GROUPS = ['.ytp-volume-area', '.ytp-chapter-container', '.ytp-live-badge'];
 
 	// --- State ---
+	let isEnabled = false;
 	let dragTimer = null;
 	let isDragging = false;
 	let draggedItem = null;
@@ -2249,32 +2247,24 @@ ImprovedTube.shortsAutoScroll = function () {
 	// --- ID Generator ---
 	function getUniqueId(el) {
 		if (!el) return null;
-		// 1. Prefer ID
 		if (el.id) return el.id;
 
-		// 2. Prefer Known Stable Classes
 		if (el.className && typeof el.className === 'string') {
 			const classes = el.className.split(' ');
-
-			// Explicitly handle volume area span
 			if (classes.includes('ytp-volume-area')) return 'cls-ytp-volume-area';
 
-			// Specific button classes
 			const stableClass = classes.find(c =>
 				['ytp-play-button', 'ytp-next-button', 'ytp-prev-button', 'ytp-fullscreen-button', 'ytp-settings-button', 'ytp-subtitles-button', 'ytp-miniplayer-button', 'ytp-size-button', 'ytp-remote-button', 'ytp-watch-later-button', 'ytp-share-button', 'ytp-chapter-container'].includes(c)
 			);
 			if (stableClass) return 'cls-' + stableClass;
 
-			// Wrapper/Container classes
 			const wrapperClass = classes.find(c => c.includes('controls') && c !== 'ytp-chrome-controls');
 			if (wrapperClass) return 'cls-' + wrapperClass;
 
-			// Fallback: any ytp- class
 			const mainClass = classes.find(c => c.startsWith('ytp-') && c !== 'ytp-button' && !c.includes('tooltip')) || classes[0];
 			if (mainClass) return 'cls-' + mainClass;
 		}
 
-		// 3. Aria Labels
 		const label = el.getAttribute('aria-label') || el.getAttribute('title');
 		if (label) {
 			return 'btn-' + label.toLowerCase().replace(/[^a-z0-9]+/g, '-');
@@ -2294,7 +2284,6 @@ ImprovedTube.shortsAutoScroll = function () {
 				const containerId = getUniqueId(container);
 				if (!containerId) return;
 
-				// Map children to their IDs
 				const childIds = Array.from(container.children)
 					.filter(el => el.style.display !== 'none' && el.matches(DRAGGABLE_SELECTOR))
 					.map(el => getUniqueId(el));
@@ -2305,6 +2294,7 @@ ImprovedTube.shortsAutoScroll = function () {
 			});
 
 			if (Object.keys(layout).length > 0) {
+				// Save to extension storage (Persists after restart)
 				if (ImprovedTube && ImprovedTube.messages) {
 					ImprovedTube.messages.send({ action: 'set', key: STORAGE_KEY, value: layout });
 				}
@@ -2313,7 +2303,7 @@ ImprovedTube.shortsAutoScroll = function () {
 	}
 
 	function restoreLayout() {
-		if (isDragging) return;
+		if (isDragging || !isEnabled) return;
 		if (observer) observer.disconnect();
 
 		if (!ImprovedTube.storage) return;
@@ -2321,14 +2311,14 @@ ImprovedTube.shortsAutoScroll = function () {
 		const savedLayout = ImprovedTube.storage[STORAGE_KEY];
 		if (!savedLayout || typeof savedLayout !== 'object') return;
 
-		// 1. Index ALL known draggable elements in the player (Global Lookup)
+		// 1. Index ALL known draggable elements
 		const allElements = {};
 		document.querySelectorAll(DRAGGABLE_SELECTOR).forEach(el => {
 			const id = getUniqueId(el);
 			if (id) allElements[id] = el;
 		});
 
-		// 2. Identify all Containers
+		// 2. Identify Containers
 		const containers = {};
 		document.querySelectorAll(CONTAINER_SELECTOR).forEach(el => {
 			const id = getUniqueId(el);
@@ -2348,13 +2338,13 @@ ImprovedTube.shortsAutoScroll = function () {
 			childIds.forEach(elementId => {
 				const element = allElements[elementId];
 				if (element) {
-					if (element.contains(container)) return; // Cycle check
+					if (element.contains(container)) return;
 					fragment.appendChild(element);
 					placementSet.add(element);
 				}
 			});
 
-			// Anti-Wipe: Keep existing children
+			// Anti-Wipe: Keep existing children that weren't in the save
 			Array.from(container.children).forEach(child => {
 				if (!placementSet.has(child) && child.matches(DRAGGABLE_SELECTOR)) {
 					fragment.appendChild(child);
@@ -2366,7 +2356,7 @@ ImprovedTube.shortsAutoScroll = function () {
 			}
 		});
 
-		if (document.body && observer) {
+		if (document.body && observer && isEnabled) {
 			observer.observe(document.body, { childList: true, subtree: true });
 		}
 	}
@@ -2382,15 +2372,8 @@ ImprovedTube.shortsAutoScroll = function () {
 		const computed = window.getComputedStyle(element);
 		clone.style.borderRadius = computed.borderRadius;
 		clone.style.backgroundColor = computed.backgroundColor;
-
-		// Fix ghost alignment for volume area specifically
-		if (element.classList.contains('ytp-volume-area')) {
-			clone.style.display = 'flex';
-			clone.style.alignItems = 'center';
-		} else {
-			clone.style.display = 'flex';
-			clone.style.alignItems = 'center';
-		}
+		clone.style.display = 'flex';
+		clone.style.alignItems = 'center';
 
 		clone.classList.add('it-ghost-element');
 		document.body.appendChild(clone);
@@ -2406,20 +2389,16 @@ ImprovedTube.shortsAutoScroll = function () {
 	}
 
 	function onMouseDown(e) {
-		if (e.button !== 0) return;
+		if (!isEnabled || e.button !== 0) return;
 
 		let target = e.target.closest(DRAGGABLE_SELECTOR);
 
-		// Handle volume area specifically if clicked on inner parts
 		if (!target) {
 			const volumeArea = e.target.closest('.ytp-volume-area');
 			if (volumeArea) target = volumeArea;
 		}
 
-		// --- FIX: Prevent dragging internal buttons of protected groups ---
-		// If the target is inside a volume area (or other protected group), 
-		// Force the target to be the group container itself.
-		const protectedParent = target.closest(PROTECTED_GROUPS.join(','));
+		const protectedParent = target ? target.closest(PROTECTED_GROUPS.join(',')) : null;
 		if (protectedParent) {
 			target = protectedParent;
 		}
@@ -2517,7 +2496,7 @@ ImprovedTube.shortsAutoScroll = function () {
 			if (ghostItem) ghostItem.remove();
 			document.body.classList.remove('it-dragging-active');
 
-			if (document.body && observer) observer.observe(document.body, { childList: true, subtree: true });
+			if (document.body && observer && isEnabled) observer.observe(document.body, { childList: true, subtree: true });
 		}
 
 		isDragging = false;
@@ -2532,7 +2511,42 @@ ImprovedTube.shortsAutoScroll = function () {
 		window.removeEventListener('mousemove', onCheckMove);
 	}
 
-	// --- Init ---
+	// --- Enable / Disable Logic ---
+
+	function enableFeature() {
+		if (isEnabled) return;
+		isEnabled = true;
+		injectStyles();
+
+		// Listeners
+		document.body.removeEventListener('mousedown', onMouseDownHandle);
+		document.body.addEventListener('mousedown', onMouseDownHandle);
+
+		// Observer
+		if (document.body) {
+			if (!observer) createObserver();
+			observer.observe(document.body, { childList: true, subtree: true });
+		}
+
+		restoreLayout();
+	}
+
+	function disableFeature() {
+		if (!isEnabled) return;
+		isEnabled = false;
+
+		document.body.removeEventListener('mousedown', onMouseDownHandle);
+		if (observer) observer.disconnect();
+
+		const style = document.getElementById('it-drag-drop-css');
+		if (style) style.remove();
+	}
+
+	function onMouseDownHandle(e) {
+		if (e.target.closest(CONTAINER_SELECTOR)) {
+			onMouseDown(e);
+		}
+	}
 
 	const injectStyles = () => {
 		const styleId = 'it-drag-drop-css';
@@ -2540,10 +2554,8 @@ ImprovedTube.shortsAutoScroll = function () {
 			const style = document.createElement('style');
 			style.id = styleId;
 			style.innerHTML = `
-                /* 1. Dragging Visuals */
                 body.it-dragging-active .ytp-tooltip,
                 body.it-dragging-active .ytp-volume-panel { display: none !important; }
-
                 .it-ghost-element {
                     position: fixed; z-index: 2147483647; pointer-events: none; opacity: 0.95;
                     transform: scale(1.02); border: 2px solid #00ff00; border-radius: 4px;
@@ -2552,115 +2564,74 @@ ImprovedTube.shortsAutoScroll = function () {
                     will-change: top, left;
                 }
                 .it-placeholder { opacity: 0 !important; visibility: hidden !important; }
-                
                 .ytp-left-controls > div, .ytp-right-controls > div {
-                    min-width: 10px;
-                    min-height: 100%;
+                    min-width: 10px; min-height: 100%;
                 }
-
-               /* 2. RIGHT-SIDE ADAPTOR (The Fix) */
-            
-            /* When Volume is in Right Controls, reset its geometry */
-            .ytp-right-controls .ytp-volume-area{
-                /* Reset Legacy Left-Side Spacing */
-                margin: 0 !important; 
-                padding: 0 10px !important; /* Balanced padding */
-                
-                /* Force Vertical Centering in Flex Parent */
-                align-self: center !important;
-                
-                /* Internal Layout */
-                display: inline-flex !important;
-                align-items: center !important;
-                height: 100% !important;
-                vertical-align: middle !important;
-                
-                /* Prevent Collapse */
-                min-width: 0px; 
-                overflow: visible !important;
-            }
-
-               /* Fix the Mute Button inside the area */
-
-			.ytp-right-controls .ytp-mute-button svg {
-				padding-top: 15px !important;
-			}
-
-			.ytp-right-controls .ytp-mute-button:not(svg) {
-				width: 40px !important;
-				height: 100% !important;
-			}
-              /* 3. RESTORE SLIDER FUNCTIONALITY ON RIGHT SIDE */
-            
-            /* Default State (Hidden) */
-            .ytp-right-controls .ytp-volume-panel {
-                width: 0px !important;
-                opacity: 0;
-                margin: 0;
-                overflow: hidden;
-                transition: width 0.2s cubic-bezier(0.4, 0, 1, 1), opacity 0.2s !important;
-            }
-
-            /* Hover State (Expanded) - Replicating YouTube's native behavior */
-            .ytp-right-controls .ytp-volume-area:hover .ytp-volume-panel,
-            .ytp-right-controls .ytp-volume-area:focus-within .ytp-volume-panel {
-                min-width: 80px !important;
-                opacity: 1 !important;
-                margin-left: 20px !important;
-                display: block !important;
-            }
+                /* Right Side Adaptor */
+                .ytp-right-controls .ytp-volume-area {
+                    margin: 0 !important; padding: 0 10px !important; align-self: center !important;
+                    display: inline-flex !important; align-items: center !important; height: 100% !important;
+                    vertical-align: middle !important; min-width: 0px; overflow: visible !important;
+                }
+                .ytp-right-controls .ytp-mute-button svg { padding-top: 15px !important; }
+                .ytp-right-controls .ytp-mute-button:not(svg) { width: 40px !important; height: 100% !important; }
+                .ytp-right-controls .ytp-volume-panel {
+                    width: 0px !important; opacity: 0; margin: 0; overflow: hidden;
+                    transition: width 0.2s cubic-bezier(0.4, 0, 1, 1), opacity 0.2s !important;
+                }
+                .ytp-right-controls .ytp-volume-area:hover .ytp-volume-panel,
+                .ytp-right-controls .ytp-volume-area:focus-within .ytp-volume-panel {
+                    min-width: 80px !important; opacity: 1 !important; margin-left: 20px !important; display: block !important;
+                }
             `;
 			document.head.appendChild(style);
 		}
 	};
 
-	const initListeners = () => {
-		document.body.removeEventListener('mousedown', onMouseDownHandle);
-		document.body.addEventListener('mousedown', onMouseDownHandle);
-	};
+	function createObserver() {
+		observer = new MutationObserver((mutations) => {
+			if (isDragging) return;
+			let needsRestore = false;
+			for (const m of mutations) {
+				if (m.type === 'childList' && m.target.matches && m.target.matches(CONTAINER_SELECTOR)) {
+					needsRestore = true; break;
+				}
+			}
+			if (needsRestore) restoreLayout();
+		});
+	}
 
-	function onMouseDownHandle(e) {
-		if (e.target.closest(CONTAINER_SELECTOR)) {
-			onMouseDown(e);
+	// --- Master Logic ---
+
+	// Checks the ImprovedTube setting to decide whether to Enable or Disable
+	function checkFeatureState() {
+		if (typeof ImprovedTube === 'undefined' || !ImprovedTube.storage) return;
+
+		const shouldBeEnabled = ImprovedTube.storage[FEATURE_KEY] === true;
+
+		if (shouldBeEnabled && !isEnabled) {
+			enableFeature();
+		} else if (!shouldBeEnabled && isEnabled) {
+			disableFeature();
 		}
 	}
 
-	observer = new MutationObserver((mutations) => {
-		if (isDragging) return;
-
-		let needsRestore = false;
-		for (const m of mutations) {
-			if (m.type === 'childList') {
-				const target = m.target;
-				if (target.matches && target.matches(CONTAINER_SELECTOR)) {
-					needsRestore = true;
-					break;
-				}
-			}
-		}
-
-		if (needsRestore) {
-			restoreLayout();
-		}
-	});
-
 	const start = () => {
 		if (document.head && document.body) {
-			injectStyles();
-			observer.observe(document.body, { childList: true, subtree: true });
+			// 1. Initial Check
+			checkFeatureState();
 
-			initListeners();
-			restoreLayout();
+			// 2. Watch for setting changes (Poll safely or hook into events)
+			setInterval(checkFeatureState, 1000);
 
+			// 3. Hook into ImprovedTube init if available
 			if (typeof ImprovedTube !== 'undefined') {
 				const originalInit = ImprovedTube.init;
 				ImprovedTube.init = function () {
 					if (originalInit) originalInit.apply(this, arguments);
-					restoreLayout();
-					initListeners();
+					checkFeatureState();
+					if (isEnabled) restoreLayout();
 				};
-				ImprovedTube.playerButtonOrderLeft = restoreLayout;
-				ImprovedTube.playerButtonOrderRight = restoreLayout;
 			}
 		} else {
 			setTimeout(start, 50);
