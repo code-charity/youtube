@@ -142,6 +142,13 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					text: "forcedTheaterMode",
 					tags: "wide",
 				},
+				bl_draggable_buttons: {
+				component: "switch",
+				text: "draggablePlayerButtons",
+				tags: "drag,drop,reorder,move,buttons",
+				storage: "bl_draggable_buttons",
+				value: false
+			},
 				player_size: {
 					component: "select",
 					variant: "player-size",
