@@ -1028,19 +1028,23 @@ satus.locale.get = function (string) {
 --------------------------------------------------------------*/
 satus.locale.import = function (code, callback, path) {
 	// if (!path) {  path = '_locales/';   }
+	let promiseChain = Promise.resolve();
+	
 	function importLocale (locale, successCallback) {
-		var url = chrome.runtime.getURL(path + locale + '/messages.json');
-		fetch(url)
-			.then(response => response.ok ? response.json() : {})
-			.then(data => {
-				for (var key in data) {
-					if (!satus.locale.data[key]) {
-						satus.locale.data[key] = data[key].message;
+		promiseChain = promiseChain.then(() => {
+			var url = chrome.runtime.getURL(path + locale + '/messages.json');
+			return fetch(url)
+				.then(response => response.ok ? response.json() : {})
+				.then(data => {
+					for (var key in data) {
+						if (!satus.locale.data[key]) {
+							satus.locale.data[key] = data[key].message;
+						}
 					}
-				}
-			})
-			.catch(() => {})
-			.finally(() => successCallback && successCallback());
+				})
+				.catch(() => {})
+				.finally(() => successCallback && successCallback());
+		});
 	}
 	if (code) {
 		let language = code.replace('-', '_');
