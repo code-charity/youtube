@@ -80,7 +80,9 @@ html[it-ads=block_all] #player .ytp-ad-skip-button-container {
 -----------------------------------------------------------------------------*/
 
 /* Fix: Ensure custom mini-player stays above page content (description, comments) */
-html[it-mini-player="true"] #player-container {
+
+html[it-mini-player="true"] #player-container,
+html[it-mini-player="true"] #full-bleed-container {
     z-index: 2005 !important;
 }
 
