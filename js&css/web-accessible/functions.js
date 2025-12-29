@@ -352,7 +352,7 @@ ImprovedTube.playerOnPlay = function () {
 		return function () {
 			// Avoid attaching full player handlers to inline/thumbnail preview players
 			// (YouTube uses different preview elements such as `ytd-video-preview`).
-			if (!this.closest('#inline-preview-player') && !this.closest('ytd-video-preview') && !this.closest('.ytd-video-preview') && !this.closest('.ytp-inline-preview')) {
+			if (!this.closest('#inline-preview-player, ytd-video-preview, .ytd-video-preview, .ytp-inline-preview')) {
 				this.removeEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
 				this.addEventListener('loadedmetadata', ImprovedTube.playerOnLoadedMetadata);
 
