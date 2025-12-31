@@ -122,7 +122,11 @@ html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] y
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer,
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-reel-shelf-renderer,
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]),
-html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]) {
+html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]),
+/*--------------------------------------------------------------
+# REMOVE PLAYABLES
+--------------------------------------------------------------*/
+html[it-pathname='/'][it-remove-playables="true"] ytd-rich-section-renderer:has(ytd-mini-game-card-view-model) {
 	display: none !important;
 }
 @supports not selector(:has(a, b)) {
