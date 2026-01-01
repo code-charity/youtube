@@ -281,7 +281,8 @@ ImprovedTube.pageType = function () {
 		document.documentElement.dataset.pageType = 'home';
 	} else if (/\/subscriptions\?/.test(location.href)) {
 		document.documentElement.dataset.pageType = 'subscriptions';
-	} else if (/\/@|(\/(channel|user|c)\/)[^/]+(?!\/videos)/.test(location.href)) {
+	} else if (/\/@[^/]+|(\/(channel|user|c)\/)[^/]+/.test(location.href)) {
+		// Match all channel pages including subpages like /videos, /shorts, etc.
 		document.documentElement.dataset.pageType = 'channel';
 	} else if (/\/shorts\//.test(location.href)) {
 		document.documentElement.dataset.pageType = 'shorts';
