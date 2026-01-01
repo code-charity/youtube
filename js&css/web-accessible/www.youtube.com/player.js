@@ -1089,7 +1089,7 @@ function createOverlay () {
 	overlay.style.backgroundColor = 'rgba(0, 0, 0, 1)';
 	overlay.style.zIndex = '9999';
 	overlay.style.display = 'block';
-	document.body.appendChild(overlay);
+	document.getElementById('full-bleed-container').appendChild(overlay);
 }
 
 ImprovedTube.playerCinemaModeButton = function () {
@@ -1106,18 +1106,13 @@ ImprovedTube.playerCinemaModeButton = function () {
 		this.createPlayerButton({
 			id: 'it-cinema-mode-button',
 			child: svg,
-			// position: "right", // using right only works when we also have fit to window button enabled for some reason
 			opacity: 0.64,
 			onclick: function () {
-				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
-				// console.log(player)
-				if (player.style.zIndex == 10000) {
-					player.style.zIndex = 1;
-					svg.parentNode.style.opacity = 0.64;
-					svg.parentNode.style.zIndex = 1;
+				var playerContainer = document.getElementById('player-full-bleed-container');
+				if (playerContainer.style.zIndex == 10000) {
+					playerContainer.style.zIndex = 1;
 				} else {
-					player.style.zIndex = 10000;
-					svg.parentNode.style.opacity = 1;
+					playerContainer.style.zIndex = 10000;
 				}
 
 				var overlay = document.getElementById('overlay_cinema');
@@ -1126,7 +1121,6 @@ ImprovedTube.playerCinemaModeButton = function () {
 				} else {
 					overlay.style.display = overlay.style.display === 'none' || overlay.style.display === '' ? 'block' : 'none';
 				}
-				//console.log(overlay)
 			},
 			title: 'Cinema Mode'
 		});
@@ -1138,8 +1132,8 @@ ImprovedTube.playerCinemaModeDisable = function () {
 		var overlay = document.getElementById('overlay_cinema');
 		if (overlay) {
 			overlay.style.display = 'none'
-			var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
-			player.style.zIndex = 1;
+			var playerContainer = document.getElementById('player-full-bleed-container');
+			playerContainer.style.zIndex = 1;
 			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
 			cinemaModeButton.style.opacity = 0.64
 		}
@@ -1157,12 +1151,11 @@ ImprovedTube.playerCinemaModeEnable = function () {
 				overlay = document.getElementById('overlay_cinema');
 			}
 
-			// console.log(overlay && this.storage.player_auto_hide_cinema_mode_when_paused === true || this.storage.player_auto_cinema_mode === true && overlay)
 			if (overlay) {
 				overlay.style.display = 'block'
-				var player = xpath('//*[@id="movie_player"]/div[1]/video')[0].parentNode.parentNode
+				var player = document.getElementById('player-full-bleed-container');
 				player.style.zIndex = 10000;
-				// console.log(player)
+
 				var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
 				cinemaModeButton.style.opacity = 1
 			}
