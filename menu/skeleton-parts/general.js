@@ -86,6 +86,11 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'atHistory'
 				},
+				remove_playables: {
+					component: 'switch',
+					text: 'removePlayables',
+					id: 'remove-playables'
+				},
 				hide_ai_summary: {
 					component: 'switch',
 					text: 'hideAISummary',

@@ -1214,6 +1214,9 @@
   "removePlaylistParam": {
     "message": "Skip playlist when opening videos in new tab"
   },
+  "removePlayables": {
+    "message": "Hide playables"
+  },
   "removeRelatedSearchResults": {
     "message": "Remove related search results"
   },
