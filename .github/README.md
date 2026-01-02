@@ -147,6 +147,8 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <a href="https://github.com/AshenNethsara"><code>AshenNethsara</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/el/messages.json" title="ελληνικά">EL(Greek)</a></code> :
 <a href="https://github.com/molyvius"><code>molyvius</code></a><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ne/messages.json" title=" नेपाली (Nepali)">NE(Nepali)</a></code> :
+<a href="https://github.com/prashant-sharma-cmd"><code>prashant-sharma-cmd</code></a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Danish">DA Danish</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Hungarian">Hungarian</a></code> :
