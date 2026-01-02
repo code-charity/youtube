@@ -67,6 +67,7 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <a href="https://github.com/niceRAM" title="✨🏆"><code>niceRAM</code></a> 
 <a href="https://github.com/ausers"><code>ausers</code></a><br>
 <a href="https://github.com/FlootingDream"><code>FlootingDream</code></a><br>
+<a href="https://github.com/Dovahseod" title="✨🏆"><code>Dovahseod</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/zh_TW/messages.json" title="中文 (繁體)">CN(zh_TW)</a></code> :
 <a href="https://github.com/Still34" title="✨🏆"><code>Still34</code></a> 
 <a href="https://github.com/water903"><code>water903</code></a>  <br>
