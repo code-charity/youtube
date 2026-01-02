@@ -1109,11 +1109,23 @@ ImprovedTube.playerCinemaModeButton = function () {
 			opacity: 0.64,
 			onclick: function () {
 				var playerContainer = document.getElementById('player-full-bleed-container');
-				if (playerContainer.style.zIndex == 10000) {
-					playerContainer.style.zIndex = 1;
+				var playerContainerDefault =
+					document.getElementById("player-container");
+				var zIndex = 1;
+
+				if (
+					(playerContainer && playerContainer.style.zIndex == 10000) ||
+					(playerContainerDefault &&
+						playerContainerDefault.style.zIndex == 10000)
+					) {
+					zIndex = 1;
 				} else {
-					playerContainer.style.zIndex = 10000;
+					zIndex = 10000;
 				}
+
+				if (playerContainer) playerContainer.style.zIndex = zIndex;
+				if (playerContainerDefault)
+					playerContainerDefault.style.zIndex = zIndex;
 
 				var overlay = document.getElementById('overlay_cinema');
 				if (!overlay) {
@@ -1133,9 +1145,11 @@ ImprovedTube.playerCinemaModeDisable = function () {
 		if (overlay) {
 			overlay.style.display = 'none'
 			var playerContainer = document.getElementById('player-full-bleed-container');
-			playerContainer.style.zIndex = 1;
+			if (playerContainer) playerContainer.style.zIndex = 1;
+			var playerContainerDefault = document.getElementById('player-container');
+			if (playerContainerDefault) playerContainerDefault.style.zIndex = 1;
 			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
-			cinemaModeButton.style.opacity = 0.64
+			if (cinemaModeButton) cinemaModeButton.style.opacity = 0.64
 		}
 	}
 }
@@ -1154,10 +1168,12 @@ ImprovedTube.playerCinemaModeEnable = function () {
 			if (overlay) {
 				overlay.style.display = 'block'
 				var player = document.getElementById('player-full-bleed-container');
-				player.style.zIndex = 10000;
+				if (player) player.style.zIndex = 10000;
+				var playerDefault = document.getElementById('player-container');
+				if (playerDefault) playerDefault.style.zIndex = 10000;
 
 				var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
-				cinemaModeButton.style.opacity = 1
+				if (cinemaModeButton) cinemaModeButton.style.opacity = 1
 			}
 		}
 	}
