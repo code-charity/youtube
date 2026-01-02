@@ -836,7 +836,7 @@
         "message": "旧版 YouTube"
     },
     "library": {
-        "message": "我"
+        "message": "我（库）"
     },
     "light": {
         "message": "浅色"
@@ -1181,7 +1181,7 @@
         "message": "移除名称"
     },
     "removePlaylistParam": {
-        "message": "在新标签页中打开视频时跳过播放列表"
+        "message": "新标签页中打开视频时不进入播放列表"
     },
     "removeRelatedSearchResults": {
         "message": "移除相关搜索结果"
