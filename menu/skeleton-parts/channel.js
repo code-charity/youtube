@@ -18,6 +18,9 @@ extension.skeleton.main.layers.section.channel = {
 					text: 'home',
 					value: '/'
 				}, {
+					text: 'about',
+					value: '/about'
+				}, {
 					text: 'videos',
 					value: '/videos'
 				}, {
@@ -33,8 +36,14 @@ extension.skeleton.main.layers.section.channel = {
 					text: 'channels',
 					value: '/channels'
 				}, {
-					text: 'about',
-					value: '/about'
+					text: 'posts',
+					value: '/posts'
+				}, {
+					text: 'streams',
+					value: '/streams'
+				}, {
+					text: 'releases',
+					value: '/releases'
 				}]
 			},
 			channel_trailer_autoplay: {
