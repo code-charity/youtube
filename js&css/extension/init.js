@@ -77,6 +77,7 @@ extension.inject([
 	'/js&css/web-accessible/www.youtube.com/blocklist.js',
 	'/js&css/web-accessible/www.youtube.com/settings.js',
 	'/js&css/web-accessible/www.youtube.com/last-watched-overlay.js',  // Neue Zeile hinzufügen
+	'/js&css/web-accessible/www.youtube.com/volume-booster.js',
 	'/js&css/web-accessible/init.js'
 ], function () {
 	extension.ready = true;
