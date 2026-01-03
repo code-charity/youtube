@@ -210,7 +210,12 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 		styleScrollbars();
 		setGrid();
 		applyObserver();
-		window.addEventListener("resize", sidebar)
+		window.addEventListener("resize", sidebar);
+		// Listen for fullscreen changes to properly recalculate player size
+		document.addEventListener("fullscreenchange", function() {
+			// Delay to let YouTube update its attributes first
+			setTimeout(sidebar, 100);
+		});
 	}
 
 	function sidebar () {
@@ -272,10 +277,23 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			secondaryInner.appendChild(comments);
 		})
 	}
-	function resizePlayer () { const width = video.offsetWidth + 24; if (width != 24) {
+	function resizePlayer () {
 		const player = document.querySelector("#player.style-scope.ytd-watch-flexy");
-		document.getElementById("primary").style.width = `${width}px`;
-		player.style.width = `${width}px`;
+		const watchFlexy = document.querySelector("ytd-watch-flexy");
+		const primary = document.getElementById("primary");
+
+		// Don't set inline widths in fullscreen or theater mode - let CSS handle it
+		if (watchFlexy && (watchFlexy.hasAttribute("fullscreen") || watchFlexy.hasAttribute("theater"))) {
+			// Clear any previously set inline widths to let CSS rules apply
+			if (primary) primary.style.width = "";
+			if (player) player.style.width = "";
+			return;
+		}
+
+		const width = video.offsetWidth + 24;
+		if (width != 24 && primary && player) {
+			primary.style.width = `${width}px`;
+			player.style.width = `${width}px`;
 		}
 	}
 	function styleScrollbars () {
