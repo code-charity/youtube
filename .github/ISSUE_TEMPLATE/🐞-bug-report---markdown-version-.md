@@ -1,5 +1,5 @@
 ---
-name: "\U0001F41E Bug Report  (mark down version)"
+name: "\U0001F41E Bug Report  (markdown version)"
 about: Create a report to help us improve
 title: "\U0001F41E"
 labels: Bug, Feature request, good first issue, help wanted, up-for-grabs
