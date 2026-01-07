@@ -770,3 +770,73 @@ extension.features.removeMemberOnly = function () {
 
 };
 
+/*--------------------------------------------------------------
+# HIDE 'WATCH LATER' VIDEOS 
+--------------------------------------------------------------*/
+extension.features.hideWatchLater = function () {
+    // Check if settings are ready
+    const setting = extension.storage.get('hide_watch_later');
+
+    if (setting === undefined) {
+        setTimeout(extension.features.hideWatchLater, 100);
+        return;
+    }
+
+    if (setting !== true) {
+        return; 
+    }
+
+    
+    let watchLaterIds = new Set();
+    let isFetching = false;
+
+    function fetchWatchLaterList() {
+        if (isFetching || watchLaterIds.size > 0) return;
+        isFetching = true;
+
+        fetch('https://www.youtube.com/playlist?list=WL')
+            .then(res => res.text())
+            .then(text => {
+                const matches = text.match(/"videoId":"(.*?)"/g);
+                if (matches) {
+                    const cleanIds = matches.map(item => item.split('"')[3]);
+                    watchLaterIds = new Set(cleanIds);
+                    hideVideos();
+                }
+            })
+            .catch(err => console.error('[ImprovedTube] Fetch Error:', err))
+            .finally(() => isFetching = false);
+    }
+
+    function hideVideos() {
+        if (watchLaterIds.size === 0) return;
+        const videos = document.querySelectorAll('ytd-rich-item-renderer, yt-lockup-view-model');
+        videos.forEach(video => {
+            const link = video.querySelector('a#thumbnail, a');
+            if (link && link.href && link.href.includes('v=')) {
+                const videoId = link.href.split('v=')[1].split('&')[0];
+                if (watchLaterIds.has(videoId)) {
+                    video.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    // Standard "Body Check" to make sure page exists
+    function init() {
+        if (!document.body) {
+            setTimeout(init, 100);
+            return;
+        }
+        fetchWatchLaterList();
+        const observer = new MutationObserver(() => {
+            if (watchLaterIds.size > 0) hideVideos();
+        });
+        observer.observe(document.body, {childList: true, subtree: true});
+    }
+
+    init();
+};
+
+// Start the check
+extension.features.hideWatchLater();

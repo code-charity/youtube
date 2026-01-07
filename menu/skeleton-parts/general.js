@@ -376,6 +376,10 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'hideWatchedVideos'
 				},
+				hide_watch_later: {
+                    component: 'switch',
+                    text: 'Hide Watch Later Videos'
+                },
 				delete_watched_videos: {
 					component: 'button',
 					text: 'deleteWatchedVideos',
