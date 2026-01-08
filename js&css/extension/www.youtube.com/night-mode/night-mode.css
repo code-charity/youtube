@@ -63,18 +63,7 @@ html[it-bluelight]:not([it-bluelight='0']) .html5-video-player.ytp-fullscreen {
 /*==============================================================
  ImprovedTube – YouTube TEXT COLOR FIX (PERMANENT)
 ==============================================================*/
-
-/*-------------------------
- LIGHT THEME (DEFAULT)
---------------------------*/
-ytd-app:not([dark]) {
-	--yt-spec-text-primary: #0f0f0f !important;
-	--yt-spec-text-secondary: #606060 !important;
-}
-
-/*-------------------------
- DARK / NIGHT / BLACK THEMES
---------------------------*/
+/* ---------- DARK / NIGHT / BLACK THEMES ---------- */
 ytd-app[dark],
 html[it-theme=black] ytd-app,
 html[it-theme=night] ytd-app,
@@ -82,7 +71,13 @@ html[it-theme=dawn] ytd-app,
 html[it-theme=sunset] ytd-app {
 	--yt-spec-text-primary: #ffffff !important;
 	--yt-spec-text-secondary: #cccccc !important;
+
+	--yt-primary-text-color: #ffffff !important;
+	--yt-secondary-text-color: #cccccc !important;
+	--yt-metadata-color: #cccccc !important;
+	--yt-expand-color: #cccccc !important;
 }
+
 
 /*--------------------------------------------------------------
 # TITLES – FOLLOW YOUTUBE SYSTEM
@@ -108,43 +103,13 @@ ytd-watch-metadata a {
 	color: var(--yt-spec-call-to-action) !important;
 }
 
-/*==============================================================
- ImprovedTube – Remaining YouTube text variables FIX
-==============================================================*/
 
-/* ---------- LIGHT THEME ---------- */
-ytd-app:not([dark]) {
-	--yt-primary-text-color: #0f0f0f !important;
-	--yt-secondary-text-color: #606060 !important;
-	--yt-metadata-color: #606060 !important;
-	--yt-expand-color: #606060 !important;
-}
-
-/* ---------- DARK / NIGHT / BLACK THEMES ---------- */
-ytd-app[dark],
-html[it-theme=black] ytd-app,
-html[it-theme=night] ytd-app,
-html[it-theme=dawn] ytd-app,
-html[it-theme=sunset] ytd-app {
-	--yt-primary-text-color: #ffffff !important;
-	--yt-secondary-text-color: #cccccc !important;
-	--yt-metadata-color: #cccccc !important;
-	--yt-expand-color: #cccccc !important;
-}
 
 /*==============================================================
  GLOBAL FALLBACK (IMPORTANT FOR SHORTS)
 ==============================================================*/
 
-/*
- Shorts UI can exist outside ytd-app.
- These variables guarantee correct colors everywhere.
-*/
-
-html:not([dark]) {
-	--yt-primary-text-color: #0f0f0f;
-	--yt-secondary-text-color: #606060;
-}
+/*Fallback for dark/night themes when Shorts are rendered outside ytd-app */
 
 html[dark],
 html[it-theme=black],
