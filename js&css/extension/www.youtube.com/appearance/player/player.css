@@ -761,6 +761,15 @@ html[it-revert-theater-button-size='true'] .html5-video-player.ytp-big-mode .ytp
 	display: flex;
 	align-items: center;
 }
+
+/*--------------------------------------------------------------
+# FIX: SMALL IMPROVEDTUBE ICONS IN YOUTUBE NEW UI
+--------------------------------------------------------------*/
+
+.ytp-chrome-controls .it-player-button > svg {
+	padding: 0 !important;
+}
+
 /*------------------------------------------------------------------------------
 ALWAYS SHOW CONTROL BUTTONS
 ------------------------------------------------------------------------------*/
