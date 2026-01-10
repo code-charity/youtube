@@ -1597,5 +1597,8 @@
   },
   "youtubesLight": {
     "message": "YouTube's Light"
+  },
+  "draggablePlayerButtons": {
+    "message": "Draggable player buttons"
   }
 }
