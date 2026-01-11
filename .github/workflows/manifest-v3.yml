@@ -1,0 +1,134 @@
+name: Build & Validate Manifest V3
+
+on:
+  pull_request:
+    paths:
+      - 'build/**'
+      - 'scripts/**'
+      - 'package.json'
+      - '.github/workflows/**'
+  push:
+    branches:
+      - 'feature/**'
+
+jobs:
+  build-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Run bundling (rollup)
+        run: node scripts/convert-manifest.js --input build/manifest2.json --output build/manifest3.json --bundle-sw
+
+      - name: Validate generated manifest
+        run: node scripts/validate-manifest3.js build/manifest3.json
+
+      - name: Check for generated artifacts and set prefix
+        id: check
+        run: |
+          set -e
+          found_sw=false
+          found_manifest=false
+          if [ -f build/generated_service_worker.js ]; then
+            found_sw=true
+          fi
+          if [ -f build/manifest3.json ]; then
+            found_manifest=true
+          fi
+          echo "found_sw=$found_sw" >> $GITHUB_OUTPUT
+          echo "found_manifest=$found_manifest" >> $GITHUB_OUTPUT
+
+          # Determine branch name and short SHA
+          if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
+            BRANCH_NAME="${GITHUB_HEAD_REF}"
+          else
+            # extract branch from ref like refs/heads/<branch>
+            BRANCH_NAME="${GITHUB_REF#refs/heads/}"
+          fi
+          SHORT_SHA="${GITHUB_SHA:0:7}"
+          # sanitize branch for filesystem (replace / with -)
+          SANITIZED_BRANCH=$(echo "$BRANCH_NAME" | tr '/' '-')
+          ARTIFACT_PREFIX="${{ github.event_name == 'pull_request' && 'pr' || 'run' }}-${SANITIZED_BRANCH}-${SHORT_SHA}"
+          echo "artifact_prefix=$ARTIFACT_PREFIX" >> $GITHUB_OUTPUT
+
+      - name: Prepare artifacts folder
+        if: steps.check.outputs.found_sw == 'true' || steps.check.outputs.found_manifest == 'true'
+        run: |
+          set -e
+          PREFIX=${{ steps.check.outputs.artifact_prefix }}
+          mkdir -p artifacts/${PREFIX}
+          if [ -f build/generated_service_worker.js ]; then
+            cp build/generated_service_worker.js artifacts/${PREFIX}/generated_service_worker.js
+          fi
+          if [ -f build/manifest3.json ]; then
+            cp build/manifest3.json artifacts/${PREFIX}/manifest3.json
+          fi
+          ls -la artifacts/${PREFIX}
+
+      - name: Upload artifacts bundle
+        if: steps.check.outputs.found_sw == 'true' || steps.check.outputs.found_manifest == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.check.outputs.artifact_prefix }}-bundle
+          path: artifacts/${{ steps.check.outputs.artifact_prefix }}
+
+      - name: Comment PR with artifact download link
+        if: github.event_name == 'pull_request' && (steps.check.outputs.found_sw == 'true' || steps.check.outputs.found_manifest == 'true')
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prefix = process.env.ARTIFACT_PREFIX || '${{ steps.check.outputs.artifact_prefix }}';
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const runId = process.env.GITHUB_RUN_ID;
+            const prNumber = context.payload.pull_request.number;
+
+            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({ owner, repo, run_id: Number(runId) });
+            const art = artifacts.data.artifacts.find(a => a.name === `${prefix}-bundle`);
+            if (!art) {
+              core.info(`No artifact named ${prefix}-bundle found for run ${runId}`);
+            } else {
+              const downloadUrl = `https://api.github.com/repos/${owner}/${repo}/actions/artifacts/${art.id}/zip`;
+              // Build mention list: PR author + requested reviewers (if any)
+              const prAuthor = context.payload.pull_request.user.login;
+              const requestedReviewers = (context.payload.pull_request.requested_reviewers || []).map(r => r.login);
+              const mentions = [prAuthor, ...requestedReviewers].filter(Boolean).map(u => `@${u}`);
+              const mentionLine = mentions.length > 0 ? `FYI: ${mentions.join(' ')}` : '';
+
+              const body = `Artifacts for this PR:\n\n- **Bundle**: [Download artifact](${downloadUrl})\n\n${mentionLine}\n\n*(You must be authenticated to download artifacts via the API URL.)*`;
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+            }
+            // Add label to PR to indicate artifacts are available
+            const labelName = 'artifact-ready';
+            try {
+              await github.rest.issues.addLabels({ owner, repo, issue_number: prNumber, labels: [labelName] });
+            } catch (err) {
+              // If adding failed (label might not exist), try creating it then add
+                try {
+                await github.rest.issues.createLabel({ owner, repo, name: labelName, color: '0366d6', description: 'CI: generated artifacts available' });
+                await github.rest.issues.addLabels({ owner, repo, issue_number: prNumber, labels: [labelName] });
+              } catch (err2) {
+                core.info('Failed to create or add label: ' + err2.message);
+              }
+            }
+            // Add assignees: PR author + requested reviewers (if any)
+            try {
+              const assignees = Array.from(new Set([prAuthor, ...requestedReviewers].filter(Boolean)));
+              if (assignees.length > 0) {
+                await github.rest.issues.addAssignees({ owner, repo, issue_number: prNumber, assignees });
+              }
+            } catch (err3) {
+              core.info('Failed to add assignees: ' + err3.message);
+            }
+        env:
+          ARTIFACT_PREFIX: ${{ steps.check.outputs.artifact_prefix }}
