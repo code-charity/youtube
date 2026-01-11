@@ -743,9 +743,6 @@
   "hideThumbnailIcon": {
     "message": "Hide thumbnail icon"
   },
-  "hideThumbnailOverlay": {
-    "message": "Hide buttons on thumbnails"
-  },
   "hideThumbnails": {
     "message": "Hide thumbnails"
   },
