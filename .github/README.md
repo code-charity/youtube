@@ -189,7 +189,7 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 
 <b> Proofreaders </b>:<code><a href="https://github.com/????????">___</a></code> (You?) </code>
 <h3>Translators&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<a href="https://github.com/code-for-charity/YouTube-Extension#--translators-" title="💕">♡</a>&nbsp;&nbsp;🌎</h3> 
-<code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blo/_locales/en/messages.json" title="English">EN</a></code>
+<code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/_locales/en/messages.json" title="English">EN</a></code>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/en_GB/messages.json" title="English (UK)">en_GB</a></code> :
 <a href="https://github.com/Korbough" title="✨🏆"><code>Korbough</code></a><br>
 <code><code>✔️</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/ur/messages.json" title="Urdu">UR</a></code> :
