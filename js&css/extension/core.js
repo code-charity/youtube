@@ -22,19 +22,19 @@
 --------------------------------------------------------------*/
 
 var extension = {
-	domReady: false,
-	events: {
-		listeners: {}
-	},
-	features: {},
-	functions: {},
-	messages: {
-		queue: []
-	},
-	ready: false,
-	storage: {
-		data: {}
-	}
+    domReady: false,
+    events: {
+        listeners: {},
+    },
+    features: {},
+    functions: {},
+    messages: {
+        queue: [],
+    },
+    ready: false,
+    storage: {
+        data: {},
+    },
 };
 
 /*--------------------------------------------------------------
@@ -42,21 +42,21 @@ var extension = {
 --------------------------------------------------------------*/
 
 extension.camelize = function (string) {
-	var result = '';
+    var result = "";
 
-	for (var i = 0, l = string.length; i < l; i++) {
-		var character = string[i];
+    for (var i = 0, l = string.length; i < l; i++) {
+        var character = string[i];
 
-		if (character === '_' || character === '-') {
-			i++;
+        if (character === "_" || character === "-") {
+            i++;
 
-			result += string[i].toUpperCase();
-		} else {
-			result += character;
-		}
-	}
+            result += string[i].toUpperCase();
+        } else {
+            result += character;
+        }
+    }
 
-	return result;
+    return result;
 };
 
 /*--------------------------------------------------------------
@@ -68,25 +68,25 @@ extension.camelize = function (string) {
 --------------------------------------------------------------*/
 
 extension.events.on = function (type, listener, options = {}) {
-	var listeners = extension.events.listeners;
+    var listeners = extension.events.listeners;
 
-	if (!listeners[type]) {
-		listeners[type] = [];
-	}
+    if (!listeners[type]) {
+        listeners[type] = [];
+    }
 
-	if (options.async === true) {
-		listener = (function (original) {
-			return async function () {
-				return new Promise(original);
-			};
-		})(listener);
-	}
+    if (options.async === true) {
+        listener = (function (original) {
+            return async function () {
+                return new Promise(original);
+            };
+        })(listener);
+    }
 
-	if (options.prepend === true) {
-		listeners[type].unshift(listener);
-	} else {
-		listeners[type].push(listener);
-	}
+    if (options.prepend === true) {
+        listeners[type].unshift(listener);
+    } else {
+        listeners[type].push(listener);
+    }
 };
 
 /*--------------------------------------------------------------
@@ -94,21 +94,24 @@ extension.events.on = function (type, listener, options = {}) {
 --------------------------------------------------------------*/
 
 extension.events.trigger = async function (type, data) {
-	var listeners = extension.events.listeners[type];
+    var listeners = extension.events.listeners[type];
 
-	if (listeners) {
-		for (var i = 0, l = listeners.length; i < l; i++) {
-			var listener = listeners[i];
+    if (listeners) {
+        for (var i = 0, l = listeners.length; i < l; i++) {
+            var listener = listeners[i];
 
-			if (typeof listener === 'function') {
-				if (listener instanceof(async function () {}).constructor === true) {
-					await listener(data);
-				} else {
-					listener(data);
-				}
-			}
-		}
-	}
+            if (typeof listener === "function") {
+                if (
+                    listener instanceof (async function () {}).constructor ===
+                        true
+                ) {
+                    await listener(data);
+                } else {
+                    listener(data);
+                }
+            }
+        }
+    }
 };
 
 /*--------------------------------------------------------------
@@ -118,31 +121,31 @@ extension.events.trigger = async function (type, data) {
 --------------------------------------------------------------*/
 
 extension.inject = function (paths, callback) {
-	if (paths.length > 0) {
-		var element,
-			path = chrome.runtime.getURL(paths[0]);
+    if (paths.length > 0) {
+        var element,
+            path = chrome.runtime.getURL(paths[0]);
 
-		if (path.indexOf('.css') !== -1) {
-			element = document.createElement('link');
+        if (path.indexOf(".css") !== -1) {
+            element = document.createElement("link");
 
-			element.rel = 'stylesheet';
-			element.href = path;
-		} else {
-			element = document.createElement('script');
+            element.rel = "stylesheet";
+            element.href = path;
+        } else {
+            element = document.createElement("script");
 
-			element.src = path;
-		}
+            element.src = path;
+        }
 
-		element.onload = function () {
-			paths.shift();
+        element.onload = function () {
+            paths.shift();
 
-			extension.inject(paths, callback);
-		};
+            extension.inject(paths, callback);
+        };
 
-		document.documentElement.appendChild(element);
-	} else if (callback) {
-		callback();
-	}
+        document.documentElement.appendChild(element);
+    } else if (callback) {
+        callback();
+    }
 };
 
 /*extension.inject = function (urls, callback) {
@@ -187,13 +190,13 @@ extension.inject = function (paths, callback) {
 --------------------------------------------------------------*/
 
 extension.messages.create = function () {
-	this.element = document.createElement('div');
+    this.element = document.createElement("div");
 
-	this.element.id = 'it-messages-from-extension';
+    this.element.id = "it-messages-from-extension";
 
-	this.element.style.display = 'none';
+    this.element.style.display = "none";
 
-	document.documentElement.appendChild(this.element);
+    document.documentElement.appendChild(this.element);
 };
 
 /*--------------------------------------------------------------
@@ -201,15 +204,17 @@ extension.messages.create = function () {
 --------------------------------------------------------------*/
 
 extension.messages.listener = function () {
-	document.addEventListener('it-message-from-extension--readed', function () {
-		extension.messages.queue.pop();
+    document.addEventListener("it-message-from-extension--readed", function () {
+        extension.messages.queue.pop();
 
-		if (extension.messages.queue.length > 0) {
-			extension.messages.element.textContent = message;
+        if (extension.messages.queue.length > 0) {
+            extension.messages.element.textContent = message;
 
-			document.dispatchEvent(new CustomEvent('it-message-from-extension'));
-		}
-	});
+            document.dispatchEvent(
+                new CustomEvent("it-message-from-extension"),
+            );
+        }
+    });
 };
 
 /*--------------------------------------------------------------
@@ -217,17 +222,17 @@ extension.messages.listener = function () {
 --------------------------------------------------------------*/
 
 extension.messages.send = function (message) {
-	if (typeof message === 'object') {
-		message = JSON.stringify(message);
-	}
+    if (typeof message === "object") {
+        message = JSON.stringify(message);
+    }
 
-	this.queue.push(message);
+    this.queue.push(message);
 
-	if (this.queue.length === 1) {
-		this.element.textContent = message;
+    if (this.queue.length === 1) {
+        this.element.textContent = message;
 
-		document.dispatchEvent(new CustomEvent('it-message-from-extension'));
-	}
+        document.dispatchEvent(new CustomEvent("it-message-from-extension"));
+    }
 };
 
 /*--------------------------------------------------------------
@@ -239,24 +244,24 @@ extension.messages.send = function (message) {
 --------------------------------------------------------------*/
 
 extension.storage.get = function (key) {
-	if (key.indexOf('/') === -1) {
-		return this.data[key];
-	} else {
-		var target = this.data,
-			path = key.split('/').filter(function (value) {
-				return value != '';
-			});
+    if (key.indexOf("/") === -1) {
+        return this.data[key];
+    } else {
+        var target = this.data;
+        //path = key.split("/").filter(function (value) {
+        //    return value != "";
+        //});
 
-		for (var i = 0, l = key.length; i < l; i++) {
-			var part = key[i];
+        for (var i = 0, l = key.length; i < l; i++) {
+            var part = key[i];
 
-			if (target.hasOwnProperty(part)) {
-				target = target[part];
-			} else {
-				return undefined;
-			}
-		}
-	}
+            if (Object.hasOwnProperty.call(target, part)) {
+                target = target[part];
+            } else {
+                return undefined;
+            }
+        }
+    }
 };
 
 /*--------------------------------------------------------------
@@ -264,32 +269,35 @@ extension.storage.get = function (key) {
 --------------------------------------------------------------*/
 
 extension.storage.listener = function () {
-	chrome.storage.onChanged.addListener(function (changes) {
-		for (var key in changes) {
-			var value = changes[key].newValue,
-				camelized_key = extension.camelize(key);
+    chrome.storage.onChanged.addListener(function (changes) {
+        for (var key in changes) {
+            var value = changes[key].newValue,
+                camelized_key = extension.camelize(key);
 
-			extension.storage.data[key] = value;
+            extension.storage.data[key] = value;
 
-			document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), value);
+            document.documentElement.setAttribute(
+                "it-" + key.replace(/_/g, "-"),
+                value,
+            );
 
-			if (typeof extension.features[camelized_key] === 'function') {
-				extension.features[camelized_key](true);
-			}
+            if (typeof extension.features[camelized_key] === "function") {
+                extension.features[camelized_key](true);
+            }
 
-			extension.events.trigger('storage-changed', {
-				key,
-				value
-			});
+            extension.events.trigger("storage-changed", {
+                key,
+                value,
+            });
 
-			extension.messages.send({
-				action: 'storage-changed',
-				camelizedKey: camelized_key,
-				key,
-				value
-			});
-		}
-	});
+            extension.messages.send({
+                action: "storage-changed",
+                camelizedKey: camelized_key,
+                key,
+                value,
+            });
+        }
+    });
 };
 
 /*--------------------------------------------------------------
@@ -297,27 +305,33 @@ extension.storage.listener = function () {
 --------------------------------------------------------------*/
 
 extension.storage.load = function (callback) {
-	chrome.storage.local.get(function (items) {
-		extension.storage.data = items;
+    chrome.storage.local.get(function (items) {
+        extension.storage.data = items;
 
-		// initialize theme in case YT is in Dark cookie mode
-		if (!extension.storage.data['theme'] && document.documentElement.hasAttribute('dark')) {
-			extension.storage.data['theme'] = 'dark';
-			chrome.storage.local.set({theme: 'dark'});
-		}
+        // initialize theme in case YT is in Dark cookie mode
+        if (
+            !extension.storage.data["theme"] &&
+            document.documentElement.hasAttribute("dark")
+        ) {
+            extension.storage.data["theme"] = "dark";
+            chrome.storage.local.set({ theme: "dark" });
+        }
 
-		for (const key in items) {
-			document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), items[key]);
-		}
+        for (const key in items) {
+            document.documentElement.setAttribute(
+                "it-" + key.replace(/_/g, "-"),
+                items[key],
+            );
+        }
 
-		extension.events.trigger('storage-loaded');
-		extension.messages.send({
-			action: 'storage-loaded',
-			storage: items
-		});
+        extension.events.trigger("storage-loaded");
+        extension.messages.send({
+            action: "storage-loaded",
+            storage: items,
+        });
 
-		if (callback) {
-			callback(extension.storage.data);
-		}
-	});
+        if (callback) {
+            callback(extension.storage.data);
+        }
+    });
 };

@@ -44,7 +44,7 @@ extension.features.youtubeHomePage = function (anything) {
 		}
 	} else if (anything === 'init') {
 		extension.events.on('init', function (resolve) {
-			if (/(www|m)\.youtube\.com\/?(\?|\#|$)/.test(location.href)) {
+			if (/(www|m)\.youtube\.com\/?(\?|#|$)/.test(location.href)) {
 				chrome.storage.local.get('youtube_home_page', function (items) {
 					var option = items.youtube_home_page;
 
@@ -255,9 +255,10 @@ extension.features.popupWindowButtons = function (event) {
 								else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
 		 if (!ytPlayer) {
 									let shorts = /short/.test(this.parentElement.href);
-									if ( width / height < 1 ) { let vertical = true } else { let vertical = false }
-									if ( !vertical && shorts ) { width = height * 0.6}
-									if ( vertical && !shorts ) { height = width * 0.6}
+									let vertical = false;
+									if ( width / height < 1 ) { vertical = true }
+									if ( !vertical && shorts ) { width = height * 0.6 }
+									if ( vertical && !shorts ) { height = width * 0.6 }
 								}
 
 								window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay_disable') ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
@@ -289,10 +290,11 @@ extension.features.popupWindowButtons = function (event) {
 
 extension.features.font = function (changed) {
 	var option = extension.storage.get('font');
+	var link, style;
 
 	if (option && option !== 'Default') {
-		var link = this.font.link || document.createElement('link'),
-			style = this.font.style || document.createElement('style');
+		link = this.font.link || document.createElement('link');
+		style = this.font.style || document.createElement('style');
 
 		link.rel = 'stylesheet';
 		link.href = '//fonts.googleapis.com/css2?family=' + option;
@@ -305,8 +307,8 @@ extension.features.font = function (changed) {
 		this.font.link = link;
 		this.font.style = style;
 	} else if (changed) {
-		var link = this.font.link,
-			style = this.font.style;
+		link = this.font.link;
+		style = this.font.style;
 
 		if (link) {
 			link.remove();
