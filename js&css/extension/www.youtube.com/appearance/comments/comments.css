@@ -57,7 +57,6 @@ html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activat
 html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#contents,
 html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activated]) ytd-item-section-renderer>#continuations {
 	visibility: hidden !important;
-
 	pointer-events: none !important;
 }
 
@@ -65,7 +64,7 @@ html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activat
 	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #player {margin-left: -20px !important;}
 	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #columns {display:flex !important; max-width:100% !important;}
 	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #comments {max-width: min(850px, 19vw) !important; margin-left:-12px;} 
-	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true][it-sidebar-left='true'] #comments {max-right: -25px  !important;} 
+	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true][it-sidebar-left='true'] #comments {margin-right: -25px  !important;} 
 	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #related {margin-right: -22px !important; max-width: max(360px, 18vw) !important;}
 	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #secondary {margin-right: -22px !important; max-width: max(360px, 18vw) !important;}
 

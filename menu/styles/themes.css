@@ -7,8 +7,8 @@
 .satus-base {
 	--satus-bubble-foreground: rgba(255, 255, 255, .8);
 	--satus-bubble-background: linear-gradient(135deg, #ff5075, #C02020);
-	--satus-bubble-shadow-raised: 0 2px 2px 1px #D97, 0 4px 4px rgb(140, 120, 80, .37);
-	--satus-bubble-shadow-unelevated: 0 1px 2px 1px #FC3, 0 1px 3px 3px rgb(140, 120, 80, .37);
+	--satus-bubble-shadow-raised: 0 2px 1px 1px #D42, 0 4px 4px rgb(140, 120, 80, .37);
+	--satus-bubble-shadow-unelevated: 0 1px 1px #F51, 0 1px 2px rgb(140, 120, 80, .37);
 	--it-appearance-shadow-color: #dfdfdf;
 }	
 

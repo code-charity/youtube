@@ -1,46 +1,4 @@
 {
-    "qualityWhenRunningOnBattery": {
-        "message": "Kvaliteet, kui töötab akust"
-    },
-    "pauseWhileIUnplugTheCharger": {
-        "message": "Paus, kui eemaldan laaduri"
-    },
-    "whenBatteryIslowDecreaseQuality": {
-        "message": "Nõrga akku korral vähenda kvaliteeti"
-    },
-    "analytics": {
-        "message": "Analüüsiandmed"
-    },
-    "purchase": {
-        "message": "Osta"
-    },
-    "join": {
-        "message": "Liituda"
-    },
-    "improvedTubeSidePanel": {
-        "message": "ParandatudTube: brauseri külgpaan"
-    },
-    "cursorLighting": {
-        "message": "Tundlik YouTube'i lehed, välja arvatud, kuhu hiirekursor liigutatakse!"
-    },
-    "youtubesLight": {
-        "message": "YouTube'i valgus"
-    },
-    "popupAd": {
-        "message": "Ukuavaldane reklaam: Peida"
-    },
-    "hideWatchedVideos": {
-        "message": "Peida vaadatud videod"
-    },
-    "ambientLighting": {
-        "message": "Ümbruse valgus"
-    },
-    "undoTheNewSidebar": {
-        "message": "Tühista uue külgpaani muutmine!"
-    },
-    "hideLogo": {
-        "message": "Logo: Peida!"
-    },
     "about": {
         "message": "Teave"
     },
@@ -101,6 +59,12 @@
     "amber": {
         "message": "Pruun"
     },
+    "ambientLighting": {
+        "message": "Ümbruse valgus"
+    },
+    "analytics": {
+        "message": "Analüüsiandmed"
+    },
     "analyzer": {
         "message": "Analüsaator"
     },
@@ -151,12 +115,6 @@
     },
     "Auto_PiP_picture_in_picture": {
         "message": "Auto-PiP (pilt pildil)"
-    },
-    "playerAutoPipOutside": {
-        "message": "Auto-PiP ainult alltoidu vahekaardil"
-    },
-    "PipRequiresUserInteraction": {
-        "message": "PiP nõuab kasutaja hiljutist interaktsiooni alltoidu lehega. See on Chrome Pilt pildil API piirang ja me ei saa seda ületada. Toimib parimal moel, kui automaatkäivitamine on välja lülitatud ja käitusjuhitakse käsitsi või kliki alltoidu lehel enne vahekaardide vahetamist."
     },
     "autoFullscreen": {
         "message": "Automaatne täisekraan"
@@ -325,6 +283,9 @@
     },
     "Currently_requiring_a_YouTube_API_key": {
         "message": "(Hetkel nõutakse YouTube-API-võtit: )"
+    },
+    "cursorLighting": {
+        "message": "Tundlik YouTube'i lehed, välja arvatud, kuhu hiirekursor liigutatakse!"
     },
     "custom": {
         "message": "Kohandatud"
@@ -599,7 +560,7 @@
     "Hide_sidebar": {
         "message": "Peida külgriba"
     },
-        "Hide_the_tabs_only": {
+    "Hide_the_tabs_only": {
         "message": "Peida ainult vahekaardid"
     },
     "Hide_YouTube_Logo": {
@@ -647,6 +608,9 @@
     "hideHomePageShorts": {
         "message": "Peida lühivideod avalehel"
     },
+    "hideLogo": {
+        "message": "Logo: Peida!"
+    },
     "hideMore": {
         "message": "Peida '...'"
     },
@@ -688,6 +652,9 @@
     },
     "hideVoiceSearchButton": {
         "message": "Peida häälte otsingunupp"
+    },
+    "hideWatchedVideos": {
+        "message": "Peida vaadatud videod"
     },
     "high": {
         "message": "Kõrge"
@@ -731,6 +698,9 @@
     "improvedtubeLanguage": {
         "message": "ParandatudTube keel"
     },
+    "improvedTubeSidePanel": {
+        "message": "ParandatudTube: brauseri külgpaan"
+    },
     "improvedtubeVersion": {
         "message": "ParandatudTube versioon"
     },
@@ -748,6 +718,9 @@
     },
     "items": {
         "message": "Elemendid"
+    },
+    "join": {
+        "message": "Liituda"
     },
     "language": {
         "message": "Keel"
@@ -800,7 +773,7 @@
     "liveChat": {
         "message": "Elav vestlus"
     },
-       "liveChatType": {
+    "liveChatType": {
         "message": "Live chat tüüp"
     },
     "location": {
@@ -923,6 +896,12 @@
     "overlay": {
         "message": "Ülevaljend"
     },
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "Pausi, kui ma YouTube-l kirjutan"
+    },
+    "pauseWhileIUnplugTheCharger": {
+        "message": "Paus, kui eemaldan laaduri"
+    },
     "permissions": {
         "message": "Lubad"
     },
@@ -931,6 +910,9 @@
     },
     "pink": {
         "message": "Roosa"
+    },
+    "PipRequiresUserInteraction": {
+        "message": "PiP nõuab kasutaja hiljutist interaktsiooni alltoidu lehega. See on Chrome Pilt pildil API piirang ja me ei saa seda ületada. Toimib parimal moel, kui automaatkäivitamine on välja lülitatud ja käitusjuhitakse käsitsi või kliki alltoidu lehel enne vahekaardide vahetamist."
     },
     "plain": {
         "message": "Lihtne"
@@ -947,23 +929,26 @@
     "player": {
         "message": "Mängija"
     },
+    "player_auto_cinema_mode": {
+        "message": "Automaatne kino režiim"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "Peida automaatselt kino režiim pausi korral"
+    },
+    "player_cinema_mode_button": {
+        "message": "Kino režiim"
+    },
     "player_dont_speed_education": {
         "message": "Ära kiirenda (harva) kategooriat: Haridus"
     },
     "player_fit_to_win_button": {
         "message": "Sobita akna suurusele"
     },
-    "player_cinema_mode_button": {
-        "message": "Kino režiim"
-    },
-    "player_auto_hide_cinema_mode_when_paused": {
-        "message": "Peida automaatselt kino režiim pausi korral"
-    },
-    "player_auto_cinema_mode": {
-        "message": "Automaatne kino režiim"
-    },
     "player_rotate_button": {
         "message": "Pööra video"
+    },
+    "playerAutoPipOutside": {
+        "message": "Auto-PiP ainult alltoidu vahekaardil"
     },
     "playerColor": {
         "message": "Edenemisribbons värv"
@@ -979,6 +964,9 @@
     },
     "playPause": {
         "message": "Mängi / Paus"
+    },
+    "popupAd": {
+        "message": "Ukuavaldane reklaam: Peida"
     },
     "popupPlayer": {
         "message": "Põlitav mängija"
@@ -998,11 +986,14 @@
     "previousVideo": {
         "message": "Eelmine video"
     },
-       "primaryColor": {
+    "primaryColor": {
         "message": "Peamine värv"
     },
     "pullSyncSettings": {
         "message": "Vaheta"
+    },
+    "purchase": {
+        "message": "Osta"
     },
     "purple": {
         "message": "Lilla"
@@ -1012,6 +1003,9 @@
     },
     "quality": {
         "message": "Kvaliteet"
+    },
+    "qualityWhenRunningOnBattery": {
+        "message": "Kvaliteet, kui töötab akust"
     },
     "qualityWithoutFocus": {
         "message": "Kvaliteet fookuse puudumisel"
@@ -1060,6 +1054,9 @@
     },
     "removeShortsReelSearchResults": {
         "message": "Eemalda lühivideod otsingutulemustest"
+    },
+    "RemoveSubtitlesForLyrics": {
+        "message": "Eemalda subtiitrid laulude jaoks"
     },
     "repeat": {
         "message": "Korda"
@@ -1199,7 +1196,7 @@
     "subscribe": {
         "message": "Telli"
     },
-      "subscriptions": {
+    "subscriptions": {
         "message": "Tellimused"
     },
     "Subtitle_Capture_including_the_current_words": {
@@ -1207,9 +1204,6 @@
     },
     "subtitles": {
         "message": "Subtiitrid"
-    },
-    "RemoveSubtitlesForLyrics": {
-        "message": "Eemalda subtiitrid laulude jaoks"
     },
     "sunset": {
         "message": "Kehaloo"
@@ -1307,6 +1301,9 @@
     "type": {
         "message": "Tüüp"
     },
+    "undoTheNewSidebar": {
+        "message": "Tühista uue külgpaani muutmine!"
+    },
     "upNextAutoplay": {
         "message": "Järgmine automaatne mängimine"
     },
@@ -1342,6 +1339,9 @@
     },
     "watchTime": {
         "message": "Vaatamisaeg"
+    },
+    "whenBatteryIslowDecreaseQuality": {
+        "message": "Nõrga akku korral vähenda kvaliteeti"
     },
     "whenPaused": {
         "message": "Pausi korral"
@@ -1388,7 +1388,7 @@
     "youtubesDark": {
         "message": "YouTube'i tumedane"
     },
-    "pauseWhileIAmTypingOnYouTube": {
-        "message": "Pausi, kui ma YouTube-l kirjutan"
+    "youtubesLight": {
+        "message": "YouTube'i valgus"
     }
 }

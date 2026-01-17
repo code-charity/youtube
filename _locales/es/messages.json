@@ -764,6 +764,9 @@
     "player": {
         "message": "Reproductor"
     },
+    "player_playback_speed_button": {
+        "message": "Botón de Velocidad de Reproducción"
+    },
     "playerColor": {
         "message": "Color del reproductor"
     },
@@ -949,6 +952,9 @@
     },
     "step": {
         "message": "Paso"
+    },
+    "stickyNavigation": {
+        "message": "Navegación Fija"
     },
     "stop": {
         "message": "Detener"

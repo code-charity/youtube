@@ -78,6 +78,14 @@ html[it-ads=block_all] #player .ytp-ad-skip-button-container {
 /*-----------------------------------------------------------------------------
 # POSITION & SIZE
 -----------------------------------------------------------------------------*/
+
+/* Fix: Ensure custom mini-player stays above page content (description, comments) */
+
+html[it-mini-player="true"] #player-container,
+html[it-mini-player="true"] #full-bleed-container {
+    z-index: 2005 !important;
+}
+
 .it-mini-player {
 	position: fixed !important;
 	z-index: 2006 !important;
@@ -193,16 +201,27 @@ html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 }
 .it-player-button {
 	position: relative !important;
-	display: flex !important;
-	min-width: 40px !important;
+	display: inline-flex !important;
+	width: 36px !important;
+	height: 36px !important;
 	padding: 0 !important;
 	justify-content: center !important;
 	align-items: center !important;
+	vertical-align: middle !important;
+	box-sizing: border-box !important;
+	flex: 0 0 36px !important;
+	align-self: center !important;
+	margin: 0 6px !important;
+	background: rgba(0, 0, 0, 0.3) !important;
+	border-radius: 50% !important;
 }
 
 .it-player-button>svg {
-	width: 56% !important;
-	height: auto !important;
+	display: block !important;
+	width: calc(100% - 6px) !important;
+	height: calc(100% - 6px) !important;
+	margin: 0 !important;
+	transform: none !important;
 	fill: #fff;
 }
 
@@ -2139,25 +2158,28 @@ html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
 	background-color: var(--yt-spec-text-primary);
 }
 
-/*override bell and thumbs up icons hardcoded colors inside SVG data*/
-/*bell icon*/
-html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
-	fill: var(--yt-spec-text-primary);
+/* Dark Mode + Fullscreen */
+html[dark] ytd-watch-flexy[fullscreen] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
+    fill: var(--yt-spec-text-primary);
 }
 
-/*thumbs up icon*/
-html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
+/* Light Mode + Fullscreen */
+html:not([dark])[it-theme="default"] ytd-watch-flexy[fullscreen] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
+    fill: var(--yt-spec-text-primary-inverse);
+}
+
+/* Like button splash effect light mode */
+html:not([dark])[it-theme="default"] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
+	stroke: var(--yt-spec-text-primary-inverse);
+}
+
+/* Like button splash effect dark mode */
+html[dark] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
 	stroke: var(--yt-spec-text-primary);
 }
 
 
 /* thumbnail sizes */
-html[it-thumbnail-size="default"] ytd-rich-grid-media,
-html[it-thumbnail-size="default"] ytd-grid-video-renderer,
-html[it-thumbnail-size="default"] ytd-thumbnail {
-    width: 100%;
-    max-width: 100%;
-}
 html[it-thumbnail-size="small"] ytd-rich-grid-media,
 html[it-thumbnail-size="small"] ytd-grid-video-renderer,
 html[it-thumbnail-size="small"] ytd-thumbnail {

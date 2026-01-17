@@ -8,12 +8,30 @@ extension.skeleton.main.layers.section.blocklist = {
 	category: true,
 	on: {
 		click: {
-			blocklist_activate: {
-				component: 'switch',
-				variant: 'activation',
-				text: 'activate'
+			section1: {
+				component: 'section',
+				variant: 'card',
+				
+				blocklist_activate: {
+					component: 'switch',
+					variant: 'activation',
+					text: 'activate'
+				},
 			},
+			
 			section2: {
+				component: 'section',
+				variant: 'card',
+				blocklist_dislike_trigger: {
+					component: 'switch',
+					text: 'dislikingAVideoAddsItToBlocklist',
+					storage: 'blocklist_dislike_trigger',
+					id: 'blocklist_dislike_trigger'
+					
+				}
+			},
+
+			section3: {
 				component: 'section',
 				variant: 'card',
 

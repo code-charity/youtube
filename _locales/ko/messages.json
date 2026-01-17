@@ -17,6 +17,9 @@
     "activatedFeatures": {
         "message": "활성화된 기능"
     },
+    "activateFitToWindow": {
+        "message": "창 크기에 맞추기"
+    },
     "activateFullscreen": {
         "message": "전체화면 활성화"
     },
@@ -35,8 +38,17 @@
     "allow": {
         "message": "허용"
     },
+    "Allow_auto_generate": {
+        "message": "자동 생성 허용"
+    },
     "allow60fps": {
         "message": "60 fps 허용"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "모든 설정이 삭제되며 복구할 수 없습니다"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "모든 바로가기가 삭제되며 복구할 수 없습니다"
     },
     "always": {
         "message": "항상"
@@ -50,8 +62,17 @@
     "amber": {
         "message": "호박색"
     },
+    "ambientLighting": {
+        "message": "영화 조명"
+    },
+    "analytics": {
+        "message": "분석"
+    },
     "analyzer": {
         "message": "분석"
+    },
+    "animations": {
+        "message": "애니메이션"
     },
     "appearance": {
         "message": "외관"
@@ -62,6 +83,30 @@
     "areYouSureYouWantToImportTheData": {
         "message": "데이터를 불러올까요?"
     },
+    "areYouSureYouWantToSyncTheData": {
+        "message": "현재 설정을 동기화하시겠습니까?"
+    },
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
+    "atHistory": {
+        "message": "'기록'에서"
+    },
+    "atSubscriptions": {
+        "message": "'구독'에서"
+    },
+    "atTrending": {
+        "message": "'인기 급상승'에서"
+    },
     "audio": {
         "message": "오디오"
     },
@@ -71,14 +116,23 @@
     "auto": {
         "message": "자동"
     },
+    "Auto_PiP_picture_in_picture": {
+        "message": "자동 PiP (화면 속 화면)"
+    },
     "autoFullscreen": {
         "message": "자동 전체화면"
     },
     "autopauseWhenSwitchingTabs": {
         "message": "탭 전환 시 자동 일시중지"
     },
+    "autoPictureInPicture": {
+        "message": "자동 화면 속 화면"
+    },
     "autoplay": {
         "message": "자동재생"
+    },
+    "autoplayDisable": {
+        "message": "자동 재생 강제 끄기"
     },
     "avoidAv1": {
         "message": "AV1 막기"
@@ -107,8 +161,17 @@
     "belowPlayer": {
         "message": "플레이어 아래"
     },
+    "bitness": {
+        "message": "비트 수"
+    },
     "black": {
         "message": "검정"
+    },
+    "block_Codec_Alert_h264": {
+        "message": "YouTube에서 영상을 재생하려면 H.264 또는 VP9을 활성화해야 합니다."
+    },
+    "block_Codec_Alert_VP9": {
+        "message": "YouTube에서 영상을 재생하려면 VP9 또는 H.264를 활성화해야 합니다."
     },
     "blockAll": {
         "message": "모두 차단"
@@ -140,11 +203,17 @@
     "bluelight": {
         "message": "블루라이트"
     },
+    "brightness": {
+        "message": "밝기"
+    },
     "brown": {
         "message": "갈색"
     },
     "browser": {
         "message": "브라우저"
+    },
+    "browserAccountSync": {
+        "message": "동기화 (브라우저 계정)"
     },
     "browserVersion": {
         "message": "브라우저 버전"
@@ -164,14 +233,26 @@
     "categories": {
         "message": "카테고리"
     },
+    "changeThumbnailsPerRow": {
+        "message": "행당 썸네일 개수"
+    },
     "channel": {
         "message": "채널"
     },
     "channels": {
         "message": "채널"
     },
+    "chapters": {
+        "message": "챕터"
+    },
+    "chapterTitle": {
+        "message": "챕터 제목"
+    },
     "characterEdgeStyle": {
         "message": "글꼴 테두리 스타일"
+    },
+    "clickableLinksInDescription": {
+        "message": "영상 설명의 링크를 오른쪽 클릭으로 복사"
     },
     "clip": {
         "message": "클립"
@@ -191,8 +272,17 @@
     "collapseOfSubscriptionSections": {
         "message": "구독 섹션 접기"
     },
+    "columns": {
+        "message": "추가 사이드바 열 (창이 충분히 넓을 경우 관련 동영상은 이동하지 않음)"
+    },
     "comments": {
         "message": "댓글"
+    },
+    "compact_spacing": {
+        "message": "간격 축소"
+    },
+    "compactTheme": {
+        "message": "컴팩트 테마"
     },
     "confirmationBeforeClosing": {
         "message": "창을 닫기 전에 확인하기"
@@ -200,11 +290,23 @@
     "cookies": {
         "message": "쿠키"
     },
+    "copyVideoId": {
+        "message": "📋 동영상 ID 복사"
+    },
+    "copyVideoUrl": {
+        "message": "동영상 전체 URL 복사"
+    },
     "cores": {
         "message": "코어"
     },
     "cropChapterTitles": {
         "message": "긴 챕터 이름 자르기"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(현재 YouTube API 키가 필요함: )"
+    },
+    "cursorLighting": {
+        "message": "마우스를 올린 부분을 제외한 페이지를 어둡게!"
     },
     "custom": {
         "message": "사용자 지정"
@@ -248,11 +350,20 @@
     "default": {
         "message": "기본값"
     },
+    "default_CC": {
+        "message": "기본값"
+    },
+    "default_theme": {
+        "message": "기본값"
+    },
     "defaultChannelTab": {
         "message": "기본 채널 탭"
     },
     "defaultContentCountry": {
         "message": "기본 콘텐츠 지역"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "기본 재생 속도"
     },
     "deleteWatchedVideos": {
         "message": "시청한 영상 삭제"
@@ -284,8 +395,17 @@
     "dim": {
         "message": "어둡게"
     },
+    "disableAutoDubbing": {
+        "message": "자동 더빙 끄기"
+    },
     "disabled": {
         "message": "비활성화"
+    },
+    "disableLikesAnimation": {
+        "message": "좋아요 애니메이션 끄기"
+    },
+    "disableThumbnailPlayback": {
+        "message": "마우스 올릴 때 영상 자동 재생 끄기"
     },
     "dislike": {
         "message": "싫어요"
@@ -314,6 +434,12 @@
     "email": {
         "message": "이메일"
     },
+    "embedded_Hide_Share": {
+        "message": "임베드 영상에서 공유 버튼 숨기기"
+    },
+    "Embedded_YouTube": {
+        "message": "임베드된 유튜브"
+    },
     "empty": {
         "message": "비어있음"
     },
@@ -323,6 +449,9 @@
     "enabledForced": {
         "message": "강제 활성화"
     },
+    "enterPassword": {
+        "message": "4자리 비밀번호를 입력하세요."
+    },
     "expanded": {
         "message": "확장"
     },
@@ -331,6 +460,18 @@
     },
     "extension": {
         "message": "확장 프로그램"
+    },
+    "ExtraButtons": {
+        "message": "추가 버튼"
+    },
+    "extraButtonsBelowThePlayer": {
+        "message": "플레이어 아래 추가 버튼"
+    },
+    "extraRightControlButtons": {
+        "message": "플레이어 안쪽 추가 버튼"
+    },
+    "Feature_not_yet_available": {
+        "message": "아직 사용할 수 없는 기능"
     },
     "file": {
         "message": "파일"
@@ -389,8 +530,14 @@
     "general": {
         "message": "일반"
     },
+    "geoPreference": {
+        "message": "위치 설정"
+    },
     "github": {
         "message": "깃허브(GitHub)"
+    },
+    "googleApiKey": {
+        "message": "구글 API key"
     },
     "goToSearchBox": {
         "message": "검색창으로 이동"
@@ -398,11 +545,26 @@
     "gpu": {
         "message": "그래픽 처리 장치"
     },
+    "GPUnotindatabase": {
+        "message": "데이터베이스에 없는 GPU"
+    },
     "green": {
         "message": "초록"
     },
+    "grey": {
+        "message": "회색"
+    },
+    "halfTransparent": {
+        "message": "반투명"
+    },
+    "Hamburger_Menu": {
+        "message": "햄버거 메뉴"
+    },
     "hardwareInformation": {
         "message": "하드웨어 정보"
+    },
+    "hd": {
+        "message": "HD"
     },
     "hdThumbnail": {
         "message": "HD 섬네일"
@@ -419,11 +581,35 @@
     "hide_author_avatars": {
         "message": "사용자 사진 숨기기"
     },
+    "hide_labels": {
+        "message": "이름 숨기기"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "일시정지 오버레이 숨기기"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "이 영상을 리믹스한 쇼츠 숨기기"
+    },
+    "Hide_sidebar": {
+        "message": "사이드바 숨기기"
+    },
+    "Hide_the_tabs_only": {
+        "message": "탭만 숨기기"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "유튜브 로고 숨기기"
+    },
+    "hideAISummary": {
+        "message": "AI 요약 숨기기"
+    },
     "hideAnimatedThumbnails": {
         "message": "섬네일 재생 끄기"
     },
     "hideAnnotations": {
         "message": "설명 숨기기"
+    },
+    "hideBannerAds": {
+        "message": "배너 광고 숨기기 (유튜브에서 차단할 수 있음)"
     },
     "hideCards": {
         "message": "카드 숨기기"
@@ -461,6 +647,15 @@
     "hideHomePageShorts": {
         "message": "홈 페이지의 쇼츠 제거"
     },
+    "hideIncludesPaidPromotion": {
+        "message": "\"유료 프로모션 포함\" 표시 숨기기"
+    },
+    "hideLogo": {
+        "message": "로고 숨기기!"
+    },
+    "hideMore": {
+        "message": "'...' 메뉴 숨기기"
+    },
     "hidePlayerControlsBar": {
         "message": "플레이어 컨트롤 바 숨기기"
     },
@@ -473,6 +668,9 @@
     "hidePlaylist": {
         "message": "재생 목록 숨기기"
     },
+    "hideReport": {
+        "message": "'신고' 숨기기"
+    },
     "hideRightButtons": {
         "message": "오른쪽 버튼 숨기기"
     },
@@ -482,17 +680,35 @@
     "hideSkipOverlay": {
         "message": "\"오버레이 건너뛰기\" 숨기기"
     },
+    "hideSponsoredVideosOnHome": {
+        "message": "홈 화면에서 스폰서 영상 숨기기"
+    },
+    "hideThumbnailDots": {
+        "message": "썸네일의 '⫶'(더보기) 메뉴 숨기기"
+    },
+    "hideThumbnailIcon": {
+        "message": "썸네일 아이콘 숨기기"
+    },
     "hideThumbnailOverlay": {
         "message": "섬네일 오버레이 숨기기"
     },
     "hideThumbnails": {
         "message": "섬네일 숨기기"
     },
+    "hideTopLoadingBar": {
+        "message": "상단 로딩 바 숨기기"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "전체 화면에서 영상 제목 숨기기"
+    },
     "hideViewsCount": {
         "message": "조회 수 숨기기"
     },
     "hideVoiceSearchButton": {
         "message": "\"음성으로 찾기\" 버튼 숨기기"
+    },
+    "hideWatchedVideos": {
+        "message": "시청한 영상 숨기기"
     },
     "high": {
         "message": "고화질"
@@ -502,6 +718,9 @@
     },
     "home": {
         "message": "홈"
+    },
+    "homeScreen": {
+        "message": "홈 화면"
     },
     "hover": {
         "message": "마우스를 올리면 띄우기"
@@ -521,6 +740,9 @@
     "importSettings": {
         "message": "설정 불러오기"
     },
+    "ImprovedTube": {
+        "message": "ImprovedTube"
+    },
     "improvedtubeButtons": {
         "message": "ImprovedTube 버튼"
     },
@@ -529,6 +751,9 @@
     },
     "improvedtubeLanguage": {
         "message": "ImprovedTube 언어"
+    },
+    "improvedTubeSidePanel": {
+        "message": "ImprovedTube: 브라우저 사이드 패널"
     },
     "improvedtubeVersion": {
         "message": "ImprovedTube 버전"
@@ -548,8 +773,17 @@
     "items": {
         "message": "요소"
     },
+    "join": {
+        "message": "가입"
+    },
+    "keyScene": {
+        "message": "⚡가장 많이 다시 본 장면으로 바로 이동"
+    },
     "language": {
         "message": "언어"
+    },
+    "language_closed_caption": {
+        "message": "언어 기본값 - 자막(CC)"
     },
     "languages": {
         "message": "언어"
@@ -559,6 +793,9 @@
     },
     "layout": {
         "message": "모양"
+    },
+    "Left_Side_Menu": {
+        "message": "우측 메뉴"
     },
     "legacyYoutube": {
         "message": "레거시 유튜브"
@@ -581,6 +818,9 @@
     "liked": {
         "message": "좋아요 표시한 동영상"
     },
+    "likes": {
+        "message": "좋아요 수"
+    },
     "lime": {
         "message": "라임"
     },
@@ -599,6 +839,9 @@
     "location": {
         "message": "지역"
     },
+    "loop": {
+        "message": "🔁 반복 재생"
+    },
     "loudnessNormalization": {
         "message": "볼륨 자동조정"
     },
@@ -614,6 +857,9 @@
     "mixer": {
         "message": "믹서"
     },
+    "more": {
+        "message": "더보기"
+    },
     "mostViewedChannels": {
         "message": "가장 많이 본 채널"
     },
@@ -622,6 +868,9 @@
     },
     "moveThumbnailsRight": {
         "message": "섬네일 오른쪽으로 이동"
+    },
+    "My_specs": {
+        "message": "내 사양"
     },
     "myColors": {
         "message": "내 색상"
@@ -656,6 +905,15 @@
     "normal": {
         "message": "기본"
     },
+    "Not_optimal": {
+        "message": "최적이 아님"
+    },
+    "off": {
+        "message": "끄기"
+    },
+    "ok": {
+        "message": "확인"
+    },
     "old": {
         "message": "오래됨"
     },
@@ -668,11 +926,20 @@
     "onlyOnePlayerInstancePlaying": {
         "message": "하나의 플레이어만 재생"
     },
+    "onSmallCreators": {
+        "message": "소규모 채널만 적용 제외"
+    },
     "onSubscribedChannels": {
         "message": "구독한 채널"
     },
+    "openNewTab": {
+        "message": "새 탭에서 열기"
+    },
     "openPopupPlayer": {
         "message": "동영상/재생목록을 새 창에서 열기"
+    },
+    "optimizeCodecForHardwareAcceleration": {
+        "message": "하드웨어 가속을 위한 코덱 최적화"
     },
     "orange": {
         "message": "주황"
@@ -689,6 +956,15 @@
     "overlay": {
         "message": "오버레이"
     },
+    "passwordOptions": {
+        "message": "비밀번호 옵션"
+    },
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "유튜브에서 입력 중일 때 재생 일시 정지"
+    },
+    "pauseWhileIUnplugTheCharger": {
+        "message": "충전기 분리 시 일시 정지"
+    },
     "permissions": {
         "message": "권한"
     },
@@ -697,6 +973,9 @@
     },
     "pink": {
         "message": "분홍"
+    },
+    "PipRequiresUserInteraction": {
+        "message": "PiP는 소스 페이지와의 최근 사용자 상호작용이 필요합니다. 이는 Chrome Picture-in-Picture API의 제한 사항으로, 우회할 수 없습니다. 자동 재생을 끄고 수동으로 재생을 시작하거나, 탭을 전환하기 전에 페이지 어딘가를 클릭할 때 잘 작동합니다."
     },
     "plain": {
         "message": "무색"
@@ -713,6 +992,30 @@
     "player": {
         "message": "플레이어"
     },
+    "player_auto_cinema_mode": {
+        "message": "자동 시네마 모드"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "일시 정지 시 시네마 모드 자동 숨기기"
+    },
+    "player_cinema_mode_button": {
+        "message": "시네마 모드"
+    },
+    "player_dont_speed_education": {
+        "message": "교육 카테고리(드물게 사용)는 속도 조절 안 함"
+    },
+    "player_fit_to_win_button": {
+        "message": "창 크기에 맞추기"
+    },
+    "player_rewind_and_forward_buttons": {
+        "message": "되감기/앞으로 가기 버튼"
+    },
+    "player_rotate_button": {
+        "message": "영상 회전"
+    },
+    "playerAutoPipOutside": {
+        "message": "소스 탭 밖에서만 자동 PiP 실행"
+    },
     "playerColor": {
         "message": "플레이어 색상"
     },
@@ -728,8 +1031,14 @@
     "playPause": {
         "message": "재생 / 일시중지"
     },
+    "popupAd": {
+        "message": "팝업 광고 숨기기"
+    },
     "popupPlayer": {
         "message": "팝업 플레이어"
+    },
+    "popupWindowButtons": {
+        "message": "각 썸네일에 팝업 플레이어 버튼 추가"
     },
     "position": {
         "message": "위치"
@@ -740,23 +1049,44 @@
     "pressAnyKeyOrUseMouseWheel": {
         "message": "사용할 단축키 또는 마우스 휠을 누르세요."
     },
+    "preventShortVideoAutoloop": {
+        "message": "쇼츠 자동 반복 방지"
+    },
     "previousVideo": {
         "message": "이전 영상"
     },
     "primaryColor": {
         "message": "주 색상"
     },
+    "pullSyncSettings": {
+        "message": "불러오기"
+    },
+    "purchase": {
+        "message": "구매"
+    },
     "purple": {
         "message": "보라"
     },
+    "pushSyncSettings": {
+        "message": "내보내기"
+    },
     "quality": {
         "message": "화질"
+    },
+    "qualityWhenRunningOnBattery": {
+        "message": "배터리 사용 시 화질"
+    },
+    "qualityWithoutFocus": {
+        "message": "포커스 없을 때 화질"
     },
     "raised": {
         "message": "양각"
     },
     "ram": {
         "message": "램"
+    },
+    "rateMe": {
+        "message": "평가하기"
     },
     "rateUs": {
         "message": "평가하기"
@@ -773,17 +1103,47 @@
     "remote": {
         "message": "TV에서 재생"
     },
+    "Remove": {
+        "message": "제거"
+    },
+    "removeBlackBars": {
+        "message": "전체 화면에서 검은 여백 제거"
+    },
+    "removeContextButtons": {
+        "message": "쇼츠의 컨텍스트 버튼 제거"
+    },
+    "removeIcons": {
+        "message": "아이콘 제거"
+    },
+    "removeMemberOnly": {
+        "message": "멤버 전용 영상 제거"
+    },
+    "removeName": {
+        "message": "이름 제거"
+    },
+    "removeNames": {
+        "message": "이름들 제거"
+    },
+    "removePlaylistParam": {
+        "message": "새 탭에서 열 때 재생목록 건너뛰기"
+    },
     "removeRelatedSearchResults": {
         "message": "관련 검색 결과 제거"
     },
     "removeShortsReelSearchResults": {
         "message": "검색 결과에서 Shorts 리얼 제거"
     },
+    "RemoveSubtitlesForLyrics": {
+        "message": "가사용 자막 제거"
+    },
     "repeat": {
         "message": "반복"
     },
     "report": {
         "message": "신고"
+    },
+    "requirePassword": {
+        "message": "ImprovedTube 설정 변경 시 비밀번호 필요"
     },
     "reset": {
         "message": "리셋"
@@ -815,6 +1175,12 @@
     "screenshot": {
         "message": "스크린샷"
     },
+    "scrollBar": {
+        "message": "스크롤 바"
+    },
+    "sd": {
+        "message": "SD"
+    },
     "search": {
         "message": "검색"
     },
@@ -839,14 +1205,32 @@
     "settingsSuccessfullyImported": {
         "message": "설정 내보내기 완료"
     },
+    "share": {
+        "message": "공유하기"
+    },
+    "shortcut_chapters": {
+        "message": "챕터(사이드바) 켜기/끄기"
+    },
+    "shortcut_screenshot": {
+        "message": "스크린샷"
+    },
+    "shortcut_transcript": {
+        "message": "대본(사이드바) 켜기/끄기"
+    },
     "shortcuts": {
         "message": "단축키"
+    },
+    "ShortsForceTheStandardPlayer": {
+        "message": "쇼츠: 기본 플레이어로 강제 재생"
     },
     "showCardsOnMouseHover": {
         "message": "마우스 올릴 때 카드 보기"
     },
     "showChannelVideosCount": {
         "message": "채널의 동영상 수 표시"
+    },
+    "showExactDate": {
+        "message": "정확한 날짜 표시"
     },
     "showLess": {
         "message": "간략히"
@@ -866,6 +1250,9 @@
     "sidebar": {
         "message": "사이드바"
     },
+    "Sidebar_simple_alternative": {
+        "message": "간단한 사이드바"
+    },
     "softwareInformation": {
         "message": "소프트웨어 정보"
     },
@@ -884,6 +1271,9 @@
     "step": {
         "message": "간격"
     },
+    "stickyNavigation": {
+        "message": "고정 네비게이션"
+    },
     "stop": {
         "message": "정지"
     },
@@ -898,6 +1288,12 @@
     },
     "subscriptions": {
         "message": "구독"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "자막 캡처 (현재 단어 포함)"
+    },
+    "subtitleLine": {
+        "message": "자막 빨간 줄 숨기기"
     },
     "subtitles": {
         "message": "자막"
@@ -919,6 +1315,9 @@
     },
     "textColor": {
         "message": "텍스트 색상"
+    },
+    "thanks": {
+        "message": "Thanks (후원)"
     },
     "themes": {
         "message": "테마"
@@ -950,6 +1349,9 @@
     "timeTo": {
         "message": "이 시간 까지"
     },
+    "To_the_side_No_page_margin": {
+        "message": "옆으로 이동! (페이지 여백 없음)"
+    },
     "todayAt": {
         "message": "오늘의"
     },
@@ -971,11 +1373,17 @@
     "trailerAutoplay": {
         "message": "트레일러 자동재생"
     },
+    "Transcript": {
+        "message": "스크립트"
+    },
     "translations": {
         "message": "번역"
     },
     "transparentBackground": {
         "message": "투명한 배경"
+    },
+    "transparentColor": {
+        "message": "투명"
     },
     "trending": {
         "message": "인기"
@@ -985,6 +1393,9 @@
     },
     "type": {
         "message": "타입"
+    },
+    "undoTheNewSidebar": {
+        "message": "새로운 사이드바 되돌리기!"
     },
     "upNextAutoplay": {
         "message": "다음 영상 자동재생"
@@ -1013,11 +1424,17 @@
     "volume": {
         "message": "음량"
     },
+    "watchedVideos": {
+        "message": "시청한 동영상"
+    },
     "watchLater": {
         "message": "나중에 볼 동영상"
     },
     "watchTime": {
         "message": "시간 보기"
+    },
+    "whenBatteryIslowDecreaseQuality": {
+        "message": "배터리 부족 시 화질 낮추기"
     },
     "whenPaused": {
         "message": "일시중지 중에"
@@ -1034,8 +1451,20 @@
     "windowOpacity": {
         "message": "자막 칸 투명도"
     },
+    "with_scrollbars": {
+        "message": "스크롤바 포함?"
+    },
+    "withoutVideos": {
+        "message": "비어 있음', 동영상 미리보기 제외"
+    },
     "yellow": {
         "message": "노랑"
+    },
+    "Youtube_Search": {
+        "message": "유튜브 검색"
+    },
+    "youTubeButtons": {
+        "message": "유튜브 버튼"
     },
     "youtubeHeaderLeft": {
         "message": "유튜브 헤더 (왼쪽)"
@@ -1051,5 +1480,11 @@
     },
     "youtubeLimitsVideoQualityTo1080pForH264Codec": {
         "message": "유튜브는 h.264 코덱에서 비디오 품질을 1080p로 제한합니다."
+    },
+    "youtubesDark": {
+        "message": "유튜브 다크 모드"
+    },
+    "youtubesLight": {
+        "message": "유튜브의 라이트 테마"
     }
 }
