@@ -82,22 +82,22 @@ extension.features.bluelight = function () {
 
 extension.features.dim = function () {
 	var value = extension.storage.get('dim');
-	if (extension.features.schedule() === false) { return false;}
+	if (extension.features.schedule() === false) { return false; }
 
-	if (!value) { value = 0;}
-	if (typeof value !== 'number') {value = Number(value);}
+	if (!value) { value = 0; }
+	if (typeof value !== 'number') { value = Number(value); }
 	if (value !== 0) {
 		if (!this.dim.element) {
 			var element = document.createElement('div');
 
 			element.id = 'it-dim';
-			element.style.opacity = parseInt(Number(value)) / 100 || 0;
+			element.style.opacity = Math.min(Math.max(parseInt(Number(value)) / 100 || 0, 0), 1);
 
 			document.documentElement.appendChild(element);
 
 			this.dim.element = element;
 		} else {
-			this.dim.element.style.opacity = parseInt(Number(value)) / 100 || 0;
+			this.dim.element.style.opacity = Math.min(Math.max(parseInt(Number(value)) / 100 || 0, 0), 1);
 		}
 	} else if (this.dim.element) {
 		this.dim.element.remove();
