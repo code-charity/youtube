@@ -131,8 +131,8 @@ For more info on how to contribute, see the <a href="https://github.com/code-for
 <a href="https://github.com/????????">______</a></code>(You?)<br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pl/messages.json" title="Polski">PL</a></code> :
 <a href="https://github.com/FluidExtractor" title="✨🏆"><code>FluidExtractor</code></a><br>
-<code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/uk/messages.json" title="Ukrainian">Ukrainian</a></code> :
-<a href="https://github.com/_____">(You?)</a><br>
+<code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/uk/messages.json" title="Ukrainian">UK (Ukrainian)</a></code> :
+<a href="https://github.com/vladyslavTezyk">vladyslavTEZYK</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Hebrew">Hebrew</a></code> :
 <a href="https://github.com/_____">(You?)</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Czech">Czech</a></code> :
