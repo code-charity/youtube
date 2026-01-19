@@ -2,15 +2,6 @@
   "about": {
     "message": "About"
   },
-  "shortsAlwaysShowButtons": {
-    "message": "Shorts Always Show Control Buttons"
-  },
-  "shortsAlwaysShowCaptions": {
-    "message": "Captions Button"
-  },
-  "shortsAlwaysShowFullscreen": {
-    "message": "Fullscreen Button"
-  },
   "accept": {
     "message": "Accept"
   },
@@ -734,9 +725,6 @@
   "hidePauseOverlay": {
     "message": "Hide Pause Overlay"
   },
-  "hideThumbnailOverlay": {
-    "message": "Hide buttons on thumbnails"
-  },
   "hideThumbnailDots": {
     "message": "Hide '⫶' (more actions) on thumbnails"
   },
@@ -1318,6 +1306,15 @@
   },
   "ShortsForceTheStandardPlayer": {
     "message": "Shorts: Force to use the standard player"
+  },
+  "shortsAlwaysShowButtons": {
+    "message": "Shorts Always Show Control Buttons"
+  },
+  "shortsAlwaysShowCaptions": {
+    "message": "Captions Button"
+  },
+  "shortsAlwaysShowFullscreen": {
+    "message": "Fullscreen Button"
   },
   "showCardsOnMouseHover": {
     "message": "Show cards on mouse hover"
