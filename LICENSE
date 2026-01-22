@@ -1,17 +1,13 @@
-©️ 2012-2025   ( no warranty / liablity )     Thank you! 
-For current simplicity, inclusion, intellectual growth: 
-Unless stated otherwise, all pull-requests (3rd part contributions) are assumed, 
-to come under a viral copyleft license, GNU agpl-3.0-7abcdef, for the world. And free of copyrights to the original maintainers (granted free-of-charge for publishing & modification, but non-exclusively and keeping the right to be mentioned in credits)
+©️ 2012-2026   ( no warranty / liablity )     Thank you! 
+For intellectual growth, simplicity and inclusion: Unless stated otherwise, 
+all github pull-requests (3rd part contributions) are assumed to come under a viral copyleft license, GNU agpl-3.0-7abcdef, for the world.  And additionally free of copyrights to the original maintainers (exceptional permission, granted free-of-charge for publishing & modification, but of course non-exclusively and keeping the right to be mentioned in credits)
 
----
+----
 
-DRAFT FOR LATER:   https://github.com/code-charity/Fair-License
-'FRIENDLY-/CHARITY-License'
-  - The only complete License, 
-     to cover contributors too, regulation & economic sustainability.
-         - Talk to us? ☺ if you are into international law
-
- FREEDOMS: 
+To add additonal Freedoms we apply our:
+'FRIENDLY-/CHARITY-License'  - the only complete License to our knowledge,  to also cover contributors rewardability,  regulation & economic sustainability, and not require license virality for non-profit and legal use.   
+                                                    ( Repo / draft: https://github.com/code-charity/Fair-License - Talk to us? ☺ if you are into [IP / international] law) 
+FREEDOMS: 
   1. PERSONAL / PRIVATE use:  - This was made for you ♡ (If you like, consider donating. Our work is efficient.)
                                 - Please consider to vote about our future actions.           
                                   - And If you ever change or repurpose code privately, 
@@ -22,14 +18,13 @@ DRAFT FOR LATER:   https://github.com/code-charity/Fair-License
   3. PUBLISHERS: - All unmodified distribution is welcome and essential! (permitted by default.)
                  -  Free and non-commercial additions are fine too! (Just don't wrap it in ads or drive-by installs! 
                     But you can add a feature and show your name author link if a a user voluntarily clicks that feature) 
-    3.1. MODIFIED Versions or separated pieces /features of our code:  
+   3.1. MODIFIED Versions or separated pieces /features of our code:  
      - Registered Charity organisations: you can modify /repurpose. (Just don't remove our links or state the source well.)
        RESTRICTION: COMMERCIALLY modifying or repurosing any of the code that is not the full, such as 'version 3.8'.   
-            Written permission/contract is required. No such permission was granted to as of 2023. 
-            Exception: OS's (Operatings Systems. Debian, Fedora, etc.)      
+            Written permission/contract is required. No such permission was granted as of 2023. Exception: OS's (Operatings Systems. Debian, Fedora, etc.)      
 
 This license file must be included with our code.  It refers to code from https://github.com/code4charity/YouTube-Extension specifically.  (Not to your addition. There is no License-virality. )
----
+
 COMMENT /POSTAMBLE:
 Reason for the specific restriction in 3.1.: 
    Some publishers use [our] code without permission commercially, with [excessive] adware/spyware. 
