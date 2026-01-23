@@ -569,6 +569,27 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				svg.appendChild(path);	button.appendChild(svg);
 				section.insertAdjacentElement('afterend', button)
 			}
+
+			if (this.storage.copy_transcript !== false && !document.querySelector('#it-below-player-copy-transcript')) {
+				var button = document.createElement('button'),
+					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+				button.className = 'improvedtube-player-button';
+				button.id = 'it-below-player-copy-transcript';
+				button.dataset.tooltip = 'CopyTranscript';
+				svg.style.opacity = '.5';
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				path.setAttributeNS(null, 'd', 'M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z');
+
+				button.onclick = function () {
+					ImprovedTube.copyTranscript(svg, button);
+				};
+
+				svg.appendChild(path);
+				button.appendChild(svg);
+				section.insertAdjacentElement('afterend', button);
+			}
 	  }
 	}
 };
@@ -629,14 +650,14 @@ ImprovedTube.dayOfWeek = function () {
 			var element = document.querySelector(".ytd-day-of-week");
 			if (!element) {
 				var label = document.createElement("span");
-				label.textContent = days[tempDate.getDay() + 1] + '  ';
+				label.textContent = days[tempDate.getDay()] + '  ';
 				label.className = "ytd-day-of-week";
 				//update please:
 				try { document.querySelector("#info span:nth-child(2)")?.append(label);	} 
 					catch {	try {document.querySelector("#info #info-strings yt-formatted-string")?.append(label);
 					} catch {}
 				}
-			} // else { element.textContent = days[tempDate.getDay() + 1] + ", "; }
+			} // else { element.textContent = days[tempDate.getDay()] + ", "; }
 		}, 4321);
 	}
 };

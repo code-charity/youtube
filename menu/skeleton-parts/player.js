@@ -1236,6 +1236,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'copyVideoUrl',
 				value: false
 			},
+			copy_transcript: {
+				component: 'switch',
+				text: 'copyTranscript',
+				value: false
+			}
 		},
 		extraRightControlButtons: {
 			component: 'section',
