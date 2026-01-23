@@ -629,14 +629,14 @@ ImprovedTube.dayOfWeek = function () {
 			var element = document.querySelector(".ytd-day-of-week");
 			if (!element) {
 				var label = document.createElement("span");
-				label.textContent = days[tempDate.getDay() + 1] + '  ';
+				label.textContent = days[tempDate.getDay()] + '  ';
 				label.className = "ytd-day-of-week";
 				//update please:
 				try { document.querySelector("#info span:nth-child(2)")?.append(label);	} 
 					catch {	try {document.querySelector("#info #info-strings yt-formatted-string")?.append(label);
 					} catch {}
 				}
-			} // else { element.textContent = days[tempDate.getDay() + 1] + ", "; }
+			} // else { element.textContent = days[tempDate.getDay()] + ", "; }
 		}, 4321);
 	}
 };
