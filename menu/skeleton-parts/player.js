@@ -198,7 +198,27 @@ extension.skeleton.main.layers.section.player.on.click = {
 		return_youtube_dislike: {
 			component: 'switch',
 			text: 'returnYoutubeDislike',
-			tags: 'dislike dislikes thumbs down rating ryd'
+			tags: 'dislike dislikes thumbs down rating ryd',
+			id: 'return_youtube_dislike',
+			custom: true,
+			on: {
+				click: function () {
+					const switchEl = this;
+					if (this.dataset.value === 'false') {
+						chrome.permissions.request({
+							origins: ['https://returnyoutubedislikeapi.com/*']
+						}, function (granted) {
+							if (granted) {
+								switchEl.flip(true);
+							} else {
+								console.log('[ImprovedTube] RYD: Permission denied by user');
+							}
+						});
+					} else {
+						switchEl.flip(false);
+					}
+				}
+			}
 		},
 		subtitles: {
 			component: 'button',
