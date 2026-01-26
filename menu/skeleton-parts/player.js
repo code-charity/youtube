@@ -1208,7 +1208,12 @@ extension.skeleton.main.layers.section.player.on.click = {
 			below_player_keyscene: {
 				component: 'switch',
 				text: 'keyScene',
-				value: true
+				value: true			
+			},
+			copy_transcript: {
+				component: 'switch',
+				text: 'copyTranscript',
+				value: false
 			},
 			below_player_screenshot: {
 				component: 'switch',
@@ -1234,11 +1239,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			copy_video_url: {
 				component: 'switch',
 				text: 'copyVideoUrl',
-				value: false
-			},
-			copy_transcript: {
-				component: 'switch',
-				text: 'copyTranscript',
 				value: false
 			}
 		},
