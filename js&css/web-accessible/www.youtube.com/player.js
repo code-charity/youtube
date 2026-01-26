@@ -843,7 +843,12 @@ ImprovedTube.copyTranscript = function (svg, button) {
 			}
 		}
 
-		var transcriptButton = document.querySelector('button[aria-label*="ranscript"]') ||
+		var transcriptButton = document.querySelector('button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],' 
+													  + 'button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="文字稿"], button[aria-label*="نص"], button[aria-label*="نقل"],' 
+												      + 'button[aria-label*="प्रतिलि"], button[aria-label*="प्रत"], button[aria-label*="লিপি"], button[aria-label*="bản ghi"], button[aria-label*="steno"],'
+													  + 'button[aria-label*="γραφ"], button[aria-label*="přep"], button[aria-label*="átir"], button[aria-label*="avsk"]' )
+						   || document.querySelector( 'ytd-video-description-transcript-section-renderer button');							 
+													 ) ||
 			document.querySelector('button[aria-label*="Транскрипт"]') ||
 			document.querySelector('ytd-video-description-transcript-section-renderer button');
 
