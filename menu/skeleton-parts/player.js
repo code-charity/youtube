@@ -1213,7 +1213,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			copy_transcript: {
 				component: 'switch',
 				text: 'copyTranscript',
-				value: false
+				value: true
 			},
 			below_player_screenshot: {
 				component: 'switch',
@@ -1223,7 +1223,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			below_player_pip: {
 				component: 'switch',
 				text: 'pictureInPicture',
-				value: true
+				value: false
 			},
 			below_player_loop: {
 				component: 'switch',
