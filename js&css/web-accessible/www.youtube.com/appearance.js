@@ -473,7 +473,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				svg.appendChild(path); 	button.appendChild(svg);
 				section.insertAdjacentElement('afterend', button)
 			}
-			if (this.storage.below_player_pip !== false && !document.querySelector('#it-below-player-pip')) {
+			if (this.storage.below_player_pip === true && !document.querySelector('#it-below-player-pip')) {
 				var button = document.createElement('button'),
 					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
