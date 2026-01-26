@@ -195,6 +195,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'autoFullscreen',
 			storage: 'player_autofullscreen'
 		},
+		return_youtube_dislike: {
+			component: 'switch',
+			text: 'returnYoutubeDislike',
+			tags: 'dislike dislikes thumbs down rating ryd'
+		},
 		subtitles: {
 			component: 'button',
 			text: 'subtitles',
@@ -776,8 +781,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 				render: function () {
 					// relies on options.text above auto always starting with a number for parseInt to work
 					const options = this.childNodes[2].options,
-							index = this.childNodes[2].selectedIndex;
-							cutoff = 1080;
+						index = this.childNodes[2].selectedIndex;
+					cutoff = 1080;
 					if (satus.storage.get('player_h264')) {
 						if (parseInt(options[index].text) > cutoff) {
 							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
@@ -825,9 +830,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 				return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
 			},
 			on: {
-                 render: function () {
+				render: function () {
 					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this)
-				 }
+				}
 			}
 		},
 		/*
@@ -1158,7 +1163,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 				value: 1.25
 			}]
 		},
-	
+
 		player_cinema_mode_button: {
 			component: 'switch',
 			text: 'player_cinema_mode_button',

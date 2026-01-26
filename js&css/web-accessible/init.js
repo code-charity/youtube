@@ -126,20 +126,20 @@ ImprovedTube.categoryRefreshButton = function () {
 
 		button.addEventListener('click', function() {
 			let chipContainer = document.querySelector('ytd-feed-filter-chip-bar-renderer');
-			
+
 			if (chipContainer) {
 				chipContainer.style.display = '';
 				chipContainer.style.visibility = 'visible';
 				chipContainer.style.opacity = '1';
 				chipContainer.hidden = false;
-				
+
 				let parent = chipContainer.parentElement;
 				while (parent && parent !== document.body) {
 					parent.style.display = '';
 					parent.style.visibility = 'visible';
 					parent = parent.parentElement;
 				}
-				
+
 				const allChips = chipContainer.querySelectorAll('yt-chip-cloud-chip-renderer button');
 				if (allChips.length > 1) {
 					allChips[1].click();
@@ -213,14 +213,14 @@ ImprovedTube.init = function () {
 	if (window.matchMedia) {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 	}
-	
+
 	if (ImprovedTube.storage.full_screen_quality) {
-       if (!ImprovedTube._fsqBound) {
-          document.addEventListener('fullscreenchange', () => ImprovedTube.playerQualityFullScreen(), { passive: true });
-          ImprovedTube._fsqBound = true;
-        }
-        ImprovedTube.playerQualityFullScreen();
-}
+		if (!ImprovedTube._fsqBound) {
+			document.addEventListener('fullscreenchange', () => ImprovedTube.playerQualityFullScreen(), { passive: true });
+			ImprovedTube._fsqBound = true;
+		}
+		ImprovedTube.playerQualityFullScreen();
+	}
 
 };
 
@@ -256,6 +256,16 @@ document.addEventListener('yt-navigate-finish', function () {
 	ImprovedTube.commentsSidebar();
 	ImprovedTube.categoryRefreshButton();
 	try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] nav-finish error', e); }
+
+	// Return YouTube Dislike - call on video pages and Shorts
+	if (document.documentElement.dataset.pageType === 'video' || window.location.pathname.startsWith('/shorts/')) {
+		try {
+			setTimeout(function () {
+				ImprovedTube.returnYoutubeDislike();
+				ImprovedTube.rydInitShortsObserver();
+			}, 500);
+		} catch (e) { console.error('[RYD] error', e); }
+	}
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();

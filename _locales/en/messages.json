@@ -1178,6 +1178,12 @@
   "remote": {
     "message": "Play on TV"
   },
+  "returnYoutubeDislike": {
+    "message": "Return YouTube Dislike"
+  },
+  "returnYoutubeDislikeDescription": {
+    "message": "Display video dislike counts using Return YouTube Dislike API"
+  },
   "Remove": {
     "message": "Remove"
   },
