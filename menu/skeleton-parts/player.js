@@ -1208,6 +1208,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			below_player_keyscene: {
 				component: 'switch',
 				text: 'keyScene',
+				value: true			
+			},
+			copy_transcript: {
+				component: 'switch',
+				text: 'copyTranscript',
 				value: true
 			},
 			below_player_screenshot: {
@@ -1218,7 +1223,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			below_player_pip: {
 				component: 'switch',
 				text: 'pictureInPicture',
-				value: true
+				value: false
 			},
 			below_player_loop: {
 				component: 'switch',
@@ -1235,7 +1240,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 				component: 'switch',
 				text: 'copyVideoUrl',
 				value: false
-			},
+			}
 		},
 		extraRightControlButtons: {
 			component: 'section',

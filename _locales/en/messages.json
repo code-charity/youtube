@@ -317,6 +317,18 @@
   "copyVideoUrl": {
     "message": "Copy Video Full URL"
   },
+  "copyTranscript": {
+    "message": "📋 Copy Transcript"
+  },
+  "CopyTranscript": {
+    "message": "Copy Transcript"
+  },
+  "FetchingTranscript": {
+    "message": "Fetching..."
+  },
+  "TranscriptError": {
+    "message": "Error"
+  },
   "cores": {
     "message": "Cores"
   },

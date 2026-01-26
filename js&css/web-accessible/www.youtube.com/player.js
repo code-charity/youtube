@@ -816,6 +816,121 @@ ImprovedTube.screenshot = function () {
 	});
 };
 
+ImprovedTube.copyTranscript = function (svg, button) {
+	try {
+		svg.style.opacity = '1';
+		button.dataset.tooltip = 'FetchingTranscript';
+
+		var existingTranscriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer');
+		if (existingTranscriptSegments.length > 0) {
+			var transcriptText = '';
+			existingTranscriptSegments.forEach(function (segment) {
+				var textElement = segment.querySelector('.segment-text');
+				if (textElement) {
+					transcriptText += textElement.textContent.trim() + ' ';
+				}
+			});
+
+			transcriptText = transcriptText.trim();
+			if (transcriptText) {
+				navigator.clipboard.writeText(transcriptText);
+				button.dataset.tooltip = 'Copied!';
+				setTimeout(function () {
+					button.dataset.tooltip = 'CopyTranscript';
+					svg.style.opacity = '.5';
+				}, 1000);
+				return;
+			}
+		} 
+		var transcriptButtonSelector = 'button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],' 
+										+ 'button[aria-label*="guion"], button[aria-label*="naskah"], button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="نص"], button[aria-label*="نقل"],' 
+										+ 'button[aria-label*="प्रतिलि"], button[aria-label*="प्रत"], button[aria-label*="লিপি"], button[aria-label*="bản ghi"], button[aria-label*="steno"],'
+										+ 'button[aria-label*="γραφ"], button[aria-label*="přep"], button[aria-label*="átir"], button[aria-label*="avsk"]';
+		var transcriptButton = document.querySelector(transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');							 
+
+		if (!transcriptButton) {
+			var moreActionsButton = document.querySelector('#description ytd-text-inline-expander #expand, #description tp-yt-paper-button#expand');
+			if (moreActionsButton && !moreActionsButton.hasAttribute('hidden')) {
+				moreActionsButton.click();
+				setTimeout(function () {
+					transcriptButton = document.querySelector(transcriptButtonSelector) || 	document.querySelector('ytd-video-description-transcript-section-renderer button');
+					if (transcriptButton) {
+						transcriptButton.click();
+						ImprovedTube.waitForTranscriptAndCopy(svg, button);
+					} else {
+						throw new Error('Transcript button not found');
+					}
+				}, 500);
+				return;
+			} else {
+				throw new Error('Transcript not available for this video');
+			}
+		}
+
+		transcriptButton.click();
+		ImprovedTube.waitForTranscriptAndCopy(svg, button);
+
+	} catch (error) {
+		console.error('ImprovedTube: Failed to copy transcript:', error);
+		button.dataset.tooltip = 'TranscriptError';
+		setTimeout(function () {
+			button.dataset.tooltip = 'CopyTranscript';
+			svg.style.opacity = '.5';
+		}, 2000);
+	}
+};
+
+ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
+	var attempts = 0;
+	var maxAttempts = 20;
+
+	var checkInterval = setInterval(function () {
+		attempts++;
+
+		var transcriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer');
+
+		if (transcriptSegments.length > 0) {
+			clearInterval(checkInterval);
+
+			var transcriptText = '';
+
+			transcriptSegments.forEach(function (segment) {
+				var textElement = segment.querySelector('.segment-text');
+				if (textElement) {
+					transcriptText += textElement.textContent.trim() + ' ';
+				}
+			});
+
+			transcriptText = transcriptText.trim();
+
+			if (transcriptText) {
+				navigator.clipboard.writeText(transcriptText);
+				button.dataset.tooltip = 'Copied!';
+				setTimeout(function () {
+					button.dataset.tooltip = 'CopyTranscript';
+					svg.style.opacity = '.5';
+					// Close transcript panel
+					var closeButton = document.querySelector('ytd-engagement-panel-title-header-renderer button[aria-label*="lose"]') ||
+						document.querySelector('ytd-engagement-panel-title-header-renderer button[aria-label*="акрыть"]');
+					if (closeButton) {
+						closeButton.click();
+					}
+				}, 1000);
+			} else {
+				throw new Error('Transcript is empty');
+			}
+		} else if (attempts >= maxAttempts) {
+			clearInterval(checkInterval);
+			console.error('ImprovedTube: Timeout waiting for transcript');
+			button.dataset.tooltip = 'TranscriptError';
+			setTimeout(function () {
+				button.dataset.tooltip = 'CopyTranscript';
+				svg.style.opacity = '.5';
+			}, 2000);
+		}
+	}, 250);
+};
+
 ImprovedTube.renderSubtitle = function (ctx, captionElements) {
 	if (ctx && captionElements) {
 		captionElements.forEach(function (captionElement, index) {
