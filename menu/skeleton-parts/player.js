@@ -79,6 +79,12 @@ extension.skeleton.main.layers.section.player.on.click = {
 			storage: 'pause_while_typing_on_youtube',
 			id: 'pause_while_typing_on_youtube',
 		},
+		hide_pause_overlay: {
+    		component: 'switch',
+			text: 'Hide_Pause_Overlay',
+			storage: 'Hide_Pause_Overlay',
+			id: 'hide_pause_overlay'
+		},
 		prevent_shorts_autoloop:{
 			component: 'switch',
 			text: 'preventShortVideoAutoloop',
