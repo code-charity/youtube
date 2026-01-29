@@ -187,6 +187,14 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'hideBannerAds'
 				},
+				hide_merch_shelf: {
+					component: 'switch',
+					text: 'hideMerchShelf'
+				},
+				hide_suggested_action: {
+					component: 'switch',
+					text: 'hideSuggestedAction'
+				},
 				hide_sponsored_videos_home: {
 					component: 'switch',
 					text: 'hideSponsoredVideosOnHome'
