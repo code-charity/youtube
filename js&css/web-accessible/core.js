@@ -354,7 +354,7 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.elements.buttons['it-rewind-player-button']?.remove();
 					}
 					break
-				
+
 				case 'playerIncreaseDecreaseSpeedButtons':
 					if (ImprovedTube.storage.player_increase_decrease_speed_buttons === false) {
 						ImprovedTube.elements.buttons['it-increase-speed-button']?.remove();
@@ -505,6 +505,16 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'disableAutoDubbing':
 					if (ImprovedTube.storage.disable_auto_dubbing === true) {
 						ImprovedTube.disableAutoDubbing();
+					}
+					break
+				case 'returnYoutubeDislike':
+					if (ImprovedTube.storage.return_youtube_dislike === true) {
+						ImprovedTube.returnYoutubeDislike();
+					} else {
+						const dislikeCount = document.querySelector('.it-ryd-dislike-count');
+						if (dislikeCount) {
+							dislikeCount.remove();
+						}
 					}
 					break
 			}

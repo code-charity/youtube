@@ -1,0 +1,62 @@
+/*--------------------------------------------------------------
+>>> RETURN YOUTUBE DISLIKE STYLES
+--------------------------------------------------------------*/
+
+.it-ryd-dislike-count {
+    font-family: "Roboto", "Arial", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+    color: var(--yt-spec-text-primary, #f1f1f1);
+    margin-left: 6px;
+    white-space: nowrap;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+html:not([dark]) .it-ryd-dislike-count,
+html[dark="false"] .it-ryd-dislike-count {
+    color: var(--yt-spec-text-primary, #0f0f0f);
+}
+
+html[it-return-youtube-dislike="true"] segmented-like-dislike-button-view-model dislike-button-view-model,
+html[it-return-youtube-dislike="true"] ytd-segmented-like-dislike-button-renderer #segmented-dislike-button {
+    min-width: auto !important;
+    width: auto !important;
+}
+
+html[it-return-youtube-dislike="true"] segmented-like-dislike-button-view-model dislike-button-view-model button,
+html[it-return-youtube-dislike="true"] ytd-segmented-like-dislike-button-renderer #segmented-dislike-button button {
+    min-width: auto !important;
+    width: auto !important;
+    padding-right: 16px !important;
+    padding-left: 12px !important;
+}
+
+html[it-return-youtube-dislike="true"] segmented-like-dislike-button-view-model dislike-button-view-model .yt-spec-button-shape-next,
+html[it-return-youtube-dislike="true"] ytd-segmented-like-dislike-button-renderer #segmented-dislike-button .yt-spec-button-shape-next {
+    min-width: auto !important;
+    width: auto !important;
+}
+
+html[it-return-youtube-dislike="true"] segmented-like-dislike-button-view-model dislike-button-view-model .yt-spec-button-shape-next__button-text-content,
+html[it-return-youtube-dislike="true"] ytd-segmented-like-dislike-button-renderer #segmented-dislike-button .yt-spec-button-shape-next__button-text-content {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+html[it-return-youtube-dislike="true"] segmented-like-dislike-button-view-model,
+html[it-return-youtube-dislike="true"] ytd-segmented-like-dislike-button-renderer {
+    overflow: visible !important;
+}
+
+/* Shorts styling */
+html[it-return-youtube-dislike="true"] ytd-reel-video-renderer .it-ryd-dislike-count {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    margin-top: 4px;
+    line-height: normal;
+}
