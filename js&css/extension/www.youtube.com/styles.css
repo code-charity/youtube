@@ -14,6 +14,9 @@ html {overflow-x: hidden !important}
 	/* or maybe something like : html[it-pathname*="/shorts/"] #header.style-scope ytd-engagement-panel-title-header-renderer "visibility-button" */
 }
 
+html[it-hide-suggested-action="true"] div.ytp-suggested-action {  display: none;  } /* "View products" button */
+html[it-hide-merch-shelf="true"] div.style-scope.ytd-merch-shelf-renderer {   display: none; } /* product list above comments */
+
 /*------------------------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
