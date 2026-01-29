@@ -1,13 +1,3 @@
-/* hiding the very annoying "View products" button, and the product list above comments */
-div.ytp-suggested-action {
-  display: none;
-}
-
-div.style-scope.ytd-merch-shelf-renderer {
-  display: none;
-}
-/* this is a very basic code just to hide it, some people might want to have this displayed for them, but this is the first time I ever contribute to any project, and I'm not an expert at all */
-
 /* fix for youtube's player moving in from the right side */
 html {overflow-x: hidden !important}
 /* html {overflow-x: hidden !important}
@@ -23,6 +13,9 @@ html {overflow-x: hidden !important}
 	}
 	/* or maybe something like : html[it-pathname*="/shorts/"] #header.style-scope ytd-engagement-panel-title-header-renderer "visibility-button" */
 }
+
+html[it-hide-suggested-action="true"] div.ytp-suggested-action {  display: none;  } /* "View products" button */
+html[it-hide-merch-shelf="true"] div.style-scope.ytd-merch-shelf-renderer {   display: none; } /* product list above comments */
 
 /*------------------------------------------------------------------------------
 >>> TABLE OF CONTENTS:
