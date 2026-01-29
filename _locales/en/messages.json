@@ -1,4 +1,6 @@
-{
+{  
+  "hideSuggestedAction": { "message": "Hide Suggested Action 'View products'" },
+  "hideMerchShelf": { "message": "Hide 'Merch Shelf'" },
   "about": {
     "message": "About"
   },
