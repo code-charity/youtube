@@ -2345,3 +2345,429 @@ ImprovedTube.shortsAutoScroll = function () {
         }
     }
 };
+
+(function initImprovedTubeDragAndDrop() {
+	if (typeof document === 'undefined') return;
+
+	// --- Configuration ---
+	const FEATURE_KEY = 'bl_draggable_buttons'; // The switch key in settings
+	const STORAGE_KEY = 'player_element_layout'; // The saved order key
+	const HOLD_DURATION = 1500;
+
+	// Selectors
+	const CONTAINER_SELECTOR = '.ytp-left-controls, .ytp-right-controls, .ytp-left-controls > div, .ytp-right-controls > div';
+	const DRAGGABLE_SELECTOR = '.ytp-button, .it-player-button, .ytp-left-controls > div, .ytp-right-controls > div, .ytp-volume-area';
+	const PROTECTED_GROUPS = ['.ytp-volume-area', '.ytp-chapter-container', '.ytp-live-badge'];
+
+	// --- State ---
+	let isEnabled = false;
+	let dragTimer = null;
+	let isDragging = false;
+	let draggedItem = null;
+	let ghostItem = null;
+	let startX = 0, startY = 0;
+	let lastValidContainer = null;
+	let rafId = null;
+	let observer = null;
+
+	// --- ID Generator ---
+	function getUniqueId(el) {
+		if (!el) return null;
+		if (el.id) return el.id;
+
+		if (el.className && typeof el.className === 'string') {
+			const classes = el.className.split(' ');
+			if (classes.includes('ytp-volume-area')) return 'cls-ytp-volume-area';
+
+			const stableClass = classes.find(c =>
+				['ytp-play-button', 'ytp-next-button', 'ytp-prev-button', 'ytp-fullscreen-button', 'ytp-settings-button', 'ytp-subtitles-button', 'ytp-miniplayer-button', 'ytp-size-button', 'ytp-remote-button', 'ytp-watch-later-button', 'ytp-share-button', 'ytp-chapter-container'].includes(c)
+			);
+			if (stableClass) return 'cls-' + stableClass;
+
+			const wrapperClass = classes.find(c => c.includes('controls') && c !== 'ytp-chrome-controls');
+			if (wrapperClass) return 'cls-' + wrapperClass;
+
+			const mainClass = classes.find(c => c.startsWith('ytp-') && c !== 'ytp-button' && !c.includes('tooltip')) || classes[0];
+			if (mainClass) return 'cls-' + mainClass;
+		}
+
+		const label = el.getAttribute('aria-label') || el.getAttribute('title');
+		if (label) {
+			return 'btn-' + label.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+		}
+
+		return 'tag-' + el.tagName.toLowerCase();
+	}
+
+	// --- Persistence ---
+
+	function saveLayout() {
+		setTimeout(() => {
+			const layout = {};
+			const containers = document.querySelectorAll(CONTAINER_SELECTOR);
+
+			containers.forEach(container => {
+				const containerId = getUniqueId(container);
+				if (!containerId) return;
+
+				const childIds = Array.from(container.children)
+					.filter(el => el.style.display !== 'none' && el.matches(DRAGGABLE_SELECTOR))
+					.map(el => getUniqueId(el));
+
+				if (childIds.length > 0) {
+					layout[containerId] = childIds;
+				}
+			});
+
+			if (Object.keys(layout).length > 0) {
+				// Save to extension storage (Persists after restart)
+				if (ImprovedTube && ImprovedTube.messages) {
+					ImprovedTube.messages.send({ action: 'set', key: STORAGE_KEY, value: layout });
+				}
+			}
+		}, 50);
+	}
+
+	function restoreLayout() {
+		if (isDragging || !isEnabled) return;
+		if (observer) observer.disconnect();
+
+		if (!ImprovedTube.storage) return;
+
+		const savedLayout = ImprovedTube.storage[STORAGE_KEY];
+		if (!savedLayout || typeof savedLayout !== 'object') return;
+
+		// 1. Index ALL known draggable elements
+		const allElements = {};
+		document.querySelectorAll(DRAGGABLE_SELECTOR).forEach(el => {
+			const id = getUniqueId(el);
+			if (id) allElements[id] = el;
+		});
+
+		// 2. Identify Containers
+		const containers = {};
+		document.querySelectorAll(CONTAINER_SELECTOR).forEach(el => {
+			const id = getUniqueId(el);
+			if (id) containers[id] = el;
+		});
+
+		// 3. Restore Structure
+		Object.keys(savedLayout).forEach(containerId => {
+			const container = containers[containerId];
+			const childIds = savedLayout[containerId];
+
+			if (!container || !Array.isArray(childIds)) return;
+
+			const fragment = document.createDocumentFragment();
+			const placementSet = new Set();
+
+			childIds.forEach(elementId => {
+				const element = allElements[elementId];
+				if (element) {
+					if (element.contains(container)) return;
+					fragment.appendChild(element);
+					placementSet.add(element);
+				}
+			});
+
+			// Anti-Wipe: Keep existing children that weren't in the save
+			Array.from(container.children).forEach(child => {
+				if (!placementSet.has(child) && child.matches(DRAGGABLE_SELECTOR)) {
+					fragment.appendChild(child);
+				}
+			});
+
+			if (fragment.children.length > 0) {
+				container.appendChild(fragment);
+			}
+		});
+
+		if (document.body && observer && isEnabled) {
+			observer.observe(document.body, { childList: true, subtree: true });
+		}
+	}
+
+	// --- Drag Logic ---
+
+	function createGhost(element) {
+		const rect = element.getBoundingClientRect();
+		const clone = element.cloneNode(true);
+		clone.style.width = rect.width + 'px'; clone.style.height = rect.height + 'px';
+		clone.style.left = rect.left + 'px'; clone.style.top = rect.top + 'px';
+
+		const computed = window.getComputedStyle(element);
+		clone.style.borderRadius = computed.borderRadius;
+		clone.style.backgroundColor = computed.backgroundColor;
+		clone.style.display = 'flex';
+		clone.style.alignItems = 'center';
+
+		clone.classList.add('it-ghost-element');
+		document.body.appendChild(clone);
+		return clone;
+	}
+
+	function getContainerAtPoint(x, y) {
+		if (ghostItem) ghostItem.style.display = 'none';
+		const el = document.elementFromPoint(x, y);
+		if (ghostItem) ghostItem.style.display = 'block';
+		if (!el) return null;
+		return el.closest(CONTAINER_SELECTOR);
+	}
+
+	function onMouseDown(e) {
+		if (!isEnabled || e.button !== 0) return;
+
+		let target = e.target.closest(DRAGGABLE_SELECTOR);
+
+		if (!target) {
+			const volumeArea = e.target.closest('.ytp-volume-area');
+			if (volumeArea) target = volumeArea;
+		}
+
+		const protectedParent = target ? target.closest(PROTECTED_GROUPS.join(',')) : null;
+		if (protectedParent) {
+			target = protectedParent;
+		}
+
+		if (!target) return;
+
+		const container = target.closest(CONTAINER_SELECTOR);
+		if (!container) return;
+
+		startX = e.clientX;
+		startY = e.clientY;
+		draggedItem = target;
+		lastValidContainer = container;
+
+		dragTimer = setTimeout(() => startDrag(e), HOLD_DURATION);
+
+		window.addEventListener('mouseup', onMouseUp);
+		window.addEventListener('mousemove', onCheckMove);
+	}
+
+	function onCheckMove(e) {
+		if (!isDragging && dragTimer) {
+			if (Math.abs(e.clientX - startX) > 5 || Math.abs(e.clientY - startY) > 5) {
+				clearTimeout(dragTimer);
+				dragTimer = null;
+				cleanupListeners();
+			}
+		} else if (isDragging && !rafId) {
+			rafId = requestAnimationFrame(() => { onDragMove(e); rafId = null; });
+		}
+	}
+
+	function startDrag(e) {
+		if (!draggedItem) return;
+		isDragging = true;
+		if (observer) observer.disconnect();
+		document.body.classList.add('it-dragging-active');
+		ghostItem = createGhost(draggedItem);
+		draggedItem.classList.add('it-placeholder');
+		window.removeEventListener('mousemove', onCheckMove);
+		window.addEventListener('mousemove', onCheckMove);
+	}
+
+	function onDragMove(e) {
+		if (!isDragging || !ghostItem) return;
+
+		const w = parseFloat(ghostItem.style.width);
+		const h = parseFloat(ghostItem.style.height);
+		ghostItem.style.left = (e.clientX - w / 2) + 'px';
+		ghostItem.style.top = (e.clientY - h / 2) + 'px';
+
+		let targetContainer = getContainerAtPoint(e.clientX, e.clientY);
+
+		if (!targetContainer) {
+			const lastRect = lastValidContainer.getBoundingClientRect();
+			if (e.clientY > lastRect.top - 50 && e.clientY < lastRect.bottom + 50 &&
+				e.clientX > lastRect.left - 50 && e.clientX < lastRect.right + 50) {
+				targetContainer = lastValidContainer;
+			} else {
+				return;
+			}
+		}
+		lastValidContainer = targetContainer;
+
+		const siblings = Array.from(targetContainer.children).filter(child =>
+			child !== draggedItem &&
+			child.style.display !== 'none' &&
+			child.getBoundingClientRect().width > 0 &&
+			child.matches(DRAGGABLE_SELECTOR)
+		);
+
+		const nextSibling = siblings.find(sibling => {
+			const box = sibling.getBoundingClientRect();
+			return e.clientX < box.left + box.width / 2;
+		});
+
+		try {
+			if (nextSibling) {
+				if (nextSibling !== draggedItem.nextSibling) targetContainer.insertBefore(draggedItem, nextSibling);
+			} else {
+				targetContainer.appendChild(draggedItem);
+			}
+		} catch (err) { }
+	}
+
+	function onMouseUp(e) {
+		if (dragTimer) clearTimeout(dragTimer);
+		if (rafId) cancelAnimationFrame(rafId);
+
+		if (isDragging) {
+			if (draggedItem) {
+				draggedItem.classList.remove('it-placeholder');
+				saveLayout();
+			}
+			if (ghostItem) ghostItem.remove();
+			document.body.classList.remove('it-dragging-active');
+
+			if (document.body && observer && isEnabled) observer.observe(document.body, { childList: true, subtree: true });
+		}
+
+		isDragging = false;
+		draggedItem = null;
+		ghostItem = null;
+		dragTimer = null;
+		cleanupListeners();
+	}
+
+	function cleanupListeners() {
+		window.removeEventListener('mouseup', onMouseUp);
+		window.removeEventListener('mousemove', onCheckMove);
+	}
+
+	// --- Enable / Disable Logic ---
+
+	function enableFeature() {
+		if (isEnabled) return;
+		isEnabled = true;
+		injectStyles();
+
+		// Listeners
+		document.body.removeEventListener('mousedown', onMouseDownHandle);
+		document.body.addEventListener('mousedown', onMouseDownHandle);
+
+		// Observer
+		if (document.body) {
+			if (!observer) createObserver();
+			observer.observe(document.body, { childList: true, subtree: true });
+		}
+
+		restoreLayout();
+	}
+
+	function disableFeature() {
+		if (!isEnabled) return;
+		isEnabled = false;
+
+		document.body.removeEventListener('mousedown', onMouseDownHandle);
+		if (observer) observer.disconnect();
+
+		const style = document.getElementById('it-drag-drop-css');
+		if (style) style.remove();
+	}
+
+	function onMouseDownHandle(e) {
+		if (e.target.closest(CONTAINER_SELECTOR)) {
+			onMouseDown(e);
+		}
+	}
+
+	const injectStyles = () => {
+		const styleId = 'it-drag-drop-css';
+		if (!document.getElementById(styleId) && document.head) {
+			const style = document.createElement('style');
+			style.id = styleId;
+			style.innerHTML = `
+                body.it-dragging-active .ytp-tooltip,
+                body.it-dragging-active .ytp-volume-panel { display: none !important; }
+                .it-ghost-element {
+                    position: fixed; z-index: 2147483647; pointer-events: none; opacity: 0.95;
+                    transform: scale(1.02); border: 2px solid #00ff00; border-radius: 4px;
+                    background: rgba(20, 20, 20, 0.8); display: flex; align-items: center;
+                    justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+                    will-change: top, left;
+                }
+                .it-placeholder { opacity: 0 !important; visibility: hidden !important; }
+                .ytp-left-controls > div, .ytp-right-controls > div {
+                    min-width: 10px; min-height: 100%;
+                }
+                /* Right Side Adaptor */
+                .ytp-right-controls .ytp-volume-area {
+                    margin: 0 !important; padding: 0 10px !important; align-self: center !important;
+                    display: inline-flex !important; align-items: center !important; height: 100% !important;
+                    vertical-align: middle !important; min-width: 0px; overflow: visible !important;
+                }
+                .ytp-right-controls .ytp-mute-button svg { padding-top: 15px !important; }
+                .ytp-right-controls .ytp-mute-button:not(svg) { width: 40px !important; height: 100% !important; }
+                .ytp-right-controls .ytp-volume-panel {
+                    width: 0px !important; opacity: 0; margin: 0; overflow: hidden;
+                    transition: width 0.2s cubic-bezier(0.4, 0, 1, 1), opacity 0.2s !important;
+                }
+                .ytp-right-controls .ytp-volume-area:hover .ytp-volume-panel,
+                .ytp-right-controls .ytp-volume-area:focus-within .ytp-volume-panel {
+                    min-width: 80px !important; opacity: 1 !important; margin-left: 20px !important; display: block !important;
+                }
+            `;
+			document.head.appendChild(style);
+		}
+	};
+
+	function createObserver() {
+		observer = new MutationObserver((mutations) => {
+			if (isDragging) return;
+			let needsRestore = false;
+			for (const m of mutations) {
+				if (m.type === 'childList' && m.target.matches && m.target.matches(CONTAINER_SELECTOR)) {
+					needsRestore = true; break;
+				}
+			}
+			if (needsRestore) restoreLayout();
+		});
+	}
+
+	// --- Master Logic ---
+
+	// Checks the ImprovedTube setting to decide whether to Enable or Disable
+	function checkFeatureState() {
+		if (typeof ImprovedTube === 'undefined' || !ImprovedTube.storage) return;
+
+		const shouldBeEnabled = ImprovedTube.storage[FEATURE_KEY] === true;
+
+		if (shouldBeEnabled && !isEnabled) {
+			enableFeature();
+		} else if (!shouldBeEnabled && isEnabled) {
+			disableFeature();
+		}
+	}
+
+	const start = () => {
+		if (document.head && document.body) {
+			// 1. Initial Check
+			checkFeatureState();
+
+			// 2. Watch for setting changes (Poll safely or hook into events)
+			setInterval(checkFeatureState, 1000);
+
+			// 3. Hook into ImprovedTube init if available
+			if (typeof ImprovedTube !== 'undefined') {
+				const originalInit = ImprovedTube.init;
+				ImprovedTube.init = function () {
+					if (originalInit) originalInit.apply(this, arguments);
+					checkFeatureState();
+					if (isEnabled) restoreLayout();
+				};
+			}
+		} else {
+			setTimeout(start, 50);
+		}
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', start);
+	} else {
+		start();
+	}
+
+})();
