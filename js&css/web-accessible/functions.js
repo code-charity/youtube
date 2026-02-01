@@ -345,6 +345,16 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerCinemaModeButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
+		
+		// Initialize large playlist handler for playlist videos
+		if (this.getParam(location.href, 'list')) {
+			ImprovedTube.playlistLargePlaylistHandler();
+		} else {
+			// Cleanup when not on a playlist
+			if (typeof ImprovedTube.cleanupPlaylistHandlers === 'function') {
+				ImprovedTube.cleanupPlaylistHandlers();
+			}
+		}
 	}
 };
 
