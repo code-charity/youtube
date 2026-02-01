@@ -345,6 +345,12 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerCinemaModeButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
+		
+		// Initialize live chat below theater functionality
+		if (this.storage.livechat_below_theater === true) {
+			ImprovedTube.livechatBelowTheater();
+			ImprovedTube.livechatTheaterModeObserver();
+		}
 	}
 };
 
