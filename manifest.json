@@ -24,6 +24,7 @@
   },
   "content_scripts": [
     {
+      "all_frames": true,
       "matches": ["https://www.youtube.com/*"],
       "js": [
         "js&css/extension/core.js",
@@ -53,6 +54,29 @@
     }
   ],
   "host_permissions": ["https://www.youtube.com/*"],
-  "permissions": ["storage", "contextMenus"],
-  "optional_permissions": ["downloads"]
+  "optional_permissions": ["downloads"],
+  "permissions": ["contextMenus", "storage"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "menu/index.html",
+        "js&css/web-accessible/core.js",
+        "js&css/web-accessible/functions.js",
+        "js&css/web-accessible/www.youtube.com/appearance.js",
+        "js&css/web-accessible/www.youtube.com/player.js",
+        "js&css/web-accessible/www.youtube.com/themes.js",
+        "js&css/web-accessible/www.youtube.com/playlist.js",
+        "js&css/web-accessible/www.youtube.com/playlist-complete-playlist.js",
+        "js&css/web-accessible/www.youtube.com/playlist-cleaner.js",
+        "js&css/web-accessible/www.youtube.com/channel.js",
+        "js&css/web-accessible/www.youtube.com/shortcuts.js",
+        "js&css/web-accessible/www.youtube.com/blocklist.js",
+        "js&css/web-accessible/www.youtube.com/settings.js",
+        "js&css/web-accessible/www.youtube.com/last-watched-overlay.js",
+        "js&css/web-accessible/init.js",
+        "menu/icons/48.png"
+      ],
+      "matches": ["https://www.youtube.com/*"]
+    }
+  ]
 }
