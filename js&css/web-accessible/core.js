@@ -255,8 +255,11 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'themePrimaryColor':
 				case 'themeSecondaryColor':
 				case 'themeTextColor':
-					ImprovedTube.myColors();
-					ImprovedTube.setTheme();
+					clearTimeout(ImprovedTube.themeUpdateTimer);
+					ImprovedTube.themeUpdateTimer = setTimeout(function () {
+						ImprovedTube.myColors();
+						ImprovedTube.setTheme();
+					}, 200);
 					break
 
 				case 'description':
