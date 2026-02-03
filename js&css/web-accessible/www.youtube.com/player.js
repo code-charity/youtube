@@ -1820,7 +1820,9 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 				if (
 					(/^[a-z0-9]$/i.test(e.key) || e.key === "Backspace") &&
 				!(e.ctrlKey && (e.key === "c" || e.key === "x" || e.key === "a")) &&
-				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV" )) {
+				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV" 
+				 ||	((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable) 
+				)) {
 				// Pause the video
 				// Check if player is paused
 					if (!player.paused) {
