@@ -17,7 +17,6 @@ html[it-ambient-lighting='false'] #cinematics {display: none !important;}
 # ALWAYS SHOW PROGRESS BAR
 --------------------------------------------------------------*/
 
-
 html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player).ytp-autohide .ytp-chrome-bottom {
 	opacity: 1 !important;
 }
@@ -39,22 +38,14 @@ html[it-always-show-progress-bar='true'] .html5-video-player:not(.it-mini-player
 
 /*--------------------------------------------------------------
 # FIX: hide full control strip in native miniplayer
+# Note: Exclude embedded players (it-pathname starts with /embed) to fix issue #3594
 --------------------------------------------------------------*/
-ytd-miniplayer .ytp-chrome-bottom,
-.html5-video-player.ytp-player-minimized .ytp-chrome-bottom,
-.html5-video-player.ytp-small-mode .ytp-chrome-bottom {
-	opacity: 0 !important;
-	pointer-events: none !important;
-}
-
-ytd-miniplayer .ytp-chrome-bottom .ytp-progress-bar-container,
-.html5-video-player.ytp-player-minimized .ytp-chrome-bottom .ytp-progress-bar-container,
-.html5-video-player.ytp-small-mode .ytp-chrome-bottom .ytp-progress-bar-container,
-ytd-miniplayer .ytp-chrome-bottom .ytp-scrubber-button,
-.html5-video-player.ytp-player-minimized .ytp-chrome-bottom .ytp-scrubber-button,
-.html5-video-player.ytp-small-mode .ytp-chrome-bottom .ytp-scrubber-button {
-	display: none !important;
-}
+html[it-always-show-progress-bar=true]:not([it-pathname^="/embed"])
+:is( ytd-miniplayer, .html5-video-player.ytp-player-minimized,  .html5-video-player.ytp-small-mode) .ytp-chrome-bottom
+{  opacity:0!important;  pointer-events:none!important; }
+html[it-always-show-progress-bar=true]:not([it-pathname^="/embed"])
+:is( ytd-miniplayer,  .html5-video-player.ytp-player-minimized,  .html5-video-player.ytp-small-mode) .ytp-chrome-bottom:is(.ytp-progress-bar-container,.ytp-scrubber-button)
+{  display:none!important; }
 
 /*--------------------------------------------------------------
 # COLOR

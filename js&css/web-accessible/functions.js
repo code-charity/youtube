@@ -277,6 +277,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 ImprovedTube.pageType = function () {
 	if (/\/watch\?|\/live\//.test(location.href)) {
 		document.documentElement.dataset.pageType = 'video';
+	} else if (/\/embed\//.test(location.href)) {
+		// Embedded YouTube players (e.g., on third-party sites like Discogs) - treat as video for features like seekbar
+		document.documentElement.dataset.pageType = 'embed';
 	} else if (location.pathname === '/') {
 		document.documentElement.dataset.pageType = 'home';
 	} else if (/\/subscriptions\?/.test(location.href)) {
