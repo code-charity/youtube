@@ -1369,6 +1369,9 @@
   "Sidebar_simple_alternative": {
     "message": "Sidebar (simple alternative)"
   },
+  "smartSpeed": {
+    "message": "Smart Speed (Skip Boring Parts)"
+  },
   "softwareInformation": {
     "message": "Software information"
   },

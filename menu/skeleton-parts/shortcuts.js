@@ -212,6 +212,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 						}
 					}
 				},
+				shortcut_smart_speed: {
+					component: 'shortcut',
+					text: 'smartSpeed'
+				},
 				shortcut_play_pause: {
 					component: 'shortcut',
 					text: 'playPause',

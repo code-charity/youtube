@@ -196,6 +196,22 @@ extension.skeleton.main.layers.section.player.on.click = {
 			max: 3.17,
 			step: .01
 		},
+smart_speed: {
+            component: 'switch',
+            text: 'smartSpeed',
+            storage: 'smart_speed',
+            id: 'smart_speed',
+            on: {
+                click: function () {
+                    var isEnabled = this.dataset.value === 'false'; 
+                    if (isEnabled) {
+                       ImprovedTube.messages.send({ action: 'eval', args: 'ImprovedTube.storage.smart_speed = true; if(ImprovedTube.heatmap) ImprovedTube.heatmap.init();' });
+                    } else {
+                       ImprovedTube.messages.send({ action: 'eval', args: 'ImprovedTube.storage.smart_speed = false; if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; if(document.querySelector("video")) document.querySelector("video").playbackRate = 1.0; }' });
+                    }
+                }
+            }
+        },
 		autofullscreen: {
 			component: 'switch',
 			text: 'autoFullscreen',
