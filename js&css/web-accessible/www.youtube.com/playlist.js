@@ -4,15 +4,98 @@
 /*------------------------------------------------------------------------------
 4.5.1 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
-ImprovedTube.playlistUpNextAutoplay = function () { if (this.storage.playlist_up_next_autoplay === false) {
-	const playlistData = this.elements.ytd_watch?.playlistData;
-	if (this.getParam(location.href, 'list') && playlistData
-		&& playlistData.currentIndex
-		&& playlistData.totalVideos
-		&& playlistData.localCurrentIndex) {
-			playlistData.currentIndex = playlistData.totalVideos;
+ImprovedTube.playlistUpNextAutoplay = function () { 
+	if (this.storage.playlist_up_next_autoplay === false) {
+		const playlistData = this.elements.ytd_watch?.playlistData;
+		if (this.getParam(location.href, 'list') && playlistData
+			&& playlistData.currentIndex
+			&& playlistData.totalVideos
+			&& playlistData.localCurrentIndex) {
+			
+			// Fix for large playlists: ensure proper synchronization instead of forcing end
+			// YouTube loads playlists in chunks (typically 200 videos), so we need to 
+			// keep currentIndex and localCurrentIndex in sync as new segments load
+			if (playlistData.currentIndex !== playlistData.localCurrentIndex) {
+				playlistData.currentIndex = playlistData.localCurrentIndex;
+			}
+			
+			// Monitor for playlist data updates to handle pagination
+			if (!this.playlistAutoplayObserver) {
+				this.playlistAutoplayObserver = new MutationObserver((mutations) => {
+					mutations.forEach((mutation) => {
+						if (mutation.type === 'attributes' && 
+							mutation.attributeName === 'data' && 
+							this.elements.ytd_watch?.playlistData) {
+							
+							const updatedData = this.elements.ytd_watch.playlistData;
+							// Resync when YouTube loads new playlist segments
+							if (updatedData.currentIndex !== updatedData.localCurrentIndex) {
+								updatedData.currentIndex = updatedData.localCurrentIndex;
+							}
+						}
+					});
+				});
+				
+				// Observe the watch element for playlist data changes
+				if (this.elements.ytd_watch) {
+					this.playlistAutoplayObserver.observe(this.elements.ytd_watch, {
+						attributes: true,
+						attributeFilter: ['data']
+					});
+				}
+			}
+		}
+	} else {
+		// Clean up observer when feature is enabled
+		if (this.playlistAutoplayObserver) {
+			this.playlistAutoplayObserver.disconnect();
+			this.playlistAutoplayObserver = null;
 		}
 	}
+};
+
+// Enhanced playlist navigation handler for large playlists
+ImprovedTube.playlistLargePlaylistHandler = function() {
+	if (!this.getParam(location.href, 'list')) return;
+	
+	const playlistData = this.elements.ytd_watch?.playlistData;
+	if (!playlistData) return;
+	
+	// Monitor video changes to handle large playlist navigation
+	const videoElement = this.elements.player?.querySelector('video');
+	if (videoElement && !this.playlistVideoChangeListener) {
+		this.playlistVideoChangeListener = () => {
+			setTimeout(() => {
+				const currentData = this.elements.ytd_watch?.playlistData;
+				if (currentData && currentData.currentIndex !== currentData.localCurrentIndex) {
+					// Force synchronization when video changes
+					currentData.currentIndex = currentData.localCurrentIndex;
+					
+					// Update the player's playlist manager if available
+					const playlistManager = document.querySelector('yt-playlist-manager');
+					if (playlistManager && playlistManager.autoplayData) {
+						playlistManager.autoplayData.currentIndex = currentData.localCurrentIndex;
+					}
+				}
+			}, 100);
+		};
+		
+		videoElement.addEventListener('loadedmetadata', this.playlistVideoChangeListener);
+		videoElement.addEventListener('play', this.playlistVideoChangeListener);
+	}
+	
+	// Cleanup function for when navigating away from playlist pages
+	this.cleanupPlaylistHandlers = function() {
+		if (this.playlistAutoplayObserver) {
+			this.playlistAutoplayObserver.disconnect();
+			this.playlistAutoplayObserver = null;
+		}
+		if (this.playlistVideoChangeListener && videoElement) {
+			videoElement.removeEventListener('loadedmetadata', this.playlistVideoChangeListener);
+			videoElement.removeEventListener('play', this.playlistVideoChangeListener);
+			this.playlistVideoChangeListener = null;
+		}
+	};
 };
 /*------------------------------------------------------------------------------
 4.5.2 REVERSE

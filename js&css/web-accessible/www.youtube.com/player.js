@@ -1820,7 +1820,9 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 				if (
 					(/^[a-z0-9]$/i.test(e.key) || e.key === "Backspace") &&
 				!(e.ctrlKey && (e.key === "c" || e.key === "x" || e.key === "a")) &&
-				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV" )) {
+				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV" 
+				 ||	((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable) 
+				)) {
 				// Pause the video
 				// Check if player is paused
 					if (!player.paused) {
@@ -2345,3 +2347,192 @@ ImprovedTube.shortsAutoScroll = function () {
         }
     }
 };
+
+/*------------------------------------------------------------------------------
+SMART SPEED & SKIP (HEATMAP ENGINE)
+------------------------------------------------------------------------------*/
+ImprovedTube.heatmap = {
+    data: null,
+    segments: [],
+    isEnabled: false,
+    lastCheck: 0,
+
+    init: function () {
+        this.isEnabled = ImprovedTube.storage.smart_speed === true;
+        if (!this.isEnabled) return;
+
+        this.data = null;
+        this.segments = [];
+        this.getData();
+        
+        const video = document.querySelector('video');
+        if (video && !video.dataset.itSmartSpeedAttached) {
+            video.dataset.itSmartSpeedAttached = 'true';
+            video.addEventListener('timeupdate', () => this.update(video));
+            video.addEventListener('loadeddata', () => this.init());
+        }
+    },
+
+    getData: function () {
+        console.log('[ImprovedTube] Hunting for Heatmap...');
+
+        // LEVEL 1: Active Player
+        try {
+            const playerResponse = document.getElementById('movie_player')?.getPlayerResponse();
+            if (this.checkAndProcess(playerResponse, 'Active Player')) return;
+        } catch (e) {}
+
+        // LEVEL 2: Global Variables
+        try {
+            if (this.checkAndProcess(window.ytInitialData, 'window.ytInitialData')) return;
+            if (this.checkAndProcess(window.ytInitialPlayerResponse, 'window.ytInitialPlayerResponse')) return;
+        } catch (e) {}
+
+        // LEVEL 3: Background Fetch
+        const videoId = new URLSearchParams(window.location.search).get('v');
+        if (videoId) {
+            console.log('[ImprovedTube] Level 1 and 2 failed. Fetching source...');
+            fetch('https://www.youtube.com/watch?v=' + videoId)
+                .then(res => res.text())
+                .then(text => {
+                    // Extract and parse JSONs
+                    const matchData = text.match(/var ytInitialData = ({.*?});/s);
+                    const matchResp = text.match(/var ytInitialPlayerResponse = ({.*?});/s);
+
+                    if (matchData && this.checkAndProcess(JSON.parse(matchData[1]), 'Fetched ytInitialData')) return;
+                    if (matchResp && this.checkAndProcess(JSON.parse(matchResp[1]), 'Fetched ytInitialPlayerResponse')) return;
+
+                    console.log('[ImprovedTube] Heatmap data not found in source.');
+                })
+                .catch(err => console.error('[ImprovedTube] Fetch error:', err));
+        }
+    },
+
+    // Recursively searches JSON for the heatmap
+    findMarkers: function(obj) {
+        if (!obj || typeof obj !== 'object') return null;
+        
+        // Pattern 1: Standard MarkersList
+        if (obj.markerType === 'MARKER_TYPE_HEATMAP' && Array.isArray(obj.markers)) {
+            return obj.markers;
+        }
+        
+        // Pattern 2: MarkersMap (common in ytInitialData)
+        if (obj.key === 'MARKER_TYPE_HEATMAP' && obj.value && Array.isArray(obj.value.markers)) {
+            return obj.value.markers;
+        }
+
+        // Recursive Search
+        for (let key in obj) {
+            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+                const found = this.findMarkers(obj[key]);
+                if (found) return found;
+            }
+        }
+        return null;
+    },
+
+    checkAndProcess: function (rootObject, sourceName) {
+        if (!rootObject) return false;
+        // Use the recursive finder instead of hardcoded paths
+        const markers = this.findMarkers(rootObject);
+        
+        if (markers && markers.length > 0) {
+            console.log('[ImprovedTube] Found Heatmap via: ' + sourceName);
+            this.processSegments(markers);
+            return true;
+        }
+        return false;
+    },
+
+    processSegments: function (rawMarkers) {
+        if (!rawMarkers || rawMarkers.length === 0) return;
+
+        this.segments = [];
+        let currentAction = 'PLAY';
+        let currentSpeed = 1.0;
+        let startPct = 0;
+
+        rawMarkers.forEach((marker, index) => {
+            const score = marker.intensityScoreNormalized;
+            if (typeof score !== 'number') return;
+
+            let newAction = 'PLAY';
+            let newSpeed = 1.0;
+
+            // 1. SKIP LOGIC (Intro only: First 15%)
+            if (index < 15 && score < 0.15) {
+                newAction = 'SKIP';
+            } 
+            // 2. DYNAMIC SPEED LOGIC
+            else {
+                if (score <= 0.05) newSpeed = 2.0;       // Extremely Boring
+                else if (score <= 0.12) newSpeed = 1.75; // Very Boring
+                else if (score <= 0.18) newSpeed = 1.5;  // Boring
+                else if (score <= 0.25) newSpeed = 1.25; // Slightly Boring
+                else newSpeed = 1.0;                     // Normal
+            }
+
+            // Create a new segment if the plan changes
+            if (newAction !== currentAction || newSpeed !== currentSpeed) {
+                this.segments.push({ 
+                    start: startPct, 
+                    end: index, 
+                    action: currentAction, 
+                    speed: currentSpeed 
+                });
+                currentAction = newAction;
+                currentSpeed = newSpeed;
+                startPct = index;
+            }
+        });
+        // Push final segment
+        this.segments.push({ start: startPct, end: 100, action: currentAction, speed: currentSpeed });
+        console.log('[ImprovedTube] Dynamic Segments ready:', this.segments.length);
+    },
+
+    update: function (video) {
+        if (!this.segments.length || video.paused) return;
+
+        const now = Date.now();
+        if (now - this.lastCheck < 500) return; 
+        this.lastCheck = now;
+
+        const duration = video.duration;
+        const currentPct = (video.currentTime / duration) * 100;
+        
+        const activeSegment = this.segments.find(s => currentPct >= s.start && currentPct < s.end);
+
+        if (activeSegment) {
+            if (activeSegment.action === 'SKIP') {
+                const skipTo = (activeSegment.end / 100) * duration;
+                if (skipTo - video.currentTime > 5) { 
+                    console.log('[ImprovedTube] Auto-Skipping...');
+                    video.currentTime = skipTo;
+                }
+            } else {
+                // Apply Dynamic Speed with a small tolerance check to prevent log spam
+                // We check if current speed matches target speed (within 0.1 margin)
+                if (Math.abs(video.playbackRate - activeSegment.speed) > 0.1) {
+                    video.playbackRate = activeSegment.speed;
+                }
+            }
+        }
+    }
+};
+
+/*------------------------------------------------------------------------------
+AUTO-START SMART SPEED
+------------------------------------------------------------------------------*/
+setTimeout(function() {
+    if (ImprovedTube.storage.smart_speed) {
+        console.log('[ImprovedTube] Auto-Starting Smart Speed...');
+        ImprovedTube.heatmap.init();
+    }
+}, 2000);
+
+window.addEventListener('yt-navigate-finish', function() {
+    if (ImprovedTube.storage.smart_speed) {
+        setTimeout(() => ImprovedTube.heatmap.init(), 1000);
+    }
+});

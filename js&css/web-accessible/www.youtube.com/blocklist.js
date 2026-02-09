@@ -97,6 +97,12 @@ ImprovedTube.blocklistChannel = function (node) {
 	if (!this.storage.blocklist_activate || !node) return;
 
 	const id = location.pathname.match(ImprovedTube.regex.channel)?.groups?.name;
+
+	// Prevent duplicate observers when navigating between tabs
+	if (this.blocklistChannelObserver) {
+		this.blocklistChannelObserver.disconnect();
+	}
+
 	let button = node.parentNode?.parentNode?.querySelector("button.it-add-channel-to-blocklist");
 
 	if (!id) return; // not on channel page
@@ -140,17 +146,25 @@ ImprovedTube.blocklistChannel = function (node) {
 		});
 	};
 
-	node.parentNode.parentNode.appendChild(button);
-	this.elements.blocklist_buttons.push(button);
-	// YT tries to remove all forein nodes from node.parentNode.parentNode some time after 'yt-navigate-finish'
-	// Need to monitor for it and re-appendChild our button, otherwise if  gets deleted when switching to
-	// channel subpages /playlists /featured /videos etc.
-	this.blocklistChannelObserver = new MutationObserver(function () {
-		if (!button.isConnected) {
-			node.parentNode.parentNode.appendChild(button);
-		}
-	});
-	this.blocklistChannelObserver.observe(node.parentNode.parentNode, {childList: true, subtree: true});
+	if (node.parentNode && node.parentNode.parentNode) {
+		node.parentNode.parentNode.appendChild(button);
+		this.elements.blocklist_buttons.push(button);
+
+		// YT tries to remove all foreign nodes from node.parentNode.parentNode some time after 'yt-navigate-finish'
+		// Need to monitor for it and re-appendChild our button, otherwise it gets deleted when switching to
+		// channel subpages /playlists /featured /videos etc.
+		this.blocklistChannelObserver = new MutationObserver(function () {
+			if (!button.isConnected) {
+				if (node.parentNode && node.parentNode.parentNode) {
+					node.parentNode.parentNode.appendChild(button);
+				} else {
+					// Stop observing if the parent node is gone to prevent loops
+					this.disconnect();
+				}
+			}
+		});
+		this.blocklistChannelObserver.observe(node.parentNode.parentNode, { childList: true, subtree: true });
+	}
 };
 
 ImprovedTube.handleDislikeButton = function() {	

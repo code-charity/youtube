@@ -277,6 +277,9 @@ ImprovedTube.ytElementsHandler = function (node) {
 ImprovedTube.pageType = function () {
 	if (/\/watch\?|\/live\//.test(location.href)) {
 		document.documentElement.dataset.pageType = 'video';
+	} else if (/\/embed\//.test(location.href)) {
+		// Embedded YouTube players (e.g., on third-party sites like Discogs) - treat as video for features like seekbar
+		document.documentElement.dataset.pageType = 'embed';
 	} else if (location.pathname === '/') {
 		document.documentElement.dataset.pageType = 'home';
 	} else if (/\/subscriptions\?/.test(location.href)) {
@@ -346,10 +349,22 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 		
-		// Initialize live chat below theater functionality
-		if (this.storage.livechat_below_theater === true) {
-			ImprovedTube.livechatBelowTheater();
-			ImprovedTube.livechatTheaterModeObserver();
+// Initialize live chat below theater functionality
+if (this.storage.livechat_below_theater === true) {
+	ImprovedTube.livechatBelowTheater();
+	ImprovedTube.livechatTheaterModeObserver();
+}
+
+// Initialize large playlist handler for playlist videos
+if (this.getParam(location.href, 'list')) {
+	ImprovedTube.playlistLargePlaylistHandler();
+} else {
+	// Cleanup when not on a playlist
+	if (typeof ImprovedTube.cleanupPlaylistHandlers === 'function') {
+		ImprovedTube.cleanupPlaylistHandlers();
+	}
+}
+
 		}
 	}
 };
