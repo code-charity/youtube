@@ -120,10 +120,10 @@ ImprovedTube.playbackSpeed = function (newSpeed) {
 
 	if (video?.playbackRate) {
 		video.playbackRate = newSpeed;
-		newSpeed = video.playbackRate;
+		newSpeed = Number(video.playbackRate.toFixed(2));
 	} else if (player?.setPlaybackRate && player.getPlaybackRate) {
 		player.setPlaybackRate(newSpeed);
-		newSpeed = player.getPlaybackRate();
+		newSpeed = Number(player.getPlaybackRate().toFixed(2));
 	} else newSpeed = false;
 
 	return newSpeed;
