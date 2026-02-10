@@ -510,6 +510,11 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.disableAutoDubbing();
 					}
 					break
+				case  'smartSpeed':           
+                    if (ImprovedTube.storage.smart_speed === true) { if(ImprovedTube.heatmap) {ImprovedTube.heatmap.init(); };
+                    } else if (ImprovedTube.storage.smart_speed === false) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; } 
+                    }
+					break        
 				case 'returnYoutubeDislike':
 					if (ImprovedTube.storage.return_youtube_dislike === true) {
 						ImprovedTube.returnYoutubeDislike();

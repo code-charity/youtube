@@ -2374,7 +2374,7 @@ ImprovedTube.heatmap = {
     },
 
     getData: function () {
-        console.log('[ImprovedTube] Hunting for Heatmap...');
+    //    console.log('[ImprovedTube] Hunting for Heatmap...');
 
         // LEVEL 1: Active Player
         try {
@@ -2525,14 +2525,13 @@ ImprovedTube.heatmap = {
 AUTO-START SMART SPEED
 ------------------------------------------------------------------------------*/
 setTimeout(function() {
-    if (ImprovedTube.storage.smart_speed) {
+    if (ImprovedTube.storage.smart_speed === true) {
         console.log('[ImprovedTube] Auto-Starting Smart Speed...');
         ImprovedTube.heatmap.init();
     }
 }, 2000);
-
 window.addEventListener('yt-navigate-finish', function() {
-    if (ImprovedTube.storage.smart_speed) {
+    if (ImprovedTube.storage.smart_speed === true) {
         setTimeout(() => ImprovedTube.heatmap.init(), 1000);
     }
 });
