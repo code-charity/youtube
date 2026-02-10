@@ -429,18 +429,16 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					component: "switch",
 					text: "hideTopLoadingBar",
 					tags: "remove,hide"
-				}
-			
-			},
-			hide_gradient_bottom: {
+				},
+				hide_gradient_bottom: {
 				component: "switch",
 				text: "hideGradientBottom"
-			},
-			always_show_progress_bar: {
+				},
+				always_show_progress_bar: {
 				component: "switch",
 				text: "alwaysShowProgressBar"
-			},
-			player_color: {
+				},
+				player_color: {
 				component: "select",
 				text: "playerColor",
 				options: [{
@@ -541,7 +539,8 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "hideTopLoadingBar",
 				tags: "remove,hide"
-			},
+			}
+		},	
 			section_2: {
 				component: 'section',
 				variant: 'card',

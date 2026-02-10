@@ -669,20 +669,8 @@ ImprovedTube.shortcutRefreshCategories = function () {
 4.7.33 SMART SPEED TOGGLE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutSmartSpeed = function () {
-    var currentState = ImprovedTube.storage.smart_speed;
-    var newState = !currentState;
-    
-    ImprovedTube.storage.smart_speed = newState;
-    
-    try { satus.storage.set('smart_speed', newState); } catch(e) {}
-    
-    if (newState) {
-        if (ImprovedTube.heatmap) ImprovedTube.heatmap.init();
-        ImprovedTube.showStatus('Smart Speed: ON');
-    } else {
-        if (ImprovedTube.heatmap) ImprovedTube.heatmap.isEnabled = false;
-        var video = document.querySelector('video');
-        if (video) video.playbackRate = 1.0;
-        ImprovedTube.showStatus('Smart Speed: OFF');
+	if (ImprovedTube.storage.smart_speed === false) { if(ImprovedTube.heatmap) {ImprovedTube.heatmap.init(); };
+    } else if (ImprovedTube.storage.smart_speed === true) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; } 
     }
+	this.storage.smart_speed = !this.storage.smart_speed;
 };

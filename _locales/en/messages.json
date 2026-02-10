@@ -323,9 +323,6 @@
   "copyTranscript": {
     "message": "📋 Copy Transcript"
   },
-  "CopyTranscript": {
-    "message": "Copy Transcript"
-  },
   "FetchingTranscript": {
     "message": "Fetching..."
   },
@@ -1371,7 +1368,7 @@
     "message": "Sidebar (simple alternative)"
   },
   "smartSpeed": {
-    "message": "Smart Speed (Skip Boring Parts)"
+    "message": "Speed up lesser-watched sections"
   },
   "softwareInformation": {
     "message": "Software information"
