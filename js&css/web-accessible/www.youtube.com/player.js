@@ -2322,21 +2322,45 @@ ImprovedTube.shortsAutoScroll = function () {
                 if (video && !video.dataset.itShortsScrollAttached) {
                     video.dataset.itShortsScrollAttached = 'true';
                     
-                    video.addEventListener('timeupdate', function () {
-                        if (!ImprovedTube.storage.shorts_auto_scroll) return;
+                    const timeupdateHandler = function () {
+                        if (!ImprovedTube.storage.shorts_auto_scroll) {
+                            video.removeEventListener('timeupdate', timeupdateHandler);
+                            delete video.dataset.itShortsScrollAttached;
+                            return;
+                        }
                         if (this.paused) return;
 
+                        // Get fresh references to avoid stale DOM elements
+                        const currentActiveRenderer = document.querySelector('ytd-reel-video-renderer[is-active]');
+                        const isVideoStillActive = currentActiveRenderer && currentActiveRenderer.contains(this);
+                        
+                        if (!isVideoStillActive) {
+                            this.removeEventListener('timeupdate', timeupdateHandler);
+                            delete this.dataset.itShortsScrollAttached;
+                            return;
+                        }
+
                         if (this.duration && this.currentTime >= this.duration - 0.25) {
-                            const nextButton = activeRenderer.querySelector('#navigation-button-down button') 
-                                            || document.querySelector('#navigation-button-down button')
-                                            || document.querySelector('button[aria-label="Next video"]');
-                            
-                            if (nextButton) {
-                                this.pause();
-                                nextButton.click();
+                            try {
+                                // Find next button with fresh reference
+                                const nextButton = currentActiveRenderer.querySelector('#navigation-button-down button') 
+                                                || document.querySelector('#navigation-button-down button')
+                                                || document.querySelector('button[aria-label="Next video"]');
+                                
+                                if (nextButton) {
+                                    this.pause();
+                                    nextButton.click();
+                                }
+                            } catch (error) {
+                                console.warn('[ImprovedTube] Shorts auto-scroll error:', error);
+                                // Remove listener on error to prevent breaking
+                                this.removeEventListener('timeupdate', timeupdateHandler);
+                                delete this.dataset.itShortsScrollAttached;
                             }
                         }
-                    });
+                    };
+                    
+                    video.addEventListener('timeupdate', timeupdateHandler);
                 }
             }, 1000);
         }
@@ -2345,6 +2369,11 @@ ImprovedTube.shortsAutoScroll = function () {
             clearInterval(ImprovedTube.shortsAutoScrollInterval);
             ImprovedTube.shortsAutoScrollInterval = null;
         }
+        
+        // Clean up all existing event listeners when disabled
+        document.querySelectorAll('video[data-it-shorts-scroll-attached]').forEach(video => {
+            delete video.dataset.itShortsScrollAttached;
+        });
     }
 };
 
