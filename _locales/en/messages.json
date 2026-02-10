@@ -322,9 +322,6 @@
   "copyTranscript": {
     "message": "📋 Copy Transcript"
   },
-  "CopyTranscript": {
-    "message": "Copy Transcript"
-  },
   "FetchingTranscript": {
     "message": "Fetching..."
   },
