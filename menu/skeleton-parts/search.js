@@ -15,7 +15,16 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 	searchPosition: 0,
 	on: {
 		render: function () {
-			this.focus();
+			const ensureFocus = () => {
+				this.focus();
+				this.input?.focus();
+			};
+
+			// Re-focus after paint to keep cursor in the search field reliably.
+			ensureFocus();
+			requestAnimationFrame(ensureFocus);
+			setTimeout(ensureFocus, 0);
+
 			if (this.skeleton.search) {
 				this.value = this.skeleton.search;
 				this.dispatchEvent(new CustomEvent('input'));
