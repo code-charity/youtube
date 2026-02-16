@@ -36,19 +36,6 @@ ImprovedTube.ytElementsHandler = function (node) {
 	const name = node.nodeName,
 		id = node.id;
 
-		// Hide Shorts everywhere (home, subscriptions, search, channel)
-	if (
-		ImprovedTube.storage.hide_shorts_everywhere === true &&
-		(
-			name === 'YTD-REEL-ITEM-RENDERER' ||
-			name === 'YTD-RICH-GRID-SLIM-MEDIA' ||
-			name === 'YTD-RICH-SHELF-RENDERER'
-		)
-	) {
-		node.remove();
-		return;
-	}
-
 	if (name === 'A') {
 		if (node.href) {
 			this.channelDefaultTab(node);
