@@ -198,6 +198,9 @@ html[it-player-fit-to-win-button=true][data-page-type=video] #it-fit-to-win-play
 html[it-player-fit-to-win-button=true][data-page-type=video] .ytp-fullscreen-button {
 	order: 2;
 }
+html[it-player-change-quality-button=true][data-page-type=video] #it-player-change-quality-button {
+    order: 3; /* keeps it in the right spot with other buttons */
+}
 
 html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 	fill: none;
@@ -247,6 +250,41 @@ body.no-scroll .it-player-button--tooltip {
 	line-height: 22px !important;
 	padding: 8px 9px !important;
 	transform: translate(-50%, -75%) !important;
+}
+
+/*------------------------------------------------------------------------------
+QUALITY DROPDOWN MENU STYLING
+-------------------------------------------------------------------------------*/
+
+.it-quality-menu {
+    position: absolute;
+    top: 100%; /* just below the button */
+    right: 0;
+    background-color: #181818; /* YouTube dark menu background */
+    border-radius: 2px;
+    min-width: 80px;
+    padding: 4px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 13px;
+}
+
+.it-quality-item {
+    padding: 6px 12px;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.it-quality-item:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.it-quality-item.selected {
+    font-weight: 500;
+    color: #1e88e5; /* YouTube blue accent for selected item */
 }
 
 /*------------------------------------------------------------------------------

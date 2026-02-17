@@ -350,6 +350,12 @@ document.addEventListener('it-message-from-extension', function () {
 						document.querySelector("html")?.setAttribute("it-player-size", ImprovedTube.storage.player_size ?? "do_not_change");
 					}
 					break
+				case 'playerChangeQualityButton':
+					if (ImprovedTube.storage.player_change_quality_button === false) {
+						ImprovedTube.elements.buttons['it-player-change-quality-button']?.remove();
+						document.querySelector("html")?.setAttribute("it-player-size", ImprovedTube.storage.player_size ?? "do_not_change");
+					}
+					break
 
 				case 'playerRewindAndForwardButtons':
 					if (ImprovedTube.storage.player_rewind_and_forward_buttons === false) {
@@ -364,8 +370,13 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.elements.buttons['it-decrease-speed-button']?.remove();
 					}
 					break
-
-
+				
+				case 'shortcutPlayerQualityButton':
+					if (ImprovedTube.storage.shortcut_player_change_quality && ImprovedTube.storage.player_change_quality_button === false) {
+						// Activate the player_player_quality_button if the user has set a shortcut
+						ImprovedTube.messages.send({ action: 'set', key: 'player_change_quality_button', value: true });
+					}
+					break
 				case 'shortcutActivateFitToWindow':
 					if (ImprovedTube.storage.shortcut_activate_fit_to_window && ImprovedTube.storage.player_fit_to_win_button === false) {
 						// Activate the player_fit_to_win_button if the user has set a shortcut

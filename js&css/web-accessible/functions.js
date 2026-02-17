@@ -343,6 +343,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
+		ImprovedTube.playerQualityDropdown();
 		ImprovedTube.playerRewindAndForwardButtons();
 		ImprovedTube.playerIncreaseDecreaseSpeedButtons();
 		ImprovedTube.playerCinemaModeButton();
@@ -415,6 +416,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
 		ImprovedTube.playerFitToWinButton();
+		ImprovedTube.playerQualityDropdown();
 		ImprovedTube.playerRewindAndForwardButtons();
 		ImprovedTube.playerIncreaseDecreaseSpeedButtons();
 		ImprovedTube.playerPlaybackSpeedButton();

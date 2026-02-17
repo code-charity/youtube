@@ -1287,6 +1287,10 @@ smart_speed: {
 				component: 'switch',
 				text: 'player_fit_to_win_button'
 			},
+			player_change_quality_button: {
+                component: 'switch',
+				text: 'player_change_quality_button'
+			},
 			player_rewind_and_forward_buttons: {
 				component: 'switch',
 				text: 'player_rewind_and_forward_buttons'

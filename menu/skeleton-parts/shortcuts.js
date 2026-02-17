@@ -300,6 +300,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 						}
 					}
 				},
+				shortcut_player_change_quality_button: {
+					component: 'shortcut',
+					text: 'activateChangeQualityButton'
+				},
 				shortcut_activate_fit_to_window: {
 					component: 'shortcut',
 					text: 'activateFitToWindow'

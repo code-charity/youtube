@@ -1184,6 +1184,73 @@ ImprovedTube.toggleFitToWindow = function() {
 };
 
 /*------------------------------------------------------------------------------
+CHANGE QUALITY MODE BUTTON
+-------------------------------------------------------------------------------*/
+ImprovedTube.playerQualityDropdown = function () {
+    if (!this.storage.player_change_quality_button) return;
+
+    const player = this.elements.player;
+    if (!player) return;
+
+    const rightControls = player.querySelector('.ytp-right-controls');
+    if (!rightControls) return;
+
+    // Prevent duplicates
+    if (player.querySelector('#it-player-change-quality-button')) return;
+
+    // Create button
+    const button = document.createElement('button');
+    button.id = 'it-player-change-quality-button';
+    button.className = 'ytp-button it-quality-button';
+    button.innerHTML = 'HD'; // Icon/text
+    button.title = 'Video Quality';
+    button.style.order = '3';
+    rightControls.appendChild(button);
+
+    // Create dropdown container
+    const menu = document.createElement('div');
+    menu.className = 'it-quality-menu';
+    menu.style.display = 'none';
+    player.appendChild(menu);
+
+    // Toggle dropdown on button click
+    button.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent the click from bubbling up
+        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Close dropdown if clicking outside
+    document.addEventListener('click', (event) => {
+        if (!menu.contains(event.target) && event.target !== button) {
+            menu.style.display = 'none';
+        }
+    });
+
+    // Populate quality menu items
+    this.populateQualityMenu(menu, player);
+};
+
+ImprovedTube.populateQualityMenu = function (menu, player) {
+    menu.innerHTML = '';
+
+    const levels = player.getAvailableQualityLevels();
+
+    levels.forEach(level => {
+        const item = document.createElement('div');
+        item.className = 'it-quality-item';
+        item.textContent = level;
+
+        item.addEventListener('click', () => {
+            player.setPlaybackQualityRange(level);
+            player.setPlaybackQuality(level);
+            menu.style.display = 'none';
+        });
+
+        menu.appendChild(item);
+    });
+};
+
+/*------------------------------------------------------------------------------
 CINEMA MODE BUTTON
 ------------------------------------------------------------------------------*/
 var xpath = function (xpathToExecute) {
