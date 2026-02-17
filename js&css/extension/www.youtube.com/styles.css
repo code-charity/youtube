@@ -199,7 +199,7 @@ html[it-player-fit-to-win-button=true][data-page-type=video] .ytp-fullscreen-but
 	order: 2;
 }
 html[it-player-change-quality-button=true][data-page-type=video] #it-player-change-quality-button {
-    order: 3; /* keeps it in the right spot with other buttons */
+    margin-left: 6px; /* keeps it in the right spot with other buttons */
 }
 
 html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
