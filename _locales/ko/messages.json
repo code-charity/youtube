@@ -26,6 +26,9 @@
    "ExtraButtons": {
       "message": "추가 버튼"
    },
+   "autoPlayNextShort": {
+      "message": "쇼츠 자동 이어보기"
+   },
    "Feature_not_yet_available": {
       "message": "아직 사용할 수 없는 기능입니다"
    },
