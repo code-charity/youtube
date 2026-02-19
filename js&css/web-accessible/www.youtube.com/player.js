@@ -2378,80 +2378,304 @@ ImprovedTube.shortsAutoScroll = function () {
 };
 
 /*------------------------------------------------------------------------------
-SMART SPEED & SKIP (HEATMAP ENGINE)
+SMART SPEED ENGINE (HEATMAP)
 ------------------------------------------------------------------------------*/
 ImprovedTube.heatmap = {
     data: null,
     segments: [],
+    rawMarkersCache: [],
+    sessionDisabled: false,
+    targetDurationOverride: null,
+    indicatorElement: null,
+    loopInterval: null,
+    uiInterval: null,
     isEnabled: false,
-    lastCheck: 0,
 
     init: function () {
         this.isEnabled = ImprovedTube.storage.smart_speed === true;
+        console.log('[ImprovedTube] Smart Speed: Init called. Enabled:', this.isEnabled);
         if (!this.isEnabled) return;
 
+        this.sessionDisabled = false;
+        this.targetDurationOverride = null;
         this.data = null;
         this.segments = [];
+        this.rawMarkersCache = [];
+        
+        this.injectUI();
         this.getData();
         
+        // Keeps the Whitelist shield accurately updated even if channel changes
+        if (this.uiInterval) clearInterval(this.uiInterval);
+        this.uiInterval = setInterval(() => this.updateWhitelistUI(), 1000);
+
         const video = document.querySelector('video');
         if (video && !video.dataset.itSmartSpeedAttached) {
             video.dataset.itSmartSpeedAttached = 'true';
-            video.addEventListener('timeupdate', () => this.update(video));
-            video.addEventListener('loadeddata', () => this.init());
+            video.addEventListener('loadeddata', () => {
+                if (this.isEnabled) {
+                    this.sessionDisabled = false;
+                    this.targetDurationOverride = null;
+                    if (this.indicatorElement) this.indicatorElement.style.opacity = '1';
+                    this.getData();
+                }
+            });
         }
     },
 
-    getData: function () {
-    //    console.log('[ImprovedTube] Hunting for Heatmap...');
+    // SLEEK TOAST NOTIFICATION
+    showToast: function(message) {
+        const player = document.querySelector('.html5-video-player');
+        if (!player) return;
 
-        // LEVEL 1: Active Player
+        let toast = document.getElementById('it-smart-speed-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'it-smart-speed-toast';
+            Object.assign(toast.style, {
+                position: 'absolute', bottom: '70px', left: '50%', transform: 'translateX(-50%)',
+                background: 'rgba(0,0,0,0.85)', color: '#fff', padding: '10px 20px',
+                borderRadius: '4px', zIndex: 9999, fontSize: '14px', fontWeight: 'bold',
+                pointerEvents: 'none', opacity: '0', transition: 'opacity 0.3s ease-in-out',
+                border: '1px solid rgba(255,255,255,0.1)'
+            });
+            player.appendChild(toast);
+        }
+
+        toast.innerText = message;
+        toast.style.opacity = '1';
+
+        if (this.toastTimeout) clearTimeout(this.toastTimeout);
+        this.toastTimeout = setTimeout(() => {
+            if (toast) toast.style.opacity = '0';
+        }, 2500);
+    },
+
+    // UI INJECTIONS
+    injectUI: function () {
+        const player = document.querySelector('.html5-video-player');
+        const controls = document.querySelector('.ytp-right-controls');
+        if (!player || !controls) return;
+
+        // 1. Indicator Toggle (Moved to native control bar)
+        if (!document.getElementById('it-smart-speed-indicator')) {
+            console.log('[ImprovedTube] Smart Speed: Injecting Speed Indicator into Control Bar');
+            this.indicatorElement = document.createElement('button');
+            this.indicatorElement.id = 'it-smart-speed-indicator';
+            this.indicatorElement.className = 'ytp-button';
+            
+            // Styled as a native YouTube text button
+            this.indicatorElement.style.cssText = 'width: auto; padding: 0 8px; font-weight: bold; font-size: 13px; color: white; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: opacity 0.2s;';
+            
+            if (ImprovedTube.storage.smart_speed_indicator === false) {
+                this.indicatorElement.style.display = 'none';
+            }
+
+            this.indicatorElement.innerText = "⚡ 1.0x";
+            this.indicatorElement.title = "Toggle Smart Speed";
+            
+            this.indicatorElement.addEventListener('click', () => {
+                this.sessionDisabled = !this.sessionDisabled;
+                console.log('[ImprovedTube] Smart Speed: Toggled session disabled state:', this.sessionDisabled);
+                let video = document.querySelector('video');
+                
+                if (this.sessionDisabled) {
+                    this.indicatorElement.style.opacity = '0.5';
+                    this.indicatorElement.innerText = "⚡ Off";
+                    if (video) video.playbackRate = Number(ImprovedTube.storage.player_custom_playback_speed) || 1.0;
+                    this.showToast('⏸️ Smart Speed paused for this session');
+                } else {
+                    this.indicatorElement.style.opacity = '1';
+                    this.indicatorElement.innerText = "⚡ On";
+                    this.showToast('▶️ Smart Speed resumed');
+                }
+            });
+            controls.prepend(this.indicatorElement);
+        }
+
+        // 2. Whitelist Toggle Button (The Shield)
+        if (!document.getElementById('it-smart-whitelist-btn')) {
+            console.log('[ImprovedTube] Smart Speed: Injecting Whitelist Toggle');
+            let wlBtn = document.createElement('button');
+            wlBtn.id = 'it-smart-whitelist-btn';
+            wlBtn.className = 'ytp-button';
+            wlBtn.style.cssText = 'font-size: 16px; font-weight: bold; color: white; display: inline-flex; align-items: center; justify-content: center; transition: 0.2s;';
+            wlBtn.innerText = '🛡️';
+            
+            wlBtn.onclick = () => {
+                const channelNameElement = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
+                const channelName = channelNameElement ? channelNameElement.textContent.trim() : "Unknown";
+                
+                if (channelName === "Unknown" || !channelName) {
+                    this.showToast("Channel name not loaded yet. Try again.");
+                    return;
+                }
+                
+                let profiles = ImprovedTube.storage.smart_speed_profiles || {};
+                if (!profiles[channelName]) {
+                    profiles[channelName] = { max: 2.0, min: 1.0, sens: 0.5, whitelist: false };
+                }
+                
+                profiles[channelName].whitelist = !profiles[channelName].whitelist;
+                ImprovedTube.messages.send({ action: 'storage-set', key: 'smart_speed_profiles', value: profiles });
+                
+                if (profiles[channelName].whitelist) {
+                    this.showToast(`🛡️ Whitelisted ${channelName} (Speedup Disabled)`);
+                } else {
+                    this.showToast(`▶️ Removed ${channelName} from Whitelist`);
+                }
+
+                console.log(`[ImprovedTube] Smart Speed: Toggled whitelist for ${channelName} to ${profiles[channelName].whitelist}`);
+                
+                this.updateWhitelistUI();
+                if (this.rawMarkersCache && this.rawMarkersCache.length > 0) {
+                    this.processSegments(this.rawMarkersCache);
+                }
+            };
+            controls.prepend(wlBtn);
+        }
+
+        // 3. Key Scene (Next Peak) Button
+        if (!document.getElementById('it-smart-peak-btn')) {
+            console.log('[ImprovedTube] Smart Speed: Injecting Next Peak Button');
+            let peakBtn = document.createElement('button');
+            peakBtn.id = 'it-smart-peak-btn';
+            peakBtn.className = 'ytp-button';
+            peakBtn.style.cssText = 'font-size: 16px; font-weight: bold; color: white; display: inline-flex; align-items: center; justify-content: center;';
+            peakBtn.innerText = '⏭️';
+            peakBtn.title = "Jump to next high-engagement scene";
+            peakBtn.onclick = () => this.jumpToNextPeak();
+            controls.prepend(peakBtn);
+        }
+
+        // 4. Target Duration Button & Modal
+        if (!document.getElementById('it-smart-duration-btn')) {
+            console.log('[ImprovedTube] Smart Speed: Injecting Target Duration Button');
+            let durBtn = document.createElement('button');
+            durBtn.id = 'it-smart-duration-btn';
+            durBtn.className = 'ytp-button';
+            durBtn.style.cssText = 'font-size: 16px; font-weight: bold; color: white; display: inline-flex; align-items: center; justify-content: center;';
+            durBtn.innerText = '⏱️';
+            durBtn.title = "Set Target Duration for this video";
+            
+            let modal = document.createElement('div');
+            modal.id = 'it-smart-duration-modal';
+            Object.assign(modal.style, {
+                position: 'absolute', bottom: '50px', right: '10px', background: 'rgba(20,20,20,0.95)',
+                padding: '10px', borderRadius: '8px', display: 'none', flexDirection: 'column',
+                gap: '8px', zIndex: 9999, border: '1px solid #444', minWidth: '180px'
+            });
+            
+            let mTitle = document.createElement('div');
+            mTitle.style.cssText = 'color: white; font-size: 12px; font-weight: bold;';
+            mTitle.innerText = 'Target Duration';
+            
+            let mInput = document.createElement('input');
+            mInput.type = 'number';
+            mInput.id = 'it-smart-duration-input';
+            mInput.placeholder = 'Minutes';
+            mInput.style.cssText = 'width: 100%; padding: 4px; background: #333; color: white; border: none; border-radius: 4px;';
+            
+            let mApply = document.createElement('button');
+            mApply.style.cssText = 'background: #3ea6ff; color: white; border: none; padding: 5px; border-radius: 4px; cursor: pointer;';
+            mApply.innerText = 'Apply Math Algorithm';
+            
+            let mMsg = document.createElement('div');
+            mMsg.id = 'it-smart-duration-msg';
+            mMsg.style.cssText = 'color: #ff4e4e; font-size: 11px;';
+
+            modal.appendChild(mTitle);
+            modal.appendChild(mInput);
+            modal.appendChild(mApply);
+            modal.appendChild(mMsg);
+            player.appendChild(modal);
+            controls.prepend(durBtn);
+
+            durBtn.onclick = () => modal.style.display = modal.style.display === 'none' ? 'flex' : 'none';
+
+            mApply.onclick = () => {
+                let inputMinutes = Number(mInput.value);
+                if (!inputMinutes) return;
+                
+                let targetSec = inputMinutes * 60;
+                let baseMax = Number(ImprovedTube.storage.smart_speed_max) || 2.0;
+                let duration = document.querySelector('video')?.duration || 0;
+                let absoluteMinSec = duration / baseMax; 
+
+                if (targetSec < absoluteMinSec) {
+                    mMsg.style.color = '#ff4e4e';
+                    mMsg.innerText = `Impossible. Min mathematically possible is: ${Math.ceil(absoluteMinSec/60)}m ${Math.floor(absoluteMinSec%60)}s`;
+                    console.log(`[ImprovedTube] Smart Speed: Target duration rejected. Target: ${targetSec}s, Absolute Min: ${absoluteMinSec}s`);
+                } else {
+                    mMsg.style.color = '#2ba640';
+                    mMsg.innerText = "Algorithm Applied!";
+                    this.targetDurationOverride = targetSec;
+                    this.processSegments(this.rawMarkersCache);
+                    console.log(`[ImprovedTube] Smart Speed: Target duration activated -> ${targetSec}s`);
+                    this.showToast(`⏱️ Video squeezed to ${inputMinutes} minutes!`);
+                    setTimeout(() => { modal.style.display = 'none'; }, 1500);
+                }
+            };
+        }
+    },
+
+    // Updates the visual state of the Whitelist shield
+    updateWhitelistUI: function() {
+        const channelNameElement = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
+        const channelName = channelNameElement ? channelNameElement.textContent.trim() : "Unknown";
+        
+        let profiles = ImprovedTube.storage.smart_speed_profiles || {};
+        const genre = document.querySelector('meta[itemprop="genre"]')?.content || "Unknown";
+        
+        let isWhitelisted = (profiles[channelName] && profiles[channelName].whitelist) || (profiles[genre] && profiles[genre].whitelist);
+        
+        let btn = document.getElementById('it-smart-whitelist-btn');
+        if (btn) {
+            if (isWhitelisted) {
+                btn.style.opacity = '1';
+                btn.title = `Remove ${channelName} from Whitelist`;
+                btn.style.textShadow = '0 0 8px #2ba640'; 
+            } else {
+                btn.style.opacity = '0.5';
+                btn.title = `Add ${channelName} to Whitelist`;
+                btn.style.textShadow = 'none';
+            }
+        }
+    },
+
+    // DATA HUNTING
+    getData: function () {
+        console.log('[ImprovedTube] Smart Speed: Hunting for Heatmap...');
         try {
             const playerResponse = document.getElementById('movie_player')?.getPlayerResponse();
             if (this.checkAndProcess(playerResponse, 'Active Player')) return;
         } catch (e) {}
 
-        // LEVEL 2: Global Variables
         try {
             if (this.checkAndProcess(window.ytInitialData, 'window.ytInitialData')) return;
             if (this.checkAndProcess(window.ytInitialPlayerResponse, 'window.ytInitialPlayerResponse')) return;
         } catch (e) {}
 
-        // LEVEL 3: Background Fetch
-        const videoId = new URLSearchParams(window.location.search).get('v');
-        if (videoId) {
-            console.log('[ImprovedTube] Level 1 and 2 failed. Fetching source...');
+        const videoId = new URLSearchParams(window.location.search).get('v') || window.location.pathname.split('/').pop();
+        if (videoId && videoId.length === 11) {
+            console.log('[ImprovedTube] Smart Speed: Level 1 and 2 failed. Fetching source...');
             fetch('https://www.youtube.com/watch?v=' + videoId)
                 .then(res => res.text())
                 .then(text => {
-                    // Extract and parse JSONs
                     const matchData = text.match(/var ytInitialData = ({.*?});/s);
                     const matchResp = text.match(/var ytInitialPlayerResponse = ({.*?});/s);
 
                     if (matchData && this.checkAndProcess(JSON.parse(matchData[1]), 'Fetched ytInitialData')) return;
                     if (matchResp && this.checkAndProcess(JSON.parse(matchResp[1]), 'Fetched ytInitialPlayerResponse')) return;
-
-                    console.log('[ImprovedTube] Heatmap data not found in source.');
-                })
-                .catch(err => console.error('[ImprovedTube] Fetch error:', err));
+                    console.log('[ImprovedTube] Smart Speed: Heatmap data not found in source either. Video lacks heatmap.');
+                }).catch(() => {});
         }
     },
 
-    // Recursively searches JSON for the heatmap
     findMarkers: function(obj) {
         if (!obj || typeof obj !== 'object') return null;
-        
-        // Pattern 1: Standard MarkersList
-        if (obj.markerType === 'MARKER_TYPE_HEATMAP' && Array.isArray(obj.markers)) {
-            return obj.markers;
-        }
-        
-        // Pattern 2: MarkersMap (common in ytInitialData)
-        if (obj.key === 'MARKER_TYPE_HEATMAP' && obj.value && Array.isArray(obj.value.markers)) {
-            return obj.value.markers;
-        }
-
-        // Recursive Search
+        if (obj.markerType === 'MARKER_TYPE_HEATMAP' && Array.isArray(obj.markers)) return obj.markers;
+        if (obj.key === 'MARKER_TYPE_HEATMAP' && obj.value && Array.isArray(obj.value.markers)) return obj.value.markers;
         for (let key in obj) {
             if (Object.prototype.hasOwnProperty.call(obj, key)) {
                 const found = this.findMarkers(obj[key]);
@@ -2463,104 +2687,172 @@ ImprovedTube.heatmap = {
 
     checkAndProcess: function (rootObject, sourceName) {
         if (!rootObject) return false;
-        // Use the recursive finder instead of hardcoded paths
         const markers = this.findMarkers(rootObject);
-        
         if (markers && markers.length > 0) {
-            console.log('[ImprovedTube] Found Heatmap via: ' + sourceName);
+            console.log('[ImprovedTube] Smart Speed: 🎯 Found Heatmap via: ' + sourceName);
+            this.rawMarkersCache = markers;
             this.processSegments(markers);
             return true;
         }
         return false;
     },
 
+    // PROCESSING ENGINE
     processSegments: function (rawMarkers) {
-        if (!rawMarkers || rawMarkers.length === 0) return;
-
-        this.segments = [];
-        let currentAction = 'PLAY';
-        let currentSpeed = 1.0;
-        let startPct = 0;
-
-        rawMarkers.forEach((marker, index) => {
-            const score = marker.intensityScoreNormalized;
-            if (typeof score !== 'number') return;
-
-            let newAction = 'PLAY';
-            let newSpeed = 1.0;
-
-            // 1. SKIP LOGIC (Intro only: First 15%)
-            if (index < 15 && score < 0.15) {
-                newAction = 'SKIP';
-            } 
-            // 2. DYNAMIC SPEED LOGIC
-            else {
-                if (score <= 0.05) newSpeed = 2.0;       // Extremely Boring
-                else if (score <= 0.12) newSpeed = 1.75; // Very Boring
-                else if (score <= 0.18) newSpeed = 1.5;  // Boring
-                else if (score <= 0.25) newSpeed = 1.25; // Slightly Boring
-                else newSpeed = 1.0;                     // Normal
-            }
-
-            // Create a new segment if the plan changes
-            if (newAction !== currentAction || newSpeed !== currentSpeed) {
-                this.segments.push({ 
-                    start: startPct, 
-                    end: index, 
-                    action: currentAction, 
-                    speed: currentSpeed 
-                });
-                currentAction = newAction;
-                currentSpeed = newSpeed;
-                startPct = index;
-            }
-        });
-        // Push final segment
-        this.segments.push({ start: startPct, end: 100, action: currentAction, speed: currentSpeed });
-        console.log('[ImprovedTube] Dynamic Segments ready:', this.segments.length);
-    },
-
-    update: function (video) {
-        if (!this.segments.length || video.paused) return;
-
-        const now = Date.now();
-        if (now - this.lastCheck < 500) return; 
-        this.lastCheck = now;
-
-        const duration = video.duration;
-        const currentPct = (video.currentTime / duration) * 100;
+        const video = document.querySelector('video');
+        const duration = video ? video.duration : 0;
         
-        const activeSegment = this.segments.find(s => currentPct >= s.start && currentPct < s.end);
+        if (!duration || isNaN(duration)) {
+            setTimeout(() => this.processSegments(rawMarkers), 500);
+            return;
+        }
 
-        if (activeSegment) {
-            if (activeSegment.action === 'SKIP') {
-                const skipTo = (activeSegment.end / 100) * duration;
-                if (skipTo - video.currentTime > 5) { 
-                    console.log('[ImprovedTube] Auto-Skipping...');
-                    video.currentTime = skipTo;
+        let baseMin = Number(ImprovedTube.storage.smart_speed_min) || 1.0;
+        let baseMax = Number(ImprovedTube.storage.smart_speed_max) || 2.0;
+        let sensitivity = Number(ImprovedTube.storage.smart_speed_sensitivity) || 0.5;
+
+        const genre = document.querySelector('meta[itemprop="genre"]')?.content || "Unknown";
+        const channelNameElement = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
+        const channelName = channelNameElement ? channelNameElement.textContent.trim() : "Unknown";
+        let profiles = ImprovedTube.storage.smart_speed_profiles || {};
+        
+        let activeProfile = profiles[channelName] || profiles[genre];
+        
+        if (activeProfile && activeProfile.whitelist) {
+            console.log(`[ImprovedTube] Smart Speed: WHITELIST ACTIVE for ${channelName || genre}. Engine idled.`);
+            this.sessionDisabled = true;
+            if (this.indicatorElement) {
+                this.indicatorElement.style.opacity = '0.5';
+                this.indicatorElement.innerText = "⚡ Whitelisted";
+            }
+            if (video) video.playbackRate = Number(ImprovedTube.storage.player_custom_playback_speed) || 1.0;
+            return;
+        } else if (activeProfile) {
+            console.log(`[ImprovedTube] Smart Speed: Profile applied -> Min:${activeProfile.min} Max:${activeProfile.max}`);
+            baseMax = activeProfile.max || baseMax;
+            baseMin = activeProfile.min || baseMin;
+            sensitivity = activeProfile.sens || sensitivity;
+            this.sessionDisabled = false;
+            if (this.indicatorElement) this.indicatorElement.style.opacity = '1';
+        }
+
+        const chunkPct = 100 / rawMarkers.length;
+        let processed = rawMarkers.map((marker, index) => {
+            const score = typeof marker.intensityScoreNormalized === 'number' ? marker.intensityScoreNormalized : 0;
+            const start = ((index * chunkPct) / 100) * duration;
+            const end = (((index + 1) * chunkPct) / 100) * duration;
+            return { start, end, duration: end - start, intensity: score };
+        });
+
+        // Target Duration Knapsack
+        if (this.targetDurationOverride && baseMax > 1.0) {
+            let reductionNeeded = duration - this.targetDurationOverride;
+            if (reductionNeeded > 0) {
+                let sorted = [...processed].sort((a, b) => a.intensity - b.intensity);
+                for (let seg of sorted) {
+                    if (reductionNeeded <= 0) {
+                        seg.speed = baseMin;
+                        continue;
+                    }
+                    let maxTimeSaved = seg.duration - (seg.duration / baseMax);
+                    if (maxTimeSaved <= reductionNeeded) {
+                        seg.speed = baseMax;
+                        reductionNeeded -= maxTimeSaved;
+                    } else {
+                        let newSegDuration = seg.duration - reductionNeeded;
+                        seg.speed = seg.duration / newSegDuration;
+                        reductionNeeded = 0;
+                    }
                 }
             } else {
-                // Apply Dynamic Speed with a small tolerance check to prevent log spam
-                // We check if current speed matches target speed (within 0.1 margin)
-                if (Math.abs(video.playbackRate - activeSegment.speed) > 0.1) {
-                    video.playbackRate = activeSegment.speed;
-                }
+                processed.forEach(seg => seg.speed = baseMin);
             }
+        } else {
+            // Standard Mapping
+            processed.forEach(seg => {
+                let mappedSpeed = baseMin + (baseMax - baseMin) * (1 - (seg.intensity / sensitivity));
+                seg.speed = Math.max(baseMin, Math.min(baseMax, mappedSpeed));
+            });
+        }
+
+        this.segments = processed;
+        console.log(`[ImprovedTube] Smart Speed: Engine Ready. Computed ${this.segments.length} logical chunks.`);
+        this.startLoop();
+    },
+
+    // PLAYBACK LOOP
+    startLoop: function() {
+        if (this.loopInterval) clearInterval(this.loopInterval);
+        this.loopInterval = setInterval(() => {
+            if (!this.sessionDisabled) this.update();
+        }, 100);
+    },
+
+    update: function () {
+        const video = document.querySelector('video');
+        if (!video || this.segments.length === 0 || video.paused) return;
+
+        let base = Number(ImprovedTube.storage.player_custom_playback_speed) || 1.0;
+        const currentSec = video.currentTime;
+        
+        let currentIndex = this.segments.findIndex(s => currentSec >= s.start && currentSec < s.end);
+        if (currentIndex === -1) return;
+
+        let activeSegment = this.segments[currentIndex];
+        let targetSpeedMultiplier = activeSegment.speed;
+
+        // Smoothing Buffer (LERP)
+        let timeRemaining = activeSegment.end - currentSec;
+        if (timeRemaining < 2.5 && currentIndex + 1 < this.segments.length) {
+            let nextSpeedMultiplier = this.segments[currentIndex + 1].speed;
+            let progress = 1 - (timeRemaining / 2.5);
+            targetSpeedMultiplier = activeSegment.speed - ((activeSegment.speed - nextSpeedMultiplier) * progress);
+        }
+
+        let finalSpeed = base * targetSpeedMultiplier;
+        
+        if (Math.abs(video.playbackRate - finalSpeed) > 0.05) {
+            video.playbackRate = finalSpeed;
+        }
+
+        if (this.indicatorElement) {
+            this.indicatorElement.innerText = `⚡ ${targetSpeedMultiplier.toFixed(2)}x`;
+        }
+    },
+
+    jumpToNextPeak: function() {
+        const video = document.querySelector('video');
+        if (!video || this.segments.length === 0) return;
+        
+        let minSpeed = Number(ImprovedTube.storage.smart_speed_min) || 1.0;
+        let peakSegment = this.segments.find(s => s.start > video.currentTime && s.speed <= (minSpeed + 0.1));
+        
+        if (peakSegment) {
+            console.log(`[ImprovedTube] Smart Speed: Skipping to peak at ${peakSegment.start}s`);
+            video.currentTime = Math.max(0, peakSegment.start - 2.0);
+            this.showToast(`⏭️ Skipped ahead to next peak`);
+        } else {
+            console.log('[ImprovedTube] Smart Speed: No upcoming peaks detected.');
+            this.showToast(`❌ No upcoming peaks detected`);
         }
     }
 };
 
 /*------------------------------------------------------------------------------
-AUTO-START SMART SPEED
+AUTO-START HOOKS
 ------------------------------------------------------------------------------*/
 setTimeout(function() {
-    if (ImprovedTube.storage.smart_speed === true) {
-        console.log('[ImprovedTube] Auto-Starting Smart Speed...');
-        ImprovedTube.heatmap.init();
-    }
+    if (ImprovedTube.storage.smart_speed === true) ImprovedTube.heatmap.init();
 }, 2000);
+
 window.addEventListener('yt-navigate-finish', function() {
     if (ImprovedTube.storage.smart_speed === true) {
         setTimeout(() => ImprovedTube.heatmap.init(), 1000);
+    }
+});
+
+window.addEventListener('keydown', (e) => {
+    if (e.shiftKey && e.code === 'KeyP' && ImprovedTube.storage.smart_speed) {
+        ImprovedTube.heatmap.jumpToNextPeak();
     }
 });
