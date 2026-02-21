@@ -1614,5 +1614,36 @@
   },
   "youtubesLight": {
     "message": "YouTube's Light"
+  },
+  "smartSpeedEngine":{
+   "message": "Smart Speed Engine"
+  },
+  "smartSpeedEnable": {
+    "message": "Enable Smart Speed"
+  },
+  "smartSpeedIndicator": {
+    "message": "Show On-Screen Indicator"
+  },
+  "smartSpeedMin": {
+    "message": "Min Speed (Peaks)"
+  },
+  "smartSpeedMax": {
+    "message": "Max Speed (Troughs)"
+  },
+  "smartSpeedSensitivity":{
+    "message": "Sensitivity"
+  },
+  "smartSpeedTargetToggle": {
+    "message": "Enable Target Duration" },
+  "smartSpeedTargetMinutes": { "message": "Target Length (Minutes)"
+  },
+  "smartSpeedProfiles": {
+    "message": "Category & Channel Profiles"
+  },
+  "smartSpeedAddProfile": {
+    "message": "Add Channel Profile"
+  },
+  "smartSpeedWhitelisted": {
+    "message": "Channel Whitelisted for Smart Speed!"
   }
 }
