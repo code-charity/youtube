@@ -1440,12 +1440,15 @@ ImprovedTube.playerControls = function () {
 					};
 
 				// After a seek/click interaction, force-hide controls once the
-				// mouse button is released — regardless of progress-bar hover state.
-				player._it_mouseup_handler && player.removeEventListener('mouseup', player._it_mouseup_handler);
-				player._it_mouseup_handler = function () {
-					scheduleHide();
+				// mouse button is released — listen on document because YouTube's
+				// progress bar stops mouseup propagation to the player element.
+				player._it_mouseup_handler && document.removeEventListener('mouseup', player._it_mouseup_handler);
+				player._it_mouseup_handler = function (e) {
+					if (player.contains(e.target) || document.querySelector('.ytp-progress-bar')?.contains(e.target)) {
+						scheduleHide();
+					}
 				};
-				player.addEventListener('mouseup', player._it_mouseup_handler);
+				document.addEventListener('mouseup', player._it_mouseup_handler);
 
 				return function () {
 					player.showControls();
@@ -1463,7 +1466,7 @@ ImprovedTube.playerControls = function () {
 		player.onmouseleave = null;
 		player.onmousemove = null;
 		if (player._it_mouseup_handler) {
-			player.removeEventListener('mouseup', player._it_mouseup_handler);
+			document.removeEventListener('mouseup', player._it_mouseup_handler);
 			player._it_mouseup_handler = null;
 		}
 	}
