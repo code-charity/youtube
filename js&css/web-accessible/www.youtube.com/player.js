@@ -1425,6 +1425,12 @@ ImprovedTube.playerControls = function () {
 			player.onmouseleave = player.hideControls;
 			player.onmousemove = (function () {
 				let thread,
+					scheduleHide = function () {
+						clearTimeout(thread);
+						thread = setTimeout(function () {
+							player.hideControls();
+						}, 1000);
+					},
 					onmousestop = function () {
 						if (document.querySelector(".ytp-progress-bar:hover")) {
 							thread = setTimeout(onmousestop, 1000);
@@ -1432,6 +1438,14 @@ ImprovedTube.playerControls = function () {
 							player.hideControls();
 						}
 					};
+
+				// After a seek/click interaction, force-hide controls once the
+				// mouse button is released — regardless of progress-bar hover state.
+				player._it_mouseup_handler && player.removeEventListener('mouseup', player._it_mouseup_handler);
+				player._it_mouseup_handler = function () {
+					scheduleHide();
+				};
+				player.addEventListener('mouseup', player._it_mouseup_handler);
 
 				return function () {
 					player.showControls();
@@ -1448,6 +1462,10 @@ ImprovedTube.playerControls = function () {
 		player.onmouseenter = null;
 		player.onmouseleave = null;
 		player.onmousemove = null;
+		if (player._it_mouseup_handler) {
+			player.removeEventListener('mouseup', player._it_mouseup_handler);
+			player._it_mouseup_handler = null;
+		}
 	}
 };
 /*#  HIDE VIDEO TITLE IN FULLSCREEN	*/ // Easier with CSS only (see player.css)
