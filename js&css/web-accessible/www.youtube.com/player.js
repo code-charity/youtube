@@ -2073,8 +2073,8 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.disableAutoDubbing = function () {
 	const player = this.elements.player;
-	const tracks = player.getAvailableAudioTracks();
-	const originalTrack = findOriginalAudioTrack(tracks);
+	const tracks = player?.getAvailableAudioTracks();
+	const originalTrack = tracks ? findOriginalAudioTrack(tracks) : null;
 	
 	if (originalTrack) {
 		player.setAudioTrack(originalTrack);
@@ -2100,18 +2100,14 @@ ImprovedTube.disableAutoDubbing = function () {
 		}
 
 		function hasOriginalKeyword(track) {
-			var name = track?.HB?.name?.toLowerCase() || '';
+			var name = track?.getLanguageInfo?.()?.name?.toLowerCase() || '';
 			const localizedOriginalWords = ['original', 'originale', 'originalny', 'originalaudio', 'origineel', 'orijinal']; // Add more if needed
-			if (name === '') {
-				// Try to get the localized name from other variable
-				name = track?.Af.name?.toLowerCase() || '';
-			}
 			
 			return localizedOriginalWords.some(word => name.includes(word));
 		}
 
 		// As a fallback: default or first item
-		const fallback = audioTracks.find(t => t?.HB?.isDefault) || audioTracks[0];
+		const fallback = audioTracks.find(t => t?.getLanguageInfo?.()?.isDefault) || audioTracks[0];
 		console.log(fallback);
 		return fallback;
 	}
