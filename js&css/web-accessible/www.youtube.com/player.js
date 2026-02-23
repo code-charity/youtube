@@ -1444,8 +1444,13 @@ ImprovedTube.playerControls = function () {
 				// progress bar stops mouseup propagation to the player element.
 				player._it_mouseup_handler && document.removeEventListener('mouseup', player._it_mouseup_handler);
 				player._it_mouseup_handler = function (e) {
-					if (player.contains(e.target) || document.querySelector('.ytp-progress-bar')?.contains(e.target)) {
-						scheduleHide();
+					const progressBar = document.querySelector('.ytp-progress-bar');
+					if (player.contains(e.target) || progressBar?.contains(e.target)) {
+						// User finished seeking — clear any pending timer and hide immediately,
+						// bypassing the progress-bar hover check that would otherwise keep
+						// controls visible while the cursor rests on the scrubber.
+						clearTimeout(thread);
+						player.hideControls();
 					}
 				};
 				document.addEventListener('mouseup', player._it_mouseup_handler);
