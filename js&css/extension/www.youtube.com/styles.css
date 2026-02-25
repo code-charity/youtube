@@ -2181,24 +2181,117 @@ html[dark] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opac
 	stroke: var(--yt-spec-text-primary);
 }
 
-
-/* thumbnail sizes */
-html[it-thumbnail-size="small"] ytd-rich-grid-media,
-html[it-thumbnail-size="small"] ytd-grid-video-renderer,
-html[it-thumbnail-size="small"] ytd-thumbnail {
-    width: 90%;
-    max-width: 90%;
-}
-html[it-thumbnail-size="x-small"] ytd-rich-grid-media,
-html[it-thumbnail-size="x-small"] ytd-grid-video-renderer,
-html[it-thumbnail-size="x-small"] ytd-thumbnail {
-    width: 80%;
-    max-width: 80%;
+/* Thumbnail sizes: Modern Grid (Home, Subscriptions, Channel) */
+html:is([it-thumbnail-size="large"], [it-thumbnail-size="medium"], [it-thumbnail-size="small"], [it-thumbnail-size="x-small"], [it-thumbnail-size="xx-small"]) ytd-rich-grid-renderer > #contents {
+    display: grid !important;
+    grid-gap: 16px !important;
+    width: 100% !important;
 }
 
-/* needed to prevent grey area from appearing when thumbnails change size*/
-html[it-thumbnail-size="small"] ytd-rich-grid-media,
-html[it-thumbnail-size="x-small"] ytd-rich-grid-media {
-    margin-left: auto;
-    margin-right: auto;
+/* Set column sizes (auto-fill by default) */
+html[it-thumbnail-size="large"] ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)) !important;
+}
+html[it-thumbnail-size="medium"] ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+}
+html[it-thumbnail-size="small"] ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+}
+html[it-thumbnail-size="x-small"] ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+}
+html[it-thumbnail-size="xx-small"] ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+}
+
+/* OVERRIDE: Respect custom "Thumbnails Per Row" when active */
+html[it-thumbnail-size="large"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(var(--ytd-rich-grid-items-per-row), minmax(360px, 1fr)) !important;
+}
+html[it-thumbnail-size="medium"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(var(--ytd-rich-grid-items-per-row), minmax(280px, 1fr)) !important;
+}
+html[it-thumbnail-size="small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(var(--ytd-rich-grid-items-per-row), minmax(240px, 1fr)) !important;
+}
+html[it-thumbnail-size="x-small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(var(--ytd-rich-grid-items-per-row), minmax(180px, 1fr)) !important;
+}
+html[it-thumbnail-size="xx-small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(var(--ytd-rich-grid-items-per-row), minmax(140px, 1fr)) !important;
+}
+
+/* Prevent items from stretching entirely across the screen if row count is low */
+html[it-thumbnail-size="large"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-item-renderer {
+    max-width: 420px !important;
+}
+html[it-thumbnail-size="medium"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-item-renderer {
+    max-width: 340px !important;
+}
+html[it-thumbnail-size="small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-item-renderer {
+    max-width: 280px !important;
+}
+html[it-thumbnail-size="x-small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-item-renderer {
+    max-width: 220px !important;
+}
+html[it-thumbnail-size="xx-small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-item-renderer {
+    max-width: 180px !important;
+}
+
+/* Neutralize YouTube's row wrappers */
+html:is([it-thumbnail-size="large"], [it-thumbnail-size="medium"], [it-thumbnail-size="small"], [it-thumbnail-size="x-small"], [it-thumbnail-size="xx-small"]) ytd-rich-grid-row {
+    display: contents !important;
+}
+
+/* Reset individual video items to fill grid cells */
+html:is([it-thumbnail-size="large"], [it-thumbnail-size="medium"], [it-thumbnail-size="small"], [it-thumbnail-size="x-small"], [it-thumbnail-size="xx-small"]) ytd-rich-item-renderer {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Hide YouTube's injected empty items */
+html:is([it-thumbnail-size="large"], [it-thumbnail-size="medium"], [it-thumbnail-size="small"], [it-thumbnail-size="x-small"], [it-thumbnail-size="xx-small"]) ytd-rich-item-renderer[is-empty] {
+    display: none !important;
+}
+
+/* Thumbnail sizes: Search Results & History Lists */
+html[it-thumbnail-size="large"] ytd-video-renderer ytd-thumbnail {
+    max-width: 420px !important;
+    min-width: 360px !important;
+}
+html[it-thumbnail-size="medium"] ytd-video-renderer ytd-thumbnail {
+    max-width: 320px !important;
+    min-width: 280px !important;
+}
+html[it-thumbnail-size="small"] ytd-video-renderer ytd-thumbnail {
+    max-width: 260px !important;
+    min-width: 240px !important;
+}
+html[it-thumbnail-size="x-small"] ytd-video-renderer ytd-thumbnail {
+    max-width: 180px !important;
+    min-width: 160px !important;
+}
+html[it-thumbnail-size="xx-small"] ytd-video-renderer ytd-thumbnail {
+    max-width: 140px !important;
+    min-width: 120px !important;
+}
+
+/* Thumbnail sizes: Video Player Sidebar (Related Videos) */
+html[it-thumbnail-size="large"] ytd-compact-video-renderer ytd-thumbnail {
+    width: 200px !important;
+}
+html[it-thumbnail-size="medium"] ytd-compact-video-renderer ytd-thumbnail {
+    width: 160px !important;
+}
+html[it-thumbnail-size="small"] ytd-compact-video-renderer ytd-thumbnail {
+    width: 120px !important;
+}
+html[it-thumbnail-size="x-small"] ytd-compact-video-renderer ytd-thumbnail {
+    width: 90px !important;
+}
+html[it-thumbnail-size="xx-small"] ytd-compact-video-renderer ytd-thumbnail {
+    width: 70px !important;
 }
