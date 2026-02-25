@@ -323,9 +323,12 @@ extension.skeleton.main.layers.section.general = {
 					component: "select",
 					text: "thumbnailSize",
 					options: [
+						{ text: "Large", value: "large" },
+						{ text: "Medium", value: "medium" },
 						{ text: "Default", value: "default" },
 						{ text: "Small", value: "small" },
-						{ text: "x-small", value: "x-small" }
+						{ text: "x-small", value: "x-small" },
+						{ text: "xx-small", value: "xx-small" }
 					]
 				},
                 show_last_watched_overlay: {
