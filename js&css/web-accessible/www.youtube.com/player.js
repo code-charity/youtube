@@ -1425,6 +1425,7 @@ ImprovedTube.playerControls = function () {
 			player.onmouseleave = player.hideControls;
 			player.onmousemove = (function () {
 				let thread,
+					seekingDone = false,
 					scheduleHide = function () {
 						clearTimeout(thread);
 						thread = setTimeout(function () {
@@ -1432,25 +1433,27 @@ ImprovedTube.playerControls = function () {
 						}, 1000);
 					},
 					onmousestop = function () {
-						if (document.querySelector(".ytp-progress-bar:hover")) {
+						// If we just finished a seek, don't keep controls alive
+						// because the progress bar is still hovered.
+						if (!seekingDone && document.querySelector(".ytp-progress-bar:hover")) {
 							thread = setTimeout(onmousestop, 1000);
 						} else {
+							seekingDone = false;
 							player.hideControls();
 						}
 					};
 
 				// After a seek/click interaction, force-hide controls once the
-				// mouse button is released — listen on document because YouTube's
+				// mouse button is released — attach to document because YouTube's
 				// progress bar stops mouseup propagation to the player element.
 				player._it_mouseup_handler && document.removeEventListener('mouseup', player._it_mouseup_handler);
 				player._it_mouseup_handler = function (e) {
 					const progressBar = document.querySelector('.ytp-progress-bar');
 					if (player.contains(e.target) || progressBar?.contains(e.target)) {
-						// User finished seeking — clear any pending timer and hide immediately,
-						// bypassing the progress-bar hover check that would otherwise keep
-						// controls visible while the cursor rests on the scrubber.
-						clearTimeout(thread);
-						player.hideControls();
+						// Mark seek as done so onmousestop skips the progress-bar hover check,
+						// then schedule hide — this lets any in-flight mousemove settle first.
+						seekingDone = true;
+						scheduleHide();
 					}
 				};
 				document.addEventListener('mouseup', player._it_mouseup_handler);
