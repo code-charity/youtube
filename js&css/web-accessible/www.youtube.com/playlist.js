@@ -100,72 +100,117 @@ ImprovedTube.playlistLargePlaylistHandler = function() {
 /*------------------------------------------------------------------------------
 4.5.2 REVERSE
 ------------------------------------------------------------------------------*/
-ImprovedTube.playlistReverse = function () {
-	if (this.storage.playlist_reverse === true) {
-		function update () {
+
+// Fix #1836: Independent inject function for button
+ImprovedTube.injectReverseButton = function() {
+	if (document.querySelector('#it-reverse-playlist')) return;
+	
+	var container = ImprovedTube.elements.playlist.actions 
+		|| document.querySelector('ytd-playlist-panel-renderer #playlist-action-menu')
+		|| document.querySelector('.ytd-playlist-panel-renderer #playlist-action-menu')
+		|| document.querySelector('#playlist-action-menu')
+		|| document.querySelector('ytd-playlist-panel-renderer #header-description')
+		|| document.querySelector('ytd-menu-renderer.ytd-playlist-panel-renderer')
+		|| document.querySelector('yt-formatted-string.title.style-scope.ytd-playlist-panel-renderer')?.parentElement
+		|| document.querySelector('ytd-playlist-panel-renderer #top-level-buttons-computed')
+		|| document.querySelector('ytd-playlist-header-renderer #playlist-action-menu');
+	
+	if (!container) return;
+	
+	var button = document.createElement('button'),
+		svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+	button.id = 'it-reverse-playlist';
+	button.className = 'style-scope yt-icon-button';
+	button.title = 'Reverse Playlist';
+	
+	// Restore active state if persisted
+	if (ImprovedTube.playlistReversed === true || ImprovedTube.storage.playlist_reversed_active === true) {
+		button.classList.add('active');
+	}
+	
+	button.addEventListener('click', function (event) {
+		event.preventDefault();
+		event.stopPropagation();
+
+		this.classList.toggle('active');
+		ImprovedTube.playlistReversed = !ImprovedTube.playlistReversed;
+
+		// Persist via messaging (Fix #1836)
+		ImprovedTube.messages.send({action: 'set', key: 'playlist_reversed_active', value: ImprovedTube.playlistReversed});
+
+		// Execute reverse
+		if (ImprovedTube.elements.ytd_watch?.data?.contents?.twoColumnWatchNextResults) {
 			var results = ImprovedTube.elements.ytd_watch.data.contents.twoColumnWatchNextResults,
-				playlist = results.playlist.playlist,
-				autoplay = results.autoplay.autoplay;
+				playlist = results.playlist?.playlist,
+				autoplay = results.autoplay?.autoplay;
+			
+			if (playlist && autoplay) {
+				playlist.contents.reverse();
+				playlist.currentIndex = playlist.totalVideos - playlist.currentIndex - 1;
+				playlist.localCurrentIndex = playlist.contents.length - playlist.localCurrentIndex - 1;
 
-			playlist.contents.reverse();
+				for (var i = 0, l = autoplay.sets.length; i < l; i++) {
+					var item = autoplay.sets[i];
+					item.autoplayVideo = item.previousButtonVideo;
+					item.previousButtonVideo = item.nextButtonVideo;
+					item.nextButtonVideo = item.autoplayVideo;
+				}
 
-			playlist.currentIndex = playlist.totalVideos - playlist.currentIndex - 1;
-			playlist.localCurrentIndex = playlist.contents.length - playlist.localCurrentIndex - 1;
+				ImprovedTube.elements.ytd_watch.updatePageData_(JSON.parse(JSON.stringify(ImprovedTube.elements.ytd_watch.data)));
 
-			for (var i = 0, l = autoplay.sets.length; i < l; i++) {
-				var item = autoplay.sets[i];
-
-				item.autoplayVideo = item.previousButtonVideo;
-				item.previousButtonVideo = item.nextButtonVideo;
-				item.nextButtonVideo = item.autoplayVideo;
+				setTimeout(function () {
+					var playlist_manager = document.querySelector('yt-playlist-manager');
+					if (playlist_manager) {
+						ImprovedTube.elements.ytd_player.updatePlayerComponents(null, autoplay, null, playlist);
+						playlist_manager.autoplayData = autoplay;
+						playlist_manager.setPlaylistData(playlist);
+						ImprovedTube.elements.ytd_player.updatePlayerPlaylist_(playlist);
+					}
+				}, 100);
 			}
-
-			ImprovedTube.elements.ytd_watch.updatePageData_(JSON.parse(JSON.stringify(ImprovedTube.elements.ytd_watch.data)));
-
-			setTimeout(function () {
-				var playlist_manager = document.querySelector('yt-playlist-manager');
-
-				ImprovedTube.elements.ytd_player.updatePlayerComponents(null, autoplay, null, playlist);
-				playlist_manager.autoplayData = autoplay;
-				playlist_manager.setPlaylistData(playlist);
-				ImprovedTube.elements.ytd_player.updatePlayerPlaylist_(playlist);
-			}, 100);
 		}
+		
+		ImprovedTube.expandDescription();
+		return false;
+	}, true);
 
-		if (!document.querySelector('#it-reverse-playlist') && ImprovedTube.elements.playlist.actions) {
-			var button = document.createElement('button'),
-				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+	svg.setAttributeNS(null, 'width', '24');
+	svg.setAttributeNS(null, 'height', '24');
+	svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+	path.setAttributeNS(null, 'd', 'M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z');
 
-			button.id = 'it-reverse-playlist';
-			button.className = 'style-scope yt-icon-button';
-			button.addEventListener('click', function (event) {
-				event.preventDefault();
-				event.stopPropagation();
+	svg.appendChild(path);
+	button.appendChild(svg);
+	container.appendChild(button);
+};
 
-				this.classList.toggle('active');
+// Fix #1836: MutationObserver for perpetual rendering
+ImprovedTube.playlistReverseObserver = null;
 
-				ImprovedTube.playlistReversed = !ImprovedTube.playlistReversed;
-
-				update(); ImprovedTube.expandDescription();
-
-				return false;
-			}, true);
-
-			svg.setAttributeNS(null, 'width', '24');
-			svg.setAttributeNS(null, 'height', '24');
-			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
-			path.setAttributeNS(null, 'd', 'M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z');
-
-			svg.appendChild(path);
-
-			button.appendChild(svg);
-
-			ImprovedTube.elements.playlist.actions.appendChild(button);
-		}
-
-		if (this.playlistReversed === true) {
-			update();
+ImprovedTube.playlistReverse = function () {
+	// Initial injection attempt
+	ImprovedTube.injectReverseButton();
+	
+	// Set up MutationObserver to re-inject if button is removed by YouTube UI refresh
+	if (!ImprovedTube.playlistReverseObserver) {
+		var targetNode = document.querySelector('ytd-playlist-panel-renderer') 
+			|| document.querySelector('ytd-watch-flexy') 
+			|| document.body;
+		
+		if (targetNode) {
+			ImprovedTube.playlistReverseObserver = new MutationObserver(function(mutations) {
+				// Check if button is missing and re-inject
+				if (!document.querySelector('#it-reverse-playlist')) {
+					ImprovedTube.injectReverseButton();
+				}
+			});
+			
+			ImprovedTube.playlistReverseObserver.observe(targetNode, {
+				childList: true,
+				subtree: true
+			});
 		}
 	}
 };
@@ -376,3 +421,4 @@ ImprovedTube.playlistPopup = function () {
 		} catch (error) { console.error("Error appending playlist button panel:", error);}
 	}
 };
+
