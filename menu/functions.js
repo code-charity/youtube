@@ -73,22 +73,41 @@ extension.exportSettings = function () {
 								var blob = new Blob([JSON.stringify(satus.storage.data)], {
 									type: 'application/json;charset=utf-8'
 								});
+								var url = URL.createObjectURL(blob);
 
-								chrome.permissions.request({
-									permissions: ['downloads']
-								}, function (granted) {
-									if (granted) {
-										chrome.downloads.download({
-											url: URL.createObjectURL(blob),
-											filename: 'improvedtube.json',
-											saveAs: true
-										}, function () {
-											setTimeout(function () {
-												close();
-											}, 1000);
-										});
-									}
-								});
+								// Safari doesn't support the downloads permission, use fallback
+								var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+								
+								if (isSafari) {
+									// Safari fallback: create anchor element to trigger download
+									var a = document.createElement('a');
+									a.href = url;
+									a.download = 'improvedtube.json';
+									document.body.appendChild(a);
+									a.click();
+									document.body.removeChild(a);
+									setTimeout(function () {
+										URL.revokeObjectURL(url);
+										close();
+									}, 1000);
+								} else {
+									// Chrome and other browsers: use downloads API
+									chrome.permissions.request({
+										permissions: ['downloads']
+									}, function (granted) {
+										if (granted) {
+											chrome.downloads.download({
+												url: url,
+												filename: 'improvedtube.json',
+												saveAs: true
+											}, function () {
+												setTimeout(function () {
+													close();
+												}, 1000);
+											});
+										}
+									});
+								}
 							} catch (error) {
 								console.error(error);
 							}
