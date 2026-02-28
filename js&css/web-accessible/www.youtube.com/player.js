@@ -9,10 +9,31 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 
 		if (this.video_url !== location.href) {	this.user_interacted = false; }
 
+		// Check if player is ready - if not, defer the autoplay check
+		// This fixes issues when videos are opened in new tabs (#1851)
+		if (!player && !videoElement.closest('.html5-video-player')) {
+			// Player not ready yet, defer check
+			setTimeout(function () {
+				ImprovedTube.autoplayDisable(videoElement);
+			}, 100);
+			return;
+		}
+
+		// When opening in a new tab, ensure we have proper player state
+		// before making autoplay decisions
+		const isNewTab = document.visibilityState === 'hidden' || 
+						 (!this.initialVideoUpdateDone && performance.now() < 2000);
+		
+		if (isNewTab && !this.storage.player_autoplay_disable) {
+			// Allow autoplay for new tabs unless explicitly disabled
+			document.dispatchEvent(new CustomEvent('it-play'));
+			return;
+		}
+
 		//if (there is a player) and (no user clicks) and (no ads playing) 
 		// and( ((auto play is off and it is not in a playlist)
-		//   	 or (playlist auto play is off and in a playlist))
-		//   	 or (we are in a channel and the channel trailer autoplay is off)  )
+		//  	 	or (playlist auto play is off and in a playlist))
+		//  	 	or (we are in a channel and the channel trailer autoplay is off)  )
 
 		if (player && !this.user_interacted // (=user didnt click or type)
 			&& !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
@@ -23,7 +44,7 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 				|| (this.storage.playlist_autoplay === false && location.href.includes('list=')))
 				// channel homepage & !channel_trailer_autoplay
 				|| (this.storage.channel_trailer_autoplay === false && this.regex.channel.test(location.href)
-				   && !/\/(videos|shorts|playlists|community|channels|about|posts|streams|releases)$/.test(location.href) )
+				   && !\/(videos|shorts|playlists|community|channels|about|posts|streams|releases)$/.test(location.href) )
 			   )) {
 
 			setTimeout(function () {
@@ -51,6 +72,7 @@ ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 AUTOPAUSE WHEN SWITCHING TABS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
@@ -67,6 +89,7 @@ ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
 		}
 	}
 };
+/*------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------
 PICTURE IN PICTURE (PIP)
 ------------------------------------------------------------------------------*/
@@ -91,6 +114,7 @@ ImprovedTube.enterPip = function (disable) {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 AUTO PIP WHEN SWITCHING TABS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutoPip = function () {
@@ -102,6 +126,7 @@ ImprovedTube.playerAutoPip = function () {
 		this.enterPip();
 	}
 };
+/*------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------
 PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
@@ -128,6 +153,7 @@ ImprovedTube.playbackSpeed = function (newSpeed) {
 
 	return newSpeed;
 };
+/*------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------
 PERMANENT PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
@@ -291,6 +317,7 @@ ImprovedTube.playerSubtitles = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 SUBTITLES LANGUAGE
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesLanguage = function () {
@@ -309,6 +336,7 @@ ImprovedTube.subtitlesLanguage = function () {
 		}
 	}
 };
+/*------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------
 SUBTITLES FONT FAMILY
 SUBTITLES FONT COLOR
@@ -384,6 +412,7 @@ ImprovedTube.subtitlesUserSettings = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 SUBTITLES DISABLE SUBTILES FOR LYRICS
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesDisableLyrics = function () {
@@ -401,6 +430,7 @@ ImprovedTube.subtitlesDisableLyrics = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
 ImprovedTube.upNextAutoplay = function () {
@@ -416,6 +446,7 @@ ImprovedTube.upNextAutoplay = function () {
 		}
 	}
 };
+/*------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------
 ADS
 ------------------------------------------------------------------------------*/
@@ -447,6 +478,7 @@ ImprovedTube.playerAds = function (parent) {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 AUTO FULLSCREEN
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutofullscreen = function () {
@@ -458,6 +490,7 @@ ImprovedTube.playerAutofullscreen = function () {
 		this.elements.player.toggleFullscreen();
 	}
 };
+/*------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------
 QUALITY
 ------------------------------------------------------------------------------*/
@@ -506,6 +539,7 @@ ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 QUALITY WITHOUT FOCUS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerQualityWithoutFocus = function () {
@@ -527,6 +561,7 @@ ImprovedTube.playerQualityWithoutFocus = function () {
 		}
 	}
 };
+/*------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------
 QUALITY FULL SCREEN
 ------------------------------------------------------------------------------*/
@@ -615,6 +650,7 @@ ImprovedTube.batteryFeatures = async function () {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 FORCED VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVolume = function () {
@@ -660,6 +696,7 @@ ImprovedTube.playerVolume = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 LOUDNESS NORMALIZATION
 ------------------------------------------------------------------------------*/
 ImprovedTube.onvolumechange = function () {
@@ -669,6 +706,7 @@ ImprovedTube.onvolumechange = function () {
 		this.volume = volume / 100;
 	}
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.playerLoudnessNormalization = function () {
 	var video = this.elements.video;
@@ -696,6 +734,7 @@ ImprovedTube.playerLoudnessNormalization = function () {
 		} catch (err) {}
 	}
 };
+/*------------------------------------------------------------------------------
 ImprovedTube.playerPlaybackSpeedButton = function () {
   if (this.storage.player_playback_speed_button === true) {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -771,6 +810,7 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
     updateSpeedText(); // Set initial value
   }
 };
+/*------------------------------------------------------------------------------
 
 /*------------------------------------------------------------------------------
 SCREENSHOT
@@ -815,6 +855,7 @@ ImprovedTube.screenshot = function () {
 		}
 	});
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.copyTranscript = function (svg, button) {
 	try {
@@ -879,6 +920,7 @@ ImprovedTube.copyTranscript = function (svg, button) {
 		}, 2000);
 	}
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 	var attempts = 0;
@@ -930,6 +972,7 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 		}
 	}, 250);
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.renderSubtitle = function (ctx, captionElements) {
 	if (ctx && captionElements) {
@@ -956,6 +999,7 @@ ImprovedTube.renderSubtitle = function (ctx, captionElements) {
 		});
 	}
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.playerScreenshotButton = function () {
 	if (this.storage.player_screenshot_button === true) {
@@ -976,6 +1020,7 @@ ImprovedTube.playerScreenshotButton = function () {
 		});
 	}
 };
+/*------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------
 REPEAT
 -------------------------------------------------------------------------------*/
@@ -1023,6 +1068,7 @@ ImprovedTube.playerRepeatButton = function () {
 		});
 	}
 };
+/*------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------
 ROTATE
 ------------------------------------------------------------------------------*/
@@ -1081,6 +1127,7 @@ ImprovedTube.playerRotateButton = function () {
 		});
 	}
 };
+/*------------------------------------------------------------------------------
 
 /*------------------------------------------------------------------------------
 PLAYBACK SPEED BUTTON
@@ -1137,6 +1184,7 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 		});
 	}
 };
+/*------------------------------------------------------------------------------
 
 /*------------------------------------------------------------------------------
 FIT-TO-WIN BUTTON
@@ -1171,6 +1219,7 @@ ImprovedTube.playerFitToWinButton = function () {
 		});
 	}
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.toggleFitToWindow = function() {
 	let previousSize = ImprovedTube.storage.player_size === "fit_to_window" ? "do_not_change" : (ImprovedTube.storage.player_size ?? "do_not_change");
@@ -1182,6 +1231,7 @@ ImprovedTube.toggleFitToWindow = function() {
 	}
 	window.dispatchEvent(new Event("resize"));
 };
+/*------------------------------------------------------------------------------
 
 /*------------------------------------------------------------------------------
 CINEMA MODE BUTTON
@@ -1349,6 +1399,7 @@ ImprovedTube.playerHamburgerButton = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 POPUP PLAYER
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPopupButton = function () {
@@ -1398,6 +1449,7 @@ ImprovedTube.playerPopupButton = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 Force SDR
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerSDR = function () {
@@ -1409,6 +1461,7 @@ ImprovedTube.playerSDR = function () {
 		});
 	}
 };
+/*------------------------------------------------------------------------------
 /*------------------------------------------------------------------------------
 Hide controls
 ------------------------------------------------------------------------------*/
@@ -1450,6 +1503,7 @@ ImprovedTube.playerControls = function () {
 		player.onmousemove = null;
 	}
 };
+/*------------------------------------------------------------------------------
 /*#  HIDE VIDEO TITLE IN FULLSCREEN	*/ // Easier with CSS only (see player.css)
 //ImprovedTube.hideVideoTitleFullScreen = function (){ if (ImprovedTube.storage.hide_video_title_fullScreen === true) {
 //document.addEventListener('fullscreenchange', function (){ document.querySelector(".ytp-title-text > a")?.style.setProperty('display', 'none');   }) }};
@@ -1471,6 +1525,7 @@ ImprovedTube.mini_player__setSize = function (width, height, keep_ar, keep_area)
 	ImprovedTube.elements.player.style.width = width + 'px';
 	ImprovedTube.elements.player.style.height = height + 'px';
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.miniPlayer_scroll = function () {
 	if (window.scrollY >= 256 && ImprovedTube.mini_player__mode === false && ImprovedTube.elements.player.classList.contains('ytp-player-minimized') === false) {
@@ -1514,6 +1569,7 @@ ImprovedTube.miniPlayer_scroll = function () {
 		window.removeEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
 	}
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.miniPlayer_mouseDown = function (event) {
 	if (event.button !== 0) {
@@ -1555,6 +1611,7 @@ ImprovedTube.miniPlayer_mouseDown = function (event) {
 	window.addEventListener('mouseup', ImprovedTube.miniPlayer_mouseUp);
 	window.addEventListener('mousemove', ImprovedTube.miniPlayer_mouseMove);
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.miniPlayer_mouseUp = function () {
 	var strg = JSON.parse(localStorage.getItem('improvedtube-mini-player')) || {};
@@ -1573,11 +1630,13 @@ ImprovedTube.miniPlayer_mouseUp = function () {
 		window.removeEventListener('click', ImprovedTube.miniPlayer_click, true);
 	});
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.miniPlayer_click = function (event) {
 	event.stopPropagation();
 	event.preventDefault();
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.miniPlayer_mouseMove = function (event) {
 	if (
@@ -1617,6 +1676,7 @@ ImprovedTube.miniPlayer_mouseMove = function (event) {
 		ImprovedTube.elements.player.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
 	}
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.miniPlayer_cursorUpdate = function (event) {
 	var x = event.clientX,
@@ -1689,6 +1749,7 @@ ImprovedTube.miniPlayer_cursorUpdate = function (event) {
 		document.documentElement.setAttribute('it-mini-player-cursor', ImprovedTube.mini_player__cursor);
 	}
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.miniPlayer_resize = function () {
 	if (ImprovedTube.mini_player__cursor !== '') {
@@ -1699,6 +1760,7 @@ ImprovedTube.miniPlayer_resize = function () {
 		return true;
 	}
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.miniPlayer_resizeMouseMove = function (event) {
 	if (ImprovedTube.mini_player__cursor === 'n-resize') {
@@ -1724,6 +1786,7 @@ ImprovedTube.miniPlayer_resizeMouseMove = function (event) {
 		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__x + ImprovedTube.mini_player__width - event.clientX, ImprovedTube.mini_player__y + ImprovedTube.mini_player__height - event.clientY, true);
 	}
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.miniPlayer_resizeMouseUp = function () {
 	var bcr = ImprovedTube.elements.player.getBoundingClientRect();
@@ -1746,6 +1809,7 @@ ImprovedTube.miniPlayer_resizeMouseUp = function () {
 	window.removeEventListener('mouseup', ImprovedTube.miniPlayer_resizeMouseUp);
 	window.removeEventListener('mousemove', ImprovedTube.miniPlayer_resizeMouseMove);
 };
+/*------------------------------------------------------------------------------
 
 ImprovedTube.miniPlayer = function () {
 	if (this.storage.mini_player === true) {
@@ -1797,6 +1861,7 @@ ImprovedTube.miniPlayer = function () {
 		window.removeEventListener('mousemove', this.miniPlayer_cursorUpdate);
 	}
 };
+/*------------------------------------------------------------------------------
 
 /*------------------------------------------------------------------------------
 CUSTOM PAUSE FUNCTIONS
@@ -1862,6 +1927,7 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 
 	}
 };
+/*------------------------------------------------------------------------------
 
 /*------------------------------------------------------------------------------
 HIDE PROGRESS BAR PREVIEW
@@ -1873,6 +1939,7 @@ ImprovedTube.playerHideProgressPreview = function () {
 		document.documentElement.removeAttribute('it-hide-progress-preview');
 	}
 };
+/*------------------------------------------------------------------------------
 
 
 /*------------------------------------------------------------------------------
@@ -2229,6 +2296,7 @@ ImprovedTube.redirectShortsToWatch = function () {
         }
     }
 };
+/*------------------------------------------------------------------------------
 
 /*------------------------------------------------------------------------------
 YOUTUBE RETURN BUTTON IN FULLSCREEN
@@ -2302,6 +2370,7 @@ ImprovedTube.addYouTubeReturnButton = function () {
         }
     }
 };
+/*------------------------------------------------------------------------------
 
 /*------------------------------------------------------------------------------
 SHORTS AUTO SCROLL
@@ -2372,6 +2441,7 @@ ImprovedTube.shortsAutoScroll = function () {
         });
     }
 };
+/*------------------------------------------------------------------------------
 
 /*------------------------------------------------------------------------------
 SMART SPEED ENGINE (HEATMAP)
@@ -2833,6 +2903,7 @@ ImprovedTube.heatmap = {
         }
     }
 };
+/*------------------------------------------------------------------------------
 
 /*------------------------------------------------------------------------------
 AUTO-START HOOKS
