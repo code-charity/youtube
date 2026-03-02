@@ -751,12 +751,14 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 
     button.oncontextmenu = (e) => {
       e.preventDefault();
+      e.stopPropagation();
       this.playbackSpeed(1.0);
       return false;
     };
 
     button.onwheel = (e) => {
       e.preventDefault();
+      e.stopPropagation();
       const currentSpeed = this.playbackSpeed();
       const direction = e.deltaY < 0 ? 1 : -1;
       let newSpeed = Math.round((currentSpeed + direction * 0.05) * 100) / 100;
@@ -1113,6 +1115,7 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 		// Add right-click handler
 		button.addEventListener('contextmenu', function (e) {
 			e.preventDefault();
+			e.stopPropagation();
 			ImprovedTube.playbackSpeed(1.0);
 			ImprovedTube.showStatus('1.0x');
 		});
@@ -1120,6 +1123,7 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 		// Add wheel handler
 		button.addEventListener('wheel', function (e) {
 			e.preventDefault();
+			e.stopPropagation();
 			var step = Number(ImprovedTube.storage.shortcuts_playback_speed_step) || 0.1;
 			var currentSpeed = ImprovedTube.playbackSpeed();
 			var newSpeed;
