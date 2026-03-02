@@ -66,7 +66,8 @@ var ImprovedTube = {
 			wheel: 0,
 			alt: false,
 			ctrl: false,
-			shift: false
+			shift: false,
+			ctrlSide: null
 		},
 		cancelled: new Set(),
 		ignoreElements: ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'],
@@ -528,7 +529,12 @@ document.addEventListener('it-message-from-extension', function () {
 			}
 
 			// dont trigger shortcuts on config change, reinitialize handler instead
-			if (message.key.startsWith('shortcut_')) camelized_key = 'shortcuts';
+			if (message.key.startsWith('shortcut_') || message.key === 'shortcuts_volume_wheel_ctrl') {
+				camelized_key = 'shortcuts';
+				if (typeof ImprovedTube.shortcutsInit === 'function') {
+					ImprovedTube.shortcutsInit();
+				}
+			}
 			if (ImprovedTube[camelized_key]) {
 				try { ImprovedTube[camelized_key]() } catch { };
 			}

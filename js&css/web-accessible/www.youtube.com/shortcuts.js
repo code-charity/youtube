@@ -10,11 +10,29 @@ ImprovedTube.shortcutsInit = function () {
 	// those four are _references_ to source Objects, not copies
 	const listening = ImprovedTube.input.listening,
 		listeners = ImprovedTube.input.listeners;
+	const volumeWheelEnabled = this.storage.shortcuts_volume_wheel_ctrl === true;
+	const volumeWheelDefaults = {
+		shortcut_increase_volume_wheel_ctrl: {
+			alt: false,
+			ctrl: true,
+			shift: false,
+			keys: {},
+			wheel: -1
+		},
+		shortcut_decrease_volume_wheel_ctrl: {
+			alt: false,
+			ctrl: true,
+			shift: false,
+			keys: {},
+			wheel: 1
+		}
+	};
 
 	// reset 'listening' shortcuts
 	for (var key in listening) delete listening[key];
 	// extract shortcuts from User Settings and initialize 'listening'
 	for (const [name, keys] of Object.entries(this.storage).filter(v => v[0].startsWith('shortcut_'))) {
+		if (!volumeWheelEnabled && (name in volumeWheelDefaults)) continue;
 		if (!keys) continue;
 		// camelCase(name)
 		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
@@ -39,6 +57,33 @@ ImprovedTube.shortcutsInit = function () {
 			}
 		}
 		if (potentialShortcut['keys'].size || potentialShortcut['wheel']) listening[camelName] = potentialShortcut;
+	}
+	// inject defaults for Ctrl+wheel volume if enabled and unset
+	if (volumeWheelEnabled) {
+		for (const [name, keys] of Object.entries(volumeWheelDefaults)) {
+			if (this.storage[name]) continue;
+			const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
+			let potentialShortcut = {};
+			for (const button of ['alt', 'ctrl', 'shift', 'wheel', 'keys', 'toggle']) {
+				switch (button) {
+					case 'alt':
+					case 'ctrl':
+					case 'shift':
+					case 'toggle':
+						potentialShortcut[button] = keys[button] || false;
+						break
+
+					case 'wheel':
+						potentialShortcut[button] = keys[button] || 0;
+						break
+
+					case 'keys':
+						potentialShortcut[button] = keys[button] ? new Set(Object.keys(keys[button]).map(s=>Number(s))) : new Set();
+						break
+				}
+			}
+			if (potentialShortcut['keys'].size || potentialShortcut['wheel']) listening[camelName] = potentialShortcut;
+		}
 	}
 	// initialize 'listeners' only if there are actual shortcuts active
 	if (Object.keys(listening).length) {
@@ -72,6 +117,9 @@ ImprovedTube.shortcutsHandler = function () {
 			if (!shortcut.keys.has(pressedKey)) continue check;
 		}
 
+		const requiresLeftCtrl = key === 'shortcutIncreaseVolumeWheelCtrl' || key === 'shortcutDecreaseVolumeWheelCtrl';
+		if (requiresLeftCtrl && ImprovedTube.input.pressed.ctrlSide !== 'left') continue;
+
 		// cancel keydown/wheel event before we call target handler
 		// this way crashing handler wont keep 'cancelled' keys stuck
 		event.preventDefault();
@@ -104,6 +152,11 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.alt = event.altKey;
 		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
 		ImprovedTube.input.pressed.shift = event.shiftKey;
+		if (event.code === 'ControlLeft') {
+			ImprovedTube.input.pressed.ctrlSide = 'left';
+		} else if (event.code === 'ControlRight') {
+			ImprovedTube.input.pressed.ctrlSide = 'right';
+		}
 
 		ImprovedTube.shortcutsHandler();
 	},
@@ -113,6 +166,9 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.alt = event.altKey;
 		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
 		ImprovedTube.input.pressed.shift = event.shiftKey;
+		if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
+			ImprovedTube.input.pressed.ctrlSide = null;
+		}
 
 		// cancel keyup events corresponding to keys that triggered one of our shortcuts
 		if (ImprovedTube.input.cancelled.has(event.keyCode)) {
@@ -146,6 +202,7 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.alt = false;
 		ImprovedTube.input.pressed.ctrl = false;
 		ImprovedTube.input.pressed.shift = false;
+		ImprovedTube.input.pressed.ctrlSide = null;
 	}
 };
 /*--- jump To Key Scene ----*/
@@ -356,12 +413,26 @@ ImprovedTube.shortcutIncreaseVolume = function (decrease) {
 
 	sessionStorage['yt-player-volume'] = localStorage['yt-player-volume'];
 
-	this.showStatus(player.getVolume());
+	this.showStatus({
+		type: 'volume',
+		value: player.getVolume(),
+		muted: player.isMuted ? player.isMuted() : player.getVolume() === 0
+	});
 };
 /*------------------------------------------------------------------------------
 4.7.14 DECREASE VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDecreaseVolume = function () {
+	ImprovedTube.shortcutIncreaseVolume(true);
+};
+/*------------------------------------------------------------------------------
+CTRL + WHEEL VOLUME
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutIncreaseVolumeWheelCtrl = function () {
+	ImprovedTube.shortcutIncreaseVolume(false);
+};
+
+ImprovedTube.shortcutDecreaseVolumeWheelCtrl = function () {
 	ImprovedTube.shortcutIncreaseVolume(true);
 };
 /*------------------------------------------------------------------------------
