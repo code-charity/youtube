@@ -117,9 +117,6 @@ ImprovedTube.shortcutsHandler = function () {
 			if (!shortcut.keys.has(pressedKey)) continue check;
 		}
 
-		const requiresLeftCtrl = key === 'shortcutIncreaseVolumeWheelCtrl' || key === 'shortcutDecreaseVolumeWheelCtrl';
-		if (requiresLeftCtrl && ImprovedTube.input.pressed.ctrlSide !== 'left') continue;
-
 		// cancel keydown/wheel event before we call target handler
 		// this way crashing handler wont keep 'cancelled' keys stuck
 		event.preventDefault();
@@ -152,11 +149,6 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.alt = event.altKey;
 		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
 		ImprovedTube.input.pressed.shift = event.shiftKey;
-		if (event.code === 'ControlLeft') {
-			ImprovedTube.input.pressed.ctrlSide = 'left';
-		} else if (event.code === 'ControlRight') {
-			ImprovedTube.input.pressed.ctrlSide = 'right';
-		}
 
 		ImprovedTube.shortcutsHandler();
 	},
@@ -166,9 +158,6 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.alt = event.altKey;
 		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
 		ImprovedTube.input.pressed.shift = event.shiftKey;
-		if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
-			ImprovedTube.input.pressed.ctrlSide = null;
-		}
 
 		// cancel keyup events corresponding to keys that triggered one of our shortcuts
 		if (ImprovedTube.input.cancelled.has(event.keyCode)) {
@@ -202,7 +191,6 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.alt = false;
 		ImprovedTube.input.pressed.ctrl = false;
 		ImprovedTube.input.pressed.shift = false;
-		ImprovedTube.input.pressed.ctrlSide = null;
 	}
 };
 /*--- jump To Key Scene ----*/

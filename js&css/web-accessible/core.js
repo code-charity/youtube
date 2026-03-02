@@ -66,8 +66,7 @@ var ImprovedTube = {
 			wheel: 0,
 			alt: false,
 			ctrl: false,
-			shift: false,
-			ctrlSide: null
+			shift: false
 		},
 		cancelled: new Set(),
 		ignoreElements: ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'],
