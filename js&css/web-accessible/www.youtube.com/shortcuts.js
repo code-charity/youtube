@@ -25,6 +25,34 @@ ImprovedTube.shortcutsInit = function () {
 			shift: false,
 			keys: {},
 			wheel: 1
+		},
+		shortcut_increase_volume_wheel_alt: {
+			alt: true,
+			ctrl: false,
+			shift: false,
+			keys: {},
+			wheel: -1
+		},
+		shortcut_decrease_volume_wheel_alt: {
+			alt: true,
+			ctrl: false,
+			shift: false,
+			keys: {},
+			wheel: 1
+		},
+		shortcut_increase_volume_wheel_shift: {
+			alt: false,
+			ctrl: false,
+			shift: true,
+			keys: {},
+			wheel: -1
+		},
+		shortcut_decrease_volume_wheel_shift: {
+			alt: false,
+			ctrl: false,
+			shift: true,
+			keys: {},
+			wheel: 1
 		}
 	};
 
@@ -421,6 +449,22 @@ ImprovedTube.shortcutIncreaseVolumeWheelCtrl = function () {
 };
 
 ImprovedTube.shortcutDecreaseVolumeWheelCtrl = function () {
+	ImprovedTube.shortcutIncreaseVolume(true);
+};
+
+ImprovedTube.shortcutIncreaseVolumeWheelAlt = function () {
+	ImprovedTube.shortcutIncreaseVolume(false);
+};
+
+ImprovedTube.shortcutDecreaseVolumeWheelAlt = function () {
+	ImprovedTube.shortcutIncreaseVolume(true);
+};
+
+ImprovedTube.shortcutIncreaseVolumeWheelShift = function () {
+	ImprovedTube.shortcutIncreaseVolume(false);
+};
+
+ImprovedTube.shortcutDecreaseVolumeWheelShift = function () {
 	ImprovedTube.shortcutIncreaseVolume(true);
 };
 /*------------------------------------------------------------------------------

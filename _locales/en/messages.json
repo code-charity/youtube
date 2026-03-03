@@ -1553,7 +1553,7 @@
     "message": "Volume"
   },
   "ctrlWheelVolume": {
-    "message": "Ctrl + mouse wheel for changing volume"
+    "message": "Ctrl/Alt/Shift + mouse wheel for changing volume"
   },
   "watchedVideos": {
     "message": "Watched videos"
