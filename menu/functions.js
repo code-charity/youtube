@@ -76,7 +76,7 @@ extension.exportSettings = function () {
 								var url = URL.createObjectURL(blob);
 
 								// Detect Safari: Safari doesn't support chrome.downloads API
-								var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+								var isSafari = /^((?!chrome|android|Firefox|Vivaldi|Edge|Brave|Opera|MSIE|OPR).)*safari/i.test(navigator.userAgent);
 								var isChrome = typeof chrome !== 'undefined' && chrome.downloads;
 
 								if (isSafari || !isChrome) {
