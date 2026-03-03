@@ -752,63 +752,11 @@ ImprovedTube.showStatus = function (value) {
 		this.elements.status.id = 'it-status';
 	}
 
-	if (typeof value === 'object' && value?.type === 'volume') {
-		const player = this.elements.player;
-		const bezel = player?.querySelector('.ytp-bezel');
-		if (bezel) {
-			let bezelIcon = bezel.querySelector('.ytp-bezel-icon');
-			if (!bezelIcon) {
-				bezelIcon = document.createElement('div');
-				bezelIcon.className = 'ytp-bezel-icon';
-				bezel.appendChild(bezelIcon);
-			}
-
-			const iconSource = player?.querySelector('.ytp-volume-panel .ytp-volume-icon')
-				|| player?.querySelector('.ytp-mute-button');
-			if (iconSource) {
-				const svg = iconSource.querySelector('svg')?.cloneNode(true) || iconSource.cloneNode(true);
-				while (bezelIcon.firstChild) bezelIcon.firstChild.remove();
-				bezelIcon.appendChild(svg);
-			}
-
-			const bezelText = bezel.querySelector('.ytp-bezel-text');
-			if (bezelText) {
-				const volumeValue = typeof value.value === 'number' ? value.value : (player?.getVolume ? player.getVolume() : 0);
-				bezelText.textContent = `${Math.round(volumeValue)}%`;
-			}
-
-			bezel.classList.add('ytp-bezel-showing');
-			clearTimeout(ImprovedTube.status_timer);
-			ImprovedTube.status_timer = setTimeout(function () {
-				bezel.classList.remove('ytp-bezel-showing');
-			}, 500);
-			return;
-		}
-
-		this.elements.status.textContent = '';
-
-		const iconSource = player?.querySelector('.ytp-volume-panel .ytp-volume-icon')
-			|| player?.querySelector('.ytp-mute-button');
-		let iconElement;
-
-		if (iconSource) {
-			iconElement = iconSource.cloneNode(true);
-			iconElement.removeAttribute('id');
-			iconElement.removeAttribute('aria-label');
-			iconElement.removeAttribute('title');
-		} else {
-			iconElement = document.createElement('div');
-			iconElement.textContent = (value.muted || value.value === 0) ? '🔇' : (value.value <= 50 ? '🔈' : '🔊');
-		}
-
-		this.elements.status.appendChild(iconElement);
-	} else {
-		if (typeof value === 'number') {
-			value = value.toFixed(2);
-		}
-
-		this.elements.status.textContent = value;
+	if (typeof value === 'number') {
+		value = value.toFixed(2);
 	}
+
+	this.elements.status.textContent = value;
 
 	if (ImprovedTube.status_timer) {
 		clearTimeout(ImprovedTube.status_timer);

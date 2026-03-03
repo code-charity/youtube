@@ -360,11 +360,7 @@ ImprovedTube.shortcutIncreaseVolume = function (decrease) {
 
 	sessionStorage['yt-player-volume'] = localStorage['yt-player-volume'];
 
-	this.showStatus({
-		type: 'volume',
-		value: player.getVolume(),
-		muted: player.isMuted ? player.isMuted() : player.getVolume() === 0
-	});
+	this.showStatus(player.getVolume());
 };
 /*------------------------------------------------------------------------------
 4.7.14 DECREASE VOLUME
