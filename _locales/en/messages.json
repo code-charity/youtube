@@ -1555,6 +1555,9 @@
   "ctrlWheelVolume": {
     "message": "Mouse wheel for changing volume"
   },
+  "wheelPlaybackSpeed": {
+    "message": "Mouse wheel for changing playback speed"
+  },
   "watchedVideos": {
     "message": "Watched videos"
   },

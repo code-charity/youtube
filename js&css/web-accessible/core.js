@@ -528,7 +528,7 @@ document.addEventListener('it-message-from-extension', function () {
 			}
 
 			// dont trigger shortcuts on config change, reinitialize handler instead
-			if (message.key.startsWith('shortcut_') || message.key === 'shortcuts_volume_wheel_ctrl') {
+			if (message.key.startsWith('shortcut_') || message.key === 'shortcuts_volume_wheel_ctrl' || message.key === 'shortcuts_playback_speed_wheel') {
 				camelized_key = 'shortcuts';
 				if (typeof ImprovedTube.shortcutsInit === 'function') {
 					ImprovedTube.shortcutsInit();

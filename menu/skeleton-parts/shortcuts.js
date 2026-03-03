@@ -159,6 +159,11 @@ extension.skeleton.main.layers.section.shortcuts = {
 									max: 2,
 									step: .05,
 									value: .05
+								},
+								shortcuts_playback_speed_wheel: {
+									component: 'checkbox',
+									text: 'wheelPlaybackSpeed',
+									value: false
 								}
 							},
 
