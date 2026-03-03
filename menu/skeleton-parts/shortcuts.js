@@ -120,24 +120,12 @@ extension.skeleton.main.layers.section.shortcuts = {
 								shortcut_increase_volume_wheel_ctrl: {
 									component: 'shortcut',
 									text: 'increaseVolume',
-									value: {
-										alt: false,
-										ctrl: true,
-										shift: false,
-										keys: {},
-										wheel: -1
-									}
+									value: {}
 								},
 								shortcut_decrease_volume_wheel_ctrl: {
 									component: 'shortcut',
 									text: 'decreaseVolume',
-									value: {
-										alt: false,
-										ctrl: true,
-										shift: false,
-										keys: {},
-										wheel: 1
-									}
+									value: {}
 								},
 							}
 						}
@@ -196,24 +184,12 @@ extension.skeleton.main.layers.section.shortcuts = {
 								shortcut_increase_playback_speed_wheel_ctrl: {
 									component: 'shortcut',
 									text: 'increasePlaybackSpeed',
-									value: {
-										alt: false,
-										ctrl: true,
-										shift: false,
-										keys: {},
-										wheel: -1
-									}
+									value: {}
 								},
 								shortcut_decrease_playback_speed_wheel_ctrl: {
 									component: 'shortcut',
 									text: 'decreasePlaybackSpeed',
-									value: {
-										alt: false,
-										ctrl: true,
-										shift: false,
-										keys: {},
-										wheel: 1
-									}
+									value: {}
 								},
 								shortcut_reset_playback_speed: {
 									component: 'shortcut',

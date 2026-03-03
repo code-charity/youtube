@@ -12,57 +12,13 @@ ImprovedTube.shortcutsInit = function () {
 		listeners = ImprovedTube.input.listeners;
 	const volumeWheelEnabled = this.storage.shortcuts_volume_wheel_ctrl === true;
 	const playbackSpeedWheelEnabled = this.storage.shortcuts_playback_speed_wheel === true;
-	const volumeWheelDefaults = {
-		shortcut_increase_volume_wheel_ctrl: {
-			alt: false,
-			ctrl: true,
-			shift: false,
-			keys: {},
-			wheel: -1
-		},
-		shortcut_decrease_volume_wheel_ctrl: {
-			alt: false,
-			ctrl: true,
-			shift: false,
-			keys: {},
-			wheel: 1
-		},
-		shortcut_increase_volume_wheel_alt: {
-			alt: true,
-			ctrl: false,
-			shift: false,
-			keys: {},
-			wheel: -1
-		},
-		shortcut_decrease_volume_wheel_alt: {
-			alt: true,
-			ctrl: false,
-			shift: false,
-			keys: {},
-			wheel: 1
-		},
-		shortcut_increase_volume_wheel_shift: {
-			alt: false,
-			ctrl: false,
-			shift: true,
-			keys: {},
-			wheel: -1
-		},
-		shortcut_decrease_volume_wheel_shift: {
-			alt: false,
-			ctrl: false,
-			shift: true,
-			keys: {},
-			wheel: 1
-		}
-	};
 
 	// reset 'listening' shortcuts
 	for (var key in listening) delete listening[key];
 	// extract shortcuts from User Settings and initialize 'listening'
 	for (const [name, keys] of Object.entries(this.storage).filter(v => v[0].startsWith('shortcut_'))) {
-		if (!volumeWheelEnabled && (name in volumeWheelDefaults)) continue;
-		if (!playbackSpeedWheelEnabled && name.startsWith('shortcut_') && name.includes('_playback_speed_wheel_')) continue;
+		if (!volumeWheelEnabled && name.includes('_volume_wheel_')) continue;
+		if (!playbackSpeedWheelEnabled && name.includes('_playback_speed_wheel_')) continue;
 		if (!keys) continue;
 		// camelCase(name)
 		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
@@ -87,33 +43,6 @@ ImprovedTube.shortcutsInit = function () {
 			}
 		}
 		if (potentialShortcut['keys'].size || potentialShortcut['wheel']) listening[camelName] = potentialShortcut;
-	}
-	// inject defaults for Ctrl+wheel volume if enabled and unset
-	if (volumeWheelEnabled) {
-		for (const [name, keys] of Object.entries(volumeWheelDefaults)) {
-			if (this.storage[name]) continue;
-			const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
-			let potentialShortcut = {};
-			for (const button of ['alt', 'ctrl', 'shift', 'wheel', 'keys', 'toggle']) {
-				switch (button) {
-					case 'alt':
-					case 'ctrl':
-					case 'shift':
-					case 'toggle':
-						potentialShortcut[button] = keys[button] || false;
-						break
-
-					case 'wheel':
-						potentialShortcut[button] = keys[button] || 0;
-						break
-
-					case 'keys':
-						potentialShortcut[button] = keys[button] ? new Set(Object.keys(keys[button]).map(s=>Number(s))) : new Set();
-						break
-				}
-			}
-			if (potentialShortcut['keys'].size || potentialShortcut['wheel']) listening[camelName] = potentialShortcut;
-		}
 	}
 	// initialize 'listeners' only if there are actual shortcuts active
 	if (Object.keys(listening).length) {
