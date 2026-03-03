@@ -193,6 +193,28 @@ extension.skeleton.main.layers.section.shortcuts = {
 										}
 									}
 								},
+								shortcut_increase_playback_speed_wheel_ctrl: {
+									component: 'shortcut',
+									text: 'increasePlaybackSpeed',
+									value: {
+										alt: false,
+										ctrl: true,
+										shift: false,
+										keys: {},
+										wheel: -1
+									}
+								},
+								shortcut_decrease_playback_speed_wheel_ctrl: {
+									component: 'shortcut',
+									text: 'decreasePlaybackSpeed',
+									value: {
+										alt: false,
+										ctrl: true,
+										shift: false,
+										keys: {},
+										wheel: 1
+									}
+								},
 								shortcut_reset_playback_speed: {
 									component: 'shortcut',
 									text: 'reset'
