@@ -206,8 +206,8 @@ Chinese + Hindi + Spanish. <br></i>
 </td></tr></table><hr>
 
 #### 💡 [**<code>History Manager Extension</code>**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" width="20px" height="18px"></a>
-## 💡 🌱 [List of new project plans / Ideas ](https://github.com/code-charity/List-of-Ideas/discussions/2) 
-[<code>github/**Wish-Factory**</code>](https://github.com/code-for-charity/wish-factory "💡") Got great/er ideas? ( ideas@improvedtube.com )
+### 💡 🌱 [List of new project plans / Ideas ](https://github.com/code-charity/List-of-Ideas/discussions/2) 
+[<code>github/**Wish-Factory**</code>](https://github.com/code-for-charity/wish-factory "💡") Got great/er ideas? ideas@improvedtube.com
 
 [<code>**Crowd Fixes**</code>](https://github.com/code-charity/Universal-UserTweaks) - Vision for the _(tweaking-/userStyle-/"modding-"_)Community: We can optimize the www's GUI and greatly prioritized. <i>"insteada only tweakin uBlockRules @home like Sisyphos".</i>
 
