@@ -36,8 +36,7 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 
 <h2><a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">Contributing</a></h2>
 For more info on how to contribute, see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a> or <a href="https://github.com/code-charity/youtube/wiki/Contributing#development"> #development</a>
-<br><br><i> Please join us! And let's re-define "<a href="https://en.wikipedia.org/wiki/Browser_extension">extensions</a>"!
-(Why are they often unfunded & neglected?</i>)
+<br><br> Please join us! Let's redefine "<a href="https://en.wikipedia.org/wiki/Browser_extension">Browser extensions</a>"!
 
 <table  align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap</h3> <!-- The list below only stays formatted when there is a line break above --> 
 
@@ -207,9 +206,12 @@ Chinese + Hindi + Spanish. <br></i>
 </td></tr></table><hr>
 
 #### 💡 [**<code>History Manager Extension</code>**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" width="20px" height="18px"></a>
-#### 💡 [<code>github/**Wish-Factory**</code>](https://github.com/code-for-charity/wish-factory "💡") Got great/er ideas? ( ideas@improvedtube.com )
-##### 💡 [<img src="github.png" width="20px" height="18px"><code>**Crowd Fixes**</code>](https://github.com/code-charity/Universal-UserTweaks) - Vision for the _(tweaking-/userStyle-/"modding-"_)Community: We can optimize the www's GUI and greatly prioritized. <i>"insteada only tweakin uBlockRules @home like Sisyphos".</i>
-#### 💡 🌱 [`Contributor Bot`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot) - Vision for Open-Source Efficiency.  (Compare: Wikipedia Bots. Would especially help medium-size projects.) (+[list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
+## 💡 🌱 [List of new project plans / Ideas ](https://github.com/code-charity/List-of-Ideas/discussions/2) 
+[<code>github/**Wish-Factory**</code>](https://github.com/code-for-charity/wish-factory "💡") Got great/er ideas? ( ideas@improvedtube.com )
+
+[<code>**Crowd Fixes**</code>](https://github.com/code-charity/Universal-UserTweaks) - Vision for the _(tweaking-/userStyle-/"modding-"_)Community: We can optimize the www's GUI and greatly prioritized. <i>"insteada only tweakin uBlockRules @home like Sisyphos".</i>
+
+[`Contributor Bot`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot) - Vision for Open-Source Efficiency.  (Compare: Wikipedia Bots. Would especially help medium-size projects.) (+[list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
 
 <h4> <code>🎁</code>Our Extensions:</h4></summary>
 
