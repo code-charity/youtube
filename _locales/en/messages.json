@@ -1,6 +1,10 @@
-{  
-  "hideSuggestedAction": { "message": "Hide Suggested Action 'View products'" },
-  "hideMerchShelf": { "message": "Hide 'Merch Shelf'" },
+{
+  "hideSuggestedAction": {
+    "message": "Hide Suggested Action 'View products'"
+  },
+  "hideMerchShelf": {
+    "message": "Hide 'Merch Shelf'"
+  },
   "about": {
     "message": "About"
   },
@@ -1615,8 +1619,8 @@
   "youtubesLight": {
     "message": "YouTube's Light"
   },
-  "smartSpeedEngine":{
-   "message": "Smart Speed Engine"
+  "smartSpeedEngine": {
+    "message": "Smart Speed Engine"
   },
   "smartSpeedEnable": {
     "message": "Enable Smart Speed"
@@ -1630,12 +1634,14 @@
   "smartSpeedMax": {
     "message": "Max Speed (Troughs)"
   },
-  "smartSpeedSensitivity":{
+  "smartSpeedSensitivity": {
     "message": "Sensitivity"
   },
   "smartSpeedTargetToggle": {
-    "message": "Enable Target Duration" },
-  "smartSpeedTargetMinutes": { "message": "Target Length (Minutes)"
+    "message": "Enable Target Duration"
+  },
+  "smartSpeedTargetMinutes": {
+    "message": "Target Length (Minutes)"
   },
   "smartSpeedProfiles": {
     "message": "Category & Channel Profiles"
