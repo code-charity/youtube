@@ -1228,6 +1228,9 @@
   "removeShortsReelSearchResults": {
     "message": "Remove Shorts reel from search results"
   },
+  "removeSubscriptionsMostRelevant": {
+    "message": "Hide 'Most relevant' section on Subscriptions page"
+  },
   "RemoveSubtitlesForLyrics": {
     "message": "Remove subtitles for lyrics"
   },

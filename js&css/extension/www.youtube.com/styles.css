@@ -16,6 +16,7 @@ html {overflow-x: hidden !important}
 
 html[it-hide-suggested-action="true"] div.ytp-suggested-action {  display: none;  } /* "View products" button */
 html[it-hide-merch-shelf="true"] div.style-scope.ytd-merch-shelf-renderer {   display: none; } /* product list above comments */
+html[it-remove-subscriptions-most-relevant="true"][it-pathname="/feed/subscriptions"] ytd-rich-section-renderer { display: none !important; } /* "Most relevant" section on subscriptions page */
 
 /*------------------------------------------------------------------------------
 >>> TABLE OF CONTENTS:
