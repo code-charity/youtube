@@ -207,11 +207,9 @@ Chinese + Hindi + Spanish. <br></i>
 
 #### 💡 [**<code>History Manager Extension</code>**](https://chrome.google.com/webstore/detail/unblob-alpha/odognhgojidbcgconbcipmgffjcmfaoj)<a href="https://github.com/code-for-charity/history-manager"><img src="github.png" width="20px" height="18px"></a>
 ### 💡 🌱 [List of new project plans / Ideas ](https://github.com/code-charity/List-of-Ideas/discussions/2) 
-[<code>Wish-Factory</code>](https://github.com/code-for-charity/wish-factory "💡") Got great/er ideas? ideas@improvedtube.com
-
-[<code>Crowd Fixes</code>](https://github.com/code-charity/Universal-UserTweaks) - Vision for the _(tweaking-/userStyle-/"modding-"_)Community: We can optimize the www's GUI and greatly prioritized. <i>"insteada only tweakin uBlockRules @home like Sisyphos".</i>
-
-[`Contributor Bot`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot) - Vision for Open-Source Efficiency.  (Compare: Wikipedia Bots. Would especially help medium-size projects.) (+[list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
+###### [<code>Wish-Factory</code>](https://github.com/code-for-charity/wish-factory "💡") Got great/er ideas? ideas@improvedtube.com
+###### [<code>Crowd Fixes</code>](https://github.com/code-charity/Universal-UserTweaks) - We can optimize the www's GUI and greatly prioritized. <i> Instead of only tweaking some uBlock or Sylish rules for oneself (which is not always worth it for a single user, if something changes soon.)</i>
+###### [`Contributor Bot`](https://github.com/code4charity/Open-Source-Bot--Github-Git-Pull-Request-Bot) - Vision for Open-Source Efficiency.  (Compare: Wikipedia Bots. Would especially help medium-size projects.) (+[list of regEx](https://github.com/code4charity/the-RegEx-Collector--Queries--Patterns " - ")?)  
 
 <h4> <code>🎁</code>Our Extensions:</h4></summary>
 
