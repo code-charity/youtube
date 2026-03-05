@@ -96,6 +96,11 @@ extension.skeleton.main.layers.section.general = {
 					text: 'hideAISummary',
 					id: 'hide-ai-summary'
 				},
+				remove_subscriptions_most_relevant: {
+					component: 'switch',
+					text: 'removeSubscriptionsMostRelevant',
+					id: 'remove-subscriptions-most-relevant'
+				},
 				youtube_home_page: {
 					component: 'select',
 					text: 'youtubeHomePage',
