@@ -1,0 +1,96 @@
+/* ============================================
+ * YouTube Shorts 评论区域遮挡修复
+ * Issue: #3670 - Comments covering video title in Shorts
+ * Author: Atlas (GitHub: @lanxinyue130410-del)
+ * ============================================
+ */
+
+/* 主要修复 - 视频标题层级提升 */
+#shorts-player,
+.ytd-shorts,
+#shorts-container {
+    position: relative !important;
+}
+
+/* 确保视频标题在评论区域之上 */
+.ytd-shorts .video-title,
+.ytd-shorts h1,
+.ytd-shorts [role="heading"],
+.ytd-shorts .title {
+    z-index: 1001 !important;
+    position: relative !important;
+}
+
+/* 评论区域层级调整 */
+.ytd-shorts #comments,
+.ytd-shorts ytd-comments,
+.ytd-shorts #comments-section,
+.ytd-shorts .comments {
+    z-index: 1000 !important;
+}
+
+/* 移动端Shorts特殊修复 */
+@media (max-width: 768px) {
+    .ytd-shorts {
+        position: relative !important;
+    }
+    
+    /* 视频容器层级调整 */
+    .ytd-shorts #player-container,
+    .ytd-shorts .html5-video-player {
+        z-index: 1002 !important;
+        position: relative !important;
+    }
+    
+    /* 标题区域样式优化 */
+    .ytd-shorts .metadata,
+    .ytd-shorts .title-wrapper {
+        z-index: 1001 !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        backdrop-filter: blur(10px) !important;
+    }
+}
+
+/* Firefox和Zen浏览器特殊修复 */
+@-moz-document url-prefix() {
+    .ytd-shorts {
+        /* Firefox特定修复 */
+        position: relative !important;
+    }
+    
+    .ytd-shorts .video-title {
+        z-index: 1005 !important;
+    }
+}
+
+/* 评论区域打开时的动态调整 */
+.ytd-shorts[comments-open] .video-title,
+.ytd-shorts.comments-open .video-title {
+    z-index: 1001 !important;
+    position: relative !important;
+}
+
+/* 防止评论区域覆盖 */
+.ytd-shorts #comments.ytd-shorts {
+    margin-top: 60px !important;
+    position: relative !important;
+}
+
+/* 动画过渡效果 */
+.ytd-shorts .video-title {
+    transition: z-index 0.3s ease !important;
+}
+
+/* ============================================
+ * 调试和测试样式（开发完成后可移除）
+ * ============================================
+ */
+.ytd-shorts .video-title {
+    /* 调试边框 - 移除生产环境 */
+    /* border: 2px solid #ff0000 !important; */
+}
+
+.ytd-shorts #comments {
+    /* 调试边框 - 移除生产环境 */
+    /* border: 2px solid #00ff00 !important; */
+}
