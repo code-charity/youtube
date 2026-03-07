@@ -541,8 +541,9 @@ extension.features.thumbnailsQuality = function (anything) {
 --------------------------------------------------------------*/
 extension.features.disableThumbnailPlayback = function (event) {
 	if (event instanceof Event) {
-		if (event.composedPath().some(elem => (elem.matches != null && elem.matches('#content.ytd-rich-item-renderer, #contents.ytd-item-section-renderer'))
-		)) {
+		if (event.composedPath().some(elem => (elem.matches != null && elem.matches(
+			'#content.ytd-rich-item-renderer, #contents.ytd-item-section-renderer, #dismissible.ytd-compact-video-renderer'
+		)))) {
 			event.stopImmediatePropagation();
 		}
 	} else {
