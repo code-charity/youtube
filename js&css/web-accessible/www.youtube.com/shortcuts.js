@@ -249,13 +249,38 @@ ImprovedTube.shortcutToggleAutoplay = function () {
 4.7.7 NEXT VIDEO
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutNextVideo = function () {
-	this.elements.player?.nextVideo();
+	var player = this.elements.player;
+	if (!player) return;
+
+	// In playlist context, use the player's built-in next button which
+	// correctly navigates within the playlist. player.nextVideo() may
+	// navigate outside the playlist on recent YouTube versions.
+	if (ImprovedTube.getParam(location.href, 'list')) {
+		var nextBtn = player.querySelector('.ytp-next-button');
+		if (nextBtn) {
+			nextBtn.click();
+			return;
+		}
+	}
+	player.nextVideo();
 };
 /*------------------------------------------------------------------------------
 4.7.8 PREVIOUS VIDEO
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutPrevVideo = function () {
-	this.elements.player?.previousVideo();
+	var player = this.elements.player;
+	if (!player) return;
+
+	// In playlist context, use the player's built-in prev button which
+	// correctly navigates within the playlist.
+	if (ImprovedTube.getParam(location.href, 'list')) {
+		var prevBtn = player.querySelector('.ytp-prev-button');
+		if (prevBtn) {
+			prevBtn.click();
+			return;
+		}
+	}
+	player.previousVideo();
 };
 /*------------------------------------------------------------------------------
 4.7.9 SEEK BACKWARD
