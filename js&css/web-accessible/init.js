@@ -116,15 +116,15 @@ ImprovedTube.categoryRefreshButton = function () {
 		svg.appendChild(path3);
 		button.appendChild(svg);
 
-		button.addEventListener('mouseenter', function() {
+		button.addEventListener('mouseenter', function () {
 			this.style.background = 'var(--yt-spec-badge-chip-background)';
 			this.style.borderRadius = '50%';
 		});
-		button.addEventListener('mouseleave', function() {
+		button.addEventListener('mouseleave', function () {
 			this.style.background = 'transparent';
 		});
 
-		button.addEventListener('click', function() {
+		button.addEventListener('click', function () {
 			let chipContainer = document.querySelector('ytd-feed-filter-chip-bar-renderer');
 
 			if (chipContainer) {
@@ -143,7 +143,7 @@ ImprovedTube.categoryRefreshButton = function () {
 				const allChips = chipContainer.querySelectorAll('yt-chip-cloud-chip-renderer button');
 				if (allChips.length > 1) {
 					allChips[1].click();
-					setTimeout(function() {
+					setTimeout(function () {
 						allChips[0].click();
 					}, 200);
 				}
@@ -160,7 +160,7 @@ ImprovedTube.categoryRefreshButton = function () {
 
 	addRefreshButton();
 
-	const mastheadObserver = new MutationObserver(function() {
+	const mastheadObserver = new MutationObserver(function () {
 		if (!document.querySelector('.it-category-refresh-btn')) {
 			const mastheadButtons = document.querySelector('ytd-masthead #end #buttons');
 			if (mastheadButtons && mastheadButtons.children.length > 0) {
