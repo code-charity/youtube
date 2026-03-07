@@ -558,6 +558,7 @@ extension.features.disableThumbnailPlayback = function (event) {
 # MUTE THUMBNAIL PREVIEWS
 --------------------------------------------------------------*/
 extension.features.muteThumbnailPreviews = function () {
+if (extension.storage.get('mute_thumbnail_previews') === true) {
 	var PREVIEW_SELECTORS = '#inline-preview-player, ytd-video-preview, .ytd-video-preview, .ytp-inline-preview';
 
 	function isPreviewVideo(video) {
@@ -595,7 +596,7 @@ extension.features.muteThumbnailPreviews = function () {
 		}
 	}
 
-	if (extension.storage.get('mute_thumbnail_previews') === true) {
+	
 		// Mute any currently existing preview videos
 		mutePreviewVideos(document);
 
