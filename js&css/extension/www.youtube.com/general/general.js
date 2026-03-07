@@ -280,8 +280,7 @@ extension.features.popupWindowButtons = function (event) {
 								event.stopPropagation();
 								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error) };
 								ytPlayer = document.querySelector("#movie_player");
-								if (ytPlayer) { width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65 }
-								else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
+								if (ytPlayer) { width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65 } else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
 								if (!ytPlayer) {
 									let shorts = /short/.test(this.parentElement.href);
 									if (width / height < 1) { let vertical = true } else { let vertical = false }
@@ -556,6 +555,92 @@ extension.features.disableThumbnailPlayback = function (event) {
 };
 
 /*--------------------------------------------------------------
+# MUTE THUMBNAIL PREVIEWS
+--------------------------------------------------------------*/
+extension.features.muteThumbnailPreviews = function () {
+	var PREVIEW_SELECTORS = '#inline-preview-player, ytd-video-preview, .ytd-video-preview, .ytp-inline-preview';
+
+	function isPreviewVideo(video) {
+		return video && video.closest && video.closest(PREVIEW_SELECTORS);
+	}
+
+	function forceMute(video) {
+		if (!video.muted) {
+			video.muted = true;
+		}
+		// Attach a listener to re-mute if YouTube tries to unmute
+		if (!video._itMuteEnforced) {
+			video._itMuteEnforced = true;
+			video.addEventListener('volumechange', function () {
+				if (!this.muted && isPreviewVideo(this)) {
+					this.muted = true;
+				}
+			});
+			// Also re-mute on play in case audio is restored
+			video.addEventListener('play', function () {
+				if (!this.muted && isPreviewVideo(this)) {
+					this.muted = true;
+				}
+			});
+		}
+	}
+
+	function mutePreviewVideos(root) {
+		if (!root || !root.querySelectorAll) return;
+		var videos = root.querySelectorAll('video');
+		for (var i = 0; i < videos.length; i++) {
+			if (isPreviewVideo(videos[i])) {
+				forceMute(videos[i]);
+			}
+		}
+	}
+
+	if (extension.storage.get('mute_thumbnail_previews') === true) {
+		// Mute any currently existing preview videos
+		mutePreviewVideos(document);
+
+		// Observe for new preview videos and attribute changes
+		if (!this.muteThumbnailPreviews.observer) {
+			this.muteThumbnailPreviews.observer = new MutationObserver(function (mutationList) {
+				for (var i = 0, l = mutationList.length; i < l; i++) {
+					var mutation = mutationList[i];
+
+					// Handle new nodes being added (new hover previews)
+					for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
+						var node = mutation.addedNodes[j];
+						if (node.nodeType === 1) {
+							if (node.nodeName === 'VIDEO' && isPreviewVideo(node)) {
+								forceMute(node);
+							}
+							mutePreviewVideos(node);
+						}
+					}
+
+					// Handle attribute changes (e.g. src change = new video loaded in same element)
+					if (mutation.type === 'attributes' && mutation.target.nodeName === 'VIDEO') {
+						if (isPreviewVideo(mutation.target)) {
+							forceMute(mutation.target);
+						}
+					}
+				}
+			});
+
+			this.muteThumbnailPreviews.observer.observe(document.documentElement, {
+				childList: true,
+				subtree: true,
+				attributes: true,
+				attributeFilter: ['src']
+			});
+		}
+	} else {
+		if (this.muteThumbnailPreviews.observer) {
+			this.muteThumbnailPreviews.observer.disconnect();
+			this.muteThumbnailPreviews.observer = null;
+		}
+	}
+};
+
+/*--------------------------------------------------------------
 # OPEN VIDEOS IN A NEW TAB
 --------------------------------------------------------------*/
 
@@ -771,71 +856,70 @@ extension.features.removeMemberOnly = function () {
 };
 
 /*--------------------------------------------------------------
-# HIDE 'WATCH LATER' VIDEOS 
+# HIDE 'WATCH LATER' VIDEOS
 --------------------------------------------------------------*/
 extension.features.hideWatchLater = function () {
-    // Check if settings are ready
-    const setting = extension.storage.get('hide_watch_later');
+	// Check if settings are ready
+	const setting = extension.storage.get('hide_watch_later');
 
-    if (setting === undefined) {
-        setTimeout(extension.features.hideWatchLater, 100);
-        return;
-    }
+	if (setting === undefined) {
+		setTimeout(extension.features.hideWatchLater, 100);
+		return;
+	}
 
-    if (setting !== true) {
-        return; 
-    }
+	if (setting !== true) {
+		return;
+	}
 
-    
-    let watchLaterIds = new Set();
-    let isFetching = false;
+	let watchLaterIds = new Set();
+	let isFetching = false;
 
-    function fetchWatchLaterList() {
-        if (isFetching || watchLaterIds.size > 0) return;
-        isFetching = true;
+	function fetchWatchLaterList() {
+		if (isFetching || watchLaterIds.size > 0) return;
+		isFetching = true;
 
-        fetch('https://www.youtube.com/playlist?list=WL')
-            .then(res => res.text())
-            .then(text => {
-                const matches = text.match(/"videoId":"(.*?)"/g);
-                if (matches) {
-                    const cleanIds = matches.map(item => item.split('"')[3]);
-                    watchLaterIds = new Set(cleanIds);
-                    hideVideos();
-                }
-            })
-            .catch(err => console.error('[ImprovedTube] Fetch Error:', err))
-            .finally(() => isFetching = false);
-    }
+		fetch('https://www.youtube.com/playlist?list=WL')
+			.then(res => res.text())
+			.then(text => {
+				const matches = text.match(/"videoId":"(.*?)"/g);
+				if (matches) {
+					const cleanIds = matches.map(item => item.split('"')[3]);
+					watchLaterIds = new Set(cleanIds);
+					hideVideos();
+				}
+			})
+			.catch(err => console.error('[ImprovedTube] Fetch Error:', err))
+			.finally(() => isFetching = false);
+	}
 
-    function hideVideos() {
-        if (watchLaterIds.size === 0) return;
-        const videos = document.querySelectorAll('ytd-rich-item-renderer, yt-lockup-view-model');
-        videos.forEach(video => {
-            const link = video.querySelector('a#thumbnail, a');
-            if (link && link.href && link.href.includes('v=')) {
-                const videoId = link.href.split('v=')[1].split('&')[0];
-                if (watchLaterIds.has(videoId)) {
-                    video.style.display = 'none';
-                }
-            }
-        });
-    }
+	function hideVideos() {
+		if (watchLaterIds.size === 0) return;
+		const videos = document.querySelectorAll('ytd-rich-item-renderer, yt-lockup-view-model');
+		videos.forEach(video => {
+			const link = video.querySelector('a#thumbnail, a');
+			if (link && link.href && link.href.includes('v=')) {
+				const videoId = link.href.split('v=')[1].split('&')[0];
+				if (watchLaterIds.has(videoId)) {
+					video.style.display = 'none';
+				}
+			}
+		});
+	}
 
-    // Standard "Body Check" to make sure page exists
-    function init() {
-        if (!document.body) {
-            setTimeout(init, 100);
-            return;
-        }
-        fetchWatchLaterList();
-        const observer = new MutationObserver(() => {
-            if (watchLaterIds.size > 0) hideVideos();
-        });
-        observer.observe(document.body, {childList: true, subtree: true});
-    }
+	// Standard "Body Check" to make sure page exists
+	function init() {
+		if (!document.body) {
+			setTimeout(init, 100);
+			return;
+		}
+		fetchWatchLaterList();
+		const observer = new MutationObserver(() => {
+			if (watchLaterIds.size > 0) hideVideos();
+		});
+		observer.observe(document.body, { childList: true, subtree: true });
+	}
 
-    init();
+	init();
 };
 
 // Start the check

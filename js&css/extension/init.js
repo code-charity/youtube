@@ -44,6 +44,7 @@ extension.events.on('init', function () {
 	extension.features.defaultContentCountry();
 	extension.features.popupWindowButtons();
 	extension.features.disableThumbnailPlayback();
+	extension.features.muteThumbnailPreviews();
 	extension.features.markWatchedVideos();
 	extension.features.relatedVideos();
 	extension.features.stickyNavigation();
@@ -52,7 +53,7 @@ extension.events.on('init', function () {
 	extension.features.openNewTab();
 	extension.features.removeListParamOnNewTab();
 	extension.features.removeMemberOnly();
-	// extension.features.hideSponsoredVideosOnHome?.();	
+	// extension.features.hideSponsoredVideosOnHome?.();
 	bodyReady();
 });
 
@@ -76,7 +77,7 @@ extension.inject([
 	'/js&css/web-accessible/www.youtube.com/shortcuts.js',
 	'/js&css/web-accessible/www.youtube.com/blocklist.js',
 	'/js&css/web-accessible/www.youtube.com/settings.js',
-	'/js&css/web-accessible/www.youtube.com/last-watched-overlay.js',  // Neue Zeile hinzufügen
+	'/js&css/web-accessible/www.youtube.com/last-watched-overlay.js', // Neue Zeile hinzufügen
 	'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.js',
 	'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.css',
 	'/js&css/web-accessible/init.js'
