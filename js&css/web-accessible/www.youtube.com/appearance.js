@@ -158,10 +158,8 @@ ImprovedTube.playerRemainingDuration = function () {
 	const liveBadge = document.querySelector('button.ytp-live-badge.ytp-button.ytp-live-badge-is-livehead');
 	if (liveBadge) return;
 
-	const currentEl = document.querySelector('.ytp-time-current');
 	const durationEl = document.querySelector('.ytp-time-duration');
-
-	if (!currentEl || !durationEl) return;
+	if (!durationEl) return;
 
 	const player = ImprovedTube.elements.player;
 	if (!player) return;
@@ -173,16 +171,16 @@ ImprovedTube.playerRemainingDuration = function () {
 
 	const remainingSeconds = Math.max(0, duration - currentTime);
 	const rTime = ImprovedTube.formatSecond(Math.floor(remainingSeconds));
-	
+
 	if (!rTime || rTime.includes('NaN')) return;
 
-	if (!durationEl.dataset.itOriginal) {
-		durationEl.dataset.itOriginal = durationEl.textContent;
+	var remainingEl = document.querySelector('.ytp-time-remaining-duration');
+	if (!remainingEl) {
+		remainingEl = document.createElement('span');
+		remainingEl.className = 'ytp-time-remaining-duration';
+		durationEl.insertAdjacentElement('afterend', remainingEl);
 	}
-
-	// Overwrite text 
-	durationEl.textContent =
-		durationEl.dataset.itOriginal + '  (-' + rTime + ')';
+	remainingEl.textContent = '  (-' + rTime + ')';
 };
 
 
