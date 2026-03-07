@@ -10,11 +10,15 @@ ImprovedTube.shortcutsInit = function () {
 	// those four are _references_ to source Objects, not copies
 	const listening = ImprovedTube.input.listening,
 		listeners = ImprovedTube.input.listeners;
+	const volumeWheelEnabled = this.storage.shortcuts_volume_wheel_ctrl === true;
+	const playbackSpeedWheelEnabled = this.storage.shortcuts_playback_speed_wheel === true;
 
 	// reset 'listening' shortcuts
 	for (var key in listening) delete listening[key];
 	// extract shortcuts from User Settings and initialize 'listening'
 	for (const [name, keys] of Object.entries(this.storage).filter(v => v[0].startsWith('shortcut_'))) {
+		if (!volumeWheelEnabled && name.includes('_volume_wheel_')) continue;
+		if (!playbackSpeedWheelEnabled && name.includes('_playback_speed_wheel_')) continue;
 		if (!keys) continue;
 		// camelCase(name)
 		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
@@ -388,6 +392,58 @@ ImprovedTube.shortcutIncreaseVolume = function (decrease) {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDecreaseVolume = function () {
 	ImprovedTube.shortcutIncreaseVolume(true);
+};
+/*------------------------------------------------------------------------------
+CTRL + WHEEL VOLUME
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutIncreaseVolumeWheelCtrl = function () {
+	ImprovedTube.shortcutIncreaseVolume(false);
+};
+
+ImprovedTube.shortcutDecreaseVolumeWheelCtrl = function () {
+	ImprovedTube.shortcutIncreaseVolume(true);
+};
+
+ImprovedTube.shortcutIncreaseVolumeWheelAlt = function () {
+	ImprovedTube.shortcutIncreaseVolume(false);
+};
+
+ImprovedTube.shortcutDecreaseVolumeWheelAlt = function () {
+	ImprovedTube.shortcutIncreaseVolume(true);
+};
+
+ImprovedTube.shortcutIncreaseVolumeWheelShift = function () {
+	ImprovedTube.shortcutIncreaseVolume(false);
+};
+
+ImprovedTube.shortcutDecreaseVolumeWheelShift = function () {
+	ImprovedTube.shortcutIncreaseVolume(true);
+};
+/*------------------------------------------------------------------------------
+PLAYBACK SPEED + WHEEL
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutIncreasePlaybackSpeedWheelCtrl = function () {
+	ImprovedTube.shortcutIncreasePlaybackSpeed(false);
+};
+
+ImprovedTube.shortcutDecreasePlaybackSpeedWheelCtrl = function () {
+	ImprovedTube.shortcutIncreasePlaybackSpeed(true);
+};
+
+ImprovedTube.shortcutIncreasePlaybackSpeedWheelAlt = function () {
+	ImprovedTube.shortcutIncreasePlaybackSpeed(false);
+};
+
+ImprovedTube.shortcutDecreasePlaybackSpeedWheelAlt = function () {
+	ImprovedTube.shortcutIncreasePlaybackSpeed(true);
+};
+
+ImprovedTube.shortcutIncreasePlaybackSpeedWheelShift = function () {
+	ImprovedTube.shortcutIncreasePlaybackSpeed(false);
+};
+
+ImprovedTube.shortcutDecreasePlaybackSpeedWheelShift = function () {
+	ImprovedTube.shortcutIncreasePlaybackSpeed(true);
 };
 /*------------------------------------------------------------------------------
 4.7.15 SCREENSHOT

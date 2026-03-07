@@ -83,6 +83,11 @@ extension.skeleton.main.layers.section.shortcuts = {
 									max: 25,
 									step: 1,
 									value: 5
+								},
+								shortcuts_volume_wheel_ctrl: {
+									component: 'checkbox',
+									text: 'ctrlWheelVolume',
+									value: false
 								}
 							},
 
@@ -111,7 +116,17 @@ extension.skeleton.main.layers.section.shortcuts = {
 											}
 										}
 									}
-								}
+								},
+								shortcut_increase_volume_wheel_ctrl: {
+									component: 'shortcut',
+									text: 'increaseVolume',
+									value: {}
+								},
+								shortcut_decrease_volume_wheel_ctrl: {
+									component: 'shortcut',
+									text: 'decreaseVolume',
+									value: {}
+								},
 							}
 						}
 					}
@@ -132,6 +147,11 @@ extension.skeleton.main.layers.section.shortcuts = {
 									max: 2,
 									step: .05,
 									value: .05
+								},
+								shortcuts_playback_speed_wheel: {
+									component: 'checkbox',
+									text: 'wheelPlaybackSpeed',
+									value: false
 								}
 							},
 
@@ -160,6 +180,16 @@ extension.skeleton.main.layers.section.shortcuts = {
 											}
 										}
 									}
+								},
+								shortcut_increase_playback_speed_wheel_ctrl: {
+									component: 'shortcut',
+									text: 'increasePlaybackSpeed',
+									value: {}
+								},
+								shortcut_decrease_playback_speed_wheel_ctrl: {
+									component: 'shortcut',
+									text: 'decreasePlaybackSpeed',
+									value: {}
 								},
 								shortcut_reset_playback_speed: {
 									component: 'shortcut',
