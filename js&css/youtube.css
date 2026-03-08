@@ -1,0 +1,6 @@
+/* Existing styles */
+
+/* Hide filter chip bar */
+ytd-feed-filter-chip-bar-renderer#chips-wrapper {
+  display: none !important;
+}
