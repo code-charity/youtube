@@ -34,8 +34,8 @@ Today adding features can be easier & so motivating as there are 500 000 users. 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - 
 **W**hy arent there millions of users yet? We didn't write a guide or manual, let alone ads. This project can "fly much higher" through your word of mouth & eventually enable us to work on all wishes & immediate fixes around the clock🌱    </details> 
 
-<h2><a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">Contributing</a></h2>
-For more info on how to contribute, see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">contribution wiki</a> or <a href="https://github.com/code-charity/youtube/wiki/Contributing#development"> #development</a>
+## **Contributing**  
+For info on how to contribute, see the <a href="https://github.com/code-for-charity/ImprovedTube-for-YouTube/wiki/Contributing">wiki</a> or <a href="https://github.com/code-charity/youtube/wiki/Contributing#development"> #development</a>
 <br><br> Please join us! Let's redefine "<a href="https://en.wikipedia.org/wiki/Browser_extension">Browser extensions</a>"!
 
 <table  align="right"><tr><td><h3><a href="https://github.com/code-charity/youtube/labels?sort=count-desc"><code>🏷️</code></a>Roadmap</h3> <!-- The list below only stays formatted when there is a line break above --> 
