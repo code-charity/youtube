@@ -278,21 +278,21 @@ extension.skeleton.main.layers.section.player.on.click = {
 														text: '1. Select YouTube Category',
 														options: [
 															{value: 'none', text: 'Select Category...'}, 
-															{value: 'Film & Animation', text: 'Film & Animation'}, 
-															{value: 'Autos & Vehicles', text: 'Autos & Vehicles'}, 
+															{value: 'Entertainment', text: 'Entertainment'}, 
 															{value: 'Music', text: 'Music'}, 
-															{value: 'Pets & Animals', text: 'Pets & Animals'}, 
-															{value: 'Sports', text: 'Sports'}, 
-															{value: 'Travel & Events', text: 'Travel & Events'}, 
-															{value: 'Gaming', text: 'Gaming'}, 
+															{value: 'Gaming', text: 'Gaming'},
 															{value: 'People & Blogs', text: 'People & Blogs'}, 
 															{value: 'Comedy', text: 'Comedy'}, 
-															{value: 'Entertainment', text: 'Entertainment'}, 
-															{value: 'News & Politics', text: 'News & Politics'}, 
-															{value: 'Howto & Style', text: 'Howto & Style'}, 
+															{value: 'Howto & Style', text: 'Howto & Style'}, 									
+															{value: 'Film & Animation', text: 'Film & Animation'}, 
 															{value: 'Education', text: 'Education'}, 
 															{value: 'Science & Technology', text: 'Science & Technology'}, 
-															{value: 'Nonprofits & Activism', text: 'Nonprofits & Activism'}
+															{value: 'Sports', text: 'Sports'}, 
+															{value: 'News & Politics', text: 'News & Politics'}
+															{value: 'Autos & Vehicles', text: 'Autos & Vehicles'}, 
+															{value: 'Travel & Events', text: 'Travel & Events'}, 
+															{value: 'Pets & Animals', text: 'Pets & Animals'}, 															
+															{value: 'Nonprofits & Activism', text: 'Nonprofits & Activism'}					
 														],
 														on: {
 															change: function() { tempCategory = this.value; }
