@@ -288,7 +288,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 															{value: 'Education', text: 'Education'}, 
 															{value: 'Science & Technology', text: 'Science & Technology'}, 
 															{value: 'Sports', text: 'Sports'}, 
-															{value: 'News & Politics', text: 'News & Politics'}
+															{value: 'News & Politics', text: 'News & Politics'},
 															{value: 'Autos & Vehicles', text: 'Autos & Vehicles'}, 
 															{value: 'Travel & Events', text: 'Travel & Events'}, 
 															{value: 'Pets & Animals', text: 'Pets & Animals'}, 															
