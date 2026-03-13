@@ -101,7 +101,8 @@ For info on how to contribute, see the <a href="https://github.com/code-for-char
 <a href="https://github.com/pecazeco"><code>pecazeco</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json" title="Português">PT</a></code> :
 <a href="https://github.com/DrNopt"><code>DrNopt</code></a>
-<a href="https://github.com/unnamed-orbert"><code>unnamed-orbert</code></a><br>
+<a href="https://github.com/unnamed-orbert"><code>unnamed-orbert</code></a>
+<a href="https://github.com/drc-exe"><code>drc-exe</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/id/messages.json" title="Bahasa Indonesia">ID</a></code> :
 <a href="https://github.com/Bagus23"><code>Bagus23</code></a> 
 <a href="https://github.com/fdciabdul"><code>A.Muttaqin</code></a>

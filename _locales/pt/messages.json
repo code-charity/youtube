@@ -90,13 +90,13 @@
         "message": "⇧"
     },
     "atHistory": {
-        "message": "em 'Histórico'"
+        "message": "Em 'Histórico'"
     },
     "atSubscriptions": {
         "message": "Em Inscrições"
     },
     "atTrending": {
-        "message": "em 'Tendências'"
+        "message": "Em 'Tendências'"
     },
     "audio": {
         "message": "Áudio"
@@ -156,10 +156,10 @@
         "message": "Preto"
     },
     "block_Codec_Alert_h264": {
-        "message": "Você precisa ativar o H.264 ou VP9 para reproduzir vídeos."
+        "message": "Você precisa de ativar o H.264 ou VP9 para reproduzir vídeos."
     },
     "block_Codec_Alert_VP9": {
-        "message": "Você precisa ativar o VP9 ou H.264 para reproduzir vídeos."
+        "message": "Você precisa de ativar o VP9 ou H.264 para reproduzir vídeos."
     },
     "blockAll": {
         "message": "Bloquear tudo"
@@ -237,7 +237,7 @@
         "message": "Clip"
     },
     "clipboard": {
-        "message": "Àrea de transferência"
+        "message": "Área de transferência"
     },
     "codecH264": {
         "message": "Codec h.264"
@@ -348,7 +348,7 @@
         "message": "Descrição"
     },
     "description_ext": {
-        "message": "Torne o YouTube organizado e inteligente! Pular Anúncio, colorir YouTube, volume, velocidade, canal, ferramenta, estilo, HD, adblock, adblocker, tags, playlist ,palavras-chave"
+        "message": "Torne o YouTube organizado e inteligente! Pular Anúncio, colorir YouTube, volume, velocidade, canal, ferramenta, estilo, HD, adblock, adblocker, tags, playlist , palavras-chave"
     },
     "desert": {
         "message": "Deserto"
@@ -762,7 +762,7 @@
         "message": "Localização"
     },
     "loop": {
-        "message": "Loop"
+        "message": "Ciclo"
     },
     "loudnessNormalization": {
         "message": "Normalização de volume"
@@ -1164,7 +1164,7 @@
         "message": "Cor do texto"
     },
     "thanks": {
-        "message": "Valeu Demais"
+        "message": "Obrigado"
     },
     "themes": {
         "message": "Temas"
