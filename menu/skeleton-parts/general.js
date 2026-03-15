@@ -101,6 +101,11 @@ extension.skeleton.main.layers.section.general = {
 					text: 'removeSubscriptionsMostRelevant',
 					id: 'remove-subscriptions-most-relevant'
 				},
+				subscriptions_list_layout: {
+					component: 'switch',
+					text: 'subscriptionsListLayout',
+					id: 'subscriptions-list-layout'
+				},
 				youtube_home_page: {
 					component: 'select',
 					text: 'youtubeHomePage',
