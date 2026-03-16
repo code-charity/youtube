@@ -626,7 +626,7 @@ ImprovedTube.setPrefCookieValueByName = function (name, value) {
 	let newPrefs = '';
 	let ampersant = '';
 
-	if (name == 'f6' && prefs[name] & 1) {
+	if (name == 'f6' && value != null && prefs[name] & 1) {
 		// f6 holds other settings, possible values 80000 80001 400 401 1 none
 		// make sure we remember 1 bit
 		prefs[name] = value | 1;
