@@ -1238,6 +1238,9 @@
   "removeSubscriptionsMostRelevant": {
     "message": "Hide 'Most relevant' section on Subscriptions page"
   },
+  "subscriptionsListLayout": {
+    "message": "List layout on Subscriptions page"
+  },
   "RemoveSubtitlesForLyrics": {
     "message": "Remove subtitles for lyrics"
   },

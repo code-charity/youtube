@@ -2296,3 +2296,50 @@ html[it-thumbnail-size="x-small"] ytd-compact-video-renderer ytd-thumbnail {
 html[it-thumbnail-size="xx-small"] ytd-compact-video-renderer ytd-thumbnail {
     width: 70px !important;
 }
+
+/*--------------------------------------------------------------
+# SUBSCRIPTIONS LIST LAYOUT
+--------------------------------------------------------------*/
+/* Single-column grid */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-grid-renderer > #contents {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+/* Flatten row wrappers */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-grid-row {
+    display: contents !important;
+}
+
+/* Each video item: horizontal row */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer #dismissible.ytd-rich-grid-media {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+}
+
+/* Thumbnail fixed width on left */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer #dismissible.ytd-rich-grid-media ytd-thumbnail {
+    min-width: 360px !important;
+    max-width: 360px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Details fill remaining space on right */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer #dismissible.ytd-rich-grid-media #details {
+    flex: 1 !important;
+    min-width: 0 !important;
+    padding-top: 4px !important;
+}
+
+/* Hide empty items */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer[is-empty] {
+    display: none !important;
+}
