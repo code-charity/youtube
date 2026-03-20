@@ -17,7 +17,7 @@ html[it-ambient-lighting='false'] #cinematics {display: none !important;}
 /*--------------------------------------------------------------
 # MINI PLAYER Z-INDEX FIX
 --------------------------------------------------------------*/
-.it-mini-player {
+html[it-mini-player='true'] .it-mini-player {
 	z-index: 2201 !important;
 }
 /*--------------------------------------------------------------
