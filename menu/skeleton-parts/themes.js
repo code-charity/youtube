@@ -46,28 +46,32 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 	variant: 'transparent-card',
 
 	default: function () {
+		var theme = satus.storage.get('theme');
+
 		return {
 			component: 'label',
-			variant: satus.storage.get('theme') == 'dark' ? 'dark-theme' : 'default-theme',
-			text: satus.storage.get('theme') == 'dark' ? 'youtubesDark' : 'youtubesLight',
+			variant: 'default-theme',
+			text: 'youtubesLight',
 			radio: {
 				component: 'radio',
 				group: 'theme',
-				value: satus.storage.get('theme') == 'dark' ? 'dark' : 'light',
-				...(!satus.storage.get('theme') && { checked: true })
+				value: 'light',
+				...((!theme || theme == 'light') && { checked: true })
 			}
 		}
 	},
 	opposite: function () {
+		var theme = satus.storage.get('theme');
+
 		return {
 			component: 'label',
-			variant: satus.storage.get('theme') == 'dark' ? 'default-theme' : 'dark-theme',
-			text: satus.storage.get('theme') == 'dark' ? 'youtubesLight' : 'youtubesDark',
+			variant: 'dark-theme',
+			text: 'youtubesDark',
 			radio: {
 				component: 'radio',
 				group: 'theme',
-				value: satus.storage.get('theme') == 'dark' ? 'light' : 'dark',
-				...(satus.storage.get('theme') == 'dark' && { checked: true })
+				value: 'dark',
+				...(theme == 'dark' && { checked: true })
 			}
 		}
 	},
