@@ -1124,6 +1124,10 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				component: "switch",
 				text: 'hidePlaylist'
 			},
+			disable_sidebar_scroll: {
+				component: "switch",
+				text: "disableSidebarScroll"
+			},
 			hide_sidebar: {
 				component: "switch",
 				text: 'Hide_sidebar'

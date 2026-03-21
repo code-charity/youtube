@@ -413,6 +413,9 @@
   "description": {
     "message": "Description"
   },
+  "disableSidebarScroll": {
+    "message": "Disable sidebar scroll"
+  },
   "description_ext": {
     "message": "YouTube, tidy & smart? Supercharge YouTube! Give it strong features, filter only the videos you want & exactly the look you like"
   },

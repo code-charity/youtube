@@ -288,6 +288,17 @@ html[data-page-type=video][it-no-page-margin='true'] ytd-browse > ytd-two-column
 }
 
 /*--------------------------------------------------------------
+# DISABLE SIDEBAR SCROLL
+--------------------------------------------------------------*/
+html[data-page-type=video][it-disable-sidebar-scroll='true']:not([it-comments-sidebar='true']) #secondary,
+html[data-page-type=video][it-disable-sidebar-scroll='true']:not([it-comments-sidebar='true']) #secondary-inner {
+	position: static !important;
+	overflow-y: visible !important;
+	max-height: none !important;
+	height: auto !important;
+}
+
+/*--------------------------------------------------------------
 # MOVE SIDEBAR LEFT
 --------------------------------------------------------------*/
 html[data-page-type=video][it-sidebar-left='true'] #columns>#primary,
