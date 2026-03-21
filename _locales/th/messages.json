@@ -1,8 +1,1664 @@
 {
-    "hideHomePageShorts": {
-        "message": "ลบ Shorts ออกจากหน้าแรก"
-    },
-    "removeShortsReelSearchResults": {
-        "message": "ลบ Shorts reel ออกจากผลการค้นหา"
-    }
+  "hideSuggestedAction": {
+    "message": "ซ่อนการแนะนำ 'ดูผลิตภัณฑ์'"
+  },
+  "hideMerchShelf": {
+    "message": "ซ่อน 'ชั้นวางสินค้า'"
+  },
+  "about": {
+    "message": "เกี่ยวกับ"
+  },
+  "accept": {
+    "message": "ยอมรับ"
+  },
+  "activate": {
+    "message": "เปิดใช้งาน"
+  },
+  "activateCaptions": {
+    "message": "เปิดใช้งานคำบรรยาย"
+  },
+  "activated": {
+    "message": "เปิดใช้งานแล้ว"
+  },
+  "activatedFeatures": {
+    "message": "ฟีเจอร์ที่เปิดใช้งาน"
+  },
+  "activateFitToWindow": {
+    "message": "พอดีกับหน้าต่าง"
+  },
+  "activateFullscreen": {
+    "message": "เต็มหน้าจอ"
+  },
+  "activeFeatures": {
+    "message": "ฟีเจอร์ที่กำลังทำงาน"
+  },
+  "addScrollToTop": {
+    "message": "เพิ่มปุ่ม «เลื่อนขึ้นบนสุด»"
+  },
+  "ads": {
+    "message": "โฆษณาวิดีโอ"
+  },
+  "all": {
+    "message": "ทั้งหมด"
+  },
+  "allow": {
+    "message": "อนุญาต"
+  },
+  "Allow_auto_generate": {
+    "message": "อนุญาตให้สร้างอัตโนมัติ"
+  },
+  "allow60fps": {
+    "message": "อนุญาต 60fps"
+  },
+  "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+    "message": "การตั้งค่าทั้งหมดจะถูกลบและไม่สามารถกู้คืนได้"
+  },
+  "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+    "message": "ปุ่มลัดทั้งหมดจะถูกลบและไม่สามารถกู้คืนได้"
+  },
+  "always": {
+    "message": "เสมอ"
+  },
+  "alwaysActive": {
+    "message": "ใช้งานตลอดเวลา"
+  },
+  "alwaysShowProgressBar": {
+    "message": "แสดงแถบสถานะตลอดเวลา"
+  },
+  "amber": {
+    "message": "สีอำพัน"
+  },
+  "ambientLighting": {
+    "message": "โหมดจัดแสงโดยรอบ"
+  },
+  "analytics": {
+    "message": "การวิเคราะห์"
+  },
+  "analyzer": {
+    "message": "เครื่องมือวิเคราะห์"
+  },
+  "animations": {
+    "message": "แอนิเมชัน"
+  },
+  "appearance": {
+    "message": "รูปลักษณ์"
+  },
+  "areYouSureYouWantToExportTheData": {
+    "message": "คุณแน่ใจหรือไม่ว่าต้องการส่งออกข้อมูล?"
+  },
+  "areYouSureYouWantToImportTheData": {
+    "message": "คุณแน่ใจหรือไม่ว่าต้องการนำเข้าข้อมูลนี้?"
+  },
+  "areYouSureYouWantToSyncTheData": {
+    "message": "คุณแน่ใจหรือไม่ว่าต้องการซิงค์การตั้งค่าปัจจุบัน?"
+  },
+  "ARROWDOWN": {
+    "message": "⇩"
+  },
+  "ARROWLEFT": {
+    "message": "⇦"
+  },
+  "ARROWRIGHT": {
+    "message": "⇨"
+  },
+  "ARROWUP": {
+    "message": "⇧"
+  },
+  "ask": {
+    "message": "ถาม"
+  },
+  "atHistory": {
+    "message": "ที่ ประวัติ"
+  },
+  "atSubscriptions": {
+    "message": "ที่ การติดตาม"
+  },
+  "atTrending": {
+    "message": "ที่ มาแรง"
+  },
+  "audio": {
+    "message": "เสียง"
+  },
+  "audioFormats": {
+    "message": "รูปแบบเสียง"
+  },
+  "auto": {
+    "message": "อัตโนมัติ"
+  },
+  "Auto_PiP_picture_in_picture": {
+    "message": "Auto-PiP (ภาพซ้อนภาพ)"
+  },
+  "autoFullscreen": {
+    "message": "เต็มหน้าจออัตโนมัติ"
+  },
+  "autopauseWhenSwitchingTabs": {
+    "message": "หยุดชั่วคราวอัตโนมัติเมื่อไม่อยู่ในแท็บ"
+  },
+  "autoPictureInPicture": {
+    "message": "ภาพซ้อนภาพอัตโนมัติ"
+  },
+  "autoplay": {
+    "message": "เล่นอัตโนมัติ"
+  },
+  "autoplayDisable": {
+    "message": "บังคับปิดการเล่นอัตโนมัติ"
+  },
+  "autoPlayNextShort": {
+    "message": "เล่น Shorts ถัดไปอัตโนมัติ"
+  },
+  "avoidAv1": {
+    "message": "เลี่ยง AV1"
+  },
+  "avoidAv1Vp8Vp9": {
+    "message": "เลี่ยง AV1, VP8, VP9"
+  },
+  "avoidAv1Vp9": {
+    "message": "เลี่ยง AV1, VP9"
+  },
+  "avoidCpuRenderingWhenPossible": {
+    "message": "เลี่ยงการประมวลผลด้วย CPU หากเป็นไปได้"
+  },
+  "backgroundColor": {
+    "message": "สีพื้นหลัง"
+  },
+  "backgroundOpacity": {
+    "message": "ความโปร่งใสของพื้นหลัง"
+  },
+  "backupAndReset": {
+    "message": "สำรองข้อมูลและรีเซ็ต"
+  },
+  "baseOnSystemColorScheme": {
+    "message": "ตามชุดสีของระบบ"
+  },
+  "belowPlayer": {
+    "message": "ใต้เครื่องเล่น"
+  },
+  "bitness": {
+    "message": "Bitness"
+  },
+  "black": {
+    "message": "สีดำ"
+  },
+  "block_Codec_Alert_h264": {
+    "message": "คุณต้องเปิดใช้งาน H.264 หรือ VP9 อย่างใดอย่างหนึ่งเพื่อให้ YouTube เล่นวิดีโอได้"
+  },
+  "block_Codec_Alert_VP9": {
+    "message": "คุณต้องเปิดใช้งาน VP9 หรือ H.264 อย่างใดอย่างหนึ่งเพื่อให้ YouTube เล่นวิดีโอได้"
+  },
+  "blockAll": {
+    "message": "ปิด (บล็อกหรือข้าม)"
+  },
+  "blockAv1": {
+    "message": "บล็อก AV1"
+  },
+  "blockH264": {
+    "message": "บล็อก H.264"
+  },
+  "blocklist": {
+    "message": "รายการบล็อก"
+  },
+  "blockMusic": {
+    "message": "ข้ามโฆษณาเมื่อฟังเพลง"
+  },
+  "blockVp8": {
+    "message": "บล็อก VP8"
+  },
+  "blockVp9": {
+    "message": "บล็อก VP9"
+  },
+  "blue": {
+    "message": "สีน้ำเงิน"
+  },
+  "blueGray": {
+    "message": "สีฟ้าเทา"
+  },
+  "bluelight": {
+    "message": "แสงสีฟ้า"
+  },
+  "bottomLeft": {
+    "message": "ล่างซ้าย"
+  },
+  "bottomRight": {
+    "message": "ล่างขวา"
+  },
+  "brightness": {
+    "message": "ความสว่าง"
+  },
+  "brown": {
+    "message": "สีน้ำตาล"
+  },
+  "browser": {
+    "message": "เบราว์เซอร์"
+  },
+  "browserAccountSync": {
+    "message": "ซิงค์ (บัญชีเบราว์เซอร์)"
+  },
+  "browserVersion": {
+    "message": "เวอร์ชันเบราว์เซอร์"
+  },
+  "bubbles": {
+    "message": "ฟองสบู่"
+  },
+  "bug": {
+    "message": "ข้อผิดพลาด (Bug)"
+  },
+  "bulkDeleteByProgress": {
+    "message": "ลบวิดีโอจำนวนมากตามความคืบหน้าการรับชม"
+  },
+  "buttons": {
+    "message": "ปุ่ม"
+  },
+  "cancel": {
+    "message": "ยกเลิก"
+  },
+  "categories": {
+    "message": "หมวดหมู่"
+  },
+  "categoryRefreshButton": {
+    "message": "เพิ่มปุ่มรีเฟรชหมวดหมู่"
+  },
+  "changeThumbnailsPerRow": {
+    "message": "จำนวนรูปภาพตัวอย่างต่อแถว"
+  },
+  "channel": {
+    "message": "ช่อง"
+  },
+  "channels": {
+    "message": "ช่องต่างๆ"
+  },
+  "chapters": {
+    "message": "ช่วงต่างๆ (Chapters)"
+  },
+  "chapterTitle": {
+    "message": "ชื่อช่วง"
+  },
+  "characterEdgeStyle": {
+    "message": "รูปแบบขอบตัวอักษร"
+  },
+  "cinemaMode": {
+    "message": "โหมดโรงภาพยนตร์"
+  },
+  "clickableLinksInDescription": {
+    "message": "คลิกขวาเพื่อคัดลอกลิงก์ในคำอธิบายวิดีโอ"
+  },
+  "clip": {
+    "message": "คลิป"
+  },
+  "clipboard": {
+    "message": "คลิปบอร์ด"
+  },
+  "codecH264": {
+    "message": "ตัวถอดรหัส h.264"
+  },
+  "codecs": {
+    "message": "ตัวถอดรหัส"
+  },
+  "collapsed": {
+    "message": "ย่อเก็บ"
+  },
+  "collapseOfSubscriptionSections": {
+    "message": "พับส่วนการติดตาม (เมนูแบบพับเก็บได้)"
+  },
+  "columns": {
+    "message": "คอลัมน์แถบข้างเพิ่มเติม (โดยไม่ย้ายวิดีโอที่เกี่ยวข้อง หากหน้าต่างกว้างพอ)"
+  },
+  "comments": {
+    "message": "ความคิดเห็น"
+  },
+  "compact_spacing": {
+    "message": "ระยะห่างแบบกระชับ"
+  },
+  "compactTheme": {
+    "message": "ธีมแบบกะทัดรัด"
+  },
+  "confirmationBeforeClosing": {
+    "message": "ยืนยันก่อนปิด"
+  },
+  "cookies": {
+    "message": "คุกกี้"
+  },
+  "copyVideoId": {
+    "message": "📋 คัดลอก ID วิดีโอ"
+  },
+  "copyVideoUrl": {
+    "message": "คัดลอก URL วิดีโอแบบเต็ม"
+  },
+  "copyTranscript": {
+    "message": "📋 คัดลอกสคริปต์วิดีโอ"
+  },
+  "FetchingTranscript": {
+    "message": "กำลังดึงข้อมูล..."
+  },
+  "TranscriptError": {
+    "message": "เกิดข้อผิดพลาด"
+  },
+  "cores": {
+    "message": "คอร์"
+  },
+  "cropChapterTitles": {
+    "message": "ตัดครอบชื่อช่วง"
+  },
+  "Currently_requiring_a_YouTube_API_key": {
+    "message": "(ขณะนี้จำเป็นต้องใช้ YouTube-API-key: )"
+  },
+  "cursorLighting": {
+    "message": "หรี่ไฟหน้า YouTube ยกเว้นส่วนที่เมาส์ชี้!"
+  },
+  "custom": {
+    "message": "กำหนดเอง"
+  },
+  "customCss": {
+    "message": "CSS กำหนดเอง"
+  },
+  "customJs": {
+    "message": "JS กำหนดเอง"
+  },
+  "customMiniPlayer": {
+    "message": "เครื่องเล่นจิ๋วแบบกำหนดเอง"
+  },
+  "cyan": {
+    "message": "สีฟ้าอมเขียว (Cyan)"
+  },
+  "dark": {
+    "message": "มืด"
+  },
+  "darkTheme": {
+    "message": "ธีมมืด"
+  },
+  "dateAndTime": {
+    "message": "วันที่และเวลา"
+  },
+  "dawn": {
+    "message": "รุ่งอรุณ"
+  },
+  "decreasePlaybackSpeed": {
+    "message": "ลดความเร็วการเล่น"
+  },
+  "decreaseVolume": {
+    "message": "ลดระดับเสียง"
+  },
+  "deepOrange": {
+    "message": "สีส้มเข้ม"
+  },
+  "deepPurple": {
+    "message": "สีม่วงเข้ม"
+  },
+  "default": {
+    "message": "ค่าเริ่มต้น"
+  },
+  "default_CC": {
+    "message": "ค่าเริ่มต้น"
+  },
+  "default_theme": {
+    "message": "ค่าเริ่มต้น"
+  },
+  "defaultChannelTab": {
+    "message": "แท็บเริ่มต้นของช่อง"
+  },
+  "defaultContentCountry": {
+    "message": "ประเทศ (Virtual Travel)"
+  },
+  "defaultPlaybackSpeed": {
+    "message": "ความเร็วการเล่นเริ่มต้น"
+  },
+  "deleteWatchedVideos": {
+    "message": "ลบวิดีโอที่ดูแล้ว"
+  },
+  "deleteYoutubeCookies": {
+    "message": "ลบคุกกี้ YouTube"
+  },
+  "depressed": {
+    "message": "เงาลึก"
+  },
+  "description": {
+    "message": "คำอธิบาย"
+  },
+  "description_ext": {
+    "message": "จัดระเบียบ YouTube ให้ฉลาดกว่าเดิม? อัปเกรด YouTube ของคุณ! เพิ่มฟีเจอร์ที่ทรงพลัง กรองเฉพาะวิดีโอที่คุณต้องการ และปรับแต่งรูปลักษณ์ได้ตามใจคุณ"
+  },
+  "desert": {
+    "message": "ทะเลทราย"
+  },
+  "details": {
+    "message": "รายละเอียด"
+  },
+  "developerOptions": {
+    "message": "ตัวเลือกสำหรับนักพัฒนา"
+  },
+  "device": {
+    "message": "อุปกรณ์"
+  },
+  "dim": {
+    "message": "สลัว"
+  },
+  "disableAutoDubbing": {
+    "message": "ปิดการพากย์เสียงอัตโนมัติ"
+  },
+  "disabled": {
+    "message": "ปิดใช้งาน"
+  },
+  "disableLikesAnimation": {
+    "message": "ปิดแอนิเมชันปุ่มถูกใจ"
+  },
+  "disableThumbnailPlayback": {
+    "message": "ปิดการเล่นวิดีโอเมื่อวางเมาส์เหนือรูปตัวอย่าง"
+  },
+  "muteThumbnailPreviews": {
+    "message": "ปิดเสียงวิดีโอตัวอย่าง"
+  },
+  "dislike": {
+    "message": "ไม่ชอบ"
+  },
+  "dislikingAVideoAddsItToBlocklist": {
+    "message": "การกดไม่ชอบวิดีโอจะเพิ่มวิดีโอนั้นลงในรายการบล็อก"
+  },
+  "displayDayOfTheWeak": {
+    "message": "แสดงวันในสัปดาห์"
+  },
+  "donate": {
+    "message": "บริจาค"
+  },
+  "doNotChange": {
+    "message": "ไม่ต้องเปลี่ยน"
+  },
+  "download": {
+    "message": "ดาวน์โหลด"
+  },
+  "draggable": {
+    "message": "ลากย้ายได้"
+  },
+  "dropShadow": {
+    "message": "เงาตกกระทบ"
+  },
+  "durationWithSpeed": {
+    "message": "แสดงเวลาที่เหลือโดยอ้างอิงตามความเร็วการเล่น"
+  },
+  "email": {
+    "message": "อีเมล"
+  },
+  "embedded_Hide_Share": {
+    "message": "ซ่อนปุ่มแชร์ในวิดีโอที่ฝังไว้"
+  },
+  "Embedded_YouTube": {
+    "message": "YouTube ที่ฝังในเว็บอื่น"
+  },
+  "empty": {
+    "message": "ว่างเปล่า"
+  },
+  "enabled": {
+    "message": "เปิดใช้งาน"
+  },
+  "enabledForced": {
+    "message": "เปิดใช้งาน (บังคับ)"
+  },
+  "enterPassword": {
+    "message": "โปรดกรอกรหัส 4 หลักของคุณ"
+  },
+  "exact": {
+    "message": "ระบุวันที่/เวลาที่แน่นอน"
+  },
+  "excludeShortsInPlayAll": {
+    "message": "ไม่รวม Shorts เมื่อใช้คำสั่ง \"เล่นทั้งหมด\""
+  },
+  "expanded": {
+    "message": "ขยายออก"
+  },
+  "exportSettings": {
+    "message": "ส่งออกการตั้งค่า"
+  },
+  "extension": {
+    "message": "ส่วนขยาย"
+  },
+  "ExtraButtons": {
+    "message": "ปุ่มเพิ่มเติม"
+  },
+  "extraButtonsBelowThePlayer": {
+    "message": "ปุ่มเพิ่มเติมใต้เครื่องเล่น"
+  },
+  "extraRightControlButtons": {
+    "message": "ปุ่มเพิ่มเติมภายในเครื่องเล่น"
+  },
+  "Feature_not_yet_available": {
+    "message": "ฟีเจอร์นี้ยังไม่พร้อมใช้งาน"
+  },
+  "file": {
+    "message": "ไฟล์"
+  },
+  "filters": {
+    "message": "ตัวกรอง"
+  },
+  "fitToWindow": {
+    "message": "ทางเลือกแบบเก่า ('พอดีกับหน้าต่าง')"
+  },
+  "flash": {
+    "message": "แฟลช"
+  },
+  "font": {
+    "message": "แบบอักษร"
+  },
+  "fontColor": {
+    "message": "สีแบบอักษร"
+  },
+  "fontFamily": {
+    "message": "ตระกูลแบบอักษร"
+  },
+  "fontOpacity": {
+    "message": "ความโปร่งใสของแบบอักษร"
+  },
+  "fontSize": {
+    "message": "ขนาดแบบอักษร"
+  },
+  "footer": {
+    "message": "ส่วนท้ายหน้า"
+  },
+  "forcedPlaybackSpeed": {
+    "message": "การเร่งความเร็วการรับชม: ความเร็วถาวร"
+  },
+  "forcedPlaybackSpeedMusic": {
+    "message": "(บังคับใช้ความเร็วการเล่นแม้แต่กับเพลงหรือไม่?)"
+  },
+  "forcedPlayVideoFromTheBeginning": {
+    "message": "บังคับให้เล่นวิดีโอตั้งแต่เริ่มต้น"
+  },
+  "forcedTheaterMode": {
+    "message": "บังคับใช้โหมดโรงภาพยนตร์"
+  },
+  "forcedVolume": {
+    "message": "บังคับระดับเสียง"
+  },
+  "forceSDR": {
+    "message": "เลี่ยง HDR ให้ใช้ SDR แทน"
+  },
+  "foundABug": {
+    "message": "พบข้อผิดพลาดใช่ไหม?"
+  },
+  "fullScreenQuality": {
+    "message": "คุณภาพเมื่อเต็มหน้าจอ"
+  },
+  "fullscreenReturn": {
+    "message": "กลับสู่หน้าจอปกติ"
+  },
+  "fullWindow": {
+    "message": "ความสูงเต็มจอ"
+  },
+  "general": {
+    "message": "ทั่วไป"
+  },
+  "geoPreference": {
+    "message": "ภูมิภาคที่ต้องการ"
+  },
+  "github": {
+    "message": "GitHub"
+  },
+  "googleApiKey": {
+    "message": "Google API key"
+  },
+  "goToSearchBox": {
+    "message": "ไปที่ช่องค้นหา"
+  },
+  "gpu": {
+    "message": "GPU"
+  },
+  "GPUnotindatabase": {
+    "message": "ไม่พบ GPU ในฐานข้อมูล"
+  },
+  "green": {
+    "message": "สีเขียว"
+  },
+  "grey": {
+    "message": "สีเทา"
+  },
+  "halfTransparent": {
+    "message": "จาง/โปร่งแสงครึ่งหนึ่ง"
+  },
+  "Hamburger_Menu": {
+    "message": "เมนูแฮมเบอร์เกอร์"
+  },
+  "hardwareInformation": {
+    "message": "ข้อมูลฮาร์ดแวร์"
+  },
+  "hd": {
+    "message": "HD"
+  },
+  "hdThumbnail": {
+    "message": "รูปตัวอย่างแบบ HD"
+  },
+  "header": {
+    "message": "ส่วนหัวหน้า"
+  },
+  "hidden": {
+    "message": "ซ่อนอยู่"
+  },
+  "hiddenOnVideoPage": {
+    "message": "ซ่อนในหน้าวิดีโอ"
+  },
+  "hide_author_avatars": {
+    "message": "ซ่อนรูปโปรไฟล์เจ้าของช่อง"
+  },
+  "hide_labels": {
+    "message": "ซ่อนชื่อ"
+  },
+  "Hide_Pause_Overlay": {
+    "message": "ซ่อนแถบเมนูเมื่อหยุดวิดีโอ"
+  },
+  "Hide_Shorts_remixing_this_video": {
+    "message": "ซ่อน Shorts ที่รีมิกซ์วิดีโอนี้"
+  },
+  "Hide_sidebar": {
+    "message": "ซ่อนแถบข้าง"
+  },
+  "Hide_the_tabs_only": {
+    "message": "ซ่อนเฉพาะแท็บ"
+  },
+  "Hide_YouTube_Logo": {
+    "message": "ซ่อนโลโก้ YouTube"
+  },
+  "hideAISummary": {
+    "message": "ซ่อนการสรุปด้วย AI"
+  },
+  "hideAnimatedThumbnails": {
+    "message": "ซ่อนรูปตัวอย่างวิดีโอแบบเคลื่อนไหว"
+  },
+  "hideAnnotations": {
+    "message": "ซ่อนคำอธิบายประกอบ (Annotations)"
+  },
+  "hideBannerAds": {
+    "message": "ซ่อนโฆษณาแบนเนอร์ (YouTube อาจปฏิเสธการเข้าถึง)"
+  },
+  "hideCards": {
+    "message": "ซ่อนการ์ดในวิดีโอ"
+  },
+  "hideCategories": {
+    "message": "ซ่อนหมวดหมู่"
+  },
+  "hideCommentsCount": {
+    "message": "ซ่อนจำนวนความคิดเห็น"
+  },
+  "hideCountryCode": {
+    "message": "ซ่อนรหัสประเทศ"
+  },
+  "hideDate": {
+    "message": "ซ่อนวันที่"
+  },
+  "hideDetailButton": {
+    "message": "ปุ่ม (ใต้เครื่องเล่น)"
+  },
+  "hideDetails": {
+    "message": "ซ่อนรายละเอียด"
+  },
+  "hideEndscreen": {
+    "message": "ซ่อนหน้าจอตอนจบวิดีโอ"
+  },
+  "hideFeaturedContent": {
+    "message": "ซ่อนเนื้อหาแนะนำ"
+  },
+  "hideFooter": {
+    "message": "ซ่อนส่วนท้าย"
+  },
+  "hideGradientBottom": {
+    "message": "ซ่อนเงาบริเวณแถบเครื่องเล่น"
+  },
+  "hideHomePageShorts": {
+    "message": "ซ่อน Shorts ในหน้าแรก"
+  },
+  "hideIncludesPaidPromotion": {
+    "message": "ซ่อนคำแจ้งเตือน \"มีเนื้อหาที่ได้รับค่าตอบแทน\""
+  },
+  "hideLogo": {
+    "message": "โลโก้: ซ่อน!"
+  },
+  "hideMore": {
+    "message": "ซ่อน '...'"
+  },
+  "hidePlayerControlsBar": {
+    "message": "ซ่อนแถบควบคุมเครื่องเล่น"
+  },
+  "hidePlayerControlsBarButtons": {
+    "message": "ซ่อนปุ่มบนแถบควบคุม"
+  },
+  "hidePlayerControlsBarOptions": {
+    "message": "ซ่อนตัวเลือกบนแถบควบคุม"
+  },
+  "hidePlaylist": {
+    "message": "ซ่อนเพลย์ลิสต์"
+  },
+  "hideProgressBarPreview": {
+    "message": "ซ่อนการแสดงตัวอย่างบนแถบสถานะ"
+  },
+  "hideReport": {
+    "message": "ซ่อนปุ่ม 'รายงาน'"
+  },
+  "hideRightButtons": {
+    "message": "ซ่อนปุ่มทางขวา"
+  },
+  "hideScrollForDetails": {
+    "message": "ซ่อนคำแนะนำ «เลื่อนเพื่อดูรายละเอียด»"
+  },
+  "hideSkipOverlay": {
+    "message": "ซ่อนแอนิเมชันการข้าม 5 วินาที"
+  },
+  "hideSponsoredVideosOnHome": {
+    "message": "ซ่อนวิดีโอที่ได้รับการสนับสนุนในหน้าแรก"
+  },
+  "hidePauseOverlay": {
+    "message": "ซ่อนแถบเมนูเมื่อหยุดวิดีโอ"
+  },
+  "hideThumbnailDots": {
+    "message": "ซ่อน '⫶' (เมนูเพิ่มเติม) บนรูปตัวอย่าง"
+  },
+  "hideThumbnailIcon": {
+    "message": "ซ่อนไอคอนบนรูปตัวอย่าง"
+  },
+  "hideThumbnailOverlay": {
+    "message": "ซ่อนปุ่มต่างๆ บนรูปตัวอย่าง"
+  },
+  "hideThumbnails": {
+    "message": "ซ่อนรูปตัวอย่างวิดีโอ"
+  },
+  "hideTopLoadingBar": {
+    "message": "ซ่อนแถบกำลังโหลดด้านบน"
+  },
+  "hideVideoTitleFullScreen": {
+    "message": "ซ่อนชื่อวิดีโอขณะเต็มหน้าจอ"
+  },
+  "hideViewsCount": {
+    "message": "ซ่อนจำนวนการดู"
+  },
+  "hideVoiceSearchButton": {
+    "message": "ซ่อนปุ่มค้นหาด้วยเสียง"
+  },
+  "hideWatchedVideos": {
+    "message": "ซ่อนวิดีโอที่ดูแล้ว"
+  },
+  "high": {
+    "message": "สูง"
+  },
+  "history": {
+    "message": "ประวัติการเข้าชม"
+  },
+  "home": {
+    "message": "หน้าแรก"
+  },
+  "homeScreen": {
+    "message": "หน้าจอหลัก"
+  },
+  "hover": {
+    "message": "เมื่อวางเมาส์เหนือ"
+  },
+  "hoverOnVideoPage": {
+    "message": "เมื่อวางเมาส์เหนือในหน้าวิดีโอ"
+  },
+  "howLongAgoTheVideoWasUploaded": {
+    "message": "แสดงระยะเวลาที่อัปโหลดวิดีโอมาแล้ว"
+  },
+  "icons": {
+    "message": "ไอคอน"
+  },
+  "iconsOnly": {
+    "message": "เฉพาะไอคอน"
+  },
+  "importSettings": {
+    "message": "นำเข้าการตั้งค่า"
+  },
+  "ImprovedTube": {
+    "message": "ImprovedTube"
+  },
+  "improvedtubeButtons": {
+    "message": "ปุ่ม ImprovedTube"
+  },
+  "improvedtubeIconOnYoutube": {
+    "message": "ไอคอน ImprovedTube บน YouTube"
+  },
+  "improvedtubeLanguage": {
+    "message": "ภาษาของ ImprovedTube"
+  },
+  "improvedTubeSidePanel": {
+    "message": "ImprovedTube: แถบข้างเบราว์เซอร์"
+  },
+  "improvedtubeVersion": {
+    "message": "เวอร์ชัน ImprovedTube"
+  },
+  "improveLogo": {
+    "message": "โลโก้: ขาวดำ!"
+  },
+  "increasePlaybackSpeed": {
+    "message": "เพิ่มความเร็วการเล่น"
+  },
+  "increaseVolume": {
+    "message": "เพิ่มระดับเสียง"
+  },
+  "indigo": {
+    "message": "สีคราม (Indigo)"
+  },
+  "items": {
+    "message": "รายการ"
+  },
+  "join": {
+    "message": "สมัครสมาชิก"
+  },
+  "keyScene": {
+    "message": "⚡ข้ามไปยังช่วงที่ถูกดูซ้ำมากที่สุด"
+  },
+  "language": {
+    "message": "ภาษา"
+  },
+  "language_closed_caption": {
+    "message": "ภาษาเริ่มต้น - คำบรรยาย"
+  },
+  "languages": {
+    "message": "ภาษาต่างๆ"
+  },
+  "lastWatchedFormat": {
+    "message": "รูปแบบเวลา"
+  },
+  "lastWatchedOverlayPosition": {
+    "message": "ตำแหน่งการแสดงผล"
+  },
+  "layerAnimationScale": {
+    "message": "ระดับแอนิเมชันของเลเยอร์"
+  },
+  "layout": {
+    "message": "เลย์เอาต์"
+  },
+  "Left_Side_Menu": {
+    "message": "เมนูด้านซ้าย"
+  },
+  "legacyYoutube": {
+    "message": "YouTube รูปแบบเก่า"
+  },
+  "library": {
+    "message": "คลังวิดีโอ"
+  },
+  "light": {
+    "message": "สว่าง"
+  },
+  "lightBlue": {
+    "message": "สีฟ้าอ่อน"
+  },
+  "lightGreen": {
+    "message": "สีเขียวอ่อน"
+  },
+  "like": {
+    "message": "ถูกใจ"
+  },
+  "liked": {
+    "message": "ถูกใจแล้ว"
+  },
+  "likes": {
+    "message": "ถูกใจ"
+  },
+  "lime": {
+    "message": "สีเขียวมะนาว"
+  },
+  "limitPageWidth": {
+    "message": "จำกัดความกว้างหน้าเว็บ"
+  },
+  "list": {
+    "message": "รายการ"
+  },
+  "liveChat": {
+    "message": "แชทสด"
+  },
+  "liveChatType": {
+    "message": "ประเภทแชทสด"
+  },
+  "location": {
+    "message": "สถานที่"
+  },
+  "loop": {
+    "message": "🔁 วนซ้ำ"
+  },
+  "loudnessNormalization": {
+    "message": "ปรับระดับความดังให้เท่ากัน"
+  },
+  "low": {
+    "message": "ต่ำ"
+  },
+  "markWatchedVideos": {
+    "message": "ทำเครื่องหมายวิดีโอที่ดูแล้ว"
+  },
+  "medium": {
+    "message": "ปานกลาง"
+  },
+  "mixer": {
+    "message": "มิกเซอร์"
+  },
+  "more": {
+    "message": "เพิ่มเติม"
+  },
+  "mostViewedChannels": {
+    "message": "ช่องที่เข้าชมบ่อยที่สุด"
+  },
+  "moveSidebarLeft": {
+    "message": "ย้ายไปทางซ้าย!"
+  },
+  "moveThumbnailsRight": {
+    "message": "ย้ายรูปตัวอย่างไปทางขวา!"
+  },
+  "My_specs": {
+    "message": "สเปกของฉัน"
+  },
+  "myColors": {
+    "message": "สีของฉัน"
+  },
+  "name": {
+    "message": "ชื่อ"
+  },
+  "nativeMiniPlayer": {
+    "message": "เครื่องเล่นจิ๋วแบบดั้งเดิม"
+  },
+  "new": {
+    "message": "ใหม่"
+  },
+  "nextVideo": {
+    "message": "วิดีโอถัดไป"
+  },
+  "night": {
+    "message": "กลางคืน"
+  },
+  "nightMode": {
+    "message": "โหมดกลางคืน"
+  },
+  "noActiveFeatures": {
+    "message": "ไม่มีฟีเจอร์ที่เปิดใช้งาน"
+  },
+  "none": {
+    "message": "ไม่มี"
+  },
+  "noOpenVideoTabs": {
+    "message": "ไม่มีแท็บวิดีโอที่เปิดอยู่"
+  },
+  "normal": {
+    "message": "ปกติ"
+  },
+  "Not_optimal": {
+    "message": "ไม่เหมาะสมที่สุด"
+  },
+  "off": {
+    "message": "ปิด"
+  },
+  "ok": {
+    "message": "ตกลง"
+  },
+  "old": {
+    "message": "เก่า"
+  },
+  "onAllVideos": {
+    "message": "เปิดใช้งาน"
+  },
+  "onlyActiveOnYoutube": {
+    "message": "ใช้งานเฉพาะบน YouTube เท่านั้น"
+  },
+  "onlyOnePlayerInstancePlaying": {
+    "message": "หยุดชั่วคราวเมื่อฉันดูวิดีโอที่ 2"
+  },
+  "onSmallCreators": {
+    "message": "ปิด ยกเว้นช่องขนาดเล็ก"
+  },
+  "onSubscribedChannels": {
+    "message": "ปิด ยกเว้นช่องที่ติดตามอยู่"
+  },
+  "openNewTab": {
+    "message": "เปิดในแท็บใหม่"
+  },
+  "openPopupPlayer": {
+    "message": "เปิดวิดีโอ/เพลย์ลิสต์ในหน้าต่างใหม่"
+  },
+  "Optimal": {
+    "message": "เหมาะสมที่สุด"
+  },
+  "optimizeCodecForHardwareAcceleration": {
+    "message": "ปรับแต่ง Codec เพื่อการเร่งความเร็วด้วยฮาร์ดแวร์"
+  },
+  "orange": {
+    "message": "สีส้ม"
+  },
+  "os": {
+    "message": "ระบบปฏิบัติการ"
+  },
+  "other": {
+    "message": "อื่นๆ"
+  },
+  "outline": {
+    "message": "เส้นขอบ"
+  },
+  "overlay": {
+    "message": "เลเยอร์ซ้อนทับ"
+  },
+  "passwordOptions": {
+    "message": "ตัวเลือกรหัสผ่าน"
+  },
+  "pauseWhileIAmTypingOnYouTube": {
+    "message": "หยุดวิดีโอเมื่อพิมพ์บน YouTube"
+  },
+  "pauseWhileIUnplugTheCharger": {
+    "message": "หยุดวิดีโอชั่วคราวเมื่อฉันถอดสายชาร์จ"
+  },
+  "permissions": {
+    "message": "การอนุญาต"
+  },
+  "pictureInPicture": {
+    "message": "การแสดงภาพซ้อนภาพ (PiP)"
+  },
+  "pink": {
+    "message": "สีชมพู"
+  },
+  "PipRequiresUserInteraction": {
+    "message": "โหมด PiP จำเป็นต้องมีการโต้ตอบกับหน้าเว็บต้นทางล่าสุด นี่เป็นข้อจำกัดของ Chrome API ซึ่งไม่สามารถเลี่ยงได้ จะใช้งานได้ดีที่สุดหากปิดการเล่นอัตโนมัติและควบคุมการเล่นด้วยตนเอง หรือคลิกที่ใดก็ได้บนหน้าเว็บก่อนที่จะสลับแท็บ"
+  },
+  "plain": {
+    "message": "ธรรมดา"
+  },
+  "platform": {
+    "message": "แพลตฟอร์ม"
+  },
+  "playAllButton": {
+    "message": "ปุ่ม \"เล่นทั้งหมด\""
+  },
+  "playbackSpeed": {
+    "message": "ความเร็วการเล่น"
+  },
+  "playbackSpeedButton": {
+    "message": "ปุ่มความเร็วการเล่น"
+  },
+  "playbackSpeedHotkey": {
+    "message": "ปุ่มลัดความเร็วการเล่น"
+  },
+  "player": {
+    "message": "เครื่องเล่น"
+  },
+  "player_auto_cinema_mode": {
+    "message": "โหมดโรงภาพยนตร์อัตโนมัติ"
+  },
+  "player_auto_hide_cinema_mode_when_paused": {
+    "message": "ซ่อนโหมดโรงภาพยนตร์อัตโนมัติเมื่อหยุดวิดีโอ"
+  },
+  "player_cinema_mode_button": {
+    "message": "โหมดโรงภาพยนตร์"
+  },
+  "player_dont_speed_education": {
+    "message": "ไม่เร่งความเร็วในหมวดหมู่: การศึกษา (ที่มีน้อย)"
+  },
+  "player_fit_to_win_button": {
+    "message": "ขนาดพอดีหน้าต่าง"
+  },
+  "player_playback_speed_button": {
+    "message": "ปุ่มความเร็วการเล่น"
+  },
+  "player_rewind_and_forward_buttons": {
+    "message": "ปุ่มกรอเดินหน้า/ถอยหลัง"
+  },
+  "player_rotate_button": {
+    "message": "หมุนวิดีโอ"
+  },
+  "playerAutoPipOutside": {
+    "message": "Auto-PiP เฉพาะตอนอยู่นอกแท็บต้นทาง"
+  },
+  "playerColor": {
+    "message": "สีของแถบสถานะการเล่น"
+  },
+  "playerIncreaseDecreaseSpeedButtons": {
+    "message": "ปุ่มเพิ่ม/ลดความเร็ว"
+  },
+  "playerPlaybackSpeedStep": {
+    "message": "ระดับการปรับความเร็วการเล่น"
+  },
+  "playerSize": {
+    "message": "ขนาดเครื่องเล่น"
+  },
+  "playlist": {
+    "message": "เพลย์ลิสต์"
+  },
+  "playlists": {
+    "message": "เพลย์ลิสต์ทั้งหมด"
+  },
+  "playPause": {
+    "message": "เล่น / หยุด"
+  },
+  "popupAd": {
+    "message": "โฆษณาป๊อปอัพ: ซ่อน"
+  },
+  "popupPlayer": {
+    "message": "เครื่องเล่นแบบป๊อปอัพ"
+  },
+  "popupWindowButtons": {
+    "message": "เพิ่มปุ่มเครื่องเล่นป๊อปอัพในทุกรูปตัวอย่าง"
+  },
+  "position": {
+    "message": "ตำแหน่ง"
+  },
+  "pressAnyKeyOrScroll": {
+    "message": "กดปุ่มใดก็ได้หรือใช้ลูกกลิ้งเมาส์"
+  },
+  "pressAnyKeyOrUseMouseWheel": {
+    "message": "กดปุ่มใดก็ได้หรือใช้ลูกกลิ้งเมาส์"
+  },
+  "preventShortVideoAutoloop": {
+    "message": "ป้องกันไม่ให้วิดีโอสั้นวนซ้ำอัตโนมัติ"
+  },
+  "previousVideo": {
+    "message": "วิดีโอก่อนหน้า"
+  },
+  "primaryColor": {
+    "message": "สีหลัก"
+  },
+  "pullSyncSettings": {
+    "message": "ดึงข้อมูล (Pull)"
+  },
+  "purchase": {
+    "message": "การซื้อ"
+  },
+  "purple": {
+    "message": "สีม่วง"
+  },
+  "pushSyncSettings": {
+    "message": "ส่งข้อมูล (Push)"
+  },
+  "quality": {
+    "message": "คุณภาพ"
+  },
+  "qualityWhenRunningOnBattery": {
+    "message": "คุณภาพวิดีโอเมื่อใช้แบตเตอรี่"
+  },
+  "qualityWithoutFocus": {
+    "message": "คุณภาพวิดีโอเมื่อไม่ได้โฟกัสหน้าต่าง"
+  },
+  "quickDeleteShortcut": {
+    "message": "ปุ่มลัดลบด่วน"
+  },
+  "raised": {
+    "message": "นูน (Raised)"
+  },
+  "ram": {
+    "message": "RAM"
+  },
+  "rateMe": {
+    "message": "ให้คะแนนฉัน"
+  },
+  "rateUs": {
+    "message": "ให้คะแนนเรา"
+  },
+  "red": {
+    "message": "สีแดง"
+  },
+  "redDislikeButton": {
+    "message": "เปลี่ยนเป็นสีแดงเมื่อกดไม่ชอบ"
+  },
+  "refreshCategories": {
+    "message": "รีเฟรชหมวดหมู่"
+  },
+  "relatedVideos": {
+    "message": "วิดีโอที่เกี่ยวข้อง"
+  },
+  "relative": {
+    "message": "แบบสัมพัทธ์ (เช่น 5 นาทีที่แล้ว)"
+  },
+  "remote": {
+    "message": "เล่นบนทีวี"
+  },
+  "returnYoutubeDislike": {
+    "message": "แสดงยอดไม่ชอบ"
+  },
+  "returnYoutubeDislikeDescription": {
+    "message": "แสดงจำนวนการกดไม่ชอบวิดีโอโดยใช้ Return YouTube Dislike API"
+  },
+  "Remove": {
+    "message": "เอาออก"
+  },
+  "removeBlackBars": {
+    "message": "เอาแถบดำออกเมื่อเล่นเต็มหน้าจอ"
+  },
+  "removeContextButtons": {
+    "message": "เอาปุ่มบริบทบน Shorts ออก"
+  },
+  "removeIcons": {
+    "message": "เอาไอคอนออก"
+  },
+  "removeMemberOnly": {
+    "message": "เอาวิดีโอสำหรับสมาชิกเท่านั้นออก"
+  },
+  "removeName": {
+    "message": "เอาชื่อออก"
+  },
+  "removeNames": {
+    "message": "เอาชื่อต่างๆ ออก"
+  },
+  "removePlaylistParam": {
+    "message": "ไม่นำเพลย์ลิสต์ไปด้วยเมื่อเปิดวิดีโอในแท็บใหม่"
+  },
+  "removePlayables": {
+    "message": "ซ่อนเกม (Playables)"
+  },
+  "removeRelatedSearchResults": {
+    "message": "เอาผลการค้นหาที่เกี่ยวข้องออก"
+  },
+  "removeShortsReelSearchResults": {
+    "message": "เอาแถบ Shorts ออกจากผลการค้นหา"
+  },
+  "removeSubscriptionsMostRelevant": {
+    "message": "ซ่อนส่วน 'เกี่ยวข้องมากที่สุด' ในหน้าการติดตาม"
+  },
+  "subscriptionsListLayout": {
+    "message": "เลย์เอาต์แบบรายการในหน้าการติดตาม"
+  },
+  "RemoveSubtitlesForLyrics": {
+    "message": "เอาคำบรรยายสำหรับเนื้อเพลงออก"
+  },
+  "repeat": {
+    "message": "ทำซ้ำ"
+  },
+  "report": {
+    "message": "รายงาน"
+  },
+  "requirePassword": {
+    "message": "ต้องใช้รหัสผ่านเพื่อเปลี่ยนการตั้งค่า ImprovedTube"
+  },
+  "reset": {
+    "message": "รีเซ็ต"
+  },
+  "resetAllSettings": {
+    "message": "รีเซ็ตการตั้งค่าทั้งหมด"
+  },
+  "resetAllShortcuts": {
+    "message": "รีเซ็ตปุ่มลัดทั้งหมด"
+  },
+  "reverse": {
+    "message": "ย้อนกลับ"
+  },
+  "revertTheaterModeButtonSizes": {
+    "message": "คืนค่าขนาดปุ่มในโหมดโรงภาพยนตร์"
+  },
+  "rotate": {
+    "message": "หมุน"
+  },
+  "save": {
+    "message": "บันทึก"
+  },
+  "saveAs": {
+    "message": "บันทึกเป็น"
+  },
+  "schedule": {
+    "message": "กำหนดเวลา"
+  },
+  "screen": {
+    "message": "หน้าจอ"
+  },
+  "screenshot": {
+    "message": "🖼️ จับภาพหน้าจอ"
+  },
+  "scrollBar": {
+    "message": "แถบเลื่อน"
+  },
+  "sd": {
+    "message": "SD"
+  },
+  "search": {
+    "message": "ค้นหา"
+  },
+  "searchBarOnly": {
+    "message": "เฉพาะแถบค้นหา"
+  },
+  "secondaryColor": {
+    "message": "สีรอง"
+  },
+  "seekBackward10Seconds": {
+    "message": "ย้อนกลับไป 10 วินาที"
+  },
+  "seekForward10Seconds": {
+    "message": "ถัดไป 10 วินาที"
+  },
+  "seekNextChapter": {
+    "message": "ไปที่ช่วงถัดไป"
+  },
+  "seekPreviousChapter": {
+    "message": "ไปที่ช่วงก่อนหน้า"
+  },
+  "settings": {
+    "message": "การตั้งค่า"
+  },
+  "settingsSuccessfullyImported": {
+    "message": "นำเข้าการตั้งค่าสำเร็จแล้ว"
+  },
+  "share": {
+    "message": "แชร์"
+  },
+  "shortcut_chapters": {
+    "message": "เปิด/ปิด ช่วงต่างๆ (แถบข้าง)"
+  },
+  "shortcut_screenshot": {
+    "message": "จับภาพหน้าจอ"
+  },
+  "shortcut_transcript": {
+    "message": "เปิด/ปิด สคริปต์วิดีโอ (แถบข้าง)"
+  },
+  "shortcuts": {
+    "message": "ปุ่มลัด"
+  },
+  "ShortsForceTheStandardPlayer": {
+    "message": "Shorts: บังคับให้ใช้เครื่องเล่นวิดีโอปกติ"
+  },
+  "shortsAlwaysShowButtons": {
+    "message": "แสดงปุ่มควบคุมบน Shorts เสมอ"
+  },
+  "shortsAlwaysShowCaptions": {
+    "message": "ปุ่มคำบรรยาย"
+  },
+  "shortsAlwaysShowFullscreen": {
+    "message": "ปุ่มเต็มหน้าจอ"
+  },
+  "showCardsOnMouseHover": {
+    "message": "แสดงการ์ดเมื่อวางเมาส์เหนือ"
+  },
+  "showChannelVideosCount": {
+    "message": "แสดงจำนวนวิดีโอของช่อง"
+  },
+  "showExactDate": {
+    "message": "แสดงวันที่แบบละเอียด"
+  },
+  "showLastWatchedOverlay": {
+    "message": "แสดงแถบ 'ดูล่าสุด' บนรูปตัวอย่าง"
+  },
+  "showLess": {
+    "message": "แสดงน้อยลง"
+  },
+  "showMore": {
+    "message": "แสดงเพิ่มเติม"
+  },
+  "showRemainingDuration": {
+    "message": "แสดงเวลาที่เหลือของวิดีโอ"
+  },
+  "showVersion": {
+    "message": "แสดงเวอร์ชัน"
+  },
+  "shuffle": {
+    "message": "สลับลำดับ"
+  },
+  "sidebar": {
+    "message": "แถบข้าง"
+  },
+  "Sidebar_simple_alternative": {
+    "message": "แถบข้าง (แบบเรียบง่าย)"
+  },
+  "smartSpeed": {
+    "message": "เร่งความเร็วในช่วงที่น่าสนใจน้อย"
+  },
+  "softwareInformation": {
+    "message": "ข้อมูลซอฟต์แวร์"
+  },
+  "spacebar": {
+    "message": "ปุ่ม Spacebar"
+  },
+  "squaredUserImages": {
+    "message": "รูปโปรไฟล์แบบสี่เหลี่ยม"
+  },
+  "static": {
+    "message": "คงที่"
+  },
+  "statsForNerds": {
+    "message": "แสดงสถิติสำหรับผู้เชี่ยวชาญ"
+  },
+  "step": {
+    "message": "ขั้น"
+  },
+  "stickyNavigation": {
+    "message": "แถบนำทางแบบปักหมุด"
+  },
+  "stop": {
+    "message": "หยุด"
+  },
+  "style": {
+    "message": "สไตล์"
+  },
+  "styles": {
+    "message": "สไตล์ต่างๆ"
+  },
+  "subscribe": {
+    "message": "ติดตาม"
+  },
+  "subscriptions": {
+    "message": "การติดตาม"
+  },
+  "Subtitle_Capture_including_the_current_words": {
+    "message": "จับภาพคำบรรยาย (รวมถึงคำศัพท์ปัจจุบัน)"
+  },
+  "subtitleLine": {
+    "message": "ซ่อนเส้นใต้คำบรรยายสีแดง"
+  },
+  "subtitles": {
+    "message": "คำบรรยาย"
+  },
+  "sunset": {
+    "message": "พระอาทิตย์ตก"
+  },
+  "sunsetToSunrise": {
+    "message": "ตั้งแต่พระอาทิตย์ตกจนถึงพระอาทิตย์ขึ้น"
+  },
+  "systemPeferenceDark": {
+    "message": "ตามระบบ: มืด"
+  },
+  "systemPeferenceLight": {
+    "message": "ตามระบบ: สว่าง"
+  },
+  "teal": {
+    "message": "สีเขียวหัวเป็ด (Teal)"
+  },
+  "textColor": {
+    "message": "สีข้อความ"
+  },
+  "thanks": {
+    "message": "ขอบคุณ"
+  },
+  "themes": {
+    "message": "ธีม"
+  },
+  "thisWillRemoveAllCookies": {
+    "message": "นี่จะเป็นการลบคุกกี้ทั้งหมด"
+  },
+  "thisWillRemoveAllWatchedVideos": {
+    "message": "นี่จะเป็นการลบวิดีโอที่ดูแล้วทั้งหมด"
+  },
+  "thisWillRemoveAllYouTubeCookies": {
+    "message": "นี่จะเป็นการลบคุกกี้ YouTube ทั้งหมด"
+  },
+  "thisWillResetAllSettings": {
+    "message": "นี่จะเป็นการรีเซ็ตการตั้งค่าทั้งหมด"
+  },
+  "thisWillResetAllShortcuts": {
+    "message": "นี่จะเป็นการรีเซ็ตปุ่มลัดทั้งหมด"
+  },
+  "thumbnails": {
+    "message": "รูปตัวอย่าง"
+  },
+  "thumbnailSize": {
+    "message": "ขนาดรูปตัวอย่าง"
+  },
+  "thumbnailsQuality": {
+    "message": "คุณภาพรูปตัวอย่าง"
+  },
+  "timeFrom": {
+    "message": "เวลาเริ่มจาก"
+  },
+  "timeTo": {
+    "message": "เวลาสิ้นสุด"
+  },
+  "To_the_side_No_page_margin": {
+    "message": "ไปที่ด้านข้าง! (ไม่มีระยะขอบหน้าเว็บ)"
+  },
+  "todayAt": {
+    "message": "วันนี้ เมื่อเวลา"
+  },
+  "toggleAutoplay": {
+    "message": "สลับการเล่นอัตโนมัติ"
+  },
+  "toggleCards": {
+    "message": "สลับการแสดงการ์ด"
+  },
+  "toggleControls": {
+    "message": "สลับการซ่อนแถบควบคุมเครื่องเล่น"
+  },
+  "topChat": {
+    "message": "แชทเด่น"
+  },
+  "topLeft": {
+    "message": "บนซ้าย"
+  },
+  "topRight": {
+    "message": "บนขวา"
+  },
+  "trackWatchedVideos": {
+    "message": "ติดตามวิดีโอที่ดูแล้ว"
+  },
+  "trailerAutoplay": {
+    "message": "เล่นตัวอย่างอัตโนมัติ"
+  },
+  "Transcript": {
+    "message": "สคริปต์วิดีโอ"
+  },
+  "translations": {
+    "message": "คำแปล"
+  },
+  "transparentBackground": {
+    "message": "พื้นหลังโปร่งใส"
+  },
+  "transparentBackgroundAlternative": {
+    "message": "พื้นหลังโปร่งใสแบบทางเลือก"
+  },
+  "transparentColor": {
+    "message": "โปร่งใส"
+  },
+  "trending": {
+    "message": "มาแรง"
+  },
+  "tryToReloadThePage": {
+    "message": "ลองรีโหลดหน้านี้อีกครั้ง"
+  },
+  "type": {
+    "message": "ประเภท"
+  },
+  "undoTheNewSidebar": {
+    "message": "ยกเลิกแถบข้างแบบใหม่!"
+  },
+  "upNextAutoplay": {
+    "message": "เล่นวิดีโอถัดไปอัตโนมัติ"
+  },
+  "use24HourFormat": {
+    "message": "ใช้รูปแบบเวลา 24 ชั่วโมง"
+  },
+  "version": {
+    "message": "เวอร์ชัน"
+  },
+  "video": {
+    "message": "วิดีโอ"
+  },
+  "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+    "message": "คำอธิบายวิดีโอจะถูกขยายเพื่อดึงข้อมูลชื่อหมวดหมู่"
+  },
+  "videoFormats": {
+    "message": "รูปแบบวิดีโอ"
+  },
+  "videos": {
+    "message": "วิดีโอต่างๆ"
+  },
+  "viewMode": {
+    "message": "โหมดมุมมอง"
+  },
+  "volume": {
+    "message": "ระดับเสียง"
+  },
+  "watchedVideos": {
+    "message": "วิดีโอที่ดูแล้ว"
+  },
+  "watchLater": {
+    "message": "ดูภายหลัง"
+  },
+  "watchTime": {
+    "message": "เวลาที่รับชม"
+  },
+  "whenBatteryIslowDecreaseQuality": {
+    "message": "แบตเตอรี่ต่ำ: ลดคุณภาพวิดีโอ"
+  },
+  "whenPaused": {
+    "message": "เมื่อหยุดวิดีโอ"
+  },
+  "whenTabIsChanged": {
+    "message": "เมื่อมีการสลับแท็บ"
+  },
+  "white": {
+    "message": "สีขาว"
+  },
+  "windowColor": {
+    "message": "สีหน้าต่าง"
+  },
+  "windowOpacity": {
+    "message": "ความโปร่งใสของหน้าต่าง"
+  },
+  "with_scrollbars": {
+    "message": "ให้มีแถบเลื่อนด้วยหรือไม่?"
+  },
+  "withoutVideos": {
+    "message": "'ว่างเปล่า' โดยไม่มีภาพตัวอย่างวิดีโอ"
+  },
+  "yellow": {
+    "message": "สีเหลือง"
+  },
+  "Youtube_Search": {
+    "message": "การค้นหาของ YouTube"
+  },
+  "youTubeButtons": {
+    "message": "ปุ่มของ YouTube"
+  },
+  "youtubeHeaderLeft": {
+    "message": "ส่วนหัว YouTube (ซ้าย)"
+  },
+  "youtubeHeaderRight": {
+    "message": "ส่วนหัว YouTube (ขวา)"
+  },
+  "youtubeHomePage": {
+    "message": "หน้าแรกของ YouTube"
+  },
+  "youtubeLanguage": {
+    "message": "ภาษาของ YouTube"
+  },
+  "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+    "message": "YouTube จำกัดความละเอียดไว้ที่ 1080p สำหรับตัวถอดรหัส h.264"
+  },
+  "youtubesDark": {
+    "message": "ธีมมืดของ YouTube"
+  },
+  "youtubesLight": {
+    "message": "ธีมสว่างของ YouTube"
+  },
+  "smartSpeedEngine": {
+    "message": "เอนจิน Smart Speed"
+  },
+  "smartSpeedEnable": {
+    "message": "เปิดใช้งาน Smart Speed"
+  },
+  "smartSpeedIndicator": {
+    "message": "แสดงสถานะบนหน้าจอ"
+  },
+  "smartSpeedMin": {
+    "message": "ความเร็วต่ำสุด (ช่วงเสียงดัง)"
+  },
+  "smartSpeedMax": {
+    "message": "ความเร็วสูงสุด (ช่วงเงียบ)"
+  },
+  "smartSpeedSensitivity": {
+    "message": "ความไวในการตรวจจับ"
+  },
+  "smartSpeedTargetToggle": {
+    "message": "เปิดใช้งานการกำหนดเวลาเป้าหมาย"
+  },
+  "smartSpeedTargetMinutes": {
+    "message": "เวลาเป้าหมาย (นาที)"
+  },
+  "smartSpeedProfiles": {
+    "message": "โปรไฟล์หมวดหมู่และช่อง"
+  },
+  "smartSpeedAddProfile": {
+    "message": "เพิ่มโปรไฟล์ช่อง"
+  },
+  "smartSpeedWhitelisted": {
+    "message": "เพิ่มช่องนี้ในรายการอนุญาตสำหรับ Smart Speed แล้ว!"
+  }
 }
