@@ -481,9 +481,16 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerHideControls':
 					ImprovedTube.playerControls();
 					break
-				case 'playerlistUpNextAutoplay':
+				case 'playlistUpNextAutoplay':
 					if (this.storage.playlist_up_next_autoplay !== false) {
-						if (playlistData.currentIndex != playlistData.localCurrentIndex) { playlistData.currentIndex = playlistData.localCurrentIndex; }
+						// Autoplay enabled -> resync indices and start the large playlist handler
+						const pData = ImprovedTube.elements.ytd_watch?.playlistData;
+						if (pData && pData.currentIndex != pData.localCurrentIndex) { pData.currentIndex = pData.localCurrentIndex; }
+						ImprovedTube.playlistLargePlaylistHandler();
+					} else {
+						// Autoplay disabled -> clean up sync handlers and apply disable
+						ImprovedTube.cleanupPlaylistHandlers();
+						ImprovedTube.playlistUpNextAutoplay();
 					}
 					break
 				case 'playlistCopyVideoId':
