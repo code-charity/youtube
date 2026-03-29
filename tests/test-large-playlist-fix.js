@@ -84,9 +84,9 @@ function testLargePlaylistFix() {
 }
 
 // Auto-run test if on a playlist page
-if (new URLSearchParams(window.location.search).get('list')) {
+if (typeof window !== 'undefined' && window.location && new URLSearchParams(window.location.search).get('list')) {
     setTimeout(testLargePlaylistFix, 2000);
-} else {
+} else if (typeof window !== 'undefined') {
     console.log('ℹ️ Navigate to a YouTube playlist to test the large playlist fix');
 }
 
