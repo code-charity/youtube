@@ -174,6 +174,15 @@ chrome.runtime.onInstalled.addListener(function () {
 	});
 });
 
+/*--------------------------------------------------------------
+# STORAGE LISTENER
+--------------------------------------------------------------*/
+chrome.storage.onChanged.addListener(function (changes) {
+	if (changes?.language) updateContextMenu(changes.language.newValue);
+	if (changes?.improvedTubeSidebar) {
+		chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: changes.improvedTubeSidebar.newValue });
+	}
+});
 
 /*--------------------------------------------------------------
 # TAB Helper, prune stale connected tabs
@@ -320,58 +329,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	}
 });
 
-/*--------------------------------------------------------------
-# STORAGE LISTENER
---------------------------------------------------------------*/
-chrome.storage.onChanged.addListener(function (changes) {
-	if (changes?.language) updateContextMenu(changes.language.newValue);
-	if (changes?.improvedTubeSidebar) {
-		chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: changes.improvedTubeSidebar.newValue });
-	}
-
-	// Hide Pause Overlay toggle
-	if (changes?.Hide_Pause_Overlay) {
-		if (changes.Hide_Pause_Overlay.newValue === true) {
-			// Self-contained function injected into the page — does NOT reference background scope.
-			chrome.scripting.executeScript({
-				target: { allFrames: true },
-				func: function () {
-					const selectors = [
-						'.ytp-pause-overlay-container',
-						'.ytp-autonav-endscreen-container',
-						'.ytp-endscreen-content'
-					];
-					function hide (node) {
-						if (node) {
-							node.style.setProperty('display', 'none', 'important');
-							node.style.setProperty('visibility', 'hidden', 'important');
-							node.style.setProperty('opacity', '0', 'important');
-						}
-					}
-					function scan () {
-						selectors.forEach(function (sel) {
-							document.querySelectorAll(sel).forEach(hide);
-						});
-						const dialogs = document.querySelectorAll('ytd-popup-container tp-yt-paper-dialog[role="dialog"]');
-						dialogs.forEach(function (d) {
-							const text = (d.textContent || '').toLowerCase();
-							if (text.includes('continue watching') || text.includes('video paused')) {
-								hide(d);
-							}
-						});
-					}
-					const observer = new MutationObserver(scan);
-					observer.observe(document.documentElement, { childList: true, subtree: true });
-					scan();
-				}
-			});
-		}
-	}
-});
-
 // Initial context menu setup
 updateContextMenu();
-
 
 /*-----# UNINSTALL URL-----------------------------------*/
 chrome.runtime.setUninstallURL('https://improvedtube.com/uninstalled');
