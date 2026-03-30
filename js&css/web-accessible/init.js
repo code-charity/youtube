@@ -200,7 +200,6 @@ ImprovedTube.init = function () {
 	this.YouTubeExperiments();
 	this.channelCompactTheme();
 	this.categoryRefreshButton();
-
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();
 		ImprovedTube.initPlayer();
@@ -222,10 +221,8 @@ ImprovedTube.init = function () {
 		}
 		ImprovedTube.playerQualityFullScreen();
 	}
-
+	if (ImprovedTube.storage.hide_pause_overlay) {this.hidePauseOverlay();}
 };
-
-
 
 document.addEventListener('yt-navigate-finish', function () {
 	/* 			if (name === 'META') {			   //<META> infos are not updated when clicking related videos...

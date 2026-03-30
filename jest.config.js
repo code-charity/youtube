@@ -1,7 +1,7 @@
 module.exports = {
 	testPathIgnorePatterns: [
 		"/node_modules/",
-		"test-large-playlist-fix.js"
+		"/tests/test-large-playlist-fix.js"
 	],
 	testMatch: [
 		"**/tests/**/*.js"
