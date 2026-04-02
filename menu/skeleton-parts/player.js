@@ -978,6 +978,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'disableAutoDubbing'
 		},
+		preferred_dubbing_language: {
+			component: 'input',
+			text: 'preferredDubbingLanguage',
+			placeholder: 'e.g. en, fr, de, ja'
+		},
 		player_quality: {
 			component: 'select',
 			text: 'quality',
