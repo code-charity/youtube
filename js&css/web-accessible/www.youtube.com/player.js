@@ -2127,6 +2127,32 @@ ImprovedTube.disableAutoDubbing = function () {
 	}
 }
 /*------------------------------------------------------------------------------
+# AUTO-SELECT PREFERRED DUBBING LANGUAGE
+------------------------------------------------------------------------------*/
+/**
+ * Automatically selects the audio track whose language code matches the user's
+ * preferred dubbing language (storage.preferred_dubbing_language).
+ * Falls back silently if no matching track is found.
+ */
+ImprovedTube.preferredDubbingLanguage = function () {
+	const preferred = (ImprovedTube.storage.preferred_dubbing_language || '').trim().toLowerCase();
+	if (!preferred) return;
+
+	const player = this.elements.player;
+	const tracks = player?.getAvailableAudioTracks();
+	if (!tracks || !tracks.length) return;
+
+	const match = tracks.find(function (track) {
+		const langCode = (track?.getLanguageInfo?.()?.languageCode || '').toLowerCase();
+		const langName = (track?.getLanguageInfo?.()?.name || '').toLowerCase();
+		return langCode.startsWith(preferred) || langName.includes(preferred);
+	});
+
+	if (match) {
+		player.setAudioTrack(match);
+	}
+};
+/*------------------------------------------------------------------------------
 # SELECT DEFAULT DUBBED LANGUAGE
 ------------------------------------------------------------------------------*/
 ImprovedTube.selectDubbedLanguage = function () {
