@@ -1493,6 +1493,12 @@ ImprovedTube.miniPlayer_scroll = function () {
 
 		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__width, ImprovedTube.mini_player__height, true, true);
 
+		// Re-apply disableAutoDubbing when entering mini player mode
+		// (YouTube may reset audio track when switching to mini player)
+		if (ImprovedTube.storage.disable_auto_dubbing === true) {
+			ImprovedTube.disableAutoDubbing();
+		}
+
 		window.addEventListener('mousedown', ImprovedTube.miniPlayer_mouseDown);
 		window.addEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
 		window.addEventListener('resize', ImprovedTube.miniPlayer_scroll);
@@ -1508,6 +1514,12 @@ ImprovedTube.miniPlayer_scroll = function () {
 		document.documentElement.removeAttribute('it-mini-player-cursor');
 
 		window.dispatchEvent(new Event('resize'));
+
+		// Re-apply disableAutoDubbing when exiting mini player mode
+		// (YouTube may reset audio track when switching back to normal player)
+		if (ImprovedTube.storage.disable_auto_dubbing === true) {
+			ImprovedTube.disableAutoDubbing();
+		}
 
 		window.removeEventListener('mousedown', ImprovedTube.miniPlayer_mouseDown);
 		window.removeEventListener('mousemove', ImprovedTube.miniPlayer_mouseMove);
