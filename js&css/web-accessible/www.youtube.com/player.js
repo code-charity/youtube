@@ -2122,7 +2122,7 @@ ImprovedTube.disableAutoDubbing = function () {
  * preferred dubbing language (storage.preferred_dubbing_language).
  * Falls back silently if no matching track is found.
  */
-ImprovedTube.autoSelectDubbingLanguage = function () {
+ImprovedTube.preferredDubbingLanguage = function () {
 	const preferred = (ImprovedTube.storage.preferred_dubbing_language || '').trim().toLowerCase();
 	if (!preferred) return;
 
