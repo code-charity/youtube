@@ -1493,6 +1493,12 @@ ImprovedTube.miniPlayer_scroll = function () {
 
 		ImprovedTube.mini_player__setSize(ImprovedTube.mini_player__width, ImprovedTube.mini_player__height, true, true);
 
+		// Re-apply disableAutoDubbing when entering mini player mode
+		// (YouTube may reset audio track when switching to mini player)
+		if (ImprovedTube.storage.disable_auto_dubbing === true) {
+			ImprovedTube.disableAutoDubbing();
+		}
+
 		window.addEventListener('mousedown', ImprovedTube.miniPlayer_mouseDown);
 		window.addEventListener('mousemove', ImprovedTube.miniPlayer_cursorUpdate);
 		window.addEventListener('resize', ImprovedTube.miniPlayer_scroll);
@@ -1508,6 +1514,12 @@ ImprovedTube.miniPlayer_scroll = function () {
 		document.documentElement.removeAttribute('it-mini-player-cursor');
 
 		window.dispatchEvent(new Event('resize'));
+
+		// Re-apply disableAutoDubbing when exiting mini player mode
+		// (YouTube may reset audio track when switching back to normal player)
+		if (ImprovedTube.storage.disable_auto_dubbing === true) {
+			ImprovedTube.disableAutoDubbing();
+		}
 
 		window.removeEventListener('mousedown', ImprovedTube.miniPlayer_mouseDown);
 		window.removeEventListener('mousemove', ImprovedTube.miniPlayer_mouseMove);
@@ -2140,7 +2152,50 @@ ImprovedTube.preferredDubbingLanguage = function () {
 		player.setAudioTrack(match);
 	}
 };
+/*------------------------------------------------------------------------------
+# SELECT DEFAULT DUBBED LANGUAGE
+------------------------------------------------------------------------------*/
+ImprovedTube.selectDubbedLanguage = function () {
+	const self = this;
+	const selectedLang = this.storage.player_default_dubbed_language;
+	if (!selectedLang || selectedLang === 'disabled') return;
 
+	var tries = 0;
+	var maxTries = 10;
+	var interval = setInterval(function () {
+		tries++;
+		const player = self.elements.player;
+		if (!player || !player.getAvailableAudioTracks) {
+			if (tries >= maxTries) clearInterval(interval);
+			return;
+		}
+
+		const tracks = player.getAvailableAudioTracks();
+		if (!tracks || tracks.length <= 1) {
+			if (tries >= maxTries) clearInterval(interval);
+			return;
+		}
+
+		const selected = selectedLang.toLowerCase();
+
+		const targetTrack = tracks.find(function (track) {
+			const info = track?.getLanguageInfo?.();
+			if (!info) return false;
+			// audio tracks use 'id' (e.g. "en.1", "en"), not 'languageCode'
+			const trackId = (info.id || '').toLowerCase();
+			return trackId === selected ||
+				trackId.startsWith(selected + '.') ||
+				trackId.startsWith(selected + '-');
+		});
+
+		if (targetTrack) {
+			player.setAudioTrack(targetTrack);
+			clearInterval(interval);
+		} else if (tries >= maxTries) {
+			clearInterval(interval);
+		}
+	}, 300);
+};
 /*------------------------------------------------------------------------------
 # JUMP TO THE NEXT KEY SCENE
 ------------------------------------------------------------------------------*/
