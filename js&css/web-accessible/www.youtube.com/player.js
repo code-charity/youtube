@@ -2115,6 +2115,50 @@ ImprovedTube.disableAutoDubbing = function () {
 	}
 }
 /*------------------------------------------------------------------------------
+# SELECT DEFAULT DUBBED LANGUAGE
+------------------------------------------------------------------------------*/
+ImprovedTube.selectDubbedLanguage = function () {
+	const self = this;
+	const selectedLang = this.storage.player_default_dubbed_language;
+	if (!selectedLang || selectedLang === 'disabled') return;
+
+	var tries = 0;
+	var maxTries = 10;
+	var interval = setInterval(function () {
+		tries++;
+		const player = self.elements.player;
+		if (!player || !player.getAvailableAudioTracks) {
+			if (tries >= maxTries) clearInterval(interval);
+			return;
+		}
+
+		const tracks = player.getAvailableAudioTracks();
+		if (!tracks || tracks.length <= 1) {
+			if (tries >= maxTries) clearInterval(interval);
+			return;
+		}
+
+		const selected = selectedLang.toLowerCase();
+
+		const targetTrack = tracks.find(function (track) {
+			const info = track?.getLanguageInfo?.();
+			if (!info) return false;
+			// audio tracks use 'id' (e.g. "en.1", "en"), not 'languageCode'
+			const trackId = (info.id || '').toLowerCase();
+			return trackId === selected ||
+				trackId.startsWith(selected + '.') ||
+				trackId.startsWith(selected + '-');
+		});
+
+		if (targetTrack) {
+			player.setAudioTrack(targetTrack);
+			clearInterval(interval);
+		} else if (tries >= maxTries) {
+			clearInterval(interval);
+		}
+	}, 300);
+};
+/*------------------------------------------------------------------------------
 # JUMP TO THE NEXT KEY SCENE
 ------------------------------------------------------------------------------*/
 ImprovedTube.jumpToKeyScene = function () {

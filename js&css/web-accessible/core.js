@@ -515,6 +515,11 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.disableAutoDubbing();
 					}
 					break
+				case 'player_default_dubbed_language':
+					if (ImprovedTube.storage.player_default_dubbed_language && ImprovedTube.storage.player_default_dubbed_language !== 'disabled') {
+						ImprovedTube.selectDubbedLanguage();
+					}
+					break
 				case  'smartSpeed':           
                     if (ImprovedTube.storage.smart_speed === true) { if(ImprovedTube.heatmap) {ImprovedTube.heatmap.init(); };
                     } else if (ImprovedTube.storage.smart_speed === false) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; } 
