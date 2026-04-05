@@ -1,4 +1,7 @@
 {
+  "preferredDubbingLanguage": {
+		"message": "Preferred dubbing language"
+	},
   "hideSuggestedAction": {
     "message": "Hide Suggested Action 'View products'"
   },
