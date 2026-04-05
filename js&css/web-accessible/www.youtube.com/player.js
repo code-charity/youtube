@@ -24,9 +24,7 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 				   && !/\/(videos|shorts|playlists|community|channels|about|posts|streams|releases)$/.test(location.href) )
 			   )) {
 
-			setTimeout(function () {
-				try { player.pauseVideo(); } catch (error) { console.log("autoplayDisable: Pausing"); videoElement.pause(); }
-			});
+			try { player.pauseVideo(); } catch (error) { videoElement.pause(); }
 		} else {
 			document.dispatchEvent(new CustomEvent('it-play'));
 		}
