@@ -1,4 +1,7 @@
 {
+	"preferredDubbingLanguage": {
+		"message": "Preferred dubbing language"
+	},
 	"hideSuggestedAction": {
 		"message": "Hide Suggested Action 'View products'"
 	},
@@ -1663,8 +1666,5 @@
 	},
 	"smartSpeedWhitelisted": {
 		"message": "Channel Whitelisted for Smart Speed!"
-	},
-	"preferredDubbingLanguage": {
-		"message": "Preferred dubbing language"
 	}
 }
