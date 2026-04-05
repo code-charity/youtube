@@ -31,6 +31,7 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 			    setTimeout(() => { if (!this.user_interacted) {
    			         try { player.pauseVideo(); } catch (error) { videoElement.pause(); }
 			        }
+				this._autoplayTimeout = null;
 			    }, 100);
 				}
 			}
