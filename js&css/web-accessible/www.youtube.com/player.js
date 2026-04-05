@@ -2,7 +2,7 @@
 AUTOPLAY DISABLE
 ------------------------------------------------------------------------------*/
 ImprovedTube.autoplayDisable = function (videoElement) {
-	if (this.storage.player_autoplay_disable
+	if (this.storage.player_autoplay_disable === true
 		|| this.storage.playlist_autoplay === false
 		|| this.storage.channel_trailer_autoplay === false) {
 		const player = this.elements.player || videoElement.closest('.html5-video-player') || videoElement.closest('#movie_player'); // #movie_player: outdated since 2024?
@@ -12,7 +12,7 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 		//   	 or (playlist auto play is off and in a playlist))
 		//   	 or (we are in a channel and the channel trailer autoplay is off)  )
 
-		if (player && !this.user_interacted // (=user didnt click or type)
+		if (player && (!this.user_interacted || ImprovedTube.video_url !== location.href)
 			&& !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
 			&& ((location.href.includes('/watch?') // #1703 // (=video page)
 				// player_autoplay_disable & not playlist
@@ -23,8 +23,17 @@ ImprovedTube.autoplayDisable = function (videoElement) {
 				|| (this.storage.channel_trailer_autoplay === false && this.regex.channel.test(location.href)
 				   && !/\/(videos|shorts|playlists|community|channels|about|posts|streams|releases)$/.test(location.href) )
 			   )) {
-
-			try { player.pauseVideo(); } catch (error) { videoElement.pause(); }
+			if (!this.user_interacted) {  // (=user didnt click or type)
+					try { player.pauseVideo(); } catch (error) { videoElement.pause(); }
+			} else { 
+			    if (!this._autoplayTimeout) { 
+				this._autoplayTimeout = 
+			    setTimeout(() => { if (!this.user_interacted) {
+   			         try { player.pauseVideo(); } catch (error) { videoElement.pause(); }
+			        }
+			    }, 100);
+				}
+			}
 		} else {
 			document.dispatchEvent(new CustomEvent('it-play'));
 		}
