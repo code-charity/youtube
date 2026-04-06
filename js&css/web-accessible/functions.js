@@ -381,40 +381,38 @@ ImprovedTube.playerOnPlay = function () {
 
 				this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 				this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
-
-				// Check if autoplay should be blocked BEFORE calling play().
-				// This prevents the ~1 second delay that occurred when pause() was called
-				// inside autoplayDisable() via setTimeout, by which point the video had
-				// already started playing.
-				const shouldBlockAutoplay =
-					ImprovedTube.storage.player_autoplay_disable ||
-					ImprovedTube.storage.playlist_autoplay === false ||
-					ImprovedTube.storage.channel_trailer_autoplay === false;
-
-				if (shouldBlockAutoplay) {
-					const player = ImprovedTube.elements.player || this.closest('.html5-video-player') || this.closest('#movie_player');
-					const isWatchPage = location.href.includes('/watch?');
-					const isPlaylist = location.href.includes('list=');
-					const isChannelHomepage = ImprovedTube.regex && ImprovedTube.regex.channel && ImprovedTube.regex.channel.test(location.href) &&
-						!/\/(videos|shorts|playlists|community|channels|about|posts|streams|releases)$/.test(location.href);
-
-					if (player && !ImprovedTube.user_interacted && !player.classList.contains('ad-showing')) {
-						const shouldPause =
-							(isWatchPage && ImprovedTube.storage.player_autoplay_disable && !isPlaylist) ||
-							(isPlaylist && ImprovedTube.storage.playlist_autoplay === false) ||
-							(isChannelHomepage && ImprovedTube.storage.channel_trailer_autoplay === false);
-
-						if (shouldPause) {
-							// Pause synchronously BEFORE play() to prevent any video playback.
-							// Returning a resolved Promise prevents the browser's autoplay
-							// mechanism from kicking in while ensuring callers get a valid Promise.
-							this.pause();
-							return Promise.resolve();
-						}
-					}
+				/*------------------------------------------------------------------------------
+				AUTOPLAY DISABLE  player || playlist || channel trailer
+				------------------------------------------------------------------------------*/
+				if ((((ImprovedTube.storage.player_autoplay_disable === true && !location.href.includes('list='))
+					  ||(ImprovedTube.storage.playlist_autoplay === false && location.href.includes('list='))) 
+					 && location.href.includes('/watch?') // #1703 // (=video page)
+					 )||(ImprovedTube.storage.channel_trailer_autoplay === false && ImprovedTube.regex.channel.test(location.href)
+						 && !/\/(videos|shorts|playlists|community|channels|about|posts|streams|releases)$/.test(location.href))
+				   ){const player = ImprovedTube.elements.player || this.closest('.html5-video-player') || this.closest('#movie_player'); // #movie_player: outdated since 2024?
+					 if (player && (!ImprovedTube.user_interacted || ImprovedTube.video_url !== location.href)
+						 && !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
+						 ){
+						 if (!ImprovedTube.user_interacted) {  // (=user didnt click or type)
+							 try { player.pauseVideo(); } catch (error) { this.pause(); } 
+							 return Promise.resolve();
+						 } else {
+							 if (!ImprovedTube._autoplayTimeout) {
+								 ImprovedTube._autoplayTimeout = 
+									 setTimeout(() => {
+										 if (!ImprovedTube.user_interacted) {
+										 try { player.pauseVideo(); } catch (error) { this.pause(); }
+										 } ImprovedTube._autoplayTimeout = null;
+									 }, 100);
+							 }
+						 }
+					 } else {
+						 document.dispatchEvent(new CustomEvent('it-play'));
+					 }
+					} else {
+					document.dispatchEvent(new CustomEvent('it-play'));
 				}
-
-				ImprovedTube.autoplayDisable(this);
+				
 				ImprovedTube.playerLoudnessNormalization();
 				ImprovedTube.playerCinemaModeEnable();
 			}
