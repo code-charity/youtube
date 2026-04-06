@@ -381,7 +381,38 @@ ImprovedTube.playerOnPlay = function () {
 
 				this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 				this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
-				ImprovedTube.autoplayDisable(this);
+				/*------------------------------------------------------------------------------
+				AUTOPLAY DISABLE  player || playlist || channel trailer
+				------------------------------------------------------------------------------*/
+				if ((((ImprovedTube.storage.player_autoplay_disable === true && !location.href.includes('list='))
+					  ||(ImprovedTube.storage.playlist_autoplay === false && location.href.includes('list='))) 
+					 && location.href.includes('/watch?') // #1703 // (=video page)
+					 )||(ImprovedTube.storage.channel_trailer_autoplay === false && ImprovedTube.regex.channel.test(location.href)
+						 && !/\/(videos|shorts|playlists|community|channels|about|posts|streams|releases)$/.test(location.href))
+				   ){const player = ImprovedTube.elements.player || this.closest('.html5-video-player') || this.closest('#movie_player'); // #movie_player: outdated since 2024?
+					 if (player && (!ImprovedTube.user_interacted || ImprovedTube.video_url !== location.href)
+						 && !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
+						 ){
+						 if (!ImprovedTube.user_interacted) {  // (=user didnt click or type)
+							 try { player.pauseVideo(); } catch (error) { this.pause(); } 
+							 return Promise.resolve();
+						 } else {
+							 if (!ImprovedTube._autoplayTimeout) {
+								 ImprovedTube._autoplayTimeout = 
+									 setTimeout(() => {
+										 if (!ImprovedTube.user_interacted) {
+										 try { player.pauseVideo(); } catch (error) { this.pause(); }
+										 } ImprovedTube._autoplayTimeout = null;
+									 }, 100);
+							 }
+						 }
+					 } else {
+						 document.dispatchEvent(new CustomEvent('it-play'));
+					 }
+					} else {
+					document.dispatchEvent(new CustomEvent('it-play'));
+				}
+				
 				ImprovedTube.playerLoudnessNormalization();
 				ImprovedTube.playerCinemaModeEnable();
 			}
