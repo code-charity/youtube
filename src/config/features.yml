@@ -1,0 +1,23 @@
+# This file defines feature flags for the ImprovedTube extension.
+# Values can be 'enabled' or 'disabled'.
+#
+# NOTE TO DEVELOPERS:
+# This YAML file is a proposed *temporary configuration* based on the
+# strict instruction to "write all code in yml" for this issue.
+# The actual resolution for "not playing video" requires updating the
+# extension's JavaScript code to correctly adapt to recent YouTube API
+# or DOM changes.
+#
+# Once the JavaScript is updated and tested, this flag can be removed
+# or set back to 'enabled'.
+
+# Temporarily disable video enhancement features that might conflict
+# with recent YouTube updates. Setting this to 'disabled' should allow
+# videos to play normally, albeit without some of ImprovedTube's
+# advanced functionality related to video playback.
+video_playback_enhancements: disabled
+
+# Other features can remain as is, or be explicitly controlled here:
+# player_controls_customization: enabled
+# ad_blocker: enabled
+# ui_tweaks: enabled
