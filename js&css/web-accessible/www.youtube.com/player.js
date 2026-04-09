@@ -1206,9 +1206,20 @@ ImprovedTube.playerCinemaModeButton = function () {
 					zIndex = 10000;
 				}
 
-				if (playerContainer) playerContainer.style.zIndex = zIndex;
-				if (playerContainerDefault)
+				var ytdPlayer = document.getElementById('ytd-player');
+
+				if (playerContainer) {
+					playerContainer.style.zIndex = zIndex;
+					playerContainer.style.position = zIndex === 10000 ? 'relative' : '';
+				}
+				if (playerContainerDefault) {
 					playerContainerDefault.style.zIndex = zIndex;
+					playerContainerDefault.style.position = zIndex === 10000 ? 'relative' : '';
+				}
+				if (ytdPlayer) {
+					ytdPlayer.style.zIndex = zIndex;
+					ytdPlayer.style.position = zIndex === 10000 ? 'relative' : '';
+				}
 
 				var overlay = document.getElementById('overlay_cinema');
 				if (!overlay) {
@@ -1228,9 +1239,20 @@ ImprovedTube.playerCinemaModeDisable = function () {
 		if (overlay) {
 			overlay.style.display = 'none'
 			var playerContainer = document.getElementById('player-full-bleed-container');
-			if (playerContainer) playerContainer.style.zIndex = 1;
+			if (playerContainer) {
+				playerContainer.style.zIndex = 1;
+				playerContainer.style.position = '';
+			}
 			var playerContainerDefault = document.getElementById('player-container');
-			if (playerContainerDefault) playerContainerDefault.style.zIndex = 1;
+			if (playerContainerDefault) {
+				playerContainerDefault.style.zIndex = 1;
+				playerContainerDefault.style.position = '';
+			}
+			var ytdPlayer = document.getElementById('ytd-player');
+			if (ytdPlayer) {
+				ytdPlayer.style.zIndex = 1;
+				ytdPlayer.style.position = '';
+			}
 			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
 			if (cinemaModeButton) cinemaModeButton.style.opacity = 0.64
 		}
@@ -1251,9 +1273,20 @@ ImprovedTube.playerCinemaModeEnable = function () {
 			if (overlay) {
 				overlay.style.display = 'block'
 				var player = document.getElementById('player-full-bleed-container');
-				if (player) player.style.zIndex = 10000;
+				if (player) {
+					player.style.zIndex = 10000;
+					player.style.position = 'relative';
+				}
 				var playerDefault = document.getElementById('player-container');
-				if (playerDefault) playerDefault.style.zIndex = 10000;
+				if (playerDefault) {
+					playerDefault.style.zIndex = 10000;
+					playerDefault.style.position = 'relative';
+				}
+				var ytdPlayer = document.getElementById('ytd-player');
+				if (ytdPlayer) {
+					ytdPlayer.style.zIndex = 10000;
+					ytdPlayer.style.position = 'relative';
+				}
 
 				var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
 				if (cinemaModeButton) cinemaModeButton.style.opacity = 1
