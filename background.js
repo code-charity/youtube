@@ -192,6 +192,25 @@ let tabConnected = {},
 	tabPrev = {},
 	windowId;
 
+async function injectFilesInMainWorld(tabId, files) {
+	for (const originalFile of files) {
+		const file = originalFile.replace(/^\//, '');
+
+		if (file.endsWith('.css')) {
+			await chrome.scripting.insertCSS({
+				target: { tabId },
+				files: [file]
+			});
+		} else {
+			await chrome.scripting.executeScript({
+				target: { tabId },
+				files: [file],
+				world: 'MAIN'
+			});
+		}
+	}
+}
+
 function tabPrune (callback) {
 	chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(function (tabs) {
 		let tabIds = [];
@@ -276,6 +295,29 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 				tabId: sender.tab.id
 			});
 			break
+
+		case 'inject-main-world':
+			if (!sender.tab?.id || !Array.isArray(message.files)) {
+				sendResponse({
+					ok: false,
+					error: 'Missing tab context or file list'
+				});
+				break
+			}
+
+			injectFilesInMainWorld(sender.tab.id, message.files)
+				.then(function () {
+					sendResponse({ ok: true });
+				})
+				.catch(function (error) {
+					console.error('MAIN world injection failed', error);
+					sendResponse({
+						ok: false,
+						error: String(error)
+					});
+				});
+
+			return true;
 
 		case 'fixPopup':
 			//~ get the current focused tab and convert it to a URL-less popup (with same state and size)

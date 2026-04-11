@@ -60,7 +60,7 @@
   "host_permissions": ["https://www.youtube.com/*"],
   "optional_host_permissions": ["https://returnyoutubedislikeapi.com/*"],
   "optional_permissions": ["downloads"],
-  "permissions": ["contextMenus", "storage", "unlimitedStorage"],
+  "permissions": ["contextMenus", "storage", "unlimitedStorage", "scripting"],
   "web_accessible_resources": [
     {
       "resources": [

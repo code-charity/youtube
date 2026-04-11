@@ -65,7 +65,7 @@ chrome.runtime.sendMessage({
 	}
 });
 
-extension.inject([
+const pageWorldFiles = [
 	'/js&css/web-accessible/core.js',
 	'/js&css/web-accessible/functions.js',
 	'/js&css/web-accessible/www.youtube.com/appearance.js',
@@ -81,11 +81,33 @@ extension.inject([
 	'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.js',
 	'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.css',
 	'/js&css/web-accessible/init.js'
-], function () {
+];
+
+function finishPageWorldInit() {
 	extension.ready = true;
 
 	extension.events.trigger('init');
-});
+}
+
+function useBackgroundMainWorldInjection() {
+	return /Safari/.test(navigator.userAgent) && !/Chrom(e|ium)/.test(navigator.userAgent);
+}
+
+if (useBackgroundMainWorldInjection()) {
+	chrome.runtime.sendMessage({
+		action: 'inject-main-world',
+		files: pageWorldFiles
+	}, function (response) {
+		if (response && response.ok) {
+			finishPageWorldInit();
+		} else {
+			console.warn('Falling back to DOM injection for page-world scripts', response?.error);
+			extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
+		}
+	});
+} else {
+	extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
+}
 
 document.addEventListener('DOMContentLoaded', function () {
 	extension.domReady = true;
