@@ -71,61 +71,45 @@ function finishPageWorldInit() {
 	extension.events.trigger('init');
 }
 
-if ((navigator.userAgent.indexOf('Safari') !== -1
+const pageWorldFiles = [
+	'/js&css/web-accessible/core.js',
+	'/js&css/web-accessible/functions.js',
+	'/js&css/web-accessible/www.youtube.com/appearance.js',
+	'/js&css/web-accessible/www.youtube.com/themes.js',
+	'/js&css/web-accessible/www.youtube.com/player.js',
+	'/js&css/web-accessible/www.youtube.com/playlist.js',
+	'/js&css/web-accessible/www.youtube.com/playlist-complete-playlist.js',
+	'/js&css/web-accessible/www.youtube.com/channel.js',
+	'/js&css/web-accessible/www.youtube.com/shortcuts.js',
+	'/js&css/web-accessible/www.youtube.com/blocklist.js',
+	'/js&css/web-accessible/www.youtube.com/settings.js',
+	'/js&css/web-accessible/www.youtube.com/last-watched-overlay.js', // Neue Zeile hinzufügen
+	'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.js',
+	'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.css',
+	'/js&css/web-accessible/init.js'
+];
+
+if (window === window.top
+	&& (navigator.userAgent.indexOf('Safari') !== -1
 	|| (typeof browser !== 'undefined' && browser.runtime?.getURL('')?.startsWith('safari-')))
 	&& (!/Chrom|Android|Windows|Linux/.test(navigator.userAgent)
 		|| /iPhone|iPad/.test(navigator.userAgent)
 	)
 ) {
-	const pageWorldFiles = [
-		'/js&css/web-accessible/core.js',
-		'/js&css/web-accessible/functions.js',
-		'/js&css/web-accessible/www.youtube.com/appearance.js',
-		'/js&css/web-accessible/www.youtube.com/themes.js',
-		'/js&css/web-accessible/www.youtube.com/player.js',
-		'/js&css/web-accessible/www.youtube.com/playlist.js',
-		'/js&css/web-accessible/www.youtube.com/playlist-complete-playlist.js',
-		'/js&css/web-accessible/www.youtube.com/channel.js',
-		'/js&css/web-accessible/www.youtube.com/shortcuts.js',
-		'/js&css/web-accessible/www.youtube.com/blocklist.js',
-		'/js&css/web-accessible/www.youtube.com/settings.js',
-		'/js&css/web-accessible/www.youtube.com/last-watched-overlay.js', // Neue Zeile hinzufügen
-		'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.js',
-		'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.css',
-		'/js&css/web-accessible/init.js'
-	];
 
 	chrome.runtime.sendMessage({
 		action: 'inject-main-world',
 		files: pageWorldFiles
 	}, function (response) {
-		var error = chrome.runtime.lastError?.message || response?.error;
-
 		if (response && response.ok) {
 			finishPageWorldInit();
 		} else {
-			console.warn('Falling back to DOM injection for page-world scripts', error);
+			console.warn('Falling back to DOM injection for page-world scripts', chrome.runtime.lastError?.message || response?.error);
 			extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
 		}
 	});
 } else {
-	extension.inject([
-		'/js&css/web-accessible/core.js',
-		'/js&css/web-accessible/functions.js',
-		'/js&css/web-accessible/www.youtube.com/appearance.js',
-		'/js&css/web-accessible/www.youtube.com/themes.js',
-		'/js&css/web-accessible/www.youtube.com/player.js',
-		'/js&css/web-accessible/www.youtube.com/playlist.js',
-		'/js&css/web-accessible/www.youtube.com/playlist-complete-playlist.js',
-		'/js&css/web-accessible/www.youtube.com/channel.js',
-		'/js&css/web-accessible/www.youtube.com/shortcuts.js',
-		'/js&css/web-accessible/www.youtube.com/blocklist.js',
-		'/js&css/web-accessible/www.youtube.com/settings.js',
-		'/js&css/web-accessible/www.youtube.com/last-watched-overlay.js', // Neue Zeile hinzufügen
-		'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.js',
-		'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.css',
-		'/js&css/web-accessible/init.js'
-	], finishPageWorldInit);
+	extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
 }
 
 document.addEventListener('DOMContentLoaded', function () {

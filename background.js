@@ -192,29 +192,6 @@ let tabConnected = {},
 	tabPrev = {},
 	windowId;
 
-async function injectFilesInMainWorld(tabId, files) {
-	if (!chrome.scripting?.insertCSS || !chrome.scripting?.executeScript) {
-		throw new Error('chrome.scripting is unavailable');
-	}
-
-	for (const originalFile of files) {
-		const file = originalFile.replace(/^\//, '');
-
-		if (file.endsWith('.css')) {
-			await chrome.scripting.insertCSS({
-				target: { tabId },
-				files: [file]
-			});
-		} else {
-			await chrome.scripting.executeScript({
-				target: { tabId },
-				files: [file],
-				world: 'MAIN'
-			});
-		}
-	}
-}
-
 function tabPrune (callback) {
 	chrome.tabs.query({ url: 'https://www.youtube.com/*' }).then(function (tabs) {
 		let tabIds = [];
@@ -269,6 +246,32 @@ chrome.windows.onFocusChanged.addListener(function (wId) {
 	});
 });
 /*--------------------------------------------------------------
+# EXTENSION API SCRIPT INJECTION (for Safari)
+--------------------------------------------------------------*/
+async function injectFilesInMainWorld(tabId, files) {
+	if (!chrome.scripting?.insertCSS || !chrome.scripting?.executeScript) {
+		throw new Error('chrome.scripting main-world injection failed');
+	}
+
+	for (const originalFile of files) {
+		const file = originalFile.replace(/^\//, '');
+
+		if (file.endsWith('.css')) {
+			await chrome.scripting.insertCSS({
+				target: { tabId },
+				files: [file]
+			});
+		} else {
+			await chrome.scripting.executeScript({
+				target: { tabId },
+				files: [file],
+				world: 'MAIN'
+			});
+		}
+	}
+}
+
+/*--------------------------------------------------------------
 # MESSAGE LISTENER
 --------------------------------------------------------------*/
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
@@ -301,10 +304,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 			break
 
 		case 'inject-main-world':
-			if (!sender.tab?.id || !Array.isArray(message.files)) {
+			if (!sender.tab?.id || sender.frameId !== 0 || !Array.isArray(message.files)) {
 				sendResponse({
 					ok: false,
-					error: 'Missing tab context or file list'
+					error: 'Missing top-frame tab context or file list'
 				});
 				break
 			}
@@ -314,10 +317,11 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 					sendResponse({ ok: true });
 				})
 				.catch(function (error) {
-					console.error('MAIN world injection failed', error);
+					const message = error?.message || 'Safari main-world injection failed';
+					console.error(message, error);
 					sendResponse({
 						ok: false,
-						error: String(error)
+						error: message
 					});
 				});
 
