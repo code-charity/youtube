@@ -99,10 +99,12 @@ if ((navigator.userAgent.indexOf('Safari') !== -1
 		action: 'inject-main-world',
 		files: pageWorldFiles
 	}, function (response) {
+		var error = chrome.runtime.lastError?.message || response?.error;
+
 		if (response && response.ok) {
 			finishPageWorldInit();
 		} else {
-			console.warn('Falling back to DOM injection for page-world scripts', response?.error);
+			console.warn('Falling back to DOM injection for page-world scripts', error);
 			extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
 		}
 	});

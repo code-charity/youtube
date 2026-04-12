@@ -193,6 +193,10 @@ let tabConnected = {},
 	windowId;
 
 async function injectFilesInMainWorld(tabId, files) {
+	if (!chrome.scripting?.insertCSS || !chrome.scripting?.executeScript) {
+		throw new Error('chrome.scripting is unavailable');
+	}
+
 	for (const originalFile of files) {
 		const file = originalFile.replace(/^\//, '');
 
