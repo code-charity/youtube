@@ -380,4 +380,7 @@ html[it-thumbnails-right='true'] #related yt-lockup-view-model .yt-lockup-view-m
 }
 
   
-
+/* revert related video thumbnail size */
+a.ytLockupViewModelContentImage {
+    width: 40% !important;
+}
