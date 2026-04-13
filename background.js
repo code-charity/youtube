@@ -304,10 +304,10 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 			break
 
 		case 'inject-main-world':
-			if (!sender.tab?.id || sender.frameId !== 0 || !Array.isArray(message.files)) {
+			if (!sender.tab?.id || !Array.isArray(message.files)) {
 				sendResponse({
 					ok: false,
-					error: 'Missing top-frame tab context or file list'
+					error: 'Missing tab context or file list'
 				});
 				break
 			}

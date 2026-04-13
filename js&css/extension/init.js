@@ -89,8 +89,7 @@ const pageWorldFiles = [
 	'/js&css/web-accessible/init.js'
 ];
 
-if (window === window.top
-	&& (navigator.userAgent.indexOf('Safari') !== -1
+if ((navigator.userAgent.indexOf('Safari') !== -1
 	|| (typeof browser !== 'undefined' && browser.runtime?.getURL('')?.startsWith('safari-')))
 	&& (!/Chrom|Android|Windows|Linux/.test(navigator.userAgent)
 		|| /iPhone|iPad/.test(navigator.userAgent)
