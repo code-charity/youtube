@@ -248,9 +248,15 @@ chrome.windows.onFocusChanged.addListener(function (wId) {
 /*--------------------------------------------------------------
 # EXTENSION API SCRIPT INJECTION (for Safari)
 --------------------------------------------------------------*/
-async function injectFilesInMainWorld(tabId, files) {
+async function injectFilesInMainWorld(tabId, frameId, files) {
 	if (!chrome.scripting?.insertCSS || !chrome.scripting?.executeScript) {
 		throw new Error('chrome.scripting main-world injection failed');
+	}
+
+	const target = { tabId };
+
+	if (typeof frameId === 'number') {
+		target.frameIds = [frameId];
 	}
 
 	for (const originalFile of files) {
@@ -258,12 +264,12 @@ async function injectFilesInMainWorld(tabId, files) {
 
 		if (file.endsWith('.css')) {
 			await chrome.scripting.insertCSS({
-				target: { tabId },
+				target,
 				files: [file]
 			});
 		} else {
 			await chrome.scripting.executeScript({
-				target: { tabId },
+				target,
 				files: [file],
 				world: 'MAIN'
 			});
@@ -312,7 +318,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 				break
 			}
 
-			injectFilesInMainWorld(sender.tab.id, message.files)
+			injectFilesInMainWorld(sender.tab.id, sender.frameId, message.files)
 				.then(function () {
 					sendResponse({ ok: true });
 				})
