@@ -173,6 +173,57 @@ def firefox():
     os.chdir('..')
     shutil.rmtree(temporary_path)
 
+def safari():
+    temporary_path = os.path.abspath('../cached-safari')
+
+    if os.path.isdir(temporary_path):
+        shutil.rmtree(temporary_path, ignore_errors=True)
+
+    shutil.copytree(
+        '..',
+        temporary_path,
+        ignore=shutil.ignore_patterns(
+            '.git',
+            '.github',
+            'cached',
+            'cached-safari',
+            'previews',
+            'py',
+            'wiki',
+            '*.zip',
+            *EXCLUDE_TOP_LEVEL
+        )
+    )
+
+    os.chdir(temporary_path)
+
+    with open('manifest.json', 'r+', encoding='utf8') as json_file:
+        data = json.load(json_file)
+
+        version = data['version']
+        permissions = data.get('permissions', [])
+
+        if 'scripting' not in permissions:
+            permissions.append('scripting')
+
+        data['permissions'] = permissions
+
+        json_file.seek(0)
+        json.dump(data, json_file, indent=4, sort_keys=True)
+        json_file.truncate()
+
+    archive = zipfile.ZipFile('../safari-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
+
+    for root, dirs, files in os.walk('.'):
+        for file in files:
+            archive.write(os.path.join(root, file),
+                          os.path.relpath(os.path.join(root, file),
+                                          os.path.join('.', '.')))
+
+    archive.close()
+    os.chdir('..')
+    shutil.rmtree(temporary_path)
+
 
 #---------------------------------------------------------------
 # 4.0 INITIALIZATION
@@ -189,3 +240,5 @@ for arg in sys.argv:
         chromium('whale')
     elif arg == '-firefox':
         firefox()
+    elif arg == '-safari':
+        safari()
