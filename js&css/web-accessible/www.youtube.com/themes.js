@@ -29,7 +29,7 @@ ImprovedTube.myColors = function () {
 		}
 
 		style.className = 'it-theme-editor';
-		style.textContent = 'html, [dark] {' +
+		style.textContent = 'html[it-theme=custom], html[it-theme=custom] [dark] {' +
 					'--yt-swatch-textbox-bg:rgba(19,19,19,1)!important;' +
 					'--yt-swatch-icon-color:rgba(136,136,136,1)!important;' +
 					'--yt-spec-brand-background-primary:rgba(0,0,0, 0.1) !important;' +
@@ -84,11 +84,11 @@ ImprovedTube.myColors = function () {
 					'--yt-frosted-glass-desktop:' + primary_color + 'cc !important;' +
 					'background-color: var(--yt-spec-base-background)!important;' +
 					'}' +
-					'ytd-masthead, #masthead, ytd-app #masthead { background-color: ' + secondary_color + ' !important; }';
+					'html[it-theme=custom] ytd-masthead, html[it-theme=custom] #masthead, html[it-theme=custom] ytd-app #masthead { background-color: ' + secondary_color + ' !important; }';
 					//Tested, but still not sure if it's good enough
 
 		this.elements.my_colors = style;
-		document.documentElement.appendChild(style);
+		(document.head || document.documentElement).appendChild(style);
 		document.documentElement.removeAttribute('dark');
 		document.querySelector('ytd-masthead')?.removeAttribute('dark');
 		document.getElementById('cinematics')?.style.setProperty("display", "none");
