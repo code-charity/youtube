@@ -179,9 +179,10 @@ def safari():
     if os.path.isdir(temporary_path):
         shutil.rmtree(temporary_path, ignore_errors=True)
 
-    shutil.copytree(
-        '..',
-        temporary_path,
+    repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+	shutil.copytree(
+		repo_root, 
+		temporary_path,
         ignore=shutil.ignore_patterns(
             '.git',
             '.github',
