@@ -55,7 +55,7 @@ def chromium(browser):
 
 	os.mkdir(temporary_path)
 
-	for item in os.listdir('../'):
+	for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))):
 		if (
 			item != '.git' and
 			item != '.github' and
@@ -70,7 +70,8 @@ def chromium(browser):
 		):
 			if item in EXCLUDE_TOP_LEVEL:
 				continue
-			s = os.path.join('.', item)
+			repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+			s = os.path.join(repo_root, item)
 			d = os.path.join(temporary_path, item)
 			if os.path.isdir(s):
 				shutil.copytree(s, d, True, None)
@@ -119,7 +120,7 @@ def firefox():
 
 	os.mkdir(temporary_path)
 
-	for item in os.listdir('.'):
+	for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))):
 		if (
 			item != '.git' and
 			item != '.github' and
