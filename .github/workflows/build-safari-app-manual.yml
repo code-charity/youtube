@@ -30,7 +30,7 @@ jobs:
 
       - name: Build and Convert the Release macOS version
         run: |
-          ZIP=$(find main -name "safari-*.zip" | head -n 1)
+          ZIP=$(find . -name "safari-*.zip" | head -n 1)
           unzip "$ZIP" -d safari-build
           xcrun safari-web-extension-converter safari-build --macos-only --no-open --force --swift --no-prompt --project-location /Users/runner/work/release --app-name ImprovedTube --bundle-identifier ImprovedTube
           cd /Users/runner/work/release/ImprovedTube/
