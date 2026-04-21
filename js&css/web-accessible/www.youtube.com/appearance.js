@@ -419,8 +419,8 @@ ImprovedTube.transcriptCollapseButton = function (el) {
         color: var(--yt-spec-text-primary);
     `;
     
-    let isCollapsed = false;
-    button.textContent = '−'; // collapse symbol
+    let isCollapsed = document.documentElement.hasAttribute('it-transcript-collapsed');
+    button.textContent = isCollapsed ? '+' : '−'; // expand/collapse symbol based on current state
     
     button.onclick = function(e) {
         e.stopPropagation();
