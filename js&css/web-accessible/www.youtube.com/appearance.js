@@ -419,8 +419,8 @@ ImprovedTube.transcriptCollapseButton = function (el) {
         color: var(--yt-spec-text-primary);
     `;
     
-    let isCollapsed = false;
-    button.textContent = '−'; // collapse symbol
+    let isCollapsed = document.documentElement.hasAttribute('it-transcript-collapsed');
+    button.textContent = isCollapsed ? '+' : '−'; // expand/collapse symbol based on current state
     
     button.onclick = function(e) {
         e.stopPropagation();
@@ -438,8 +438,17 @@ ImprovedTube.transcriptCollapseButton = function (el) {
     // Insert button into the title area
     const titleElement = transcriptPanel.querySelector('#title');
     if (titleElement) {
-        titleElement.parentElement.style.position = 'relative';
-        titleElement.parentElement.appendChild(button);
+        const titleParent = titleElement.parentElement;
+        if (titleParent) {
+            const inlinePosition = titleParent.style.position;
+            const computedPosition = window.getComputedStyle(titleParent).position;
+
+            if (!inlinePosition && computedPosition === 'static') {
+                titleParent.style.position = 'relative';
+            }
+
+            titleParent.appendChild(button);
+        }
     }
 };
 
