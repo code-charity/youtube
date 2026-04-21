@@ -442,6 +442,37 @@ ImprovedTube.transcriptCollapseButton = function (el) {
         titleElement.parentElement.appendChild(button);
     }
 };
+
+/*-------------------------------------------------------------------------
+TRANSCRIPT COLLAPSE CLEANUP
+-------------------------------------------------------------------------------*/
+
+ImprovedTube.cleanupTranscriptCollapse = function () {
+    // Remove the collapse button
+    const button = document.querySelector('#it-transcript-collapse-btn');
+    if (button) {
+        button.remove();
+    }
+    
+    // Clear the collapsed attribute
+    document.documentElement.removeAttribute('it-transcript-collapsed');
+};
+
+/*-------------------------------------------------------------------------
+TRANSCRIPT COLLAPSE STORAGE LISTENER
+-------------------------------------------------------------------------------*/
+
+if (!ImprovedTube.transcriptCollapseListener) {
+    ImprovedTube.transcriptCollapseListener = true;
+    
+    document.addEventListener('it-storage-update', function (e) {
+        if (e.detail && e.detail.key === 'transcript_collapse') {
+            if (e.detail.value === false) {
+                ImprovedTube.cleanupTranscriptCollapse();
+            }
+        }
+    });
+}
 /*----------------------------------------------------------------
  CHAPTERS
 --------------------------------------------------------------*/
