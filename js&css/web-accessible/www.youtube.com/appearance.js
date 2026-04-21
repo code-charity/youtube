@@ -407,19 +407,6 @@ ImprovedTube.transcriptCollapseButton = function (el) {
     button.id = 'it-transcript-collapse-btn';
     button.setAttribute('aria-label', 'Collapse transcript panel');
     button.setAttribute('title', 'Collapse transcript panel');
-    button.style.cssText = `
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 999;
-        padding: 4px 8px;
-        background: var(--yt-spec-button-chip-background);
-        border: 1px solid var(--yt-spec-10-percent-layer);
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 12px;
-        color: var(--yt-spec-text-primary);
-    `;
     
     let isCollapsed = document.documentElement.hasAttribute('it-transcript-collapsed');
     button.textContent = isCollapsed ? '+' : '−'; // expand/collapse symbol based on current state
