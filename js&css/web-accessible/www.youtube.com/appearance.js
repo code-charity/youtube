@@ -405,6 +405,8 @@ ImprovedTube.transcriptCollapseButton = function (el) {
     // Create collapse/expand button
     const button = document.createElement('button');
     button.id = 'it-transcript-collapse-btn';
+    button.setAttribute('aria-label', 'Collapse transcript panel');
+    button.setAttribute('title', 'Collapse transcript panel');
     button.style.cssText = `
         position: absolute;
         top: 10px;
@@ -429,9 +431,13 @@ ImprovedTube.transcriptCollapseButton = function (el) {
         if (isCollapsed) {
             document.documentElement.setAttribute('it-transcript-collapsed', 'true');
             button.textContent = '+'; // expand symbol
+            button.setAttribute('aria-label', 'Expand transcript panel');
+            button.setAttribute('title', 'Expand transcript panel');
         } else {
             document.documentElement.removeAttribute('it-transcript-collapsed');
             button.textContent = '−'; // collapse symbol
+            button.setAttribute('aria-label', 'Collapse transcript panel');
+            button.setAttribute('title', 'Collapse transcript panel');
         }
     };
     
