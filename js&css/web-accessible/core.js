@@ -272,11 +272,19 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'transcript':
 					if (ImprovedTube.storage.transcript === true) {
-						document.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');					// Add collapse button after transcript is opened
-					const transcriptPanel = document.querySelector('ytd-watch-flexy');
-					if (transcriptPanel) {
-						setTimeout(() => ImprovedTube.transcriptCollapseButton(transcriptPanel), 500);
-					}					} else if (ImprovedTube.storage.transcript === false) {
+						document.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');
+
+						// Add collapse button after transcript is opened
+						const transcriptPanel = document.querySelector('ytd-watch-flexy');
+
+						if (transcriptPanel && typeof ImprovedTube.transcriptCollapseButton === 'function') {
+							setTimeout(() => {
+								if (typeof ImprovedTube.transcriptCollapseButton === 'function') {
+									ImprovedTube.transcriptCollapseButton(transcriptPanel);
+								}
+							}, 500);
+						}
+					} else if (ImprovedTube.storage.transcript === false) {
 						document.querySelector('*[target-id*=transcript] #visibility-button button')?.click();
 					}
 					break
