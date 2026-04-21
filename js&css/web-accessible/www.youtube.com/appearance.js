@@ -438,8 +438,17 @@ ImprovedTube.transcriptCollapseButton = function (el) {
     // Insert button into the title area
     const titleElement = transcriptPanel.querySelector('#title');
     if (titleElement) {
-        titleElement.parentElement.style.position = 'relative';
-        titleElement.parentElement.appendChild(button);
+        const titleParent = titleElement.parentElement;
+        if (titleParent) {
+            const inlinePosition = titleParent.style.position;
+            const computedPosition = window.getComputedStyle(titleParent).position;
+
+            if (!inlinePosition && computedPosition === 'static') {
+                titleParent.style.position = 'relative';
+            }
+
+            titleParent.appendChild(button);
+        }
     }
 };
 /*----------------------------------------------------------------
