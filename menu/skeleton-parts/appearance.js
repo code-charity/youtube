@@ -1075,6 +1075,13 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					}
 				}
 			},
+			transcript_collapse: {
+				component: 'switch',
+				text: 'Collapse_transcript_panel',
+				value: true,
+				id: 'transcript-collapse',
+				tags: 'transcript,collapse'
+			},
 			compact_spacing: {
 				component: "switch",
 				text: 'compact_spacing',

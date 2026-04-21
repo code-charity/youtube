@@ -113,6 +113,25 @@ html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'] 
 }
 
 /*--------------------------------------------------------------
+# TRANSCRIPT COLLAPSED STATE
+--------------------------------------------------------------*/
+html[data-page-type=video][it-transcript='true'][it-transcript-collapsed='true'] *[target-id*='transcript'] {
+    max-width: 60px !important;
+    min-width: 60px !important;
+}
+
+html[data-page-type=video][it-transcript='true'][it-transcript-collapsed='true'] *[target-id*='transcript'] ytd-engagement-panel-section-list-renderer #content {
+    display: none !important;
+}
+
+html[data-page-type=video][it-transcript='true'][it-transcript-collapsed='true'] *[target-id*='transcript'] #title {
+    opacity: 1 !important;
+    writing-mode: vertical-rl !important;
+    text-orientation: mixed !important;
+    transform: rotate(180deg) !important;
+}
+
+/*--------------------------------------------------------------
 # RELATED VIDEO STYLES
 --------------------------------------------------------------*/
 html[it-related-videos='Focus'] #related #dismissible:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) {opacity:0.8;  max-height:80px; overflow:hidden; margin-top:-1px;  transition: max-height 0.2s ease 0.15s;}
