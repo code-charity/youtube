@@ -44,7 +44,7 @@ extension.features.relatedVideos = function (anything) {
 
 extension.features.liveChat = function () {
 	if (extension.storage.get('livechat') === 'collapsed') {
-		window.addEventListener('click', function(event) {
+		window.addEventListener('click', function (event) {
 			if (extension.storage.get('livechat') !== 'collapsed') return;
 
 			var chat = event.target.closest('#chat-container');
@@ -64,6 +64,31 @@ extension.features.liveChat = function () {
 };
 
 /*--------------------------------------------------------------
+# TRANSCRIPT COLLAPSE
+--------------------------------------------------------------*/
+extension.features.transcriptCollapse = function () {
+	if (extension.storage.get('transcript_collapse') === true) {
+		window.addEventListener('click', function (event) {
+			if (extension.storage.get('transcript_collapse') !== true) return;
+
+
+			var header = event.target.closest('ytd-engagement-panel-section-list-renderer[target-id*="transcript"] #header');
+			if (!header) return;
+
+
+			if (event.target.closest('button') || event.target.closest('yt-icon-button')) return;
+
+
+			var panel = header.closest('ytd-engagement-panel-section-list-renderer');
+			if (panel) {
+				panel.toggleAttribute('it-activated');
+			}
+		}, true);
+	}
+};
+
+
+/*--------------------------------------------------------------
 # STICKY NAVIGATION
 --------------------------------------------------------------*/
 
@@ -73,14 +98,14 @@ extension.features.stickyNavigation = function () {
 		function ensureNavigationVisible() {
 			const miniGuide = document.querySelector('ytd-mini-guide-renderer');
 			const guide = document.querySelector('ytd-guide-renderer');
-			
+
 			if (miniGuide) {
 				miniGuide.style.transform = 'translateX(0)';
 				miniGuide.style.transition = 'none';
 				miniGuide.removeAttribute('hidden');
 				miniGuide.setAttribute('aria-hidden', 'false');
 			}
-			
+
 			if (guide) {
 				guide.style.transform = 'translateX(0)';
 				guide.style.transition = 'none';
@@ -93,9 +118,9 @@ extension.features.stickyNavigation = function () {
 		ensureNavigationVisible();
 
 		// Set up observer to watch for navigation changes
-		const observer = new MutationObserver(function(mutations) {
-			mutations.forEach(function(mutation) {
-				if (mutation.type === 'attributes' && 
+		const observer = new MutationObserver(function (mutations) {
+			mutations.forEach(function (mutation) {
+				if (mutation.type === 'attributes' &&
 					(mutation.attributeName === 'hidden' || mutation.attributeName === 'aria-hidden')) {
 					ensureNavigationVisible();
 				}
@@ -105,14 +130,14 @@ extension.features.stickyNavigation = function () {
 		// Observe navigation elements
 		const miniGuide = document.querySelector('ytd-mini-guide-renderer');
 		const guide = document.querySelector('ytd-guide-renderer');
-		
+
 		if (miniGuide) {
 			observer.observe(miniGuide, {
 				attributes: true,
 				attributeFilter: ['hidden', 'aria-hidden']
 			});
 		}
-		
+
 		if (guide) {
 			observer.observe(guide, {
 				attributes: true,
