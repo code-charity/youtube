@@ -98,7 +98,8 @@ For info on how to contribute, see the <a href="https://github.com/code-for-char
 <a href="https://github.com/Mike-Correa"><code>Mike-Correa</code></a>
 <a href="https://github.com/DavidBrazSan"><code>DavidBrazSan</code></a></br>
 <a href="https://github.com/unnamed-orbert"><code>unnamed-orbert :)</code></a>
-<a href="https://github.com/pecazeco"><code>pecazeco</code></a><br>
+<a href="https://github.com/pecazeco"><code>pecazeco</code></a>
+<a href="https://github.com/michellegalindo"><code>michellegalindo</code></a><br>
 <code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/pt_PT/messages.json" title="Português">PT</a></code> :
 <a href="https://github.com/DrNopt"><code>DrNopt</code></a>
 <a href="https://github.com/unnamed-orbert"><code>unnamed-orbert</code></a>
