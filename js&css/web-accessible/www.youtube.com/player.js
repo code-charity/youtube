@@ -7,9 +7,17 @@ ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 		paused = video?.paused;
 
 	if (player && video && this.storage.forced_play_video_from_the_beginning && location.pathname == '/watch') {
-		player.seekTo(0);
-		// restore previous paused state
-		if (paused) { player.pauseVideo(); }
+		// Skip the seek when the video is effectively already at 0. When
+		// YouTube's own playback starts at 0 (fresh video, never watched), a
+		// seekTo(0) after page load produces an audible "double play" of the
+		// opening moments. Only seek when YouTube has resumed from a saved
+		// timestamp (currentTime > 0), which is the case this setting exists
+		// to override.
+		if (video.currentTime > 0.5) {
+			player.seekTo(0);
+			// restore previous paused state after the seek
+			if (paused) { player.pauseVideo(); }
+		}
 	}
 };
 /*------------------------------------------------------------------------------
