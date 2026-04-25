@@ -77,40 +77,41 @@ ImprovedTube.forcedTheaterMode = function () {
 		}
 	}
 };
-/*------------------------------------------------------------------------------
- HD THUMBNAIL
-------------------------------------------------------------------------------*/
+
 /*------------------------------------------------------------------------------
  HD THUMBNAIL (Smart Hardware & Network Probe)
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerHdThumbnail = function (thumbnailElement) {
-	if (this.storage.player_hd_thumbnail === true) {
-		var thumbnail = thumbnailElement || ImprovedTube.elements.player_thumbnail;
-		
-		if (!thumbnail || !thumbnail.style) return;
+    if (this.storage.player_hd_thumbnail === true) {
+        var thumbnail = thumbnailElement || ImprovedTube.elements.player_thumbnail;
+        
+        if (!thumbnail || !thumbnail.style) return;
 
-		var currentBg = thumbnail.style.backgroundImage;
-		if (currentBg && currentBg.indexOf("/hqdefault.jpg") !== -1) {
-			
-			var rect = thumbnail.getBoundingClientRect();
-			var physicalWidth = (rect.width || thumbnail.clientWidth || 0) * (window.devicePixelRatio || 1);
+        var currentBg = thumbnail.style.backgroundImage;
+        if (currentBg && currentBg.indexOf("/hqdefault.jpg") !== -1) {
+            
+            var rect = thumbnail.getBoundingClientRect();
+            var physicalWidth = (rect.width || thumbnail.clientWidth || 0) * (window.devicePixelRatio || 1);
 
-			if (physicalWidth > 400 || physicalWidth === 0) {
-				
-				var maxResUrl = currentBg.replace("/hqdefault.jpg", "/maxresdefault.jpg");
-				
-				var extractedUrl = maxResUrl.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-				
-				var probe = new Image();
-				probe.onload = function () {
-					thumbnail.style.backgroundImage = maxResUrl;
-				};
-				probe.onerror = function () {
-				};
-				probe.src = extractedUrl;
-			}
-		}
-	}
+            if (physicalWidth === 0) {
+                return;
+            }
+
+            if (physicalWidth > 400) {
+                
+                var maxResUrl = currentBg.replace("/hqdefault.jpg", "/maxresdefault.jpg");
+                var extractedUrl = maxResUrl.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+                
+                var probe = new Image();
+                probe.onload = function () {
+                    thumbnail.style.backgroundImage = maxResUrl;
+                };
+                probe.onerror = function () {
+                };
+                probe.src = extractedUrl;
+            }
+        }
+    }
 };
 /*------------------------------------------------------------------------------
  ALWAYS SHOW PROGRESS BAR
