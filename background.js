@@ -246,6 +246,38 @@ chrome.windows.onFocusChanged.addListener(function (wId) {
 	});
 });
 /*--------------------------------------------------------------
+# EXTENSION API SCRIPT INJECTION (for Safari)
+--------------------------------------------------------------*/
+async function injectFilesInMainWorld(tabId, frameId, files) {
+	if (!chrome.scripting?.insertCSS || !chrome.scripting?.executeScript) {
+		throw new Error('chrome.scripting main-world injection failed');
+	}
+
+	const target = { tabId };
+
+	if (typeof frameId === 'number') {
+		target.frameIds = [frameId];
+	}
+
+	for (const originalFile of files) {
+		const file = originalFile.replace(/^\//, '');
+
+		if (file.endsWith('.css')) {
+			await chrome.scripting.insertCSS({
+				target,
+				files: [file]
+			});
+		} else {
+			await chrome.scripting.executeScript({
+				target,
+				files: [file],
+				world: 'MAIN'
+			});
+		}
+	}
+}
+
+/*--------------------------------------------------------------
 # MESSAGE LISTENER
 --------------------------------------------------------------*/
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
@@ -276,6 +308,30 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 				tabId: sender.tab.id
 			});
 			break
+
+		case 'inject-main-world':
+			if (!sender.tab?.id || !Array.isArray(message.files)) {
+				sendResponse({
+					ok: false,
+					error: 'Missing tab context or file list'
+				});
+				break
+			}
+
+			injectFilesInMainWorld(sender.tab.id, sender.frameId, message.files)
+				.then(function () {
+					sendResponse({ ok: true });
+				})
+				.catch(function (error) {
+					const message = error?.message || 'Safari main-world injection failed';
+					console.error(message, error);
+					sendResponse({
+						ok: false,
+						error: message
+					});
+				});
+
+			return true;
 
 		case 'fixPopup':
 			//~ get the current focused tab and convert it to a URL-less popup (with same state and size)

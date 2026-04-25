@@ -789,3 +789,14 @@ html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
 	opacity: 0 !important;
 	visibility: hidden !important;
 }
+
+
+/*--------------------------------------------------------------
+# FIX THUMBNAIL ZOOM/CROP IN THEATER MODE
+--------------------------------------------------------------*/
+.ytp-cued-thumbnail-overlay-image {
+    background-size: contain !important;
+    -webkit-background-size: contain !important;
+    -moz-background-size: contain !important;
+    background-color: #000 !important;
+}
