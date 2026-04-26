@@ -188,6 +188,7 @@ ImprovedTube.init = function () {
 			ImprovedTube.playlistLargePlaylistHandler();
 		}
 		try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] page-data-updated error', e); }
+		if (ImprovedTube.storage.collapse_transcript_panel) {ImprovedTube.collapseTranscriptPanel();}
 	});
 	this.pageType();
 	this.playerOnPlay();
@@ -222,6 +223,7 @@ ImprovedTube.init = function () {
 		ImprovedTube.playerQualityFullScreen();
 	}
 	if (ImprovedTube.storage.hide_pause_overlay) {this.hidePauseOverlay();}
+	if (ImprovedTube.storage.collapse_transcript_panel) {ImprovedTube.collapseTranscriptPanel();}
 };
 
 document.addEventListener('yt-navigate-finish', function () {

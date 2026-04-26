@@ -329,6 +329,9 @@
   "copyTranscript": {
     "message": "📋 Copy Transcript"
   },
+  "collapseTranscriptPanel": {
+    "message": "Collapse transcript panel"
+  },
   "FetchingTranscript": {
     "message": "Fetching..."
   },
@@ -680,6 +683,9 @@
   "hideCommentsCount": {
     "message": "Hide comments count"
   },
+  "hideCommunityPosts": {
+    "message": "Hide community posts"
+  },
   "hideCountryCode": {
     "message": "Hide country code"
   },
@@ -715,6 +721,9 @@
   },
   "hideMore": {
     "message": "Hide '...'"
+  },
+  "hideSignOut": {
+    "message": "Hide Sign out"
   },
   "hidePlayerControlsBar": {
     "message": "Hide player controls bar"

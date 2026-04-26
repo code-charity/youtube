@@ -7,9 +7,12 @@ ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 		paused = video?.paused;
 
 	if (player && video && this.storage.forced_play_video_from_the_beginning && location.pathname == '/watch') {
-		player.seekTo(0);
-		// restore previous paused state
-		if (paused) { player.pauseVideo(); }
+		// Only seek if not already at the beginning (prevents double-play)
+		if (video.currentTime > 1) {
+			player.seekTo(0);
+			// restore previous paused state
+			if (paused) { player.pauseVideo(); }
+		}
 	}
 };
 /*------------------------------------------------------------------------------
