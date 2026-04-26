@@ -96,6 +96,16 @@ extension.skeleton.main.layers.section.general = {
 					text: 'hideAISummary',
 					id: 'hide-ai-summary'
 				},
+				hide_community_posts: {
+					component: 'switch',
+					text: 'hideCommunityPosts',
+					id: 'hide-community-posts'
+				},
+				collapse_transcript_panel: {
+					component: 'switch',
+					text: 'collapseTranscriptPanel',
+					id: 'collapse-transcript-panel'
+				},
 				remove_subscriptions_most_relevant: {
 					component: 'switch',
 					text: 'removeSubscriptionsMostRelevant',

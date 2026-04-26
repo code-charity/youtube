@@ -402,7 +402,45 @@ ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === tr
 		modernChapters ? modernChapters.click() : el.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
 		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
 	}  
-}};	
+}};
+
+/*------------------------------------------------------------------------------
+ COLLAPSE TRANSCRIPT PANEL
+------------------------------------------------------------------------------*/
+ImprovedTube.collapseTranscriptPanel = function () {
+	if (ImprovedTube.storage.collapse_transcript_panel !== true) return;
+	
+	var panels = document.querySelectorAll('ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"]');
+	panels.forEach(function (panel) {
+		if (panel.dataset.itCollapseInitialized) return;
+		panel.dataset.itCollapseInitialized = 'true';
+		
+		var header = panel.querySelector('ytd-engagement-panel-title-header-renderer');
+		if (!header) return;
+		
+		header.style.cursor = 'pointer';
+		header.addEventListener('click', function (e) {
+			// Don't collapse if clicking the close button or other interactive elements inside the header
+			if (e.target.closest('button')) return;
+			
+			var isCollapsed = panel.getAttribute('it-collapsed') === 'true';
+			if (isCollapsed) {
+				panel.removeAttribute('it-collapsed');
+			} else {
+				panel.setAttribute('it-collapsed', 'true');
+			}
+		});
+	});
+};
+
+// Run periodically to catch dynamically added panels
+if (!ImprovedTube._collapseTranscriptInterval) {
+	ImprovedTube._collapseTranscriptInterval = setInterval(function () {
+		if (ImprovedTube.storage && ImprovedTube.storage.collapse_transcript_panel === true) {
+			ImprovedTube.collapseTranscriptPanel();
+		}
+	}, 1500);
+}	
 /*------------------------------------------------------------------------------
  LIVECHAT
 ------------------------------------------------------------------------------*/

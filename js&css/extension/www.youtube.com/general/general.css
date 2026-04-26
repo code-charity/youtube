@@ -82,8 +82,53 @@ html[it-hide-thumbnail-overlay='true'] #player-controls.ytd-video-preview,
 html[it-hide-thumbnail-icon='true'] .yt-spec-avatar-shape.yt-spec-avatar-shape__button.yt-spec-avatar-shape__button--button-medium.yt-spec-avatar-shape__button--tappable,
 html[it-hide-thumbnail-icon='true'] :is(ytd-video-renderer,ytd-promoted-video-renderer) a#channel-thumbnail,
 /*------------------------------------------------------------------------------
-# HIDE AI SUMMARY
+# HIDE COMMUNITY POSTS
 ------------------------------------------------------------------------------*/
+html[it-hide-community-posts='true'] ytd-rich-item-renderer:has(ytd-post-renderer),
+html[it-hide-community-posts='true'] ytd-rich-item-renderer:has(yt-post-renderer),
+html[it-hide-community-posts='true'] ytd-item-section-renderer:has(ytd-post-renderer),
+html[it-hide-community-posts='true'] ytd-item-section-renderer:has(yt-post-renderer),
+html[it-hide-community-posts='true'] ytd-backstage-post-renderer,
+html[it-hide-community-posts='true'] ytd-rich-section-renderer:has(ytd-post-renderer),
+html[it-hide-community-posts='true'] ytd-rich-section-renderer:has(yt-post-renderer),
+/*------------------------------------------------------------------------------
+# COLLAPSE TRANSCRIPT PANEL
+------------------------------------------------------------------------------*/
+/* Collapse button styling */
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"] ytd-engagement-panel-title-header-renderer::before {
+	content: '';
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 24px;
+	transform: rotate(180deg);
+	transition: transform 0.2s ease;
+	margin-right: 8px;
+}
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"][it-collapsed='true'] ytd-engagement-panel-title-header-renderer::before {
+	transform: rotate(0deg);
+}
+/* Collapsed state */
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"][it-collapsed='true'] #content.ytd-engagement-panel-section-list-renderer,
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"][it-collapsed='true'] .ytd-engagement-panel-section-list-renderer#content,
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"][it-collapsed='true'] ytd-transcript-renderer,
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"][it-collapsed='true'] .ytd-transcript-body-renderer,
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"][it-collapsed='true'] #segments-container,
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"][it-collapsed='true'] .yt-virtual-list__container,
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"][it-collapsed='true'] ytd-transcript-segment-renderer,
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"][it-collapsed='true'] #body {
+	display: none !important;
+}
+html[it-collapse-transcript-panel='true'] ytd-engagement-panel-section-list-renderer[target-id="engagement-panel-searchable-transcript"][it-collapsed='true'] {
+	max-height: 56px !important;
+	overflow: hidden !important;
+}
 html[it-hide-ai-summary='true'] ytd-expandable-metadata-renderer[has-video-summary],
 /*--------------------------------------------------------------
 # HIDE DOTS ON THUMBNAILS
