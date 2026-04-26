@@ -722,6 +722,9 @@
   "hideMore": {
     "message": "Hide '...'"
   },
+  "hideSignOut": {
+    "message": "Hide Sign out"
+  },
   "hidePlayerControlsBar": {
     "message": "Hide player controls bar"
   },

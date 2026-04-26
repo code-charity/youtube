@@ -106,6 +106,11 @@ extension.skeleton.main.layers.section.general = {
 					text: 'collapseTranscriptPanel',
 					id: 'collapse-transcript-panel'
 				},
+				hide_sign_out: {
+					component: 'switch',
+					text: 'hideSignOut',
+					id: 'hide-sign-out'
+				},
 				remove_subscriptions_most_relevant: {
 					component: 'switch',
 					text: 'removeSubscriptionsMostRelevant',

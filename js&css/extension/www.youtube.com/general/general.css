@@ -155,6 +155,8 @@ html[it-remove-member-only='true'] yt-lockup-view-model:has(.yt-badge-shape--com
 html[it-remove-member-only='true'] ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
 html[it-remove-member-only='true'] ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership),
 html[it-remove-member-only='true'] yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership),
+html[it-hide-sign-out='true'] ytd-multi-page-menu-renderer a[href*="logout"],
+html[it-hide-sign-out='true'] ytd-compact-link-renderer:has(a[href*="logout"]),
 /*--------------------------------------------------------------
 # REMOVE CONTEXT BUTTONS ON SHORTS
 --------------------------------------------------------------*/
