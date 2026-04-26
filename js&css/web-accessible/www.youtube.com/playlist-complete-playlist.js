@@ -475,7 +475,7 @@ async function clickMenuRemove(renderer) {
 async function loadAllPlaylistItems(statusCb, signal) {
     const list = document.querySelector('ytd-playlist-video-list-renderer #contents') ||
         document.querySelector('ytd-playlist-video-list-renderer');
-    if (!list) return;
+    if (!list) return false;
 
     let lastCount = 0;
     let stable = 0;
@@ -483,7 +483,8 @@ async function loadAllPlaylistItems(statusCb, signal) {
     const deadline = Date.now() + 90_000;
 
     for (let i = 0; i < 300; i++) {
-        if (signal?.aborted || Date.now() > deadline) break;
+        if (signal?.aborted) return false;
+        if (Date.now() > deadline) return true;
 
         // Scroll to end to trigger loading
         try { list.scrollTop = list.scrollHeight; } catch (e) { }
@@ -501,6 +502,7 @@ async function loadAllPlaylistItems(statusCb, signal) {
         if (count <= lastCount) { stable++; } else { stable = 0; lastCount = count; }
         if (stable >= maxStable && !list.querySelector('ytd-continuation-item-renderer')) break;
     }
+    return false;
 }
 
 /**
@@ -534,11 +536,13 @@ async function runRemoval(threshold, signal) {
     if (items.length === 0) return 0;
 
     const playlistId = new URLSearchParams(location.search).get('list');
+    const confirmedNodes = new Set();
 
     // Try edit_playlist with setVideoIds in chunks to avoid oversized requests
     const BATCH_SIZE = 50;
     let ok = false;
     const setIds = items.map(i => i.setId).filter(Boolean);
+    const bySetId = new Map(items.filter(i => i.setId).map(i => [i.setId, i]));
     if (setIds.length) {
         ok = true;
         for (let i = 0; i < setIds.length; i += BATCH_SIZE) {
@@ -546,12 +550,17 @@ async function runRemoval(threshold, signal) {
             const chunk = setIds.slice(i, i + BATCH_SIZE);
             const r = await removeVideosPersistentlyEdit(playlistId, chunk);
             if (!r) { ok = false; break; }
+            for (const sid of chunk) {
+                const item = bySetId.get(sid);
+                if (item) confirmedNodes.add(item.node);
+            }
         }
     }
 
     // Fallback to modify with removedVideoId (batch)
     if (!ok && !signal?.aborted) {
         ok = await removeVideosPersistentlyModify(playlistId, items.map(i => i.id).filter(Boolean));
+        if (ok) items.forEach(({ node }) => confirmedNodes.add(node));
     }
 
     if (!ok && !signal?.aborted) {
@@ -560,13 +569,14 @@ async function runRemoval(threshold, signal) {
             if (signal?.aborted) break;
             const did = await clickMenuRemove(node);
             if (!did) removeFromPlaylist(id, setId);
+            confirmedNodes.add(node);
         }
     }
 
-    // Optimistically remove DOM nodes for immediate feedback
-    for (const { node } of items) { try { node.remove(); } catch (e) { } }
+    // Remove only confirmed items from the DOM
+    for (const node of confirmedNodes) { try { node.remove(); } catch (e) { } }
 
-    return items.length;
+    return confirmedNodes.size;
 }
 
 /**
@@ -666,18 +676,23 @@ ImprovedTube.playlistCreateBulkControls = function () {
         button.addEventListener('click', async function (e) {
             e.preventDefault();
             e.stopPropagation();
+            if (_loadController) {
+                _loadController.abort();
+                return;
+            }
             const threshold = Math.max(0, Math.min(100, parseInt(input.value, 10) || 0));
-            button.disabled = true;
-            if (_loadController) _loadController.abort();
-            _loadController = new AbortController();
-            const { signal } = _loadController;
+            const thisController = new AbortController();
+            _loadController = thisController;
+            const { signal } = thisController;
+            button.textContent = 'Cancel';
             try {
                 status.textContent = 'Loading…';
-                await loadAllPlaylistItems(count => {
+                const timedOut = await loadAllPlaylistItems(count => {
                     status.textContent = `Loaded ${count}…`;
                     ImprovedTube.playlistAttachQuickButtons();
                 }, signal);
                 if (signal.aborted) { status.textContent = 'Cancelled'; return; }
+                if (timedOut) { status.textContent = 'Timed out — partial list'; return; }
                 status.textContent = 'Removing…';
                 const removed = await runRemoval(threshold, signal);
                 status.textContent = removed ? `Removed ${removed}` : 'No matches';
@@ -685,8 +700,8 @@ ImprovedTube.playlistCreateBulkControls = function () {
                 status.textContent = 'Error';
                 console.error('[ImprovedTube] Bulk removal error', err);
             } finally {
-                _loadController = null;
-                setTimeout(() => { button.disabled = false; }, 200);
+                if (_loadController === thisController) _loadController = null;
+                button.textContent = 'Remove';
             }
         }, true);
 
@@ -740,18 +755,23 @@ ImprovedTube.playlistCreateBulkControls = function () {
     button.addEventListener('click', async function (e) {
         e.preventDefault();
         e.stopPropagation();
+        if (_loadController) {
+            _loadController.abort();
+            return;
+        }
         const threshold = Math.max(0, Math.min(100, parseInt(input.value, 10) || 0));
-        button.disabled = true;
-        if (_loadController) _loadController.abort();
-        _loadController = new AbortController();
-        const { signal } = _loadController;
+        const thisController = new AbortController();
+        _loadController = thisController;
+        const { signal } = thisController;
+        button.textContent = 'Cancel';
         try {
             status.textContent = 'Loading…';
-            await loadAllPlaylistItems(count => {
+            const timedOut = await loadAllPlaylistItems(count => {
                 status.textContent = `Loaded ${count}…`;
                 ImprovedTube.playlistAttachQuickButtons();
             }, signal);
             if (signal.aborted) { status.textContent = 'Cancelled'; return; }
+            if (timedOut) { status.textContent = 'Timed out — partial list'; return; }
             status.textContent = 'Removing…';
             const removed = await runRemoval(threshold, signal);
             status.textContent = removed ? `Removed ${removed}` : 'No matches';
@@ -759,8 +779,8 @@ ImprovedTube.playlistCreateBulkControls = function () {
             status.textContent = 'Error';
             console.error('[ImprovedTube] Bulk removal error', err);
         } finally {
-            _loadController = null;
-            setTimeout(() => { button.disabled = false; }, 200);
+            if (_loadController === thisController) _loadController = null;
+            button.textContent = 'Remove';
         }
     }, true);
 
