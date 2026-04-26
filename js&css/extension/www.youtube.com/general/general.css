@@ -152,6 +152,9 @@ html[it-embeddedHideShare='true'][it-pathname^="/embed"] .ytp-share-button-visib
 html[it-remove-member-only='true'] ytd-grid-video-renderer:has(.badge-style-type-members-only),
 html[it-remove-member-only='true'] ytd-rich-item-renderer:has(.badge-style-type-members-only),
 html[it-remove-member-only='true'] yt-lockup-view-model:has(.yt-badge-shape--commerce),
+html[it-remove-member-only='true'] ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
+html[it-remove-member-only='true'] ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership),
+html[it-remove-member-only='true'] yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership),
 /*--------------------------------------------------------------
 # REMOVE CONTEXT BUTTONS ON SHORTS
 --------------------------------------------------------------*/
