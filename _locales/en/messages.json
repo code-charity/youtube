@@ -329,6 +329,9 @@
   "copyTranscript": {
     "message": "📋 Copy Transcript"
   },
+  "Collapse_transcript_panel": {
+    "message": "Add collapse/expand button to transcript panel"
+  },
   "FetchingTranscript": {
     "message": "Fetching..."
   },

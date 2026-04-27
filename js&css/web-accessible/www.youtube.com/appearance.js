@@ -373,18 +373,108 @@ ImprovedTube.hideTopProgressBar = function () {
 ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript === true) {
 	const available = el.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || el.querySelector('[target-id*=transcript]')?.clientHeight;
 	if (available) {
-		if (!ImprovedTube.originalFocus) {ImprovedTube.originalFocus = HTMLElement.prototype.focus;}  // Backing up default method. Youtube doesn't use alternatives Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy)
+		if (!ImprovedTube.originalFocus) {ImprovedTube.originalFocus = HTMLElement.prototype.focus;}
 		ImprovedTube.forbidFocus =  function (ms) { 
 			HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling for a moment."); }
 			if(document.hidden) ms = 3*ms;
-			setTimeout(function() { HTMLElement.prototype.focus = ImprovedTube.originalFocus; }, ms); 	// Restoring JS's "focus()" 
+			setTimeout(function() { HTMLElement.prototype.focus = ImprovedTube.originalFocus; }, ms); 	
 		}
 		ImprovedTube.forbidFocus(2100);
 		const descriptionTranscript = el.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
 		descriptionTranscript ? descriptionTranscript.click() : el.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
 		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
+		
+		// Add collapse button after transcript is opened
+		setTimeout(() => ImprovedTube.transcriptCollapseButton(el), 500);
 	}  
 }};
+
+/*-------------------------------------------------------------------------
+TRANSCRIPT COLLAPSE BUTTON
+-------------------------------------------------------------------------------*/
+
+ImprovedTube.transcriptCollapseButton = function (el) {
+    if (ImprovedTube.storage.transcript_collapse !== true) return;
+    
+    const transcriptPanel = el?.querySelector('[target-id*=transcript]');
+    if (!transcriptPanel) return;
+    
+    // Check if button already exists
+    if (transcriptPanel.querySelector('#it-transcript-collapse-btn')) return;
+    
+    // Create collapse/expand button
+    const button = document.createElement('button');
+    button.id = 'it-transcript-collapse-btn';
+    button.setAttribute('aria-label', 'Collapse transcript panel');
+    button.setAttribute('title', 'Collapse transcript panel');
+    
+    let isCollapsed = document.documentElement.hasAttribute('it-transcript-collapsed');
+    button.textContent = isCollapsed ? '+' : '−'; // expand/collapse symbol based on current state
+    
+    button.onclick = function(e) {
+        e.stopPropagation();
+        isCollapsed = !isCollapsed;
+        
+        if (isCollapsed) {
+            document.documentElement.setAttribute('it-transcript-collapsed', 'true');
+            button.textContent = '+'; // expand symbol
+            button.setAttribute('aria-label', 'Expand transcript panel');
+            button.setAttribute('title', 'Expand transcript panel');
+        } else {
+            document.documentElement.removeAttribute('it-transcript-collapsed');
+            button.textContent = '−'; // collapse symbol
+            button.setAttribute('aria-label', 'Collapse transcript panel');
+            button.setAttribute('title', 'Collapse transcript panel');
+        }
+    };
+    
+    // Insert button into the title area
+    const titleElement = transcriptPanel.querySelector('#title');
+    if (titleElement) {
+        const titleParent = titleElement.parentElement;
+        if (titleParent) {
+            const inlinePosition = titleParent.style.position;
+            const computedPosition = window.getComputedStyle(titleParent).position;
+
+            if (!inlinePosition && computedPosition === 'static') {
+                titleParent.style.position = 'relative';
+            }
+
+            titleParent.appendChild(button);
+        }
+    }
+};
+
+/*-------------------------------------------------------------------------
+TRANSCRIPT COLLAPSE CLEANUP
+-------------------------------------------------------------------------------*/
+
+ImprovedTube.cleanupTranscriptCollapse = function () {
+    // Remove the collapse button
+    const button = document.querySelector('#it-transcript-collapse-btn');
+    if (button) {
+        button.remove();
+    }
+    
+    // Clear the collapsed attribute
+    document.documentElement.removeAttribute('it-transcript-collapsed');
+};
+
+/*-------------------------------------------------------------------------
+TRANSCRIPT COLLAPSE STORAGE LISTENER
+-------------------------------------------------------------------------------*/
+
+if (!ImprovedTube.transcriptCollapseListener) {
+    ImprovedTube.transcriptCollapseListener = true;
+    
+    document.addEventListener('it-storage-update', function (e) {
+        if (e.detail && e.detail.key === 'transcript_collapse') {
+            if (e.detail.value === false) {
+                ImprovedTube.cleanupTranscriptCollapse();
+            }
+        }
+    });
+}
 /*----------------------------------------------------------------
  CHAPTERS
 --------------------------------------------------------------*/
