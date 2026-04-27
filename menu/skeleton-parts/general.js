@@ -287,7 +287,17 @@ extension.skeleton.main.layers.section.general = {
 						text: 'hd',
 						value: 'maxresdefault'
 					}],
-					tags: 'preview quality'
+					tags: 'preview quality',
+					on: {
+						render: function() {
+							var maxPhysicalWidth = window.screen.width * (window.devicePixelRatio || 1);
+							if (maxPhysicalWidth < 1000) {
+								this.style.display = 'none';
+							} else {
+								this.style.display = ''; 
+							}
+						}
+					}
 				},
 				change_thumbnails_per_row: {
 					component: 'select',
