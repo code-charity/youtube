@@ -2,10 +2,13 @@
 FORCED PLAY VIDEO FROM THE BEGINNING
 ------------------------------------------------------------------------------*/
 ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
-	const player = this.elements.player,
-		video = this.elements.video,
-		paused = video?.paused;
-
+	const player = this.elements.player,		video = this.elements.video,		paused = video?.paused;
+ const t = this.video_url.match(this.regex.video_time)?.[1]; 
+	if (t) {
+		if (/[#&]stop=|#t=/.test(this.video_url)) return;
+		const r = document.referrer || ""; if (r && !r.includes("youtube.com")) return;
+		const h = history || ""; if (h && (h.length === 1 || !h.state?.endpoint?.watchEndpoint)) return;
+	}	
 	if (player && video && this.storage.forced_play_video_from_the_beginning && location.pathname == '/watch') {
 		// Skip the seek when the video is effectively already at 0. When
 		// YouTube's own playback starts at 0 (fresh video, never watched), a
@@ -13,8 +16,8 @@ ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 		// opening moments. Only seek when YouTube has resumed from a saved
 		// timestamp (currentTime > 0), which is the case this setting exists
 		// to override.
-		if (video.currentTime > 0.5) {
-			player.seekTo(0);
+		if (video.currentTime > 1.1) {  // video.currentTime = 0; #262
+			player.seekTo(0); 
 			// restore previous paused state after the seek
 			if (paused) { player.pauseVideo(); }
 		}
