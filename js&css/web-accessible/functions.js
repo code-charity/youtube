@@ -178,6 +178,10 @@ ImprovedTube.ytElementsHandler = function (node) {
 			ImprovedTube.elements.player_thumbnail = node.querySelector('.ytp-cued-thumbnail-overlay-image');
 			ImprovedTube.elements.player_subtitles_button = node.querySelector('.ytp-subtitles-button');
 			ImprovedTube.playerSize();
+			// Fix #1637: Apply forced volume in iframe/embed context when player is first detected
+			if (ImprovedTube.video_url !== location.href && ImprovedTube.elements.player.setPlaybackRate) {
+				ImprovedTube.initPlayer();
+			}
 			if (typeof this.storage.ads !== 'undefined' && this.storage.ads !== "all_videos") {
 				new MutationObserver(function (mutationList) {
 					for (var i = 0, l = mutationList.length; i < l; i++) {
