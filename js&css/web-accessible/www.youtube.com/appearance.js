@@ -370,7 +370,7 @@ ImprovedTube.hideTopProgressBar = function () {
 /*----------------------------------------------------------------
  TRANSCRIPT
 --------------------------------------------------------------*/
-ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript === true) {
+ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript === 'collapsed' || ImprovedTube.storage.transcript === 'normal') {
 	const available = el.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || el.querySelector('[target-id*=transcript]')?.clientHeight;
 	if (available) {
 		if (!ImprovedTube.originalFocus) {ImprovedTube.originalFocus = HTMLElement.prototype.focus;}  // Backing up default method. Youtube doesn't use alternatives Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy)
@@ -383,6 +383,19 @@ ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript ==
 		const descriptionTranscript = el.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
 		descriptionTranscript ? descriptionTranscript.click() : el.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
 		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
+
+		// Collapse the transcript if set to 'collapsed'
+		if (ImprovedTube.storage.transcript === 'collapsed') {
+			setTimeout(function() {
+				const transcriptPanel = el.querySelector('[target-id*=transcript]');
+				if (transcriptPanel) {
+					const collapseButton = transcriptPanel.querySelector('button[aria-label*="collapse"], button[aria-label*="Collaps"]');
+					if (collapseButton) {
+						collapseButton.click();
+					}
+				}
+			}, 500);
+		}
 	}  
 }};
 /*----------------------------------------------------------------
@@ -401,6 +414,19 @@ ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === tr
 		const modernChapters = el.querySelector('[modern-chapters] #navigation-button button[aria-label]');
 		modernChapters ? modernChapters.click() : el.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
 		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
+
+		// Collapse the transcript if set to 'collapsed'
+		if (ImprovedTube.storage.transcript === 'collapsed') {
+			setTimeout(function() {
+				const transcriptPanel = el.querySelector('[target-id*=transcript]');
+				if (transcriptPanel) {
+					const collapseButton = transcriptPanel.querySelector('button[aria-label*="collapse"], button[aria-label*="Collaps"]');
+					if (collapseButton) {
+						collapseButton.click();
+					}
+				}
+			}, 500);
+		}
 	}  
 }};	
 /*------------------------------------------------------------------------------

@@ -1059,21 +1059,19 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				text: "hideThumbnails"
 			},
 			transcript: {
-				component: 'switch',
+				component: "select",
 				text: 'Transcript',
-				value: false,
-				id: 'transcript',
-				on: {
-					click: function () {
-						setTimeout(() => {
-							if (satus.storage.get('transcript')) {
-								if (satus.storage.get('no_page_margin')) {
-									this.nextSibling.nextSibling.click();
-								}
-							}
-						}, 250);
-					}
-				}
+				options: [{
+					text: 'normal',
+					value: 'normal'
+				}, {
+					text: 'collapsed',
+					value: 'collapsed'
+				}, {
+					text: 'hidden',
+					value: 'hidden'
+				}],
+				storage: 'transcript'
 			},
 			compact_spacing: {
 				component: "switch",
