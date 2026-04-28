@@ -1,7 +1,7 @@
 {
   "preferredDubbingLanguage": {
-		"message": "Preferred dubbing language"
-	},
+    "message": "Preferred dubbing language"
+  },
   "hideSuggestedAction": {
     "message": "Hide Suggested Action 'View products'"
   },
@@ -1519,6 +1519,9 @@
   },
   "Transcript": {
     "message": "Transcript"
+  },
+  "transcriptCollapse": {
+    "message": "Collapse Transcript"
   },
   "translations": {
     "message": "Translations"
