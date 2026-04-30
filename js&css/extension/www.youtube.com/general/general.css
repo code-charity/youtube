@@ -88,8 +88,10 @@ html[it-hide-ai-summary='true'] ytd-expandable-metadata-renderer[has-video-summa
 /*--------------------------------------------------------------
 # HIDE DOTS ON THUMBNAILS
 --------------------------------------------------------------*/
-html[it-hide-thumbnail-dots='true'] button#button[aria-label="Action menu"],
-html[it-hide-thumbnail-dots="true"] button.yt-spec-button-shape-next[aria-label="More actions"],
+html[it-hide-thumbnail-dots='true'] :not(ytd-comment-thread-renderer) button#button[aria-label="Action menu"],
+html[it-hide-thumbnail-dots="true"] :not(ytd-comment-thread-renderer) button.yt-spec-button-shape-next[aria-label="More actions"] {
+    display: none !important;
+}
 /*-------------------------------------------------------------
 # HIDE SPONSORED VIDEOS ON HOME PAGE
 --------------------------------------------------------------*/
