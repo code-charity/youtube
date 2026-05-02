@@ -2343,3 +2343,12 @@ html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd
 html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer[is-empty] {
     display: none !important;
 }
+/* Fix: expand video when chat replay is hidden */
+html[it-hide-chat-replay=true] #secondary {
+  display: none !important;
+}
+
+html[it-hide-chat-replay=true] #primary {
+  width: 100% !important;
+  max-width: 100% !important;
+}
