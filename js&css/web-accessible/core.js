@@ -361,6 +361,7 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerIncreaseDecreaseSpeedButtons':
 					if (ImprovedTube.storage.player_increase_decrease_speed_buttons === false) {
 						ImprovedTube.elements.buttons['it-increase-speed-button']?.remove();
+						ImprovedTube.elements.buttons['it-1x-speed-button']?.remove();
 						ImprovedTube.elements.buttons['it-decrease-speed-button']?.remove();
 					}
 					break
