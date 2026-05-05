@@ -142,8 +142,10 @@ html[it-player-color]:not([it-player-color='default']):not([it-player-color='nor
 	background-color: var(--it-player-color) !important;
 }
 
-html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-swatch-color {
-	color: var(--it-player-color) !important;
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) ytd-shorts .ytProgressBarLineProgressBarPlayed,
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) ytd-shorts .YtProgressBarLineProgressBarPlayedRefresh {
+    background: var(--it-player-color) !important;
+    background-color: var(--it-player-color) !important;
 }
 
 html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-settings-button.ytp-hd-quality-badge:after{
@@ -799,4 +801,9 @@ html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
     -webkit-background-size: contain !important;
     -moz-background-size: contain !important;
     background-color: #000 !important;
+}
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) ytd-shorts .ytProgressBarLineProgressBarPlayed,
+html[it-player-color]:not([it-player-color='red']):not([it-player-color='normal']) ytd-shorts .YtProgressBarLineProgressBarPlayedRefresh {
+    background: var(--it-player-color) !important;
+    background-color: var(--it-player-color) !important;
 }
