@@ -197,7 +197,7 @@ const waitForVideoTitle = setInterval(() => { const title = ImprovedTube.videoTi
 if (title && title !== 'YouTube') {
     clearInterval(waitForVideoTitle);
 			 DATA.videoID = ImprovedTube.videoId() || false;     // console.log("SPEED: TITLE:" + ImprovedTube.videoTitle() + DATA.title); 
-			 if ( DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle() )
+			 if ( DATA.title && (DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle()) )
 				{ keywords = document.querySelector('meta[name="keywords"]')?.content || ''; ImprovedTube.speedException(); }
 				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
 					console.log("loading the html source:" + `https://www.youtube.com/watch?v=${DATA.videoID}`);
