@@ -191,6 +191,23 @@ html[it-livechat='collapsed']
 	cursor: pointer;
 }
 
+/* Ensure live chat is fully visible and scrollable in theater mode */
+html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #secondary,
+html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #secondary-inner,
+html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #chat-container,
+html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy ytd-live-chat-frame#chat {
+	/* Dynamic viewport height works better on mobile */
+	height: calc(100dvh - max(56px, 7vh)) !important;
+	max-height: calc(100dvh - max(56px, 7vh)) !important;
+
+	/* Prevent horizontal scrollbar surprises */
+	overflow-x: hidden !important;
+}
+
+/* Only the actual chat should scroll */
+html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy ytd-live-chat-frame#chat {
+	overflow-y: auto !important;
+}
 
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
