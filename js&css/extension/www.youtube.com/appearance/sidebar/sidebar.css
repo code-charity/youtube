@@ -196,12 +196,21 @@ html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #sec
 html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #secondary-inner,
 html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #chat-container,
 html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy ytd-live-chat-frame#chat {
-	/* Dynamic viewport height works better on mobile */
-	height: calc(100dvh - max(56px, 7vh)) !important;
-	max-height: calc(100dvh - max(56px, 7vh)) !important;
+	height: calc(100vh - var(--it-header-size, 56px)) !important;
+	max-height: calc(100vh - var(--it-header-size, 56px)) !important;
 
 	/* Prevent horizontal scrollbar surprises */
 	overflow-x: hidden !important;
+}
+
+@supports (height: 100dvh) {
+	html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #secondary,
+	html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #secondary-inner,
+	html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #chat-container,
+	html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy ytd-live-chat-frame#chat {
+		height: calc(100dvh - var(--it-header-size, 56px)) !important;
+		max-height: calc(100dvh - var(--it-header-size, 56px)) !important;
+	}
 }
 
 /* Only the actual chat should scroll */
