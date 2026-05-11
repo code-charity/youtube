@@ -88,8 +88,24 @@ html[it-hide-ai-summary='true'] ytd-expandable-metadata-renderer[has-video-summa
 /*--------------------------------------------------------------
 # HIDE DOTS ON THUMBNAILS
 --------------------------------------------------------------*/
+/* Legacy selectors - kept as fallbacks (May 2026) */
 html[it-hide-thumbnail-dots='true'] button#button[aria-label="Action menu"],
 html[it-hide-thumbnail-dots="true"] button.yt-spec-button-shape-next[aria-label="More actions"],
+
+/* 1. Hide the menu container on Home, Channel, Search, and Sidebar thumbnails */
+html[it-hide-thumbnail-dots='true'] ytd-rich-item-renderer ytd-menu-renderer,
+html[it-hide-thumbnail-dots='true'] ytd-grid-video-renderer ytd-menu-renderer,
+html[it-hide-thumbnail-dots='true'] ytd-video-renderer ytd-menu-renderer,
+html[it-hide-thumbnail-dots='true'] ytd-compact-video-renderer ytd-menu-renderer,
+
+/* 2. Hide the new button tag on Home, Channel, Search, and Sidebar thumbnails */
+html[it-hide-thumbnail-dots='true'] ytd-rich-item-renderer button-view-model,
+html[it-hide-thumbnail-dots='true'] ytd-grid-video-renderer button-view-model,
+html[it-hide-thumbnail-dots='true'] ytd-video-renderer button-view-model,
+html[it-hide-thumbnail-dots='true'] ytd-compact-video-renderer button-view-model {
+	display: none !important;
+}
+
 /*-------------------------------------------------------------
 # HIDE SPONSORED VIDEOS ON HOME PAGE
 --------------------------------------------------------------*/
