@@ -71,6 +71,18 @@ function finishPageWorldInit() {
 	extension.events.trigger('init');
 }
 
+function syncPageWorldAutoplayDisable(callback) {
+	chrome.storage.local.get('player_autoplay_disable', function (items) {
+		if (items.player_autoplay_disable === true) {
+			localStorage['it-player-autoplay-disable'] = 'true';
+		} else {
+			localStorage.removeItem('it-player-autoplay-disable');
+		}
+
+		callback();
+	});
+}
+
 const pageWorldFiles = [
 	'/js&css/web-accessible/core.js',
 	'/js&css/web-accessible/functions.js',
@@ -89,27 +101,29 @@ const pageWorldFiles = [
 	'/js&css/web-accessible/init.js'
 ];
 
-if ((navigator.userAgent.indexOf('Safari') !== -1
-	|| (typeof browser !== 'undefined' && browser.runtime?.getURL('')?.startsWith('safari-')))
-	&& (!/Chrom|Android|Windows|Linux/.test(navigator.userAgent)
-		|| /iPhone|iPad/.test(navigator.userAgent)
-	)
-) {
+syncPageWorldAutoplayDisable(function () {
+	if ((navigator.userAgent.indexOf('Safari') !== -1
+		|| (typeof browser !== 'undefined' && browser.runtime?.getURL('')?.startsWith('safari-')))
+		&& (!/Chrom|Android|Windows|Linux/.test(navigator.userAgent)
+			|| /iPhone|iPad/.test(navigator.userAgent)
+		)
+	) {
 
-	chrome.runtime.sendMessage({
-		action: 'inject-main-world',
-		files: pageWorldFiles
-	}, function (response) {
-		if (response && response.ok) {
-			finishPageWorldInit();
-		} else {
-			console.warn('Falling back to DOM injection for page-world scripts', chrome.runtime.lastError?.message || response?.error);
-			extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
-		}
-	});
-} else {
-	extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
-}
+		chrome.runtime.sendMessage({
+			action: 'inject-main-world',
+			files: pageWorldFiles
+		}, function (response) {
+			if (response && response.ok) {
+				finishPageWorldInit();
+			} else {
+				console.warn('Falling back to DOM injection for page-world scripts', chrome.runtime.lastError?.message || response?.error);
+				extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
+			}
+		});
+	} else {
+		extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
+	}
+});
 
 document.addEventListener('DOMContentLoaded', function () {
 	extension.domReady = true;
