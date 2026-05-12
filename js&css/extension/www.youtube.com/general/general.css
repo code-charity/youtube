@@ -14,6 +14,7 @@
 # Hide buttons on thumbnails
 # Hide thumbnail icon
 # Hide dots on thumbnails
+# Squared thumbnails
 --------------------------------------------------------------*/
 html[it-cursorLighting=true] #below			{opacity:.4; transition:3s;}
 html[it-cursorLighting=true] #below:hover	{opacity:1; transition:.5s;}
@@ -135,6 +136,25 @@ html[it-pathname='/'][it-remove-playables="true"] ytd-rich-section-renderer:has(
 	html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-rich-shelf-renderer[is-shorts] {
 		display: none !important;
 	}
+}
+
+/*--------------------------------------------------------------
+# SQUARED THUMBNAILS
+--------------------------------------------------------------*/
+html[it-squared-thumbnails='true'] ytd-thumbnail,
+html[it-squared-thumbnails='true'] ytd-thumbnail #thumbnail,
+html[it-squared-thumbnails='true'] ytd-thumbnail .yt-core-image,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail #thumbnail,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail .yt-core-image,
+html[it-squared-thumbnails='true'] yt-thumbnail-view-model,
+html[it-squared-thumbnails='true'] yt-thumbnail-view-model .yt-thumbnail-view-model__image,
+html[it-squared-thumbnails='true'] yt-thumbnail-view-model .yt-core-image,
+html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image,
+html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image .yt-core-image {
+	--yt-img-border-radius: 0 !important;
+	--yt-thumbnail-border-radius: 0 !important;
+	border-radius: 0 !important;
 }
 
 /*

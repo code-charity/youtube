@@ -265,6 +265,11 @@ extension.skeleton.main.layers.section.general = {
 					text: 'hideThumbnailDots',
 					tags: 'preview'
 				},
+				squared_thumbnails: {
+					component: 'switch',
+					text: 'squaredThumbnails',
+					tags: 'square thumbnails corners'
+				},
 				thumbnails_quality: {
 					component: 'select',
 					text: 'thumbnailsQuality',
