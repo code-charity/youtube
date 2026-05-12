@@ -278,12 +278,14 @@ extension.features.popupWindowButtons = function (event) {
 							target.itPopupWindowButton.addEventListener('click', function (event) {
 								event.preventDefault();
 								event.stopPropagation();
-								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error) };
+								var videoLink = extension.features.popupWindowButtons.findVideoLink(this.parentElement);
+								if (!videoLink) return;
+								try { this.dataset.id = videoLink.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error); return; };
 								ytPlayer = document.querySelector("#movie_player");
 								if (ytPlayer) { width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65 } else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
 								if (!ytPlayer) {
-									let shorts = /short/.test(this.parentElement.href);
-									if (width / height < 1) { let vertical = true } else { let vertical = false }
+									let shorts = /short/.test(videoLink.href);
+									let vertical = width / height < 1;
 									if (!vertical && shorts) { width = height * 0.6 }
 									if (vertical && !shorts) { height = width * 0.6 }
 								}
@@ -293,7 +295,7 @@ extension.features.popupWindowButtons = function (event) {
 									action: 'fixPopup',
 									width: width,
 									height: height,
-									title: this.parentElement.closest('*[id="video-title"]')?.textContent + " - Youtube"
+									title: (videoLink.closest('ytd-rich-grid-media, ytd-rich-item-renderer, ytd-video-renderer, ytd-compact-video-renderer, ytd-grid-video-renderer')?.querySelector('#video-title')?.textContent || videoLink.getAttribute('title') || document.title) + " - Youtube"
 								})
 							});
 						}
@@ -310,6 +312,19 @@ extension.features.popupWindowButtons = function (event) {
 			window.removeEventListener('mouseover', this.popupWindowButtons, true);
 		}
 	}
+};
+
+extension.features.popupWindowButtons.findVideoLink = function (element) {
+	if (!element) return null;
+
+	if (element.href && /(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/.test(element.href)) {
+		return element;
+	}
+
+	return element.closest('a[href*="/watch"], a[href*="/shorts/"]')
+		|| element.querySelector('a#thumbnail[href], a[href*="/watch"], a[href*="/shorts/"]')
+		|| element.closest('ytd-rich-grid-media, ytd-rich-item-renderer, ytd-video-renderer, ytd-compact-video-renderer, ytd-grid-video-renderer')?.querySelector('a#thumbnail[href], a[href*="/watch"], a[href*="/shorts/"]')
+		|| null;
 };
 /*--------------------------------------------------------------
 # FONT
