@@ -379,10 +379,9 @@ extension.skeleton.main.layers.section.general = {
 					text: 'thumbnailGrayscale',
 					options: [
 						{ value: '0', text: 'Disabled'},
-						{ value: '20', text: '20%'},
-						{ value: '40', text: '40%'},
-						{ value: '60', text: '60%'},
-						{ value: '80', text: '80%'},
+						{ value: '25', text: '25%'},
+						{ value: '50', text: '50%'},
+						{ value: '75', text: '75%'},
 						{ value: '100', text: '100%'},
 
 					]
