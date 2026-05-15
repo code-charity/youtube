@@ -357,6 +357,55 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 	transition: opacity 0s;
 }
 /*--------------------------------------------------------------
+# Watch Later Button
+--------------------------------------------------------------*/
+.it-watch-later-button {
+	font-family: inherit !important;
+
+	position: absolute !important;
+	z-index: 1000 !important;
+	top: 4px !important;
+	right: 4px !important;
+
+	visibility: hidden !important;
+	opacity: 0 !important;
+	transition: opacity 150ms !important;
+
+	width: 28px !important;
+	height: 28px !important;
+	padding: 4px !important;
+
+	cursor: pointer !important;
+	text-align: center !important;
+
+	color: #fff !important;
+	border: none !important;
+	border-radius: 2px !important;
+	background: rgba(0, 0, 0, .8) !important;
+
+	fill: currentColor !important;
+}
+
+.it-watch-later-button svg {
+	width: 20px !important;
+	height: 20px !important;
+	pointer-events: none !important;
+}
+
+html[it-watch-later-buttons='always'] .it-watch-later-button,
+html[it-watch-later-buttons='hover'] *:hover>.it-watch-later-button {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+.it-watch-later-button[data-state='added'] {
+	background: rgba(0, 96, 64, .9) !important;
+}
+
+.it-watch-later-button[data-state='unavailable'] {
+	background: rgba(153, 27, 27, .9) !important;
+}
+/*--------------------------------------------------------------
 # MARK WATCHED VIDEOS
 --------------------------------------------------------------*/
 .it-mark-watched-videos {
