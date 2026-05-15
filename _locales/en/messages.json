@@ -1478,6 +1478,9 @@
   "thumbnails": {
     "message": "Thumbnails"
   },
+  "thumbnailGrayscale":{
+    "message":"Thumbnail Grayscale"
+  },
   "thumbnailSize": {
     "message": "Thumbnail Size"
   },

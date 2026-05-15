@@ -388,6 +388,18 @@ extension.skeleton.main.layers.section.general = {
 						{ value: 'exact', text: 'exact' }
 					],
 					value: 'relative'
+				},
+				thumbnail_grayscale:{
+					component: 'select',
+					text: 'thumbnailGrayscale',
+					options: [
+						{ value: '0', text: 'Disabled'},
+						{ value: '25', text: '25%'},
+						{ value: '50', text: '50%'},
+						{ value: '75', text: '75%'},
+						{ value: '100', text: '100%'},
+
+					]
 				}
 			}, section_2: {
 				component: 'section',
