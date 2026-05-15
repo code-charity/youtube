@@ -1130,6 +1130,9 @@
   "popupWindowButtons": {
     "message": "Add a popup-player-button to each thumbnail"
   },
+  "watchLaterButtons": {
+    "message": "Add a Watch Later button to thumbnails"
+  },
   "position": {
     "message": "Position"
   },

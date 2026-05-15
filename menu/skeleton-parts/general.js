@@ -250,6 +250,21 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'popupWindowButtons',
 				},
+				watch_later_buttons: {
+					component: 'select',
+					text: 'watchLaterButtons',
+					options: [{
+						text: 'disabled',
+						value: 'disabled'
+					}, {
+						text: 'hover',
+						value: 'hover'
+					}, {
+						text: 'always',
+						value: 'always'
+					}],
+					tags: 'watch later save thumbnail'
+				},
 				hide_thumbnail_overlay: {
 					component: 'switch',
 					text: 'hideThumbnailOverlay',
