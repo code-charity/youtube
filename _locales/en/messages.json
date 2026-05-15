@@ -1400,6 +1400,9 @@
   "squaredUserImages": {
     "message": "Squared user images"
   },
+  "squaredThumbnails": {
+    "message": "Squared thumbnails"
+  },
   "static": {
     "message": "Static"
   },
