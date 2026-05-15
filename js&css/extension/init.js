@@ -43,7 +43,6 @@ extension.events.on('init', function () {
 	extension.features.confirmationBeforeClosing();
 	extension.features.defaultContentCountry();
 	extension.features.popupWindowButtons();
-	extension.features.watchLaterButtons();
 	extension.features.disableThumbnailPlayback();
 	extension.features.muteThumbnailPreviews();
 	extension.features.markWatchedVideos();
@@ -54,6 +53,7 @@ extension.events.on('init', function () {
 	extension.features.openNewTab();
 	extension.features.removeListParamOnNewTab();
 	extension.features.removeMemberOnly();
+	if ( extension.storage.get('watch_later_buttons') && extension.storage.get('watch_later_buttons') !== 'disabled' ) { 	extension.features.watchLaterButtons(); }
 	// extension.features.hideSponsoredVideosOnHome?.();
 	bodyReady();
 });
