@@ -1,0 +1,96 @@
+/* ============================================
+ * YouTube Shorts 璇勮鍖哄煙閬尅淇
+ * Issue: #3670 - Comments covering video title in Shorts
+ * Author: Atlas (GitHub: @lanxinyue130410-del)
+ * ============================================
+ */
+
+/* 涓昏淇 - 瑙嗛鏍囬灞傜骇鎻愬崌 */
+#shorts-player,
+.ytd-shorts,
+#shorts-container {
+    position: relative !important;
+}
+
+/* 纭繚瑙嗛鏍囬鍦ㄨ瘎璁哄尯鍩熶箣涓?*/
+.ytd-shorts .video-title,
+.ytd-shorts h1,
+.ytd-shorts [role="heading"],
+.ytd-shorts .title {
+    z-index: 1001 !important;
+    position: relative !important;
+}
+
+/* 璇勮鍖哄煙灞傜骇璋冩暣 */
+.ytd-shorts #comments,
+.ytd-shorts ytd-comments,
+.ytd-shorts #comments-section,
+.ytd-shorts .comments {
+    z-index: 1000 !important;
+}
+
+/* 绉诲姩绔疭horts鐗规畩淇 */
+@media (max-width: 768px) {
+    .ytd-shorts {
+        position: relative !important;
+    }
+    
+    /* 瑙嗛瀹瑰櫒灞傜骇璋冩暣 */
+    .ytd-shorts #player-container,
+    .ytd-shorts .html5-video-player {
+        z-index: 1002 !important;
+        position: relative !important;
+    }
+    
+    /* 鏍囬鍖哄煙鏍峰紡浼樺寲 */
+    .ytd-shorts .metadata,
+    .ytd-shorts .title-wrapper {
+        z-index: 1001 !important;
+        background: rgba(0, 0, 0, 0.7) !important;
+        backdrop-filter: blur(10px) !important;
+    }
+}
+
+/* Firefox鍜孼en娴忚鍣ㄧ壒娈婁慨澶?*/
+@-moz-document url-prefix() {
+    .ytd-shorts {
+        /* Firefox鐗瑰畾淇 */
+        position: relative !important;
+    }
+    
+    .ytd-shorts .video-title {
+        z-index: 1005 !important;
+    }
+}
+
+/* 璇勮鍖哄煙鎵撳紑鏃剁殑鍔ㄦ€佽皟鏁?*/
+.ytd-shorts[comments-open] .video-title,
+.ytd-shorts.comments-open .video-title {
+    z-index: 1001 !important;
+    position: relative !important;
+}
+
+/* 闃叉璇勮鍖哄煙瑕嗙洊 */
+.ytd-shorts #comments.ytd-shorts {
+    margin-top: 60px !important;
+    position: relative !important;
+}
+
+/* 鍔ㄧ敾杩囨浮鏁堟灉 */
+.ytd-shorts .video-title {
+    transition: z-index 0.3s ease !important;
+}
+
+/* ============================================
+ * 璋冭瘯鍜屾祴璇曟牱寮忥紙寮€鍙戝畬鎴愬悗鍙Щ闄わ級
+ * ============================================
+ */
+.ytd-shorts .video-title {
+    /* 璋冭瘯杈规 - 绉婚櫎鐢熶骇鐜 */
+    /* border: 2px solid #ff0000 !important; */
+}
+
+.ytd-shorts #comments {
+    /* 璋冭瘯杈规 - 绉婚櫎鐢熶骇鐜 */
+    /* border: 2px solid #00ff00 !important; */
+}
