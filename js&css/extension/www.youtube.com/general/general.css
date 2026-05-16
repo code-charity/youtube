@@ -53,6 +53,22 @@ html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content:hover,
 html[it-cursorLighting=true] ytd-mini-guide-renderer:hover	{opacity:1; transition:.3s}
 
 /*--------------------------------------------------------------
+# SQUARED THUMBNAILS
+--------------------------------------------------------------*/
+html[it-squared-thumbnails='true'] ytd-thumbnail #thumbnail,
+html[it-squared-thumbnails='true'] ytd-thumbnail img,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail #thumbnail,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail img,
+html[it-squared-thumbnails='true'] .yt-thumbnail-view-model,
+html[it-squared-thumbnails='true'] .yt-thumbnail-view-model img,
+html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image,
+html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image img,
+html[it-squared-thumbnails='true'] .yt-video-card-view-model__thumbnail,
+html[it-squared-thumbnails='true'] .yt-video-card-view-model__thumbnail img {
+	border-radius: 0 !important;
+}
+
+/*--------------------------------------------------------------
 HIDING STUFF   (display:none !important) (Usually the !important isn't necessary)
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -375,6 +391,55 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 *:hover>.it-popup-window {
 	opacity: 1 !important;
 	transition: opacity 0s;
+}
+/*--------------------------------------------------------------
+# Watch Later Button
+--------------------------------------------------------------*/
+.it-watch-later-button {
+	font-family: inherit !important;
+
+	position: absolute !important;
+	z-index: 1000 !important;
+	top: 4px !important;
+	right: 4px !important;
+
+	visibility: hidden !important;
+	opacity: 0 !important;
+	transition: opacity 150ms !important;
+
+	width: 28px !important;
+	height: 28px !important;
+	padding: 4px !important;
+
+	cursor: pointer !important;
+	text-align: center !important;
+
+	color: #fff !important;
+	border: none !important;
+	border-radius: 2px !important;
+	background: rgba(0, 0, 0, .8) !important;
+
+	fill: currentColor !important;
+}
+
+.it-watch-later-button svg {
+	width: 20px !important;
+	height: 20px !important;
+	pointer-events: none !important;
+}
+
+html[it-watch-later-buttons='always'] .it-watch-later-button,
+html[it-watch-later-buttons='hover'] *:hover>.it-watch-later-button {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+.it-watch-later-button[data-state='added'] {
+	background: rgba(0, 96, 64, .9) !important;
+}
+
+.it-watch-later-button[data-state='unavailable'] {
+	background: rgba(153, 27, 27, .9) !important;
 }
 /*--------------------------------------------------------------
 # MARK WATCHED VIDEOS

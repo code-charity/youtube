@@ -250,6 +250,21 @@ extension.skeleton.main.layers.section.general = {
 					component: 'switch',
 					text: 'popupWindowButtons',
 				},
+				watch_later_buttons: {
+					component: 'select',
+					text: 'watchLaterButtons',
+					options: [{
+						text: 'disabled',
+						value: 'disabled'
+					}, {
+						text: 'hover',
+						value: 'hover'
+					}, {
+						text: 'always',
+						value: 'always'
+					}],
+					tags: 'watch later save thumbnail'
+				},
 				hide_thumbnail_overlay: {
 					component: 'switch',
 					text: 'hideThumbnailOverlay',
@@ -268,7 +283,7 @@ extension.skeleton.main.layers.section.general = {
 				squared_thumbnails: {
 					component: 'switch',
 					text: 'squaredThumbnails',
-					tags: 'square thumbnails corners'
+					tags: 'thumbnail square radius rounded corners'
 				},
 				thumbnails_quality: {
 					component: 'select',
@@ -292,7 +307,23 @@ extension.skeleton.main.layers.section.general = {
 						text: 'hd',
 						value: 'maxresdefault'
 					}],
-					tags: 'preview quality'
+					tags: 'preview quality',
+					on: {
+						render: function() {
+							var lowResolution = window.screen.width * window.screen.height * Math.pow(window.devicePixelRatio || 1, 2) < 2073600,
+								value = satus.storage.get('thumbnails_quality');
+							this.style.display = lowResolution ? 'none' : '';
+							if (lowResolution && value && value !== 'null') {
+								satus.storage.set('thumbnails_quality_previous', value);
+								satus.storage.set('thumbnails_quality', 'null');
+							} else { 
+								var	previous = satus.storage.get('thumbnails_quality_previous'); 
+								if (!lowResolution && (!value || value === 'null') && previous) {
+								satus.storage.set('thumbnails_quality', previous);
+								}
+							}
+						}
+					}
 				},
 				change_thumbnails_per_row: {
 					component: 'select',
@@ -378,6 +409,18 @@ extension.skeleton.main.layers.section.general = {
 						{ value: 'exact', text: 'exact' }
 					],
 					value: 'relative'
+				},
+				thumbnail_grayscale:{
+					component: 'select',
+					text: 'thumbnailGrayscale',
+					options: [
+						{ value: '0', text: 'Disabled'},
+						{ value: '25', text: '25%'},
+						{ value: '50', text: '50%'},
+						{ value: '75', text: '75%'},
+						{ value: '100', text: '100%'},
+
+					]
 				}
 			}, section_2: {
 				component: 'section',

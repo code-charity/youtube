@@ -8,6 +8,7 @@
 # Confirmation before closing
 # Default content country
 # Add "Popup window" buttons
+# Add "Watch Later" buttons
 # Font
 # Mark watched videos
 # Track watched videos
@@ -278,12 +279,14 @@ extension.features.popupWindowButtons = function (event) {
 							target.itPopupWindowButton.addEventListener('click', function (event) {
 								event.preventDefault();
 								event.stopPropagation();
-								try { this.parentElement.itPopupWindowButton.dataset.id = this.parentElement.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error) };
+								var videoLink = extension.features.popupWindowButtons.findVideoLink(this.parentElement);
+								if (!videoLink) return;
+								try { this.dataset.id = videoLink.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error); return; };
 								ytPlayer = document.querySelector("#movie_player");
 								if (ytPlayer) { width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65 } else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
 								if (!ytPlayer) {
-									let shorts = /short/.test(this.parentElement.href);
-									if (width / height < 1) { let vertical = true } else { let vertical = false }
+									let shorts = /short/.test(videoLink.href);
+									let vertical = width / height < 1;
 									if (!vertical && shorts) { width = height * 0.6 }
 									if (vertical && !shorts) { height = width * 0.6 }
 								}
@@ -293,7 +296,7 @@ extension.features.popupWindowButtons = function (event) {
 									action: 'fixPopup',
 									width: width,
 									height: height,
-									title: this.parentElement.closest('*[id="video-title"]')?.textContent + " - Youtube"
+									title: (videoLink.closest('ytd-rich-grid-media, ytd-rich-item-renderer, ytd-video-renderer, ytd-compact-video-renderer, ytd-grid-video-renderer')?.querySelector('#video-title')?.textContent || videoLink.getAttribute('title') || document.title) + " - Youtube"
 								})
 							});
 						}
@@ -308,6 +311,239 @@ extension.features.popupWindowButtons = function (event) {
 			window.addEventListener('mouseover', this.popupWindowButtons, true);
 		} else {
 			window.removeEventListener('mouseover', this.popupWindowButtons, true);
+		}
+	}
+};
+
+extension.features.popupWindowButtons.findVideoLink = function (element) {
+	if (!element) return null;
+
+	if (element.href && /(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/.test(element.href)) {
+		return element;
+	}
+
+	return element.closest('a[href*="/watch"], a[href*="/shorts/"]')
+		|| element.querySelector('a#thumbnail[href], a[href*="/watch"], a[href*="/shorts/"]')
+		|| element.closest('ytd-rich-grid-media, ytd-rich-item-renderer, ytd-video-renderer, ytd-compact-video-renderer, ytd-grid-video-renderer')?.querySelector('a#thumbnail[href], a[href*="/watch"], a[href*="/shorts/"]')
+		|| null;
+};
+/*--------------------------------------------------------------
+# ADD "WATCH LATER" BUTTONS
+--------------------------------------------------------------*/
+extension.features.watchLaterButtons = function (event) {
+	function getVideoId(url) {
+		if (!url) {
+			return null;
+		}
+
+		var watchMatch = url.match(/[?&]v=([a-zA-Z0-9_-]{11})/),
+			shortsMatch = url.match(/\/shorts\/([a-zA-Z0-9_-]{11})/);
+
+		return watchMatch ? watchMatch[1] : shortsMatch ? shortsMatch[1] : null;
+	}
+
+	function findThumbnail(target) {
+		while (target && target.parentNode) {
+			if (
+				target.nodeName === 'A' &&
+				target.href &&
+				(
+					target.id === 'thumbnail' ||
+					(target.className && typeof target.className === 'string' && target.className.indexOf('thumb-link') !== -1)
+				)
+			) {
+				return target;
+			}
+
+			target = target.parentNode;
+		}
+	}
+
+	function findNativeWatchLaterButton(thumbnail) {
+		var container = thumbnail.closest('ytd-rich-item-renderer, ytd-video-renderer, ytd-grid-video-renderer, ytd-compact-video-renderer, ytd-playlist-video-renderer, yt-lockup-view-model') || thumbnail,
+			button = container.querySelector('button[aria-label*="Watch later" i], button[title*="Watch later" i]');
+
+		if (button) {
+			return button;
+		}
+
+		return thumbnail.querySelector('ytd-thumbnail-overlay-toggle-button-renderer button');
+	}
+
+	function getYtConfigValue(key) {
+		var pattern = new RegExp('"' + key + '":"([^"]+)"'),
+			scripts = document.scripts;
+
+		for (var i = 0, l = scripts.length; i < l; i++) {
+			var match = scripts[i].textContent.match(pattern);
+
+			if (match) {
+				return match[1];
+			}
+		}
+	}
+
+	function getYtConfigObject(key) {
+		var pattern = new RegExp('"' + key + '":(\\{.*?\\}),"' + key.replace(/_CONTEXT$/, '') + '_'),
+			scripts = document.scripts;
+
+		for (var i = 0, l = scripts.length; i < l; i++) {
+			var match = scripts[i].textContent.match(pattern);
+
+			if (match) {
+				try {
+					return JSON.parse(match[1]);
+				} catch (error) {
+					console.warn('[ImprovedTube] Unable to parse YouTube config object:', key, error);
+				}
+			}
+		}
+	}
+
+	function addWithInnertube(videoId, button) {
+		var apiKey = getYtConfigValue('INNERTUBE_API_KEY'),
+			context = getYtConfigObject('INNERTUBE_CONTEXT'),
+			clientVersion = getYtConfigValue('INNERTUBE_CLIENT_VERSION');
+
+		if (!context && clientVersion) {
+			context = {
+				client: {
+					clientName: 'WEB',
+					clientVersion: clientVersion
+				}
+			};
+		}
+
+		if (!apiKey || !context) {
+			button.dataset.state = 'unavailable';
+			return;
+		}
+
+		button.dataset.state = 'loading';
+
+		fetch('/youtubei/v1/browse/edit_playlist?key=' + apiKey, {
+			method: 'POST',
+			credentials: 'include',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify({
+				context: context,
+				playlistId: 'WL',
+				actions: [{
+					action: 'ACTION_ADD_VIDEO',
+					addedVideoId: videoId
+				}]
+			})
+		}).then(function (response) {
+			button.dataset.state = response.ok ? 'added' : 'unavailable';
+		}).catch(function () {
+			button.dataset.state = 'unavailable';
+		});
+	}
+
+	function addWatchLaterButton(thumbnail) {
+		var videoId = thumbnail ? getVideoId(thumbnail.href) : null;
+
+		if (thumbnail && thumbnail.itWatchLaterButton && !thumbnail.contains(thumbnail.itWatchLaterButton)) {
+			thumbnail.itWatchLaterButton = null;
+		}
+
+		if (thumbnail && videoId && !thumbnail.itWatchLaterButton) {
+			var button = document.createElement('button'),
+				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+			button.type = 'button';
+			button.className = 'it-watch-later-button';
+			button.dataset.id = videoId;
+			button.title = 'Watch later';
+			button.setAttribute('aria-label', 'Add to Watch Later');
+
+			svg.setAttribute('viewBox', '0 0 24 24');
+			path.setAttribute('d', 'M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 18.2A8.2 8.2 0 1 1 20.2 12 8.2 8.2 0 0 1 12 20.2Zm.7-13.2h-1.8v5.8l5 3 .9-1.5-4.1-2.4Z');
+			svg.appendChild(path);
+			button.appendChild(svg);
+			thumbnail.appendChild(button);
+			thumbnail.itWatchLaterButton = button;
+
+			button.addEventListener('click', function (clickEvent) {
+				var nativeButton = findNativeWatchLaterButton(this.parentElement),
+					id = this.dataset.id;
+
+				clickEvent.preventDefault();
+				clickEvent.stopPropagation();
+				clickEvent.stopImmediatePropagation();
+
+				if (nativeButton && nativeButton !== this) {
+					nativeButton.click();
+					this.dataset.state = 'added';
+				} else {
+					addWithInnertube(id, this);
+				}
+			});
+		}
+	}
+
+	function addWatchLaterButtons(root) {
+		var thumbnails = (root || document).querySelectorAll ? (root || document).querySelectorAll('a#thumbnail, a.thumb-link') : [];
+
+		for (var i = 0, l = thumbnails.length; i < l; i++) {
+			addWatchLaterButton(thumbnails[i]);
+		}
+	}
+
+	function removeWatchLaterButtons() {
+		var buttons = document.querySelectorAll('.it-watch-later-button');
+
+		for (var i = 0, l = buttons.length; i < l; i++) {
+			if (buttons[i].parentElement) {
+				buttons[i].parentElement.itWatchLaterButton = null;
+			}
+
+			buttons[i].remove();
+		}
+	}
+
+	if (event instanceof Event) {
+		if (event.type === 'mouseover' && event.target) {
+			addWatchLaterButton(findThumbnail(event.target));
+		}
+	} else {
+		var option = extension.storage.get('watch_later_buttons');
+
+		window.removeEventListener('mouseover', this.watchLaterButtons, true);
+
+		if (this.watchLaterButtons.observer) {
+			this.watchLaterButtons.observer.disconnect();
+			this.watchLaterButtons.observer = null;
+		}
+
+		if (!option || option === 'disabled') {
+			removeWatchLaterButtons();
+		} else if (option === 'hover' || option === 'always') {
+			window.addEventListener('mouseover', this.watchLaterButtons, true);
+
+			if (option === 'always') {
+				if (document.body) {
+					addWatchLaterButtons(document);
+					this.watchLaterButtons.observer = new MutationObserver(function (mutationList) {
+						for (var i = 0, l = mutationList.length; i < l; i++) {
+							for (var j = 0, m = mutationList[i].addedNodes.length; j < m; j++) {
+								addWatchLaterButtons(mutationList[i].addedNodes[j]);
+							}
+						}
+					});
+					this.watchLaterButtons.observer.observe(document.body, {
+						childList: true,
+						subtree: true
+					});
+				} else {
+					setTimeout(function () {
+						extension.features.watchLaterButtons();
+					}, 100);
+				}
+			}
 		}
 	}
 };
