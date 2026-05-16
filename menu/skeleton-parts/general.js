@@ -291,8 +291,9 @@ extension.skeleton.main.layers.section.general = {
 					on: {
 						render: function() {
 							var maxPhysicalWidth = window.screen.width * (window.devicePixelRatio || 1);
-							if (maxPhysicalWidth < 1000) {
-								this.style.display = 'none';
+							var maxPhysicalHeight = window.screen.height * (window.devicePixelRatio || 1);
+							if (maxPhysicalWidth * maxPhysicalHeight < 2073600) {
+								this.style.display = 'none'; this.value = 'null';
 							} else {
 								this.style.display = ''; 
 							}
