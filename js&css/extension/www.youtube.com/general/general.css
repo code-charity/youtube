@@ -55,19 +55,31 @@ html[it-cursorLighting=true] ytd-mini-guide-renderer:hover	{opacity:1; transitio
 /*--------------------------------------------------------------
 # SQUARED THUMBNAILS
 --------------------------------------------------------------*/
-html[it-squared-thumbnails='true'] ytd-thumbnail #thumbnail,
 html[it-squared-thumbnails='true'] ytd-thumbnail img,
 html[it-squared-thumbnails='true'] ytd-playlist-thumbnail #thumbnail,
 html[it-squared-thumbnails='true'] ytd-playlist-thumbnail img,
 html[it-squared-thumbnails='true'] .yt-thumbnail-view-model,
 html[it-squared-thumbnails='true'] .yt-thumbnail-view-model img,
-html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image,
 html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image img,
 html[it-squared-thumbnails='true'] .yt-video-card-view-model__thumbnail,
 html[it-squared-thumbnails='true'] .yt-video-card-view-model__thumbnail img {
 	border-radius: 0 !important;
 }
-
+html[it-squared-thumbnails='true'] ytd-thumbnail,
+html[it-squared-thumbnails='true'] ytd-thumbnail #thumbnail,
+html[it-squared-thumbnails='true'] ytd-thumbnail .yt-core-image,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail #thumbnail,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail .yt-core-image,
+html[it-squared-thumbnails='true'] yt-thumbnail-view-model,
+html[it-squared-thumbnails='true'] yt-thumbnail-view-model .yt-thumbnail-view-model__image,
+html[it-squared-thumbnails='true'] yt-thumbnail-view-model .yt-core-image,
+html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image,
+html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image .yt-core-image {
+	--yt-img-border-radius: 0 !important;
+	--yt-thumbnail-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
 /*--------------------------------------------------------------
 HIDING STUFF   (display:none !important) (Usually the !important isn't necessary)
 --------------------------------------------------------------*/
@@ -153,26 +165,6 @@ html[it-pathname='/'][it-remove-playables="true"] ytd-rich-section-renderer:has(
 		display: none !important;
 	}
 }
-
-/*--------------------------------------------------------------
-# SQUARED THUMBNAILS
---------------------------------------------------------------*/
-html[it-squared-thumbnails='true'] ytd-thumbnail,
-html[it-squared-thumbnails='true'] ytd-thumbnail #thumbnail,
-html[it-squared-thumbnails='true'] ytd-thumbnail .yt-core-image,
-html[it-squared-thumbnails='true'] ytd-playlist-thumbnail,
-html[it-squared-thumbnails='true'] ytd-playlist-thumbnail #thumbnail,
-html[it-squared-thumbnails='true'] ytd-playlist-thumbnail .yt-core-image,
-html[it-squared-thumbnails='true'] yt-thumbnail-view-model,
-html[it-squared-thumbnails='true'] yt-thumbnail-view-model .yt-thumbnail-view-model__image,
-html[it-squared-thumbnails='true'] yt-thumbnail-view-model .yt-core-image,
-html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image,
-html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image .yt-core-image {
-	--yt-img-border-radius: 0 !important;
-	--yt-thumbnail-border-radius: 0 !important;
-	border-radius: 0 !important;
-}
-
 /*
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
