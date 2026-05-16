@@ -310,12 +310,17 @@ extension.skeleton.main.layers.section.general = {
 					tags: 'preview quality',
 					on: {
 						render: function() {
-							var maxPhysicalWidth = window.screen.width * (window.devicePixelRatio || 1);
-							var maxPhysicalHeight = window.screen.height * (window.devicePixelRatio || 1);
-							if (maxPhysicalWidth * maxPhysicalHeight < 2073600) {
-								this.style.display = 'none'; this.value = 'null';
-							} else {
-								this.style.display = ''; 
+							var lowResolution = window.screen.width * window.screen.height * Math.pow(window.devicePixelRatio || 1, 2) < 2073600,
+								value = satus.storage.get('thumbnails_quality');
+							this.style.display = lowResolution ? 'none' : '';
+							if (lowResolution && value && value !== 'null') {
+								satus.storage.set('thumbnails_quality_previous', value);
+								satus.storage.set('thumbnails_quality', 'null');
+							} else { 
+								var	previous = satus.storage.get('thumbnails_quality_previous'); 
+								if (!lowResolution && (!value || value === 'null') && previous) {
+								satus.storage.set('thumbnails_quality', previous);
+								}
 							}
 						}
 					}
