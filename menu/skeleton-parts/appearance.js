@@ -418,7 +418,18 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				player_hd_thumbnail: {
 					component: "switch",
 					text: "hdThumbnail",
-					tags: "preview"
+					tags: "preview",
+					on: {
+						render: function() {
+							var maxPhysicalWidth = window.screen.width * (window.devicePixelRatio || 1);
+
+							if (maxPhysicalWidth < 1000) {
+								this.style.display = 'none';
+							} else {
+								this.style.display = '';
+							}
+						}
+					}
 				},
 				hide_scroll_for_details: {
 					component: "switch",
@@ -524,11 +535,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				component: "switch",
 				text: "durationWithSpeed",
 				value: false
-			},
-			player_hd_thumbnail: {
-				component: "switch",
-				text: "hdThumbnail",
-				tags: "preview"
 			},
 			hide_scroll_for_details: {
 				component: "switch",

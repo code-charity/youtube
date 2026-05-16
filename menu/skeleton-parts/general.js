@@ -307,7 +307,18 @@ extension.skeleton.main.layers.section.general = {
 						text: 'hd',
 						value: 'maxresdefault'
 					}],
-					tags: 'preview quality'
+					tags: 'preview quality',
+					on: {
+						render: function() {
+							var maxPhysicalWidth = window.screen.width * (window.devicePixelRatio || 1);
+							var maxPhysicalHeight = window.screen.height * (window.devicePixelRatio || 1);
+							if (maxPhysicalWidth * maxPhysicalHeight < 2073600) {
+								this.style.display = 'none'; this.value = 'null';
+							} else {
+								this.style.display = ''; 
+							}
+						}
+					}
 				},
 				change_thumbnails_per_row: {
 					component: 'select',
