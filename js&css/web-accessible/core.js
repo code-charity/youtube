@@ -183,6 +183,10 @@ document.addEventListener('it-message-from-extension', function () {
 		if (message.action === 'storage-loaded') {
 			ImprovedTube.storage = message.storage;
 
+			if (typeof ImprovedTube.storage.playlist_reversed_active !== 'undefined') {
+				ImprovedTube.playlistReversed = ImprovedTube.storage.playlist_reversed_active;
+			}
+			
 			if (ImprovedTube.storage.block_vp9 || ImprovedTube.storage.block_av1 || ImprovedTube.storage.block_h264) {
 				let atlas = { block_vp9: 'vp9|vp09', block_h264: 'avc1', block_av1: 'av01' },
 					codec = Object.keys(atlas).reduce(function (all, key) {

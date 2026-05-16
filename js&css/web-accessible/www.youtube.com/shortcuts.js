@@ -646,11 +646,23 @@ ImprovedTube.shortcutActivateFitToWindow = function() {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutCinemaMode = function () {
 	var playerContainer = document.getElementById('player-full-bleed-container');
-	if (playerContainer.style.zIndex == 10000) {
-		playerContainer.style.zIndex = 1;
-	} else {
-		playerContainer.style.zIndex = 10000;
+	var playerContainerDefault = document.getElementById('player-container');
+	var ytdPlayer = document.getElementById('ytd-player');
+
+	function toggle(container) {
+		if (!container) return;
+		if (container.style.zIndex == 10000) {
+			container.style.zIndex = 1;
+			container.style.position = '';
+		} else {
+			container.style.zIndex = 10000;
+			container.style.position = 'relative';
+		}
 	}
+
+	toggle(playerContainer);
+	toggle(playerContainerDefault);
+	toggle(ytdPlayer);
 	
 	var overlay = document.getElementById('overlay_cinema');
 	if (!overlay) {
