@@ -134,7 +134,10 @@ html[it-embeddedHideShare='true'][it-pathname^="/embed"] .ytp-share-button-visib
 # REMOVE MEMBER ONLY VIDEOS
 --------------------------------------------------------------*/
 html[it-remove-member-only='true'] ytd-grid-video-renderer:has(.badge-style-type-members-only),
+html[it-remove-member-only='true'] ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
 html[it-remove-member-only='true'] ytd-rich-item-renderer:has(.badge-style-type-members-only),
+html[it-remove-member-only='true'] ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership),
+html[it-remove-member-only='true'] yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership),
 html[it-remove-member-only='true'] yt-lockup-view-model:has(.yt-badge-shape--commerce),
 /*--------------------------------------------------------------
 # REMOVE CONTEXT BUTTONS ON SHORTS

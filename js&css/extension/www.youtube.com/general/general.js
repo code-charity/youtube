@@ -1137,7 +1137,8 @@ extension.features.removeMemberOnly = function () {
 				display: none !important;
 			}
 			ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
-			ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership) {
+			ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership),
+			yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership) {
 				display: none !important;
 			}
 		`;
