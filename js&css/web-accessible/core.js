@@ -99,8 +99,8 @@ CODEC || 30FPS
 	Do not move, needs to be on top of first injected content
 	file to patch HTMLMediaElement before YT player uses it.
 --------------------------------------------------------------*/
-if (localStorage['it-codec'] || localStorage['it-player30fps']) {
-	function overwrite(self, callback, mime) {
+(function () {
+	function overwrite (self, callback, mime) {
 		if (localStorage['it-codec']) {
 			var re = new RegExp(localStorage['it-codec']);
 			// /webm|vp8|vp9|av01/
@@ -115,15 +115,21 @@ if (localStorage['it-codec'] || localStorage['it-player30fps']) {
 
 	if (window.MediaSource) {
 		var isTypeSupported = window.MediaSource.isTypeSupported;
-		window.MediaSource.isTypeSupported = function (mime) {
-			return overwrite(this, isTypeSupported, mime);
+		if (!isTypeSupported.itImprovedTubeCodecOverride) {
+			window.MediaSource.isTypeSupported = function (mime) {
+				return overwrite(this, isTypeSupported, mime);
+			}
+			window.MediaSource.isTypeSupported.itImprovedTubeCodecOverride = true;
 		}
 	}
 	var canPlayType = HTMLMediaElement.prototype.canPlayType;
-	HTMLMediaElement.prototype.canPlayType = function (mime) {
-		return overwrite(this, canPlayType, mime);
+	if (!canPlayType.itImprovedTubeCodecOverride) {
+		HTMLMediaElement.prototype.canPlayType = function (mime) {
+			return overwrite(this, canPlayType, mime);
+		}
+		HTMLMediaElement.prototype.canPlayType.itImprovedTubeCodecOverride = true;
 	}
-};
+})();
 
 /*--------------------------------------------------------------
 # MESSAGES
