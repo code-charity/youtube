@@ -26,20 +26,14 @@
 /*---------------------------
 # IMPORTING OLD (renamed) SETTINGS   (Each one is mostly needed once, but fine to stay unlimited. Legacy.)
 -----------------------------*/
-var legacyDescriptionSettings = {
-	classic: 'normal',
-	classic_expanded: 'expanded',
-	classic_hidden: 'hidden'
-};
 
 chrome.runtime.onInstalled.addListener(function (installed) {
 	if (installed.reason == 'update') {
 		//		var thisVersion = chrome.runtime.getManifest().version;
 		//		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
 		chrome.storage.local.get('description', function (result) {
-			var description = legacyDescriptionSettings[result.description];
-			if (description) {
-				chrome.storage.local.set({description: description});
+			if (result.description === 'classic_expanded') {
+				chrome.storage.local.set({description: 'expanded'});
 			}
 		});		
 		// Shortcut renames:
