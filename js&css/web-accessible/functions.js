@@ -394,6 +394,7 @@ ImprovedTube.getChannelUrlFromRenderer = function (renderer) {
 			data && data.navigationEndpoint,
 			data && data.endpoint,
 			runs && runs[0] && runs[0].navigationEndpoint,
+			data && data.title && data.title.runs && data.title.runs[0] && data.title.runs[0].navigationEndpoint,
 			data && data.ownerText && data.ownerText.runs && data.ownerText.runs[0] && data.ownerText.runs[0].navigationEndpoint,
 			data && data.shortBylineText && data.shortBylineText.runs && data.shortBylineText.runs[0] && data.shortBylineText.runs[0].navigationEndpoint
 		];

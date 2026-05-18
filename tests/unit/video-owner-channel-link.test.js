@@ -104,4 +104,24 @@ describe('Video owner channel link refresh (#1485)', () => {
 		expect(ImprovedTube.elements.yt_channel_link.href).toBe('https://www.youtube.com/@current');
 		expect(ImprovedTube.channelDefaultTab).toHaveBeenCalledWith(ImprovedTube.elements.yt_channel_link);
 	});
+
+	test('reads channel links from title renderer runs', () => {
+		channelName.__data = {
+			data: {
+				title: {
+					runs: [{
+						navigationEndpoint: {
+							browseEndpoint: {
+								canonicalBaseUrl: '/channel/UCcurrent'
+							}
+						}
+					}]
+				}
+			}
+		};
+
+		ImprovedTube.videoPageUpdate();
+
+		expect(ImprovedTube.elements.yt_channel_link.href).toBe('https://www.youtube.com/channel/UCcurrent');
+	});
 });
