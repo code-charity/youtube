@@ -123,6 +123,32 @@ extension.exportSettings = function () {
 # IMPORT SETTINGS
 --------------------------------------------------------------*/
 
+extension.applyImportedSettings = function (data, callback) {
+	if (!data || typeof data !== 'object' || Array.isArray(data)) {
+		return;
+	}
+
+	if (!satus.storage.data || typeof satus.storage.data !== 'object') {
+		satus.storage.data = {};
+	}
+
+	for (var key in data) {
+		satus.storage.data[key] = data[key];
+	}
+
+	chrome.storage.local.set(data, function () {
+		if (chrome.runtime.lastError) {
+			console.error(chrome.runtime.lastError);
+
+			return;
+		}
+
+		satus.events.trigger('storage-set');
+
+		if (callback) callback();
+	});
+};
+
 extension.importSettings = function () {
 	if (location.href.indexOf('action=import-settings') !== -1) {
 		satus.render({
@@ -152,20 +178,21 @@ extension.importSettings = function () {
 								var file_reader = new FileReader();
 
 								file_reader.onload = function () {
-									var data = JSON.parse(this.result);
-									for (var key in data) {
-										satus.storage.set(key, data[key]);
-									}
+									try {
+										var data = JSON.parse(this.result);
 
-									setTimeout(function () {
-										chrome.runtime.sendMessage({
-											action: 'import-settings'
+										extension.applyImportedSettings(data, function () {
+											chrome.runtime.sendMessage({
+												action: 'import-settings'
+											});
+
+											setTimeout(function () {
+												close();
+											}, 128);
 										});
-
-										setTimeout(function () {
-											close();
-										}, 128);
-									}, 256);
+									} catch (error) {
+										console.error(error);
+									}
 								};
 
 								file_reader.readAsText(this.files[0]);
@@ -240,13 +267,23 @@ extension.pullSettings = function () {
 				text: 'ok',
 				on: {
 					click: function () {
+						var modalProvider = this.modalProvider;
+
 						chrome.storage.sync.get('settings', function (r) {
-							var data = JSON.parse(r['settings']);
-							for (var key in data) {
-								satus.storage.set(key, data[key]);
+							try {
+								var data = JSON.parse(r['settings']);
+
+								extension.applyImportedSettings(data, function () {
+									chrome.runtime.sendMessage({
+										action: 'import-settings'
+									});
+
+									modalProvider.close();
+								});
+							} catch (error) {
+								console.error(error);
 							}
 						});
-						this.modalProvider.close();
 					}
 				}
 			}
