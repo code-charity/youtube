@@ -263,9 +263,9 @@ document.addEventListener('it-message-from-extension', function () {
 					break
 
 				case 'description':
-					if (ImprovedTube.storage.description === "expanded") {
+					if (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.description === "classic_expanded") {
 						try { document.querySelector("#more").click() || document.querySelector("#expand").click(); } catch { }
-					} else if (ImprovedTube.storage.description === "normal") {
+					} else if (ImprovedTube.storage.description === "normal" || ImprovedTube.storage.description === "classic") {
 						try { document.querySelector("#less").click() || document.querySelector("#collapse").click(); } catch { }
 					}
 					break

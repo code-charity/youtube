@@ -157,6 +157,19 @@ html[it-description='hidden'] ytd-video-secondary-info-renderer ytd-expander.ytd
 html[it-description='hidden'] div#action-panel-details,
 html[it-description='hidden'] ytd-expander.ytd-video-secondary-info-renderer,
 html[it-description='hidden'] #description-inline-expander,
+html[it-description='classic'] ytd-watch-metadata > #above-the-fold > #title,
+html[it-description='classic'] ytd-watch-metadata > #above-the-fold > #top-row,
+html[it-description='classic'] ytd-watch-metadata > #above-the-fold > #middle-row,
+html[it-description='classic'] ytd-watch-metadata ytd-watch-info-text,
+html[it-description='classic_expanded'] ytd-watch-metadata > #above-the-fold > #title,
+html[it-description='classic_expanded'] ytd-watch-metadata > #above-the-fold > #top-row,
+html[it-description='classic_expanded'] ytd-watch-metadata > #above-the-fold > #middle-row,
+html[it-description='classic_expanded'] ytd-watch-metadata ytd-watch-info-text,
+html[it-description='classic_hidden'] ytd-watch-metadata > #above-the-fold > #title,
+html[it-description='classic_hidden'] ytd-watch-metadata > #above-the-fold > #top-row,
+html[it-description='classic_hidden'] ytd-watch-metadata > #above-the-fold > #middle-row,
+html[it-description='classic_hidden'] ytd-watch-metadata > #above-the-fold > #bottom-row,
+html[it-description='classic_hidden'] ytd-watch-metadata #description,
 /*----->>> FOOTER: # Hide --------*/
 html[it-popup-ad='true'] ytd-guide-renderer #footer,
 html[it-popup-ad='true'] yt-mealbar-promo-renderer  
@@ -185,30 +198,47 @@ html[it-hide-save-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(
 html[it-hide-report-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="m4 2.999-.146.073A1.55"]) yt-icon
  /*=================================*/
     	{margin-right: 4px !important;}
-/*  Dated:
-html[it-description='classic'] .ytd-watch-flexy #info-contents, 
-html[it-description='classic'] .ytd-watch-flexy #meta-contents { display: block !important; } 
-html[it-description='classic'] #below.ytd-watch-flexy { top:-20px; }
-html[it-description='classic'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
-html[it-description='classic'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
 
+html[it-description='classic'] .ytd-watch-flexy #info-contents,
+html[it-description='classic'] .ytd-watch-flexy #meta-contents,
 html[it-description='classic_expanded'] .ytd-watch-flexy #info-contents,
-html[it-description='classic_expanded'] .ytd-watch-flexy #meta-contents { display: block !important; } 
-html[it-description='classic_expanded'] #below.ytd-watch-flexy { top:-20px; }
-html[it-description='classic_expanded'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
-html[it-description='classic_expanded'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
+html[it-description='classic_expanded'] .ytd-watch-flexy #meta-contents,
+html[it-description='classic_hidden'] .ytd-watch-flexy #info-contents {
+	display: block !important;
+}
 
-html[it-description='classic_hidden'] .ytd-watch-flexy #info-contents { display: block !important; } 
+html[it-description='classic'] #below.ytd-watch-flexy,
+html[it-description='classic_expanded'] #below.ytd-watch-flexy,
 html[it-description='classic_hidden'] #below.ytd-watch-flexy { top:-20px; }
+
+html[it-description='classic'] ytd-menu-renderer[has-flexible-items],
+html[it-description='classic_expanded'] ytd-menu-renderer[has-flexible-items],
 html[it-description='classic_hidden'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
+
+html[it-description='classic'] ytd-video-primary-info-renderer,
+html[it-description='classic_expanded'] ytd-video-primary-info-renderer,
 html[it-description='classic_hidden'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
 
-html[it-description='classic'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata,
-html[it-description='classic_expanded'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata,
-html[it-description='classic_hidden'] div.style-scope.ytd-watch-flexy + ytd-watch-metadata {
+html[it-description='classic'] ytd-watch-metadata #description,
+html[it-description='classic_expanded'] ytd-watch-metadata #description {
+	margin-top: 8px !important;
+}
+
+html[it-description='classic'] ytd-watch-metadata #description-inner,
+html[it-description='classic_expanded'] ytd-watch-metadata #description-inner {
+	margin: 0 !important;
+}
+
+html[it-description='classic'] ytd-watch-metadata #description-inline-expander,
+html[it-description='classic_expanded'] ytd-watch-metadata #description-inline-expander {
+	overflow: visible !important;
+}
+
+html[it-description='classic'] ytd-watch-metadata #description-interaction,
+html[it-description='classic_expanded'] ytd-watch-metadata #description-interaction {
 	display: none !important;
 }
-*/
+
 /*--------------------------------------------------------------
 # SHOW EXACT UPLOAD DATE
 --------------------------------------------------------------*/

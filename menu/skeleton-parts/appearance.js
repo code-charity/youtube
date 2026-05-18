@@ -644,16 +644,16 @@ extension.skeleton.main.layers.section.appearance.on.click.description = {
 	}, {
 		text: "hidden",
 		value: "hidden"
-	}/*, {
-					text: "Classic",
-					value: "classic"
-				}, {
-					text: "Classic expanded",
-					value: "classic_expanded"
-				}, {
-					text: "Classic hidden",
-					value: "classic_hidden"
-				}*/],
+	}, {
+		text: "Classic",
+		value: "classic"
+	}, {
+		text: "Classic expanded",
+		value: "classic_expanded"
+	}, {
+		text: "Classic hidden",
+		value: "classic_hidden"
+	}],
 	tags: "hide,remove"
 };
 

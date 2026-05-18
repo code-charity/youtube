@@ -619,7 +619,7 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
  EXPAND DESCRIPTION
 ------------------------------------------------------------------------------*/
 ImprovedTube.expandDescription = function (el) {
-	if (this.storage.description === "expanded") {
+	if (this.storage.description === "expanded" || this.storage.description === "classic_expanded") {
 		if (!ImprovedTube.originalFocus) { ImprovedTube.originalFocus = HTMLElement.prototype.focus;}  // Backing up default method. Youtube doesn't use alternatives Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy)
 		ImprovedTube.forbidFocus =  function (ms) { 
 			HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling for a moment."); }
