@@ -1487,6 +1487,9 @@
   "thumbnailSize": {
     "message": "Thumbnail Size"
   },
+  "largerThumbnailMetadata": {
+    "message": "Larger thumbnail metadata (channel, views, age)"
+  },
   "thumbnailsQuality": {
     "message": "Thumbnails Quality"
   },

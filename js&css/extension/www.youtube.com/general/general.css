@@ -536,6 +536,31 @@ html[it-hide-watched-videos='true'] #dismissible:has(.it-mark-watched-videos[wat
 	}
 
 /*--------------------------------------------------------------
+# LARGER THUMBNAIL METADATA
+  Restores a readable size for the channel name, view count and
+  video age shown under each thumbnail after YouTube shrank them.
+--------------------------------------------------------------*/
+html[it-larger-thumbnail-metadata='true'] ytd-rich-item-renderer #metadata-line,
+html[it-larger-thumbnail-metadata='true'] ytd-rich-item-renderer #metadata-line span,
+html[it-larger-thumbnail-metadata='true'] ytd-rich-item-renderer ytd-channel-name #text,
+html[it-larger-thumbnail-metadata='true'] ytd-video-renderer #metadata-line,
+html[it-larger-thumbnail-metadata='true'] ytd-video-renderer #metadata-line span,
+html[it-larger-thumbnail-metadata='true'] ytd-video-renderer ytd-channel-name #text,
+html[it-larger-thumbnail-metadata='true'] ytd-grid-video-renderer #metadata-line,
+html[it-larger-thumbnail-metadata='true'] ytd-grid-video-renderer #metadata-line span,
+html[it-larger-thumbnail-metadata='true'] ytd-compact-video-renderer #metadata-line,
+html[it-larger-thumbnail-metadata='true'] ytd-compact-video-renderer #metadata-line span,
+html[it-larger-thumbnail-metadata='true'] yt-lockup-view-model .yt-content-metadata-view-model-wiz__metadata-row,
+html[it-larger-thumbnail-metadata='true'] yt-lockup-view-model .yt-content-metadata-view-model-wiz__metadata-text,
+html[it-larger-thumbnail-metadata='true'] yt-lockup-view-model .yt-content-metadata-view-model-wiz__delimiter,
+html[it-larger-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-row,
+html[it-larger-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-text,
+html[it-larger-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__delimiter {
+	font-size: 1.4rem !important;
+	line-height: 2rem !important;
+}
+
+/*--------------------------------------------------------------
 # COMPACT THEME
 --------------------------------------------------------------*/
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(2) > h3,

@@ -382,6 +382,11 @@ extension.skeleton.main.layers.section.general = {
 						{ text: "xx-small", value: "xx-small" }
 					]
 				},
+				larger_thumbnail_metadata: {
+					component: 'switch',
+					text: 'largerThumbnailMetadata',
+					tags: 'channel name views age font size metadata'
+				},
 				show_last_watched_overlay: {
 					component: 'switch',
 					text: 'showLastWatchedOverlay',
