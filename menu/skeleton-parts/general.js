@@ -387,6 +387,11 @@ extension.skeleton.main.layers.section.general = {
 					text: 'largerThumbnailMetadata',
 					tags: 'channel name views age font size metadata'
 				},
+				classic_thumbnail_metadata: {
+					component: 'switch',
+					text: 'classicThumbnailMetadata',
+					tags: 'thumbnail metadata views ago play icon interpunct dot divider classic restore'
+				},
 				show_last_watched_overlay: {
 					component: 'switch',
 					text: 'showLastWatchedOverlay',
