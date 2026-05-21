@@ -157,6 +157,21 @@ html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-reel-sh
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]),
 /*--------------------------------------------------------------
+# REMOVE SUBSCRIPTION LIVE STREAMS
+--------------------------------------------------------------*/
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="LIVE"]),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"]),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-rich-item-renderer:has(.badge-style-type-live-now),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--live-now),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--upcoming-event),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="LIVE"]),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"]),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-video-renderer:has(.badge-style-type-live-now),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-video-renderer:has(badge-shape.yt-badge-shape--live-now),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-video-renderer:has(badge-shape.yt-badge-shape--upcoming-event),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] yt-lockup-view-model:has(badge-shape.yt-badge-shape--live-now),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] yt-lockup-view-model:has(badge-shape.yt-badge-shape--upcoming-event),
+/*--------------------------------------------------------------
 # REMOVE PLAYABLES
 --------------------------------------------------------------*/
 html[it-pathname='/'][it-remove-playables="true"] ytd-rich-section-renderer:has(ytd-mini-game-card-view-model) {

@@ -78,6 +78,11 @@ extension.skeleton.main.layers.section.general = {
 					text: 'atSubscriptions',
 					id: 'remove-subscriptions-shorts'
 				},
+				remove_subscriptions_live_streams: {
+					component: 'switch',
+					text: 'removeSubscriptionsLiveStreams',
+					id: 'remove-subscriptions-live-streams'
+				},
 				remove_trending_shorts: {
 					component: 'switch',
 					text: 'atTrending'
