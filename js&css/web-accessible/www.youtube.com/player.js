@@ -790,7 +790,9 @@ ImprovedTube.screenshot = function () {
 		} else {
 			let a = document.createElement('a');
 			a.href = URL.createObjectURL(blob);
-			a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
+			const channelNameEl = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
+			const channelName = channelNameEl ? channelNameEl.textContent.trim() : '';
+			a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + (channelName ? ' ' + channelName : '') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
 			a.click();
 			console.log("ImprovedTube: Screeeeeeenshot tada!");
 		}
