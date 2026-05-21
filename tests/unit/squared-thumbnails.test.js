@@ -29,7 +29,7 @@ describe('Squared thumbnails option', () => {
 	});
 });
 
-describe2('Squared thumbnails option', () => {
+describe('Squared thumbnails option', () => {
 	let generalSkeletonContent;
 	let generalCssContent;
 	let englishMessages;
