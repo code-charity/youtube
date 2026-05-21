@@ -225,56 +225,62 @@ ImprovedTube.commentsSidebarSimple = function () { if (ImprovedTube.storage.comm
  Comments Sidebar
 ------------------------------------------------------------------------------*/
 ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_sidebar === true) {
-	const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
-	let hasApplied = 0;
+	const state = ImprovedTube.commentsSidebarState || (ImprovedTube.commentsSidebarState = {
+		hasApplied: 0,
+		initialized: false
+	});
 	if (/watch\?/.test(location.href)) {
 		sidebar();
 		styleScrollbars();
 		setGrid();
 		applyObserver();
-		window.addEventListener("resize", sidebar);
-		// Listen for fullscreen changes to properly recalculate player size
-		document.addEventListener("fullscreenchange", function() {
-			// Delay to let YouTube update its attributes first
-			setTimeout(sidebar, 100);
-		});
+		observeLayoutChanges();
+		if (!state.initialized) {
+			window.addEventListener("resize", sidebar);
+			// Listen for fullscreen changes to properly recalculate player size
+			document.addEventListener("fullscreenchange", function() {
+				// Delay to let YouTube update its attributes first
+				setTimeout(sidebar, 100);
+			});
+			state.initialized = true;
+		}
 	}
 
 	function sidebar () {
 		resizePlayer();
 		if (window.matchMedia("(min-width: 1952px)").matches) {
 
-			if (!hasApplied) {
+			if (!state.hasApplied || !isLayoutApplied(true)) {
 				initialSetup()
-				setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
+				setTimeout(() => {moveNode(document.getElementById("columns"), document.getElementById("related"))})
 			}
-			else if (hasApplied == 2) { //from medium to big size
-				setTimeout(() => {document.getElementById("columns").appendChild(document.getElementById("related"))})
+			else if (state.hasApplied == 2) { //from medium to big size
+				setTimeout(() => {moveNode(document.getElementById("columns"), document.getElementById("related"))})
 			}
-			hasApplied = 1
+			state.hasApplied = 1
 		}
 		else if (window.matchMedia("(min-width: 1000px)").matches) {
-			if (!hasApplied) {
+			if (!state.hasApplied || !isLayoutApplied(false)) {
 				initialSetup();
 			}
-			else if (hasApplied == 1) { //from big to medium
-				document.getElementById("primary-inner").appendChild(document.getElementById("related"));
+			else if (state.hasApplied == 1) { //from big to medium
+				moveNode(document.getElementById("primary-inner"), document.getElementById("related"));
 			}
-			hasApplied = 2
+			state.hasApplied = 2
 		}
 		else { /// <1000
-			if (hasApplied == 1) {
-				document.getElementById("primary-inner").appendChild(document.getElementById("related"));
+			if (state.hasApplied == 1) {
+				moveNode(document.getElementById("primary-inner"), document.getElementById("related"));
 				let comments = document.querySelector("#comments");
 				let below = document.getElementById("below");
-				below.appendChild(comments);
+				moveNode(below, comments);
 			}
-			else if (hasApplied == 2) {
+			else if (state.hasApplied == 2) {
 				let comments = document.querySelector("#comments");
 				let below = document.getElementById("below");
-				below.appendChild(comments);
+				moveNode(below, comments);
 			}
-			hasApplied = 0;
+			state.hasApplied = 0;
 		}
 	}
 	function setGrid () {
@@ -289,18 +295,44 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 		}, 250);
 	}
 	function initialSetup () {
-		let secondaryInner = document.getElementById("secondary-inner");
-		let primaryInner = document.getElementById("primary-inner");
-		let comments = document.querySelector("#comments");
+		if (!document.getElementById("secondary-inner") || !document.getElementById("primary-inner") || !document.querySelector("#comments")) {
+			scheduleSidebar();
+			return;
+		}
 		setTimeout(() => {
-			primaryInner.appendChild(document.getElementById("panels"));
-			primaryInner.appendChild(document.getElementById("related"))
-			secondaryInner.appendChild(document.getElementById("chat-template"));
-			secondaryInner.appendChild(comments);
+			let secondaryInner = document.getElementById("secondary-inner");
+			let primaryInner = document.getElementById("primary-inner");
+			let comments = document.querySelector("#comments");
+			if (!secondaryInner || !primaryInner || !comments) {
+				scheduleSidebar();
+				return;
+			}
+			moveNode(primaryInner, document.getElementById("panels"));
+			moveNode(primaryInner, document.getElementById("related"))
+			moveNode(secondaryInner, document.getElementById("chat-template"));
+			moveNode(secondaryInner, comments);
 		})
+	}
+	function moveNode (parent, child) {
+		if (parent && child && child.parentElement !== parent) {
+			parent.appendChild(child);
+		}
+	}
+	function isLayoutApplied (wideLayout) {
+		const secondaryInner = document.getElementById("secondary-inner");
+		const comments = document.querySelector("#comments");
+		const related = document.getElementById("related");
+		const relatedParent = wideLayout ? document.getElementById("columns") : document.getElementById("primary-inner");
+
+		return comments && comments.parentElement === secondaryInner && related && related.parentElement === relatedParent;
+	}
+	function scheduleSidebar () {
+		clearTimeout(state.sidebarRetryTimer);
+		state.sidebarRetryTimer = setTimeout(sidebar, 250);
 	}
 	function resizePlayer () {
 		const player = document.querySelector("#player.style-scope.ytd-watch-flexy");
+		const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
 		const watchFlexy = document.querySelector("ytd-watch-flexy");
 		const primary = document.getElementById("primary");
 
@@ -312,7 +344,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			return;
 		}
 
-		const width = video.offsetWidth + 24;
+		const width = video ? video.offsetWidth + 24 : 24;
 		if (width != 24 && primary && player) {
 			primary.style.width = `${width}px`;
 			player.style.width = `${width}px`;
@@ -321,10 +353,12 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 	function styleScrollbars () {
 		if (!navigator.userAgent.toLowerCase().includes("mac")) {
 			let color, colorHover
-			const isDarkMode = getComputedStyle(document.querySelector('ytd-app')).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
+			const isDarkMode = getComputedStyle(document.querySelector('ytd-app') || document.documentElement).getPropertyValue('--yt-spec-base-background') == "#0f0f0f";
 			if (isDarkMode) [color, colorHover] = ["#616161", "#909090"];
 			else [color, colorHover] = ["#aaaaaa", "#717171"];
-			const style = document.createElement("style");
+			const style = document.getElementById("it-comments-sidebar-scrollbars") || document.createElement("style");
+			style.id = "it-comments-sidebar-scrollbars";
+			style.textContent = "";
 			if (ImprovedTube.storage.comments_sidebar_scrollbars === true) {
 				const cssRule = `
             #primary, #secondary {
@@ -360,13 +394,41 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
             }`;
 			style.appendChild(document.createTextNode(cssRule));
 			}
-			document.head.appendChild(style);
+			if (!style.parentNode) {
+				document.head.appendChild(style);
+			}
 		}
 	}
 	function applyObserver () {
+		const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
+		if (!video || typeof ResizeObserver === "undefined" || state.observedVideo === video) {
+			return;
+		}
+		if (state.resizeObserver) {
+			state.resizeObserver.disconnect();
+		}
 		const debouncedResizePlayer = debounce(resizePlayer, 200);
-		const resizeObserver = new ResizeObserver(debouncedResizePlayer);
-		resizeObserver.observe(video);
+		state.resizeObserver = new ResizeObserver(debouncedResizePlayer);
+		state.resizeObserver.observe(video);
+		state.observedVideo = video;
+	}
+	function observeLayoutChanges () {
+		const root = document.getElementById("columns") || document.body || document.documentElement;
+		if (!root || typeof MutationObserver === "undefined" || state.observedLayoutRoot === root) {
+			return;
+		}
+		if (state.layoutObserver) {
+			state.layoutObserver.disconnect();
+		}
+		state.layoutObserver = new MutationObserver(function () {
+			clearTimeout(state.layoutTimer);
+			state.layoutTimer = setTimeout(sidebar, 50);
+		});
+		state.layoutObserver.observe(root, {
+			childList: true,
+			subtree: true
+		});
+		state.observedLayoutRoot = root;
 	}
 	function debounce (callback, delay) {
 		let timerId;
