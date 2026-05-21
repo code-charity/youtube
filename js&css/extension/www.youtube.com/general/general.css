@@ -579,6 +579,19 @@ html[it-larger-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__d
 }
 
 /*--------------------------------------------------------------
+# CLASSIC THUMBNAIL METADATA
+  Hides the play-triangle icon that YouTube inserted in front of
+  the view count on thumbnails. The accompanying JS expands the
+  shortened time-ago text and restores the interpunct delimiter.
+--------------------------------------------------------------*/
+html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-row .yt-content-metadata-view-model-wiz__metadata-icon,
+html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-row yt-icon,
+html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-text > svg,
+html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-text > yt-icon {
+	display: none !important;
+}
+
+/*--------------------------------------------------------------
 # COMPACT THEME
 --------------------------------------------------------------*/
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(2) > h3,

@@ -1493,6 +1493,9 @@
   "largerThumbnailMetadata": {
     "message": "Larger thumbnail metadata (channel, views, age)"
   },
+  "classicThumbnailMetadata": {
+    "message": "Classic thumbnail metadata (X views · Y months ago)"
+  },
   "thumbnailsQuality": {
     "message": "Thumbnails Quality"
   },
