@@ -361,6 +361,30 @@ ImprovedTube.videoPageUpdate = function () {
 	}
 };
 
+/*------------------------------------------------------------------------------
+AUTOPLAY SAFETY NET: 'playing' event handler
+Catches playback that slips through the play() interception (race condition on
+fresh page loads). When autoplay is disabled and user hasn't interacted, pause
+immediately before the video renders a visible frame.
+------------------------------------------------------------------------------*/
+ImprovedTube.autoplayPlayingHandler = function () {
+	// Only act when autoplay is disabled for the current context
+	var shouldBlock = (ImprovedTube.storage.player_autoplay_disable === true && !location.href.includes('list='))
+		|| (ImprovedTube.storage.playlist_autoplay === false && location.href.includes('list='))
+		|| (ImprovedTube.storage.channel_trailer_autoplay === false 
+			&& ImprovedTube.regex.channel.test(location.href)
+			&& !/(\/(videos|shorts|playlists|community|channels|about|posts|streams|releases))$/.test(location.href));
+
+	if (shouldBlock && !ImprovedTube.user_interacted) {
+		var player = ImprovedTube.elements.player || this.closest('.html5-video-player') || this.closest('#movie_player');
+		if (player && !player.classList.contains('ad-showing')) {
+			try { player.pauseVideo(); } catch (e) { this.pause(); }
+		}
+		// Remove self after firing — no need to keep listening once we've handled it
+		this.removeEventListener('playing', ImprovedTube.autoplayPlayingHandler, true);
+	}
+};
+
 ImprovedTube.playerOnPlay = function () {
 	HTMLMediaElement.prototype.play = (function (original) {
 		return function () {
@@ -381,37 +405,41 @@ ImprovedTube.playerOnPlay = function () {
 
 				this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 				this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
-				/*------------------------------------------------------------------------------
-				AUTOPLAY DISABLE  player || playlist || channel trailer
-				------------------------------------------------------------------------------*/
-				if ((((ImprovedTube.storage.player_autoplay_disable === true && !location.href.includes('list='))
-					  ||(ImprovedTube.storage.playlist_autoplay === false && location.href.includes('list='))) 
-					 && location.href.includes('/watch?') // #1703 // (=video page)
-					 )||(ImprovedTube.storage.channel_trailer_autoplay === false && ImprovedTube.regex.channel.test(location.href)
-						 && !/\/(videos|shorts|playlists|community|channels|about|posts|streams|releases)$/.test(location.href))
-				   ){const player = ImprovedTube.elements.player || this.closest('.html5-video-player') || this.closest('#movie_player'); // #movie_player: outdated since 2024?
-					 if (player && (!ImprovedTube.user_interacted || ImprovedTube.video_url !== location.href)
-						 && !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
-						 ){
-						 if (!ImprovedTube.user_interacted) {  // (=user didnt click or type)
-							 try { player.pauseVideo(); } catch (error) { this.pause(); } 
-							 return Promise.resolve();
-						 } else {
-							 if (!ImprovedTube._autoplayTimeout) {
-								 ImprovedTube._autoplayTimeout = 
-									 setTimeout(() => {
-										 if (!ImprovedTube.user_interacted) {
-										 try { player.pauseVideo(); } catch (error) { this.pause(); }
-										 } ImprovedTube._autoplayTimeout = null;
-									 }, 100);
+			/*------------------------------------------------------------------------------
+			AUTOPLAY DISABLE  player || playlist || channel trailer
+			------------------------------------------------------------------------------*/
+						if ((((ImprovedTube.storage.player_autoplay_disable === true && !location.href.includes('list='))
+						  ||(ImprovedTube.storage.playlist_autoplay === false && location.href.includes('list='))) 
+						 && location.href.includes('/watch?') // #1703 // (=video page)
+						 )||(ImprovedTube.storage.channel_trailer_autoplay === false && ImprovedTube.regex.channel.test(location.href)
+							 && !/(\/(videos|shorts|playlists|community|channels|about|posts|streams|releases))$/.test(location.href))
+						   ){const player = ImprovedTube.elements.player || this.closest('.html5-video-player') || this.closest('#movie_player'); // #movie_player: outdated since 2024?
+							 if (player && (!ImprovedTube.user_interacted || ImprovedTube.video_url !== location.href)
+								&& !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
+								){
+								 if (!ImprovedTube.user_interacted) {  // (=user didnt click or type)
+									 try { player.pauseVideo(); } catch (error) { this.pause(); } 
+									 return Promise.resolve();
+								 } else {
+									 if (!ImprovedTube._autoplayTimeout) {
+										 ImprovedTube._autoplayTimeout = 
+											 setTimeout(() => {
+												 if (!ImprovedTube.user_interacted) {
+													 try { player.pauseVideo(); } catch (error) { this.pause(); }
+												 } ImprovedTube._autoplayTimeout = null;
+											 }, 100);
+									 }
+								 }
+								 // Safety net: listen for 'playing' event to catch playback that slips through
+								 // the play() interception (e.g. on fresh page loads where there's a race condition)
+								 this.removeEventListener('playing', ImprovedTube.autoplayPlayingHandler, true);
+								 this.addEventListener('playing', ImprovedTube.autoplayPlayingHandler, true);
+							 } else {
+								 document.dispatchEvent(new CustomEvent('it-play'));
 							 }
-						 }
-					 } else {
-						 document.dispatchEvent(new CustomEvent('it-play'));
-					 }
-					} else {
-					document.dispatchEvent(new CustomEvent('it-play'));
-				}
+							} else {
+								document.dispatchEvent(new CustomEvent('it-play'));
+							}
 				
 				ImprovedTube.playerLoudnessNormalization();
 				ImprovedTube.playerCinemaModeEnable();
