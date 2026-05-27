@@ -1149,7 +1149,7 @@
         "message": "Cor primária"
     },
     "pullSyncSettings": {
-        "message": "Puxar"
+        "message": "Receber"
     },
     "purchase": {
         "message": "Comprar"
@@ -1158,7 +1158,7 @@
         "message": "Roxo"
     },
     "pushSyncSettings": {
-        "message": "Pressione"
+        "message": "Enviar"
     },
     "quality": {
         "message": "Qualidade"
