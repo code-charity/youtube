@@ -145,6 +145,11 @@ html[it-player-color]:not([it-player-color='default']):not([it-player-color='nor
 html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-swatch-color {
 	color: var(--it-player-color) !important;
 }
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) ytd-shorts .ytProgressBarLineProgressBarPlayed,
+html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) ytd-shorts .YtProgressBarLineProgressBarPlayedRefresh {
+    background: var(--it-player-color) !important;
+    background-color: var(--it-player-color) !important;
+}
 
 html[it-player-color]:not([it-player-color='default']):not([it-player-color='normal']) .ytp-settings-button.ytp-hd-quality-badge:after{
 	background-color: var(--it-player-color) !important;
@@ -788,4 +793,15 @@ html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
 	display: none !important;
 	opacity: 0 !important;
 	visibility: hidden !important;
+}
+
+
+/*--------------------------------------------------------------
+# FIX THUMBNAIL ZOOM/CROP IN THEATER MODE
+--------------------------------------------------------------*/
+.ytp-cued-thumbnail-overlay-image {
+    background-size: contain !important;
+    -webkit-background-size: contain !important;
+    -moz-background-size: contain !important;
+    background-color: #000 !important;
 }

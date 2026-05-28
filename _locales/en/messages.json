@@ -116,6 +116,9 @@
   "atSubscriptions": {
     "message": "at 'Subscriptions'"
   },
+  "removeSubscriptionsLiveStreams": {
+    "message": "Hide live streams at 'Subscriptions'"
+  },
   "atTrending": {
     "message": "at 'Trending'"
   },
@@ -1130,6 +1133,9 @@
   "popupWindowButtons": {
     "message": "Add a popup-player-button to each thumbnail"
   },
+  "watchLaterButtons": {
+    "message": "Add a Watch Later button to thumbnails"
+  },
   "position": {
     "message": "Position"
   },
@@ -1397,6 +1403,9 @@
   "squaredUserImages": {
     "message": "Squared user images"
   },
+  "squaredThumbnails": {
+    "message": "Squared thumbnails"
+  },
   "static": {
     "message": "Static"
   },
@@ -1475,8 +1484,14 @@
   "thumbnails": {
     "message": "Thumbnails"
   },
+  "thumbnailGrayscale":{
+    "message":"Thumbnail Grayscale"
+  },
   "thumbnailSize": {
     "message": "Thumbnail Size"
+  },
+  "largerThumbnailMetadata": {
+    "message": "Larger thumbnail metadata (channel, views, age)"
   },
   "thumbnailsQuality": {
     "message": "Thumbnails Quality"

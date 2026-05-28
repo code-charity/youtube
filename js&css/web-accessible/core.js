@@ -36,7 +36,7 @@ var ImprovedTube = {
 		channel_home_page_postfix: /\/(featured)?\/?$/,
 		thumbnail_quality: /(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)+/,
 		video_id: /(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/,
-		video_time: /[?&](?:t|start)=([^&]+)|#t=(\w+)/,
+		video_time: /[?&](?:t|start|stop)=([^&]+)|#t=(\w+)/,
 		playlist_id: /[?&]list=([^&]+)/,
 		channel_link: /https:\/\/www.youtube.com\/@|((channel|user|c)\/)/
 	},
@@ -365,7 +365,9 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerIncreaseDecreaseSpeedButtons':
 					if (ImprovedTube.storage.player_increase_decrease_speed_buttons === false) {
 						ImprovedTube.elements.buttons['it-increase-speed-button']?.remove();
+						ImprovedTube.elements.buttons['it-1x-speed-button']?.remove();
 						ImprovedTube.elements.buttons['it-decrease-speed-button']?.remove();
+						ImprovedTube.elements.buttons['it-1x-speed-button']?.remove();
 					}
 					break
 

@@ -22,12 +22,11 @@ jobs:
 
       - name: Build Firefox and Chromium variants
         run: |
-          cd build/
-          python3 build.py -firefox
-          python3 build.py -chromium-stable
-          python3 build.py -chromium-beta
-          python3 build.py -chromium-edge
-          python3 build.py -chromium-whale
+          python3 build/build.py -firefox
+          python3 build/build.py -chromium-stable
+          python3 build/build.py -chromium-beta
+          python3 build/build.py -chromium-edge
+          python3 build/build.py -chromium-whale
           ls -la
 
       - name: Upload builds to Release

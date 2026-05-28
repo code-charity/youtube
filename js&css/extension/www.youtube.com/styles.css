@@ -2298,6 +2298,25 @@ html[it-thumbnail-size="xx-small"] ytd-compact-video-renderer ytd-thumbnail {
 }
 
 /*--------------------------------------------------------------
+# THUMBNAIL GRAYSCALE
+--------------------------------------------------------------*/
+html[it-thumbnail-grayscale="0"] yt-thumbnail-view-model {
+    filter: grayscale(0%) !important;
+}
+html[it-thumbnail-grayscale="25"] yt-thumbnail-view-model {
+    filter: grayscale(25%) !important;
+}
+html[it-thumbnail-grayscale="50"] yt-thumbnail-view-model {
+    filter: grayscale(50%) !important;
+}
+html[it-thumbnail-grayscale="75"] yt-thumbnail-view-model {
+    filter: grayscale(75%) !important;
+}
+html[it-thumbnail-grayscale="100"] yt-thumbnail-view-model {
+    filter: grayscale(100%) !important;
+}
+
+/*--------------------------------------------------------------
 # SUBSCRIPTIONS LIST LAYOUT
 --------------------------------------------------------------*/
 /* Single-column grid */
