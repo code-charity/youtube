@@ -227,6 +227,10 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					component: "switch",
 					text: "hideEndscreen"
 				},
+				player_hide_lastframe: {
+					component: "switch",
+					text: "hideLastframe"
+				},
 				hide_includes_paid_promotion: {
 					component: 'switch',
 					text: 'hideIncludesPaidPromotion',

@@ -696,8 +696,11 @@
     "message": "Hide details"
   },
   "hideEndscreen": {
-    "message": "Hide endscreen"
+    "message": "Hide endcards"
   },
+  "hideLastframe": {
+    "message": "Hide ended video (last frame)"
+  },  
   "hideFeaturedContent": {
     "message": "Hide featured content"
   },
