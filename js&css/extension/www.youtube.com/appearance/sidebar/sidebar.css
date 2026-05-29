@@ -233,21 +233,15 @@ html[data-page-type=video][it-related-videos='hidden'] ytd-compact-video-rendere
 html[data-page-type=video][it-related-videos='hidetabs'] #related #chips, 
 html[it-hide-sidebar='true'] #related,
 html[it-hide-sidebar='true'] #related > ytd-watch-next-secondary-results-renderer > #items,
-html[it-hide-sidebar='true']:not([it-transcript='true']) div#secondary div#panels,
+html[it-hide-sidebar='true'] div#secondary div#panels,
 html[it-hide-sidebar='true'] div#secondary div#donation-shelf {
 	display: none !important
 }
-
-/* Issue #1530: When sidebar is hidden but transcript is enabled, keep transcript visible */
-html[it-hide-sidebar='true'][it-transcript='true'] div#secondary div#panels {
+/* #1530 */
+html[it-hide-sidebar='true'] div#secondary div#panels > *([target-id*='transcript']),
+html[it-hide-sidebar='true'] div#secondary div#panels > *([target-id*='chapters']) {
 	display: block !important
 }
-
-/* Hide non-transcript panels (chapters, etc.) when sidebar is hidden + transcript enabled */
-html[it-hide-sidebar='true'][it-transcript='true'] div#secondary div#panels > :not([target-id*='transcript']) {
-	display: none !important
-}
-
 /* Ensure secondary has enough width for the transcript panel */
 html[it-hide-sidebar='true'][it-transcript='true'] ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
 	width: fit-content !important;
