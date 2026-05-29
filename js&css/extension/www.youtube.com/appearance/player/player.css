@@ -274,7 +274,9 @@ html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:not(:hover)
 html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:not(:hover) .ytp-cards-teaser {
 	display: none !important;
 }
-
+html[it-player-hide-lastframe='true'] .html5-video-player.ended-mode .html5-main-video {
+	visibility: hidden !important;
+}
 html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:hover .ytp-ce-element,
 html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:hover .ytp-ce-video,
 html[it-player-show-cards-on-mouse-hover='true'] .html5-video-player:hover .ytp-cards-button,
