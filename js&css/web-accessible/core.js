@@ -270,13 +270,26 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
-				case 'transcript':
-					if (ImprovedTube.storage.transcript === true) {
-						document.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');
-					} else if (ImprovedTube.storage.transcript === false) {
-						document.querySelector('*[target-id*=transcript] #visibility-button button')?.click();
+			case 'transcript':
+				if (ImprovedTube.storage.transcript === 'normal' || ImprovedTube.storage.transcript === 'collapsed') {
+					document.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');
+					
+					// Collapse the transcript if set to 'collapsed'
+					if (ImprovedTube.storage.transcript === 'collapsed') {
+						const transcriptPanel = document.querySelector('*[target-id*=transcript]');
+						if (transcriptPanel) {
+							setTimeout(function() {
+								const collapseButton = transcriptPanel.querySelector('button[aria-label*="collapse"], button[aria-label*="Collaps"]');
+								if (collapseButton) {
+									collapseButton.click();
+								}
+							}, 500);
+						}
 					}
-					break
+				} else if (ImprovedTube.storage.transcript === 'hidden') {
+					document.querySelector('*[target-id*=transcript] #visibility-button button')?.click();
+				}
+				break
 
 				case 'chapters':
 					if (ImprovedTube.storage.chapters === true) {
