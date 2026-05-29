@@ -1364,6 +1364,9 @@
   "showChannelVideosCount": {
     "message": "Show channel videos count"
   },
+  "ccIndicator": {
+    "message": "Restore CC (subtitles) indicator on channel Videos page"
+  },
   "showExactDate": {
     "message": "Show Exact Date"
   },

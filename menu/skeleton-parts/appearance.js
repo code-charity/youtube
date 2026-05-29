@@ -620,10 +620,14 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					component: "switch",
 					text: "showExactDate"
 				},
-				channel_videos_count: {
-					component: "switch",
-					text: "showChannelVideosCount"
-				}
+			channel_videos_count: {
+				component: "switch",
+				text: "showChannelVideosCount"
+			},
+			cc_indicator: {
+				component: "switch",
+				text: "ccIndicator"
+			}
 			}
 		}
 	}
