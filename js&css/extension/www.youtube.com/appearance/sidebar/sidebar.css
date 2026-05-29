@@ -237,6 +237,16 @@ html[it-hide-sidebar='true'] div#secondary div#panels,
 html[it-hide-sidebar='true'] div#secondary div#donation-shelf {
 	display: none !important
 }
+/* #1530 */
+html[it-hide-sidebar='true'] div#secondary div#panels > *([target-id*='transcript']),
+html[it-hide-sidebar='true'] div#secondary div#panels > *([target-id*='chapters']) {
+	display: block !important
+}
+/* Ensure secondary has enough width for the transcript panel */
+html[it-hide-sidebar='true'][it-transcript='true'] ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
+	width: fit-content !important;
+	min-width: max(445px, 17vw) !important
+}
 
 html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-renderer > #items:not([it-activated])::before {
 	content: 'Show more' !important;
