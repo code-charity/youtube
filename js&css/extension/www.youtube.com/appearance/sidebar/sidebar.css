@@ -191,6 +191,32 @@ html[it-livechat='collapsed']
 	cursor: pointer;
 }
 
+/* Ensure live chat is fully visible and scrollable in theater mode */
+html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #secondary,
+html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #secondary-inner,
+html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #chat-container,
+html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy ytd-live-chat-frame#chat {
+	height: calc(100vh - var(--it-header-size, 56px)) !important;
+	max-height: calc(100vh - var(--it-header-size, 56px)) !important;
+
+	/* Prevent horizontal scrollbar surprises */
+	overflow-x: hidden !important;
+}
+
+@supports (height: 100dvh) {
+	html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #secondary,
+	html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #secondary-inner,
+	html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy #chat-container,
+	html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy ytd-live-chat-frame#chat {
+		height: calc(100dvh - var(--it-header-size, 56px)) !important;
+		max-height: calc(100dvh - var(--it-header-size, 56px)) !important;
+	}
+}
+
+/* Only the actual chat should scroll */
+html[it-forced-theater-mode='true'][data-page-type='video'] ytd-watch-flexy ytd-live-chat-frame#chat {
+	overflow-y: auto !important;
+}
 
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
@@ -210,6 +236,16 @@ html[it-hide-sidebar='true'] #related > ytd-watch-next-secondary-results-rendere
 html[it-hide-sidebar='true'] div#secondary div#panels,
 html[it-hide-sidebar='true'] div#secondary div#donation-shelf {
 	display: none !important
+}
+/* #1530 */
+html[it-hide-sidebar='true'] div#secondary div#panels > *([target-id*='transcript']),
+html[it-hide-sidebar='true'] div#secondary div#panels > *([target-id*='chapters']) {
+	display: block !important
+}
+/* Ensure secondary has enough width for the transcript panel */
+html[it-hide-sidebar='true'][it-transcript='true'] ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
+	width: fit-content !important;
+	min-width: max(445px, 17vw) !important
 }
 
 html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-renderer > #items:not([it-activated])::before {

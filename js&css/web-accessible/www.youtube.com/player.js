@@ -165,16 +165,22 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 				)	{ player.setPlaybackRate(1); video.playbackRate = 1; console.log ("...,thus must be music?"); }
 				else { 	// Now this video might rarely be music
 					// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
-					var tries = 0; 	var intervalMs = 210; if (location.href.indexOf('/watch?') !== -1) {var maxTries = 10;} else {var maxTries = 0;}
-					// ...except when it is an embedded player?
-					var waitForDescription = setInterval(() => {
-						if (++tries >= maxTries) {
-							subtitle = document.querySelector('#title + #subtitle:last-of-type')
-							if ( subtitle && 1 <= Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0])	// indicates buyable/registered music (amount of songs)
-						 && typeof testSongDuration(DATA.lengthSeconds, Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0]) ) !== 'undefined' ) // resonable duration
-							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("...but YouTube shows music below the description!"); clearInterval(waitForDescription); }
-							intervalMs *= 1.11;	}}, intervalMs);
-					window.addEventListener('load', () => { setTimeout(() => { clearInterval(waitForDescription); }, 1234); });
+					if (location.href.indexOf('/watch?') !== -1) {
+						let tries = 0;
+						const intervalMs = 210;
+						const maxTries = 10;
+						const waitForDescription = setInterval(() => {
+							const subtitle = document.querySelector('#title + #subtitle:last-of-type');
+							// console.log("[SPEED] checking for music keywords in the description... try " + tries + "// subtitle: " + subtitle?.innerHTML);
+							const descriptionSongCount = Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0]);
+							if (subtitle && 1 <= descriptionSongCount && typeof testSongDuration(DATA.lengthSeconds, descriptionSongCount) !== 'undefined')
+							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("...but YouTube shows music below the description!"); clearInterval(waitForDescription); return; }
+							if (++tries >= maxTries) {
+								// console.log("[SPEED] max tries reached, stopping description check...");
+								clearInterval(waitForDescription);
+							}
+						}, intervalMs);
+					}
 				}
 			}
 			//DATA  (TO-DO: make the Data available to more/all features? #1452  #1763  (Then can replace ImprovedTube.elements.category === 'music', VideoID is also used elsewhere)
@@ -197,12 +203,12 @@ const waitForVideoTitle = setInterval(() => { const title = ImprovedTube.videoTi
 if (title && title !== 'YouTube') {
     clearInterval(waitForVideoTitle);
 			 DATA.videoID = ImprovedTube.videoId() || false;     // console.log("SPEED: TITLE:" + ImprovedTube.videoTitle() + DATA.title); 
-			 if ( DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle() )
+			 if ( DATA.title && (DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle()) )
 				{ keywords = document.querySelector('meta[name="keywords"]')?.content || ''; ImprovedTube.speedException(); }
 				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
 					console.log("loading the html source:" + `https://www.youtube.com/watch?v=${DATA.videoID}`);
 					const htmlContent = await response.text();
-					const metaRegex = /<meta[^>]+(name|itemprop)=["'](keywords|genre|duration)["'][^>]+content=["']([^"']+)["'][^>]*>/gi;
+					const metaRegex = /<meta[^>]+(?:name|itemprop)=["'](keywords|genre|duration|title)["'][^>]+content=["']([^"']+)["'][^>]*>/gi;
 					let match; while ((match = metaRegex.exec(htmlContent)) !== null) { // console.log(match);
 						const [, property, value] = match;
 						if (property === 'keywords') { keywords = value;} else {DATA[property] = value;}
@@ -784,7 +790,9 @@ ImprovedTube.screenshot = function () {
 		} else {
 			let a = document.createElement('a');
 			a.href = URL.createObjectURL(blob);
-			a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
+			const channelNameEl = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
+			const channelName = channelNameEl ? channelNameEl.textContent.trim() : '';
+			a.download = (ImprovedTube.videoId() || location.href.match) + ' ' + new Date(ImprovedTube.elements.player.getCurrentTime() * 1000).toISOString().substr(11, 8).replace(/:/g, '-') + (channelName ? ' ' + channelName : '') + ' ' + ImprovedTube.videoTitle() + (subText ? ' - ' + subText.trim() : '') + '.png';
 			a.click();
 			console.log("ImprovedTube: Screeeeeeenshot tada!");
 		}

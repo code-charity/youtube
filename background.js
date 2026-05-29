@@ -26,6 +26,7 @@
 /*---------------------------
 # IMPORTING OLD (renamed) SETTINGS   (Each one is mostly needed once, but fine to stay unlimited. Legacy.)
 -----------------------------*/
+
 chrome.runtime.onInstalled.addListener(function (installed) {
 	if (installed.reason == 'update') {
 		//		var thisVersion = chrome.runtime.getManifest().version;

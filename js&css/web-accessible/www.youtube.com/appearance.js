@@ -77,17 +77,41 @@ ImprovedTube.forcedTheaterMode = function () {
 		}
 	}
 };
-/*------------------------------------------------------------------------------
- HD THUMBNAIL
-------------------------------------------------------------------------------*/
-ImprovedTube.playerHdThumbnail = function () {
-	if (this.storage.player_hd_thumbnail === true) {
-		var thumbnail = ImprovedTube.elements.player_thumbnail;
 
-		if (thumbnail.style.backgroundImage.indexOf("/hqdefault.jpg") !== -1) {
-			thumbnail.style.backgroundImage = thumbnail.style.backgroundImage.replace("/hqdefault.jpg", "/maxresdefault.jpg");
-		}
-	}
+/*------------------------------------------------------------------------------
+ HD THUMBNAIL (Smart Hardware & Network Probe)
+------------------------------------------------------------------------------*/
+ImprovedTube.playerHdThumbnail = function (thumbnailElement) {
+    if (this.storage.player_hd_thumbnail === true) {
+        var thumbnail = thumbnailElement || ImprovedTube.elements.player_thumbnail;
+        
+        if (!thumbnail || !thumbnail.style) return;
+
+        var currentBg = thumbnail.style.backgroundImage;
+        if (currentBg && currentBg.indexOf("/hqdefault.jpg") !== -1) {
+            
+            var rect = thumbnail.getBoundingClientRect();
+            var physicalWidth = (rect.width || thumbnail.clientWidth || 0) * (window.devicePixelRatio || 1);
+
+            if (physicalWidth === 0) {
+                return;
+            }
+
+            if (physicalWidth > 400) {
+                
+                var maxResUrl = currentBg.replace("/hqdefault.jpg", "/maxresdefault.jpg");
+                var extractedUrl = maxResUrl.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+                
+                var probe = new Image();
+                probe.onload = function () {
+                    thumbnail.style.backgroundImage = maxResUrl;
+                };
+                probe.onerror = function () {
+                };
+                probe.src = extractedUrl;
+            }
+        }
+    }
 };
 /*------------------------------------------------------------------------------
  ALWAYS SHOW PROGRESS BAR
@@ -949,5 +973,129 @@ ImprovedTube.disableLikesAnimation = function () {
     document.addEventListener('yt-navigate-finish', run);
     window.addEventListener('load', run);
     setTimeout(run, 2000); // fallback for late loads
+})();
+};
+
+/*------------------------------------------------------------------------------
+CC (SUBTITLES) INDICATOR ON CHANNEL VIDEOS PAGE
+------------------------------------------------------------------------------*/
+if (ImprovedTube.storage.cc_indicator === true) {
+ImprovedTube.ccIndicator = function () {
+	// Selectors for video renderer elements across different YouTube page layouts
+	var VIDEO_RENDERERS = [
+		'ytd-grid-video-renderer',
+		'ytd-rich-item-renderer',
+		'ytd-compact-video-renderer',
+		'ytd-video-renderer',
+		'ytd-playlist-video-renderer'
+	].join(',');
+
+	function isChannelVideosPage() {
+		return /\/(channel|user|c|@)[^/]+\/(videos|search)/.test(location.pathname);
+	}
+
+	/**
+	 * Check if a video renderer element has captions available by examining
+	 * YouTube's internal data model (__dataHost.__data.data).
+	 */
+	function hasCaptions(rendererEl) {
+		try {
+			var data = rendererEl.__dataHost && rendererEl.__dataHost.__data
+				? rendererEl.__dataHost.__data.data
+				: (rendererEl.data || null);
+
+			if (!data) return false;
+
+			// Check for "CC" badge in badges array
+			var badges = data.badges || data.ownerBadges || [];
+			for (var i = 0; i < badges.length; i++) {
+				var badge = badges[i];
+				var metadata = badge.metadataBadgeRenderer || badge;
+				var label = metadata.label || metadata.style || '';
+				if (label === 'CC' || label === 'Captions' ||
+					metadata.style === 'BADGE_STYLE_TYPE_CC') {
+					return true;
+				}
+			}
+
+			// Check for captionTrackingParams
+			if (data.captionTrackingParams) return true;
+
+			// Check detailedMetadataSnippets for captionEndpoint references
+			if (data.detailedMetadataSnippets) {
+				for (var j = 0; j < data.detailedMetadataSnippets.length; j++) {
+					var snippets = data.detailedMetadataSnippets[j].snippetText;
+					if (snippets && snippets.runs) {
+						for (var k = 0; k < snippets.runs.length; k++) {
+							var ep = snippets.runs[k].navigationEndpoint;
+							if (ep && ep.captionEndpoint) return true;
+						}
+					}
+				}
+			}
+
+			return false;
+		} catch (e) {
+			return false;
+		}
+	}
+
+	function updateCcIndicator(rendererEl) {
+		if (!rendererEl) return;
+		var hasCc = hasCaptions(rendererEl);
+		var existing = rendererEl.querySelector('.it-cc-indicator');
+
+		if (hasCc && !existing) {
+			var titleAnchor = rendererEl.querySelector('#video-title a, h3#video-title a');
+			if (!titleAnchor) return;
+
+			var indicator = document.createElement('span');
+			indicator.className = 'it-cc-indicator';
+			indicator.textContent = 'CC';
+			indicator.title = 'Captions available';
+			indicator.style.cssText = 'font-family:Roboto,Arial,sans-serif;font-size:10px;font-weight:500;color:var(--yt-spec-text-secondary);background:var(--yt-spec-badge-chip-background);border-radius:2px;padding:1px 4px;margin-left:4px;vertical-align:middle;display:inline-block;line-height:14px;cursor:default;';
+			titleAnchor.parentNode.insertBefore(indicator, titleAnchor.nextSibling);
+		} else if (!hasCc && existing) {
+			existing.remove();
+		}
+	}
+
+	function scanAllRenderers() {
+		if (!isChannelVideosPage()) return;
+		document.querySelectorAll(VIDEO_RENDERERS).forEach(updateCcIndicator);
+	}
+
+	scanAllRenderers();
+
+	document.addEventListener('yt-navigate-finish', function () {
+		setTimeout(scanAllRenderers, 300);
+	});
+
+	var ccObserver = new MutationObserver(function (mutations) {
+		if (!isChannelVideosPage()) return;
+		for (var i = 0; i < mutations.length; i++) {
+			if (mutations[i].type !== 'childList') continue;
+			for (var j = 0; j < mutations[i].addedNodes.length; j++) {
+				var node = mutations[i].addedNodes[j];
+				if (node.nodeType !== 1) continue;
+				if (node.nodeName && VIDEO_RENDERERS.indexOf(node.nodeName.toLowerCase()) !== -1) {
+					updateCcIndicator(node);
+				}
+				var children = node.querySelectorAll ? node.querySelectorAll(VIDEO_RENDERERS) : [];
+				for (var k = 0; k < children.length; k++) {
+					updateCcIndicator(children[k]);
+				}
+			}
+		}
+	});
+
+	ccObserver.observe(document.body, { childList: true, subtree: true });
+};
+
+(function() {
+	var run = function() { ImprovedTube.ccIndicator && ImprovedTube.ccIndicator(); };
+	document.addEventListener('yt-navigate-finish', run);
+	window.addEventListener('load', run);
+	setTimeout(run, 1000);
 })();
 };

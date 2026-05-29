@@ -418,7 +418,18 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				player_hd_thumbnail: {
 					component: "switch",
 					text: "hdThumbnail",
-					tags: "preview"
+					tags: "preview",
+					on: {
+						render: function() {
+							var maxPhysicalWidth = window.screen.width * (window.devicePixelRatio || 1);
+
+							if (maxPhysicalWidth < 1000) {
+								this.style.display = 'none';
+							} else {
+								this.style.display = '';
+							}
+						}
+					}
 				},
 				hide_scroll_for_details: {
 					component: "switch",
@@ -525,11 +536,6 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				text: "durationWithSpeed",
 				value: false
 			},
-			player_hd_thumbnail: {
-				component: "switch",
-				text: "hdThumbnail",
-				tags: "preview"
-			},
 			hide_scroll_for_details: {
 				component: "switch",
 				text: "hideScrollForDetails",
@@ -614,10 +620,14 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 					component: "switch",
 					text: "showExactDate"
 				},
-				channel_videos_count: {
-					component: "switch",
-					text: "showChannelVideosCount"
-				}
+			channel_videos_count: {
+				component: "switch",
+				text: "showChannelVideosCount"
+			},
+			cc_indicator: {
+				component: "switch",
+				text: "ccIndicator"
+			}
 			}
 		}
 	}

@@ -728,6 +728,13 @@ html[it-theme=plain] #cinematics {
 	mix-blend-mode: darken !important
 }
 
+/* Background-color update */
+html[it-theme]:not([it-theme=default]) ytd-app, 
+html[it-theme]:not([it-theme=default]) ytd-browse-view, 
+html[it-theme]:not([it-theme=default]) ytd-watch-flexy,
+html[it-theme]:not([it-theme=default]) #page,
+html[it-theme]:not([it-theme=default]) #content { background-color: var(--yt-spec-base-background) !important; };
+
 /*video detail text color. Fix. Themes didnt apply video description text color*/
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string__link--call-to-action-color {color: var(--yt-spec-call-to-action)}
@@ -2295,6 +2302,25 @@ html[it-thumbnail-size="x-small"] ytd-compact-video-renderer ytd-thumbnail {
 }
 html[it-thumbnail-size="xx-small"] ytd-compact-video-renderer ytd-thumbnail {
     width: 70px !important;
+}
+
+/*--------------------------------------------------------------
+# THUMBNAIL GRAYSCALE
+--------------------------------------------------------------*/
+html[it-thumbnail-grayscale="0"] yt-thumbnail-view-model {
+    filter: grayscale(0%) !important;
+}
+html[it-thumbnail-grayscale="25"] yt-thumbnail-view-model {
+    filter: grayscale(25%) !important;
+}
+html[it-thumbnail-grayscale="50"] yt-thumbnail-view-model {
+    filter: grayscale(50%) !important;
+}
+html[it-thumbnail-grayscale="75"] yt-thumbnail-view-model {
+    filter: grayscale(75%) !important;
+}
+html[it-thumbnail-grayscale="100"] yt-thumbnail-view-model {
+    filter: grayscale(100%) !important;
 }
 
 /*--------------------------------------------------------------
