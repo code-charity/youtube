@@ -70,8 +70,9 @@ html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activat
 }
 /* Fix: "Show more/less" font is black on YouTube Dark theme */
 html[dark][it-comments='collapsed'][data-page-type=video] ytd-comments ytd-comments-header-renderer::after,
-html[data-theme='dark'][it-comments='collapsed'][data-page-type=video] ytd-comments ytd-comments-header-renderer::after {
-	color: var(--yt-spec-text-primary, #ffffff) !important;
+html[data-theme='dark'][it-comments='collapsed'][data-page-type=video] ytd-comments ytd-comments-header-renderer::after,
+html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comments ytd-comments-header-renderer::after {
+	color: var(--yt-spec-text-primary, #eee) !important;
 }
 
 /* 2 COLS FEATURE */
