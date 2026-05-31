@@ -381,7 +381,7 @@ ImprovedTube.playerOnPlay = function () {
 
 				this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 				this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
-				/*------------------------------------------------------------------------------
+			/*------------------------------------------------------------------------------
 				AUTOPLAY DISABLE  player || playlist || channel trailer
 				------------------------------------------------------------------------------*/
 				if ((((ImprovedTube.storage.player_autoplay_disable === true && !location.href.includes('list='))
@@ -389,29 +389,44 @@ ImprovedTube.playerOnPlay = function () {
 					 && location.href.includes('/watch?') // #1703 // (=video page)
 					 )||(ImprovedTube.storage.channel_trailer_autoplay === false && ImprovedTube.regex.channel.test(location.href)
 						 && !/\/(videos|shorts|playlists|community|channels|about|posts|streams|releases)$/.test(location.href))
-				   ){const player = ImprovedTube.elements.player || this.closest('.html5-video-player') || this.closest('#movie_player'); // #movie_player: outdated since 2024?
+					   ){const player = ImprovedTube.elements.player || this.closest('.html5-video-player') || this.closest('#movie_player'); // #movie_player: outdated since 2024?
 					 if (player && (!ImprovedTube.user_interacted || ImprovedTube.video_url !== location.href)
 						 && !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
 						 ){
+						 // #1461: Block autoplay before any frame renders — pause + reset time + safety net
+						 const blockAutoplay = (videoEl) => {
+							 try { player.pauseVideo(); } catch (e) { try { videoEl.pause(); } catch (_) {} }
+							 // Reset currentTime so no progress is recorded in watch history
+							 if (videoEl && videoEl.currentTime > 0) { videoEl.currentTime = 0; }
+						 };
 						 if (!ImprovedTube.user_interacted) {  // (=user didnt click or type)
-							 try { player.pauseVideo(); } catch (error) { this.pause(); } 
+							 blockAutoplay(this);
+							 // Safety net: if YouTube's player finds another way to start playback,
+							 // catch it on the very first 'playing' event and suppress it immediately.
+							 // Uses once:true so normal user-initiated playback is not affected.
+							 this.addEventListener('playing', function eh() {
+								 if (!ImprovedTube.user_interacted) {
+									 blockAutoplay(this);
+								 }
+								 this.removeEventListener('playing', eh);
+							 }, { once: true });
 							 return Promise.resolve();
 						 } else {
 							 if (!ImprovedTube._autoplayTimeout) {
 								 ImprovedTube._autoplayTimeout = 
 									 setTimeout(() => {
 										 if (!ImprovedTube.user_interacted) {
-										 try { player.pauseVideo(); } catch (error) { this.pause(); }
+											 blockAutoplay(this);
 										 } ImprovedTube._autoplayTimeout = null;
-									 }, 100);
+									 }, 0);  // #1461: was 100ms — reduced to 0 to minimize frames rendered
 							 }
 						 }
 					 } else {
 						 document.dispatchEvent(new CustomEvent('it-play'));
 					 }
 					} else {
-					document.dispatchEvent(new CustomEvent('it-play'));
-				}
+						document.dispatchEvent(new CustomEvent('it-play'));
+					}
 				
 				ImprovedTube.playerLoudnessNormalization();
 				ImprovedTube.playerCinemaModeEnable();
