@@ -236,3 +236,107 @@ ImprovedTube.channelCompactTheme = function () {
 		compact.styles = []
 	}
 }
+
+/*------------------------------------------------------------------------------
+4.6.5 CC (SUBTITLE) INDICATOR ON CHANNEL VIDEOS PAGE
+------------------------------------------------------------------------------*/
+
+ImprovedTube.ccIndicator = function () {
+	/* Only run on channel /videos or /shorts pages where YouTube removed the badge */
+	if (!location.pathname.match(/\/(videos|shorts)(\/.*)?$/) ||
+		!document.querySelector('ytd-two-column-browse-results-renderer')) {
+		return;
+	}
+
+	const containers = document.querySelectorAll(
+		'ytd-rich-item-renderer, ytd-grid-video-renderer, ytd-video-renderer'
+	);
+
+	for (const container of containers) {
+		/* Skip if already processed */
+		if (container.querySelector('.it-cc-indicator')) continue;
+
+		const hasCaptions = containerHasCaptions(container);
+		if (!hasCaptions) continue;
+
+		const badge = document.createElement('div');
+		badge.className = 'it-cc-indicator';
+		badge.textContent = 'CC';
+		badge.setAttribute('role', 'img');
+		badge.setAttribute('aria-label', 'Closed captions available');
+		badge.title = 'Closed captions available';
+
+		/* Insert after the thumbnail, inside the meta block */
+		const meta = container.querySelector(
+			'#meta, #dismissible .metadata, ytd-rich-item-meta, .details'
+		);
+		if (meta) {
+			/* Prepend to meta row so it sits next to title/views */
+			const firstChild = meta.firstElementChild;
+			if (firstChild) {
+				meta.insertBefore(badge, firstChild);
+			} else {
+				meta.appendChild(badge);
+			}
+		} else {
+			/* Fallback: append to dismissible inner */
+			const dismissible = container.querySelector('#dismissible');
+			if (dismissible) dismissible.appendChild(badge);
+		}
+	}
+};
+
+/**
+ * Check whether a video renderer element has closed captions available.
+ * Reads from YouTube's internal __data (same source as ytInitialData).
+ */
+function containerHasCaptions (container) {
+	try {
+		/* Method 1: Check badges array for tooltip "Closed captions" */
+		const data = container.__data && container.__data.data;
+		if (!data) return false;
+
+		/* Check for badge in badgedPathIndicator or similar */
+		const badges = data.badges || [];
+		for (const badge of badges) {
+			const tooltip =
+				badge.tooltip ||
+				(badge.badgeRenderer && badge.badgeRenderer.tooltip) ||
+				'';
+			if (
+				tooltip.toLowerCase().includes('closed caption') ||
+				tooltip.toLowerCase().includes('subtitle')
+			) {
+				return true;
+			}
+		}
+
+		/* Method 2: Check accessibilityData on thumbnail overlays */
+		const thumbnailOverlays =
+			data.thumbnailOverlays || data.thumbnailOverlayBadgeRenderer
+				? [data.thumbnailOverlayBadgeRenderer]
+				: [];
+		for (const overlay of thumbnailOverlays) {
+			const label =
+				(overlay.accessibilityData &&
+					overlay.accessibilityData.label) ||
+				(overlay.thumbnailOverlayBadgeRenderer &&
+					overlay.thumbnailOverlayBadgeRenderer.accessibilityData &&
+					overlay.thumbnailOverlayBadgeRenderer.accessibilityData
+						.label) ||
+				'';
+			if (label.toLowerCase().includes('closed caption')) {
+				return true;
+			}
+		}
+
+		/* Method 3: Check captionTrackInfo in the full video data */
+		if (data.captionTrackInfos && data.captionTrackInfos.length > 0) {
+			return true;
+		}
+	} catch (e) {
+		/* Silently fail - don't break the page */
+	}
+
+	return false;
+}

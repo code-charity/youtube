@@ -187,8 +187,12 @@ ImprovedTube.init = function () {
 			ImprovedTube.playlistCompleteInit();
 			ImprovedTube.playlistLargePlaylistHandler();
 		}
-		try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] page-data-updated error', e); }
-	});
+	try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] page-data-updated error', e); }
+	/* Refresh CC indicators when more videos load (infinite scroll) */
+	if (document.documentElement.dataset.pageType === 'channel') {
+		try { ImprovedTube.ccIndicator(); } catch (e) {}
+	}
+});
 	this.pageType();
 	this.playerOnPlay();
 	this.playerSDR();
@@ -287,9 +291,11 @@ document.addEventListener('yt-navigate-finish', function () {
 		document.querySelector('body').style.setProperty('visibility', 'visible', 'important');
 		ImprovedTube.shortcutGoToSearchBox();
 		document.querySelector('#search').click();
-	} else if (document.documentElement.dataset.pageType === 'channel') {
-		ImprovedTube.channelPlayAllButton();
-	}
+} else if (document.documentElement.dataset.pageType === 'channel') {
+	ImprovedTube.channelPlayAllButton();
+	/* Restore CC indicator on /videos and /shorts tabs */
+	try { ImprovedTube.ccIndicator(); } catch (e) { console.error('[CC] error', e); }
+}
 });
 
 window.addEventListener('load', function () {

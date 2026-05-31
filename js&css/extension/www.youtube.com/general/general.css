@@ -602,3 +602,38 @@ html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(4) > h3:active {
 	background-color: var(--yt-spec-10-percent-layer);
 }
+
+/*--------------------------------------------------------------
+4.6.5 CC (SUBTITLE) INDICATOR
+--------------------------------------------------------------*/
+
+.it-cc-indicator {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--yt-sans-font, Roboto, Arial, sans-serif);
+	font-size: 10px;
+	font-weight: 500;
+	line-height: 14px;
+	color: var(--yt-text-secondary, #606060);
+	background: var(--yt-spec-badge-chip-background, rgba(0, 0, 0, 0.05));
+	border-radius: 2px;
+	padding: 0 4px;
+	margin-left: 6px;
+	vertical-align: middle;
+	white-space: nowrap;
+	flex-shrink: 0;
+	cursor: default;
+	user-select: none;
+	letter-spacing: 0.5px;
+}
+
+.it-cc-indicator:hover {
+	background: var(--yt-spec-badge-chip-background-hover, rgba(0, 0, 0, 0.1));
+}
+
+/* Force the badge onto the same line as video title/meta */
+#meta > .it-cc-indicator,
+ytd-rich-item-meta > .it-cc-indicator {
+	order: -1;
+}
