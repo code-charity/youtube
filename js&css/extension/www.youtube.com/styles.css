@@ -690,7 +690,15 @@ html:not([data-page-type=channel]) .it-blocklisted-channel:hover ytd-thumbnail {
 	border: none;
 	outline: none;
 	background: none;
-	fill: var(--yt-spec-icon-inactive);
+	fill: var(--yt-spec-icon-active-other, #fff);
+}
+html[dark] .improvedtube-player-button svg,
+html[dark] .improvedtube-player-button svg path {
+	fill: #fff;
+}
+html:not([dark]) .improvedtube-player-button svg,
+html:not([dark]) .improvedtube-player-button svg path {
+	fill: #000;
 }
 
 .improvedtube-player-button:last-of-type {
