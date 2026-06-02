@@ -634,7 +634,7 @@ ImprovedTube.shortcutRotateVideo = function () {
 	if (rotate == 90 || rotate == 270) {
 		var is_vertical_video = video.videoHeight > video.videoWidth;
 
-		transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
+		transform += ' scale(' + (is_vertical_video ? video.clientWidth : video.clientHeight) / (is_vertical_video ? video.clientHeight : video.clientWidth) + ')';
 	}
 	video.style.setProperty("transform", transform);
 };
