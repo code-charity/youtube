@@ -279,30 +279,30 @@ extension.features.popupWindowButtons = function (event) {
 							target.itPopupWindowButton.addEventListener('click', function (event) {
 								event.preventDefault();
 								event.stopPropagation();
-								var videoLink = extension.features.popupWindowButtons.findVideoLink(this.parentElement);
-								if (!videoLink) return;
-								try { this.dataset.id = videoLink.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error); return; };
-								ytPlayer = document.querySelector("#movie_player");
-								if (ytPlayer) { width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65 } else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
-								if (!ytPlayer) {
-									let shorts = /short/.test(videoLink.href);
-									let vertical = width / height < 1;
-									if (!vertical && shorts) { width = height * 0.6 }
-									if (vertical && !shorts) { height = width * 0.6 }
-								}
+							var videoLink = extension.features.popupWindowButtons.findVideoLink(this.parentElement);
+							if (!videoLink) return;
+							try { this.dataset.id = videoLink.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error); return; };
+							ytPlayer = document.querySelector("#movie_player");
+							if (ytPlayer) { width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65 } else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
+							if (!ytPlayer) {
+								let shorts = /short/.test(videoLink.href);
+								let vertical = width / height < 1;
+								if (!vertical && shorts) { width = height * 0.6 }
+								if (vertical && !shorts) { height = width * 0.6 }
+							}
 
-								window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay_disable') ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
-								chrome.runtime.sendMessage({
-									action: 'fixPopup',
-									width: width,
-									height: height,
-									title: (videoLink.closest('ytd-rich-grid-media, ytd-rich-item-renderer, ytd-video-renderer, ytd-compact-video-renderer, ytd-grid-video-renderer')?.querySelector('#video-title')?.textContent || videoLink.getAttribute('title') || document.title) + " - Youtube"
-								})
+							window.open('https://www.youtube.com/embed/' + this.dataset.id + '?autoplay=' + (extension.storage.get('player_autoplay_disable') ? '0' : '1'), '_blank', `directories=no,toolbar=no,location=no,menubar=no,status=no,titlebar=no,scrollbars=no,resizable=no,width=${width / 3},height=${height / 3}`);
+							chrome.runtime.sendMessage({
+								action: 'fixPopup',
+								width: width,
+								height: height,
+								title: (videoLink.closest('ytd-rich-grid-media, ytd-rich-item-renderer, ytd-video-renderer, ytd-compact-video-renderer, ytd-grid-video-renderer')?.querySelector('#video-title')?.textContent || videoLink.getAttribute('title') || document.title) + " - Youtube"
 							});
-						}
-						detected = true;
+						});
 					}
-					target = target.parentNode;
+					detected = true;
+				}
+				target = target.parentNode;
 				}
 			}
 		}
@@ -388,15 +388,15 @@ extension.features.watchLaterButtons = function (event) {
 			scripts = document.scripts;
 
 		for (var i = 0, l = scripts.length; i < l; i++) {
-			var match = scripts[i].textContent.match(pattern);
+				var match = scripts[i].textContent.match(pattern);
 
-			if (match) {
-				try {
-					return JSON.parse(match[1]);
-				} catch (error) {
-					console.warn('[ImprovedTube] Unable to parse YouTube config object:', key, error);
+				if (match) {
+					try {
+						return JSON.parse(match[1]);
+					} catch (error) {
+						console.warn('[ImprovedTube] Unable to parse YouTube config object:', key, error);
+					}
 				}
-			}
 		}
 	}
 
@@ -486,7 +486,7 @@ extension.features.watchLaterButtons = function (event) {
 	}
 
 	function addWatchLaterButtons(root) {
-		var thumbnails = (root || document).querySelectorAll ? (root || document).querySelectorAll('a#thumbnail, a.thumb-link') : [];
+		var thumbnails = (root || document).querySelectorAll ? (root || document).querySelectorAll('a#thumbnail, a.thumb-link, a[href*="/watch"], a[href*="/shorts/"]') : [];
 
 		for (var i = 0, l = thumbnails.length; i < l; i++) {
 			addWatchLaterButton(thumbnails[i]);
@@ -630,7 +630,7 @@ extension.features.markWatchedVideos = function (anything) {
 								event.preventDefault();
 								event.stopPropagation();
 
-								if (!extension.storage.watched) {
+							if (!extension.storage.watched) {
 									extension.storage.watched = {};
 								}
 
@@ -641,578 +641,10 @@ extension.features.markWatchedVideos = function (anything) {
 								} else {
 									delete extension.storage.get('watched')[id];
 								}
-
-								chrome.storage.local.set({
-									watched: extension.storage.get('watched')
-								});
 							});
-
-						} else {
-							var button = target.itMarkWatchedVideosButton;
-
-							if (extension.storage.get('watched') && extension.storage.get('watched')[button.dataset.id]) {
-								button.setAttribute('watched', '');
-							} else {
-								button.removeAttribute('watched');
-							}
-						}
-
-						detected = true;
-					}
-
-					target = target.parentNode;
-				}
-			}
-		}
-	} else if (anything === true) {
-		var buttons = document.querySelectorAll('.it-mark-watched-videos');
-
-		for (var i = 0, l = buttons.length; i < l; i++) {
-			var button = buttons[i];
-
-			button.remove();
-		}
-	} else {
-		window.removeEventListener('mouseover', this.markWatchedVideos, true);
-
-		if (extension.storage.get('mark_watched_videos') === true) {
-			window.addEventListener('mouseover', this.markWatchedVideos, true);
-		}
-	}
-};
-
-/*--------------------------------------------------------------
-# TRACK WATCHED VIDEOS
---------------------------------------------------------------*/
-
-extension.features.trackWatchedVideos = function () {
-	if (extension.storage.get('track_watched_videos') === true && document.documentElement.getAttribute('it-pathname').indexOf('/watch') === 0) {
-		var id = extension.functions.getUrlParameter(location.href, 'v');
-
-		if (!extension.storage.watched) {
-			extension.storage.watched = {};
-		}
-
-		extension.storage.get('watched')[id] = {
-			title: document.title
-		};
-
-		chrome.storage.local.set({
-			watched: extension.storage.get('watched')
-		});
-	}
-};
-
-/*--------------------------------------------------------------
-# THUMBNAILS QUALITY
---------------------------------------------------------------*/
-extension.features.thumbnailsQuality = function (anything) {
-
-    var option = extension.storage.get('thumbnails_quality');
-    var qualityRegex = /(default\.jpg|mqdefault\.jpg|hqdefault\.jpg|hq720\.jpg|sddefault\.jpg|maxresdefault\.jpg)/;
-
-    // Extracts the unique 11-character YouTube Video ID from an image URL
-    function getVideoId(url) {
-        if (!url) return null;
-        // Matches standard /vi/ and modern /vi_webp/ paths
-        var match = url.match(/\/vi(?:_webp)?\/([a-zA-Z0-9_-]{11})/);
-        return match ? match[1] : null;
-    }
-
-    function handler(thumbnail) {
-        if (!thumbnail.dataset.defaultSrc && qualityRegex.test(thumbnail.src)) {
-            
-            var originalSrc = thumbnail.src; 
-            thumbnail.dataset.defaultSrc = originalSrc;
-
-            // Strip query parameters (?sqp=...) which often block maxresdefault upgrades
-            var cleanSrc = originalSrc.split('?')[0]; 
-            var newSrc = cleanSrc.replace(qualityRegex, option + '.jpg');
-
-            var tempImg = new Image();
-
-            tempImg.onload = function () {
-                // Ensure DOM element hasn't been recycled while downloading
-                if (thumbnail.dataset.defaultSrc === originalSrc && this.naturalHeight > 90) {
-                    thumbnail.src = newSrc; 
-                }
-                tempImg.onload = null;
-                tempImg.onerror = null;
-            };
-
-            tempImg.onerror = function () {
-                tempImg.onload = null;
-                tempImg.onerror = null;
-            };
-
-            tempImg.src = newSrc;
-        }
-    }
-
-    if (['default', 'mqdefault', 'hqdefault', 'sddefault', 'maxresdefault'].includes(option)) {
-        let thumbnails = document.querySelectorAll('img');
-
-        for (let i = 0; i < thumbnails.length; i++) {
-            handler(thumbnails[i]);
-        }
-
-        if (this.thumbnailsQuality.observer) {
-            this.thumbnailsQuality.observer.disconnect();
-            this.thumbnailsQuality.observer = null;
-        }
-
-        this.thumbnailsQuality.observer = new MutationObserver(function (mutationList) {
-            for (let i = 0; i < mutationList.length; i++) {
-                let mutation = mutationList[i];
-
-                // Handle brand new DOM injections (Infinite Scroll)
-                if (mutation.type === 'childList') {
-                    for (let j = 0; j < mutation.addedNodes.length; j++) {
-                        let node = mutation.addedNodes[j];
-                        if (node.nodeName === 'IMG') {
-                            handler(node);
-                        } else if (node.querySelectorAll) {
-                            let nestedImgs = node.querySelectorAll('img');
-                            for (let k = 0; k < nestedImgs.length; k++) {
-                                handler(nestedImgs[k]);
-                            }
-                        }
-                    }
-                }
-
-                // Handle recycled DOM nodes (src attribute swap)
-                if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
-                    if (mutation.target.tagName !== 'IMG') continue;
-
-                    let target = mutation.target;
-
-                    // Identity Check (Has YouTube repurposed this <img> for a new video?)
-                    if (target.dataset.defaultSrc) {
-                        let storedId = getVideoId(target.dataset.defaultSrc);
-                        let currentId = getVideoId(target.src);
-
-                        // If the IDs differ (or aren't standard videos), clear the poisoned state
-                        if (storedId !== currentId) {
-                            target.removeAttribute('data-default-src'); 
-                        }
-                    }
-                    
-                    handler(target);
-                }
-            }
-        });
-
-        this.thumbnailsQuality.observer.observe(document.documentElement, {
-            attributeFilter: ['src'],
-            attributes: true,
-            childList: true,
-            subtree: true
-        });
-
-    } else if (anything === true) {
-        let thumbnails = document.querySelectorAll('img[data-default-src]');
-
-        for (let i = 0; i < thumbnails.length; i++) {
-            let thumbnail = thumbnails[i];
-            thumbnail.src = thumbnail.dataset.defaultSrc;
-            thumbnail.removeAttribute('data-default-src');
-        }
-
-        if (this.thumbnailsQuality.observer) {
-            this.thumbnailsQuality.observer.disconnect();
-            this.thumbnailsQuality.observer = null; 
-        }
-    }
-};
-
-/*--------------------------------------------------------------
-# DISABLE VIDEO PLAYBACK ON HOVER
---------------------------------------------------------------*/
-extension.features.disableThumbnailPlayback = function (event) {
-	if (event instanceof Event) {
-		if (event.composedPath().some(elem => (elem.matches != null && elem.matches(
-			'#content.ytd-rich-item-renderer, #contents.ytd-item-section-renderer, #dismissible.ytd-compact-video-renderer'
-		)))) {
-			event.stopImmediatePropagation();
-		}
-	} else {
-		if (extension.storage.get('disable_thumbnail_playback') === true) {
-			window.addEventListener('mouseenter', this.disableThumbnailPlayback, true);
-		} else {
-			window.removeEventListener('mouseenter', this.disableThumbnailPlayback, true);
-		}
-	}
-};
-
-/*--------------------------------------------------------------
-# MUTE THUMBNAIL PREVIEWS
---------------------------------------------------------------*/
-extension.features.muteThumbnailPreviews = function () {
-if (extension.storage.get('mute_thumbnail_previews') === true) {
-	var PREVIEW_SELECTORS = '#inline-preview-player, ytd-video-preview, .ytd-video-preview, .ytp-inline-preview';
-
-	function isPreviewVideo(video) {
-		return video && video.closest && video.closest(PREVIEW_SELECTORS);
-	}
-
-	function forceMute(video) {
-		if (!video.muted) {
-			video.muted = true;
-		}
-		// Attach a listener to re-mute if YouTube tries to unmute
-		if (!video._itMuteEnforced) {
-			video._itMuteEnforced = true;
-			video.addEventListener('volumechange', function () {
-				if (!this.muted && isPreviewVideo(this)) {
-					this.muted = true;
-				}
-			});
-			// Also re-mute on play in case audio is restored
-			video.addEventListener('play', function () {
-				if (!this.muted && isPreviewVideo(this)) {
-					this.muted = true;
-				}
-			});
-		}
-	}
-
-	function mutePreviewVideos(root) {
-		if (!root || !root.querySelectorAll) return;
-		var videos = root.querySelectorAll('video');
-		for (var i = 0; i < videos.length; i++) {
-			if (isPreviewVideo(videos[i])) {
-				forceMute(videos[i]);
-			}
-		}
-	}
-
-	
-		// Mute any currently existing preview videos
-		mutePreviewVideos(document);
-
-		// Observe for new preview videos and attribute changes
-		if (!this.muteThumbnailPreviews.observer) {
-			this.muteThumbnailPreviews.observer = new MutationObserver(function (mutationList) {
-				for (var i = 0, l = mutationList.length; i < l; i++) {
-					var mutation = mutationList[i];
-
-					// Handle new nodes being added (new hover previews)
-					for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
-						var node = mutation.addedNodes[j];
-						if (node.nodeType === 1) {
-							if (node.nodeName === 'VIDEO' && isPreviewVideo(node)) {
-								forceMute(node);
-							}
-							mutePreviewVideos(node);
-						}
-					}
-
-					// Handle attribute changes (e.g. src change = new video loaded in same element)
-					if (mutation.type === 'attributes' && mutation.target.nodeName === 'VIDEO') {
-						if (isPreviewVideo(mutation.target)) {
-							forceMute(mutation.target);
 						}
 					}
 				}
-			});
-
-			this.muteThumbnailPreviews.observer.observe(document.documentElement, {
-				childList: true,
-				subtree: true,
-				attributes: true,
-				attributeFilter: ['src']
-			});
-		}
-	} else {
-		if (this.muteThumbnailPreviews.observer) {
-			this.muteThumbnailPreviews.observer.disconnect();
-			this.muteThumbnailPreviews.observer = null;
 		}
 	}
 };
-
-/*--------------------------------------------------------------
-# OPEN VIDEOS IN A NEW TAB
---------------------------------------------------------------*/
-
-extension.features.openNewTab = function () {
-	if (extension.storage.get("open_new_tab") === true) {
-		window.onload = function () {
-			const searchButton = document.querySelector("button#search-icon-legacy");
-			const inputField = document.querySelector("input#search");
-
-			searchButton.addEventListener("mousedown", (event) => {
-				performSearchNewTab(inputField.value);
-			});
-			inputField.addEventListener("keydown", function (event) {
-				if (event.key === "Enter") {
-					performSearchNewTab(inputField.value);
-				}
-			});
-
-			let searchedAlready = false;
-			inputField.addEventListener("focus", function () {
-				searchedAlready = false;
-				const observer = new MutationObserver(applySuggestionListeners);
-				const container = document.querySelector("div[style*='position: fixed'] ul[role='listbox']");
-				if (container) observer.observe(container, { attributes: true, childList: true, subtree: true });
-			});
-
-			inputField.addEventListener("input", () => searchedAlready = false);
-
-			function applySuggestionListeners() {
-				const suggestionContainers = document.querySelectorAll("div[class^='sbqs'], div[class^='sbpqs']");
-				suggestionContainers.forEach((suggestionsContainer) => {
-					suggestionsContainer.addEventListener("mousedown", (event) => {
-						const suggestionListItem = event.target.closest("li[role='presentation']");
-						if (suggestionListItem && !searchedAlready) {
-							const query = suggestionListItem.querySelector("b").textContent
-							performSearchNewTab(inputField.value + query);
-							searchedAlready = true;
-						}
-					});
-				});
-			}
-
-			function performSearchNewTab(query) {
-				inputField.value = "";
-				inputField.focus();
-				const newTabURL = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
-				window.open(newTabURL, '_blank');
-			}
-		}
-	}
-}
-
-/*--------------------------------------------------------------
-# REMOVE &list=... WHEN OPENING VIDEOS IN NEW TAB
---------------------------------------------------------------*/
-extension.features.removeListParamOnNewTab = function () {
-	// 옵션이 켜져있지 않으면 종료
-	if (extension.storage.get("remove_list_param_from_links") !== true) {
-		return;
-	}
-	// 이전에 등록된 핸들러가 있다면 제거
-	if (this._removeListParamHandler) {
-		document.removeEventListener('click', this._removeListParamHandler, true);
-	}
-	// 새로운 핸들러 정의
-	this._removeListParamHandler = function (event) {
-		if (event.ctrlKey || event.metaKey || event.button === 1) {
-			let anchor = event.target;
-			while (anchor && anchor.tagName !== 'A') {
-				anchor = anchor.parentElement;
-			}
-			if (
-				anchor &&
-				anchor.href &&
-				anchor.href.includes('watch?v=') &&
-				anchor.href.includes('&list=')
-			) {
-				event.preventDefault();
-				const cleaned = anchor.href.replace(/&list=[^&]+/, '');
-				window.open(cleaned, '_blank');
-			}
-		}
-	};
-
-	// 핸들러 등록
-	document.addEventListener('click', this._removeListParamHandler, true);
-};
-
-extension.features.removeListParamOnNewTab();
-
-/*--------------------------------------------------------------
-# CLICKABLE LINKS IN VIDEO DESCRIPTIONS
---------------------------------------------------------------*/
-extension.features.clickableLinksInVideoDescriptions = function () {
-	if (extension.storage.get("clickable_links_in_description") !== true) {
-		return;
-	}
-
-	document.addEventListener("contextmenu", (e) => {
-		// Check if the clicked element is a yt-formatted-string with the class we're targeting
-		const clickedElement = e.target.closest(".style-scope.ytd-video-renderer");
-
-		if (clickedElement) {
-			// Grab the plain text inside the yt-formatted-string (looking for links or URLs)
-			const textContent = clickedElement.innerText;
-
-			// Extract URL using a simple regex (you can customize it to be more accurate)
-			const urlRegex = /\bhttps?:\/\/[^\s]+/g;
-			const match = textContent.match(urlRegex);
-
-			if (match) {
-				// Copy the found URL to the clipboard
-				navigator.clipboard.writeText(match[0]).catch((err) => {
-					console.error("Failed to copy: ", err);
-				});
-
-				// Prevent the default right-click menu from showing
-				e.preventDefault();
-			}
-			// If no URL found, the normal right-click behavior will happen
-		}
-	});
-}
-
-/*--------------------------------------------------------------
-# CHANGE THE NUMBER OF THUMBNAILS PER ROW
---------------------------------------------------------------*/
-extension.features.changeThumbnailsPerRow = async function () {
-	var value = await extension.storage.get('change_thumbnails_per_row');
-
-	if (!value || value === 'null' || value === 'default')
-		return;
-
-	const applyGridLayout = () => {
-		//Check if we are on the subscriptions page
-		if (location.href.indexOf('feed/subscriptions') !== -1) {
-			document.querySelectorAll('[style]').forEach(el => {
-				if (el.style.getPropertyValue('--ytd-rich-grid-items-per-row')) {
-					el.style.setProperty('--ytd-rich-grid-items-per-row', value);
-					el.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
-					el.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
-				}
-			});
-		} else {
-			const grid = document.querySelector('ytd-rich-grid-renderer');
-			if (grid) {
-				// Apply custom values
-				grid.style.setProperty('--ytd-rich-grid-items-per-row', value);
-				grid.style.setProperty('--ytd-rich-grid-item-min-width', '220px');
-				grid.style.setProperty('--ytd-rich-grid-item-max-width', '1fr');
-			}
-			const shelf = document.querySelector('ytd-rich-shelf-renderer');
-			if (shelf) {
-				// Apply custom values
-				shelf.style.setProperty('--ytd-rich-grid-items-per-row', value);
-			}
-		}
-	};
-
-	// Apply initially
-	applyGridLayout();
-
-	// Reapply when YouTube replaces content
-	const observer = new MutationObserver(applyGridLayout);
-	observer.observe(document.body, { childList: true, subtree: true });
-};
-
-/*--------------------------------------------------------------
-# HIDE SPONSORED VIDEOS ON HOME PAGE
---------------------------------------------------------------*/
-
-// extension.features.hideSponsoredVideosOnHome = function () {
-// 	if (!extension.storage.get('hide_sponsored_videos_home')) return;
-// 	console.log('[ImprovedTube] Hiding sponsored videos on Home');
-// 	const hideSponsored = () => {
-// 		document.querySelectorAll('ytd-rich-item-renderer, ytd-video-renderer').forEach((el) => {
-// 			const text = el.innerText || '';
-// 			if (/sponsored/i.test(text)) {
-// 				el.style.display = 'none';
-// 			}
-// 		});
-// 	};
-// 	hideSponsored(); // Initial run
-// 	const observer = new MutationObserver(hideSponsored);
-// 	const pageManager = document.querySelector('ytd-page-manager') || document.body;
-// 	if (pageManager) {
-// 		observer.observe(pageManager, {
-// 			childList: true,
-// 			subtree: true
-// 		});
-// 	}
-// };
-
-/*--------------------------------------------------------------
-# REMOVE MEMBER ONLY VIDEOS FROM HOME PAGE
---------------------------------------------------------------*/
-extension.features.removeMemberOnly = function () {
-	if (extension.storage.get('remove_member_only')) {
-		const style = document.createElement('style');
-		style.id = 'remove-member-only-style';
-		style.textContent = `
-			badge-shape.yt-badge-shape--membership {
-				display: none !important;
-			}
-			ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
-			ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership),
-			yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership) {
-				display: none !important;
-			}
-		`;
-		document.head.appendChild(style);
-	}
-
-};
-
-/*--------------------------------------------------------------
-# HIDE 'WATCH LATER' VIDEOS
---------------------------------------------------------------*/
-extension.features.hideWatchLater = function () {
-	// Check if settings are ready
-	const setting = extension.storage.get('hide_watch_later');
-
-	if (setting === undefined) {
-		setTimeout(extension.features.hideWatchLater, 100);
-		return;
-	}
-
-	if (setting !== true) {
-		return;
-	}
-
-	let watchLaterIds = new Set();
-	let isFetching = false;
-
-	function fetchWatchLaterList() {
-		if (isFetching || watchLaterIds.size > 0) return;
-		isFetching = true;
-
-		fetch('https://www.youtube.com/playlist?list=WL')
-			.then(res => res.text())
-			.then(text => {
-				const matches = text.match(/"videoId":"(.*?)"/g);
-				if (matches) {
-					const cleanIds = matches.map(item => item.split('"')[3]);
-					watchLaterIds = new Set(cleanIds);
-					hideVideos();
-				}
-			})
-			.catch(err => console.error('[ImprovedTube] Fetch Error:', err))
-			.finally(() => isFetching = false);
-	}
-
-	function hideVideos() {
-		if (watchLaterIds.size === 0) return;
-		const videos = document.querySelectorAll('ytd-rich-item-renderer, yt-lockup-view-model');
-		videos.forEach(video => {
-			const link = video.querySelector('a#thumbnail, a');
-			if (link && link.href && link.href.includes('v=')) {
-				const videoId = link.href.split('v=')[1].split('&')[0];
-				if (watchLaterIds.has(videoId)) {
-					video.style.display = 'none';
-				}
-			}
-		});
-	}
-
-	// Standard "Body Check" to make sure page exists
-	function init() {
-		if (!document.body) {
-			setTimeout(init, 100);
-			return;
-		}
-		fetchWatchLaterList();
-		const observer = new MutationObserver(() => {
-			if (watchLaterIds.size > 0) hideVideos();
-		});
-		observer.observe(document.body, { childList: true, subtree: true });
-	}
-
-	init();
-};
-
-// Start the check
-extension.features.hideWatchLater();
