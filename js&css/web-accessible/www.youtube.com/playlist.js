@@ -136,8 +136,23 @@ ImprovedTube.playlistReverseUpdate = function () {
 
 	if (!playlist || !autoplay) return;
 
-	// Use idempotent flag to prevent double reversal (Fix #3733)
-	var isCurrentlyReversed = playlist.it_reversed === true;
+	// Determine if currently reversed by checking YouTube's own index properties, which is 100% foolproof
+	// against YouTube modifying the array in-place without triggering a new object allocation.
+	var isCurrentlyReversed = false;
+	if (playlist.contents && playlist.contents.length > 1) {
+		var firstItem = playlist.contents[0].playlistPanelVideoRenderer || playlist.contents[0].playlistVideoRenderer;
+		var lastItem = playlist.contents[playlist.contents.length - 1].playlistPanelVideoRenderer || playlist.contents[playlist.contents.length - 1].playlistVideoRenderer;
+		
+		var firstIndex = firstItem?.navigationEndpoint?.watchEndpoint?.index ?? 0;
+		var lastIndex = lastItem?.navigationEndpoint?.watchEndpoint?.index ?? 0;
+		
+		if (firstIndex > lastIndex) {
+			isCurrentlyReversed = true;
+		}
+	} else {
+		isCurrentlyReversed = playlist.it_reversed === true;
+	}
+
 	var shouldBeReversed = ImprovedTube.playlistReversed === true;
 	if (isCurrentlyReversed === shouldBeReversed) {
 		return;
@@ -160,11 +175,17 @@ ImprovedTube.playlistReverseUpdate = function () {
 
 	setTimeout(function () {
 		var playlist_manager = document.querySelector('yt-playlist-manager');
+		var playlist_panel = document.querySelector('ytd-playlist-panel-renderer');
 		if (playlist_manager) {
 			ImprovedTube.elements.ytd_player.updatePlayerComponents(null, autoplay, null, playlist);
 			playlist_manager.autoplayData = autoplay;
 			playlist_manager.setPlaylistData(playlist);
 			ImprovedTube.elements.ytd_player.updatePlayerPlaylist_(playlist);
+		}
+		if (playlist_panel && playlist_panel.data) {
+			// Update the panel directly to ensure Polymer re-renders it
+			playlist_panel.data = playlist;
+			if (typeof playlist_panel.updateData === 'function') playlist_panel.updateData(playlist);
 		}
 	}, 100);
 };
