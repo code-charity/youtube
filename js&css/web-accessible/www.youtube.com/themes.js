@@ -7,8 +7,9 @@ ImprovedTube.myColors = function () {
 			primary_color = this.storage.theme_primary_color,
 			secondary_color = this.storage.theme_secondary_color,
 			text_color = this.storage.theme_text_color;
-
 		if (primary_color) {
+			if ((0.2126*primary_color[0] + 0.7152*primary_color[1] + 0.0722*primary_color[2]) / 255 < 0.4) 
+				{style.textContent += ' .improvedtube-player-button svg,.improvedtube-player-button svg path{fill:#fff!important} '}			
 			primary_color = 'rgb(' + primary_color.join(',') + ')';
 		} else {
 			// need better central place for storing default custom profile colors
