@@ -483,7 +483,9 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerHideProgressPreview':
 					ImprovedTube.playerHideProgressPreview();
 					break
-
+				case 'upNextAutoplayMusicOnly':
+    				ImprovedTube.upNextAutoplay();
+    				break
 				case 'playerHideControls':
 					ImprovedTube.playerControls();
 					break

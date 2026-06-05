@@ -380,6 +380,37 @@ ImprovedTube.subtitlesDisableLyrics = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+MUSIC VIDEO DETECTION
+------------------------------------------------------------------------------*/
+ImprovedTube.isMusicVideo = function () {
+	// Method 1: Check for music category from metadata
+	const metadataBadges = document.querySelectorAll('yt-chip-cloud-chip-renderer');
+	if (metadataBadges) {
+		for (let badge of metadataBadges) {
+			const badgeText = badge.textContent?.toLowerCase() || '';
+			// Check for music-related badges like "Official Music Video" or "Music"
+			if (badgeText.includes('music') || badgeText.includes('official') || badgeText.includes('audio')) {
+				return true;
+			}
+		}
+	}
+
+	// Method 2: Check video title for music-related keywords
+	const musicKeywords = [
+		'music', 'song', 'lyric', 'official audio', 'audio', 
+		'lyrics', 'acoustic', 'remix', 'cover', 'karaoke',
+		'full album', 'official video'
+	];
+	
+	const videoTitle = (this.videoTitle && this.videoTitle().toLowerCase()) || '';
+	const videoCategory = this.elements.category?.toLowerCase() || '';
+	
+	// Check if title or category contains music-related keywords
+	return musicKeywords.some(keyword => 
+		videoTitle.includes(keyword) || videoCategory.includes(keyword)
+	);
+};
+/*------------------------------------------------------------------------------
 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
 ImprovedTube.upNextAutoplay = function () {

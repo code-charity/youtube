@@ -105,6 +105,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'upNextAutoplay',
 			value: true
 		},
+		up_next_autoplay_music_only: {
+			component: 'switch',
+    		text: 'upNextAutoplayMusicOnly',
+    		value: false
+		},
 		ambient_lighting: {
 			component: 'switch',
 			text: 'ambientLighting',
