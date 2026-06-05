@@ -1330,7 +1330,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			}
 		},
 		full_screen_quality: {
-			component: 'select',
+		  component: 'select',
 			text: 'fullScreenQuality',
 			id: 'full_screen_quality',
 			options: function () {
@@ -1341,6 +1341,19 @@ extension.skeleton.main.layers.section.player.on.click = {
 					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this)
 				}
 			}
+		},
+		player_quality_playlist: {
+      component: 'select',
+      text: 'playlistQuality',
+      id: 'player_quality_playlist',
+      options: function () {
+      	return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
+      },
+      on: {
+        render: function () {
+					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this)
+        }
+      }
 		},
 		/*
 	qualityWhenRunningOnBattery: {
@@ -1513,7 +1526,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
-						document.getElementById('full_screen_quality')?.dispatchEvent(new CustomEvent('render'))
+						document.getElementById('full_screen_quality')?.dispatchEvent(new CustomEvent('render'));
+						document.getElementById('player_quality_playlist')?.dispatchEvent(new CustomEvent('render'))
 						//document.getElementById('quality_when_low_battery').dispatchEvent(new CustomEvent('render'));
 					}
 					if (this.dataset.value === 'false') {
