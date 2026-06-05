@@ -622,6 +622,11 @@ extension.skeleton.main.layers.section.general = {
 				category_refresh_button: {
 					component: 'switch',
 					text: 'categoryRefreshButton'
+				},
+				auto_video_recovery: {
+					component: 'switch',
+					text: 'autoVideoRecovery',
+					tags: 'network reconnect resume playback internet connection unstable'
 				}
 			}
 		}
