@@ -1216,3 +1216,106 @@ extension.features.hideWatchLater = function () {
 
 // Start the check
 extension.features.hideWatchLater();
+
+/*--------------------------------------------------------------
+# AUTO VIDEO RECOVERY
+--------------------------------------------------------------*/
+
+extension.features.autoVideoRecovery = function () {
+    if (this.autoVideoRecovery.recoveryInterval) {
+        clearInterval(this.autoVideoRecovery.recoveryInterval);
+        this.autoVideoRecovery.recoveryInterval = null;
+    }
+
+    if (extension.storage.get('auto_video_recovery') !== true) {
+        return;
+    }
+
+    var stoppedByNetwork = false;
+    var recoveryInterval = null;
+
+    function getVideo() {
+        return document.querySelector('video');
+    }
+
+    function hasSufficientBandwidth() {
+        var conn = navigator.connection;
+        if (!conn) return true; 
+        return conn.downlink > 0.3; 
+    }
+
+    function attemptRecovery() {
+        if (!navigator.onLine || !hasSufficientBandwidth()) return;
+
+        clearInterval(recoveryInterval);
+        recoveryInterval = null;
+        extension.features.autoVideoRecovery.recoveryInterval = null;
+
+        var video = getVideo();
+
+        if (video && stoppedByNetwork) {
+            stoppedByNetwork = false;
+
+            video.play().catch(function () {
+                video.load();
+                video.play().catch(function (err) {
+                    console.warn('[ImprovedTube] Auto recovery failed:', err);
+                });
+            });
+        }
+    }
+
+    function startRecoveryMonitor() {
+        if (recoveryInterval) return; // ya está corriendo
+
+        recoveryInterval = setInterval(attemptRecovery, 1000);
+        extension.features.autoVideoRecovery.recoveryInterval = recoveryInterval;
+    }
+
+    function onVideoStalled() {
+        var video = getVideo();
+        if (!video || video.paused === false) return;
+
+        stoppedByNetwork = true;
+        startRecoveryMonitor();
+    }
+
+    function onManualPause() {
+        if (navigator.onLine) {
+            stoppedByNetwork = false;
+            clearInterval(recoveryInterval);
+            recoveryInterval = null;
+            extension.features.autoVideoRecovery.recoveryInterval = null;
+        }
+    }
+
+    function attachVideoListeners(video) {
+        if (!video || video._itAutoRecovery) return;
+        video._itAutoRecovery = true;
+
+        video.addEventListener('waiting', onVideoStalled);
+        video.addEventListener('stalled', onVideoStalled);
+        video.addEventListener('pause',   onManualPause);
+    }
+
+    window.addEventListener('online', function () {
+        if (stoppedByNetwork) {
+            setTimeout(attemptRecovery, 500)
+        }
+    });
+
+    var video = getVideo();
+    if (video) {
+        attachVideoListeners(video);
+    }
+
+    this.autoVideoRecovery.observer = new MutationObserver(function () {
+        var v = getVideo();
+        if (v) attachVideoListeners(v);
+    });
+
+    this.autoVideoRecovery.observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true
+    });
+};

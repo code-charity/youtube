@@ -1690,5 +1690,8 @@
   },
   "smartSpeedWhitelisted": {
     "message": "Channel Whitelisted for Smart Speed!"
+  },
+  "autoVideoRecovery": {
+  "message": "Auto video recovery"
   }
 }
