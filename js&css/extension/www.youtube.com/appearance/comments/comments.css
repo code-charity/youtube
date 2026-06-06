@@ -9,7 +9,14 @@
 # Sidebar
 --------------------------------------------------------------*/
 /*Comments*/ 
-html[it-comments='hidden'] ytd-comments,
+/* Comments - hide everything except "Comments are turned off." */
+html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #header,
+html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #spinner-container,
+html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #continuations,
+html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #contents > ytd-continuation-item-renderer,
+html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #contents > ytd-comment-thread-renderer {
+    display: none !important;
+}
 /*AVATARS-*/ 
 html[it-hide-author-avatars='true'] ytd-comments #author-thumbnail,
 html[it-hide-author-avatars='true'] ytd-comments #creator-thumbnail,
