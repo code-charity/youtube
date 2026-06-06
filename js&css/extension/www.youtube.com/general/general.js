@@ -349,7 +349,7 @@ extension.features.watchLaterButtons = function (event) {
 				target.href &&
 				(
 					target.id === 'thumbnail' ||
-					(target.className && typeof target.className === 'string' && target.className.indexOf('thumb-link') !== -1)
+					(target.className && typeof target.className === 'string' && (target.className.indexOf('thumb-link') !== -1 || target.className.indexOf('ytLockupViewModelContentImage') !== -1))
 				)
 			) {
 				return target;
@@ -486,7 +486,7 @@ extension.features.watchLaterButtons = function (event) {
 	}
 
 	function addWatchLaterButtons(root) {
-		var thumbnails = (root || document).querySelectorAll ? (root || document).querySelectorAll('a#thumbnail, a.thumb-link') : [];
+		var thumbnails = (root || document).querySelectorAll ? (root || document).querySelectorAll('a#thumbnail, a.thumb-link, a.ytLockupViewModelContentImage') : [];
 
 		for (var i = 0, l = thumbnails.length; i < l; i++) {
 			addWatchLaterButton(thumbnails[i]);
