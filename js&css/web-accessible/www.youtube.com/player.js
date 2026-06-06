@@ -441,7 +441,16 @@ ImprovedTube.playerAutofullscreen = function () {
 QUALITY
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
-	let player = this.elements.player;
+  var playlistQ = this.storage.player_quality_playlist;
+  var isPlaylist = !!(
+    new URLSearchParams(location.search).has('list') ||
+    document.querySelector('ytd-playlist-panel-renderer')
+  );
+  if (isPlaylist && playlistQ && playlistQ !== 'disabled') {
+    quality = playlistQ;
+  }
+
+  let player = this.elements.player;
 	if (quality && quality !== 'disabled'
 		&& player && player.getAvailableQualityLevels
 		&& (!player.dataset.defaultQuality || player.dataset.defaultQuality != quality)) {
@@ -519,10 +528,14 @@ ImprovedTube.playerQualityFullScreen = function () {
      document.mozFullScreen
    );
 
-   var fsq=ImprovedTube.storage.full_screen_quality;
-   var target = isFs ? fsq : ImprovedTube.storage.player_quality;
-
-
+   var fsq = ImprovedTube.storage.full_screen_quality;
+	 var playlistQ = ImprovedTube.storage.player_quality_playlist;
+	 var isPlaylist = !!(
+    new URLSearchParams(location.search).has('list') ||
+    document.querySelector('ytd-playlist-panel-renderer') ||
+    document.querySelector('#playlist')
+		);
+	 var target = isFs ? fsq : (isPlaylist && playlistQ && playlistQ !== 'disabled') ? playlistQ : ImprovedTube.storage.player_quality;
 
    var map = {
      '144p':'tiny','240p':'small','360p':'medium','480p':'large',
@@ -533,21 +546,29 @@ ImprovedTube.playerQualityFullScreen = function () {
    var desired = map[target] || target;
 
    function applyQuality(){
-		 var player = ImprovedTube.elements && ImprovedTube.elements.player;
-   		if (!player) return;
+    var isPlaylist = !!(
+        new URLSearchParams(location.search).has('list') ||
+        document.querySelector('ytd-playlist-panel-renderer')
+    );
+    var finalTarget = isFs ? fsq
+        : (isPlaylist && playlistQ && playlistQ !== 'disabled') ? playlistQ
+        : ImprovedTube.storage.player_quality;
+    var desired = map[finalTarget] || finalTarget;
 
-   		if (typeof ImprovedTube.playerQuality === 'function') {
-     	ImprovedTube.playerQuality(desired);
-
-     	return;
-		
-   }
-   try { if (typeof player.setPlaybackQualityRange === 'function') player.setPlaybackQualityRange(desired, desired); } catch(e) {console.log(e)}
-   try { if (typeof player.setPlaybackQuality === 'function') player.setPlaybackQuality(desired); } catch(e) {console.log(e)}
- }
+    var player = ImprovedTube.elements && ImprovedTube.elements.player;
+    if (!player) return;
+    if (typeof ImprovedTube.playerQuality === 'function') {
+        ImprovedTube.playerQuality(desired);
+        return;
+    }
+    try { if (typeof player.setPlaybackQualityRange === 'function') player.setPlaybackQualityRange(desired, desired); } catch(e) {console.log(e)}
+    try { if (typeof player.setPlaybackQuality === 'function') player.setPlaybackQuality(desired); } catch(e) {console.log(e)}
+}
 
   setTimeout(applyQuality, 300);
-  setTimeout(applyQuality, 800);
+	setTimeout(applyQuality, 800);
+	setTimeout(applyQuality, 1500);
+	setTimeout(applyQuality, 3000);
    }
 
   

@@ -584,6 +584,9 @@
   "fullScreenQuality": {
     "message": "Fullscreen quality"
   },
+  "playlistQuality": {
+    "message": "Playlist quality"
+  },
   "fullscreenReturn": {
     "message": "Fullscreen return"
   },
