@@ -136,7 +136,7 @@ html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comm
 	}
 	
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #primary-content {overflow: hidden;}
-	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns {justify-content: flex-start !important; overflow-x: scroll;}
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns {justify-content: flex-start !important; overflow-x: hidden;}
 	
 }
 @media screen and (min-width: 1000px){

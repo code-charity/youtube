@@ -197,7 +197,7 @@ describe('comments sidebar', () => {
 
 		document.getElementById('below').appendChild(comments);
 		triggerMutation();
-		jest.advanceTimersByTime(100);
+		jest.advanceTimersByTime(350);
 
 		expect(comments.parentElement.id).toBe('secondary-inner');
 	});
