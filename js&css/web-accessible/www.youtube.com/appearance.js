@@ -65,15 +65,21 @@ ImprovedTube.playerSize = function () {
 /*------------------------------------------------------------------------------
  FORCED THEATER MODE
 ------------------------------------------------------------------------------*/
-ImprovedTube.forcedTheaterMode = function () {
+ImprovedTube.forcedTheaterMode = function (attempt) {
 	if (ImprovedTube.storage.forced_theater_mode === true && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
 		var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
-		if (button && ImprovedTube.elements.ytd_watch.theater === false) {
-			document.cookie = "wide=1;domain=.youtube.com";
+		var theater = ImprovedTube.elements.ytd_watch.theater === true || ImprovedTube.elements.ytd_watch.hasAttribute('theater');
+
+		if (button && theater === false) {
+			document.cookie = "wide=1;domain=.youtube.com;path=/";
 			//     ImprovedTube.elements.ytd_watch.theater = true;
 			setTimeout(function () {
 				button.click();
 			}, 100);
+		} else if (theater === false && (attempt || 0) < 10) {
+			setTimeout(function () {
+				ImprovedTube.forcedTheaterMode((attempt || 0) + 1);
+			}, 250);
 		}
 	}
 };
@@ -362,9 +368,9 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			if (ImprovedTube.storage.comments_sidebar_scrollbars === true) {
 				const cssRule = `
             #primary, #secondary {
-                overflow: overlay !important;
+                overflow: auto !important;
             }
-            
+
             ::-webkit-scrollbar
             {
                 width: 16px;
@@ -385,8 +391,8 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			}
 			else {	const cssRule = `
             #primary, #secondary {
-                overflow: overlay !important;
-            }            
+                overflow: auto !important;
+            }
             ::-webkit-scrollbar
             {
                 width: 0px;
@@ -421,8 +427,16 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			state.layoutObserver.disconnect();
 		}
 		state.layoutObserver = new MutationObserver(function () {
+			// Skip if the sidebar layout is already applied correctly
+			const wideLayout = window.matchMedia("(min-width: 1952px)").matches;
+			const mediumLayout = window.matchMedia("(min-width: 1000px)").matches;
+			if ((wideLayout && state.hasApplied === 1 && isLayoutApplied(true)) ||
+				(!wideLayout && mediumLayout && state.hasApplied === 2 && isLayoutApplied(false)) ||
+				(!mediumLayout && state.hasApplied === 0)) {
+				return;
+			}
 			clearTimeout(state.layoutTimer);
-			state.layoutTimer = setTimeout(sidebar, 50);
+			state.layoutTimer = setTimeout(sidebar, 300);
 		});
 		state.layoutObserver.observe(root, {
 			childList: true,
