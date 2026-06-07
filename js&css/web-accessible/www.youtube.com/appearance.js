@@ -65,15 +65,21 @@ ImprovedTube.playerSize = function () {
 /*------------------------------------------------------------------------------
  FORCED THEATER MODE
 ------------------------------------------------------------------------------*/
-ImprovedTube.forcedTheaterMode = function () {
+ImprovedTube.forcedTheaterMode = function (attempt) {
 	if (ImprovedTube.storage.forced_theater_mode === true && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
 		var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
-		if (button && ImprovedTube.elements.ytd_watch.theater === false) {
-			document.cookie = "wide=1;domain=.youtube.com";
+		var theater = ImprovedTube.elements.ytd_watch.theater === true || ImprovedTube.elements.ytd_watch.hasAttribute('theater');
+
+		if (button && theater === false) {
+			document.cookie = "wide=1;domain=.youtube.com;path=/";
 			//     ImprovedTube.elements.ytd_watch.theater = true;
 			setTimeout(function () {
 				button.click();
 			}, 100);
+		} else if (theater === false && (attempt || 0) < 10) {
+			setTimeout(function () {
+				ImprovedTube.forcedTheaterMode((attempt || 0) + 1);
+			}, 250);
 		}
 	}
 };
