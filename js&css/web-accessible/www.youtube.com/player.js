@@ -2123,43 +2123,64 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
 # DISABLE AUTO DUBBING
 ------------------------------------------------------------------------------*/
 ImprovedTube.disableAutoDubbing = function () {
-	const player = this.elements.player;
-	const tracks = player?.getAvailableAudioTracks();
-	const originalTrack = tracks ? findOriginalAudioTrack(tracks) : null;
+	try {
+		const player = this.elements.player;
+		if (!player || typeof player.getAvailableAudioTracks !== 'function') return;
+
+		const tracks = player.getAvailableAudioTracks();
+		if (!Array.isArray(tracks) || tracks.length === 0) return;
+
+		const originalTrack = findOriginalAudioTrack(tracks);
 	
-	if (originalTrack) {
-		player.setAudioTrack(originalTrack);
+		if (originalTrack && typeof player.setAudioTrack === 'function') {
+			player.setAudioTrack(originalTrack);
+		}
+	} catch (e) {
+		console.warn('ImprovedTube: disableAutoDubbing error', e);
 	}
 
 	function findOriginalAudioTrack(audioTracks) {
 		// Score tracks based on likely original source
 		for (const track of audioTracks) {
-			if (hasOriginalKeyword(track)) {
+			if (track && hasOriginalKeyword(track)) {
 				return track;
 			}
 		}
 
 		for (const track of audioTracks) {
-			if (hasASR(track)) {
+			if (track && hasASR(track)) {
 				return track;
 			}
 		}
 
 		function hasASR(track) {
-			return Array.isArray(track.captionTracks) && 
-				track.captionTracks.some(ct => ct.kind === 'asr');
+			try {
+				return Array.isArray(track.captionTracks) && 
+					track.captionTracks.some(ct => ct && ct.kind === 'asr');
+			} catch (_) {
+				return false;
+			}
 		}
 
 		function hasOriginalKeyword(track) {
-			var name = track?.getLanguageInfo?.()?.name?.toLowerCase() || '';
-			const localizedOriginalWords = ['original', 'originale', 'originalny', 'originalaudio', 'origineel', 'orijinal']; // Add more if needed
-			
-			return localizedOriginalWords.some(word => name.includes(word));
+			try {
+				const info = typeof track.getLanguageInfo === 'function' ? track.getLanguageInfo() : null;
+				var name = (info && typeof info.name === 'string') ? info.name.toLowerCase() : '';
+				const localizedOriginalWords = ['original', 'originale', 'originalny', 'originalaudio', 'origineel', 'orijinal'];
+				return localizedOriginalWords.some(word => name.includes(word));
+			} catch (_) {
+				return false;
+			}
 		}
 
 		// As a fallback: default or first item
-		const fallback = audioTracks.find(t => t?.getLanguageInfo?.()?.isDefault) || audioTracks[0];
-		console.log(fallback);
+		const fallback = audioTracks.find(function (t) {
+			try {
+				return t && typeof t.getLanguageInfo === 'function' && t.getLanguageInfo()?.isDefault;
+			} catch (_) {
+				return false;
+			}
+		}) || audioTracks[0];
 		return fallback;
 	}
 }
