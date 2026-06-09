@@ -198,6 +198,14 @@ ImprovedTube.playlistReverse = function () {
 		
 		if (ImprovedTube.playlistReversed === true) {
 			ImprovedTube.playlistReverseUpdate();
+			// On SPA navigation the playlist data may not be ready yet when
+			// yt-page-data-updated fires. Retry once after a short delay so the
+			// reverse is re-applied even if the first call returned early.
+			setTimeout(function () {
+				if (ImprovedTube.playlistReversed === true) {
+					ImprovedTube.playlistReverseUpdate();
+				}
+			}, 1500);
 		}
 
 		if (!ImprovedTube.playlistReverseObserver) {
