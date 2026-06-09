@@ -443,6 +443,9 @@
   "disableAutoDubbing": {
     "message": "Disable auto dubbing"
   },
+  "hideAutoDubbedOptions": {
+    "message": "Hide auto-dubbed options in menu"
+  },
   "disabled": {
     "message": "Disabled"
   },

@@ -2186,6 +2186,7 @@ ImprovedTube.hideAutoDubbedMenuItems = function () {
 
 ImprovedTube.observeAutoDubbedMenu = function () {
     if (!ImprovedTube.storage.disable_auto_dubbing) return;
+		if (!ImprovedTube.storage.hide_auto_dubbed_options) return;
 
     const observer = new MutationObserver(function () {
         const panel = document.querySelector('.ytp-panel .ytp-panel-menu');

@@ -978,6 +978,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'disableAutoDubbing'
 		},
+		hide_auto_dubbed_options: {
+    component: 'switch',
+    text: 'hideAutoDubbedOptions'
+		},
 		preferred_dubbing_language: {
 			component: 'input',
 			text: 'preferredDubbingLanguage',
