@@ -191,6 +191,37 @@ html[it-livechat='collapsed']
 	cursor: pointer;
 }
 
+/*--------------------------------------------------------------
+# LIVECHAT THEATER MODE VISIBILITY
+--------------------------------------------------------------*/
+/* Ensure live chat is fully visible when the page is in theater mode.
+   In theater mode YouTube stretches the player to full width and the
+   secondary column can end up with a height that clips the chat iframe
+   behind the player.  We constrain the secondary / chat containers to
+   the visible viewport height minus the header so the chat panel stays
+   scrollable and never overflows behind the player. */
+html[data-page-type='video'] ytd-watch-flexy[theater]:not([fullscreen]) #secondary,
+html[data-page-type='video'] ytd-watch-flexy[theater]:not([fullscreen]) #secondary-inner {
+	height: fit-content !important;
+	max-height: calc(100vh - var(--it-header-size, 56px)) !important;
+	overflow: visible !important;
+}
+
+html[data-page-type='video'] ytd-watch-flexy[theater]:not([fullscreen]) #chat-container,
+html[data-page-type='video'] ytd-watch-flexy[theater]:not([fullscreen]) ytd-live-chat-frame#chat {
+	height: calc(100vh - var(--it-header-size, 56px)) !important;
+	max-height: calc(100vh - var(--it-header-size, 56px)) !important;
+	overflow-y: auto !important;
+	overflow-x: hidden !important;
+}
+
+@supports (height: 100dvh) {
+	html[data-page-type='video'] ytd-watch-flexy[theater]:not([fullscreen]) #chat-container,
+	html[data-page-type='video'] ytd-watch-flexy[theater]:not([fullscreen]) ytd-live-chat-frame#chat {
+		height: calc(100dvh - var(--it-header-size, 56px)) !important;
+		max-height: calc(100dvh - var(--it-header-size, 56px)) !important;
+	}
+}
 
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
