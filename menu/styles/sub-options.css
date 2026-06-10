@@ -39,10 +39,14 @@ NESTED (CONDITIONAL) SWITCHES
 NIGHT MODE
 --------------------------------------------------------------*/
 #activate:not([data-value='sunset_to_sunrise']) + .satus-time--from,
-#activate:not([data-value='sunset_to_sunrise']) + * + .satus-time--to 
+#activate:not([data-value='sunset_to_sunrise']) + * + .satus-time--to,
 
+#disable-auto-dubbing[data-value=true] + .satus-switch
 /*====================================*/
 	{display: none !important;}
+
+#hide-auto-dubbed-options[data-value=true] 
+{display: unset !important;}
 
 #remove-home-page-shorts[data-value=true] + .satus-switch,
 #remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch,
