@@ -41,7 +41,7 @@ NIGHT MODE
 #activate:not([data-value='sunset_to_sunrise']) + .satus-time--from,
 #activate:not([data-value='sunset_to_sunrise']) + * + .satus-time--to,
 
-#disable-auto-dubbing[data-value=true] + .satus-switch
+#disable-auto-dubbing:not([data-value=true])  + .satus-switch
 /*====================================*/
 	{display: none !important;}
 
