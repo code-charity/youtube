@@ -2163,6 +2163,41 @@ ImprovedTube.disableAutoDubbing = function () {
 		return fallback;
 	}
 }
+
+/*------------------------------------------------------------------------------
+# HIDE AUTO-DUBBED MENU ITEMS
+------------------------------------------------------------------------------*/
+ImprovedTube.observeAutoDubbedMenu = function () {
+		if (ImprovedTube.storage.hide_auto_dubbed_options !== true) return;
+ImprovedTube.hideAutoDubbedMenuItems = function () {
+    const panel = document.querySelector('.ytp-panel .ytp-panel-menu');
+    if (!panel) return;
+
+    const items = panel.querySelectorAll('.ytp-menuitem');
+    let autoDubbedSection = false;
+
+    items.forEach(function (item) {
+        if (item.classList.contains('ytp-menuitem-section-header')) {
+            item.style.display = 'none';
+            autoDubbedSection = true;
+        } else if (autoDubbedSection) {
+            item.style.display = 'none';
+        }
+    });
+};	
+    const observer = new MutationObserver(function () {
+        const panel = document.querySelector('.ytp-panel .ytp-panel-menu');
+        if (panel) {
+            ImprovedTube.hideAutoDubbedMenuItems();
+        }
+    });
+
+    const playerContainer = document.querySelector('#movie_player');
+    if (playerContainer) {
+        observer.observe(playerContainer, { childList: true, subtree: true });
+    }
+};
+
 /*------------------------------------------------------------------------------
 # AUTO-SELECT PREFERRED DUBBING LANGUAGE
 ------------------------------------------------------------------------------*/
