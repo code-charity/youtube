@@ -2167,6 +2167,8 @@ ImprovedTube.disableAutoDubbing = function () {
 /*------------------------------------------------------------------------------
 # HIDE AUTO-DUBBED MENU ITEMS
 ------------------------------------------------------------------------------*/
+ImprovedTube.observeAutoDubbedMenu = function () {
+		if (ImprovedTube.storage.hide_auto_dubbed_options !== true) return;
 ImprovedTube.hideAutoDubbedMenuItems = function () {
     const panel = document.querySelector('.ytp-panel .ytp-panel-menu');
     if (!panel) return;
@@ -2182,12 +2184,7 @@ ImprovedTube.hideAutoDubbedMenuItems = function () {
             item.style.display = 'none';
         }
     });
-};
-
-ImprovedTube.observeAutoDubbedMenu = function () {
-    if (!ImprovedTube.storage.disable_auto_dubbing) return;
-		if (!ImprovedTube.storage.hide_auto_dubbed_options) return;
-
+};	
     const observer = new MutationObserver(function () {
         const panel = document.querySelector('.ytp-panel .ytp-panel-menu');
         if (panel) {
