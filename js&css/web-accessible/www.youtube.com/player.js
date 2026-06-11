@@ -1067,8 +1067,13 @@ ImprovedTube.playerRotateButton = function () {
 
 				if (rotate == 90 || rotate == 270) {
 					var is_vertical_video = video.videoHeight > video.videoWidth;
-
-					transform += ' scale(' + (is_vertical_video ? video.clientWidth : video.clientHeight) / (is_vertical_video ? video.clientHeight : video.clientWidth) + ')';
+										if (
+												( this.storage.player_cinema_mode_button === true ||  this.storage.player_auto_hide_cinema_mode_when_paused === true ||  this.storage.player_auto_cinema_mode === true
+												) && document.querySelector('#overlay_cinema') && document.querySelector('ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen])')
+											) { transform += ' scale(' + (is_vertical_video ? video.clientWidth : video.clientHeight) / (is_vertical_video ? video.clientHeight : video.clientWidth) + ')';
+													} else {
+											transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
+										}					
 				}
 
 				if (!ImprovedTube.elements.buttons['it-rotate-styles']) {
