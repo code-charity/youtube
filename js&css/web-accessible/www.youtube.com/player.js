@@ -1054,9 +1054,9 @@ ImprovedTube.playerRotateButton = function () {
 				if (
 					(this.storage?.player_cinema_mode_button === true ||
 						this.storage?.player_auto_hide_cinema_mode_when_paused === true ||
-						this.storage?.player_auto_cinema_mode === true) &&
-					document.querySelector("#overlay_cinema") &&
-					document.querySelector(
+						this.storage?.player_auto_cinema_mode === true) ||
+					!!document.querySelector("ytd-watch-flexy[theater]") &&
+					!!document.querySelector(
 						"ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen])",
 					)
 				) {
