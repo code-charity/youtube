@@ -2,30 +2,51 @@
   APPEARANCE
 ------------------------------------------------------------------------------*/
 ImprovedTube.YouTubeExperiments = function () {
-	if ((this.storage.undo_the_new_sidebar === "true" || this.storage.description === "sidebar") 
+	if ((this.storage.undo_the_new_sidebar === true || this.storage.undo_the_new_sidebar === "true"
+		|| this.storage.description === "sidebar")
 		&& document.documentElement.dataset.pageType === 'video') {
-	if (window.yt?.config_?.EXPERIMENT_FLAGS) { 
-		const newSidebarFlags = [
-			'kevlar_watch_grid',
-			'small_avatars_for_comments',
-			'small_avatars_for_comments_ep',
-			'web_watch_rounded_player_large'
-		];
-	        if (this.storage.undo_the_new_sidebar === "true") { 
-		if (window.yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid !== false) {
+	if (window.yt?.config_?.EXPERIMENT_FLAGS) {
+		const newSidebarFlags = {
+			enable_lockup_redesign: true,
+			enable_profile_cards_on_comments: true,
+			kevlar_player_unified_player_loading: true,
+			kevlar_unified_player: true,
+			web_watch_move_lockup_overflow_menu: true,
+			web_watch_use_secondary_max_width_percent: true,
+			web_watch_use_sidebar_width_percentage: true,
+			kevlar_watch_secondary_max_width: 700,
+			kevlar_watch_sidebar_min_width: 200,
+			kevlar_watch_sidebar_width_percentage: 0.275,
+			web_watch_compact_thumbnail_width_string: '62.5%',
+		};
+		const oldSidebarFlags = {
+			enable_lockup_redesign: false,
+			enable_profile_cards_on_comments: false,
+			kevlar_player_unified_player_loading: false,
+			kevlar_unified_player: false,
+			web_watch_move_lockup_overflow_menu: false,
+			web_watch_use_secondary_max_width_percent: false,
+			web_watch_use_sidebar_width_percentage: false,
+			kevlar_watch_secondary_max_width: 550,
+			kevlar_watch_sidebar_min_width: 300,
+			kevlar_watch_sidebar_width_percentage: 0.25,
+			web_watch_compact_thumbnail_width_string: '168px',
+		};
+	        if (this.storage.undo_the_new_sidebar === true || this.storage.undo_the_new_sidebar === "true") {
+		if (window.yt.config_.EXPERIMENT_FLAGS.enable_lockup_redesign !== false) {
 			try {
-                	newSidebarFlags.forEach(F => {
-                  	  Object.defineProperty(window.yt.config_.EXPERIMENT_FLAGS, F, { get: () => false });
+                	Object.entries(oldSidebarFlags).forEach(([key, val]) => {
+                  	  Object.defineProperty(window.yt.config_.EXPERIMENT_FLAGS, key, { get: () => val, configurable: true });
 			});
 			} catch (error) { console.error("can't undo description on the side", error); }
-		}} else if (this.storage.description === "sidebar" && window.yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid !== true) {
+		}} else if (this.storage.description === "sidebar" && window.yt.config_.EXPERIMENT_FLAGS.enable_lockup_redesign !== true) {
 			try {
-                	newSidebarFlags.forEach(F => {
-                   	Object.defineProperty(window.yt.config_.EXPERIMENT_FLAGS, F, { get: () => true });
+                	Object.entries(newSidebarFlags).forEach(([key, val]) => {
+                   	Object.defineProperty(window.yt.config_.EXPERIMENT_FLAGS, key, { get: () => val, configurable: true });
 			});
 			} catch (error) { console.error("tried to move description to the sidebar", error); }
 		}
-	} else { console.log ("yt.config_.EXPERIMENT_FLAGS is not yet defined") } 
+	} else { console.log ("yt.config_.EXPERIMENT_FLAGS is not yet defined") }
 	}
 }
 /*try {
