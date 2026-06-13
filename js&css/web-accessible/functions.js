@@ -459,6 +459,7 @@ ImprovedTube.initPlayer = function () {
 		if (ImprovedTube.storage.disable_auto_dubbing === true) { ImprovedTube.observeAutoDubbedMenu(); }
 		if (ImprovedTube.storage.preferred_dubbing_language) { ImprovedTube.preferredDubbingLanguage(); }
 		if (ImprovedTube.storage.player_default_dubbed_language && ImprovedTube.storage.player_default_dubbed_language !== 'disabled') { ImprovedTube.selectDubbedLanguage(); }
+		ImprovedTube.smartBufferManager();
 	}
 };
 
@@ -486,6 +487,7 @@ ImprovedTube.playerOnTimeUpdate = function () {
 
 			if (ImprovedTube.storage.always_show_progress_bar === true) { ImprovedTube.showProgressBar(); }
 			if (ImprovedTube.storage.player_remaining_duration === true && document.documentElement.dataset.pageType === 'video') { ImprovedTube.playerRemainingDuration(); }
+			if (ImprovedTube.storage.smart_buffer === true) { ImprovedTube.smartBufferManager(); }
 			ImprovedTube.played_time += .5;
 			//Counting time of the player playing for the analyzer feature. (not equal to video time if playback speed isnt 1.00)
 			//We can also allow to measure session times too and HID times.   
