@@ -93,6 +93,28 @@ var ImprovedTube = {
 	defaultApiKey: 'AIzaSyCXRRCFwKAXOiF1JkUBmibzxJF1cPuKNwA'
 };
 
+ImprovedTube.syncAutoplayDisableLocalStorage = function () {
+	if (ImprovedTube.storage.player_autoplay_disable === true) {
+		localStorage['it-player-autoplay-disable'] = 'true';
+	} else {
+		localStorage.removeItem('it-player-autoplay-disable');
+	}
+};
+
+ImprovedTube.shouldPreventInitialAutoplay = function (video) {
+	if (ImprovedTube.user_interacted || !location.href.includes('/watch?') || location.href.includes('list=')) {
+		return false;
+	}
+
+	if (localStorage['it-player-autoplay-disable'] !== 'true' && ImprovedTube.storage.player_autoplay_disable !== true) {
+		return false;
+	}
+
+	var player = video.closest && (video.closest('.html5-video-player') || video.closest('#movie_player'));
+
+	return !player || !player.classList || !player.classList.contains('ad-showing');
+};
+
 /*--------------------------------------------------------------
 CODEC || 30FPS
 ----------------------------------------------------------------
@@ -124,6 +146,29 @@ if (localStorage['it-codec'] || localStorage['it-player30fps']) {
 		return overwrite(this, canPlayType, mime);
 	}
 };
+
+HTMLMediaElement.prototype.play = (function (original) {
+	if (original.improvedTubeInitialAutoplayGuard) {
+		return original;
+	}
+
+	function play() {
+		if (ImprovedTube.shouldPreventInitialAutoplay(this)) {
+			try {
+				this.pause();
+			} catch (error) {
+			}
+
+			return Promise.resolve();
+		}
+
+		return original.apply(this, arguments);
+	}
+
+	play.improvedTubeInitialAutoplayGuard = true;
+
+	return play;
+})(HTMLMediaElement.prototype.play);
 
 /*--------------------------------------------------------------
 # MESSAGES
@@ -182,6 +227,7 @@ document.addEventListener('it-message-from-extension', function () {
 
 		if (message.action === 'storage-loaded') {
 			ImprovedTube.storage = message.storage;
+			ImprovedTube.syncAutoplayDisableLocalStorage();
 
 			if (typeof ImprovedTube.storage.playlist_reversed_active !== 'undefined') {
 				ImprovedTube.playlistReversed = ImprovedTube.storage.playlist_reversed_active;
@@ -236,6 +282,9 @@ document.addEventListener('it-message-from-extension', function () {
 				} else {
 					localStorage.removeItem('it-player30fps');
 				}
+			}
+			if (message.key === 'player_autoplay_disable') {
+				ImprovedTube.syncAutoplayDisableLocalStorage();
 			}
 			switch (camelized_key) {
 				case 'blocklist':
