@@ -33,6 +33,11 @@ function setupGlobals(storage) {
 		kevlar_watch_sidebar_min_width: 200,
 		kevlar_watch_sidebar_width_percentage: 0.275,
 		web_watch_compact_thumbnail_width_string: '62.5%',
+		// Legacy flags
+		kevlar_watch_grid: true,
+		small_avatars_for_comments: true,
+		small_avatars_for_comments_ep: true,
+		web_watch_rounded_player_large: true,
 	};
 
 	global.window = {
@@ -89,6 +94,11 @@ describe('YouTubeExperiments - undo new sidebar', () => {
 		expect(flags.kevlar_watch_sidebar_min_width).toBe(300);
 		expect(flags.kevlar_watch_sidebar_width_percentage).toBe(0.25);
 		expect(flags.web_watch_compact_thumbnail_width_string).toBe('168px');
+		// Legacy flags also reverted
+		expect(flags.kevlar_watch_grid).toBe(false);
+		expect(flags.small_avatars_for_comments).toBe(false);
+		expect(flags.small_avatars_for_comments_ep).toBe(false);
+		expect(flags.web_watch_rounded_player_large).toBe(false);
 	});
 
 	test('overrides experiment flags when undo_the_new_sidebar is boolean true', () => {

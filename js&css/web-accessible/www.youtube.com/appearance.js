@@ -18,6 +18,10 @@ ImprovedTube.YouTubeExperiments = function () {
 			kevlar_watch_sidebar_min_width: 200,
 			kevlar_watch_sidebar_width_percentage: 0.275,
 			web_watch_compact_thumbnail_width_string: '62.5%',
+			kevlar_watch_grid: true, // legacy
+			small_avatars_for_comments: true, // legacy
+			small_avatars_for_comments_ep: true, // legacy
+			web_watch_rounded_player_large: true, // legacy
 		};
 		const oldSidebarFlags = {
 			enable_lockup_redesign: false,
@@ -31,6 +35,10 @@ ImprovedTube.YouTubeExperiments = function () {
 			kevlar_watch_sidebar_min_width: 300,
 			kevlar_watch_sidebar_width_percentage: 0.25,
 			web_watch_compact_thumbnail_width_string: '168px',
+			kevlar_watch_grid: false, // legacy
+			small_avatars_for_comments: false, // legacy
+			small_avatars_for_comments_ep: false, // legacy
+			web_watch_rounded_player_large: false, // legacy
 		};
 	        if (this.storage.undo_the_new_sidebar === true || this.storage.undo_the_new_sidebar === "true") {
 		if (window.yt.config_.EXPERIMENT_FLAGS.enable_lockup_redesign !== false) {
