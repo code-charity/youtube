@@ -27,14 +27,16 @@ ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 AUTOPAUSE WHEN SWITCHING TABS
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutopauseWhenSwitchingTabs = function () {
-	const player = this.elements.player;
+	const player = this.elements.player,
+		video = this.elements.video,
+		isVisibleTab = document.visibilityState === 'visible' && document.hasFocus();
 
-	if (this.storage.player_autopause_when_switching_tabs && player) {
-		if (this.focus && this.played_before_blur && this.elements.video.paused) {
+	if (this.storage.player_autopause_when_switching_tabs && player && video) {
+		if (this.focus && isVisibleTab && this.played_before_blur && video.paused) {
 			player.playVideo();
 		} else {
-			this.played_before_blur = !this.elements.video.paused;
-			if (!this.elements.video.paused) {
+			this.played_before_blur = !video.paused;
+			if (!video.paused) {
 				player.pauseVideo();
 			}
 		}
