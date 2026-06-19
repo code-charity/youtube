@@ -27,6 +27,10 @@ import re
 #---------------------------------------------------------------
 
 EXCLUDE_TOP_LEVEL = {
+	'.editorconfig',
+	'.idea',
+	'build',
+	'node_modules',
 	'tests',
 	'jest.config.js',
 	'package-lock.json',
@@ -205,6 +209,8 @@ def safari():
 
 		version = data['version']
 		permissions = data.get('permissions', [])
+
+		data['name'] = 'Improve YouTube! for YouTube & Videos'
 
 		if 'scripting' not in permissions:
 			permissions.append('scripting')
