@@ -116,7 +116,9 @@ if (isSafari) {
 		// ✅ SUCCESS PATH
 		if (response && response.ok) {
 			finishPageWorldInit();
-			return;
+		} else {
+			console.warn('[ImprovedTube] Safari MAIN-world injection failed:', chrome.runtime.lastError?.message || response?.error);
+			finishPageWorldInit();
 		}
 
 		// ❌ FAILURE PATH (FIXED)

@@ -70,6 +70,12 @@ extension.exportSettings = function () {
 					on: {
 						click: function () {
 							try {
+								var now = new Date();
+								var pad = function (value) {
+									return (value < 10 ? '0' : '') + value;
+								};
+								var timestamp = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate()) + '_' + pad(now.getHours()) + '-' + pad(now.getMinutes());
+								var filename = 'improvedtube-settings-' + timestamp + '.json';
 								var blob = new Blob([JSON.stringify(satus.storage.data)], {
 									type: 'application/json;charset=utf-8'
 								});
@@ -83,7 +89,7 @@ extension.exportSettings = function () {
 									// Fallback for Safari: use anchor tag with download attribute
 									var a = document.createElement('a');
 									a.href = url;
-									a.download = 'improvedtube.json';
+									a.download = filename;
 									document.body.appendChild(a);
 									a.click();
 									document.body.removeChild(a);
@@ -98,7 +104,7 @@ extension.exportSettings = function () {
 										if (granted) {
 											chrome.downloads.download({
 												url: url,
-												filename: 'improvedtube.json',
+												filename: filename,
 												saveAs: true
 											}, function () {
 												setTimeout(function () {
