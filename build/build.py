@@ -47,6 +47,36 @@ def _sanitize_name_for_store(name, store):
 		sanitized = sanitized.replace("'", "*")
 	return sanitized
 
+def _short_app_store_locale_text(text, max_bytes=112):
+	text = re.sub(r'\s+', ' ', text or '').strip()
+
+	if len(text.encode('utf8')) <= max_bytes:
+		return text
+
+	words = text.split(' ')
+	shortened = ''
+
+	for word in words:
+		next_text = word if not shortened else shortened + ' ' + word
+
+		if len(next_text.encode('utf8')) > max_bytes:
+			break
+
+		shortened = next_text
+
+	if shortened:
+		return shortened
+
+	shortened = ''
+
+	for char in text:
+		if len((shortened + char).encode('utf8')) > max_bytes:
+			break
+
+		shortened += char
+
+	return shortened
+
 #---------------------------------------------------------------
 # 2.0 CHROMIUM
 #---------------------------------------------------------------
@@ -203,6 +233,41 @@ def safari():
 	)
 
 	os.chdir(temporary_path)
+
+	for root, dirs, files in os.walk('_locales'):
+		if 'messages.json' not in files:
+			continue
+
+		path = os.path.join(root, 'messages.json')
+
+		with open(path, 'r+', encoding='utf8') as json_file:
+			data = json.load(json_file)
+			changed = False
+
+			for key, value in data.items():
+				if isinstance(value, dict):
+					message = value.get('message')
+					short_message = _short_app_store_locale_text(message)
+
+					if key == 'description_ext' and message != short_message:
+						value['message'] = short_message
+						changed = True
+
+					description = value.get('description')
+					short_description = _short_app_store_locale_text(description or short_message or key)
+
+					if description != short_description:
+						value['description'] = short_description
+						changed = True
+
+					if value.get('placeholders') == {}:
+						del value['placeholders']
+						changed = True
+
+			if changed:
+				json_file.seek(0)
+				json.dump(data, json_file, indent=4, sort_keys=True, ensure_ascii=False)
+				json_file.truncate()
 
 	with open('manifest.json', 'r+', encoding='utf8') as json_file:
 		data = json.load(json_file)
