@@ -49,6 +49,27 @@ ImprovedTube.shortcutsInit = function () {
 				window.addEventListener(name, handler, {passive: false, capture: true});
 			}
 		}
+
+		// Issue #3986: a missed keyup — focus moving to the player/an ad iframe,
+		// an SPA navigation, or a tab switch, all common while the connection is
+		// unstable — leaves a key stuck in input.pressed.keys. Because
+		// shortcutsHandler() requires an EXACT key-set size match, a single stuck
+		// key silently disables EVERY shortcut. The only existing recovery is the
+		// 'improvedtube-blur' event, dispatched from the extension side (core.js)
+		// over the messaging path / MV3 background worker — which the same network
+		// instability can suspend, so shortcuts stay dead until a manual reload.
+		// Bind the same reset to native, in-page events so recovery is immediate
+		// and never depends on the background worker. Clearing an already-empty
+		// set is a harmless no-op, so we bind once and leave it.
+		if (!this.input.recoveryListenersBound) {
+			this.input.recoveryListenersBound = true;
+			const resetPressedKeys = this.shortcutsListeners['improvedtube-blur'];
+			window.addEventListener('blur', resetPressedKeys);
+			document.addEventListener('visibilitychange', function () {
+				if (document.hidden) resetPressedKeys();
+			});
+			document.addEventListener('yt-navigate-start', resetPressedKeys);
+		}
 	} else {
 		// no shortcuts means we dont need 'listeners', uninstall all
 		for (const [name, handler] of Object.entries(this.shortcutsListeners)) {
