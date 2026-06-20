@@ -193,6 +193,15 @@ html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="tr
 html[it-pathname='/'][it-remove-playables="true"] ytd-rich-section-renderer:has(ytd-mini-game-card-view-model) {
 	display: none !important;
 }
+/*--------------------------------------------------------------
+# REMOVE TOP LIVE GAMES
+--------------------------------------------------------------*/
+html[it-pathname='/'][it-remove-top-live-games="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-gaming]),
+html[it-pathname='/'][it-remove-top-live-games="true"] ytd-rich-section-renderer:has([aria-label*="live game" i]),
+html[it-pathname='/'][it-remove-top-live-games="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer #title:has(a[href*="gaming"])),
+html[it-pathname='/'][it-remove-top-live-games="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer #title yt-formatted-string.ytd-rich-shelf-renderer:is([title="Top live games"])) {
+	display: none !important;
+}
 @supports not selector(:has(a, b)) {
 	html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-shelf-renderer[is-shorts],
 	html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-rich-shelf-renderer[is-shorts] {

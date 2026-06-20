@@ -1247,6 +1247,9 @@
   "removePlayables": {
     "message": "Hide playables"
   },
+  "removeTopLiveGames": {
+    "message": "Hide 'Top live games' on the home page"
+  },
   "removeRelatedSearchResults": {
     "message": "Remove related search results"
   },

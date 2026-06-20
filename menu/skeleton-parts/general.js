@@ -96,6 +96,11 @@ extension.skeleton.main.layers.section.general = {
 					text: 'removePlayables',
 					id: 'remove-playables'
 				},
+				remove_top_live_games: {
+					component: 'switch',
+					text: 'removeTopLiveGames',
+					id: 'remove-top-live-games'
+				},
 				hide_ai_summary: {
 					component: 'switch',
 					text: 'hideAISummary',
