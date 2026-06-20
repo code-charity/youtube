@@ -72,6 +72,12 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 				chrome.storage.local.set({channel_default_tab: '/'});
 			}
 		});
+		chrome.storage.local.get('Hide_Pause_Overlay', function (result) {
+			if (result.Hide_Pause_Overlay === true) {
+				chrome.storage.local.set({player_auto_continue_watching: true});
+				chrome.storage.local.remove(['Hide_Pause_Overlay']);
+			}
+		});
 		chrome.storage.local.get('player_quality', function (result) {
 			if (result.player_quality === 'auto') {
 				chrome.storage.local.get('player_quality_auto', function (result) {

@@ -149,6 +149,9 @@
   "autoplayDisable": {
     "message": "Force Autoplay Off"
   },
+  "autoContinueWatching": {
+    "message": "Auto-accept «Continue watching?»"
+  },
   "autoPlayNextShort": {
     "message": "Shorts up next autoplay"
   },
