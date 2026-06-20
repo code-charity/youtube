@@ -2342,33 +2342,32 @@ html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd
 }
 
 /* Each video item: horizontal row */
-html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer {
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item]) {
     width: 100% !important;
     max-width: 100% !important;
-    margin: 0 !important;
 }
 
-html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer #dismissible.ytd-rich-grid-media {
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item]) .ytLockupViewModelVertical {
     display: flex !important;
     flex-direction: row !important;
     gap: 16px !important;
 }
 
 /* Thumbnail fixed width on left */
-html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer #dismissible.ytd-rich-grid-media ytd-thumbnail {
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item]) .ytLockupViewModelVertical .ytLockupViewModelContentImage {
     min-width: 360px !important;
     max-width: 360px !important;
     flex-shrink: 0 !important;
 }
 
 /* Details fill remaining space on right */
-html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer #dismissible.ytd-rich-grid-media #details {
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item]) .ytLockupViewModelVertical .ytLockupViewModelMetadata {
     flex: 1 !important;
     min-width: 0 !important;
     padding-top: 4px !important;
 }
 
 /* Hide empty items */
-html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer[is-empty] {
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item])[is-empty] {
     display: none !important;
 }
