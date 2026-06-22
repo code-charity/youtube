@@ -530,6 +530,13 @@ document.addEventListener('it-message-from-extension', function () {
                     } else if (ImprovedTube.storage.smart_speed === false) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; } 
                     }
 					break        
+				case 'smartBuffer':
+					// When toggled OFF while quality is throttled, smartBufferManager's
+					// cleanup path restores the user's original quality immediately.
+					// When toggled ON, the existing playerOnTimeUpdate poll picks it up
+					// on the next 500ms tick without needing an explicit call here.
+					ImprovedTube.smartBufferManager();
+					break
 				case 'returnYoutubeDislike':
 					if (ImprovedTube.storage.return_youtube_dislike === true) {
 						ImprovedTube.returnYoutubeDislike();

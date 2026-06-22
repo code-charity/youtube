@@ -1360,28 +1360,34 @@ extension.skeleton.main.layers.section.player.on.click = {
         }
       }
 		},
-		/*
-	qualityWhenRunningOnBattery: {
-			component: 'select',
-			text: 'qualityWhenRunningOnBattery',
-			options: function () {
-				return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
-			},
+		smart_buffer: {
+			component: 'button',
+			text: 'smartBufferManager',
 			on: {
-				render: function () {
-						extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
+				click: {
+					component: 'section',
+					variant: 'card',
+					smart_buffer_card: {
+						component: 'section',
+						variant: 'card',
+						smart_buffer: {
+							component: 'switch',
+							text: 'smartBufferEnable',
+							value: false
+						},
+						smart_buffer_ceiling_seconds: {
+							component: 'slider',
+							text: 'smartBufferCeilingSeconds',
+							value: 120,
+							min: 30,
+							max: 600,
+							step: 30,
+							textarea: true
+						}
+					}
 				}
 			}
 		},
-		whenBatteryIslowDecreaseQuality: {
-			component: 'switch',
-			text: 'whenBatteryIslowDecreaseQuality'
-		},
-		pauseWhileIUnplugTheCharger: {
-			component: 'switch',
-			text: 'pauseWhileIUnplugTheCharger'
-		},
-*/
 		mini_player: {
 			component: 'switch',
 			text: 'customMiniPlayer'
