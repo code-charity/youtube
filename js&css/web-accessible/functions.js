@@ -459,7 +459,12 @@ ImprovedTube.initPlayer = function () {
 		if (ImprovedTube.storage.disable_auto_dubbing === true) { ImprovedTube.disableAutoDubbing(); }
 		if (ImprovedTube.storage.disable_auto_dubbing === true) { ImprovedTube.observeAutoDubbedMenu(); }
 		if (ImprovedTube.storage.preferred_dubbing_language) { ImprovedTube.preferredDubbingLanguage(); }
-		if (ImprovedTube.storage.player_default_dubbed_language && ImprovedTube.storage.player_default_dubbed_language !== 'disabled') { ImprovedTube.selectDubbedLanguage(); }
+		if (ImprovedTube.storage.player_default_dubbed_language && ImprovedTube.storage.player_default_dubbed_language !== 'disabled') {
+			// When disable_auto_dubbing is true, only select a real (non-auto) dub.
+			// If no real dub exists for the selected language, disableAutoDubbing()
+			// (called above) already selected the original audio track as fallback.
+			ImprovedTube.selectDubbedLanguage(ImprovedTube.storage.disable_auto_dubbing === true);
+		}
 	}
 };
 
