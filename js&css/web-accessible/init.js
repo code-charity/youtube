@@ -250,7 +250,7 @@ document.addEventListener('yt-navigate-finish', function () {
 				// if(node.getAttribute('itemprop') === 'uploadDate')   {ImprovedTube.uploadDate = node.content;}
 */
 	ImprovedTube.pageType();
-	ImprovedTube.YouTubeExperiments();
+	// ImprovedTube.YouTubeExperiments();
 	ImprovedTube.commentsSidebar();
 	ImprovedTube.categoryRefreshButton();
 	ImprovedTube.playerAutoContinueWatching();
