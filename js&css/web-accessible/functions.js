@@ -181,21 +181,21 @@ ImprovedTube.ytElementsHandler = function (node) {
 			ImprovedTube.playerSize();
 			if (typeof this.storage.ads !== 'undefined' && this.storage.ads !== "all_videos") {
 				new MutationObserver(function (mutationList) {
-					for (var i = 0, l = mutationList.length; i < l; i++) {
-						var mutation = mutationList[i];
+					for (let i = 0, l = mutationList.length; i < l; i++) {
+						const mutation = mutationList[i];
 
 						if (mutation.type === 'childList') {
-							for (var j = 0, k = mutation.addedNodes.length; j < k; j++) {
-								var node = mutation.addedNodes[j];
+							for (let j = 0, k = mutation.addedNodes.length; j < k; j++) {
+								const addedNode = mutation.addedNodes[j];
 
-								if (node instanceof Element
-									&& node.querySelector('ytp-ad-player-overlay, .ytp-ad-text, .ytp-ad-overlay-close-container, ytd-button-renderer#dismiss-button, *[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button.ytp-button, .ytp-ad-skip-button-modern.ytp-button') !== null) {
-									ImprovedTube.playerAds(node);
+								if (addedNode instanceof Element
+									&& addedNode.querySelector('ytp-ad-player-overlay, .ytp-ad-text, .ytp-ad-overlay-close-container, ytd-button-renderer#dismiss-button, *[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button.ytp-button, .ytp-ad-skip-button-modern.ytp-button') !== null) {
+									ImprovedTube.playerAds(addedNode);
 								}
 							}
 						}
 						if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button-modern.ytp-button',)) {
-							ImprovedTube.playerAds(node);
+							ImprovedTube.playerAds(addedNode);
 						}
 					}
 				}).observe(node, {
@@ -204,21 +204,52 @@ ImprovedTube.ytElementsHandler = function (node) {
 				});
 			}
 
-			new MutationObserver(function (mutationList) {
-				for (var i = 0, l = mutationList.length; i < l; i++) {
-					var mutation = mutationList[i];
-
-					if (mutation.type === 'attributes') {
-						if (mutation.attributeName === 'style') {
+			// Watches the thumbnail element for style changes (used for HD thumbnail swap)
+			const observePlayerThumbnail = (thumbnailEl) => {
+				new MutationObserver((mutationList) => {
+					for (const mutation of mutationList) {
+						if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
 							ImprovedTube.playerHdThumbnail();
 						}
 					}
+				}).observe(thumbnailEl, {
+					attributes: true,
+					attributeFilter: ['style'],
+				});
+			}
+
+			// Retrieves the specified class element from the node or its descendants.
+			const resolveNode = (node, cls) => {
+				return node.classList.contains(cls) ? node : node.querySelector('.' + cls);
+			}
+
+			// Fallback observer to capture elements that might not have been available during the initial querySelector.
+			let thumbnailObserverAttached = false;
+			const observer = new MutationObserver((mutationList) => {
+				const els = ImprovedTube.elements;
+				for (const mutation of mutationList) {
+					if (mutation.type !== 'childList') continue;
+					for (const addedNode of mutation.addedNodes) {
+						if (!(addedNode instanceof Element)) continue;
+						els.player_left_controls ??= resolveNode(addedNode, 'ytp-left-controls');
+						els.player_right_controls ??= resolveNode(addedNode, 'ytp-right-controls')
+						els.player_thumbnail ??= resolveNode(addedNode, 'ytp-cued-thumbnail-overlay-image');
+						els.player_subtitles_button ??= resolveNode(addedNode, 'ytp-subtitles-button');
+					}
 				}
-			}).observe(ImprovedTube.elements.player_thumbnail, {
-				attributes: true,
-				attributeFilter: ['style'],
-				childList: false,
-				subtree: false
+				// Attach the thumbnail observer only once
+				if (!thumbnailObserverAttached && els.player_thumbnail) {
+					thumbnailObserverAttached = true;
+					observePlayerThumbnail(els.player_thumbnail);
+				}
+				// Stop observing once all elements have been found
+				if (els.player_left_controls && els.player_right_controls && els.player_thumbnail && els.player_subtitles_button) {
+					observer.disconnect();
+				}
+			});
+			observer.observe(node, {
+				childList: true,
+				subtree: true
 			});
 		}
 	} else if (name === 'YTD-WATCH-FLEXY') {
