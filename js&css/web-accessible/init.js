@@ -205,7 +205,7 @@ ImprovedTube.init = function () {
 		ImprovedTube.initPlayer();
 	}
 	if (ImprovedTube.elements.shorts_player) {
-		if (ImprovedTube.storage.prevent_shorts_autoloop) {
+		if (ImprovedTube.storage.prevent_shorts_autoloop || ImprovedTube.storage.up_next_autoplay !== false) {
 			ImprovedTube.stop_shorts_autoloop();
 		}
 		ImprovedTube.shortsAutoScroll();
@@ -279,7 +279,7 @@ document.addEventListener('yt-navigate-finish', function () {
 	}
 	if (ImprovedTube.elements.shorts_player) {
 		ImprovedTube.redirectShortsToWatch();
-		if (ImprovedTube.storage.prevent_shorts_autoloop) {
+		if (ImprovedTube.storage.prevent_shorts_autoloop || ImprovedTube.storage.up_next_autoplay !== false) {
 			ImprovedTube.stop_shorts_autoloop();
 		}
 		ImprovedTube.shortsAutoScroll();

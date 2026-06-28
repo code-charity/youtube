@@ -300,20 +300,26 @@ ImprovedTube.pageOnFocus = function () {
 	ImprovedTube.playerAutoPip();
 	ImprovedTube.playerQualityWithoutFocus();
 };
-ImprovedTube.stop_shorts_autoloop = function () {
+ImprovedTube.stop_shorts_autoloop = function (video) {
 	if (document.documentElement.dataset.pageType === 'shorts') {
-		const video = ImprovedTube.elements.shorts_player.querySelector('video')
-		video.removeAttribute('loop');
-		const observer = new MutationObserver((mutations) => {
-			mutations.forEach((mutation) => {
-				if (mutation.type === 'attributes' && mutation.attributeName === 'loop') {
-					video.removeAttribute('loop');
-				}
+		video = video || ImprovedTube.elements.shorts_player?.querySelector('video') || document.querySelector('#shorts-player video');
+		if (video) {
+			video.removeAttribute('loop');
+			if (video._loopObserver) {
+				video._loopObserver.disconnect();
+			}
+			const observer = new MutationObserver((mutations) => {
+				mutations.forEach((mutation) => {
+					if (mutation.type === 'attributes' && mutation.attributeName === 'loop') {
+						video.removeAttribute('loop');
+					}
+				});
 			});
-		});
-		observer.observe(video, { attributes: true });
+			observer.observe(video, { attributes: true });
+			video._loopObserver = observer;
+		}
 	}
-}
+};
 ImprovedTube.videoPageUpdate = function () {
 	if (document.documentElement.dataset.pageType === 'video') {
 		var video_id = this.getParam(new URL(location.href).search.substr(1), 'v');
@@ -416,6 +422,12 @@ ImprovedTube.playerOnPlay = function () {
 				
 				ImprovedTube.playerLoudnessNormalization();
 				ImprovedTube.playerCinemaModeEnable();
+
+				if (document.documentElement.dataset.pageType === 'shorts') {
+					if (ImprovedTube.storage.prevent_shorts_autoloop || ImprovedTube.storage.up_next_autoplay !== false) {
+						ImprovedTube.stop_shorts_autoloop(this);
+					}
+				}
 			}
 			return original.apply(this, arguments);
 		}
@@ -551,6 +563,14 @@ ImprovedTube.playerHideProgressPreview = function () {
 
 ImprovedTube.playerOnEnded = function (event) {
 	ImprovedTube.playlistUpNextAutoplay(event);
+
+	if (document.documentElement.dataset.pageType === 'shorts' && ImprovedTube.storage.up_next_autoplay !== false) {
+		const nextButton = document.querySelector('#navigation-button-down button') || 
+		                   document.querySelector('button[aria-label="Next video"]');
+		if (nextButton) {
+			nextButton.click();
+		}
+	}
 
 	ImprovedTube.messages.send({
 		action: 'analyzer',
