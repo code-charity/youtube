@@ -115,17 +115,28 @@ html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'] 
 /*--------------------------------------------------------------
 # RELATED VIDEO STYLES
 --------------------------------------------------------------*/
+html[it-full-titles='true'] #related .ytLockupMetadataViewModelTitle {display:unset;}
+
+/*quickly adding some yt-lockup-view-model & ytLockupViewModelContentImage selectors - #dismissible seems to be history.*/
+html[it-related-videos='Focus'] #related yt-lockup-view-model:not(.it-blocklisted-video):not(.ytd-reel-item-renderer),
 html[it-related-videos='Focus'] #related #dismissible:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) {opacity:0.8;  max-height:80px; overflow:hidden; margin-top:-1px;  transition: max-height 0.2s ease 0.15s;}
+html[it-related-videos='Focus'] #related yt-lockup-view-model:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) a.ytLockupViewModelContentImage,
 html[it-related-videos='Focus'] #related #dismissible:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) ytd-thumbnail {transform:scale(0.8); transform-origin: top; transition: all 0.2s ease 0.15s;}
 html[it-related-videos='Focus'] #related #dismissible:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) ytd-playlist-thumbnail {transform:scale(0.8); transform-origin: top; transition: all 0.2s ease 0.15s;}
+html[it-related-videos='Focus'] #related  yt-lockup-view-model:hover:not(.it-blocklisted-video):not(.ytd-reel-item-renderer),
 html[it-related-videos='Focus'] #related #dismissible:hover:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) {opacity: 1;  max-height: 100px; transition: max-height 0.3s ease 0.1s; margin-left: 0px !important}
+html[it-related-videos='Focus'] #related  yt-lockup-view-model:hover:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) a.ytLockupViewModelContentImage,
 html[it-related-videos='Focus'] #related #dismissible:hover:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) ytd-thumbnail {max-width: 170px; transform:scale(1); transition: all 0.3s ease 0.1s;}
 html[it-related-videos='Focus'] #related #dismissible:hover:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) ytd-playlist-thumbnail {max-width: 170px; transform:scale(1); transition: all 0.3s ease 0.1s;}
 
+html[it-related-videos='Titles'] #related yt-lockup-view-model:not(.ytd-reel-item-renderer),
 html[it-related-videos='Titles'] #related #dismissible:not(.ytd-reel-item-renderer) {opacity:0.8;  max-height:40px; overflow:hidden; margin-top:-1px;  transition: max-height 0.3s ease 0.1s;}
+html[it-related-videos='Titles'] #related yt-lockup-view-model:not(.ytd-reel-item-renderer) a.ytLockupViewModelContentImage,
 html[it-related-videos='Titles'] #related #dismissible:not(.ytd-reel-item-renderer) ytd-thumbnail {max-width: 0px; transition: max-width 0.4s ease 0.1s;}
 html[it-related-videos='Titles'] #related #dismissible:not(.ytd-reel-item-renderer) ytd-playlist-thumbnail {max-width: 0px; transition: max-width 0.4s ease 0.1s;}
+html[it-related-videos='Titles'] #related yt-lockup-view-model:hover:not(.ytd-reel-item-renderer),
 html[it-related-videos='Titles'] #related #dismissible:hover:not(.ytd-reel-item-renderer) {opacity: 1;  max-height: 100px; transition: max-height 0.3s ease 0.9s; margin-left: 0px !important}
+html[it-related-videos='Titles'] #related yt-lockup-view-model:hover:not(.ytd-reel-item-renderer) a.ytLockupViewModelContentImage,
 html[it-related-videos='Titles'] #related #dismissible:hover:not(.ytd-reel-item-renderer) ytd-thumbnail {max-width: 170px; transform:scale(1); transition: max-width 0.3s ease 0.9s;}
 html[it-related-videos='Titles'] #related #dismissible:hover:not(.ytd-reel-item-renderer) ytd-playlist-thumbnail {max-width: 170px; transform:scale(1); transition: max-width 0.3s ease 0.9s;}
 html[it-related-videos='Titles'] #related #dismissible #metadata {margin-top:-3px;}
