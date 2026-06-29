@@ -1056,6 +1056,10 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 					}
 				}
 			},
+			full_titles: {
+				component: "switch",
+				text: "dontShortenTitles"
+			},
 			sidebar_left: {
 				component: "switch",
 				text: "moveSidebarLeft"
