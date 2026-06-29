@@ -1,5 +1,5 @@
 {
-  "dontShortenTitles" { 	"message": "Full Video Titles (don't shorten)" },
+  "dontShortenTitles": { 	"message": "Full Video Titles (don't shorten)" },
 	 "preferredDubbingLanguage": {
 		"message": "Preferred dubbing language"
 	},
