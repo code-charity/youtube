@@ -2389,6 +2389,8 @@ ImprovedTube.redirectShortsToWatch = function () {
             // in YouTube's SPA without a full page reload, then fire a
             // yt-navigate-finish so YouTube re-renders the standard player.
             const newUrl = `${window.location.origin}/watch?v=${videoId}`;
+											// If there ever are parameters in the URL:
+									  // const newUrl = (() => { const u = new URL("/watch", window.location.origin); const p = new URLSearchParams(window.location.search); p.set("v", videoId); u.search = p.toString(); u.hash = window.location.hash; return u.toString(); })();
             if (window.location.href !== newUrl) {
                 console.log(`ImprovedTube: Redirecting Shorts to Watch: ${window.location.href} -> ${newUrl}`);
                 window.history.replaceState(window.history.state, '', newUrl);
@@ -2396,7 +2398,6 @@ ImprovedTube.redirectShortsToWatch = function () {
             }
         }
     }
-};
 
 // Re-run on every YouTube client-side navigation (Shorts swipe uses pushState)
 if (!window.__itShortsRedirectPatched__) {
@@ -2421,6 +2422,7 @@ if (!window.__itShortsRedirectPatched__) {
     window.addEventListener('popstate', function () {
         ImprovedTube.redirectShortsToWatch();
     });
+}
 }
 /*------------------------------------------------------------------------------
 YOUTUBE RETURN BUTTON IN FULLSCREEN
