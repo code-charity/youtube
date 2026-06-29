@@ -2383,17 +2383,51 @@ ImprovedTube.redirectShortsToWatch = function () {
     }
     const currentPath = window.location.pathname;
     if (currentPath.startsWith('/shorts/')) {
-        const videoId = currentPath.substring('/shorts/'.length); 
+        const videoId = currentPath.substring('/shorts/'.length);
         if (videoId) {
-            const newUrl = `${window.location.origin}/watch?v=${videoId}${window.location.search}`;
+            // Use history.replaceState instead of location.replace so we stay
+            // in YouTube's SPA without a full page reload, then fire a
+            // yt-navigate-finish so YouTube re-renders the standard player.
+            const newUrl = `${window.location.origin}/watch?v=${videoId}`;
+											// If there ever are parameters in the URL:
+									  // const newUrl = (() => { const u = new URL("/watch", window.location.origin); const p = new URLSearchParams(window.location.search); p.set("v", videoId); u.search = p.toString(); u.hash = window.location.hash; return u.toString(); })();
             if (window.location.href !== newUrl) {
                 console.log(`ImprovedTube: Redirecting Shorts to Watch: ${window.location.href} -> ${newUrl}`);
-                window.location.replace(newUrl); 
+                try {  
+																	window.history.replaceState(window.history.state, "", newUrl);
+																	window.dispatchEvent(new PopStateEvent("popstate", { state: window.history.state }));
+																} catch { 
+																	window.location.replace(newUrl);  
+																}
             }
         }
     }
-};
 
+// Re-run on every YouTube client-side navigation (Shorts swipe uses pushState)
+if (!window.__itShortsRedirectPatched__) {
+    window.__itShortsRedirectPatched__ = true;
+
+    const _push    = history.pushState.bind(history);
+    const _replace = history.replaceState.bind(history);
+
+    history.pushState = function (state, title, url) {
+        _push(state, title, url);
+        ImprovedTube.redirectShortsToWatch();
+    };
+
+    history.replaceState = function (state, title, url) {
+        _replace(state, title, url);
+        // Guard: don't recurse into our own replaceState call above
+        if (url && String(url).indexOf('/shorts/') !== -1) {
+            ImprovedTube.redirectShortsToWatch();
+        }
+    };
+
+    window.addEventListener('popstate', function () {
+        ImprovedTube.redirectShortsToWatch();
+    });
+}
+}
 /*------------------------------------------------------------------------------
 YOUTUBE RETURN BUTTON IN FULLSCREEN
 ------------------------------------------------------------------------------*/
