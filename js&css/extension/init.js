@@ -47,6 +47,7 @@ extension.events.on('init', function () {
 	extension.features.muteThumbnailPreviews();
 	extension.features.markWatchedVideos();
 	extension.features.relatedVideos();
+	extension.features.sidePanels();
 	extension.features.stickyNavigation();
 	extension.features.liveChat();
 	extension.features.comments();

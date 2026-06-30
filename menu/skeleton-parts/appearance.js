@@ -1145,6 +1145,22 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 			hide_sidebar: {
 				component: "switch",
 				text: 'Hide_sidebar'
+			},
+			side_panels: {
+				component: "select",
+				text: "sidePanels",
+				options: [{
+					text: "normal",
+					value: "normal"
+				}, {
+					text: "collapsed",
+					value: "collapsed"
+				}],
+				tags: "right"
+			},
+			side_panels_only_one_expanded: {
+				component: "switch",
+				text: "sidePanelsOnlyOneExpanded"
 			}
 		}
 	}

@@ -341,6 +341,44 @@ html[it-thumbnails-right='true'] #related ytd-compact-playlist-renderer ytd-thum
 }
 
 /*--------------------------------------------------------------
+# SIDE PANELS ACCORDION (issue #4020)
+--------------------------------------------------------------*/
+/* When a panel is marked collapsed, hide the body and only show the header. */
+#secondary #panels > [it-panel-collapsed] > :not(#header):not(#header-container):not(#title):not(.it-side-panel-collapsed-prompt),
+#playlist[it-panel-collapsed] > :not(#header):not(#header-container):not(#title):not(.it-side-panel-collapsed-prompt) {
+	display: none !important;
+}
+
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header-container,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #title,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #header-container,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #title {
+	cursor: pointer !important;
+}
+
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header-container,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #title,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #header-container,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #title {
+	background-color: var(--yt-spec-10-percent-layer, rgba(255,255,255,0.1)) !important;
+	border-radius: 8px !important;
+}
+
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header::after,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header-container::after,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #title::after,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #header-container::after,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #title::after {
+	content: 'Show' !important;
+	margin-left: auto !important;
+	padding-left: 8px !important;
+	color: var(--yt-spec-text-secondary, #aaa) !important;
+	font-size: 1.4rem !important;
+}
+
+/*--------------------------------------------------------------
 # STICKY NAVIGATION
 --------------------------------------------------------------*/
 /* Prevent left navigation from auto-hiding */
