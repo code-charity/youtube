@@ -1701,6 +1701,15 @@
   "smartSpeedWhitelisted": {
     "message": "Channel Whitelisted for Smart Speed!"
   },
+  "smartBufferManager": {
+    "message": "Smart Buffer Manager"
+  },
+  "smartBufferEnable": {
+    "message": "Enable Smart Buffer Manager"
+  },
+  "smartBufferCeilingSeconds": {
+    "message": "Buffer ceiling (seconds)"
+  },
   "autoVideoRecovery": {
   "message": "Auto video recovery"
   }
