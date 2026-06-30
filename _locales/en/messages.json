@@ -1407,6 +1407,12 @@
   "Sidebar_simple_alternative": {
     "message": "Sidebar (simple alternative)"
   },
+  "sidePanels": {
+    "message": "Side panels (Watch later, In this video, ...)"
+  },
+  "sidePanelsOnlyOneExpanded": {
+    "message": "Only one expanded at a time"
+  },
   "smartSpeed": {
     "message": "Speed up lesser-watched sections"
   },
