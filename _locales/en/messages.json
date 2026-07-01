@@ -1638,6 +1638,45 @@
   "withoutVideos": {
     "message": "'Empty', without video previews"
   },
+  "videoFilters": {
+    "message": "Video Filters"
+  },
+  "videoFiltersButton": {
+    "message": "Video Filters button"
+  },
+  "preset": {
+    "message": "Preset"
+  },
+  "vivid": {
+    "message": "Vivid"
+  },
+  "cinema": {
+    "message": "Cinema"
+  },
+  "warm": {
+    "message": "Warm"
+  },
+  "cool": {
+    "message": "Cool"
+  },
+  "brightness": {
+    "message": "Brightness"
+  },
+  "contrast": {
+    "message": "Contrast"
+  },
+  "saturation": {
+    "message": "Saturation"
+  },
+  "hue": {
+    "message": "Hue"
+  },
+  "sharpness": {
+    "message": "Sharpness"
+  },
+  "gamma": {
+    "message": "Gamma"
+  },
   "yellow": {
     "message": "Yellow"
   },
