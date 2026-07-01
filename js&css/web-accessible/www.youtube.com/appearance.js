@@ -1053,6 +1053,94 @@ ImprovedTube.disableLikesAnimation = function () {
 };
 
 /*------------------------------------------------------------------------------
+VIDEO FILTERS (BRIGHTNESS, CONTRAST, SATURATION, HUE, SHARPNESS, GAMMA)
+------------------------------------------------------------------------------*/
+ImprovedTube.videoFilters = function () {
+	const activate = this.storage.video_filters_activate !== false;
+	const preset = this.storage.video_filters_preset || 'custom';
+
+	let b = Number(this.storage.video_filter_brightness); if (!isFinite(b)) b = 100;
+	let c = Number(this.storage.video_filter_contrast); if (!isFinite(c)) c = 100;
+	let s = Number(this.storage.video_filter_saturation); if (!isFinite(s)) s = 100;
+	let h = Number(this.storage.video_filter_hue); if (!isFinite(h)) h = 0;
+	let sh = Number(this.storage.video_filter_sharpness); if (!isFinite(sh)) sh = 0;
+	let g = Number(this.storage.video_filter_gamma); if (!isFinite(g)) g = 1;
+
+	if (preset === 'vivid') {
+		b = 105; c = 115; s = 140; h = 0; sh = 1; g = 1;
+	} else if (preset === 'cinema') {
+		b = 95; c = 120; s = 85; h = 0; sh = 0.5; g = 1.1;
+	} else if (preset === 'warm') {
+		b = 100; c = 105; s = 115; h = -10; sh = 0; g = 1;
+	} else if (preset === 'cool') {
+		b = 102; c = 105; s = 105; h = 10; sh = 0; g = 1;
+	} else if (preset === 'normal') {
+		b = 100; c = 100; s = 100; h = 0; sh = 0; g = 1;
+	}
+
+	let styleEl = document.getElementById('it-video-filters-style');
+	let svgEl = document.getElementById('it-video-filters-svg');
+
+	if (!activate || (b === 100 && c === 100 && s === 100 && h === 0 && sh === 0 && g === 1)) {
+		if (styleEl) styleEl.remove();
+		if (svgEl) svgEl.remove();
+		const btn = document.querySelector('#it-video-filters-button');
+		if (btn) {
+			btn.style.opacity = '0.55';
+			btn.classList.remove('it-video-filters-active');
+		}
+		return;
+	}
+
+	if (!svgEl) {
+		svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		svgEl.id = 'it-video-filters-svg';
+		svgEl.style.cssText = 'position: absolute; width: 0; height: 0; pointer-events: none;';
+		document.documentElement.appendChild(svgEl);
+	}
+
+	let svgFilterUrl = '';
+
+	if (sh > 0 || g !== 1) {
+		svgFilterUrl = ' url(#it-video-filter)';
+		const center = (1 + 4 * sh).toFixed(2);
+		const neg = (-sh).toFixed(2);
+		const kernel = `0 ${neg} 0 ${neg} ${center} ${neg} 0 ${neg} 0`;
+		const exp = g > 0 ? (1 / g).toFixed(3) : 1;
+
+		svgEl.innerHTML = `
+			<filter id="it-video-filter">
+				${sh > 0 ? `<feConvolveMatrix order="3" preserveAlpha="true" kernelMatrix="${kernel}" result="sharp"/>` : ''}
+				${g !== 1 ? `
+					<feComponentTransfer ${sh > 0 ? 'in="sharp"' : ''}>
+						<feFuncR type="gamma" exponent="${exp}"/>
+						<feFuncG type="gamma" exponent="${exp}"/>
+						<feFuncB type="gamma" exponent="${exp}"/>
+					</feComponentTransfer>
+				` : ''}
+			</filter>
+		`;
+	} else {
+		svgEl.innerHTML = '';
+	}
+
+	if (!styleEl) {
+		styleEl = document.createElement('style');
+		styleEl.id = 'it-video-filters-style';
+		document.documentElement.appendChild(styleEl);
+	}
+
+	const filterCss = `brightness(${b}%) contrast(${c}%) saturate(${s}%) hue-rotate(${h}deg)${svgFilterUrl}`;
+	styleEl.textContent = `.html5-video-player video { filter: ${filterCss} !important; }`;
+
+	const btn = document.querySelector('#it-video-filters-button');
+	if (btn) {
+		btn.style.opacity = '1';
+		btn.classList.add('it-video-filters-active');
+	}
+};
+
+/*------------------------------------------------------------------------------
 CC (SUBTITLES) INDICATOR ON CHANNEL VIDEOS PAGE
 ------------------------------------------------------------------------------*/
 if (ImprovedTube.storage.cc_indicator === true) {

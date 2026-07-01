@@ -982,6 +982,55 @@ ImprovedTube.playerScreenshotButton = function () {
 		});
 	}
 };
+
+/*------------------------------------------------------------------------------
+VIDEO FILTERS BUTTON
+------------------------------------------------------------------------------*/
+ImprovedTube.playerVideoFiltersButton = function () {
+	if (this.storage.player_video_filters_button !== false) {
+		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+		path.setAttributeNS(null, 'd', 'M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z');
+
+		svg.appendChild(path);
+
+		const isActive = this.storage.video_filters_activate !== false && 
+			(this.storage.video_filters_preset !== 'normal' || 
+			 (Number(this.storage.video_filter_brightness) !== 100 && this.isset(this.storage.video_filter_brightness)) ||
+			 (Number(this.storage.video_filter_contrast) !== 100 && this.isset(this.storage.video_filter_contrast)) ||
+			 (Number(this.storage.video_filter_saturation) !== 100 && this.isset(this.storage.video_filter_saturation)) ||
+			 (Number(this.storage.video_filter_hue) !== 0 && this.isset(this.storage.video_filter_hue)) ||
+			 (Number(this.storage.video_filter_sharpness) > 0 && this.isset(this.storage.video_filter_sharpness)));
+
+		this.createPlayerButton({
+			id: 'it-video-filters-button',
+			child: svg,
+			opacity: isActive ? 1 : 0.55,
+			onclick: function (e) {
+				if (e.shiftKey) {
+					const presets = ['normal', 'vivid', 'cinema', 'warm', 'cool'];
+					let current = ImprovedTube.storage.video_filters_preset || 'normal';
+					let nextIdx = (presets.indexOf(current) + 1) % presets.length;
+					let nextPreset = presets[nextIdx];
+					ImprovedTube.storage.video_filters_preset = nextPreset;
+					ImprovedTube.storage.video_filters_activate = true;
+					ImprovedTube.messages.send({ action: 'set', key: 'video_filters_preset', value: nextPreset });
+					ImprovedTube.messages.send({ action: 'set', key: 'video_filters_activate', value: true });
+					ImprovedTube.videoFilters();
+					ImprovedTube.showStatus('Filter: ' + nextPreset.toUpperCase());
+				} else {
+					ImprovedTube.storage.video_filters_activate = ImprovedTube.storage.video_filters_activate === false ? true : false;
+					ImprovedTube.messages.send({ action: 'set', key: 'video_filters_activate', value: ImprovedTube.storage.video_filters_activate });
+					ImprovedTube.videoFilters();
+					ImprovedTube.showStatus('Filters: ' + (ImprovedTube.storage.video_filters_activate ? 'ON' : 'OFF'));
+				}
+			},
+			title: 'Video Filters (Click: Toggle, Shift+Click: Cycle Presets)'
+		});
+	}
+};
 /*------------------------------------------------------------------------------
 REPEAT
 -------------------------------------------------------------------------------*/
