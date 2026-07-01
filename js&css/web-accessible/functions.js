@@ -473,6 +473,8 @@ ImprovedTube.initPlayer = function () {
 		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }
 
 		ImprovedTube.playerPlaybackSpeedButton();
+		ImprovedTube.playerAudioOnlyButton();
+		ImprovedTube.playerAudioOnlyUpdate();
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();

@@ -87,6 +87,15 @@
   "appearance": {
     "message": "Appearance"
   },
+  "audioOnlyMode": {
+    "message": "Audio-only mode (hide video)"
+  },
+  "audioOnlyButton": {
+    "message": "Audio-only button"
+  },
+  "autoSwitchForMusic": {
+    "message": "Auto-switch for music category"
+  },
   "areYouSureYouWantToExportTheData": {
     "message": "Are you sure you want to export the data?"
   },
