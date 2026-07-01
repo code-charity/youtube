@@ -1101,9 +1101,6 @@
   "player_fit_to_win_button": {
     "message": "Fit to window"
   },
-  "player_playback_speed_button": {
-    "message": "Playback Speed Button"
-  },
   "player_rewind_and_forward_buttons": {
     "message": "Rewind/forward buttons"
   },

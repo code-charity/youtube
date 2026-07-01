@@ -1046,9 +1046,6 @@
     "player_fit_to_win_button": {
         "message": "播放器適合視窗按鈕" 
     },
-    "player_playback_speed_button": {
-        "message": "播放器播放速度按鈕" 
-    },
     "player_rewind_and_forward_buttons": {
         "message": "播放器快轉倒轉按鈕" 
     },
