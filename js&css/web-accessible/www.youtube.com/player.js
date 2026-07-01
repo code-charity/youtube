@@ -982,6 +982,126 @@ ImprovedTube.playerScreenshotButton = function () {
 		});
 	}
 };
+
+/*------------------------------------------------------------------------------
+AUDIO-ONLY MODE
+------------------------------------------------------------------------------*/
+ImprovedTube.isMusicVideo = function () {
+	const genre = document.querySelector('meta[itemprop=genre]')?.content || '';
+	if (genre === 'Music') return true;
+	try {
+		const microformat = JSON.parse(document.querySelector('#microformat script')?.textContent || '{}');
+		if (microformat.genre === 'Music' || microformat.category === 'Music') return true;
+	} catch (e) {}
+	const category = ImprovedTube.category || '';
+	if (category === 'Music') return true;
+	const author = document.querySelector('ytd-video-owner-renderer ytd-channel-name a')?.textContent?.trim() || '';
+	if (author && (/VEVO$/i.test(author) || / - Topic$/i.test(author))) return true;
+	return false;
+};
+
+ImprovedTube.playerAudioOnlyToggle = function () {
+	ImprovedTube.storage.player_audio_only = !ImprovedTube.storage.player_audio_only;
+	ImprovedTube.messages.send({
+		action: 'set',
+		key: 'player_audio_only',
+		value: ImprovedTube.storage.player_audio_only
+	});
+	ImprovedTube.playerAudioOnlyUpdate();
+};
+
+ImprovedTube.renderAudioOnlyOverlay = function () {
+	const playerContainer = ImprovedTube.elements.player || document.querySelector('#movie_player');
+	if (!playerContainer) return;
+
+	let overlay = document.querySelector('#it-audio-only-overlay');
+	if (!overlay) {
+		overlay = document.createElement('div');
+		overlay.id = 'it-audio-only-overlay';
+		playerContainer.insertBefore(overlay, playerContainer.firstChild);
+	}
+
+	const videoId = ImprovedTube.videoId();
+	const title = ImprovedTube.videoTitle() || 'Audio-Only Mode';
+	const author = document.querySelector('ytd-video-owner-renderer ytd-channel-name a')?.textContent?.trim() || '';
+	const thumbUrl = videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : '';
+
+	overlay.innerHTML = `
+		${thumbUrl ? `<img class="it-audio-only-bg" src="${thumbUrl}" alt="">` : ''}
+		<div class="it-audio-only-content">
+			${thumbUrl ? `<img class="it-audio-only-art" src="${thumbUrl}" alt="">` : ''}
+			<div class="it-audio-only-badge">
+				<svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+					<path d="M12 3a9 9 0 0 0-9 9v7c0 1.1.9 2 2 2h4v-8H5v-1a7 7 0 0 1 14 0v1h-4v8h4c1.1 0 2-.9 2-2v-7a9 9 0 0 0-9-9z"/>
+				</svg>
+				<span>Audio-Only Mode</span>
+			</div>
+			<div class="it-audio-only-title">${title}</div>
+			${author ? `<div class="it-audio-only-author">${author}</div>` : ''}
+		</div>
+	`;
+};
+
+ImprovedTube.playerAudioOnlyUpdate = function () {
+	const isActive = ImprovedTube.storage.player_audio_only === true || (ImprovedTube.storage.player_audio_only_auto_music === true && ImprovedTube.isMusicVideo());
+	
+	const btn = document.querySelector('#it-audio-only-button');
+	if (btn) {
+		btn.style.opacity = isActive ? '1' : '0.55';
+		btn.classList.toggle('it-audio-only-active', isActive);
+	}
+
+	if (isActive) {
+		document.documentElement.setAttribute('it-player-audio-only', 'true');
+		const player = ImprovedTube.elements.player || document.querySelector('#movie_player');
+		if (player && typeof player.setPlaybackQualityRange === 'function') {
+			if (!ImprovedTube._preAudioQuality) {
+				ImprovedTube._preAudioQuality = player.getPlaybackQuality?.() || 'default';
+			}
+			try {
+				player.setPlaybackQualityRange('tiny', 'tiny');
+				player.setPlaybackQuality('tiny');
+			} catch (e) {}
+		}
+		ImprovedTube.renderAudioOnlyOverlay();
+	} else {
+		document.documentElement.removeAttribute('it-player-audio-only');
+		const player = ImprovedTube.elements.player || document.querySelector('#movie_player');
+		if (player && ImprovedTube._preAudioQuality && ImprovedTube._preAudioQuality !== 'tiny') {
+			try {
+				player.setPlaybackQualityRange(ImprovedTube._preAudioQuality, ImprovedTube._preAudioQuality);
+				player.setPlaybackQuality(ImprovedTube._preAudioQuality);
+			} catch (e) {}
+			ImprovedTube._preAudioQuality = null;
+		}
+		const overlay = document.querySelector('#it-audio-only-overlay');
+		if (overlay) overlay.remove();
+	}
+};
+
+ImprovedTube.playerAudioOnlyButton = function () {
+	if (this.storage.player_audio_only_button !== false) {
+		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+		path.setAttributeNS(null, 'd', 'M12 3a9 9 0 0 0-9 9v7c0 1.1.9 2 2 2h4v-8H5v-1a7 7 0 0 1 14 0v1h-4v8h4c1.1 0 2-.9 2-2v-7a9 9 0 0 0-9-9z');
+
+		svg.appendChild(path);
+
+		const isActive = this.storage.player_audio_only === true || (this.storage.player_audio_only_auto_music === true && this.isMusicVideo());
+
+		this.createPlayerButton({
+			id: 'it-audio-only-button',
+			child: svg,
+			opacity: isActive ? 1 : 0.55,
+			onclick: function () {
+				ImprovedTube.playerAudioOnlyToggle();
+			},
+			title: 'Audio-Only Mode'
+		});
+	}
+};
 /*------------------------------------------------------------------------------
 REPEAT
 -------------------------------------------------------------------------------*/
