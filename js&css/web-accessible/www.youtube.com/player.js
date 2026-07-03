@@ -1217,20 +1217,10 @@ function createOverlay () {
 	overlay.style.left = '0';
 	overlay.style.width = '100%';
 	overlay.style.height = '100%';
-	// Issue #4003: a fully opaque overlay (rgba alpha = 1) renders the page
-	// as a blank screen whenever it lands above the player. Use a translucent
-	// dim so the video shows through even if z-index resolution puts the
-	// overlay on top, and let pointer events pass through to the player.
-	overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+	overlay.style.backgroundColor = 'rgba(0, 0, 0, 1)';
 	overlay.style.zIndex = '9999';
 	overlay.style.display = 'block';
-	overlay.style.pointerEvents = 'none';
-	// Issue #4003: append to document.body so the overlay lives in the root
-	// stacking context. YouTube occasionally applies transform/will-change to
-	// #full-bleed-container (and ancestors) which would otherwise turn this
-	// `position: fixed` overlay into a containing-block-relative box that
-	// ends up sitting above the player.
-	document.body.appendChild(overlay);
+	document.getElementById('full-bleed-container').appendChild(overlay);
 }
 
 ImprovedTube.playerCinemaModeButton = function () {
@@ -1321,10 +1311,9 @@ ImprovedTube.playerCinemaModeEnable = function () {
 	if (this.storage.player_auto_cinema_mode || this.storage.player_auto_hide_cinema_mode_when_paused) {
 
 		if ((/watch\?/.test(location.href))) {
-			// Issue #4003: bring the player to the front BEFORE the overlay
-			// is created. This guarantees that no DOM mutation between these
-			// two steps can ever leave the opaque overlay sitting above an
-			// unstyled player.
+			// Issue #4003: set the player's z-index above the overlay (9999)
+			// BEFORE creating the overlay, so the player is always on top
+			// of the curtain from the first paint frame.
 			var player = document.getElementById('player-full-bleed-container');
 			if (player) {
 				player.style.zIndex = 10000;
