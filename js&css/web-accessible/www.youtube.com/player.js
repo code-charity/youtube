@@ -1002,7 +1002,8 @@ ImprovedTube.playerVideoFiltersButton = function () {
 			 (Number(this.storage.video_filter_contrast) !== 100 && this.isset(this.storage.video_filter_contrast)) ||
 			 (Number(this.storage.video_filter_saturation) !== 100 && this.isset(this.storage.video_filter_saturation)) ||
 			 (Number(this.storage.video_filter_hue) !== 0 && this.isset(this.storage.video_filter_hue)) ||
-			 (Number(this.storage.video_filter_sharpness) > 0 && this.isset(this.storage.video_filter_sharpness)));
+			 (Number(this.storage.video_filter_sharpness) > 0 && this.isset(this.storage.video_filter_sharpness)) ||
+			 (Number(this.storage.video_filter_gamma) !== 1 && this.isset(this.storage.video_filter_gamma)));
 
 		this.createPlayerButton({
 			id: 'it-video-filters-button',

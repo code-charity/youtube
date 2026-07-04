@@ -1056,6 +1056,21 @@ ImprovedTube.disableLikesAnimation = function () {
 VIDEO FILTERS (BRIGHTNESS, CONTRAST, SATURATION, HUE, SHARPNESS, GAMMA)
 ------------------------------------------------------------------------------*/
 ImprovedTube.videoFilters = function () {
+	const isEnabled = this.storage.video_filters_activate !== false && (
+		this.storage.video_filters_activate === true ||
+		(this.storage.video_filters_preset && this.storage.video_filters_preset !== 'normal') ||
+		(this.isset(this.storage.video_filter_brightness) && Number(this.storage.video_filter_brightness) !== 100) ||
+		(this.isset(this.storage.video_filter_contrast) && Number(this.storage.video_filter_contrast) !== 100) ||
+		(this.isset(this.storage.video_filter_saturation) && Number(this.storage.video_filter_saturation) !== 100) ||
+		(this.isset(this.storage.video_filter_hue) && Number(this.storage.video_filter_hue) !== 0) ||
+		(this.isset(this.storage.video_filter_sharpness) && Number(this.storage.video_filter_sharpness) > 0) ||
+		(this.isset(this.storage.video_filter_gamma) && Number(this.storage.video_filter_gamma) !== 1)
+	);
+
+	if (!isEnabled && !document.getElementById('it-video-filters-style')) {
+		return;
+	}
+
 	const activate = this.storage.video_filters_activate !== false;
 	const preset = this.storage.video_filters_preset || 'custom';
 
