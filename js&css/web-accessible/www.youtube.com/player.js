@@ -1207,24 +1207,17 @@ FIT-TO-WIN BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerFitToWinButton = function () {
 	if (this.storage.player_fit_to_win_button === true && (/watch\?/.test(location.href))) {
-	let tempContainer = document.createElement("div");
-	let svg;
-	if (typeof trustedTypes !== 'undefined' && typeof trustedTypes.createPolicy === 'function') {
-		// Create a Trusted Type policy
-		const policy = trustedTypes.createPolicy('default', {
-			createHTML: (string) => string,
-		});
-
-		// Use the policy to set innerHTML
-		tempContainer.innerHTML = policy.createHTML(`
-		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
-		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`);
-
-		// Ensure the SVG element is correctly parsed
-        	svg = tempContainer.querySelector('svg');
-	} else {tempContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="ftw-icon">
- 		<path d="M21 3 9 15"/><path d="M12 3H3v18h18v-9"/><path d="M16 3h5v5"/><path d="M14 15H9v-5"/></svg>`;
-		svg = tempContainer.firstChild;}
+		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		svg.setAttribute('width', '24');
+		svg.setAttribute('height', '24');
+		svg.setAttribute('viewBox', '0 0 24 24');
+		svg.setAttribute('fill', 'none');
+		svg.setAttribute('stroke', 'currentColor');
+		svg.setAttribute('stroke-width', '2');
+		svg.setAttribute('id', 'ftw-icon');
+		path.setAttribute('d', 'M21 3 9 15 M12 3H3v18h18v-9 M16 3h5v5 M14 15H9v-5');
+		svg.appendChild(path);
 		this.createPlayerButton({
 			id: 'it-fit-to-win-player-button',
 			child: svg,
@@ -2433,51 +2426,17 @@ ImprovedTube.redirectShortsToWatch = function () {
     }
     const currentPath = window.location.pathname;
     if (currentPath.startsWith('/shorts/')) {
-        const videoId = currentPath.substring('/shorts/'.length);
+        const videoId = currentPath.substring('/shorts/'.length); 
         if (videoId) {
-            // Use history.replaceState instead of location.replace so we stay
-            // in YouTube's SPA without a full page reload, then fire a
-            // yt-navigate-finish so YouTube re-renders the standard player.
-            const newUrl = `${window.location.origin}/watch?v=${videoId}`;
-											// If there ever are parameters in the URL:
-									  // const newUrl = (() => { const u = new URL("/watch", window.location.origin); const p = new URLSearchParams(window.location.search); p.set("v", videoId); u.search = p.toString(); u.hash = window.location.hash; return u.toString(); })();
+            const newUrl = `${window.location.origin}/watch?v=${videoId}${window.location.search}`;
             if (window.location.href !== newUrl) {
                 console.log(`ImprovedTube: Redirecting Shorts to Watch: ${window.location.href} -> ${newUrl}`);
-                try {  
-																	window.history.replaceState(window.history.state, "", newUrl);
-																	window.dispatchEvent(new PopStateEvent("popstate", { state: window.history.state }));
-																} catch { 
-																	window.location.replace(newUrl);  
-																}
+                window.location.replace(newUrl); 
             }
         }
     }
+};
 
-// Re-run on every YouTube client-side navigation (Shorts swipe uses pushState)
-if (!window.__itShortsRedirectPatched__) {
-    window.__itShortsRedirectPatched__ = true;
-
-    const _push    = history.pushState.bind(history);
-    const _replace = history.replaceState.bind(history);
-
-    history.pushState = function (state, title, url) {
-        _push(state, title, url);
-        ImprovedTube.redirectShortsToWatch();
-    };
-
-    history.replaceState = function (state, title, url) {
-        _replace(state, title, url);
-        // Guard: don't recurse into our own replaceState call above
-        if (url && String(url).indexOf('/shorts/') !== -1) {
-            ImprovedTube.redirectShortsToWatch();
-        }
-    };
-
-    window.addEventListener('popstate', function () {
-        ImprovedTube.redirectShortsToWatch();
-    });
-}
-}
 /*------------------------------------------------------------------------------
 YOUTUBE RETURN BUTTON IN FULLSCREEN
 ------------------------------------------------------------------------------*/

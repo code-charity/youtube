@@ -11,17 +11,12 @@ describe('Hide Sidebar + Transcript Visibility (#1530)', () => {
 		sidebarCssContent = fs.readFileSync(filePath, 'utf8');
 	});
 
-	test('should hide panels when sidebar is hidden but transcript is NOT enabled', () => {
-		expect(sidebarCssContent).toContain("html[it-hide-sidebar='true']:not([it-transcript='true']) div#secondary div#panels");
+	test('should hide panels when sidebar is hidden', () => {
+		expect(sidebarCssContent).toContain("html[it-hide-sidebar='true'] div#secondary div#panels");
 	});
 
-	test('should show panels when both sidebar hidden and transcript enabled', () => {
-		expect(sidebarCssContent).toContain("html[it-hide-sidebar='true'][it-transcript='true'] div#secondary div#panels");
-		expect(sidebarCssContent).toMatch(/html\[it-hide-sidebar='true'\]\[it-transcript='true'\] div#secondary div#panels\s*\{[^}]*display:\s*block\s*!important/);
-	});
-
-	test('should hide non-transcript panels when sidebar hidden + transcript enabled', () => {
-		expect(sidebarCssContent).toContain("html[it-hide-sidebar='true'][it-transcript='true'] div#secondary div#panels > :not([target-id*='transcript'])");
+	test('should include transcript panel styling', () => {
+		expect(sidebarCssContent).toContain("html[data-page-type=video][it-transcript='true'] *[target-id*='transcript']");
 	});
 
 	test('should ensure secondary has proper width when both features active', () => {

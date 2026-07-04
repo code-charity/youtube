@@ -2371,3 +2371,10 @@ html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd
 html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item])[is-empty] {
     display: none !important;
 }
+
+html[it-theme=dark] [dark],
+html[it-theme=dark]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
+html[it-theme=dark][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=dark][data-system-color-scheme=light][it-schedule=system_peference_light] { 
+.it-add-channel-to-blocklist { 	--yt-spec-text-secondary: #aaa !important; }
+}
