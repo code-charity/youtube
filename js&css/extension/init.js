@@ -78,6 +78,7 @@ const pageWorldFiles = [
 	'/js&css/web-accessible/functions.js',
 	'/js&css/web-accessible/www.youtube.com/appearance.js',
 	'/js&css/web-accessible/www.youtube.com/themes.js',
+	'/js&css/web-accessible/www.youtube.com/video-metadata.js',
 	'/js&css/web-accessible/www.youtube.com/player.js',
 	'/js&css/web-accessible/www.youtube.com/playlist.js',
 	'/js&css/web-accessible/www.youtube.com/playlist-complete-playlist.js',
