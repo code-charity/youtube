@@ -1926,6 +1926,164 @@ ImprovedTube.playerHideProgressPreview = function () {
 	}
 };
 
+/*------------------------------------------------------------------------------
+Double-tap Seek
+------------------------------------------------------------------------------*/
+ImprovedTube.playerDoubleTapSeek = function () {
+	var mode = this.storage.player_double_tap_seek;
+	var listenerOptions = {
+		capture: true,
+		passive: false
+	};
+
+	if (this.playerDoubleTapSeekHandler) {
+		document.removeEventListener('touchend', this.playerDoubleTapSeekHandler, true);
+		this.playerDoubleTapSeekHandler = null;
+	}
+
+	if (!mode || mode === 'default') {
+		this.playerDoubleTapSeekState = null;
+		return;
+	}
+
+	var readSeconds = function (key, fallback) {
+		var value = Number(ImprovedTube.storage[key]);
+
+		return Number.isFinite(value) && value > 0 ? value : fallback;
+	};
+
+	var resetState = function (tap) {
+		ImprovedTube.playerDoubleTapSeekState = {
+			lastTapTime: tap.time,
+			lastTapSide: tap.side,
+			tapCount: 1,
+			appliedSeconds: 0
+		};
+	};
+
+	var getDesiredSeconds = function (tapCount) {
+		if (mode === 'fixed') {
+			return readSeconds('player_double_tap_seek_seconds', 10) * (tapCount - 1);
+		}
+
+		var doubleTapSeconds = readSeconds('player_double_tap_seek_double', 10);
+		var tripleTapSeconds = readSeconds('player_double_tap_seek_triple', 20);
+		var quadrupleTapSeconds = readSeconds('player_double_tap_seek_quadruple', 30);
+		var extraTapSeconds = readSeconds('player_double_tap_seek_extra', 10);
+
+		if (tapCount === 2) {
+			return doubleTapSeconds;
+		} else if (tapCount === 3) {
+			return tripleTapSeconds;
+		} else if (tapCount === 4) {
+			return quadrupleTapSeconds;
+		}
+
+		return quadrupleTapSeconds + extraTapSeconds * (tapCount - 4);
+	};
+
+	var seekBy = function (seconds, side) {
+		var player = ImprovedTube.elements.player;
+		var video = player && player.querySelector('video');
+		var direction = side === 'left' ? -1 : 1;
+		var signedSeconds = seconds * direction;
+
+		if (!player) {
+			return;
+		}
+
+		if (typeof player.seekBy === 'function') {
+			player.seekBy(signedSeconds);
+			return;
+		}
+
+		if (typeof player.getCurrentTime !== 'function' && !video) {
+			return;
+		}
+
+		var currentTime = typeof player.getCurrentTime === 'function' ? player.getCurrentTime() : video.currentTime;
+		var duration = typeof player.getDuration === 'function' ? player.getDuration() : video.duration;
+		var targetTime = currentTime + signedSeconds;
+
+		if (!Number.isFinite(currentTime)) {
+			return;
+		}
+
+		if (Number.isFinite(duration) && duration > 0) {
+			targetTime = Math.min(duration, Math.max(0, targetTime));
+		} else {
+			targetTime = Math.max(0, targetTime);
+		}
+
+		if (typeof player.seekTo === 'function') {
+			player.seekTo(targetTime, true);
+		} else if (video) {
+			video.currentTime = targetTime;
+		}
+	};
+
+	this.playerDoubleTapSeekHandler = function (event) {
+		var player = ImprovedTube.elements.player;
+		var target = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
+		var touch = event.changedTouches && event.changedTouches[0];
+
+		if (!player || !target || !touch || !player.contains(target) || player.classList.contains('ad-showing')) {
+			return;
+		}
+
+		if (target.closest && target.closest('.ytp-chrome-bottom, .ytp-progress-bar-container, .ytp-tooltip, button, a, input, textarea, select, [role="button"]')) {
+			return;
+		}
+
+		var rect = player.getBoundingClientRect();
+		var x = touch.clientX - rect.left;
+		var middleStart = rect.width * 0.35;
+		var middleEnd = rect.width * 0.65;
+
+		if (x > middleStart && x < middleEnd) {
+			ImprovedTube.playerDoubleTapSeekState = null;
+			return;
+		}
+
+		var tap = {
+			time: Date.now(),
+			side: x < middleStart ? 'left' : 'right'
+		};
+		var state = ImprovedTube.playerDoubleTapSeekState;
+
+		if (!state || tap.time - state.lastTapTime > 500 || tap.side !== state.lastTapSide) {
+			resetState(tap);
+			return;
+		}
+
+		state.lastTapTime = tap.time;
+		state.tapCount++;
+
+		var desiredSeconds = Math.max(getDesiredSeconds(state.tapCount), state.appliedSeconds);
+		var seekSeconds = desiredSeconds - state.appliedSeconds;
+
+		state.appliedSeconds = desiredSeconds;
+
+		if (seekSeconds <= 0) {
+			return;
+		}
+
+		if (event.cancelable) {
+			event.preventDefault();
+		}
+
+		event.stopPropagation();
+
+		if (typeof event.stopImmediatePropagation === 'function') {
+			event.stopImmediatePropagation();
+		}
+
+		seekBy(seekSeconds, tap.side);
+	};
+
+	document.addEventListener('touchend', this.playerDoubleTapSeekHandler, listenerOptions);
+};
+
 
 /*------------------------------------------------------------------------------
 Rewind and Forward Buttons
