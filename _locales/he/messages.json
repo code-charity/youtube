@@ -1,46 +1,4 @@
-{   
-    "qualityWhenRunningOnBattery":{
-        "message": "איכות, כאשר פועל על סוללה"
-    },
-    "pauseWhileIUnplugTheCharger":{
-        "message": "השהה כאשר אני מנתק את המטען" 
-    },
-    "whenBatteryIslowDecreaseQuality":{
-        "message": "סוללה חלשה: הורד את האיכות"
-    },
-    "analytics": {
-        "message": "אנליטיקה"
-    }, 
-    "purchase": {
-        "message": "קנה"
-    },    
-    "join": {
-        "message": "הצטרף"
-    },  
-    "improvedTubeSidePanel": {
-        "message": "ImprovedTube: לוח צד של הדפדפן"
-    },
-    "cursorLighting": {
-        "message": "עמעם את דפי היוטיוב חוץ ממה שאני עובר מעליו עם העכבר!"
-    },
-    "youtubesLight": {
-        "message": "האור של יוטיוב"
-    },
-    "popupAd": {
-        "message": "פרסומת קופצת: הסתר"
-    },
-    "hideWatchedVideos": {
-        "message": "הסתר סרטונים שנצפו"
-    },
-    "ambientLighting": {
-        "message": "תאורה סביבתית"
-    },
-    "undoTheNewSidebar": {
-        "message": "בטל את שורת הצד החדשה!"
-    },
-    "hideLogo": {
-        "message": "לוגו: הסתר!"
-    },
+{
     "about": {
         "message": "על"
     },
@@ -101,6 +59,12 @@
     "amber": {
         "message": "חום"
     },
+    "ambientLighting": {
+        "message": "תאורה סביבתית"
+    },
+    "analytics": {
+        "message": "אנליטיקה"
+    },
     "analyzer": {
         "message": "אנליזר"
     },
@@ -149,15 +113,8 @@
     "auto": {
         "message": "אוטומטי"
     },
-
     "Auto_PiP_picture_in_picture": {
         "message": "תמונה בתמונה אוֹטוֹמָטִי"
-    },
-    "playerAutoPipOutside": {
-        "message": "תמונה בתמונה אוֹטוֹמָטִי only outside source Tab"
-    },
-    "PipRequiresUserInteraction": {
-        "message": "תמונה בתמונה דורשת אינטראקציה של משתמש עם עמוד המקור. אלה מגבלות ממשק תכנות היישומים של Chrome ואנחנו לא יכולים לעשות שום דבר כדי לעקוף את זה. עובד הכי טוב עם הפסקת אוטופלי ועם שליטה ידנית על ההפעלה או לחיצה מכוונת במקום כלשהו בעמוד לפני המעבר בין הכרטיסיות."
     },
     "autoFullscreen": {
         "message": "מסך מלא אוטומטי"
@@ -326,6 +283,9 @@
     },
     "Currently_requiring_a_YouTube_API_key": {
         "message": "(נדרש מפתח API של YouTube: )"
+    },
+    "cursorLighting": {
+        "message": "עמעם את דפי היוטיוב חוץ ממה שאני עובר מעליו עם העכבר!"
     },
     "custom": {
         "message": "מותאם אישית"
@@ -513,8 +473,8 @@
     "forcedPlaybackSpeed": {
         "message": "מהירות צפייה: מהירות קבועה"
     },
-   "forcedPlaybackSpeedMusic": {
-    "message": "(כפה מהירות הפעלה גם למוזיקה?)"
+    "forcedPlaybackSpeedMusic": {
+        "message": "(כפה מהירות הפעלה גם למוזיקה?)"
     },
     "forcedPlayVideoFromTheBeginning": {
         "message": "כפה על הסרטון להתחיל מההתחלה"
@@ -648,6 +608,9 @@
     "hideHomePageShorts": {
         "message": "הסר Shorts מהדף הראשי"
     },
+    "hideLogo": {
+        "message": "לוגו: הסתר!"
+    },
     "hideMore": {
         "message": "הסתר '...' "
     },
@@ -689,6 +652,9 @@
     },
     "hideVoiceSearchButton": {
         "message": "הסתר כפתור חיפוש קולי"
+    },
+    "hideWatchedVideos": {
+        "message": "הסתר סרטונים שנצפו"
     },
     "high": {
         "message": "גבוה"
@@ -732,6 +698,9 @@
     "improvedtubeLanguage": {
         "message": "שפה של ImprovedTube"
     },
+    "improvedTubeSidePanel": {
+        "message": "ImprovedTube: לוח צד של הדפדפן"
+    },
     "improvedtubeVersion": {
         "message": "גרסת ImprovedTube"
     },
@@ -749,6 +718,9 @@
     },
     "items": {
         "message": "פריטים"
+    },
+    "join": {
+        "message": "הצטרף"
     },
     "language": {
         "message": "שפה"
@@ -838,7 +810,7 @@
         "message": "תמונות ממוזערות ימינה!"
     },
     "My_specs": {
-    "message": "המאפיינים שלי"
+        "message": "המאפיינים שלי"
     },
     "myColors": {
         "message": "הצבעים שלי"
@@ -924,6 +896,12 @@
     "overlay": {
         "message": "שכבת על"
     },
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "הפסק כאשר אני מקליד ביוטיוב"
+    },
+    "pauseWhileIUnplugTheCharger": {
+        "message": "השהה כאשר אני מנתק את המטען"
+    },
     "permissions": {
         "message": "הרשאות"
     },
@@ -932,6 +910,9 @@
     },
     "pink": {
         "message": "ורוד"
+    },
+    "PipRequiresUserInteraction": {
+        "message": "תמונה בתמונה דורשת אינטראקציה של משתמש עם עמוד המקור. אלה מגבלות ממשק תכנות היישומים של Chrome ואנחנו לא יכולים לעשות שום דבר כדי לעקוף את זה. עובד הכי טוב עם הפסקת אוטופלי ועם שליטה ידנית על ההפעלה או לחיצה מכוונת במקום כלשהו בעמוד לפני המעבר בין הכרטיסיות."
     },
     "plain": {
         "message": "פשוט"
@@ -948,23 +929,26 @@
     "player": {
         "message": "נגן"
     },
+    "player_auto_cinema_mode": {
+        "message": "מצב קולנוע אוטומטי"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "הסתרת מצב קולנוע אוטומטית בהפסקה"
+    },
+    "player_cinema_mode_button": {
+        "message": "מצב קולנוע"
+    },
     "player_dont_speed_education": {
         "message": "אל תזרז את הקטגוריה (הנדירה): חינוך"
     },
     "player_fit_to_win_button": {
         "message": "התאמה לחלון"
     },
-    "player_cinema_mode_button": {
-        "message": "מצב קולנוע"
-    },
-    "player_auto_hide_cinema_mode_when_paused": {
-        "message": "הסתרת מצב קולנוע אוטומטית בהפסקה"
-    },
-    "player_auto_cinema_mode": {
-        "message": "מצב קולנוע אוטומטי"
-    },
     "player_rotate_button": {
         "message": "סובב וידאו"
+    },
+    "playerAutoPipOutside": {
+        "message": "תמונה בתמונה אוֹטוֹמָטִי only outside source Tab"
     },
     "playerColor": {
         "message": "צבע פס ההתקדמות"
@@ -980,6 +964,9 @@
     },
     "playPause": {
         "message": "נגן / הפסק"
+    },
+    "popupAd": {
+        "message": "פרסומת קופצת: הסתר"
     },
     "popupPlayer": {
         "message": "נגן פופ-אפ"
@@ -1005,6 +992,9 @@
     "pullSyncSettings": {
         "message": "משוך"
     },
+    "purchase": {
+        "message": "קנה"
+    },
     "purple": {
         "message": "סגול"
     },
@@ -1013,6 +1003,9 @@
     },
     "quality": {
         "message": "איכות"
+    },
+    "qualityWhenRunningOnBattery": {
+        "message": "איכות, כאשר פועל על סוללה"
     },
     "qualityWithoutFocus": {
         "message": "איכות ללא מיקוד"
@@ -1061,6 +1054,9 @@
     },
     "removeShortsReelSearchResults": {
         "message": "הסר את סרטוני ה-Shorts מתוצאות החיפוש"
+    },
+    "RemoveSubtitlesForLyrics": {
+        "message": "הסר כתוביות עבור מילות השיר"
     },
     "repeat": {
         "message": "חזור"
@@ -1209,9 +1205,6 @@
     "subtitles": {
         "message": "כתוביות"
     },
-    "RemoveSubtitlesForLyrics": {
-        "message": "הסר כתוביות עבור מילות השיר"
-    },
     "sunset": {
         "message": "שקיעה"
     },
@@ -1308,6 +1301,9 @@
     "type": {
         "message": "סוג"
     },
+    "undoTheNewSidebar": {
+        "message": "בטל את שורת הצד החדשה!"
+    },
     "upNextAutoplay": {
         "message": "הפעלת אוטומטית של הבא בתור"
     },
@@ -1343,6 +1339,9 @@
     },
     "watchTime": {
         "message": "זמן צפייה"
+    },
+    "whenBatteryIslowDecreaseQuality": {
+        "message": "סוללה חלשה: הורד את האיכות"
     },
     "whenPaused": {
         "message": "כאשר הוידאו מושהה"
@@ -1389,7 +1388,7 @@
     "youtubesDark": {
         "message": "יוטיוב כהה"
     },
-    "pauseWhileIAmTypingOnYouTube": {
-        "message": "הפסק כאשר אני מקליד ביוטיוב"
+    "youtubesLight": {
+        "message": "האור של יוטיוב"
     }
 }

@@ -115,17 +115,28 @@ html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'] 
 /*--------------------------------------------------------------
 # RELATED VIDEO STYLES
 --------------------------------------------------------------*/
+html[it-full-titles='true'] #related .ytLockupMetadataViewModelTitle {display:unset;}
+
+/*quickly adding some yt-lockup-view-model & ytLockupViewModelContentImage selectors - #dismissible seems to be history.*/
+html[it-related-videos='Focus'] #related yt-lockup-view-model:not(.it-blocklisted-video):not(.ytd-reel-item-renderer),
 html[it-related-videos='Focus'] #related #dismissible:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) {opacity:0.8;  max-height:80px; overflow:hidden; margin-top:-1px;  transition: max-height 0.2s ease 0.15s;}
+html[it-related-videos='Focus'] #related yt-lockup-view-model:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) a.ytLockupViewModelContentImage,
 html[it-related-videos='Focus'] #related #dismissible:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) ytd-thumbnail {transform:scale(0.8); transform-origin: top; transition: all 0.2s ease 0.15s;}
 html[it-related-videos='Focus'] #related #dismissible:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) ytd-playlist-thumbnail {transform:scale(0.8); transform-origin: top; transition: all 0.2s ease 0.15s;}
+html[it-related-videos='Focus'] #related  yt-lockup-view-model:hover:not(.it-blocklisted-video):not(.ytd-reel-item-renderer),
 html[it-related-videos='Focus'] #related #dismissible:hover:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) {opacity: 1;  max-height: 100px; transition: max-height 0.3s ease 0.1s; margin-left: 0px !important}
+html[it-related-videos='Focus'] #related  yt-lockup-view-model:hover:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) a.ytLockupViewModelContentImage,
 html[it-related-videos='Focus'] #related #dismissible:hover:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) ytd-thumbnail {max-width: 170px; transform:scale(1); transition: all 0.3s ease 0.1s;}
 html[it-related-videos='Focus'] #related #dismissible:hover:not(.it-blocklisted-video):not(.ytd-reel-item-renderer) ytd-playlist-thumbnail {max-width: 170px; transform:scale(1); transition: all 0.3s ease 0.1s;}
 
+html[it-related-videos='Titles'] #related yt-lockup-view-model:not(.ytd-reel-item-renderer),
 html[it-related-videos='Titles'] #related #dismissible:not(.ytd-reel-item-renderer) {opacity:0.8;  max-height:40px; overflow:hidden; margin-top:-1px;  transition: max-height 0.3s ease 0.1s;}
+html[it-related-videos='Titles'] #related yt-lockup-view-model:not(.ytd-reel-item-renderer) a.ytLockupViewModelContentImage,
 html[it-related-videos='Titles'] #related #dismissible:not(.ytd-reel-item-renderer) ytd-thumbnail {max-width: 0px; transition: max-width 0.4s ease 0.1s;}
 html[it-related-videos='Titles'] #related #dismissible:not(.ytd-reel-item-renderer) ytd-playlist-thumbnail {max-width: 0px; transition: max-width 0.4s ease 0.1s;}
+html[it-related-videos='Titles'] #related yt-lockup-view-model:hover:not(.ytd-reel-item-renderer),
 html[it-related-videos='Titles'] #related #dismissible:hover:not(.ytd-reel-item-renderer) {opacity: 1;  max-height: 100px; transition: max-height 0.3s ease 0.9s; margin-left: 0px !important}
+html[it-related-videos='Titles'] #related yt-lockup-view-model:hover:not(.ytd-reel-item-renderer) a.ytLockupViewModelContentImage,
 html[it-related-videos='Titles'] #related #dismissible:hover:not(.ytd-reel-item-renderer) ytd-thumbnail {max-width: 170px; transform:scale(1); transition: max-width 0.3s ease 0.9s;}
 html[it-related-videos='Titles'] #related #dismissible:hover:not(.ytd-reel-item-renderer) ytd-playlist-thumbnail {max-width: 170px; transform:scale(1); transition: max-width 0.3s ease 0.9s;}
 html[it-related-videos='Titles'] #related #dismissible #metadata {margin-top:-3px;}
@@ -142,11 +153,56 @@ html[it-hide-shorts-remixing='true'] #related ytd-reel-shelf-renderer,
 --------------------------------------------------------------*/
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-thumbnail,
 html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
+/*update Aug 22th 2025 by @JadonDn:*/ html[it-thumbnails-hide='true'] ytd-watch-next-secondary-results-renderer .yt-lockup-view-model-wiz__content-image,
 /*--------------------------------------------------------------
 # LIVECHAT
 --------------------------------------------------------------*/
-html[it-livechat='hidden'] ytd-live-chat-frame#chat,
-html[it-livechat='hidden'] ytd-watch-flexy[fixed-panels] #panels-full-bleed-container,
+html[it-livechat='hidden'] ytd-live-chat-frame#chat {
+	  display: none !important;
+}
+html[it-livechat='collapsed'] #chat-container:not([it-activated])::before {
+	content: 'Show live chat' !important;
+}
+
+html[it-livechat='collapsed'] #chat-container[it-activated]::before {
+	content: 'Collapse live chat' !important;
+}
+
+html[it-livechat='collapsed'] #chat-container::before {
+	font-family: inherit !important;
+	font-size: 1.6rem !important;
+	font-weight: 400 !important;
+
+	display: flex !important;
+
+	width: 100% !important;
+	height: 48px !important;
+	margin: 0 !important;
+
+	color: var(--yt-spec-text-primary) !important;
+	border-bottom: 1px solid var(--yt-spec-10-percent-layer) !important;
+
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+html[it-livechat='collapsed'] #chat-container:not([it-activated]) > ytd-live-chat-frame#chat {
+	display: none !important;
+}
+
+html[it-livechat='collapsed'][it-livechat='hidden'] ytd-live-chat-frame#chat {
+  display: none !important;
+}
+
+html[it-livechat='collapsed'] 
+#chat-container:not([it-activated])::before, 
+#chat-container[it-activated]::before {
+	background-color: #272727 !important;
+	border-radius: 8px !important;
+	cursor: pointer;
+}
+
+
 /*--------------------------------------------------------------
 # HIDE PLAYLIST
 --------------------------------------------------------------*/
@@ -165,6 +221,16 @@ html[it-hide-sidebar='true'] #related > ytd-watch-next-secondary-results-rendere
 html[it-hide-sidebar='true'] div#secondary div#panels,
 html[it-hide-sidebar='true'] div#secondary div#donation-shelf {
 	display: none !important
+}
+/* #1530 */
+html[it-hide-sidebar='true'] div#secondary div#panels > *([target-id*='transcript']),
+html[it-hide-sidebar='true'] div#secondary div#panels > *([target-id*='chapters']) {
+	display: block !important
+}
+/* Ensure secondary has enough width for the transcript panel */
+html[it-hide-sidebar='true'][it-transcript='true'] ytd-watch-flexy[flexy] #secondary.ytd-watch-flexy {
+	width: fit-content !important;
+	min-width: max(445px, 17vw) !important
 }
 
 html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-renderer > #items:not([it-activated])::before {
@@ -243,6 +309,17 @@ html[data-page-type=video][it-no-page-margin='true'] ytd-browse > ytd-two-column
 }
 
 /*--------------------------------------------------------------
+# DISABLE SIDEBAR SCROLL
+--------------------------------------------------------------*/
+html[data-page-type=video][it-disable-sidebar-scroll='true']:not([it-comments-sidebar='true']) #secondary,
+html[data-page-type=video][it-disable-sidebar-scroll='true']:not([it-comments-sidebar='true']) #secondary-inner {
+	position: static !important;
+	overflow-y: visible !important;
+	max-height: none !important;
+	height: auto !important;
+}
+
+/*--------------------------------------------------------------
 # MOVE SIDEBAR LEFT
 --------------------------------------------------------------*/
 html[data-page-type=video][it-sidebar-left='true'] #columns>#primary,
@@ -255,9 +332,111 @@ html[data-page-type=video][it-sidebar-left='true'] #columns>#secondary>#related 
 /*--------------------------------------------------------------
 # MOVE THUMBNAILS RIGHT
 --------------------------------------------------------------*/
+/* Move thumbnails to the right for video suggestions */
 html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-renderer ytd-thumbnail,
 html[it-thumbnails-right='true'] #related .modern-collection-parent,
-html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail {
+html[it-thumbnails-right='true'] #related ytd-watch-next-secondary-results-renderer ytd-playlist-thumbnail,
+html[it-thumbnails-right='true'] #related ytd-compact-playlist-renderer ytd-thumbnail {
 	order: 5 !important;
 }
+
+/*--------------------------------------------------------------
+# SIDE PANELS ACCORDION (issue #4020)
+--------------------------------------------------------------*/
+/* When a panel is marked collapsed, hide the body and only show the header. */
+#secondary #panels > [it-panel-collapsed] > :not(#header):not(#header-container):not(#title):not(.it-side-panel-collapsed-prompt),
+#playlist[it-panel-collapsed] > :not(#header):not(#header-container):not(#title):not(.it-side-panel-collapsed-prompt) {
+	display: none !important;
+}
+
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header-container,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #title,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #header-container,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #title {
+	cursor: pointer !important;
+}
+
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header-container,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #title,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #header-container,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #title {
+	background-color: var(--yt-spec-10-percent-layer, rgba(255,255,255,0.1)) !important;
+	border-radius: 8px !important;
+}
+
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header::after,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #header-container::after,
+html[it-side-panels='collapsed'] #secondary #panels > [it-panel-collapsed] > #title::after,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #header-container::after,
+html[it-side-panels='collapsed'] #playlist[it-panel-collapsed] > #title::after {
+	content: 'Show' !important;
+	margin-left: auto !important;
+	padding-left: 8px !important;
+	color: var(--yt-spec-text-secondary, #aaa) !important;
+	font-size: 1.4rem !important;
+}
+
+/*--------------------------------------------------------------
+# STICKY NAVIGATION
+--------------------------------------------------------------*/
+/* Prevent left navigation from auto-hiding */
+html[it-sticky-navigation='true'] ytd-mini-guide-renderer {
+	transform: translateX(0) !important;
+	transition: none !important;
+}
+
+html[it-sticky-navigation='true'] ytd-mini-guide-renderer[hidden] {
+	display: block !important;
+	transform: translateX(0) !important;
+}
+
+html[it-sticky-navigation='true'] ytd-mini-guide-renderer[aria-hidden="true"] {
+	aria-hidden: false !important;
+	transform: translateX(0) !important;
+}
+
+/* Ensure the guide is always visible */
+html[it-sticky-navigation='true'] ytd-guide-renderer {
+	transform: translateX(0) !important;
+	transition: none !important;
+}
+
+html[it-sticky-navigation='true'] ytd-guide-renderer[hidden] {
+	display: block !important;
+	transform: translateX(0) !important;
+}
+
+html[it-sticky-navigation='true'] ytd-guide-renderer[aria-hidden="true"] {
+	aria-hidden: false !important;
+	transform: translateX(0) !important;
+}
+
+/* Override any auto-hide animations */
+html[it-sticky-navigation='true'] ytd-mini-guide-renderer,
+html[it-sticky-navigation='true'] ytd-guide-renderer {
+	animation: none !important;
+	transition: none !important;
+}
+
+/* Ensure the guide button doesn't hide the navigation */
+html[it-sticky-navigation='true'] ytd-masthead ytd-button-renderer[is="ytd-button-renderer"] {
+	display: none !important;
+}
+
+/* Move thumbnails to the right for playlist suggestions (non-Polymer) */
+html[it-thumbnails-right='true'] #related yt-lockup-view-model .yt-lockup-view-model-wiz {
+	display: flex !important;
+	flex-direction: row-reverse !important;
+	align-items: flex-start !important;
+}
+
+/* Adjust spacing between image and metadata */
+html[it-thumbnails-right='true'] #related yt-lockup-view-model .yt-lockup-view-model-wiz__content-image {
+	margin-left: 12px !important;
+	margin-right: 0 !important;
+}
+
+  
 

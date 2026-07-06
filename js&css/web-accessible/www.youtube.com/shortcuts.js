@@ -49,6 +49,27 @@ ImprovedTube.shortcutsInit = function () {
 				window.addEventListener(name, handler, {passive: false, capture: true});
 			}
 		}
+
+		// Issue #3986: a missed keyup — focus moving to the player/an ad iframe,
+		// an SPA navigation, or a tab switch, all common while the connection is
+		// unstable — leaves a key stuck in input.pressed.keys. Because
+		// shortcutsHandler() requires an EXACT key-set size match, a single stuck
+		// key silently disables EVERY shortcut. The only existing recovery is the
+		// 'improvedtube-blur' event, dispatched from the extension side (core.js)
+		// over the messaging path / MV3 background worker — which the same network
+		// instability can suspend, so shortcuts stay dead until a manual reload.
+		// Bind the same reset to native, in-page events so recovery is immediate
+		// and never depends on the background worker. Clearing an already-empty
+		// set is a harmless no-op, so we bind once and leave it.
+		if (!this.input.recoveryListenersBound) {
+			this.input.recoveryListenersBound = true;
+			const resetPressedKeys = this.shortcutsListeners['improvedtube-blur'];
+			window.addEventListener('blur', resetPressedKeys);
+			document.addEventListener('visibilitychange', function () {
+				if (document.hidden) resetPressedKeys();
+			});
+			document.addEventListener('yt-navigate-start', resetPressedKeys);
+		}
 	} else {
 		// no shortcuts means we dont need 'listeners', uninstall all
 		for (const [name, handler] of Object.entries(this.shortcutsListeners)) {
@@ -83,6 +104,8 @@ ImprovedTube.shortcutsHandler = function () {
 
 		if (key.startsWith('shortcutQuality')) {
 			ImprovedTube['shortcutQuality'](key);
+		} else if (key.startsWith('shortcutPlaybackSpeed')) {
+			ImprovedTube['shortcutPlaybackSpeed'](key);
 		} else if (typeof ImprovedTube[key] === 'function') {
 			ImprovedTube[key]();
 		}
@@ -120,16 +143,24 @@ ImprovedTube.shortcutsListeners = {
 		}
 	},
 	wheel: function (event) {
-		// shortcuts with wheel allowed ONLY inside player
-		if (!ImprovedTube.elements.player?.contains(event.target)) return;
+	const player = ImprovedTube.elements.player;
+	if (!player) return;
 
-		ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
-		ImprovedTube.input.pressed.alt = event.altKey;
-		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
-		ImprovedTube.input.pressed.shift = event.shiftKey;
+	const path = event.composedPath?.() || [];
 
-		ImprovedTube.shortcutsHandler();
-	},
+	if (
+		!player.matches(':hover') &&
+		!path.includes(player) &&
+		!path.includes(ImprovedTube.elements.video)
+	) return;
+
+	ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
+	ImprovedTube.input.pressed.alt = event.altKey;
+	ImprovedTube.input.pressed.ctrl = event.ctrlKey;
+	ImprovedTube.input.pressed.shift = event.shiftKey;
+
+	ImprovedTube.shortcutsHandler();
+},
 	'improvedtube-blur': function () {
 		ImprovedTube.input.pressed.keys.clear();
 		ImprovedTube.input.pressed.wheel = 0
@@ -138,6 +169,8 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.shift = false;
 	}
 };
+/*--- jump To Key Scene ----*/
+ImprovedTube.shortcutJumpToKeyScene = ImprovedTube.jumpToKeyScene;
 /*------------------------------------------------------------------------------
 Ambient lighting
 ------------------------------------------------------------------------------*/
@@ -152,6 +185,33 @@ ImprovedTube.shortcutQuality = function (key) {
 		resolution = ['auto', '144p', '240p', '360p', '480p', '720p', '1080p', '1440p', '2160p', '2880p', '4320p'];
 
 	ImprovedTube.playerQuality(label[resolution.indexOf(key.replace('shortcutQuality', ''))]);
+};
+/*------------------------------------------------------------------------------
+4.7.1B PLAYBACK SPEED
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutPlaybackSpeed = function (key) {
+	const match = key.match(/^shortcutPlaybackSpeed(\d+)$/);
+	if (!match) return;
+
+	let num = match[1];
+
+	let speed;
+	if (num.startsWith("0")) {
+		speed = parseFloat("0." + num.slice(1));
+	} else if (num.length === 1) {
+		speed = parseFloat(num);
+	} else if (num.length === 2) {
+		speed = parseFloat(num[0] + "." + num[1]);
+	} else {
+		speed = parseFloat(num.slice(0, -2) + "." + num.slice(-2));
+	}
+
+	//console.log(speed);
+
+	if (speed === undefined || isNaN(speed)) return;
+
+	ImprovedTube.playbackSpeed(speed);
+	ImprovedTube.showStatus(speed);
 };
 /*------------------------------------------------------------------------------
 4.7.2 PICTURE IN PICTURE (PIP)
@@ -210,13 +270,38 @@ ImprovedTube.shortcutToggleAutoplay = function () {
 4.7.7 NEXT VIDEO
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutNextVideo = function () {
-	this.elements.player?.nextVideo();
+	var player = this.elements.player;
+	if (!player) return;
+
+	// In playlist context, use the player's built-in next button which
+	// correctly navigates within the playlist. player.nextVideo() may
+	// navigate outside the playlist on recent YouTube versions.
+	if (ImprovedTube.getParam(location.href, 'list')) {
+		var nextBtn = player.querySelector('.ytp-next-button');
+		if (nextBtn) {
+			nextBtn.click();
+			return;
+		}
+	}
+	player.nextVideo();
 };
 /*------------------------------------------------------------------------------
 4.7.8 PREVIOUS VIDEO
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutPrevVideo = function () {
-	this.elements.player?.previousVideo();
+	var player = this.elements.player;
+	if (!player) return;
+
+	// In playlist context, use the player's built-in prev button which
+	// correctly navigates within the playlist.
+	if (ImprovedTube.getParam(location.href, 'list')) {
+		var prevBtn = player.querySelector('.ytp-prev-button');
+		if (prevBtn) {
+			prevBtn.click();
+			return;
+		}
+	}
+	player.previousVideo();
 };
 /*------------------------------------------------------------------------------
 4.7.9 SEEK BACKWARD
@@ -347,7 +432,7 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function (decrease) {
 		newSpeed = (speed - value < 0.1) ? Math.max(Number(speed*0.7).toFixed(2),0.0625) : (speed - value);  
 	} else {
 		// Aligning at 1.0 instead of passing by 1:		
-		if (speed < 1 && speed > 1-ImprovedTube.storage.shortcuts_playback_speed_step ) {newSpeed = 1;  
+		if ( (speed < 1 && speed > 1-ImprovedTube.storage.shortcuts_playback_speed_step) || (speed > 1 && speed < 1+ImprovedTube.storage.shortcuts_playback_speed_step) ) {newSpeed = 1;  
 		// Firefox doesnt limit speed to 16x, we can allow more in Firefox.
 		} else { newSpeed = (speed + value > 16) ? 16 : (speed + value); } 
 	}
@@ -374,8 +459,10 @@ ImprovedTube.shortcutResetPlaybackSpeed = function () {
 4.7.19 GO TO SEARCH BOX
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutGoToSearchBox = function () {
+	document.querySelector('input[name="search_query"]')?.click();
 	document.querySelector('input#search')?.click();
 	if (ImprovedTube.originalFocus) { HTMLElement.prototype.focus = originalFocus }
+	document.querySelector('input[name="search_query"]')?.focus();
 	document.querySelector('input#search')?.focus(); 
 };
 /*------------------------------------------------------------------------------
@@ -567,8 +654,85 @@ ImprovedTube.shortcutRotateVideo = function () {
 
 	if (rotate == 90 || rotate == 270) {
 		var is_vertical_video = video.videoHeight > video.videoWidth;
-
-		transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
+												if (
+											document.querySelector("ytd-watch-flexy[theater]") && document.querySelector('ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen])')
+											) { transform += ' scale(' + (is_vertical_video ? video.clientWidth : video.clientHeight) / (is_vertical_video ? video.clientHeight : video.clientWidth) + ')';
+													} else {
+											transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
+										}					
 	}
 	video.style.setProperty("transform", transform);
+};
+ImprovedTube.shortcutActivateFitToWindow = function() {
+	ImprovedTube.toggleFitToWindow();
+};
+/*------------------------------------------------------------------------------
+4.7.31 CINEMA MODE
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutCinemaMode = function () {
+	var playerContainer = document.getElementById('player-full-bleed-container');
+	var playerContainerDefault = document.getElementById('player-container');
+	var ytdPlayer = document.getElementById('ytd-player');
+
+	function toggle(container) {
+		if (!container) return;
+		if (container.style.zIndex == 10000) {
+			container.style.zIndex = 1;
+			container.style.position = '';
+		} else {
+			container.style.zIndex = 10000;
+			container.style.position = 'relative';
+		}
+	}
+
+	toggle(playerContainer);
+	toggle(playerContainerDefault);
+	toggle(ytdPlayer);
+	
+	var overlay = document.getElementById('overlay_cinema');
+	if (!overlay) {
+		createOverlay();
+	} else {
+		overlay.style.display = overlay.style.display === 'none' || overlay.style.display === '' ? 'block' : 'none';
+	}
+}
+/*------------------------------------------------------------------------------
+4.7.32 REFRESH CATEGORIES
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutRefreshCategories = function () {
+	let chipContainer = document.querySelector('ytd-feed-filter-chip-bar-renderer');
+	
+	if (chipContainer) {
+		chipContainer.style.display = '';
+		chipContainer.style.visibility = 'visible';
+		chipContainer.style.opacity = '1';
+		chipContainer.hidden = false;
+		
+		let parent = chipContainer.parentElement;
+		while (parent && parent !== document.body) {
+			parent.style.display = '';
+			parent.style.visibility = 'visible';
+			parent = parent.parentElement;
+		}
+		
+		const allChips = chipContainer.querySelectorAll('yt-chip-cloud-chip-renderer button');
+		if (allChips.length > 1) {
+			allChips[1].click();
+			setTimeout(function() {
+				allChips[0].click();
+			}, 200);
+		}
+	} else {
+		window.location.reload();
+	}
+};
+
+/*------------------------------------------------------------------------------
+4.7.33 SMART SPEED TOGGLE
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutSmartSpeed = function () {
+	if (ImprovedTube.storage.smart_speed === false) { if(ImprovedTube.heatmap) {ImprovedTube.heatmap.init(); };
+    } else if (ImprovedTube.storage.smart_speed === true) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; } 
+    }
+	this.storage.smart_speed = !this.storage.smart_speed;
 };

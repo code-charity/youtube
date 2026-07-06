@@ -43,7 +43,25 @@ html[it-header-transparent-alternative=true] ytd-masthead #search-icon-legacy {b
 /* Make chips filter bar barely visible */
 html[it-header-transparent-alternative=true] #chips-wrapper {opacity: 0.7 !important;}
 
+/* Fix for filter tabs being hidden by hover header */
+html[it-header-position="hover"] #masthead-container[it-search-focus="true"] ~ ytd-page-manager ytd-feed-filter-chip-bar-renderer,
+html[it-header-position="hover"] #masthead-container[it-search-focus="true"] ~ ytd-page-manager ytd-search-sub-menu-renderer {
+  transform: translateY(56px) !important;
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+  z-index: 6;
+}
+html[it-header-position="hover"]  #masthead-container[it-search-focus="true"]  ~ ytd-page-manager  #contents.ytd-section-list-renderer {
+  padding-top: 56px;
+}
 
+/* Ensure filter chips are visible when header is hovered */
+html[it-header-position="hover"] #masthead-container:hover ~ ytd-page-manager ytd-feed-filter-chip-bar-renderer,
+html[it-header-position="hover"] #masthead-container:hover ~ ytd-page-manager ytd-search-sub-menu-renderer {
+  transform: translateY(56px) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
 
 /*--------------------------------------------------------------
 # POSITION
@@ -94,6 +112,7 @@ html[data-page-type='video'][it-header-position=hover_on_video_page]:not([it-imp
 	transform: translateY(-38%);
 	height: 68px;
 	opacity: 0;
+	backdrop-filter: blur(4px);
 }
 
 html[it-header-position=hidden] #masthead-container:not([it-search-focus=true]):focus-within,
@@ -124,7 +143,7 @@ html[it-header-position=hover]:not([data-page-type=video]) tp-yt-app-drawer:not(
 html[it-header-position=hidden]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header,
 html[it-header-position=static]:not([data-page-type=video]) tp-yt-app-drawer:not([opened]) #header {
 	position: absolute;
-	visibility: visible;
+	visibility: hidden;
 	left: 240px;
 	top: 120px;
 	padding: 0 16px;
@@ -150,11 +169,15 @@ html[it-header-hide-logo='true'] #logo-icon yt-icon-shape,
 html[it-header-hide-logo='true'] #logo-icon .yt-icon-shape {
 	visibility:hidden;
 }
+/* Simple fix: Add modern YouTube logo selectors */
 html[it-header-improve-logo='true'] ytd-topbar-logo-renderer path[fill='#FF0000'],
-html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'] {
+html[it-header-improve-logo='true'] ytd-topbar-logo-renderer polygon[fill='#FFFFFF'],
+html[it-header-improve-logo='true'] #logo path[fill='#FF0000'],
+html[it-header-improve-logo='true'] #logo polygon[fill='#FFFFFF'] {
 	fill: rgb(44, 44, 44) !important;
 }
-html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'] {
+html[it-header-improve-logo='true'][dark] ytd-topbar-logo-renderer path[fill='#FF0000'],
+html[it-header-improve-logo='true'][dark] #logo path[fill='#FF0000'] {
 	fill: rgb(70, 70, 70) !important;
 }
 /*--------------------------------------------------------------

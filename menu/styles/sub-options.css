@@ -4,6 +4,7 @@ NESTED (CONDITIONAL) SWITCHES
 #remove-home-page-shorts:not([data-value=true]) + .satus-switch,
 #remove-home-page-shorts:not([data-value=true]) + .satus-switch + .satus-switch,
 #remove-home-page-shorts:not([data-value=true]) + .satus-switch + .satus-switch + .satus-switch,
+#channel_play_all_button:not([data-value=true]) + .satus-switch,
 /*-----------------
 >>> Appearance
 -----------------*/
@@ -22,10 +23,15 @@ NESTED (CONDITIONAL) SWITCHES
 #forced-playback-speed:not([data-value=true]) + .satus-switch,
 #forced-playback-speed:not([data-value=true]) + .satus-switch + .satus-switch,
 #forced-playback-speed:not([data-value=true]) + .satus-switch + .satus-switch + .satus-slider, 
+#player-increase-decrease-speed-buttons:not([data-value=true]) + .satus-slider,
 /* #player_repeat_button:not([data-value=true]) + .satus-switch, */
 #player_screenshot_button:not([data-value=true]) + .satus-switch,
 #player_screenshot_button:not([data-value=true]) + .satus-switch + .satus-select,
- /*--------------------------------------------------------------
+/*-COPY VIDEO FULL URL-*/
+#copy-video-id:not([data-value=true]) + .satus-switch,
+/*-COPY PLAYLIST VIDEO FULL URL-*/
+#playlist-copy-video-id:not([data-value=true]) + .satus-switch,
+/*--------------------------------------------------------------
 	SUBTITLES
 --------------------------------------------------------------*/
 #subtitles-language[data-value=default] + .satus-switch,
@@ -33,13 +39,19 @@ NESTED (CONDITIONAL) SWITCHES
 NIGHT MODE
 --------------------------------------------------------------*/
 #activate:not([data-value='sunset_to_sunrise']) + .satus-time--from,
-#activate:not([data-value='sunset_to_sunrise']) + * + .satus-time--to 
+#activate:not([data-value='sunset_to_sunrise']) + * + .satus-time--to,
+
+#disable-auto-dubbing:not([data-value=true])  + .satus-switch
 /*====================================*/
 	{display: none !important;}
+
+#hide-auto-dubbed-options[data-value=true] 
+{display: unset !important;}
 
 #remove-home-page-shorts[data-value=true] + .satus-switch,
 #remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch,
 #remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch + .satus-switch,
+#channel_play_all_button[data-value=true] + .satus-switch,
 /*-----------------
 >>> Appearance
 -----------------*/
@@ -57,11 +69,16 @@ NIGHT MODE
 #forced-playback-speed[data-value=true] + .satus-switch,
 #forced-playback-speed[data-value=true] + .satus-switch + .satus-switch,
 #forced-playback-speed[data-value=true] + .satus-switch + .satus-switch + .satus-slider, 
+#player-increase-decrease-speed-buttons[data-value=true] + .satus-slider, 
 #player_repeat_button + .satus-switch, 
 #player_cinema_mode_button +.satus-switch,
 #player_auto_cinema_mode +.satus-switch,
 #player_screenshot_button[data-value=true] + .satus-switch,
 #player_screenshot_button[data-value=true] + .satus-switch + .satus-select,
+/*-COPY VIDEO FULL URL-*/
+#copy-video-id[data-value=true] + .satus-switch,
+/*-COPY PLAYLIST VIDEO FULL URL-*/
+#playlist-copy-video-id[data-value=true] + .satus-switch,
  /*--------------------------------------------------------------
 	SUBTITLES
 --------------------------------------------------------------*/
@@ -70,13 +87,14 @@ NIGHT MODE
 NIGHT MODE
 --------------------------------------------------------------*/
 #activate[data-value='sunset_to_sunrise'] + .satus-time--from,
-#activate[data-value='sunset_to_sunrise'] + * + .satus-time--to 
+#activate[data-value='sunset_to_sunrise'] + * + .satus-time--to
 /*====================================*/
 	{margin-left:20px; margin-top:-4px; margin-bottom:2px; max-width: calc( 100% - 22px ) !important; border-radius: 2px; border-left: 1px inset;}
 
 #remove-home-page-shorts[data-value=true] + .satus-switch:not(:hover),
 #remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch:not(:hover),
 #remove-home-page-shorts[data-value=true] + .satus-switch + .satus-switch + .satus-switch:not(:hover),
+#channel_play_all_button[data-value=true] + .satus-switch:not(:hover),
 /*-----------------
 >>> Appearance
 -----------------*/
@@ -93,8 +111,13 @@ NIGHT MODE
 #forced-playback-speed[data-value=true] + .satus-switch:not(:hover),
 #forced-playback-speed[data-value=true] + .satus-switch + .satus-switch:not(:hover),
 #forced-playback-speed[data-value=true] + .satus-switch + .satus-switch + .satus-slider:not(:hover), 
+#player-increase-decrease-speed-buttons[data-value=true] + .satus-slider:not(:hover), 
 #player_screenshot_button[data-value=true] + .satus-switch:not(:hover),
 #player_screenshot_button[data-value=true] + .satus-switch + .satus-select:not(:hover),
+/*-COPY VIDEO FULL URL-*/
+#copy-video-id[data-value=true] + .satus-switch:not(:hover),
+/*-COPY PLAYLIST VIDEO FULL URL-*/
+#playlist-copy-video-id[data-value=true] + .satus-switch:not(:hover),
  /*--------------------------------------------------------------
 	SUBTITLES
 --------------------------------------------------------------*/

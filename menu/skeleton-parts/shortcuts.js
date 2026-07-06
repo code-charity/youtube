@@ -80,7 +80,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 									component: 'slider',
 									text: 'step',
 									min: 1,
-									max: 10,
+									max: 25,
 									step: 1,
 									value: 5
 								}
@@ -129,7 +129,7 @@ extension.skeleton.main.layers.section.shortcuts = {
 									component: 'slider',
 									text: 'step',
 									min: .05,
-									max: .5,
+									max: 2,
 									step: .05,
 									value: .05
 								}
@@ -169,6 +169,53 @@ extension.skeleton.main.layers.section.shortcuts = {
 						}
 					}
 				},
+				shortcut_playback_speed: {
+					component: 'button',
+					text: 'playbackSpeedHotkey',
+					on: {
+						click: {
+							component: 'section',
+							variant: 'card',
+
+							shortcut_playback_speed_0_25: {
+								component: 'shortcut',
+								text: '0.25x'
+							},
+							shortcut_playback_speed_0_5: {
+								component: 'shortcut',
+								text: '0.5x'
+							},
+							shortcut_playback_speed_0_75: {
+								component: 'shortcut',
+								text: '0.75x'
+							},
+							shortcut_playback_speed_1: {
+								component: 'shortcut',
+								text: '1x'
+							},
+							shortcut_playback_speed_1_25: {
+								component: 'shortcut',
+								text: '1.25x'
+							},
+							shortcut_playback_speed_1_5: {
+								component: 'shortcut',
+								text: '1.5x'
+							},
+							shortcut_playback_speed_1_75: {
+								component: 'shortcut',
+								text: '1.75x'
+							},
+							shortcut_playback_speed_2: {
+								component: 'shortcut',
+								text: '2x'
+							}
+						}
+					}
+				},
+				shortcut_smart_speed: {
+					component: 'shortcut',
+					text: 'smartSpeed'
+				},
 				shortcut_play_pause: {
 					component: 'shortcut',
 					text: 'playPause',
@@ -205,6 +252,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 							}
 						}
 					}
+				},
+				shortcut_jump_to_key_scene: {
+					component: 'shortcut',
+					text: 'keyScene'
 				},
 				shortcut_seek_next_chapter: {
 					component: 'shortcut',
@@ -249,6 +300,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 						}
 					}
 				},
+				shortcut_activate_fit_to_window: {
+					component: 'shortcut',
+					text: 'activateFitToWindow'
+				},
 				shortcut_activate_captions: {
 					component: 'shortcut',
 					text: 'activateCaptions',
@@ -268,13 +323,13 @@ extension.skeleton.main.layers.section.shortcuts = {
 					component: 'shortcut',
 					text: 'popupPlayer'
 				},
+				shortcut_screenshot: {
+					component: 'shortcut',
+					text: 'screenshot'
+				},
 				shortcut_toggle_loop: {
 					component: 'shortcut',
 					text: 'loop'
-				},
-				shortcut_stats_for_nerds: {
-					component: 'shortcut',
-					text: 'statsForNerds'
 				},
 				shortcut_picture_in_picture: {
 					component: 'shortcut',
@@ -284,9 +339,9 @@ extension.skeleton.main.layers.section.shortcuts = {
 					component: 'shortcut',
 					text: 'autoPictureInPicture'
 				},
-				shortcut_screenshot: {
+				shortcut_stats_for_nerds: {
 					component: 'shortcut',
-					text: 'screenshot'
+					text: 'statsForNerds'
 				},
 				shortcut_toggle_controls: {
 					component: 'shortcut',
@@ -314,6 +369,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 				shortcut_rotate_video: {
 					component: 'shortcut',
 					text: 'rotate'
+				},
+				shortcut_cinema_mode: {
+					component: 'shortcut',
+					text: 'cinemaMode'
 				}
 			},
 			section: {
@@ -359,6 +418,10 @@ extension.skeleton.main.layers.section.shortcuts = {
 				shortcut_dark_theme: {
 					component: 'shortcut',
 					text: 'darkTheme'
+				},
+				shortcut_refresh_categories: {
+					component: 'shortcut',
+					text: 'refreshCategories'
 				}
 			}
 		}

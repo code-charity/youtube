@@ -1,4 +1,13 @@
 {
+    "preferredDubbingLanguage": {
+        "message": "Idioma de dublagem preferido"
+    },
+    "hideSuggestedAction": {
+        "message": "Ocultar ação sugerida 'Ver produtos'"
+    },
+    "hideMerchShelf": {
+        "message": "Ocultar 'Prateleira de produtos'"
+    },
     "about": {
         "message": "Sobre"
     },
@@ -17,6 +26,9 @@
     "activatedFeatures": {
         "message": "Recursos ativados"
     },
+    "activateFitToWindow": {
+        "message": "Ativar ajustar à janela"
+    },
     "activateFullscreen": {
         "message": "Ativar tela cheia"
     },
@@ -24,7 +36,7 @@
         "message": "Recursos ativos"
     },
     "addScrollToTop": {
-        "message": "Adicionar «Voltar ao Topo»"
+        "message": "Adicionar 'Voltar ao Topo'"
     },
     "ads": {
         "message": "Anúncios"
@@ -59,6 +71,12 @@
     "amber": {
         "message": "Âmbar"
     },
+    "ambientLighting": {
+        "message": "Iluminação ambiente"
+    },
+    "analytics": {
+        "message": "Analytics"
+    },
     "analyzer": {
         "message": "Analisador"
     },
@@ -73,6 +91,33 @@
     },
     "areYouSureYouWantToImportTheData": {
         "message": "Tem certeza de que deseja importar os dados?"
+    },
+    "areYouSureYouWantToSyncTheData": {
+        "message": "Deseja realmente sincronizar as configurações atuais?"
+    },
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
+    "ask": {
+        "message": "Perguntar"
+    },
+    "atHistory": {
+        "message": "no Histórico'"
+    },
+    "atSubscriptions": {
+        "message": "em Inscrições'"
+    },
+    "atTrending": {
+        "message": "no Em Alta'"
     },
     "audio": {
         "message": "Áudio"
@@ -90,10 +135,19 @@
         "message": "Tela cheia automática"
     },
     "autopauseWhenSwitchingTabs": {
-        "message": "Pausar vídeo automáticamente ao alternar entre abas"
+        "message": "Pausar vídeo automaticamente ao alternar entre abas"
+    },
+    "autoPictureInPicture": {
+        "message": "Picture-In-Picture automático"
     },
     "autoplay": {
         "message": "Reprodução automática"
+    },
+    "autoplayDisable": {
+        "message": "Forçar desativar reprodução automática"
+    },
+    "autoPlayNextShort": {
+        "message": "Reprodução automática do próximo Short"
     },
     "avoidAv1": {
         "message": "Evitar AV1"
@@ -128,11 +182,11 @@
     "black": {
         "message": "Preto"
     },
-    "block_Codec_h264Alert": {
-        "message": "Você precisa ativar o VP9 ou H.264 para o Youtube funcionar. Desabilitar ambos irá quebrar o Vídeo."
+    "block_Codec_Alert_h264": {
+        "message": "Você precisa do H.264 ou VP9 ativado para o YouTube reproduzir os vídeos."
     },
-    "block_Codec_VP9Alert": {
-        "message": "Você precisa ativar o VP9 ou H.264 para o Youtube funcionar. Desabilitar ambos irá quebrar o Vídeo."
+    "block_Codec_Alert_VP9": {
+        "message": "Você precisa do H.264 ou VP9 ativado para o YouTube reproduzir os vídeos."
     },
     "blockAll": {
         "message": "Bloquear tudo"
@@ -164,6 +218,12 @@
     "bluelight": {
         "message": "Filtrar luz azul"
     },
+    "bottomLeft": {
+        "message": "Canto inferior esquerdo"
+    },
+    "bottomRight": {
+        "message": "Canto inferior direito"
+    },
     "brightness": {
         "message": "Luminosidade"
     },
@@ -172,6 +232,9 @@
     },
     "browser": {
         "message": "Navegador"
+    },
+    "browserAccountSync": {
+        "message": "Sincronizar (Conta no navegador)"
     },
     "browserVersion": {
         "message": "Versão do navegador"
@@ -182,7 +245,10 @@
     "bug": {
         "message": "Erro"
     },
-    "Buttons": {
+    "bulkDeleteByProgress": {
+        "message": "Exclusão em massa de vídeos por progresso de visualização"
+    },
+    "buttons": {
         "message": "Botões"
     },
     "cancel": {
@@ -190,6 +256,12 @@
     },
     "categories": {
         "message": "Categorias"
+    },
+    "categoryRefreshButton": {
+        "message": "Adicionar botão de atualizar categoria"
+    },
+    "changeThumbnailsPerRow": {
+        "message": "Miniaturas por linha"
     },
     "channel": {
         "message": "Canal"
@@ -200,17 +272,38 @@
     "chapters": {
         "message": "Capítulos"
     },
+    "chapterTitle": {
+        "message": "Título do capítulo"
+    },
     "characterEdgeStyle": {
         "message": "Estilo da borda"
     },
+    "cinemaMode": {
+        "message": "Modo Cinema"
+    },
+    "clickableLinksInDescription": {
+        "message": "Clique direito para copiar links na descrição dos vídeos"
+    },
+    "clip": {
+        "message": "Clipe"
+    },
     "clipboard": {
-        "message": "Àrea de transferência"
+        "message": "Área de transferência"
+    },
+    "codecH264": {
+        "message": "Codec H264"
+    },
+    "codecs": {
+        "message": "Codecs"
     },
     "collapsed": {
         "message": "Recolhido"
     },
     "collapseOfSubscriptionSections": {
         "message": "Recolher seções de assinatura"
+    },
+    "columns": {
+        "message": "Coluna extra na barra lateral (sem mover vídeos relacionados, se a janela for grande o bastante)"
     },
     "comments": {
         "message": "Comentários"
@@ -224,6 +317,24 @@
     "confirmationBeforeClosing": {
         "message": "Habilitar alerta para casos de fechamento acidental?"
     },
+    "cookies": {
+        "message": "Cookies"
+    },
+    "copyVideoId": {
+        "message": "Copiar ID do vídeo"
+    },
+    "copyVideoUrl": {
+        "message": "Copiar URL completa do video"
+    },
+    "copyTranscript": {
+        "message": "📋 Copiar Transcrição"
+    },
+    "FetchingTranscript": {
+        "message": "Buscando..."
+    },
+    "TranscriptError": {
+        "message": "Erro"
+    },
     "cores": {
         "message": "Núcleos"
     },
@@ -232,6 +343,9 @@
     },
     "Currently_requiring_a_YouTube_API_key": {
         "message": "(Necessário uma chave do YouTube-API: )"
+    },
+    "cursorLighting": {
+        "message": "Escurecer páginas do Youtube, menos onde passar com o mouse!"
     },
     "custom": {
         "message": "Personalizar"
@@ -302,6 +416,9 @@
     "description": {
         "message": "Descrição"
     },
+    "disableSidebarScroll": {
+        "message": "Desativar rolagem da barra lateral"
+    },
     "description_ext": {
         "message": "Torne o YouTube organizado e inteligente! Pular Anúncio, colorir YouTube, volume, velocidade, canal, ferramenta, estilo, HD, adblock, adblocker, tags, playlist ,palavras-chave"
     },
@@ -320,20 +437,38 @@
     "dim": {
         "message": "Escurecer"
     },
+    "disableAutoDubbing": {
+        "message": "Desabilitar dublagem automática"
+    },
     "disabled": {
         "message": "Desativado"
     },
+    "disableLikesAnimation": {
+        "message": "Desativar animação do Like"
+    },
+    "disableThumbnailPlayback": {
+        "message": "Desativar rerprodução de vídeo ao passar com o mouse"
+    },
+    "muteThumbnailPreviews": {
+        "message": "Silenciar prévias de miniaturas"
+    },
     "dislike": {
-        "message": "Não Gostei."
+        "message": "Não gostei"
+    },
+    "dislikingAVideoAddsItToBlocklist": {
+        "message": "'Não gostei' adiciona vídeo à lista de bloqueio"
     },
     "displayDayOfTheWeak": {
-        "message": "Mostrar dia da Semana"
+        "message": "Mostrar dia da semana"
     },
     "donate": {
         "message": "Doar"
     },
     "doNotChange": {
         "message": "Não Alterar"
+    },
+    "download": {
+        "message": "Download"
     },
     "draggable": {
         "message": "Arrastável"
@@ -343,6 +478,9 @@
     },
     "durationWithSpeed": {
         "message": "Mostrar tempo restante com referência a velocidade de reprodução"
+    },
+    "email": {
+        "message": "E-mail"
     },
     "embedded_Hide_Share": {
         "message": "Ocultar compartilhamento do video incorporado"
@@ -359,6 +497,15 @@
     "enabledForced": {
         "message": "Ativado (forçado)"
     },
+    "enterPassword": {
+        "message": "Digite sua senha de 4 dígitos."
+    },
+    "exact": {
+        "message": "Dia/hora exato"
+    },
+    "excludeShortsInPlayAll": {
+        "message": "Excluir Shorts ao usar \"Reproduzir tudo\""
+    },
     "expanded": {
         "message": "Expandido"
     },
@@ -370,6 +517,12 @@
     },
     "ExtraButtons": {
         "message": "Botões extras"
+    },
+    "extraButtonsBelowThePlayer": {
+        "message": "Botões extras abaixo do player"
+    },
+    "extraRightControlButtons": {
+        "message": "Botões extras dentro do player"
     },
     "Feature_not_yet_available": {
         "message": "Recurso não está presente no momento"
@@ -425,6 +578,12 @@
     "foundABug": {
         "message": "Encontrou um Bug?"
     },
+    "fullScreenQuality": {
+        "message": "Qualidade em tela cheia"
+    },
+    "fullscreenReturn": {
+        "message": "Retorno da tela cheia"
+    },
     "fullWindow": {
         "message": "Tela Cheia"
     },
@@ -434,11 +593,17 @@
     "geoPreference": {
         "message": "Preferência Geográfica"
     },
+    "github": {
+        "message": "GitHub"
+    },
     "googleApiKey": {
         "message": "Chave da API do Google"
     },
     "goToSearchBox": {
         "message": "Selecionar barra de pesquisa"
+    },
+    "gpu": {
+        "message": "GPU"
     },
     "GPUnotindatabase": {
         "message": "Não tenho sua GPU nos meus Dados :¬("
@@ -449,11 +614,17 @@
     "grey": {
         "message": "Cinza"
     },
+    "halfTransparent": {
+        "message": "Fraco/meio transparente"
+    },
     "Hamburger_Menu": {
-        "message": "Menu hamburguer"
+        "message": "Menu hambúrguer"
     },
     "hardwareInformation": {
         "message": "Informações do hardware"
+    },
+    "hd": {
+        "message": "HD"
     },
     "hdThumbnail": {
         "message": "Miniatura em HD"
@@ -482,23 +653,23 @@
     "Hide_sidebar": {
         "message": "Ocultar barra lateral de recomendações "
     },
-    "Hide_subscriptionsShorts": {
-        "message": "Ocultar Shorts das inscrições"
-    },
     "Hide_the_tabs_only": {
         "message": "Ocultar somente as abas"
     },
-    "Hide_trendingThis_Shorts": {
-        "message": "Ocultar Shorts do Em alta"
-    },
     "Hide_YouTube_Logo": {
         "message": "Ocultar Logo do YouTube"
+    },
+    "hideAISummary": {
+        "message": "Oculta Resumos por IA"
     },
     "hideAnimatedThumbnails": {
         "message": "Desativar miniaturas animadas"
     },
     "hideAnnotations": {
         "message": "Ocultar anotações"
+    },
+    "hideBannerAds": {
+        "message": "Oculta banner de anúncios (YouTube pode negar)"
     },
     "hideCards": {
         "message": "Ocultar cards"
@@ -516,7 +687,7 @@
         "message": "Ocultar data"
     },
     "hideDetailButton": {
-        "message": "Ocultar botão de detalhs"
+        "message": "Ocultar botão de detalhes"
     },
     "hideDetails": {
         "message": "Ocultar detalhes"
@@ -533,6 +704,15 @@
     "hideGradientBottom": {
         "message": "Ocultar sombra ao redor da barra do player"
     },
+    "hideHomePageShorts": {
+        "message": "Ocultar Shorts na página inicial"
+    },
+    "hideIncludesPaidPromotion": {
+        "message": "Ocultar \"Inclui Promoção Paga\""
+    },
+    "hideLogo": {
+        "message": "Logotipo: Ocultar!"
+    },
     "hideMore": {
         "message": "Ocultar mais"
     },
@@ -548,6 +728,9 @@
     "hidePlaylist": {
         "message": "Ocultar playlist"
     },
+    "hideProgressBarPreview": {
+        "message": "Ocultar prévia da barra de progresso"
+    },
     "hideReport": {
         "message": "Ocultar report"
     },
@@ -555,16 +738,31 @@
         "message": "Ocultar botões à direita"
     },
     "hideScrollForDetails": {
-        "message": "Ocultar «Rolar para ver detalhes»"
+        "message": "Ocultar 'Rolar para ver detalhes'"
     },
     "hideSkipOverlay": {
         "message": "Esconder animação de salto de 5 segundos"
+    },
+    "hideSponsoredVideosOnHome": {
+        "message": "Ocultar vídeos patrocinados na página inicial"
+    },
+    "hidePauseOverlay": {
+        "message": "Ocultar sobreposição de pausa"
+    },
+    "hideThumbnailDots": {
+        "message": "Hide '⫶' (mais ações) em miniaturas"
+    },
+    "hideThumbnailIcon": {
+        "message": "Ocultar ícone da miniatura"
     },
     "hideThumbnailOverlay": {
         "message": "Ocultar botões nas miniaturas"
     },
     "hideThumbnails": {
         "message": "Ocultar miniaturas"
+    },
+    "hideTopLoadingBar": {
+        "message": "Ocultar barra de carregamento do topo"
     },
     "hideVideoTitleFullScreen": {
         "message": "Ocultar o título do vídeo em tela cheia"
@@ -574,6 +772,9 @@
     },
     "hideVoiceSearchButton": {
         "message": "Ocultar botão pesquisa de voz"
+    },
+    "hideWatchedVideos": {
+        "message": "Ocultar vídeos assistidos"
     },
     "high": {
         "message": "Alta"
@@ -605,6 +806,9 @@
     "importSettings": {
         "message": "Importar configurações"
     },
+    "ImprovedTube": {
+        "message": "ImprovedTube"
+    },
     "improvedtubeButtons": {
         "message": "Botões do ImprovedTube"
     },
@@ -613,6 +817,9 @@
     },
     "improvedtubeLanguage": {
         "message": "Idioma do ImprovedTube"
+    },
+    "improvedTubeSidePanel": {
+        "message": "ImprovedTube: Painel lateral do navegador"
     },
     "improvedtubeVersion": {
         "message": "Versão do ImprovedTube"
@@ -626,8 +833,17 @@
     "increaseVolume": {
         "message": "Diminuir volume"
     },
+    "indigo": {
+        "message": "Indigo"
+    },
     "items": {
         "message": "Itens"
+    },
+    "join": {
+        "message": "Entrar"
+    },
+    "keyScene": {
+        "message": "⚡Pula para a(s) cena(s) mais repetida(s)"
     },
     "language": {
         "message": "Idioma"
@@ -638,11 +854,20 @@
     "languages": {
         "message": "Idiomas"
     },
+    "lastWatchedFormat": {
+        "message": "Formato da hora"
+    },
+    "lastWatchedOverlayPosition": {
+        "message": "Posição da sobreposição"
+    },
     "layerAnimationScale": {
         "message": "Escala de animação"
     },
     "layout": {
         "message": "Aparência"
+    },
+    "Left_Side_Menu": {
+        "message": "Menu do lado esquerdo"
     },
     "legacyYoutube": {
         "message": "YouTube Antigo"
@@ -686,6 +911,9 @@
     "location": {
         "message": "Localização"
     },
+    "loop": {
+        "message": "Loop"
+    },
     "loudnessNormalization": {
         "message": "Normalização de volume"
     },
@@ -697,6 +925,9 @@
     },
     "medium": {
         "message": "Média"
+    },
+    "mixer": {
+        "message": "Mixer"
     },
     "more": {
         "message": "Mais"
@@ -743,6 +974,9 @@
     "noOpenVideoTabs": {
         "message": "Nenhuma aba de vídeo aberta"
     },
+    "normal": {
+        "message": "Normal"
+    },
     "Not_optimal": {
         "message": "Sem otimização"
     },
@@ -762,7 +996,10 @@
         "message": "Ativo apenas no YouTube"
     },
     "onlyOnePlayerInstancePlaying": {
-        "message": "Pause os videos em outras Abas enquanto assisto a um segundo vídeo"
+        "message": "Pausar enquanto assisto a um 2º vídeo"
+    },
+    "onSmallCreators": {
+        "message": "Desligado, exceto para canais pequenos"
     },
     "onSubscribedChannels": {
         "message": "Apenas em inscrições"
@@ -772,6 +1009,9 @@
     },
     "openPopupPlayer": {
         "message": "Abra vídeos/playlist em uma nova janela"
+    },
+    "Optimal": {
+        "message": "Ideal"
     },
     "optimizeCodecForHardwareAcceleration": {
         "message": "Otimizar o Codec para aceleração de hardware"
@@ -791,11 +1031,26 @@
     "overlay": {
         "message": "Sobreposição"
     },
+    "passwordOptions": {
+        "message": "Opções de senha"
+    },
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "Pausar ao digitar no YouTube"
+    },
+    "pauseWhileIUnplugTheCharger": {
+        "message": "Pausar ao desligar o carregador"
+    },
     "permissions": {
         "message": "Permissões"
     },
+    "pictureInPicture": {
+        "message": "Picture-in-Picture"
+    },
     "pink": {
         "message": "Rosa"
+    },
+    "PipRequiresUserInteraction": {
+        "message": "PiP necessita de interação recente do usuário com a página de origem. Esta é uma limitação da API Picture-in-Picture do Chrome e não podemos fazer nada para passar por ela. Funciona melhor com a reprodução automática desativada e controle manual de reprodução ou clicar deliberadamente em algum lugar da página antes de alternar entre as abas."
     },
     "plain": {
         "message": "Planície"
@@ -809,17 +1064,50 @@
     "playbackSpeed": {
         "message": "Velocidade de reprodução"
     },
-    "player_dont_speed_educatione": {
-        "message": "Não acelere na categoria (Rara): Educação"
+    "playbackSpeedButton": {
+        "message": "Botão de velocidade de reprodução"
+    },
+    "playbackSpeedHotkey": {
+        "message": "Atalhos de velocidade de reprodução"
+    },
+    "player": {
+        "message": "Player"
+    },
+    "player_auto_cinema_mode": {
+        "message": "Modo Cinema automático"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "Ocultar modo Cinema ao pausar"
+    },
+    "player_cinema_mode_button": {
+        "message": "Modo Cinema"
+    },
+    "player_dont_speed_education": {
+        "message": "Não acelere a categoria (rara): Educação"
     },
     "player_fit_to_win_button": {
-        "message": "Proporção 4x3: *Velha tela Quadrada \nou ganho de área de visualização quando estiver em modo Teatro"
+        "message": "Ajustar à janela"
+    },
+    "player_playback_speed_button": {
+        "message": "Botão de Velocidade de Reprodução"
+    },
+    "player_rewind_and_forward_buttons": {
+        "message": "Botões Voltar/Avançar"
     },
     "player_rotate_button": {
         "message": "Botão pra girar em 90º graus"
     },
+    "playerAutoPipOutside": {
+        "message": "Auto-PiP somente fora da aba de origem"
+    },
     "playerColor": {
         "message": "Cor do player"
+    },
+    "playerIncreaseDecreaseSpeedButtons": {
+        "message": "Botões de Aumentar/Diminuir Velocidade"
+    },
+    "playerPlaybackSpeedStep": {
+        "message": "Etapa de Velocidade de Reprodução"
     },
     "playerSize": {
         "message": "Tamanho do player"
@@ -832,6 +1120,9 @@
     },
     "playPause": {
         "message": "Reproduzir / Pausar"
+    },
+    "popupAd": {
+        "message": "Anúncio popup Ocultar"
     },
     "popupPlayer": {
         "message": "Player externo"
@@ -848,20 +1139,38 @@
     "pressAnyKeyOrUseMouseWheel": {
         "message": "Pressione qualquer tecla ou use a roda do mouse"
     },
+    "preventShortVideoAutoloop": {
+        "message": "Prevenir que shorts sejam reproduzidos em loop"
+    },
     "previousVideo": {
         "message": "Vídeo Anterior"
     },
     "primaryColor": {
         "message": "Cor primária"
     },
+    "pullSyncSettings": {
+        "message": "Receber"
+    },
+    "purchase": {
+        "message": "Comprar"
+    },
     "purple": {
         "message": "Roxo"
     },
     "pushSyncSettings": {
-        "message": "Pressione"
+        "message": "Enviar"
     },
     "quality": {
         "message": "Qualidade"
+    },
+    "qualityWhenRunningOnBattery": {
+        "message": "Qualidade, quando executado na bateria"
+    },
+    "qualityWithoutFocus": {
+        "message": "Qualidade sem foco"
+    },
+    "quickDeleteShortcut": {
+        "message": "Botões de atalho para exclusão rápida"
     },
     "raised": {
         "message": "Levantado"
@@ -881,20 +1190,38 @@
     "redDislikeButton": {
         "message": "Mostrar botão não gostei na cor vermelha"
     },
+    "refreshCategories": {
+        "message": "Atualizar categorias"
+    },
     "relatedVideos": {
         "message": "Vídeos relacionados"
+    },
+    "relative": {
+        "message": "Relativo (ex.: '5min atrás')"
     },
     "remote": {
         "message": "Assistir na TV"
     },
+    "returnYoutubeDislike": {
+        "message": "Return YouTube Dislike"
+    },
+    "returnYoutubeDislikeDescription": {
+        "message": "Exibir contagem de 'Não gostei' usando a API do Return YouTube Dislike"
+    },
     "Remove": {
         "message": "Remover"
     },
-    "removeHomePageShorts": {
-        "message": "Remover Shorts da página inicial"
+    "removeBlackBars": {
+        "message": "Remover barras pretas em tela cheia"
+    },
+    "removeContextButtons": {
+        "message": "Remover botões de contexto em shorts"
     },
     "removeIcons": {
         "message": "Remover ícones"
+    },
+    "removeMemberOnly": {
+        "message": "Remover vídeos para membros"
     },
     "removeName": {
         "message": "Remover nome"
@@ -902,11 +1229,26 @@
     "removeNames": {
         "message": "Remover nomes"
     },
+    "removePlaylistParam": {
+        "message": "Pular playlist ao abrir vídeos em nova aba"
+    },
+    "removePlayables": {
+        "message": "Ocultar jogos (Playables)"
+    },
     "removeRelatedSearchResults": {
-        "message": "Remover os respectivos resultados de pesquisa"
+        "message": "Remover resultados de pesquisa relacionados"
     },
     "removeShortsReelSearchResults": {
         "message": "Remover fileiras de Shorts dos resultados de pesquisa"
+    },
+    "removeSubscriptionsMostRelevant": {
+        "message": "Ocultar seção 'Mais relevantes' na página de Inscrições"
+    },
+    "subscriptionsListLayout": {
+        "message": "Layout de lista na página de Inscrições"
+    },
+    "RemoveSubtitlesForLyrics": {
+        "message": "Remover legendas para letras de música"
     },
     "repeat": {
         "message": "Repetir"
@@ -914,17 +1256,23 @@
     "report": {
         "message": "Reportar"
     },
+    "requirePassword": {
+        "message": "É necessária a senha para alterar as configurações do ImprovedTube"
+    },
     "reset": {
-        "message": "Restaurar"
+        "message": "Resetar"
     },
     "resetAllSettings": {
-        "message": "Restaurar todas as configurações"
+        "message": "Resetar todas as configurações"
     },
     "resetAllShortcuts": {
         "message": "Resetar todos os atalhos"
     },
     "reverse": {
         "message": "Inverter"
+    },
+    "revertTheaterModeButtonSizes": {
+        "message": "Reverter tamanhos dos botões do Modo Teatro"
     },
     "rotate": {
         "message": "Girar"
@@ -956,6 +1304,9 @@
     "searchBarOnly": {
         "message": "Apenas barra de pesquisa"
     },
+    "secondaryColor": {
+        "message": "Cor secundária"
+    },
     "seekBackward10Seconds": {
         "message": "Voltar 10 segundos"
     },
@@ -983,8 +1334,23 @@
     "shortcut_screenshot": {
         "message": "Captura de tela"
     },
+    "shortcut_transcript": {
+        "message": "Transcrever ligado/desligado (Barra lateral)"
+    },
     "shortcuts": {
         "message": "Atalhos"
+    },
+    "ShortsForceTheStandardPlayer": {
+        "message": "Shorts: Força o uso do player padrão"
+    },
+    "shortsAlwaysShowButtons": {
+        "message": "Sempre mostrar botões de controle nos Shorts"
+    },
+    "shortsAlwaysShowCaptions": {
+        "message": "Botão de Legendas"
+    },
+    "shortsAlwaysShowFullscreen": {
+        "message": "Botão de Tela Cheia"
     },
     "showCardsOnMouseHover": {
         "message": "Mostrar cards ao passar o mouse"
@@ -992,11 +1358,17 @@
     "showChannelVideosCount": {
         "message": "Número de vídeos do canal"
     },
+    "showExactDate": {
+        "message": "Mostrar data exata"
+    },
+    "showLastWatchedOverlay": {
+        "message": "Mostrar sobreposição 'Último assistido' na miniatura"
+    },
     "showLess": {
-        "message": "Mostre menos"
+        "message": "Mostrar menos"
     },
     "showMore": {
-        "message": "Mostre mais"
+        "message": "Mostrar mais"
     },
     "showRemainingDuration": {
         "message": "Mostrar duração restante do vídeo"
@@ -1013,8 +1385,11 @@
     "Sidebar_simple_alternative": {
         "message": "Barra lateral (alternativa simples)"
     },
+    "smartSpeed": {
+        "message": "Acelerar seções menos assistidas"
+    },
     "softwareInformation": {
-        "message": "Informação do hardware"
+        "message": "Informação do software"
     },
     "spacebar": {
         "message": "Espaço"
@@ -1031,6 +1406,9 @@
     "step": {
         "message": "Avançar"
     },
+    "stickyNavigation": {
+        "message": "Sticky Navigation (menu fixo)"
+    },
     "stop": {
         "message": "Parar"
     },
@@ -1041,13 +1419,16 @@
         "message": "Estilos"
     },
     "subscribe": {
-        "message": "Inscreva-Se"
+        "message": "Inscreva-se"
     },
     "subscriptions": {
         "message": "Inscrições"
     },
     "Subtitle_Capture_including_the_current_words": {
         "message": "Legenda (Captura incluindo as palavras atuais)"
+    },
+    "subtitleLine": {
+        "message": "Ocultar linha vermelha da legenda"
     },
     "subtitles": {
         "message": "Legendas"
@@ -1094,6 +1475,9 @@
     "thumbnails": {
         "message": "Miniaturas"
     },
+    "thumbnailSize": {
+        "message": "Tamanho da miniatura"
+    },
     "thumbnailsQuality": {
         "message": "Qualidade das Miniaturas"
     },
@@ -1121,6 +1505,12 @@
     "topChat": {
         "message": "Chat no topo"
     },
+    "topLeft": {
+        "message": "Canto superior esquerdo"
+    },
+    "topRight": {
+        "message": "Canto superior direito"
+    },
     "trackWatchedVideos": {
         "message": "Rastrear vídeos assistidos"
     },
@@ -1136,6 +1526,9 @@
     "transparentBackground": {
         "message": "Fundo transparente"
     },
+    "transparentBackgroundAlternative": {
+        "message": "Alternativa de fundo transparente"
+    },
     "transparentColor": {
         "message": "Transparente"
     },
@@ -1147,6 +1540,9 @@
     },
     "type": {
         "message": "Tipo"
+    },
+    "undoTheNewSidebar": {
+        "message": "Desfazer a nova barra lateral!"
     },
     "upNextAutoplay": {
         "message": "Reproduzir vídeo em seguida"
@@ -1184,6 +1580,9 @@
     "watchTime": {
         "message": "Tempo de exibição"
     },
+    "whenBatteryIslowDecreaseQuality": {
+        "message": "Bateria baixa: Diminuir a qualidade"
+    },
     "whenPaused": {
         "message": "Quando pausado"
     },
@@ -1202,14 +1601,17 @@
     "with_scrollbars": {
         "message": "Com barras de rolagem?"
     },
+    "withoutVideos": {
+        "message": "'Vazio', sem prévias de videos"
+    },
     "yellow": {
         "message": "Amarelo"
     },
-    "YouTube_is_buttons": {
-        "message": "Botões do YouTube"
+    "Youtube_Search": {
+        "message": "Youtube-Search"
     },
-    "Youtube_Is_Search": {
-        "message": "Pesquisar do Youtube"
+    "youTubeButtons": {
+        "message": "Botões do YouTube"
     },
     "youtubeHeaderLeft": {
         "message": "Cabeçalho do YouTube (à esquerda)"
@@ -1228,5 +1630,41 @@
     },
     "youtubesDark": {
         "message": "YouTube escuro"
+    },
+    "youtubesLight": {
+        "message": "YouTube claro"
+    },
+    "smartSpeedEngine": {
+        "message": "Mecanismo de Velocidade Inteligente"
+    },
+    "smartSpeedEnable": {
+        "message": "Ativar Velocidade Inteligente"
+    },
+    "smartSpeedIndicator": {
+        "message": "Mostrar Indicador na Tela"
+    },
+    "smartSpeedMin": {
+        "message": "Velocidade Mín. (Picos)"
+    },
+    "smartSpeedMax": {
+        "message": "Velocidade Máx. (Vales)"
+    },
+    "smartSpeedSensitivity": {
+        "message": "Sensibilidade"
+    },
+    "smartSpeedTargetToggle": {
+        "message": "Ativar Duração Alvo"
+    },
+    "smartSpeedTargetMinutes": {
+        "message": "Duração Alvo (Minutos)"
+    },
+    "smartSpeedProfiles": {
+        "message": "Perfis de Categoria e Canal"
+    },
+    "smartSpeedAddProfile": {
+        "message": "Adicionar Perfil de Canal"
+    },
+    "smartSpeedWhitelisted": {
+        "message": "Canal na Lista Branca da Velocidade Inteligente!"
     }
 }

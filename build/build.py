@@ -18,10 +18,64 @@ import shutil
 import sys
 import json
 import os
-import pathlib
-import re
 import zipfile
+import re
+#import pathlib
 
+#---------------------------------------------------------------
+# Helpers
+#---------------------------------------------------------------
+
+EXCLUDE_TOP_LEVEL = {
+	'.editorconfig',
+	'.idea',
+	'build',
+	'node_modules',
+	'tests',
+	'jest.config.js',
+	'package-lock.json',
+	'package.json',
+	'README.md',
+	'LICENSE',
+	'CONTRIBUTING.md'
+}
+
+def _sanitize_name_for_store(name, store):
+	# remove non-ASCII (simple emoji removal) and replace single quote with '*' for Edge/Whale
+	sanitized = re.sub(r'[^\x00-\x7F]+', '', name or '')
+	if store in ('edge', 'whale'):
+		sanitized = sanitized.replace("'", "*")
+	return sanitized
+
+def _short_app_store_locale_text(text, max_bytes=112):
+	text = re.sub(r'\s+', ' ', text or '').strip()
+
+	if len(text.encode('utf8')) <= max_bytes:
+		return text
+
+	words = text.split(' ')
+	shortened = ''
+
+	for word in words:
+		next_text = word if not shortened else shortened + ' ' + word
+
+		if len(next_text.encode('utf8')) > max_bytes:
+			break
+
+		shortened = next_text
+
+	if shortened:
+		return shortened
+
+	shortened = ''
+
+	for char in text:
+		if len((shortened + char).encode('utf8')) > max_bytes:
+			break
+
+		shortened += char
+
+	return shortened
 
 #---------------------------------------------------------------
 # 2.0 CHROMIUM
@@ -30,13 +84,12 @@ import zipfile
 def chromium(browser):
 	temporary_path = '../cached'
 
-	if (os.path.isdir(temporary_path)):
+	if os.path.isdir(temporary_path):
 		shutil.rmtree(temporary_path, ignore_errors=True)
 
 	os.mkdir(temporary_path)
-	os.chdir(temporary_path)
 
-	for item in os.listdir('../'):
+	for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))):
 		if (
 			item != '.git' and
 			item != '.github' and
@@ -49,12 +102,17 @@ def chromium(browser):
 			item != 'SECURITY.md' and
 			item.find('.zip') == -1
 		):
-			s = os.path.join('../', item)
+			if item in EXCLUDE_TOP_LEVEL:
+				continue
+			repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+			s = os.path.join(repo_root, item)
 			d = os.path.join(temporary_path, item)
 			if os.path.isdir(s):
 				shutil.copytree(s, d, True, None)
 			else:
 				shutil.copy2(s, d)
+
+	os.chdir(temporary_path)
 
 	with open('manifest.json', 'r+') as json_file:
 		data = json.load(json_file)
@@ -62,19 +120,23 @@ def chromium(browser):
 		version = data['version']
 
 		if (browser == 'beta'):
-			data['name'] = 'ImprovedTube (testing)';
+			data['name'] = 'ImprovedTube (testing)'
+
+		if browser in ('edge', 'whale'):
+			data['name'] = _sanitize_name_for_store(data.get('name', ''), browser)
 
 		json_file.seek(0)
 		json.dump(data, json_file, indent=4, sort_keys=True)
 		json_file.truncate()
 
-	archive = zipfile.ZipFile('../chromium-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
+	archive_name = os.path.join('..', f'chromium-{browser}-{version}.zip')
+	archive = zipfile.ZipFile(archive_name, 'w', zipfile.ZIP_DEFLATED)
 
 	for root, dirs, files in os.walk('.'):
 		for file in files:
 			archive.write(os.path.join(root, file),
-						  os.path.relpath(os.path.join(root, file),
-						  				  os.path.join('.', '.')))
+						os.path.relpath(os.path.join(root, file),
+										os.path.join('.', '.')))
 
 	archive.close()
 	shutil.rmtree(temporary_path)
@@ -85,15 +147,14 @@ def chromium(browser):
 #---------------------------------------------------------------
 
 def firefox():
-	temporary_path = '../cached'
+	temporary_path = './cached'
 
-	if (os.path.isdir(temporary_path)):
+	if os.path.isdir(temporary_path):
 		shutil.rmtree(temporary_path, ignore_errors=True)
 
 	os.mkdir(temporary_path)
-	os.chdir(temporary_path)
 
-	for item in os.listdir('../'):
+	for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))):
 		if (
 			item != '.git' and
 			item != '.github' and
@@ -106,36 +167,30 @@ def firefox():
 			item != 'SECURITY.md' and
 			item.find('.zip') == -1
 		):
-			s = os.path.join('../', item)
+			if item in EXCLUDE_TOP_LEVEL:
+				continue
+			s = os.path.join('.', item)
 			d = os.path.join(temporary_path, item)
 			if os.path.isdir(s):
 				shutil.copytree(s, d, True, None)
 			else:
 				shutil.copy2(s, d)
 
-	with open('background.js', 'r') as file:
-		lines = file.readlines()
+	os.chdir(temporary_path)
 
-	with open('background.js', 'w') as file:
-		skip = False
-
-		for pos, line in enumerate(lines):
-			if (lines[pos].find('8.0 GOOGLE ANALYTICS') != -1):
-				skip = True
-
-			if (skip == False):
-				file.write(line)
-
-			if (line.find('/*--------------------------------------------------------------') != -1):
-				skip = False
-
-	with open('manifest.json', 'r+') as json_file:
+	with open('manifest.json', 'r+', encoding='utf8') as json_file:
 		data = json.load(json_file)
 
 		version = data['version']
 
-		del data['content_security_policy']
-		del data['update_url']
+		data.pop('content_security_policy', None)
+		data.pop('update_url', None)
+
+		# Patch background for Firefox
+		if 'background' in data:
+			if 'service_worker' in data['background']:
+				del data['background']['service_worker']
+			data['background']['scripts'] = ['background.js']
 
 		json_file.seek(0)
 		json.dump(data, json_file, indent=4, sort_keys=True)
@@ -146,10 +201,101 @@ def firefox():
 	for root, dirs, files in os.walk('.'):
 		for file in files:
 			archive.write(os.path.join(root, file),
-						  os.path.relpath(os.path.join(root, file),
-						  				  os.path.join('.', '.')))
+						os.path.relpath(os.path.join(root, file),
+										os.path.join('.', '.')))
 
 	archive.close()
+	os.chdir('..')
+	shutil.rmtree(temporary_path)
+
+def safari():
+	temporary_path = os.path.abspath('../cached-safari')
+
+	if os.path.isdir(temporary_path):
+		shutil.rmtree(temporary_path, ignore_errors=True)
+
+	repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+	shutil.copytree(
+		repo_root,
+		temporary_path,
+		ignore=shutil.ignore_patterns(
+			'.git',
+			'.github',
+			'cached',
+			'cached-safari',
+			'previews',
+			'py',
+			'wiki',
+			'*.zip',
+			*EXCLUDE_TOP_LEVEL
+		)
+	)
+
+	os.chdir(temporary_path)
+
+	for root, dirs, files in os.walk('_locales'):
+		if 'messages.json' not in files:
+			continue
+
+		path = os.path.join(root, 'messages.json')
+
+		with open(path, 'r+', encoding='utf8') as json_file:
+			data = json.load(json_file)
+			changed = False
+
+			for key, value in data.items():
+				if isinstance(value, dict):
+					message = value.get('message')
+					short_message = _short_app_store_locale_text(message)
+
+					if key == 'description_ext' and message != short_message:
+						value['message'] = short_message
+						changed = True
+
+					description = value.get('description')
+					short_description = _short_app_store_locale_text(description or short_message or key)
+
+					if description != short_description:
+						value['description'] = short_description
+						changed = True
+
+					if value.get('placeholders') == {}:
+						del value['placeholders']
+						changed = True
+
+			if changed:
+				json_file.seek(0)
+				json.dump(data, json_file, indent=4, sort_keys=True, ensure_ascii=False)
+				json_file.truncate()
+
+	with open('manifest.json', 'r+', encoding='utf8') as json_file:
+		data = json.load(json_file)
+
+		version = data['version']
+		permissions = data.get('permissions', [])
+
+		data['name'] = 'Improve YouTube! for YouTube & Videos'
+
+		if 'scripting' not in permissions:
+			permissions.append('scripting')
+
+		data['permissions'] = permissions
+
+		json_file.seek(0)
+		json.dump(data, json_file, indent=4, sort_keys=True)
+		json_file.truncate()
+
+	archive = zipfile.ZipFile('../safari-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
+
+	for root, dirs, files in os.walk('.'):
+		for file in files:
+			archive.write(os.path.join(root, file),
+						os.path.relpath(os.path.join(root, file),
+										os.path.join('.', '.')))
+
+	archive.close()
+	os.chdir('..')
 	shutil.rmtree(temporary_path)
 
 
@@ -158,9 +304,15 @@ def firefox():
 #---------------------------------------------------------------
 
 for arg in sys.argv:
-    if arg == '-chromium-stable':
-        chromium('stable')
-    elif arg == '-chromium-beta':
-        chromium('beta')
-    elif arg == '-firefox':
-        firefox()
+	if arg == '-chromium-stable':
+		chromium('stable')
+	elif arg == '-chromium-beta':
+		chromium('beta')
+	elif arg == '-chromium-edge':
+		chromium('edge')
+	elif arg == '-chromium-whale':
+		chromium('whale')
+	elif arg == '-firefox':
+		firefox()
+	elif arg == '-safari':
+		safari()

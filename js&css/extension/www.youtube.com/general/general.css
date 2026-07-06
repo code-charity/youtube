@@ -14,6 +14,7 @@
 # Hide buttons on thumbnails
 # Hide thumbnail icon
 # Hide dots on thumbnails
+# Squared thumbnails
 --------------------------------------------------------------*/
 html[it-cursorLighting=true] #below			{opacity:.4; transition:3s;}
 html[it-cursorLighting=true] #below:hover	{opacity:1; transition:.5s;}
@@ -50,6 +51,38 @@ html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content,
 html[it-cursorLighting=true] ytd-mini-guide-renderer 		{opacity:.4; transition:2s}					
 html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content:hover,
 html[it-cursorLighting=true] ytd-mini-guide-renderer:hover	{opacity:1; transition:.3s}
+
+/*--------------------------------------------------------------
+# SQUARED THUMBNAILS
+--------------------------------------------------------------*/
+html[it-squared-thumbnails='true'] ytd-thumbnail img,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail #thumbnail,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail img,
+html[it-squared-thumbnails='true'] .yt-thumbnail-view-model,
+html[it-squared-thumbnails='true'] .yt-thumbnail-view-model img,
+html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image img,
+html[it-squared-thumbnails='true'] .yt-video-card-view-model__thumbnail,
+html[it-squared-thumbnails='true'] .yt-video-card-view-model__thumbnail img {
+	border-radius: 0 !important;
+}
+html[it-squared-thumbnails='true'] ytd-thumbnail,
+html[it-squared-thumbnails='true'] ytd-thumbnail #thumbnail,
+html[it-squared-thumbnails='true'] ytd-thumbnail .yt-core-image,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail #thumbnail,
+html[it-squared-thumbnails='true'] ytd-playlist-thumbnail .yt-core-image,
+html[it-squared-thumbnails='true'] yt-thumbnail-view-model,
+html[it-squared-thumbnails='true'] yt-thumbnail-view-model .yt-thumbnail-view-model__image,
+html[it-squared-thumbnails='true'] yt-thumbnail-view-model .yt-core-image,
+html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image,
+html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image .yt-core-image {
+	--yt-img-border-radius: 0 !important;
+	--yt-thumbnail-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+/*--------------------------------------------------------------
+HIDING STUFF   (display:none !important) (Usually the !important isn't necessary)
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # REMOVE RELATED SEARCH RESULTS
 --------------------------------------------------------------*/
@@ -58,7 +91,8 @@ html[it-pathname='/results'][it-remove-related-search-results='true'] ytd-shelf-
 /*--------------------------------------------------------------
 # REMOVE SHOTS RELATED SEARCH RESULTS
 --------------------------------------------------------------*/
-html[it-pathname='/results'][it-remove-shorts-reel-search-results="true"] ytd-reel-shelf-renderer, 
+/*new:*/ html[it-pathname='/results'][it-remove-shorts-reel-search-results="true"] grid-shelf-view-model,
+html[it-pathname='/results'][it-remove-shorts-reel-search-results="true"] ytd-reel-shelf-renderer,   
 /*--------------------------------------------------------------
 # HIDE ANIMATED THUMBNAILS
 --------------------------------------------------------------*/
@@ -75,19 +109,56 @@ html[it-hide-thumbnail-overlay='true'] #player-controls.ytd-video-preview,
 # HIDE THUMBNAIL ICON
 --------------------------------------------------------------*/
 html[it-hide-thumbnail-icon='true'] .yt-spec-avatar-shape.yt-spec-avatar-shape__button.yt-spec-avatar-shape__button--button-medium.yt-spec-avatar-shape__button--tappable,
+html[it-hide-thumbnail-icon='true'] :is(ytd-video-renderer,ytd-promoted-video-renderer) a#channel-thumbnail,
+/*------------------------------------------------------------------------------
+# HIDE AI SUMMARY
+------------------------------------------------------------------------------*/
+html[it-hide-ai-summary='true'] ytd-expandable-metadata-renderer[has-video-summary],
 /*--------------------------------------------------------------
 # HIDE DOTS ON THUMBNAILS
 --------------------------------------------------------------*/
+/* Legacy selectors - kept as fallbacks (May 2026) */
 html[it-hide-thumbnail-dots='true'] button#button[aria-label="Action menu"],
-html[it-hide-thumbnail-dots="true"] button.yt-spec-button-shape-next[aria-label="More actions"] {
-    display: none;
+html[it-hide-thumbnail-dots="true"] button.yt-spec-button-shape-next[aria-label="More actions"],
+
+/* 1. Hide the menu container on Home, Channel, Search, and Sidebar thumbnails */
+html[it-hide-thumbnail-dots='true'] ytd-rich-item-renderer ytd-menu-renderer,
+html[it-hide-thumbnail-dots='true'] ytd-grid-video-renderer ytd-menu-renderer,
+html[it-hide-thumbnail-dots='true'] ytd-video-renderer ytd-menu-renderer,
+html[it-hide-thumbnail-dots='true'] ytd-compact-video-renderer ytd-menu-renderer,
+
+/* 2. Hide the new button tag on Home, Channel, Search, and Sidebar thumbnails */
+html[it-hide-thumbnail-dots='true'] ytd-rich-item-renderer button-view-model,
+html[it-hide-thumbnail-dots='true'] ytd-grid-video-renderer button-view-model,
+html[it-hide-thumbnail-dots='true'] ytd-video-renderer button-view-model,
+html[it-hide-thumbnail-dots='true'] ytd-compact-video-renderer button-view-model {
+	display: none !important;
 }
+
+/*-------------------------------------------------------------
+# HIDE SPONSORED VIDEOS ON HOME PAGE
+--------------------------------------------------------------*/
+html[it-pathname='/'][it-hide-sponsored-videos-home="true"] ytd-rich-item-renderer:has(a[href^="https://www.googleadservices.com/pagead/aclk"]),
 /*--------------------------------------------------------------
 # EMBEDDED VIDEOS
  --------------------------------------------------------------*/
-html[it-embeddedHidePauseOverlay='true'] .ytp-pause-overlay,
-html[it-embeddedHideYoutubeLogo='true'] a.ytp-youtube-button svg path,
-html[it-embeddedHideShare='true'] .ytp-share-button-visible:has(.ytp-share-icon),
+/* Only apply embedded video UI hiding on youtube.com domain, not on third-party sites like Reddit */
+html[it-embeddedHidePauseOverlay='true'][it-pathname^="/embed"] .ytp-pause-overlay,
+html[it-embeddedHideYoutubeLogo='true'][it-pathname^="/embed"] a.ytp-youtube-button svg path,
+html[it-embeddedHideShare='true'][it-pathname^="/embed"] .ytp-share-button-visible:has(.ytp-share-icon),
+/*--------------------------------------------------------------
+# REMOVE MEMBER ONLY VIDEOS
+--------------------------------------------------------------*/
+html[it-remove-member-only='true'] ytd-grid-video-renderer:has(.badge-style-type-members-only),
+html[it-remove-member-only='true'] ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
+html[it-remove-member-only='true'] ytd-rich-item-renderer:has(.badge-style-type-members-only),
+html[it-remove-member-only='true'] ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership),
+html[it-remove-member-only='true'] yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership),
+html[it-remove-member-only='true'] yt-lockup-view-model:has(.yt-badge-shape--commerce),
+/*--------------------------------------------------------------
+# REMOVE CONTEXT BUTTONS ON SHORTS
+--------------------------------------------------------------*/
+html[it-remove-context-buttons='true'] yt-shorts-suggested-action-view-model.YtShortsSuggestedActionViewModelStaticHost,
 /*--------------------------------------------------------------
 # REMOVE HOMEPAGE SHORTS
 --------------------------------------------------------------*/
@@ -96,8 +167,39 @@ html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] y
 /*are the two lines above outdated?*/
 html[it-pathname='/'][it-remove-home-page-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]), 
 html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-shorts="true"] ytd-item-section-renderer:has(a[href="/feed/subscriptions/shorts"]),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-reel-shelf-renderer,
-html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-reel-shelf-renderer {
+html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-reel-shelf-renderer,
+html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]),
+html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]),
+/*--------------------------------------------------------------
+# REMOVE SUBSCRIPTION LIVE STREAMS
+--------------------------------------------------------------*/
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="LIVE"]),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-rich-item-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"]),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-rich-item-renderer:has(.badge-style-type-live-now),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--live-now),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--upcoming-event),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="LIVE"]),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="UPCOMING"]),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-video-renderer:has(.badge-style-type-live-now),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-video-renderer:has(badge-shape.yt-badge-shape--live-now),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] ytd-video-renderer:has(badge-shape.yt-badge-shape--upcoming-event),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] yt-lockup-view-model:has(badge-shape.yt-badge-shape--live-now),
+html[it-pathname='/feed/subscriptions'][it-remove-subscriptions-live-streams="true"] yt-lockup-view-model:has(badge-shape.yt-badge-shape--upcoming-event),
+/*--------------------------------------------------------------
+# REMOVE PLAYABLES
+--------------------------------------------------------------*/
+html[it-pathname='/'][it-remove-playables="true"] ytd-rich-section-renderer:has(ytd-mini-game-card-view-model) {
+	display: none !important;
+}
+/*--------------------------------------------------------------
+# REMOVE TOP LIVE GAMES
+--------------------------------------------------------------*/
+html[it-pathname='/'][it-remove-top-live-games="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-gaming]),
+html[it-pathname='/'][it-remove-top-live-games="true"] ytd-rich-section-renderer:has([aria-label*="live game" i]),
+html[it-pathname='/'][it-remove-top-live-games="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer #title:has(a[href*="gaming"])),
+html[it-pathname='/'][it-remove-top-live-games="true"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer #title yt-formatted-string.ytd-rich-shelf-renderer:is([title="Top live games"])) {
 	display: none !important;
 }
 @supports not selector(:has(a, b)) {
@@ -106,14 +208,6 @@ html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-reel-sh
 		display: none !important;
 	}
 }
-
-html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]) {
-	display: none !important;
-}
-html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-video-renderer:has(ytd-thumbnail-overlay-time-status-renderer[overlay-style="SHORTS"]) {
-	display: none !important;
-}
-
 /*
 html[it-pathname='/feed/trending'][it-remove-trending-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
 html[it-pathname='/feed/history'][it-remove-history-shorts="true"] ytd-rich-section-renderer:has(ytd-rich-grid-slim-media[is-short]),
@@ -135,7 +229,7 @@ html[it-pathname='/'][it-youtube-home-page='search'] #body,
 html[it-pathname='/'][it-youtube-home-page='search'] #content,
 html[it-pathname='/'][it-youtube-home-page='search'] #guide[opened] {
 	visibility: hidden !important; 
-	pointer-events: none !important;
+/*	pointer-events: none !important; */
 }
 html[it-pathname='/'][it-youtube-home-page='search'] body::-webkit-scrollbar {
   width: 0 !important;
@@ -145,8 +239,11 @@ html[it-pathname='/'][it-youtube-home-page='search']>body {
 	width: 100vw !important;
 	height: 100vh !important;
 }
+/* 
+html[it-pathname='/'][it-youtube-home-page='search'] yt-searchbox,
 html[it-pathname='/'][it-youtube-home-page='search'] ytd-searchbox,
-html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox {
+html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox
+{
 	position: fixed !important;
 	z-index: 99999 !important;
 	top: 0 !important;
@@ -165,18 +262,34 @@ html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox {
 
 	justify-content: center !important;
 	align-items: center !important;
+	
 }
-
+html[it-pathname='/'][it-youtube-home-page='search'] yt-searchbox>form,
 html[it-pathname='/'][it-youtube-home-page='search'] ytd-searchbox>form,
 html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox>form {
 	width: 100% !important;
 	max-width: 768px !important;
-}
-html[it-pathname='/'][it-youtube-home-page='search'] #search {
-	height: calc(17px + 0.4vh + 0.4vw);
-	font-size: calc(15px + 0.4vh + 0.4vw);
-}
+}  */
 
+html[it-pathname='/'][it-youtube-home-page='search'] yt-searchbox,
+html[it-pathname='/'][it-youtube-home-page='search'] ytd-searchbox,
+html[it-pathname='/'][it-youtube-home-page='search'] ytm-searchbox,
+html[it-pathname='/'][it-youtube-home-page='search'] input[name="search_query"],
+html[it-pathname='/'][it-youtube-home-page='search'] #search {
+	visibility: visible !important;}
+
+html[it-pathname='/'][it-youtube-home-page='search'] input[name="search_query"],
+html[it-pathname='/'][it-youtube-home-page='search'] #search {
+	height: calc(16px + 0.4vh + 0.4vw);
+	font-size: calc(13px + 0.4vh + 0.4vw);
+}	
+html[it-pathname='/'][it-youtube-home-page='search'] div[role="listbox"],
+html[it-pathname='/'][it-youtube-home-page='search'] div[role="presentation"] {	
+	font-size: calc(12px + 0.2vh + 0.2vw);
+}
+html[it-pathname='/'][it-youtube-home-page='hidecontent'] div #content{	
+	display: none! important;
+}
 /*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
 -------------------------------------------------------------*/
@@ -273,19 +386,6 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 	box-shadow: 0 1px 1px 0 #d60024, 0 1px 2px rgb(82, 0, 14, .32) !important;
 }
 /*--------------------------------------------------------------
-# REMOVE MEMBER ONLY VIDEOS
---------------------------------------------------------------*/
-html[it-remove-member-only='true'] ytd-grid-video-renderer:has(.badge-style-type-members-only),
-html[it-remove-member-only='true'] ytd-rich-item-renderer:has(.badge-style-type-members-only) {
-    display: none !important;
-}
-/*--------------------------------------------------------------
-# REMOVE CONTEXT BUTTONS ON SHORTS
---------------------------------------------------------------*/
-html[it-remove-context-buttons='true'] yt-shorts-suggested-action-view-model.YtShortsSuggestedActionViewModelStaticHost {
-    display: none !important;
-}
-/*--------------------------------------------------------------
 # Popup Window Button
 --------------------------------------------------------------*/
 .it-popup-window {
@@ -326,6 +426,55 @@ html[it-remove-context-buttons='true'] yt-shorts-suggested-action-view-model.YtS
 *:hover>.it-popup-window {
 	opacity: 1 !important;
 	transition: opacity 0s;
+}
+/*--------------------------------------------------------------
+# Watch Later Button
+--------------------------------------------------------------*/
+.it-watch-later-button {
+	font-family: inherit !important;
+
+	position: absolute !important;
+	z-index: 1000 !important;
+	top: 4px !important;
+	right: 4px !important;
+
+	visibility: hidden !important;
+	opacity: 0 !important;
+	transition: opacity 150ms !important;
+
+	width: 28px !important;
+	height: 28px !important;
+	padding: 4px !important;
+
+	cursor: pointer !important;
+	text-align: center !important;
+
+	color: #fff !important;
+	border: none !important;
+	border-radius: 2px !important;
+	background: rgba(0, 0, 0, .8) !important;
+
+	fill: currentColor !important;
+}
+
+.it-watch-later-button svg {
+	width: 20px !important;
+	height: 20px !important;
+	pointer-events: none !important;
+}
+
+html[it-watch-later-buttons='always'] .it-watch-later-button,
+html[it-watch-later-buttons='hover'] *:hover>.it-watch-later-button {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+.it-watch-later-button[data-state='added'] {
+	background: rgba(0, 96, 64, .9) !important;
+}
+
+.it-watch-later-button[data-state='unavailable'] {
+	background: rgba(153, 27, 27, .9) !important;
 }
 /*--------------------------------------------------------------
 # MARK WATCHED VIDEOS
@@ -428,6 +577,44 @@ html[it-hide-watched-videos='true'] #dismissible:has(.it-mark-watched-videos[wat
 	max-width: 220px;
 	transition: max-width 0.4s ease 1.1s;
 	}
+
+/*--------------------------------------------------------------
+# LARGER THUMBNAIL METADATA
+  Restores a readable size for the channel name, view count and
+  video age shown under each thumbnail after YouTube shrank them.
+--------------------------------------------------------------*/
+html[it-larger-thumbnail-metadata='true'] ytd-rich-item-renderer #metadata-line,
+html[it-larger-thumbnail-metadata='true'] ytd-rich-item-renderer #metadata-line span,
+html[it-larger-thumbnail-metadata='true'] ytd-rich-item-renderer ytd-channel-name #text,
+html[it-larger-thumbnail-metadata='true'] ytd-video-renderer #metadata-line,
+html[it-larger-thumbnail-metadata='true'] ytd-video-renderer #metadata-line span,
+html[it-larger-thumbnail-metadata='true'] ytd-video-renderer ytd-channel-name #text,
+html[it-larger-thumbnail-metadata='true'] ytd-grid-video-renderer #metadata-line,
+html[it-larger-thumbnail-metadata='true'] ytd-grid-video-renderer #metadata-line span,
+html[it-larger-thumbnail-metadata='true'] ytd-compact-video-renderer #metadata-line,
+html[it-larger-thumbnail-metadata='true'] ytd-compact-video-renderer #metadata-line span,
+html[it-larger-thumbnail-metadata='true'] yt-lockup-view-model .yt-content-metadata-view-model-wiz__metadata-row,
+html[it-larger-thumbnail-metadata='true'] yt-lockup-view-model .yt-content-metadata-view-model-wiz__metadata-text,
+html[it-larger-thumbnail-metadata='true'] yt-lockup-view-model .yt-content-metadata-view-model-wiz__delimiter,
+html[it-larger-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-row,
+html[it-larger-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-text,
+html[it-larger-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__delimiter {
+	font-size: 1.4rem !important;
+	line-height: 2rem !important;
+}
+
+/*--------------------------------------------------------------
+# CLASSIC THUMBNAIL METADATA
+  Hides the play-triangle icon that YouTube inserted in front of
+  the view count on thumbnails. The accompanying JS expands the
+  shortened time-ago text and restores the interpunct delimiter.
+--------------------------------------------------------------*/
+html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-row .yt-content-metadata-view-model-wiz__metadata-icon,
+html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-row yt-icon,
+html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-text > svg,
+html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-text > yt-icon {
+	display: none !important;
+}
 
 /*--------------------------------------------------------------
 # COMPACT THEME

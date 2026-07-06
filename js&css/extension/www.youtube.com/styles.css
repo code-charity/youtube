@@ -14,6 +14,10 @@ html {overflow-x: hidden !important}
 	/* or maybe something like : html[it-pathname*="/shorts/"] #header.style-scope ytd-engagement-panel-title-header-renderer "visibility-button" */
 }
 
+html[it-hide-suggested-action="true"] div.ytp-suggested-action {  display: none;  } /* "View products" button */
+html[it-hide-merch-shelf="true"] div.style-scope.ytd-merch-shelf-renderer {   display: none; } /* product list above comments */
+html[it-remove-subscriptions-most-relevant="true"][it-pathname="/feed/subscriptions"] ytd-rich-section-renderer:has(ytd-rich-shelf-renderer:not([is-shorts])) { display: none !important; } /* "Most relevant" section on subscriptions page */
+
 /*------------------------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 --------------------------------------------------------------------------------
@@ -42,47 +46,32 @@ html {overflow-x: hidden !important}
 /*------------------------------------------------------------------------------
 4.0 PLAYER
 ------------------------------------------------------------------------------*/
-
 /*------------------------------------------------------------------------------
 4.1 CROP CHAPTER TITLES
 ------------------------------------------------------------------------------*/
 html[it-player-crop-chapter-titles=false] .ytp-chapter-title {
 	width: auto !important;
 }
-
 /*------------------------------------------------------------------------------
-4.2 ADS
+4.2 BANNER ADS
 ------------------------------------------------------------------------------*/
-html[it-ads=subscribed_channels] #related #player-ads,
-html[it-ads=subscribed_channels] #masthead-ad,
-html[it-ads=subscribed_channels] *[target-id*='engagement-panel-ads'],
-html[it-ads=subscribed_channels] .ytd-ad-slot-renderer,
-html[it-ads=subscribed_channels] yt-mealbar-promo-renderer,
-html[it-ads=subscribed_channels] #player .ytp-ad-image-overlay,
-html[it-ads=subscribed_channels] #player .video-ads .ytp-ad-player-overlay-flyout-cta,
-html[it-ads=subscribed_channels] #player .ytp-ad-module .ytp-ad-player-overlay-flyout-cta,
-html[it-ads=block_all] #related #player-ads,
-html[it-ads=block_all] #masthead-ad,
-html[it-ads=block_all] *[target-id*='engagement-panel-ads'],
-html[it-ads=block_all] .ytd-ad-slot-renderer,
-html[it-ads=block_all] yt-mealbar-promo-renderer,
-html[it-ads=block_all] #player .ytp-ad-image-overlay,
-html[it-ads=block_all] #player .video-ads .ytp-ad-player-overlay-flyout-cta,
-html[it-ads=block_all] #player .ytp-ad-module .ytp-ad-player-overlay-flyout-cta{
+html[it-hide_banner_ads=true] #related #player-ads,
+html[it-hide_banner_ads=true] #masthead-ad,
+html[it-hide_banner_ads=true] *[target-id*='engagement-panel-ads'],
+html[it-hide_banner_ads=true] .ytd-ad-slot-renderer,
+html[it-hide_banner_ads=true] yt-mealbar-promo-renderer,
+html[it-hide_banner_ads=true] #player .ytp-ad-image-overlay,
+html[it-hide_banner_ads=true] #player .video-ads .ytp-ad-player-overlay-flyout-cta,
+html[it-hide_banner_ads=true] #player .ytp-ad-module .ytp-ad-player-overlay-flyout-cta {
 	display: none !important;
 }
-
 /*
-html[it-ads=subscribed_channels] #player .video-ads,
-html[it-ads=subscribed_channels] #player .ytp-ad-module,
 html[it-ads=block_all] #player .video-ads,
 html[it-ads=block_all] #player .ytp-ad-module {
 	opacity: 0.0001 !important;
 }
-
 html[it-ads=subscribed_channels] #player .ytp-ad-preview-image,
 html[it-ads=block_all] #player .ytp-ad-preview-image,
-html[it-ads=subscribed_channels] #player .ytp-ad-skip-button-container,
 html[it-ads=block_all] #player .ytp-ad-skip-button-container {
 	opacity: 0.5 !important;
 }
@@ -90,10 +79,17 @@ html[it-ads=block_all] #player .ytp-ad-skip-button-container {
 /*------------------------------------------------------------------------------
 4.3 MINIPLAYER
 ------------------------------------------------------------------------------*/
-
 /*-----------------------------------------------------------------------------
 # POSITION & SIZE
 -----------------------------------------------------------------------------*/
+
+/* Fix: Ensure custom mini-player stays above page content (description, comments) */
+
+html[it-mini-player="true"] #player-container,
+html[it-mini-player="true"] #full-bleed-container {
+    z-index: 2005 !important;
+}
+
 .it-mini-player {
 	position: fixed !important;
 	z-index: 2006 !important;
@@ -121,7 +117,6 @@ html[it-ads=block_all] #player .ytp-ad-skip-button-container {
 	width: 100% !important;
 	height: 100% !important;
 }
-
 /*-----------------------------------------------------------------------------
 # DRAGGING
 -----------------------------------------------------------------------------*/
@@ -191,8 +186,6 @@ html[it-mini-player-cursor='sw-resize']::after {
 html[it-mini-player-cursor='nw-resize']::after {
 	cursor: nw-resize;
 }
-
-
 /*------------------------------------------------------------------------------
 #
 ------------------------------------------------------------------------------*/
@@ -212,16 +205,27 @@ html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 }
 .it-player-button {
 	position: relative !important;
-	display: flex !important;
-	min-width: 40px !important;
+	display: inline-flex !important;
+	width: 36px !important;
+	height: 36px !important;
 	padding: 0 !important;
 	justify-content: center !important;
 	align-items: center !important;
+	vertical-align: middle !important;
+	box-sizing: border-box !important;
+	flex: 0 0 36px !important;
+	align-self: center !important;
+	margin: 0 6px !important;
+	background: rgba(0, 0, 0, 0.3) !important;
+	border-radius: 50% !important;
 }
 
 .it-player-button>svg {
-	width: 56% !important;
-	height: auto !important;
+	display: block !important;
+	width: calc(100% - 6px) !important;
+	height: calc(100% - 6px) !important;
+	margin: 0 !important;
+	transform: none !important;
 	fill: #fff;
 }
 
@@ -688,7 +692,10 @@ html:not([data-page-type=channel]) .it-blocklisted-channel:hover ytd-thumbnail {
 	background: none;
 	fill: var(--yt-spec-icon-inactive);
 }
-
+html[dark] .improvedtube-player-button svg,
+html[dark] .improvedtube-player-button svg path {
+	fill: #fff;
+}
 .improvedtube-player-button:last-of-type {
 	margin-right: 24px;
 }
@@ -723,6 +730,13 @@ html[it-theme=plain] #cinematics {
 	filter:invert(100%) !important;
 	mix-blend-mode: darken !important
 }
+
+/* Background-color update */
+html[it-theme]:not([it-theme=default]) ytd-app, 
+html[it-theme]:not([it-theme=default]) ytd-browse-view, 
+html[it-theme]:not([it-theme=default]) ytd-watch-flexy,
+html[it-theme]:not([it-theme=default]) #page,
+html[it-theme]:not([it-theme=default]) #content { background-color: var(--yt-spec-base-background) !important; };
 
 /*video detail text color. Fix. Themes didnt apply video description text color*/
 html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
@@ -787,6 +801,7 @@ html[it-theme=black][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #aaa !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #000000cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -1020,6 +1035,7 @@ html[it-theme=dawn][data-system-color-scheme=light][it-schedule=system_peference
 	--yt-spec-selected-nav-text: rgb(255, 255, 255) !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #773344cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -1256,6 +1272,7 @@ html[it-theme=desert][data-system-color-scheme=light][it-schedule=system_peferen
 	--yt-spec-selected-nav-text: #555 !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #faf9f9cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -1477,6 +1494,7 @@ html[it-theme=night][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #fff !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #003459cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -1712,6 +1730,7 @@ html[it-theme=plain][data-system-color-scheme=light][it-schedule=system_peferenc
 	--yt-spec-selected-nav-text: #666 !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #d3e1c6cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -1943,6 +1962,7 @@ html[it-theme=sunset][data-system-color-scheme=light][it-schedule=system_peferen
 	--yt-spec-selected-nav-text: #fff !important;
 	--yt-spec-themed-blue: #065fd4 !important;
 	--yt-spec-themed-green: #107516 !important;
+	--yt-frosted-glass-desktop: #283567cc !important;
 	background-color: var(--yt-spec-base-background)!important;
 }
 
@@ -2152,13 +2172,209 @@ html .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
 	background-color: var(--yt-spec-text-primary);
 }
 
-/*override bell and thumbs up icons hardcoded colors inside SVG data*/
-/*bell icon*/
-html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
-	fill: var(--yt-spec-text-primary);
+/* Dark Mode + Fullscreen */
+html[dark] ytd-watch-flexy[fullscreen] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
+    fill: var(--yt-spec-text-primary);
 }
 
-/*thumbs up icon*/
-html .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
+/* Light Mode + Fullscreen */
+html:not([dark])[it-theme="default"] ytd-watch-flexy[fullscreen] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="1"] {
+    fill: var(--yt-spec-text-primary-inverse);
+}
+
+/* Like button splash effect light mode */
+html:not([dark])[it-theme="default"] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
+	stroke: var(--yt-spec-text-primary-inverse);
+}
+
+/* Like button splash effect dark mode */
+html[dark] .yt-spec-button-shape-next__icon ytd-lottie-player svg path[fill-opacity="0"] {
 	stroke: var(--yt-spec-text-primary);
+}
+
+/* Thumbnail sizes: Modern Grid (Home, Subscriptions, Channel) */
+html:is([it-thumbnail-size="large"], [it-thumbnail-size="medium"], [it-thumbnail-size="small"], [it-thumbnail-size="x-small"], [it-thumbnail-size="xx-small"]) ytd-rich-grid-renderer > #contents {
+    display: grid !important;
+    grid-gap: 16px !important;
+    width: 100% !important;
+}
+
+/* Set column sizes (auto-fill by default) */
+html[it-thumbnail-size="large"] ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)) !important;
+}
+html[it-thumbnail-size="medium"] ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+}
+html[it-thumbnail-size="small"] ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+}
+html[it-thumbnail-size="x-small"] ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+}
+html[it-thumbnail-size="xx-small"] ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+}
+
+/* OVERRIDE: Respect custom "Thumbnails Per Row" when active */
+html[it-thumbnail-size="large"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(var(--ytd-rich-grid-items-per-row), minmax(360px, 1fr)) !important;
+}
+html[it-thumbnail-size="medium"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(var(--ytd-rich-grid-items-per-row), minmax(280px, 1fr)) !important;
+}
+html[it-thumbnail-size="small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(var(--ytd-rich-grid-items-per-row), minmax(240px, 1fr)) !important;
+}
+html[it-thumbnail-size="x-small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(var(--ytd-rich-grid-items-per-row), minmax(180px, 1fr)) !important;
+}
+html[it-thumbnail-size="xx-small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-grid-renderer > #contents {
+    grid-template-columns: repeat(var(--ytd-rich-grid-items-per-row), minmax(140px, 1fr)) !important;
+}
+
+/* Prevent items from stretching entirely across the screen if row count is low */
+html[it-thumbnail-size="large"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-item-renderer {
+    max-width: 420px !important;
+}
+html[it-thumbnail-size="medium"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-item-renderer {
+    max-width: 340px !important;
+}
+html[it-thumbnail-size="small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-item-renderer {
+    max-width: 280px !important;
+}
+html[it-thumbnail-size="x-small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-item-renderer {
+    max-width: 220px !important;
+}
+html[it-thumbnail-size="xx-small"][it-change-thumbnails-per-row]:not([it-change-thumbnails-per-row="default"]) ytd-rich-item-renderer {
+    max-width: 180px !important;
+}
+
+/* Neutralize YouTube's row wrappers */
+html:is([it-thumbnail-size="large"], [it-thumbnail-size="medium"], [it-thumbnail-size="small"], [it-thumbnail-size="x-small"], [it-thumbnail-size="xx-small"]) ytd-rich-grid-row {
+    display: contents !important;
+}
+
+/* Reset individual video items to fill grid cells */
+html:is([it-thumbnail-size="large"], [it-thumbnail-size="medium"], [it-thumbnail-size="small"], [it-thumbnail-size="x-small"], [it-thumbnail-size="xx-small"]) ytd-rich-item-renderer {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+/* Hide YouTube's injected empty items */
+html:is([it-thumbnail-size="large"], [it-thumbnail-size="medium"], [it-thumbnail-size="small"], [it-thumbnail-size="x-small"], [it-thumbnail-size="xx-small"]) ytd-rich-item-renderer[is-empty] {
+    display: none !important;
+}
+
+/* Thumbnail sizes: Search Results & History Lists */
+html[it-thumbnail-size="large"] ytd-video-renderer ytd-thumbnail {
+    max-width: 420px !important;
+    min-width: 360px !important;
+}
+html[it-thumbnail-size="medium"] ytd-video-renderer ytd-thumbnail {
+    max-width: 320px !important;
+    min-width: 280px !important;
+}
+html[it-thumbnail-size="small"] ytd-video-renderer ytd-thumbnail {
+    max-width: 260px !important;
+    min-width: 240px !important;
+}
+html[it-thumbnail-size="x-small"] ytd-video-renderer ytd-thumbnail {
+    max-width: 180px !important;
+    min-width: 160px !important;
+}
+html[it-thumbnail-size="xx-small"] ytd-video-renderer ytd-thumbnail {
+    max-width: 140px !important;
+    min-width: 120px !important;
+}
+
+/* Thumbnail sizes: Video Player Sidebar (Related Videos) */
+html[it-thumbnail-size="large"] ytd-compact-video-renderer ytd-thumbnail {
+    width: 200px !important;
+}
+html[it-thumbnail-size="medium"] ytd-compact-video-renderer ytd-thumbnail {
+    width: 160px !important;
+}
+html[it-thumbnail-size="small"] ytd-compact-video-renderer ytd-thumbnail {
+    width: 120px !important;
+}
+html[it-thumbnail-size="x-small"] ytd-compact-video-renderer ytd-thumbnail {
+    width: 90px !important;
+}
+html[it-thumbnail-size="xx-small"] ytd-compact-video-renderer ytd-thumbnail {
+    width: 70px !important;
+}
+
+/*--------------------------------------------------------------
+# THUMBNAIL GRAYSCALE
+--------------------------------------------------------------*/
+html[it-thumbnail-grayscale="0"] yt-thumbnail-view-model {
+    filter: grayscale(0%) !important;
+}
+html[it-thumbnail-grayscale="25"] yt-thumbnail-view-model {
+    filter: grayscale(25%) !important;
+}
+html[it-thumbnail-grayscale="50"] yt-thumbnail-view-model {
+    filter: grayscale(50%) !important;
+}
+html[it-thumbnail-grayscale="75"] yt-thumbnail-view-model {
+    filter: grayscale(75%) !important;
+}
+html[it-thumbnail-grayscale="100"] yt-thumbnail-view-model {
+    filter: grayscale(100%) !important;
+}
+
+/*--------------------------------------------------------------
+# SUBSCRIPTIONS LIST LAYOUT
+--------------------------------------------------------------*/
+/* Single-column grid */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-grid-renderer > #contents {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+/* Flatten row wrappers */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-grid-row {
+    display: contents !important;
+}
+
+/* Each video item: horizontal row */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item]) {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item]) .ytLockupViewModelVertical {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+}
+
+/* Thumbnail fixed width on left */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item]) .ytLockupViewModelVertical .ytLockupViewModelContentImage {
+    min-width: 360px !important;
+    max-width: 360px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Details fill remaining space on right */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item]) .ytLockupViewModelVertical .ytLockupViewModelMetadata {
+    flex: 1 !important;
+    min-width: 0 !important;
+    padding-top: 4px !important;
+}
+
+/* Hide empty items */
+html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item])[is-empty] {
+    display: none !important;
+}
+
+html[it-theme=dark] [dark],
+html[it-theme=dark]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
+html[it-theme=dark][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=dark][data-system-color-scheme=light][it-schedule=system_peference_light] { 
+.it-add-channel-to-blocklist { 	--yt-spec-text-secondary: #aaa !important; }
 }

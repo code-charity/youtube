@@ -84,7 +84,7 @@
         "message": "Auto-PiP (Picture in picture)"
     },
     "autoFullscreen": {
-        "message": "Ecrân completo automático"
+        "message": "Ecrã completo automático"
     },
     "autopauseWhenSwitchingTabs": {
         "message": "Pausa quando muda de abas"
@@ -114,7 +114,7 @@
         "message": "Cópia de segurança e repor"
     },
     "baseOnSystemColorScheme": {
-        "message": "Baseado no esquema de cores do sistema"
+        "message": "Baseado no esquema de Cores do sistema"
     },
     "belowPlayer": {
         "message": "Reprodutor abaixo"
@@ -215,11 +215,11 @@
     "confirmationBeforeClosing": {
         "message": "Confirmar antes de encerrar"
     },
-    "cores": {
+    "Cores": {
         "message": "Núcleos"
     },
     "cropChapterTitles": {
-        "message": "Recortar títulos do capítulos"
+        "message": "ReCortar títulos do capítulos"
     },
     "Currently_requiring_a_YouTube_API_key": {
         "message": "(Necessário uma chave do YouTube-API: )"
@@ -273,7 +273,7 @@
         "message": "Aba padrão do canal"
     },
     "defaultContentCountry": {
-        "message": "País (viagem virtual)"
+        "message": "País padrão (viagem virtual)"
     },
     "defaultPlaybackSpeed": {
         "message": "Velocidade padrão de reprodução"
@@ -291,7 +291,7 @@
         "message": "Descrição"
     },
     "description_ext": {
-        "message": "Torne o YouTube organizado e inteligente! Pule Anúncio, colorir YouTube, volume, velocidade, canal, ferramenta, estilo, HD, adblock, adblocker, tags, playlist ,palavras-chave"
+        "message": "Torne o YouTube organizado e inteligente! Pule Anúncio, colorir YouTube, volume, velocidade, canal, ferramenta, estilo, HD, adblock, adblocker, tags, playlist , palavras-chave"
     },
     "desert": {
         "message": "Deserto"
@@ -315,7 +315,7 @@
         "message": "Não gostar"
     },
     "displayDayOfTheWeak": {
-        "message": "Mostrar dia da Semana"
+        "message": "Mostrar dia da semana"
     },
     "donate": {
         "message": "Doar"
@@ -336,10 +336,10 @@
         "message": "Correio electronico"
     },
     "embedded_Hide_Share": {
-        "message": "Ocultar compartilhamento do video incorporado"
+        "message": "Ocultar compartilhamento do video inCorporado"
     },
     "Embedded_YouTube": {
-        "message": "Videos Incorporados do YouTube"
+        "message": "Videos inCorporados do YouTube"
     },
     "empty": {
         "message": "Vazio"
@@ -348,7 +348,7 @@
         "message": "Ativado"
     },
     "enabledForced": {
-        "message": "Ativado (forçado)"
+        "message": "Ativar (forçado)"
     },
     "expanded": {
         "message": "Expandir"
@@ -369,7 +369,7 @@
         "message": "Filtros"
     },
     "fitToWindow": {
-        "message": "Ajustar á janela"
+        "message": "Ajustar à janela"
     },
     "flash": {
         "message": "Instantâneo"
@@ -552,7 +552,7 @@
         "message": "Apontar na página do video"
     },
     "howLongAgoTheVideoWasUploaded": {
-        "message": "À quanto tempo o video foi enviado"
+        "message": "Há quanto tempo o video foi enviado"
     },
     "icons": {
         "message": "Ícones"
@@ -567,7 +567,7 @@
         "message": "Botões do ImprovedTube"
     },
     "improvedtubeIconOnYoutube": {
-        "message": "Ícon do ImprovedTube no YouTube"
+        "message": "Ícone do ImprovedTube no YouTube"
     },
     "improvedtubeLanguage": {
         "message": "Linguagem do ImprovedTube"
@@ -576,7 +576,7 @@
         "message": "Versão do ImprovedTube"
     },
     "improveLogo": {
-        "message": "Melhorar logotipo"
+        "message": "Melhorar logótipo"
     },
     "increasePlaybackSpeed": {
         "message": "Aumentar velocidade de leitura"
@@ -666,7 +666,7 @@
         "message": "Minhas especificações"
     },
     "myColors": {
-        "message": "Minhas cores"
+        "message": "Minhas Cores"
     },
     "name": {
         "message": "Nome"
@@ -768,7 +768,7 @@
         "message": "botão de rotação do jogador"
     },
     "playerColor": {
-        "message": "Côr do leitor"
+        "message": "Cor do leitor"
     },
     "playerSize": {
         "message": "Tamanho do leitor"
@@ -792,16 +792,16 @@
         "message": "Posição"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Carrega em qualquer tecla ou usa a roldana do rato"
+        "message": "Carrega em qualquer tecla ou usa a roda do rato"
     },
     "pressAnyKeyOrUseMouseWheel": {
-        "message": "Carrega em qualquer tecla ou usa a roldana do rato"
+        "message": "Carrega em qualquer tecla ou usa a roda do rato"
     },
     "previousVideo": {
         "message": "Video anterior"
     },
     "primaryColor": {
-        "message": "Côr primaria"
+        "message": "Cor primaria"
     },
     "purple": {
         "message": "Violeta"
@@ -813,7 +813,7 @@
         "message": "Levantado"
     },
     "ram": {
-        "message": "Memoria"
+        "message": "Memória RAM"
     },
     "rateMe": {
         "message": "Avalie-me"
@@ -870,10 +870,10 @@
         "message": "Agendar"
     },
     "screen": {
-        "message": "Ecrân"
+        "message": "ecrã"
     },
     "screenshot": {
-        "message": "Foto do ecrân"
+        "message": "Foto do ecrã"
     },
     "scrollBar": {
         "message": "Barra De rolagem"
@@ -891,10 +891,10 @@
         "message": "Andar para frente 10 segundos"
     },
     "seekNextChapter": {
-        "message": "seekNextChapter"
+        "message": "Procurar o próximo capítulo"
     },
     "seekPreviousChapter": {
-        "message": "seekPreviousChapter"
+        "message": "Procurar o capítulo anterior"
     },
     "settings": {
         "message": "Definições"
@@ -909,7 +909,7 @@
         "message": "Mostrar barra lateral de capítulos"
     },
     "shortcut_screenshot": {
-        "message": "Foto do ecrân"
+        "message": "Foto do ecrã"
     },
     "shortcuts": {
         "message": "Atalhos"
@@ -984,7 +984,7 @@
         "message": "Pôr do sol"
     },
     "sunsetToSunrise": {
-        "message": "Pôr do sol até de manhã"
+        "message": "Pôr do sol até de madrugada"
     },
     "systemPeferenceDark": {
         "message": "Preferências do sistema: Escuro"
@@ -996,7 +996,7 @@
         "message": "Azul esverdeado"
     },
     "textColor": {
-        "message": "Côr do texto"
+        "message": "Cor do texto"
     },
     "themes": {
         "message": "Temas"

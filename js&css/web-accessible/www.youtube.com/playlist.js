@@ -4,85 +4,219 @@
 /*------------------------------------------------------------------------------
 4.5.1 UP NEXT AUTOPLAY
 ------------------------------------------------------------------------------*/
-ImprovedTube.playlistUpNextAutoplay = function () { if (this.storage.playlist_up_next_autoplay === false) {
-	const playlistData = this.elements.ytd_watch?.playlistData;
-	if (this.getParam(location.href, 'list') && playlistData
-		&& playlistData.currentIndex
-		&& playlistData.totalVideos
-		&& playlistData.localCurrentIndex) {
+ImprovedTube.playlistUpNextAutoplay = function () {
+	if (this.storage.playlist_up_next_autoplay === false) {
+		const playlistData = this.elements.ytd_watch?.playlistData;
+		if (this.getParam(location.href, 'list') && playlistData
+			&& playlistData.currentIndex
+			&& playlistData.totalVideos
+			&& playlistData.localCurrentIndex) {
+			// Prevent autoplay by telling YouTube we're at the end of the playlist
 			playlistData.currentIndex = playlistData.totalVideos;
 		}
+	}
+};
+
+// Playlist navigation handler for large playlists (400+ videos).
+// YouTube loads playlist metadata in chunks (~200 videos), causing
+// currentIndex and localCurrentIndex to desync at chunk boundaries.
+// This handler keeps them in sync so autoplay continues working.
+// Only runs when playlist_up_next_autoplay is NOT disabled.
+ImprovedTube.playlistLargePlaylistHandler = function() {
+	if (!this.getParam(location.href, 'list')) return;
+
+	// Do not sync indices if the user has disabled playlist autoplay,
+	// because playlistUpNextAutoplay intentionally sets currentIndex
+	// to totalVideos to prevent the next video from playing.
+	if (this.storage.playlist_up_next_autoplay === false) {
+		this.cleanupPlaylistHandlers();
+		return;
+	}
+
+	const playlistData = this.elements.ytd_watch?.playlistData;
+	if (!playlistData) return;
+
+	// Monitor video changes to handle large playlist navigation
+	const videoElement = this.elements.player?.querySelector('video');
+	if (videoElement && !this.playlistVideoChangeListener) {
+		this.playlistVideoChangeListener = () => {
+			// Re-check the setting in case it changed mid-session
+			if (this.storage.playlist_up_next_autoplay === false) return;
+
+			setTimeout(() => {
+				const currentData = this.elements.ytd_watch?.playlistData;
+				if (currentData && currentData.currentIndex !== currentData.localCurrentIndex) {
+					// Sync indices when YouTube loads new playlist segments
+					currentData.currentIndex = currentData.localCurrentIndex;
+
+					// Update the player's playlist manager if available
+					const playlistManager = document.querySelector('yt-playlist-manager');
+					if (playlistManager && playlistManager.autoplayData) {
+						playlistManager.autoplayData.currentIndex = currentData.localCurrentIndex;
+					}
+				}
+			}, 100);
+		};
+
+		videoElement.addEventListener('loadedmetadata', this.playlistVideoChangeListener);
+		videoElement.addEventListener('play', this.playlistVideoChangeListener);
+	}
+};
+
+// Cleanup function for when navigating away from playlist pages
+ImprovedTube.cleanupPlaylistHandlers = function() {
+	if (this.playlistAutoplayObserver) {
+		this.playlistAutoplayObserver.disconnect();
+		this.playlistAutoplayObserver = null;
+	}
+	const videoElement = this.elements.player?.querySelector('video');
+	if (this.playlistVideoChangeListener && videoElement) {
+		videoElement.removeEventListener('loadedmetadata', this.playlistVideoChangeListener);
+		videoElement.removeEventListener('play', this.playlistVideoChangeListener);
+		this.playlistVideoChangeListener = null;
 	}
 };
 /*------------------------------------------------------------------------------
 4.5.2 REVERSE
 ------------------------------------------------------------------------------*/
+
+// Fix #1836: Independent inject function for button
+ImprovedTube.injectReverseButton = function() {
+	if (document.querySelector('#it-reverse-playlist')) return;
+	
+	var container = ImprovedTube.elements.playlist.actions 
+		|| document.querySelector('ytd-playlist-panel-renderer #playlist-action-menu')
+		|| document.querySelector('.ytd-playlist-panel-renderer #playlist-action-menu')
+		|| document.querySelector('#playlist-action-menu')
+		|| document.querySelector('ytd-playlist-panel-renderer #header-description')
+		|| document.querySelector('ytd-menu-renderer.ytd-playlist-panel-renderer')
+		|| document.querySelector('yt-formatted-string.title.style-scope.ytd-playlist-panel-renderer')?.parentElement
+		|| document.querySelector('ytd-playlist-panel-renderer #top-level-buttons-computed')
+		|| document.querySelector('ytd-playlist-header-renderer #playlist-action-menu');
+	
+	if (!container) return;
+	
+	var button = document.createElement('button'),
+		svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+		path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+	button.id = 'it-reverse-playlist';
+	button.className = 'style-scope yt-icon-button' + (ImprovedTube.playlistReversed ? ' active' : '');
+	button.title = 'Reverse Playlist';
+	
+	button.addEventListener('click', function (event) {
+		event.preventDefault();
+		event.stopPropagation();
+
+		this.classList.toggle('active');
+		ImprovedTube.playlistReversed = !ImprovedTube.playlistReversed;
+
+		// Persist via messaging (Fix #1836)
+		ImprovedTube.messages.send({action: 'set', key: 'playlist_reversed_active', value: ImprovedTube.playlistReversed});
+
+		ImprovedTube.playlistReverseUpdate(); ImprovedTube.expandDescription();
+
+		return false;
+	}, true);
+
+	svg.setAttributeNS(null, 'width', '24');
+	svg.setAttributeNS(null, 'height', '24');
+	svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+	path.setAttributeNS(null, 'd', 'M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z');
+
+	svg.appendChild(path);
+	button.appendChild(svg);
+	container.appendChild(button);
+};
+
+ImprovedTube.playlistReverseUpdate = function () {
+	var results = ImprovedTube.elements.ytd_watch?.data?.contents?.twoColumnWatchNextResults,
+		playlist = results?.playlist?.playlist,
+		autoplay = results?.autoplay?.autoplay;
+
+	if (!playlist || !autoplay) return;
+
+	// Determine if currently reversed by checking YouTube's own index properties, which is 100% foolproof
+	// against YouTube modifying the array in-place without triggering a new object allocation.
+	var isCurrentlyReversed = false;
+	if (playlist.contents && playlist.contents.length > 1) {
+		var firstItem = playlist.contents[0].playlistPanelVideoRenderer || playlist.contents[0].playlistVideoRenderer;
+		var lastItem = playlist.contents[playlist.contents.length - 1].playlistPanelVideoRenderer || playlist.contents[playlist.contents.length - 1].playlistVideoRenderer;
+		
+		var firstIndex = firstItem?.navigationEndpoint?.watchEndpoint?.index ?? 0;
+		var lastIndex = lastItem?.navigationEndpoint?.watchEndpoint?.index ?? 0;
+		
+		if (firstIndex > lastIndex) {
+			isCurrentlyReversed = true;
+		}
+	} else {
+		isCurrentlyReversed = playlist.it_reversed === true;
+	}
+
+	var shouldBeReversed = ImprovedTube.playlistReversed === true;
+	if (isCurrentlyReversed === shouldBeReversed) {
+		return;
+	}
+	playlist.it_reversed = shouldBeReversed;
+
+	playlist.contents.reverse();
+
+	playlist.currentIndex = playlist.totalVideos - playlist.currentIndex - 1;
+	playlist.localCurrentIndex = playlist.contents.length - playlist.localCurrentIndex - 1;
+
+	for (var i = 0, l = autoplay.sets.length; i < l; i++) {
+		var item = autoplay.sets[i];
+		item.autoplayVideo = item.previousButtonVideo;
+		item.previousButtonVideo = item.nextButtonVideo;
+		item.nextButtonVideo = item.autoplayVideo;
+	}
+
+	ImprovedTube.elements.ytd_watch.updatePageData_(JSON.parse(JSON.stringify(ImprovedTube.elements.ytd_watch.data)));
+
+	setTimeout(function () {
+		var playlist_manager = document.querySelector('yt-playlist-manager');
+		var playlist_panel = document.querySelector('ytd-playlist-panel-renderer');
+		if (playlist_manager) {
+			ImprovedTube.elements.ytd_player.updatePlayerComponents(null, autoplay, null, playlist);
+			playlist_manager.autoplayData = autoplay;
+			playlist_manager.setPlaylistData(playlist);
+			ImprovedTube.elements.ytd_player.updatePlayerPlaylist_(playlist);
+		}
+		if (playlist_panel && playlist_panel.data) {
+			// Update the panel directly to ensure Polymer re-renders it
+			playlist_panel.data = playlist;
+			if (typeof playlist_panel.updateData === 'function') playlist_panel.updateData(playlist);
+		}
+	}, 100);
+};
+
+ImprovedTube.playlistReverseObserver = null;
+
 ImprovedTube.playlistReverse = function () {
 	if (this.storage.playlist_reverse === true) {
-		function update () {
-			var results = ImprovedTube.elements.ytd_watch.data.contents.twoColumnWatchNextResults,
-				playlist = results.playlist.playlist,
-				autoplay = results.autoplay.autoplay;
+		ImprovedTube.injectReverseButton();
+		
+		if (ImprovedTube.playlistReversed === true) {
+			ImprovedTube.playlistReverseUpdate();
+		}
 
-			playlist.contents.reverse();
-
-			playlist.currentIndex = playlist.totalVideos - playlist.currentIndex - 1;
-			playlist.localCurrentIndex = playlist.contents.length - playlist.localCurrentIndex - 1;
-
-			for (var i = 0, l = autoplay.sets.length; i < l; i++) {
-				var item = autoplay.sets[i];
-
-				item.autoplayVideo = item.previousButtonVideo;
-				item.previousButtonVideo = item.nextButtonVideo;
-				item.nextButtonVideo = item.autoplayVideo;
+		if (!ImprovedTube.playlistReverseObserver) {
+			var targetNode = document.querySelector('ytd-playlist-panel-renderer') 
+				|| document.querySelector('ytd-watch-flexy') 
+				|| document.body;
+			
+			if (targetNode) {
+				ImprovedTube.playlistReverseObserver = new MutationObserver(function(mutations) {
+					if (!document.querySelector('#it-reverse-playlist')) {
+						ImprovedTube.injectReverseButton();
+					}
+				});
+				
+				ImprovedTube.playlistReverseObserver.observe(targetNode, {
+					childList: true,
+					subtree: true
+				});
 			}
-
-			ImprovedTube.elements.ytd_watch.updatePageData_(JSON.parse(JSON.stringify(ImprovedTube.elements.ytd_watch.data)));
-
-			setTimeout(function () {
-				var playlist_manager = document.querySelector('yt-playlist-manager');
-
-				ImprovedTube.elements.ytd_player.updatePlayerComponents(null, autoplay, null, playlist);
-				playlist_manager.autoplayData = autoplay;
-				playlist_manager.setPlaylistData(playlist);
-				ImprovedTube.elements.ytd_player.updatePlayerPlaylist_(playlist);
-			}, 100);
-		}
-
-		if (!document.querySelector('#it-reverse-playlist') && ImprovedTube.elements.playlist.actions) {
-			var button = document.createElement('button'),
-				svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-				path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-
-			button.id = 'it-reverse-playlist';
-			button.className = 'style-scope yt-icon-button';
-			button.addEventListener('click', function (event) {
-				event.preventDefault();
-				event.stopPropagation();
-
-				this.classList.toggle('active');
-
-				ImprovedTube.playlistReversed = !ImprovedTube.playlistReversed;
-
-				update(); ImprovedTube.expandDescription();
-
-				return false;
-			}, true);
-
-			svg.setAttributeNS(null, 'width', '24');
-			svg.setAttributeNS(null, 'height', '24');
-			svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
-			path.setAttributeNS(null, 'd', 'M9 3L5 6.99h3V14h2V6.99h3L9 3zm7 14.01V10h-2v7.01h-3L15 21l4-3.99h-3z');
-
-			svg.appendChild(path);
-
-			button.appendChild(svg);
-
-			ImprovedTube.elements.playlist.actions.appendChild(button);
-		}
-
-		if (this.playlistReversed === true) {
-			update();
 		}
 	}
 };
@@ -237,8 +371,13 @@ ImprovedTube.playlistCopyVideoIdButton = function () {
 				button.addEventListener('click', () => {
 					const playlistLink = item.querySelector('a#wc-endpoint');
 					if (playlistLink) {
-						const playlistURL = playlistLink.href.match(ImprovedTube.regex.video_id)?.[1];
-						navigator.clipboard.writeText(playlistURL);
+						if (this.storage.playlist_copy_video_url === true) {
+							const playlistURL = playlistLink.href.split('&')[0];
+							navigator.clipboard.writeText(playlistURL);
+						} else {
+							const playlistURL = playlistLink.href.match(ImprovedTube.regex.video_id)?.[1];
+							navigator.clipboard.writeText(playlistURL);
+						}
 					}
 					button.dataset.tooltip = 'Copied!';
 					setTimeout(function() {
@@ -288,3 +427,4 @@ ImprovedTube.playlistPopup = function () {
 		} catch (error) { console.error("Error appending playlist button panel:", error);}
 	}
 };
+

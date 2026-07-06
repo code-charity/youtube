@@ -97,6 +97,12 @@ ImprovedTube.blocklistChannel = function (node) {
 	if (!this.storage.blocklist_activate || !node) return;
 
 	const id = location.pathname.match(ImprovedTube.regex.channel)?.groups?.name;
+
+	// Prevent duplicate observers when navigating between tabs
+	if (this.blocklistChannelObserver) {
+		this.blocklistChannelObserver.disconnect();
+	}
+
 	let button = node.parentNode?.parentNode?.querySelector("button.it-add-channel-to-blocklist");
 
 	if (!id) return; // not on channel page
@@ -140,17 +146,75 @@ ImprovedTube.blocklistChannel = function (node) {
 		});
 	};
 
-	node.parentNode.parentNode.appendChild(button);
-	this.elements.blocklist_buttons.push(button);
-	// YT tries to remove all forein nodes from node.parentNode.parentNode some time after 'yt-navigate-finish'
-	// Need to monitor for it and re-appendChild our button, otherwise if  gets deleted when switching to
-	// channel subpages /playlists /featured /videos etc.
-	this.blocklistChannelObserver = new MutationObserver(function () {
-		if (!button.isConnected) {
-			node.parentNode.parentNode.appendChild(button);
+	if (node.parentNode && node.parentNode.parentNode) {
+		node.parentNode.parentNode.appendChild(button);
+		this.elements.blocklist_buttons.push(button);
+
+		// YT tries to remove all foreign nodes from node.parentNode.parentNode some time after 'yt-navigate-finish'
+		// Need to monitor for it and re-appendChild our button, otherwise it gets deleted when switching to
+		// channel subpages /playlists /featured /videos etc.
+		this.blocklistChannelObserver = new MutationObserver(function () {
+			if (!button.isConnected) {
+				if (node.parentNode && node.parentNode.parentNode) {
+					node.parentNode.parentNode.appendChild(button);
+				} else {
+					// Stop observing if the parent node is gone to prevent loops
+					this.disconnect();
+				}
+			}
+		});
+		this.blocklistChannelObserver.observe(node.parentNode.parentNode, { childList: true, subtree: true });
+	}
+};
+
+ImprovedTube.handleDislikeButton = function() {	
+	// Wait for the dislike button to exist. YouTube may create/remove it dynamically.
+	const findButton = () => document.querySelector('dislike-button-view-model button');
+
+	const attach = (dislikeButton) => {
+		if (!dislikeButton) return;
+
+		// Also observe aria-pressed changes directly (more robust than relying on click)
+		const observer = new MutationObserver((mutations) => {
+			for (const m of mutations) {
+				if (m.type === 'attributes' && m.attributeName === 'aria-pressed') {
+					const aria = dislikeButton.getAttribute('aria-pressed');
+					const isDisliked = aria === 'true';
+					console.log('ImprovedTube: aria-pressed changed ->', aria);
+					const videoId = location.href.match(ImprovedTube.regex.video_id)?.[1];
+					const title = document.querySelector('h1.style-scope.ytd-watch-metadata yt-formatted-string')?.textContent;
+					if (!videoId || !title) return;
+					if (!this.storage.blocklist_activate || !this.storage.blocklist_dislike_trigger) return;
+					ImprovedTube.messages.send({
+						action: 'blocklist',
+						added: isDisliked,
+						type: 'video',
+						id: videoId,
+						title: title,
+						when: Date.parse(new Date().toDateString()) / 100000
+					});
+				}
+			}
+		});
+		observer.observe(dislikeButton, { attributes: true, attributeFilter: ['aria-pressed'] });
+		dislikeButton._itDislikeObserver = observer;
+	};
+
+	const button = findButton();
+	if (button) {
+		attach(button);
+		return;
+	}
+
+	// If button not present yet, watch DOM for it (one-time observer)
+	const rootObserver = new MutationObserver((mutations, obs) => {
+		const b = findButton();
+		if (b) {
+			attach(b);
+			try { obs.disconnect(); } catch (e) {}
 		}
 	});
-	this.blocklistChannelObserver.observe(node.parentNode.parentNode, {childList: true, subtree: true});
+	rootObserver.observe(document.documentElement || document.body, { childList: true, subtree: true });
 };
 
 ImprovedTube.blocklistInit = function () {
@@ -171,6 +235,11 @@ ImprovedTube.blocklistInit = function () {
 		}
 		if (document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER, YT-SUBSCRIBE-BUTTON-VIEW-MODEL, YTD-BUTTON-RENDERER.ytd-c4-tabbed-header-renderer')) {
 			this.blocklistChannel(document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER, YT-SUBSCRIBE-BUTTON-VIEW-MODEL, YTD-BUTTON-RENDERER.ytd-c4-tabbed-header-renderer'));
+		}
+
+		// Initialize dislike button handler for video pages (if user enabled)
+		if (location.pathname === '/watch' && this.storage.blocklist_dislike_trigger) {
+			this.handleDislikeButton();
 		}
 	} else {
 		// Disable and unload Blocklist

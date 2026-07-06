@@ -70,25 +70,50 @@ extension.exportSettings = function () {
 					on: {
 						click: function () {
 							try {
+								var now = new Date();
+								var pad = function (value) {
+									return (value < 10 ? '0' : '') + value;
+								};
+								var timestamp = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate()) + '_' + pad(now.getHours()) + '-' + pad(now.getMinutes());
+								var filename = 'improvedtube-settings-' + timestamp + '.json';
 								var blob = new Blob([JSON.stringify(satus.storage.data)], {
 									type: 'application/json;charset=utf-8'
 								});
+								var url = URL.createObjectURL(blob);
 
-								chrome.permissions.request({
-									permissions: ['downloads']
-								}, function (granted) {
-									if (granted) {
-										chrome.downloads.download({
-											url: URL.createObjectURL(blob),
-											filename: 'improvedtube.json',
-											saveAs: true
-										}, function () {
-											setTimeout(function () {
-												close();
-											}, 1000);
-										});
-									}
-								});
+								// Detect Safari: Safari doesn't support chrome.downloads API
+								var isSafari = /^((?!chrome|android|Firefox|Vivaldi|Edge|Brave|Opera|MSIE|OPR).)*safari/i.test(navigator.userAgent);
+								var isChrome = typeof chrome !== 'undefined' && chrome.downloads;
+
+								if (isSafari || !isChrome) {
+									// Fallback for Safari: use anchor tag with download attribute
+									var a = document.createElement('a');
+									a.href = url;
+									a.download = filename;
+									document.body.appendChild(a);
+									a.click();
+									document.body.removeChild(a);
+									setTimeout(function () {
+										close();
+									}, 1000);
+								} else {
+									// Use chrome.downloads API for Chrome/Edge/Firefox
+									chrome.permissions.request({
+										permissions: ['downloads']
+									}, function (granted) {
+										if (granted) {
+											chrome.downloads.download({
+												url: url,
+												filename: filename,
+												saveAs: true
+											}, function () {
+												setTimeout(function () {
+													close();
+												}, 1000);
+											});
+										}
+									});
+								}
 							} catch (error) {
 								console.error(error);
 							}

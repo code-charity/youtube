@@ -113,6 +113,12 @@
     "bluelight": {
         "message": "الضوء الأزرق"
     },
+    "bottomLeft": {
+        "message": "أسفل اليسار"
+    },
+    "bottomRight": {
+        "message": "أسفل اليمين"
+    },
     "brown": {
         "message": "بنى"
     },
@@ -253,6 +259,9 @@
     },
     "enabledForced": {
         "message": "ممكّن (إجباري)"
+    },
+    "exact": {
+        "message": "تاريخ/وقت محدد"
     },
     "expanded": {
         "message": "موسع"
@@ -428,6 +437,12 @@
     "languages": {
         "message": "اللغات"
     },
+    "lastWatchedFormat": {
+        "message": " 'شكل 'آخر مشاهدة"
+    },
+    "lastWatchedOverlayPosition": {
+        "message": "'موضع 'آخر مشاهدة"
+    },
     "legacyYoutube": {
         "message": "اليوتيوب القديم"
     },
@@ -596,6 +611,9 @@
     "relatedVideos": {
         "message": "فيديوهات ذات علاقة"
     },
+    "relative": {
+        "message": "نسبي (مثل: منذ 5 دقائق)"
+    },
     "removeRelatedSearchResults": {
         "message": "إزالة عمليات بحث مرتبطة بـ"
     },
@@ -667,6 +685,9 @@
     },
     "showChannelVideosCount": {
         "message": "إظهار عدد مقاطع الفيديو للقناة"
+    },
+    "showLastWatchedOverlay": {
+        "message": "عرض 'آخر مشاهدة' على الصور المصغرة"
     },
     "shuffle": {
         "message": "عشوائي"
@@ -757,6 +778,12 @@
     },
     "topChat": {
         "message": "رسائل المحادثة الهامّة"
+    },
+    "topLeft": {
+        "message": "أعلى اليسار"
+    },
+    "topRight": {
+        "message": "أعلى اليمين"
     },
     "trailerAutoplay": {
         "message": "التشغيل التلقائي للفيديو الدعائي"

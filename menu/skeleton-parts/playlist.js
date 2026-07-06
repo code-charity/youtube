@@ -45,7 +45,26 @@ extension.skeleton.main.layers.section.playlist = {
 				},
 				playlist_copy_video_id: {
 					component: 'switch',
+					id: 'playlist-copy-video-id',
 					text: 'copyVideoId'
+				},
+				playlist_copy_video_url: {
+					component: 'switch',
+					text: 'copyVideoUrl',
+					value: false
+				}
+			},
+			section3: {
+				component: 'section',
+				variant: 'card',
+
+				playlist_quick_delete_shortcut: {
+					component: 'switch',
+					text: 'quickDeleteShortcut'
+				},
+				playlist_bulk_delete_by_progress: {
+					component: 'switch',
+					text: 'bulkDeleteByProgress'
 				}
 			}
 		}

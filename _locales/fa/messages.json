@@ -1,8 +1,1553 @@
 {
+    "about": {
+        "message": "درباره"
+    },
+    "accept": {
+        "message": "پذیرفتن"
+    },
+    "activate": {
+        "message": "فعال‌ سازی"
+    },
+    "activateCaptions": {
+        "message": "فعال کردن زیرنویس"
+    },
+    "activated": {
+        "message": "فعال شد"
+    },
+    "activatedFeatures": {
+        "message": "ویژگی‌های فعال شده"
+    },
+    "activateFitToWindow": {
+        "message": "اندازه کردن به اندازه پنجره"
+    },
+    "activateFullscreen": {
+        "message": "تمام صفحه"
+    },
+    "activeFeatures": {
+        "message": "ویژگی‌های فعال من"
+    },
+    "addScrollToTop": {
+        "message": "افزودن «رفتن به بالا»"
+    },
+    "ads": {
+        "message": "تبلیغات ویدیویی"
+    },
+    "all": {
+        "message": "همه"
+    },
+    "allow": {
+        "message": "اجازه دادن"
+    },
+    "Allow_auto_generate": {
+        "message": "اجازه تولید خودکار"
+    },
+    "allow60fps": {
+        "message": "اجازه ۶۰ فریم بر ثانیه"
+    },
+    "allYourSettingsWillBeErasedAndCanTBeRecovered": {
+        "message": "تمام تنظیمات شما پاک شده و قابل بازیابی نخواهند بود"
+    },
+    "allYourShortcutsWillBeErasedAndCanTBeRecovered": {
+        "message": "تمام میانبرهای شما پاک شده و قابل بازیابی نخواهند بود"
+    },
+    "always": {
+        "message": "همیشه"
+    },
+    "alwaysActive": {
+        "message": "همیشه فعال"
+    },
+    "alwaysShowProgressBar": {
+        "message": "همیشه نوار پیشرفت را نمایش بده"
+    },
+    "amber": {
+        "message": "کهربایی"
+    },
+    "ambientLighting": {
+        "message": "نورپردازی محیطی"
+    },
+    "analytics": {
+        "message": "تجزیه و تحلیل"
+    },
+    "analyzer": {
+        "message": "تحلیلگر"
+    },
+    "animations": {
+        "message": "انیمیشن‌ها"
+    },
+    "appearance": {
+        "message": "ظاهر"
+    },
+    "areYouSureYouWantToExportTheData": {
+        "message": "آیا از خروجی گرفتن داده‌ها مطمئن هستید؟"
+    },
+    "areYouSureYouWantToImportTheData": {
+        "message": "آیا از وارد کردن این داده‌ها مطمئن هستید؟"
+    },
+    "areYouSureYouWantToSyncTheData": {
+        "message": "آیا از همگام‌سازی تنظیمات فعلی مطمئن هستید؟"
+    },
+    "ARROWDOWN": {
+        "message": "⇩"
+    },
+    "ARROWLEFT": {
+        "message": "⇦"
+    },
+    "ARROWRIGHT": {
+        "message": "⇨"
+    },
+    "ARROWUP": {
+        "message": "⇧"
+    },
+    "atHistory": {
+        "message": "در 'تاریخچه'"
+    },
+    "atSubscriptions": {
+        "message": "در 'اشتراک‌ها'"
+    },
+    "atTrending": {
+        "message": "در 'پرطرفدارها'"
+    },
+    "audio": {
+        "message": "صدا"
+    },
+    "audioFormats": {
+        "message": "فرمت‌های صوتی"
+    },
+    "auto": {
+        "message": "خودکار"
+    },
+    "Auto_PiP_picture_in_picture": {
+        "message": "تصویر در تصویر خودکار (PiP)"
+    },
+    "autoFullscreen": {
+        "message": "تمام صفحه خودکار"
+    },
+    "autopauseWhenSwitchingTabs": {
+        "message": "توقف خودکار هنگامی که در تب نیستم"
+    },
+    "autoPictureInPicture": {
+        "message": "تصویر در تصویر خودکار"
+    },
+    "autoplay": {
+        "message": "پخش خودکار"
+    },
+    "autoplayDisable": {
+        "message": "اجبار به غیرفعال کردن پخش خودکار"
+    },
+    "avoidAv1": {
+        "message": "پرهیز از AV1"
+    },
+    "avoidAv1Vp8Vp9": {
+        "message": "پرهیز از AV1، VP8، VP9"
+    },
+    "avoidAv1Vp9": {
+        "message": "پرهیز از AV1، VP9"
+    },
+    "avoidCpuRenderingWhenPossible": {
+        "message": "پرهیز از رندر توسط CPU در صورت امکان"
+    },
+    "backgroundColor": {
+        "message": "رنگ پس‌زمینه"
+    },
+    "backgroundOpacity": {
+        "message": "شفافیت پس‌زمینه"
+    },
+    "backupAndReset": {
+        "message": "پشتیبان‌گیری و بازنشانی"
+    },
+    "baseOnSystemColorScheme": {
+        "message": "بر اساس طرح رنگ سیستم"
+    },
+    "belowPlayer": {
+        "message": "زیر پخش‌کننده"
+    },
+    "bitness": {
+        "message": "بیت"
+    },
+    "black": {
+        "message": "سیاه"
+    },
+    "block_Codec_Alert_h264": {
+        "message": "برای پخش ویدیوها در یوتیوب، باید H.264 یا VP9 فعال باشد."
+    },
+    "block_Codec_Alert_VP9": {
+        "message": "برای پخش ویدیوها در یوتیوب، باید VP9 یا H.264 فعال باشد."
+    },
+    "blockAll": {
+        "message": "خاموش (مسدود یا رد کردن)"
+    },
+    "blockAv1": {
+        "message": "مسدود کردن AV1"
+    },
+    "blockH264": {
+        "message": "مسدود کردن H.264"
+    },
+    "blocklist": {
+        "message": "لیست مسدودی‌ها"
+    },
+    "blockMusic": {
+        "message": "رد کردن تبلیغات هنگام پخش موسیقی"
+    },
+    "blockVp8": {
+        "message": "مسدود کردن VP8"
+    },
+    "blockVp9": {
+        "message": "مسدود کردن VP9"
+    },
+    "blue": {
+        "message": "آبی"
+    },
+    "blueGray": {
+        "message": "آبی خاکستری"
+    },
+    "bluelight": {
+        "message": "نور آبی"
+    },
+    "bottomLeft": {
+        "message": "پایین چپ"
+    },
+    "bottomRight": {
+        "message": "پایین راست"
+    },
+    "brightness": {
+        "message": "روشنایی"
+    },
+    "brown": {
+        "message": "قهوه‌ای"
+    },
+    "browser": {
+        "message": "مرورگر"
+    },
+    "browserAccountSync": {
+        "message": "همگام سازی (حساب مرورگر)"
+    },
+    "browserVersion": {
+        "message": "نسخه مرورگر"
+    },
+    "bubbles": {
+        "message": "حباب‌ها"
+    },
+    "bug": {
+        "message": "اشکال"
+    },
+    "bulkDeleteByProgress": {
+        "message": "حذف به صورت یکجا ویدیوها بر اساس پیشرفت تماشا"
+    },
+    "buttons": {
+        "message": "دکمه‌ها"
+    },
+    "cancel": {
+        "message": "لغو"
+    },
+    "categories": {
+        "message": "دسته‌بندی‌ها"
+    },
+    "changeThumbnailsPerRow": {
+        "message": "تصاویر کوچک در هر ردیف"
+    },
+    "channel": {
+        "message": "کانال"
+    },
+    "channels": {
+        "message": "کانال‌ها"
+    },
+    "chapters": {
+        "message": "فصل‌ها"
+    },
+    "chapterTitle": {
+        "message": "عنوان فصل"
+    },
+    "characterEdgeStyle": {
+        "message": "سبک لبه کاراکتر"
+    },
+    "clickableLinksInDescription": {
+        "message": "برای کپی کردن لینک‌ها در توضیحات ویدیو، راست کلیک کنید"
+    },
+    "clip": {
+        "message": "کلیپ"
+    },
+    "clipboard": {
+        "message": "کلیپ‌بورد"
+    },
+    "codecH264": {
+        "message": "کدک h.264"
+    },
+    "codecs": {
+        "message": "کدک‌ها"
+    },
+    "collapsed": {
+        "message": "جمع شده"
+    },
+    "collapseOfSubscriptionSections": {
+        "message": "جمع کردن بخش‌های اشتراک‌ها (آکاردئون جمع شده)"
+    },
+    "columns": {
+        "message": "ستون نوار کناری اضافی (بدون جابجا کردن ویدیوهای مرتبط، اگر پنجره به اندازه کافی عریض باشد)"
+    },
+    "comments": {
+        "message": "نظرات"
+    },
+    "compact_spacing": {
+        "message": "فاصله‌گذاری فشرده"
+    },
+    "compactTheme": {
+        "message": "قالب فشرده"
+    },
+    "confirmationBeforeClosing": {
+        "message": "تایید قبل از بستن"
+    },
+    "cookies": {
+        "message": "کوکی‌ها"
+    },
+    "copyVideoId": {
+        "message": "📋 کپی شناسه ویدیو"
+    },
+    "copyVideoUrl": {
+        "message": "کپی آدرس کامل ویدیو"
+    },
+    "cores": {
+        "message": "هسته‌ها"
+    },
+    "cropChapterTitles": {
+        "message": "برش عناوین فصل"
+    },
+    "Currently_requiring_a_YouTube_API_key": {
+        "message": "(در حال حاضر نیاز به کلید API یوتیوب دارد: )"
+    },
+    "cursorLighting": {
+        "message": "! تاریک کردن صفحات یوتیوب، به جز جایی که ماوس روی آن است"
+    },
+    "custom": {
+        "message": "سفارشی"
+    },
+    "customCss": {
+        "message": "CSS سفارشی"
+    },
+    "customJs": {
+        "message": "JS سفارشی"
+    },
+    "customMiniPlayer": {
+        "message": "پخش‌کننده کوچک سفارشی"
+    },
+    "cyan": {
+        "message": "فیروزه‌ای"
+    },
+    "dark": {
+        "message": "تاریک"
+    },
+    "darkTheme": {
+        "message": "قالب تاریک"
+    },
+    "dateAndTime": {
+        "message": "تاریخ و زمان"
+    },
+    "dawn": {
+        "message": "طلوع"
+    },
+    "decreasePlaybackSpeed": {
+        "message": "کاهش سرعت پخش"
+    },
+    "decreaseVolume": {
+        "message": "کاهش صدا"
+    },
+    "deepOrange": {
+        "message": "نارنجی تیره"
+    },
+    "deepPurple": {
+        "message": "بنفش تیره"
+    },
+    "default": {
+        "message": "پیش‌فرض"
+    },
+    "default_CC": {
+        "message": "پیش‌فرض"
+    },
+    "default_theme": {
+        "message": "پیش‌فرض"
+    },
+    "defaultChannelTab": {
+        "message": "تب پیش‌فرض کانال"
+    },
+    "defaultContentCountry": {
+        "message": "کشور (سفر مجازی)"
+    },
+    "defaultPlaybackSpeed": {
+        "message": "سرعت پخش پیش‌فرض"
+    },
+    "deleteWatchedVideos": {
+        "message": "حذف ویدیوهای تماشا شده"
+    },
+    "deleteYoutubeCookies": {
+        "message": "حذف کوکی‌های یوتیوب"
+    },
+    "depressed": {
+        "message": "فرو رفته"
+    },
+    "description": {
+        "message": "توضیحات"
+    },
+    "description_ext": {
+        "message": "یوتیوب، مرتب و هوشمند؟ یوتیوب را تقویت کنید! به آن ویژگی‌های قدرتمند بدهید، فقط ویدیوهایی را که می‌خواهید فیلتر کنید و دقیقاً ظاهری را که دوست دارید به آن ببخشید"
+    },
+    "desert": {
+        "message": "کویر"
+    },
+    "details": {
+        "message": "جزئیات"
+    },
+    "developerOptions": {
+        "message": "گزینه‌های توسعه‌دهنده"
+    },
+    "device": {
+        "message": "دستگاه"
+    },
+    "dim": {
+        "message": "کم‌ نور"
+    },
+    "disableAutoDubbing": {
+        "message": "غیرفعال کردن دوبله خودکار"
+    },
+    "disabled": {
+        "message": "غیرفعال"
+    },
+    "disableLikesAnimation": {
+        "message": "غیرفعال کردن انیمیشن لایک‌ها"
+    },
+    "disableThumbnailPlayback": {
+        "message": "غیرفعال کردن پخش ویدیو هنگام قرار گرفتن ماوس روی آن"
+    },
+    "dislike": {
+        "message": "دوست نداشتن"
+    },
+    "displayDayOfTheWeak": {
+        "message": "نمایش روز هفته"
+    },
+    "donate": {
+        "message": "حمایت مالی"
+    },
+    "doNotChange": {
+        "message": "تغییر نده"
+    },
+    "download": {
+        "message": "دانلود"
+    },
+    "draggable": {
+        "message": "قابل کشیدن"
+    },
+    "dropShadow": {
+        "message": "سایه"
+    },
+    "durationWithSpeed": {
+        "message": "نمایش زمان باقی‌مانده با توجه به سرعت پخش"
+    },
+    "email": {
+        "message": "ایمیل"
+    },
+    "embedded_Hide_Share": {
+        "message": "پنهان کردن اشتراک‌گذاری در حالت جاسازی شده"
+    },
+    "Embedded_YouTube": {
+        "message": "یوتیوب جاسازی شده"
+    },
+    "empty": {
+        "message": "خالی"
+    },
+    "enabled": {
+        "message": "فعال"
+    },
+    "enabledForced": {
+        "message": "فعال (اجباری)"
+    },
+    "enterPassword": {
+        "message": "لطفاً کد ۴ رقمی خود را وارد کنید."
+    },
+    "exact": {
+        "message": "تاریخ/زمان دقیق"
+    },
+    "excludeShortsInPlayAll": {
+        "message": "حذف شورت‌ها هنگام استفاده از \"پخش همه\""
+    },
+    "expanded": {
+        "message": "باز شده"
+    },
+    "exportSettings": {
+        "message": "خروجی گرفتن از تنظیمات"
+    },
+    "extension": {
+        "message": "افزونه"
+    },
+    "ExtraButtons": {
+        "message": "دکمه‌های اضافی"
+    },
+    "extraButtonsBelowThePlayer": {
+        "message": "دکمه‌های اضافی زیر پخش‌کننده"
+    },
+    "extraRightControlButtons": {
+        "message": "دکمه‌های اضافی داخل پخش‌کننده"
+    },
+    "Feature_not_yet_available": {
+        "message": "ویژگی هنوز در دسترس نیست"
+    },
+    "file": {
+        "message": "فایل"
+    },
+    "filters": {
+        "message": "فیلترها"
+    },
+    "fitToWindow": {
+        "message": "جایگزین قدیمی ('اندازه کردن به اندازه پنجره')"
+    },
+    "flash": {
+        "message": "فلش"
+    },
+    "font": {
+        "message": "فونت"
+    },
+    "fontColor": {
+        "message": "رنگ فونت"
+    },
+    "fontFamily": {
+        "message": "خانواده فونت"
+    },
+    "fontOpacity": {
+        "message": "شفافیت فونت"
+    },
+    "fontSize": {
+        "message": "اندازه فونت"
+    },
+    "footer": {
+        "message": "پاورقی"
+    },
+    "forcedPlaybackSpeed": {
+        "message": "تماشای سریع: سرعت دائمی"
+    },
+    "forcedPlaybackSpeedMusic": {
+        "message": "(اعمال سرعت پخش حتی برای موسیقی؟)"
+    },
+    "forcedPlayVideoFromTheBeginning": {
+        "message": "اجبار به پخش ویدیو از ابتدا"
+    },
+    "forcedTheaterMode": {
+        "message": "اجبار به حالت تئاتر"
+    },
+    "forcedVolume": {
+        "message": "اجبار به حجم صدا"
+    },
+    "forceSDR": {
+        "message": "پرهیز از HDR، حفظ SDR"
+    },
+    "foundABug": {
+        "message": "اشکالی پیدا کردید؟"
+    },
+    "fullscreenReturn": {
+        "message": "بازگشت از تمام‌صفحه"
+    },
+    "fullWindow": {
+        "message": "ارتفاع کامل"
+    },
+    "general": {
+        "message": "عمومی"
+    },
+    "geoPreference": {
+        "message": "ترجیح جغرافیایی"
+    },
+    "github": {
+        "message": "گیت‌هاب"
+    },
+    "googleApiKey": {
+        "message": "کلید API گوگل"
+    },
+    "goToSearchBox": {
+        "message": "رفتن به کادر جستجو"
+    },
+    "gpu": {
+        "message": "پردازنده گرافیکی (GPU)"
+    },
+    "GPUnotindatabase": {
+        "message": "پردازنده گرافیکی در پایگاه داده نیست"
+    },
+    "green": {
+        "message": "سبز"
+    },
+    "grey": {
+        "message": "خاکستری"
+    },
+    "halfTransparent": {
+        "message": "کم‌رنگ/نیمه شفاف"
+    },
+    "Hamburger_Menu": {
+        "message": "منوی همبرگری"
+    },
+    "hardwareInformation": {
+        "message": "اطلاعات سخت‌افزاری"
+    },
+    "hd": {
+        "message": "HD"
+    },
+    "hdThumbnail": {
+        "message": "تصویر کوچک HD"
+    },
+    "header": {
+        "message": "سربرگ"
+    },
+    "hidden": {
+        "message": "پنهان"
+    },
+    "hiddenOnVideoPage": {
+        "message": "پنهان در صفحه ویدیو"
+    },
+    "hide_author_avatars": {
+        "message": "پنهان کردن آواتار نویسندگان"
+    },
+    "hide_labels": {
+        "message": "پنهان کردن نام‌ها"
+    },
+    "Hide_Pause_Overlay": {
+        "message": "پنهان کردن پوشش توقف"
+    },
+    "Hide_Shorts_remixing_this_video": {
+        "message": "پنهان کردن شورت‌های ریمیکس کننده این ویدیو"
+    },
+    "Hide_sidebar": {
+        "message": "پنهان کردن نوار کناری "
+    },
+    "Hide_the_tabs_only": {
+        "message": "فقط تب‌ها را پنهان کن"
+    },
+    "Hide_YouTube_Logo": {
+        "message": "پنهان کردن لوگوی یوتیوب"
+    },
+    "hideAISummary": {
+        "message": "پنهان کردن خلاصه‌های هوش مصنوعی"
+    },
+    "hideAnimatedThumbnails": {
+        "message": "پنهان کردن تصاویر کوچک متحرک"
+    },
+    "hideAnnotations": {
+        "message": "پنهان کردن حاشیه‌نویسی‌ها"
+    },
+    "hideBannerAds": {
+        "message": "پنهان کردن تبلیغات بنری (یوتیوب ممکن است مخالفت کند)"
+    },
+    "hideCards": {
+        "message": "پنهان کردن کارت‌ها"
+    },
+    "hideCategories": {
+        "message": "پنهان کردن دسته‌بندی‌ها"
+    },
+    "hideCommentsCount": {
+        "message": "پنهان کردن تعداد نظرات"
+    },
+    "hideCountryCode": {
+        "message": "پنهان کردن کد کشور"
+    },
+    "hideDate": {
+        "message": "پنهان کردن تاریخ"
+    },
+    "hideDetailButton": {
+        "message": "دکمه‌ها (زیر پخش‌کننده)"
+    },
+    "hideDetails": {
+        "message": "پنهان کردن جزئیات"
+    },
+    "hideEndscreen": {
+        "message": "پنهان کردن صفحه پایانی"
+    },
+    "hideFeaturedContent": {
+        "message": "پنهان کردن محتوای ویژه"
+    },
+    "hideFooter": {
+        "message": "پنهان کردن پاورقی"
+    },
+    "hideGradientBottom": {
+        "message": "پنهان کردن سایه اطراف نوار پخش‌کننده"
+    },
     "hideHomePageShorts": {
-        "message": "حذف کردن شورت‌های صفحه اصلی"
+        "message": "پنهان کردن شورت‌ها در صفحه اصلی"
+    },
+    "hideIncludesPaidPromotion": {
+        "message": "پنهان کردن «شامل تبلیغات پولی است»"
+    },
+    "hideLogo": {
+        "message": "! لوگو: پنهان کردن"
+    },
+    "hideMore": {
+        "message": "پنهان کردن '...'"
+    },
+    "hidePlayerControlsBar": {
+        "message": "پنهان کردن نوار کنترل‌های پخش‌کننده"
+    },
+    "hidePlayerControlsBarButtons": {
+        "message": "پنهان کردن دکمه‌های کنترل‌های پخش‌کننده"
+    },
+    "hidePlayerControlsBarOptions": {
+        "message": "پنهان کردن گزینه‌های کنترل‌های پخش‌کننده"
+    },
+    "hidePlaylist": {
+        "message": "پنهان کردن لیست پخش"
+    },
+    "hideProgressBarPreview": {
+        "message": "پنهان کردن پیش‌نمایش نوار پیشرفت"
+    },
+    "hideReport": {
+        "message": "پنهان کردن 'گزارش'"
+    },
+    "hideRightButtons": {
+        "message": "پنهان کردن دکمه‌های سمت راست"
+    },
+    "hideScrollForDetails": {
+        "message": "پنهان کردن «برای جزئیات اسکرول کنید»"
+    },
+    "hideSkipOverlay": {
+        "message": "پنهان کردن انیمیشن 5 ثانیه‌ای رد کردن"
+    },
+    "hideSponsoredVideosOnHome": {
+        "message": "پنهان کردن ویدیوهای حمایت شده در صفحه اصلی"
+    },
+    "hideThumbnailDots": {
+        "message": "پنهان کردن '⫶' (اقدامات بیشتر) روی تصاویر کوچک"
+    },
+    "hideThumbnailIcon": {
+        "message": "پنهان کردن آیکون تصویر کوچک"
+    },
+    "hideThumbnailOverlay": {
+        "message": "پنهان کردن دکمه‌ها روی تصاویر کوچک"
+    },
+    "hideThumbnails": {
+        "message": "پنهان کردن تصاویر کوچک"
+    },
+    "hideTopLoadingBar": {
+        "message": "پنهان کردن نوار بارگذاری بالا"
+    },
+    "hideVideoTitleFullScreen": {
+        "message": "پنهان کردن عنوان ویدیو در حالت تمام صفحه"
+    },
+    "hideViewsCount": {
+        "message": "پنهان کردن تعداد بازدیدها"
+    },
+    "hideVoiceSearchButton": {
+        "message": "پنهان کردن دکمه جستجوی صوتی"
+    },
+    "hideWatchedVideos": {
+        "message": "پنهان کردن ویدیوهای تماشا شده"
+    },
+    "high": {
+        "message": "زیاد"
+    },
+    "history": {
+        "message": "تاریخچه"
+    },
+    "home": {
+        "message": "خانه"
+    },
+    "homeScreen": {
+        "message": "صفحه اصلی"
+    },
+    "hover": {
+        "message": "هاور"
+    },
+    "hoverOnVideoPage": {
+        "message": "هاور در صفحه ویدیو"
+    },
+    "howLongAgoTheVideoWasUploaded": {
+        "message": "نمایش عمر ویدیو (چه مدت پیش بارگذاری شده)"
+    },
+    "icons": {
+        "message": "آیکون‌ها"
+    },
+    "iconsOnly": {
+        "message": "فقط آیکون"
+    },
+    "importSettings": {
+        "message": "وارد کردن تنظیمات"
+    },
+    "ImprovedTube": {
+        "message": "ImprovedTube"
+    },
+    "improvedtubeButtons": {
+        "message": "دکمه‌های ImprovedTube"
+    },
+    "improvedtubeIconOnYoutube": {
+        "message": "آیکون ImprovedTube در یوتیوب"
+    },
+    "improvedtubeLanguage": {
+        "message": "ImprovedTube"
+    },
+    "improvedTubeSidePanel": {
+        "message": "ImprovedTube: پنل کناری مرورگر"
+    },
+    "improvedtubeVersion": {
+        "message": "نسخه ImprovedTube"
+    },
+    "improveLogo": {
+        "message": "! لوگو: تک‌رنگ"
+    },
+    "increasePlaybackSpeed": {
+        "message": "افزایش سرعت پخش"
+    },
+    "increaseVolume": {
+        "message": "افزایش صدا"
+    },
+    "indigo": {
+        "message": "نیلی"
+    },
+    "items": {
+        "message": "موارد"
+    },
+    "join": {
+        "message": "پیوستن"
+    },
+    "keyScene": {
+        "message": "⚡پرش به پربازدیدترین صحنه(ها)"
+    },
+    "language": {
+        "message": "زبان"
+    },
+    "language_closed_caption": {
+        "message": "زبان پیش‌فرض - زیرنویس‌ها"
+    },
+    "languages": {
+        "message": "زبان‌ها"
+    },
+    "lastWatchedFormat": {
+        "message": "فرمت زمان"
+    },
+    "lastWatchedOverlayPosition": {
+        "message": "موقعیت روکش"
+    },
+    "layerAnimationScale": {
+        "message": "مقیاس انیمیشن لایه"
+    },
+    "layout": {
+        "message": "چیدمان"
+    },
+    "Left_Side_Menu": {
+        "message": "منوی سمت چپ"
+    },
+    "legacyYoutube": {
+        "message": "یوتیوب قدیمی"
+    },
+    "library": {
+        "message": "کتابخانه"
+    },
+    "light": {
+        "message": "روشن"
+    },
+    "lightBlue": {
+        "message": "آبی روشن"
+    },
+    "lightGreen": {
+        "message": "سبز روشن"
+    },
+    "like": {
+        "message": "پسندیدن"
+    },
+    "liked": {
+        "message": "پسندیده شده"
+    },
+    "likes": {
+        "message": "پسندها"
+    },
+    "lime": {
+        "message": "لیمویی"
+    },
+    "limitPageWidth": {
+        "message": "محدود کردن عرض صفحه"
+    },
+    "list": {
+        "message": "لیست"
+    },
+    "liveChat": {
+        "message": "چت زنده"
+    },
+    "liveChatType": {
+        "message": "نوع چت زنده"
+    },
+    "location": {
+        "message": "مکان"
+    },
+    "loop": {
+        "message": "🔁 تکرار"
+    },
+    "loudnessNormalization": {
+        "message": "نرمال‌سازی بلندی صدا"
+    },
+    "low": {
+        "message": "کم"
+    },
+    "markWatchedVideos": {
+        "message": "علامت‌گذاری ویدیوهای تماشا شده"
+    },
+    "medium": {
+        "message": "متوسط"
+    },
+    "mixer": {
+        "message": "میکسر"
+    },
+    "more": {
+        "message": "بیشتر"
+    },
+    "mostViewedChannels": {
+        "message": "پربازدیدترین کانال‌ها"
+    },
+    "moveSidebarLeft": {
+        "message": "! به سمت چپ"
+    },
+    "moveThumbnailsRight": {
+        "message": "! تصاویر کوچک به سمت راست"
+    },
+    "My_specs": {
+        "message": "مشخصات من"
+    },
+    "myColors": {
+        "message": "رنگ‌های من"
+    },
+    "name": {
+        "message": "نام"
+    },
+    "nativeMiniPlayer": {
+        "message": "پخش‌کننده کوچک بومی"
+    },
+    "new": {
+        "message": "جدید"
+    },
+    "nextVideo": {
+        "message": "ویدیوی بعدی"
+    },
+    "night": {
+        "message": "شب"
+    },
+    "nightMode": {
+        "message": "حالت شب"
+    },
+    "noActiveFeatures": {
+        "message": "هیچ ویژگی فعالی وجود ندارد"
+    },
+    "none": {
+        "message": "هیچ‌کدام"
+    },
+    "noOpenVideoTabs": {
+        "message": "هیچ تب ویدیوی بازی وجود ندارد"
+    },
+    "normal": {
+        "message": "عادی"
+    },
+    "Not_optimal": {
+        "message": "غیر بهینه"
+    },
+    "off": {
+        "message": "خاموش"
+    },
+    "ok": {
+        "message": "باشه"
+    },
+    "old": {
+        "message": "قدیمی"
+    },
+    "onAllVideos": {
+        "message": "روشن"
+    },
+    "onlyActiveOnYoutube": {
+        "message": "فقط در یوتیوب فعال باشد"
+    },
+    "onlyOnePlayerInstancePlaying": {
+        "message": "توقف هنگام تماشای ویدیوی دوم"
+    },
+    "onSmallCreators": {
+        "message": "خاموش، به جز برای کانال‌های کوچک"
+    },
+    "onSubscribedChannels": {
+        "message": "خاموش، به جز در کانال‌های مشترک شده‌ام"
+    },
+    "openNewTab": {
+        "message": "باز کردن در تب جدید"
+    },
+    "openPopupPlayer": {
+        "message": "باز کردن ویدیو/لیست پخش در پنجره جدید"
+    },
+    "Optimal": {
+        "message": "بهینه"
+    },
+    "optimizeCodecForHardwareAcceleration": {
+        "message": "بهینه‌سازی کدک برای شتاب سخت‌افزاری"
+    },
+    "orange": {
+        "message": "نارنجی"
+    },
+    "os": {
+        "message": "سیستم‌عامل"
+    },
+    "other": {
+        "message": "دیگر"
+    },
+    "outline": {
+        "message": "خط دور"
+    },
+    "overlay": {
+        "message": "روکش"
+    },
+    "passwordOptions": {
+        "message": "گزینه‌های رمز عبور"
+    },
+    "pauseWhileIAmTypingOnYouTube": {
+        "message": "توقف هنگام تایپ در یوتیوب"
+    },
+    "pauseWhileIUnplugTheCharger": {
+        "message": "توقف هنگام جدا کردن شارژر"
+    },
+    "permissions": {
+        "message": "مجوزها"
+    },
+    "pictureInPicture": {
+        "message": "تصویر در تصویر"
+    },
+    "pink": {
+        "message": "صورتی"
+    },
+    "PipRequiresUserInteraction": {
+        "message": "تصویر در تصویر به تعامل اخیر کاربر با صفحه منبع نیاز دارد. این به دلیل محدودیت‌های API تصویر در تصویر کروم است و ما نمی‌توانیم آن را دور بزنیم. با غیرفعال کردن پخش خودکار و کنترل دستی پخش یا کلیک عمدی روی قسمتی از صفحه قبل از تغییر تب، بهترین عملکرد را دارد."
+    },
+    "plain": {
+        "message": "ساده"
+    },
+    "platform": {
+        "message": "پلتفرم"
+    },
+    "playAllButton": {
+        "message": "دکمه «پخش همه»"
+    },
+    "playbackSpeed": {
+        "message": "سرعت پخش"
+    },
+    "playbackSpeedButton": {
+        "message": "دکمه سرعت پخش"
+    },
+    "player": {
+        "message": "پخش‌کننده"
+    },
+    "player_auto_cinema_mode": {
+        "message": "حالت سینمای خودکار"
+    },
+    "player_auto_hide_cinema_mode_when_paused": {
+        "message": "پنهان کردن خودکار حالت سینما هنگام توقف"
+    },
+    "player_cinema_mode_button": {
+        "message": "حالت سینما"
+    },
+    "player_dont_speed_education": {
+        "message": "دسته‌بندی (نادر) آموزش را سریع نکنید"
+    },
+    "player_fit_to_win_button": {
+        "message": "اندازه کردن به اندازه پنجره"
+    },
+    "player_playback_speed_button": {
+        "message": "دکمه سرعت پخش"
+    },
+    "player_rewind_and_forward_buttons": {
+        "message": "دکمه‌های عقب/جلو بردن"
+    },
+    "player_rotate_button": {
+        "message": "چرخش ویدیو"
+    },
+    "playerAutoPipOutside": {
+        "message": "تصویر در تصویر خودکار فقط خارج از تب منبع"
+    },
+    "playerColor": {
+        "message": "رنگ نوار پیشرفت"
+    },
+    "playerSize": {
+        "message": "اندازه پخش‌کننده"
+    },
+    "playlist": {
+        "message": "لیست پخش"
+    },
+    "playlists": {
+        "message": "لیست‌های پخش"
+    },
+    "playPause": {
+        "message": "پخش / توقف"
+    },
+    "popupAd": {
+        "message": "تبلیغ پاپ آپ: پنهان کردن"
+    },
+    "popupPlayer": {
+        "message": "پخش‌کننده پاپ‌آپ"
+    },
+    "popupWindowButtons": {
+        "message": "افزودن دکمه پخش‌کننده پاپ‌آپ به هر تصویر کوچک"
+    },
+    "position": {
+        "message": "موقعیت"
+    },
+    "pressAnyKeyOrScroll": {
+        "message": "هر کلیدی را فشار دهید یا از چرخ ماوس استفاده کنید."
+    },
+    "pressAnyKeyOrUseMouseWheel": {
+        "message": "هر کلیدی را فشار دهید یا از چرخ ماوس استفاده کنید"
+    },
+    "preventShortVideoAutoloop": {
+        "message": "جلوگیری از پخش خودکار حلقه‌ای ویدیوهای کوتاه"
+    },
+    "previousVideo": {
+        "message": "ویدیوی قبلی"
+    },
+    "primaryColor": {
+        "message": "رنگ اصلی"
+    },
+    "pullSyncSettings": {
+        "message": "دریافت"
+    },
+    "purchase": {
+        "message": "خرید"
+    },
+    "purple": {
+        "message": "بنفش"
+    },
+    "pushSyncSettings": {
+        "message": "ارسال"
+    },
+    "quality": {
+        "message": "کیفیت"
+    },
+    "qualityWhenRunningOnBattery": {
+        "message": "کیفیت، هنگام استفاده از باتری"
+    },
+    "qualityWithoutFocus": {
+        "message": "کیفیت بدون فوکوس"
+    },
+    "quickDeleteShortcut": {
+        "message": "دکمه‌های حذف سریع میانبر"
+    },
+    "raised": {
+        "message": "برجسته"
+    },
+    "ram": {
+        "message": "رم (RAM)"
+    },
+    "rateMe": {
+        "message": "به من امتیاز دهید"
+    },
+    "rateUs": {
+        "message": "به ما امتیاز دهید"
+    },
+    "red": {
+        "message": "قرمز"
+    },
+    "redDislikeButton": {
+        "message": "قرمز هنگام نپسندیدن"
+    },
+    "relatedVideos": {
+        "message": "ویدیوهای مرتبط"
+    },
+    "relative": {
+        "message": "نسبی (مثلاً ۵ دقیقه پیش)"
+    },
+    "remote": {
+        "message": "پخش در تلویزیون"
+    },
+    "Remove": {
+        "message": "حذف"
+    },
+    "removeBlackBars": {
+        "message": "حذف نوارهای سیاه در حالت تمام صفحه"
+    },
+    "removeContextButtons": {
+        "message": "حذف دکمه‌های زمینه در شورت‌ها"
+    },
+    "removeIcons": {
+        "message": "حذف آیکون‌ها"
+    },
+    "removeMemberOnly": {
+        "message": "حذف ویدیوهای مخصوص اعضا"
+    },
+    "removeName": {
+        "message": "حذف نام"
+    },
+    "removeNames": {
+        "message": "حذف نام‌ها"
+    },
+    "removePlaylistParam": {
+        "message": "رد کردن لیست پخش هنگام باز کردن ویدیوها در تب جدید"
+    },
+    "removeRelatedSearchResults": {
+        "message": "حذف نتایج جستجوی مرتبط"
     },
     "removeShortsReelSearchResults": {
-        "message": "حذف کردن ریل Shorts از نتایج جستجو"
+        "message": "حذف حلقه شورت‌ها از نتایج جستجو"
+    },
+    "RemoveSubtitlesForLyrics": {
+        "message": "حذف زیرنویس برای متن آهنگ"
+    },
+    "repeat": {
+        "message": "تکرار"
+    },
+    "report": {
+        "message": "گزارش"
+    },
+    "requirePassword": {
+        "message": "برای تغییر تنظیمات ImprovedTube نیاز به رمز عبور است"
+    },
+    "reset": {
+        "message": "بازنشانی"
+    },
+    "resetAllSettings": {
+        "message": "بازنشانی تمام تنظیمات"
+    },
+    "resetAllShortcuts": {
+        "message": "بازنشانی تمام میانبر‌ها"
+    },
+    "reverse": {
+        "message": "معکوس"
+    },
+    "revertTheaterModeButtonSizes": {
+        "message": "بازگردانی اندازه دکمه‌های حالت تئاتر"
+    },
+    "rotate": {
+        "message": "چرخش"
+    },
+    "save": {
+        "message": "ذخیره"
+    },
+    "saveAs": {
+        "message": "ذخیره به عنوان"
+    },
+    "schedule": {
+        "message": "زمان‌بندی"
+    },
+    "screen": {
+        "message": "صفحه نمایش"
+    },
+    "screenshot": {
+        "message": "🖼️ اسکرین‌شات"
+    },
+    "scrollBar": {
+        "message": "نوار اسکرول"
+    },
+    "sd": {
+        "message": "SD"
+    },
+    "search": {
+        "message": "جستجو"
+    },
+    "searchBarOnly": {
+        "message": "فقط نوار جستجو"
+    },
+    "secondaryColor": {
+        "message": "رنگ ثانویه"
+    },
+    "seekBackward10Seconds": {
+        "message": "۱۰ ثانیه به عقب"
+    },
+    "seekForward10Seconds": {
+        "message": "۱۰ ثانیه به جلو"
+    },
+    "seekNextChapter": {
+        "message": "رفتن به فصل بعدی"
+    },
+    "seekPreviousChapter": {
+        "message": "رفتن به فصل قبلی"
+    },
+    "settings": {
+        "message": "تنظیمات"
+    },
+    "settingsSuccessfullyImported": {
+        "message": "تنظیمات با موفقیت وارد شد"
+    },
+    "share": {
+        "message": "اشتراک‌گذاری"
+    },
+    "shortcut_chapters": {
+        "message": "فصل‌ها (نوار کناری) روشن/خاموش"
+    },
+    "shortcut_screenshot": {
+        "message": "اسکرین‌شات"
+    },
+    "shortcut_transcript": {
+        "message": "رونوشت (نوار کناری) روشن/خاموش"
+    },
+    "shortcuts": {
+        "message": "میانبر‌ها"
+    },
+    "ShortsForceTheStandardPlayer": {
+        "message": "شورت‌ها: اجبار به استفاده از پخش‌کننده استاندارد"
+    },
+    "showCardsOnMouseHover": {
+        "message": "نمایش کارت‌ها هنگام قرار گرفتن ماوس"
+    },
+    "showChannelVideosCount": {
+        "message": "نمایش تعداد ویدیوهای کانال"
+    },
+    "showExactDate": {
+        "message": "نمایش تاریخ دقیق"
+    },
+    "showLastWatchedOverlay": {
+        "message": "نمایش روکش 'آخرین بار تماشا شده' روی تصاویر کوچک"
+    },
+    "showLess": {
+        "message": "نمایش کمتر"
+    },
+    "showMore": {
+        "message": "نمایش بیشتر"
+    },
+    "showRemainingDuration": {
+        "message": "نمایش مدت زمان باقی‌مانده ویدیو"
+    },
+    "showVersion": {
+        "message": "نمایش نسخه"
+    },
+    "shuffle": {
+        "message": "درهم"
+    },
+    "sidebar": {
+        "message": "نوار کناری"
+    },
+    "Sidebar_simple_alternative": {
+        "message": "نوار کناری (جایگزین ساده)"
+    },
+    "softwareInformation": {
+        "message": "اطلاعات نرم‌افزار"
+    },
+    "spacebar": {
+        "message": "کلید فاصله"
+    },
+    "squaredUserImages": {
+        "message": "تصاویر مربعی کاربر"
+    },
+    "static": {
+        "message": "ایستا"
+    },
+    "statsForNerds": {
+        "message": "نمایش آمار برای حرفه‌ای‌ها"
+    },
+    "step": {
+        "message": "گام"
+    },
+    "stickyNavigation": {
+        "message": "ناوبری چسبان"
+    },
+    "stop": {
+        "message": "توقف"
+    },
+    "style": {
+        "message": "سبک"
+    },
+    "styles": {
+        "message": "سبک‌ها"
+    },
+    "subscribe": {
+        "message": "اشتراک"
+    },
+    "subscriptions": {
+        "message": "اشتراک‌ها"
+    },
+    "Subtitle_Capture_including_the_current_words": {
+        "message": "زیرنویس (ضبط شامل کلمات فعلی)"
+    },
+    "subtitleLine": {
+        "message": "پنهان کردن خط قرمز زیرنویس"
+    },
+    "subtitles": {
+        "message": "زیرنویس‌ها"
+    },
+    "sunset": {
+        "message": "غروب"
+    },
+    "sunsetToSunrise": {
+        "message": "غروب تا طلوع"
+    },
+    "systemPeferenceDark": {
+        "message": "ترجیح سیستم: تاریک"
+    },
+    "systemPeferenceLight": {
+        "message": "ترجیح سیستم: روشن"
+    },
+    "teal": {
+        "message": "سبزآبی"
+    },
+    "textColor": {
+        "message": "رنگ متن"
+    },
+    "thanks": {
+        "message": "تشکر"
+    },
+    "themes": {
+        "message": "قالب‌ها"
+    },
+    "thisWillRemoveAllCookies": {
+        "message": "این کار تمام کوکی‌ها را حذف خواهد کرد."
+    },
+    "thisWillRemoveAllWatchedVideos": {
+        "message": "این کار تمام ویدیوهای تماشا شده را حذف خواهد کرد."
+    },
+    "thisWillRemoveAllYouTubeCookies": {
+        "message": "این کار تمام کوکی‌های یوتیوب را حذف خواهد کرد"
+    },
+    "thisWillResetAllSettings": {
+        "message": "این کار تمام تنظیمات را بازنشانی خواهد کرد."
+    },
+    "thisWillResetAllShortcuts": {
+        "message": "این کار تمام میانبرها را بازنشانی خواهد کرد"
+    },
+    "thumbnails": {
+        "message": "تصاویر کوچک"
+    },
+    "thumbnailSize": {
+        "message": "اندازه تصاویر کوچک"
+    },
+    "thumbnailsQuality": {
+        "message": "کیفیت تصاویر کوچک"
+    },
+    "timeFrom": {
+        "message": "از زمان"
+    },
+    "timeTo": {
+        "message": "تا زمان"
+    },
+    "To_the_side_No_page_margin": {
+        "message": "! به کنار (بدون حاشیه صفحه)"
+    },
+    "todayAt": {
+        "message": "امروز ساعت"
+    },
+    "toggleAutoplay": {
+        "message": "تغییر وضعیت پخش خودکار"
+    },
+    "toggleCards": {
+        "message": "تغییر وضعیت کارت‌ها"
+    },
+    "toggleControls": {
+        "message": "تغییر وضعیت پنهان کردن کنترل‌های پخش‌کننده"
+    },
+    "topChat": {
+        "message": "چت برتر"
+    },
+    "topLeft": {
+        "message": "بالا چپ"
+    },
+    "topRight": {
+        "message": "بالا راست"
+    },
+    "trackWatchedVideos": {
+        "message": "ردیابی ویدیوهای تماشا شده"
+    },
+    "trailerAutoplay": {
+        "message": "پخش خودکار تریلر"
+    },
+    "Transcript": {
+        "message": "رونوشت"
+    },
+    "translations": {
+        "message": "ترجمه‌ها"
+    },
+    "transparentBackground": {
+        "message": "پس‌زمینه شفاف"
+    },
+    "transparentBackgroundAlternative": {
+        "message": "جایگزین پس‌زمینه شفاف"
+    },
+    "transparentColor": {
+        "message": "شفاف"
+    },
+    "trending": {
+        "message": "پرطرفدارها"
+    },
+    "tryToReloadThePage": {
+        "message": "صفحه را دوباره بارگیری کنید"
+    },
+    "type": {
+        "message": "نوع"
+    },
+    "undoTheNewSidebar": {
+        "message": "! بازگرداندن نوار کناری جدید"
+    },
+    "upNextAutoplay": {
+        "message": "پخش خودکار بعدی"
+    },
+    "use24HourFormat": {
+        "message": "استفاده از فرمت ۲۴ ساعته"
+    },
+    "version": {
+        "message": "نسخه"
+    },
+    "video": {
+        "message": "ویدیو"
+    },
+    "videoDescriptionWillBeExpandedToGetNameOfCategory": {
+        "message": "توضیحات ویدیو برای دریافت نام دسته‌بندی باز خواهد شد"
+    },
+    "videoFormats": {
+        "message": "فرمت‌های ویدیویی"
+    },
+    "videos": {
+        "message": "ویدیوها"
+    },
+    "viewMode": {
+        "message": "حالت نمایش"
+    },
+    "volume": {
+        "message": "صدا"
+    },
+    "watchedVideos": {
+        "message": "ویدیوهای تماشا شده"
+    },
+    "watchLater": {
+        "message": "بعداً تماشا کنید"
+    },
+    "watchTime": {
+        "message": "زمان تماشا"
+    },
+    "whenBatteryIslowDecreaseQuality": {
+        "message": "باتری کم: کاهش کیفیت"
+    },
+    "whenPaused": {
+        "message": "هنگام توقف"
+    },
+    "whenTabIsChanged": {
+        "message": "هنگام تغییر تب"
+    },
+    "white": {
+        "message": "سفید"
+    },
+    "windowColor": {
+        "message": "رنگ پنجره"
+    },
+    "windowOpacity": {
+        "message": "شفافیت پنجره"
+    },
+    "with_scrollbars": {
+        "message": "با نوارهای اسکرول؟"
+    },
+    "withoutVideos": {
+        "message": "'خالی'، بدون پیش‌نمایش ویدیو"
+    },
+    "yellow": {
+        "message": "زرد"
+    },
+    "Youtube_Search": {
+        "message": "جستجوی یوتیوب"
+    },
+    "youTubeButtons": {
+        "message": "دکمه‌های یوتیوب"
+    },
+    "youtubeHeaderLeft": {
+        "message": "سربرگ یوتیوب (چپ)"
+    },
+    "youtubeHeaderRight": {
+        "message": "سربرگ یوتیوب (راست)"
+    },
+    "youtubeHomePage": {
+        "message": "صفحه اصلی یوتیوب"
+    },
+    "youtubeLanguage": {
+        "message": "زبان یوتیوب"
+    },
+    "youtubeLimitsVideoQualityTo1080pForH264Codec": {
+        "message": "یوتیوب کیفیت ویدیو را برای کدک h.264 به 1080p محدود می‌کند"
+    },
+    "youtubesDark": {
+        "message": "تاریک یوتیوب"
+    },
+    "youtubesLight": {
+        "message": "روشن یوتیوب"
     }
 }

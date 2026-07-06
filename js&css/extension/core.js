@@ -101,7 +101,7 @@ extension.events.trigger = async function (type, data) {
 			var listener = listeners[i];
 
 			if (typeof listener === 'function') {
-				if (listener instanceof(async function () {}).constructor === true) {
+				if (listener instanceof (async function () { }).constructor === true) {
 					await listener(data);
 				} else {
 					listener(data);
@@ -274,7 +274,7 @@ extension.storage.listener = function () {
 			document.documentElement.setAttribute('it-' + key.replace(/_/g, '-'), value);
 
 			if (typeof extension.features[camelized_key] === 'function') {
-				extension.features[camelized_key](true);
+				extension.features[camelized_key](value);
 			}
 
 			extension.events.trigger('storage-changed', {
@@ -303,7 +303,7 @@ extension.storage.load = function (callback) {
 		// initialize theme in case YT is in Dark cookie mode
 		if (!extension.storage.data['theme'] && document.documentElement.hasAttribute('dark')) {
 			extension.storage.data['theme'] = 'dark';
-			chrome.storage.local.set({theme: 'dark'});
+			chrome.storage.local.set({ theme: 'dark' });
 		}
 
 		for (const key in items) {

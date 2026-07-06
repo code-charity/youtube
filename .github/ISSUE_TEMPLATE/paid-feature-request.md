@@ -1,6 +1,6 @@
 ---
-name: Wish or Feature request,  with BOUNTY PAYMENT
-about: Wish or Feature request,  with BOUNTY PAYMENT
+name: Paid Feature Request
+about: "(With Reward, 'Bounty', else use the Wish Template above)"
 title: ''
 labels: Feature request, good first issue, help wanted
 assignees: ''

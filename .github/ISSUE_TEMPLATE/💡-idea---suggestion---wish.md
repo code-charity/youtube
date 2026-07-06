@@ -1,7 +1,8 @@
 ---
-name: Feature request / suggestion / idea
-about: Suggest an idea for this project
-title: ''
+name: "\U0001F4A1 Idea / Suggestion / Wish"
+about: Please suggest ideas for this project (including estimated relevance & usage
+  quantity)
+title: "\U0001F4A1"
 labels: Feature request, good first issue, help wanted, up-for-grabs
 assignees: ''
 

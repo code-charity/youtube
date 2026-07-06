@@ -9,22 +9,22 @@
         "message": "Activeren"
     },
     "activateCaptions": {
-        "message": "Activeer bijschriften"
+        "message": "Activeer ondertiteling"
     },
     "activated": {
         "message": "Geactiveerd"
     },
     "activatedFeatures": {
-        "message": "Geactiveerde features"
+        "message": "Geactiveerde functies"
     },
     "activateFullscreen": {
-        "message": "Activeer volledig scherm"
+        "message": "Schakel volledig scherm in"
     },
     "activeFeatures": {
-        "message": "Actieve features"
+        "message": "Actieve functies"
     },
     "addScrollToTop": {
-        "message": "Voeg «Scroll to top» toe"
+        "message": "Voeg «Scroll naar boven» toe"
     },
     "ads": {
         "message": "Reclames"
@@ -42,7 +42,7 @@
         "message": "Altijd actief"
     },
     "alwaysShowProgressBar": {
-        "message": "Altijd voortgangsbalk laten zien"
+        "message": "Scrollbalk altijd tonen"
     },
     "analyzer": {
         "message": "Analyse"
@@ -54,7 +54,7 @@
         "message": "Weet je zeker dat je deze data wilt exporteren?"
     },
     "areYouSureYouWantToImportTheData": {
-        "message": "Weet je zeker dat je deze wilt importeren? "
+        "message": "Weet je zeker dat je deze data wilt importeren? "
     },
     "audio": {
         "message": "Geluid"
@@ -78,7 +78,7 @@
         "message": "Achtergrondkleur"
     },
     "backgroundOpacity": {
-        "message": "Doorzichtigheid achtergrond"
+        "message": "Achtergrond doorzichtbaarheid"
     },
     "backupAndReset": {
         "message": "Backup maken & resetten"
@@ -96,7 +96,7 @@
         "message": "Alles blokkeren"
     },
     "blocklist": {
-        "message": "Zwarte lijst"
+        "message": "Blokkeer lijst"
     },
     "blockMusic": {
         "message": "Blokkeer muziek"
@@ -213,7 +213,7 @@
         "message": "Verwijder bekeken video's"
     },
     "deleteYoutubeCookies": {
-        "message": "YouTube-cookies verwijderen"
+        "message": "Verwijderen YouTube-cookies"
     },
     "depressed": {
         "message": "Uitgedrukt"
@@ -372,7 +372,7 @@
         "message": "Verberg voettekst"
     },
     "hideGradientBottom": {
-        "message": "Verberg Gradient Onderkant"
+        "message": "Verberg verloop aan onderzijde"
     },
     "hideHomePageShorts": {
         "message": "Verwijder Shorts van de startpagina"
@@ -501,7 +501,7 @@
         "message": "Locatie"
     },
     "loop": {
-        "message": "Lus"
+        "message": "Herhaal"
     },
     "loudnessNormalization": {
         "message": "Volume normaliseren"
@@ -585,7 +585,7 @@
         "message": "Roze"
     },
     "plain": {
-        "message": "Vlakte"
+        "message": "Vlakte (~Eenvoudig)"
     },
     "playAllButton": {
         "message": "\"Alles afspelen\"-knop"
@@ -618,7 +618,7 @@
         "message": "Positie"
     },
     "pressAnyKeyOrScroll": {
-        "message": "Druk op een toets of scroll met muiswiel."
+        "message": "Druk op een toets of scroll."
     },
     "pressAnyKeyOrUseMouseWheel": {
         "message": "Druk op een toets of gebruik muiswiel"
@@ -651,7 +651,7 @@
         "message": "Rood"
     },
     "redDislikeButton": {
-        "message": "Laat Vind ik niet leuk-knop zien in het rood"
+        "message": "Laat \"Vind ik niet leuk\"-knop zien in het rood"
     },
     "relatedVideos": {
         "message": "Gerelateerde video's"

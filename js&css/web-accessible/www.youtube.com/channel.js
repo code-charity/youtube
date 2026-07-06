@@ -21,7 +21,65 @@ ImprovedTube.channelDefaultTab = function (a) {
 };
 
 /*------------------------------------------------------------------------------
-4.6.2 PLAY ALL BUTTON
+4.6.2 PLAY ALL BUTTON (Exclude Shorts)
+------------------------------------------------------------------------------*/
+
+function itIsShorts(node) {
+	if (!node) return false;
+	const a = node.querySelector('a#thumbnail, a.yt-simple-endpoint[href]');
+	const href = (a && a.getAttribute('href')) || '';
+	if (href.startsWith('/shorts/') || /\/shorts\//.test(href)) return true;
+  
+	const tn = (node.tagName || '').toLowerCase();
+	if (tn === 'ytd-reel-video-renderer' || tn.includes('reel')) return true;
+  
+	const badgeText = Array.from(
+	  node.querySelectorAll('ytd-badge-supported-renderer, .badge, .shorts-badge')
+	).map(b => (b.textContent || '').toLowerCase()).join(' ');
+	if (badgeText.includes('shorts')) return true;
+  
+	const dataHref = (a && a.dataset && a.dataset.href) || '';
+	if (/\/shorts\//.test(dataHref)) return true;
+  
+	return false;
+  }
+  
+  function itCollectVideoIds(opts) {
+	const excludeShorts = !!(opts && opts.excludeShorts);
+	const limit = (opts && opts.limit) || 50;
+	const selectors = [
+	  'ytd-rich-item-renderer',
+	  'ytd-grid-video-renderer',
+	  'ytd-video-renderer',
+	  'ytd-compact-video-renderer'
+	];
+	const nodes = document.querySelectorAll(selectors.join(','));
+	const ids = [];
+  
+	for (const node of nodes) {
+	  if (excludeShorts && itIsShorts(node)) continue;
+  
+	  const a = node.querySelector('a#thumbnail, a.yt-simple-endpoint[href*="/watch"]');
+	  if (!a) continue;
+  
+	  let id = '';
+	  try {
+		const url = new URL(a.href, location.origin);
+		id = url.searchParams.get('v') || '';
+	  } catch (_) {
+		const href = a.getAttribute('href') || '';
+		const m = href.match(/[?&]v=([^&]+)/);
+		id = (m && m[1]) || '';
+	  }
+  
+	  if (id) ids.push(id);
+	  if (ids.length >= limit) break;
+	}
+	return ids;
+  }
+
+/*------------------------------------------------------------------------------
+4.6.3 PLAY ALL BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.channelPlayAllButton = function () {
 	if (ImprovedTube.regex.channel.test(location.pathname)) {
@@ -29,14 +87,14 @@ ImprovedTube.channelPlayAllButton = function () {
 			const container = document.querySelector('ytd-channel-sub-menu-renderer #primary-items')
 				|| document.querySelector('ytd-two-column-browse-results-renderer #chips-content');
 			const playlistUrl = document.querySelector('ytd-app')?.__data?.data?.response?.metadata?.channelMetadataRenderer?.externalId?.substring(2);
-			const existingPlayAllButton = document.querySelector('.it-play-all-button')
+			const existingPlayAllButton = document.querySelector('.it-play-all-button');
 
-			if (!container) return; // we only add button on /videos page
+			//if (!container) return; // we only add button on /videos page
 			if (!playlistUrl) {
-				console.error('channelPlayAllButton: Cant fint Channel playlist');
+				console.error('channelPlayAllButton: Cant find Channel playlist');
 				return;
 			}
-			if (existingPlayAllButton) return // prevent add duplicate button
+			if (existingPlayAllButton) return; // prevent add duplicate button
 			const button = this.createIconButton({
 				type: 'playAll',
 				className: 'it-play-all-button',
@@ -44,13 +102,47 @@ ImprovedTube.channelPlayAllButton = function () {
 				href: '/playlist?list=UU' + playlistUrl
 			});
 			container.appendChild(button);
+
+			button.addEventListener('click', (e) => {
+				const isMetaOpen = e.metaKey || e.ctrlKey || e.button === 1;
+				if (isMetaOpen) return; 
+				const defaultFlag = true;
+				const go = (excludeShorts) => {
+				if (!excludeShorts) return;
+			
+				const ids = itCollectVideoIds({ excludeShorts: true, limit: 50 });
+				if (ids.length) {
+					e.preventDefault();
+					location.href = '/watch_videos?video_ids=' + ids.join(',');
+				}
+				};
+			
+				if (this?.storage && Object.prototype.hasOwnProperty.call(this.storage, 'exclude_shorts_in_play_all')) {
+					go(!!this.storage.exclude_shorts_in_play_all);
+				  } else if (chrome?.storage?.sync) {
+					e.preventDefault();
+					chrome.storage.sync.get({ exclude_shorts_in_play_all: defaultFlag }, (cfg) => {
+					  if (cfg.exclude_shorts_in_play_all) {
+						const ids = itCollectVideoIds({ excludeShorts: true, limit: 50 });
+						if (ids.length) {
+						  location.href = '/watch_videos?video_ids=' + ids.join(',');
+						  return;
+						}
+					  }
+					  location.href = button.href;
+					});
+				} else {
+				go(defaultFlag);
+				}
+			});
+  
 		} else {
 			document.querySelector('.it-play-all-button')?.remove();
 		}
 	}
 };
 /*------------------------------------------------------------------------------
-4.6.3 COMPACT THEME
+4.6.4 COMPACT THEME
 ------------------------------------------------------------------------------*/
 
 var compact = compact || {}

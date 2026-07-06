@@ -79,6 +79,23 @@ extension.skeleton.main.layers.section.player.on.click = {
 			storage: 'pause_while_typing_on_youtube',
 			id: 'pause_while_typing_on_youtube',
 		},
+		player_auto_continue_watching: {
+			component: 'switch',
+			text: 'autoContinueWatching',
+			storage: 'player_auto_continue_watching',
+			id: 'player_auto_continue_watching',
+			value: true
+		},
+		prevent_shorts_autoloop:{
+			component: 'switch',
+			text: 'preventShortVideoAutoloop',
+			storage: 'prevent_shorts_autoloop',
+		},
+		shorts_auto_scroll: {
+			component: 'switch',
+			text: 'autoPlayNextShort',
+			storage: 'shorts_auto_scroll'
+		},
 		autoplay_disable: {
 			component: 'switch',
 			text: 'autoplayDisable',
@@ -180,10 +197,251 @@ extension.skeleton.main.layers.section.player.on.click = {
 			max: 3.17,
 			step: .01
 		},
+		smart_speed: {
+			component: 'button',
+			text: 'smartSpeedEngine',
+			on: {
+				click: {
+					component: 'section',
+					variant: 'card',
+					smart_speed_card: {
+						component: 'section',
+						variant: 'card',
+						smart_speed: {
+							component: 'switch',
+							text: 'smartSpeedEnable',
+							value: false
+						},
+						smart_speed_indicator: {
+							component: 'switch',
+							text: 'smartSpeedIndicator',
+							value: true
+						},
+						smart_speed_min: {
+							component: 'slider',
+							text: 'smartSpeedMin',
+							value: 1.0, min: 0.5, max: 2.0, step: 0.1
+						},
+						smart_speed_max: {
+							component: 'slider',
+							text: 'smartSpeedMax',
+							value: 2.0, min: 1.0, max: 4.0, step: 0.1
+						},
+						smart_speed_sensitivity: {
+							component: 'slider',
+							text: 'smartSpeedSensitivity',
+							value: 0.5, min: 0.01, max: 1.0, step: 0.01
+						}
+					},
+					smart_speed_profiles_card: {
+						component: 'button',
+						text: 'smartSpeedProfiles',
+						on: {
+							click: {
+								component: 'section',
+								variant: 'card',
+								smart_speed_profile_list: {
+									component: 'section',
+									on: {
+										render: function () {
+											let container = this;
+
+											function updateView() {
+												container.innerHTML = ''; 
+												let skeleton = {};
+												let ts = Date.now(); // Unique ID to prevent caching bugs
+												
+												// THE FIX: Check if strictly undefined (first time setup), NOT if it's empty
+												let storedProfiles = satus.storage.get('smart_speed_profiles');
+												let profiles;
+												
+												if (storedProfiles === undefined) {
+													// 100% strict defaults as requested
+													profiles = {
+														"Music": { max: 2.0, min: 1.0, sens: 0.5, whitelist: true },
+														"Education": { max: 2.0, min: 1.0, sens: 0.5, whitelist: false }
+													};
+													satus.storage.set('smart_speed_profiles', profiles);
+												} else {
+													// It's not the first run, respect the user's list (even if it's completely empty!)
+													profiles = typeof storedProfiles === 'object' && storedProfiles !== null ? storedProfiles : {};
+												}
+
+												let tempCategory = 'none';
+
+												// 1. ADD NEW RULES SECTION
+												skeleton['add_controls_' + ts] = {
+													component: 'section',
+													variant: 'card',
+													
+													add_category_dropdown: {
+														component: 'select',
+														text: '1. Select YouTube Category',
+														options: [
+															{value: 'none', text: 'Select Category...'}, 
+															{value: 'Entertainment', text: 'Entertainment'}, 
+															{value: 'Music', text: 'Music'}, 
+															{value: 'Gaming', text: 'Gaming'},
+															{value: 'People & Blogs', text: 'People & Blogs'}, 
+															{value: 'Comedy', text: 'Comedy'}, 
+															{value: 'Howto & Style', text: 'Howto & Style'}, 									
+															{value: 'Film & Animation', text: 'Film & Animation'}, 
+															{value: 'Education', text: 'Education'}, 
+															{value: 'Science & Technology', text: 'Science & Technology'}, 
+															{value: 'Sports', text: 'Sports'}, 
+															{value: 'News & Politics', text: 'News & Politics'},
+															{value: 'Autos & Vehicles', text: 'Autos & Vehicles'}, 
+															{value: 'Travel & Events', text: 'Travel & Events'}, 
+															{value: 'Pets & Animals', text: 'Pets & Animals'}, 															
+															{value: 'Nonprofits & Activism', text: 'Nonprofits & Activism'}					
+														],
+														on: {
+															change: function() { tempCategory = this.value; }
+														}
+													},
+													add_category_btn: {
+														component: 'button',
+														text: '➕ Add Selected Category',
+														on: {
+															click: function() {
+																if (tempCategory !== 'none') {
+																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles') || {});
+																	let newObj = {};
+																	// 100% strict defaults as requested
+																	newObj[tempCategory] = { max: 2.0, min: 1.0, sens: 0.5, whitelist: false };
+																	
+																	satus.storage.set('smart_speed_profiles', Object.assign(newObj, freshState));
+																	updateView(); 
+																}
+															}
+														}
+													},
+													
+													add_channel_btn: {
+														component: 'button',
+														text: '➕ Enter & Add Channel Name',
+														on: {
+															click: function() {
+																let name = prompt("Enter Channel Handle (e.g., @MrBeast) or Name:");
+																if (name) {
+																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles') || {});
+																	let newObj = {};
+																	// 100% strict defaults as requested
+																	newObj[name] = { max: 2.0, min: 1.0, sens: 0.5, whitelist: false };
+																	
+																	satus.storage.set('smart_speed_profiles', Object.assign(newObj, freshState));
+																	updateView(); 
+																}
+															}
+														}
+													}
+												};
+
+												// 2. ACTIVE RULES LIST
+												for (let key in profiles) {
+													let safeKey = key.replace(/[^a-zA-Z0-9]/g, '');
+													skeleton['rule_' + safeKey + '_' + ts] = {
+														component: 'section',
+														variant: 'card',
+														title: key,
+														whitelist_toggle: {
+															component: 'switch',
+															text: 'Whitelist (Disable Speedup)',
+															value: profiles[key].whitelist || false,
+															on: { 
+																change: function() { 
+																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles'));
+																	freshState[key].whitelist = this.dataset.value === 'true'; 
+																	satus.storage.set('smart_speed_profiles', freshState); 
+																} 
+															}
+														},
+														max_slider: {
+															component: 'slider', text: 'Max Speed', value: profiles[key].max, min: 1.0, max: 4.0, step: 0.1,
+															on: { 
+																change: function() { 
+																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles'));
+																	freshState[key].max = Number(this.value); 
+																	satus.storage.set('smart_speed_profiles', freshState); 
+																} 
+															}
+														},
+														min_slider: {
+															component: 'slider', text: 'Min Speed', value: profiles[key].min, min: 0.5, max: 2.0, step: 0.1,
+															on: { 
+																change: function() { 
+																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles'));
+																	freshState[key].min = Number(this.value); 
+																	satus.storage.set('smart_speed_profiles', freshState); 
+																} 
+															}
+														},
+														sens_slider: {
+															component: 'slider', text: 'Sensitivity', value: profiles[key].sens || 0.5, min: 0.01, max: 1.0, step: 0.01,
+															on: { 
+																change: function() { 
+																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles'));
+																	freshState[key].sens = Number(this.value); 
+																	satus.storage.set('smart_speed_profiles', freshState); 
+																} 
+															}
+														},
+														delete_btn: {
+															component: 'button', text: '🗑️ Delete Profile',
+															on: { 
+																click: function() { 
+																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles'));
+																	delete freshState[key]; 
+																	satus.storage.set('smart_speed_profiles', freshState); 
+																	updateView(); 
+																} 
+															}
+														}
+													};
+												}
+												
+												satus.render(skeleton, container);
+											}
+
+											updateView();
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		autofullscreen: {
 			component: 'switch',
 			text: 'autoFullscreen',
 			storage: 'player_autofullscreen'
+		},
+		return_youtube_dislike: {
+			component: 'switch',
+			text: 'returnYoutubeDislike',
+			tags: 'dislike dislikes thumbs down rating ryd',
+			id: 'return_youtube_dislike',
+			custom: true,
+			on: {
+				click: function () {
+					const switchEl = this;
+					if (this.dataset.value === 'false') {
+						chrome.permissions.request({
+							origins: ['https://returnyoutubedislikeapi.com/*']
+						}, function (granted) {
+							if (granted) {
+								switchEl.flip(true);
+							} else {
+								console.log('[ImprovedTube] RYD: Permission denied by user');
+							}
+						});
+					} else {
+						switchEl.flip(false);
+					}
+				}
+			}
 		},
 		subtitles: {
 			component: 'button',
@@ -717,6 +975,279 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		disable_auto_dubbing: {
+			component: 'switch',
+			text: 'disableAutoDubbing'
+		},
+		hide_auto_dubbed_options: {
+    component: 'switch',
+    text: 'hideAutoDubbedOptions'
+		},
+		preferred_dubbing_language: {
+			component: 'input',
+			text: 'preferredDubbingLanguage',
+			placeholder: 'e.g. en, fr, de, ja'
+    },
+		player_default_dubbed_language: {
+			component: 'select',
+			text: 'defaultDubbedLanguage',
+			options: [{
+				value: 'disabled',
+				text: 'disabled'
+			}, {
+				value: 'af',
+				text: 'Afrikaans'
+			}, {
+				value: 'sq',
+				text: 'Albanian'
+			}, {
+				value: 'am',
+				text: 'Amharic'
+			}, {
+				value: 'ar',
+				text: 'Arabic'
+			}, {
+				value: 'hy',
+				text: 'Armenian'
+			}, {
+				value: 'az',
+				text: 'Azerbaijani'
+			}, {
+				value: 'bn',
+				text: 'Bangla'
+			}, {
+				value: 'eu',
+				text: 'Basque'
+			}, {
+				value: 'be',
+				text: 'Belarusian'
+			}, {
+				value: 'bs',
+				text: 'Bosnian'
+			}, {
+				value: 'bg',
+				text: 'Bulgarian'
+			}, {
+				value: 'my',
+				text: 'Burmese'
+			}, {
+				value: 'ca',
+				text: 'Catalan'
+			}, {
+				value: 'zh-Hans',
+				text: 'Chinese (Simplified)'
+			}, {
+				value: 'zh-Hant',
+				text: 'Chinese (Traditional)'
+			}, {
+				value: 'hr',
+				text: 'Croatian'
+			}, {
+				value: 'cs',
+				text: 'Czech'
+			}, {
+				value: 'da',
+				text: 'Danish'
+			}, {
+				value: 'nl',
+				text: 'Dutch'
+			}, {
+				value: 'en',
+				text: 'English'
+			}, {
+				value: 'et',
+				text: 'Estonian'
+			}, {
+				value: 'fil',
+				text: 'Filipino'
+			}, {
+				value: 'fi',
+				text: 'Finnish'
+			}, {
+				value: 'fr',
+				text: 'French'
+			}, {
+				value: 'gl',
+				text: 'Galician'
+			}, {
+				value: 'ka',
+				text: 'Georgian'
+			}, {
+				value: 'de',
+				text: 'German'
+			}, {
+				value: 'el',
+				text: 'Greek'
+			}, {
+				value: 'gu',
+				text: 'Gujarati'
+			}, {
+				value: 'iw',
+				text: 'Hebrew'
+			}, {
+				value: 'hi',
+				text: 'Hindi'
+			}, {
+				value: 'hu',
+				text: 'Hungarian'
+			}, {
+				value: 'is',
+				text: 'Icelandic'
+			}, {
+				value: 'id',
+				text: 'Indonesian'
+			}, {
+				value: 'ga',
+				text: 'Irish'
+			}, {
+				value: 'it',
+				text: 'Italian'
+			}, {
+				value: 'ja',
+				text: 'Japanese'
+			}, {
+				value: 'kn',
+				text: 'Kannada'
+			}, {
+				value: 'kk',
+				text: 'Kazakh'
+			}, {
+				value: 'km',
+				text: 'Khmer'
+			}, {
+				value: 'ko',
+				text: 'Korean'
+			}, {
+				value: 'ky',
+				text: 'Kyrgyz'
+			}, {
+				value: 'lo',
+				text: 'Lao'
+			}, {
+				value: 'lv',
+				text: 'Latvian'
+			}, {
+				value: 'lt',
+				text: 'Lithuanian'
+			}, {
+				value: 'mk',
+				text: 'Macedonian'
+			}, {
+				value: 'ms',
+				text: 'Malay'
+			}, {
+				value: 'ml',
+				text: 'Malayalam'
+			}, {
+				value: 'mt',
+				text: 'Maltese'
+			}, {
+				value: 'mr',
+				text: 'Marathi'
+			}, {
+				value: 'mn',
+				text: 'Mongolian'
+			}, {
+				value: 'ne',
+				text: 'Nepali'
+			}, {
+				value: 'no',
+				text: 'Norwegian'
+			}, {
+				value: 'fa',
+				text: 'Persian'
+			}, {
+				value: 'pl',
+				text: 'Polish'
+			}, {
+				value: 'pt',
+				text: 'Portuguese'
+			}, {
+				value: 'pa',
+				text: 'Punjabi'
+			}, {
+				value: 'ro',
+				text: 'Romanian'
+			}, {
+				value: 'ru',
+				text: 'Russian'
+			}, {
+				value: 'sr',
+				text: 'Serbian'
+			}, {
+				value: 'si',
+				text: 'Sinhala'
+			}, {
+				value: 'sk',
+				text: 'Slovak'
+			}, {
+				value: 'sl',
+				text: 'Slovenian'
+			}, {
+				value: 'so',
+				text: 'Somali'
+			}, {
+				value: 'es',
+				text: 'Spanish'
+			}, {
+				value: 'sw',
+				text: 'Swahili'
+			}, {
+				value: 'sv',
+				text: 'Swedish'
+			}, {
+				value: 'tg',
+				text: 'Tajik'
+			}, {
+				value: 'ta',
+				text: 'Tamil'
+			}, {
+				value: 'tt',
+				text: 'Tatar'
+			}, {
+				value: 'te',
+				text: 'Telugu'
+			}, {
+				value: 'th',
+				text: 'Thai'
+			}, {
+				value: 'tr',
+				text: 'Turkish'
+			}, {
+				value: 'tk',
+				text: 'Turkmen'
+			}, {
+				value: 'uk',
+				text: 'Ukrainian'
+			}, {
+				value: 'ur',
+				text: 'Urdu'
+			}, {
+				value: 'ug',
+				text: 'Uyghur'
+			}, {
+				value: 'uz',
+				text: 'Uzbek'
+			}, {
+				value: 'vi',
+				text: 'Vietnamese'
+			}, {
+				value: 'cy',
+				text: 'Welsh'
+			}, {
+				value: 'xh',
+				text: 'Xhosa'
+			}, {
+				value: 'yi',
+				text: 'Yiddish'
+			}, {
+				value: 'yo',
+				text: 'Yoruba'
+			}, {
+				value: 'zu',
+				text: 'Zulu'
+			}]
+		},
 		player_quality: {
 			component: 'select',
 			text: 'quality',
@@ -762,8 +1293,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 				render: function () {
 					// relies on options.text above auto always starting with a number for parseInt to work
 					const options = this.childNodes[2].options,
-							index = this.childNodes[2].selectedIndex;
-							cutoff = 1080;
+						index = this.childNodes[2].selectedIndex;
+					cutoff = 1080;
 					if (satus.storage.get('player_h264')) {
 						if (parseInt(options[index].text) > cutoff) {
 							this.childNodes[1].style = 'color: red!important; font-weight: bold;';
@@ -802,6 +1333,32 @@ extension.skeleton.main.layers.section.player.on.click = {
 					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this);
 				}
 			}
+		},
+		full_screen_quality: {
+		  component: 'select',
+			text: 'fullScreenQuality',
+			id: 'full_screen_quality',
+			options: function () {
+				return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
+			},
+			on: {
+				render: function () {
+					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this)
+				}
+			}
+		},
+		player_quality_playlist: {
+      component: 'select',
+      text: 'playlistQuality',
+      id: 'player_quality_playlist',
+      options: function () {
+      	return extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.options;
+      },
+      on: {
+        render: function () {
+					extension.skeleton.main.layers.section.player.on.click.section_1.player_quality.on.render.call(this)
+        }
+      }
 		},
 		/*
 	qualityWhenRunningOnBattery: {
@@ -974,6 +1531,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 						document.getElementById('player_codecs').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('optimize_codec_for_hardware_acceleration').dispatchEvent(new CustomEvent('render'));
 						document.getElementById('player_quality_without_focus').dispatchEvent(new CustomEvent('render'));
+						document.getElementById('full_screen_quality')?.dispatchEvent(new CustomEvent('render'));
+						document.getElementById('player_quality_playlist')?.dispatchEvent(new CustomEvent('render'))
 						//document.getElementById('quality_when_low_battery').dispatchEvent(new CustomEvent('render'));
 					}
 					if (this.dataset.value === 'false') {
@@ -1008,7 +1567,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		optimize_codec_for_hardware_acceleration: {
 			component: 'button',
-			text: 'Optimize Codec for hardware acceleration',
+			text: 'optimizeCodecForHardwareAcceleration',
 			style: {
 				justifyContent: 'space-between'
 			},
@@ -1030,16 +1589,16 @@ extension.skeleton.main.layers.section.player.on.click = {
 
 						if (1) { // todo
 							this.style = '';
-							this.textContent = 'Feature not yet available';
+							this.textContent = satus.locale.get('Feature_not_yet_available');
 						} else if (2) { // todo
 							this.style = '';
-							this.textContent = 'GPU not in database';
+							this.textContent = satus.locale.get('GPUnotindatabase');
 						} else if (codecs) {
 							this.style = 'color: green!important; font-weight: bold;';
-							this.textContent = 'Optimal';
+							this.textContent = satus.locale.get('Optimal');
 						} else {
 							this.style = 'color: red!important; font-weight: bold;';
-							this.textContent = 'Not optimal';
+							this.textContent = satus.locale.get('Not_optimal');
 						}
 					}
 				}
@@ -1057,7 +1616,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_hide_progress_preview: {
 			component: 'switch',
-			text: 'Hide progress bar preview',
+			text: 'hideProgressBarPreview',
 			storage: 'player_hide_progress_preview'
 		},
 	},
@@ -1087,7 +1646,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 		},
 		player_screenshot_button: {
 			component: 'switch',
-			text: 'Screenshot',
+			text: 'screenshot',
 			id: 'player_screenshot_button'
 		},
 		embed_subtitle: {
@@ -1112,10 +1671,25 @@ extension.skeleton.main.layers.section.player.on.click = {
 				return options;
 			}
 		},
-		player_fit_to_win_button: {
+
+		player_playback_speed_button: {
 			component: 'switch',
-			text: 'player_fit_to_win_button'
+			text: 'playbackSpeedButton',
+			storage: 'player_playback_speed_button',
+			id: 'player_playback_speed_button',
+			children: [{
+				id: 'player_custom_playback_speed',
+				storage: 'player_custom_playback_speed',
+				component: 'slider',
+				text: 'preferredSpeed',
+				min: 0.25,
+				max: 4,
+				step: 0.05,
+				textarea: true,
+				value: 1.25
+			}]
 		},
+
 		player_cinema_mode_button: {
 			component: 'switch',
 			text: 'player_cinema_mode_button',
@@ -1152,10 +1726,26 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'Hamburger_Menu'
 		},
+		theater_mode_icon_revert_button: {
+			component: 'switch',
+			text: 'revertTheaterModeButtonSizes',
+			storage: 'player_revert_theater_button_sizes',
+			value: false
+		},
 		extraButtons: {
 			component: 'section',
 			variant: 'card',
 			title: 'extraButtonsBelowThePlayer',
+			below_player_keyscene: {
+				component: 'switch',
+				text: 'keyScene',
+				value: true			
+			},
+			copy_transcript: {
+				component: 'switch',
+				text: 'copyTranscript',
+				value: true
+			},
 			below_player_screenshot: {
 				component: 'switch',
 				text: 'screenshot',
@@ -1164,7 +1754,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			below_player_pip: {
 				component: 'switch',
 				text: 'pictureInPicture',
-				value: true
+				value: false
 			},
 			below_player_loop: {
 				component: 'switch',
@@ -1174,8 +1764,51 @@ extension.skeleton.main.layers.section.player.on.click = {
 			copy_video_id: {
 				component: 'switch',
 				text: 'copyVideoId',
+				id: "copy-video-id",
+				value: false
+			},
+			copy_video_url: {
+				component: 'switch',
+				text: 'copyVideoUrl',
 				value: false
 			}
+		},
+		extraRightControlButtons: {
+			component: 'section',
+			variant: 'card',
+			title: 'extraRightControlButtons',
+			player_fit_to_win_button: {
+				component: 'switch',
+				text: 'player_fit_to_win_button'
+			},
+			player_rewind_and_forward_buttons: {
+				component: 'switch',
+				text: 'player_rewind_and_forward_buttons'
+			},
+			player_increase_decrease_speed_buttons: {
+				component: 'switch',
+				text: 'playerIncreaseDecreaseSpeedButtons',
+				id: 'player-increase-decrease-speed-buttons'
+			},
+			player_custom_playback_speed_step: {
+				storage: 'player_custom_playback_speed_step',
+				component: 'slider',
+				text: 'playerPlaybackSpeedStep',
+				textarea: true,
+				min: 0.05,
+				max: 1,
+				step: 0.05,
+				value: 0.25
+			},
+
+			player_playback_speed_button: {
+				component: 'switch',
+				text: 'player_playback_speed_button'
+			},
+		},
+		fullscreen_return_button: {
+			component: 'switch',
+			text: 'fullscreenReturn',
 		},
 		player_hide_controls_options: {
 			component: "button",
@@ -1183,6 +1816,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			on: {
 				click: 'main.layers.section.appearance.on.click.player.on.click.player_hide_controls_options.on.click'
 			}
-		},
+		}
 	}
 };
