@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>YouTube Seek Settings</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    fieldset { margin-bottom: 20px; border: 1px solid #ccc; padding: 15px; }
+    legend { font-weight: bold; }
+    .option-group { margin: 10px 0; }
+    .option-group input[type="number"] { width: 60px; margin-left: 10px; }
+    .additional { margin-left: 30px; }
+    button { padding: 8px 16px; font-size: 16px; }
+    #status { margin-top: 10px; color: green; }
+  </style>
+</head>
+<body>
+  <h1>YouTube Seek Settings</h1>
+  <form id="settingsForm">
+    <fieldset>
+      <legend>Seek Mode</legend>
+      <label>
+        <input type="radio" name="mode" value="default" checked>
+        Default (progressive 10s, 30s, ...)
+      </label><br>
+      <label>
+        <input type="radio" name="mode" value="fixed">
+        Fixed seek distance
+      </label>
+      <div class="option-group" id="fixedDistanceGroup" style="display:none;">
+        <label>Seconds per tap:
+          <input type="number" id="fixedDistance" value="5" min="1" max="120">
+        </label>
+      </div><br>
+      <label>
+        <input type="radio" name="mode" value="progressive">
+        Custom progressive distances
+      </label>
+      <div id="progressiveGroup" style="display:none; margin-left: 20px;">
+        <div class="option-group">
+          <label>Double-tap (total):
+            <input type="number" id="progDouble" value="5" min="1" max="120">s
+          </label>
+        </div>
+        <div class="option-group">
+          <label>Triple-tap (total):
+            <input type="number" id="progTriple" value="15" min="1" max="120">s
+          </label>
+        </div>
+        <div class="option-group">
+          <label>Quadruple-tap (total):
+            <input type="number" id="progQuadruple" value="30" min="1" max="120">s
+          </label>
+        </div>
+        <div class="option-group">
+          <label>Additional taps (each additional):
+            <input type="number" id="progAdditional" value="30" min="1" max="120">s
+          </label>
+        </div>
+      </div>
+    </fieldset>
+    <button type="submit">Save</button>
+    <div id="status"></div>
+  </form>
+  <script src="options.js"></script>
+</body>
+</html>
