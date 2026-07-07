@@ -1107,6 +1107,9 @@
   "player_rewind_and_forward_buttons": {
     "message": "Rewind/forward buttons"
   },
+  "disableTouchscreenMiniPlayerSwipe": {
+    "message": "Disable touchscreen mini-player swipe"
+  },
   "player_rotate_button": {
     "message": "Rotate video"
   },

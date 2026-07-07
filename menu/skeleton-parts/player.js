@@ -158,6 +158,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		player_disable_touchscreen_mini_player_swipe: {
+			component: 'switch',
+			text: 'disableTouchscreenMiniPlayerSwipe',
+			storage: 'player_disable_touchscreen_mini_player_swipe'
+		},
 		player_forced_volume: {
 			component: 'switch',
 			text: 'forcedVolume',
