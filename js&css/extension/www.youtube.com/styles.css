@@ -344,12 +344,38 @@ html[it-channel-disable-tab-swipe=true] ytd-channel-sub-menu-renderer,
 html[it-channel-disable-tab-swipe=true] tp-yt-paper-tabs,
 html[it-channel-disable-tab-swipe=true] yt-tab-group-shape,
 html[it-channel-disable-tab-swipe=true] yt-tab-group-shape .yt-tab-group-shape-wiz__tabs,
-html[it-channel-disable-tab-swipe=true] #tabs-content {
+html[it-channel-disable-tab-swipe=true] #tabs-content,
+html[it-channel-disable-tab-swipe=true] ytd-browse[page-subtype="channels"],
+html[it-channel-disable-tab-swipe=true] ytd-two-column-browse-results-renderer,
+html[it-channel-disable-tab-swipe=true] #content.ytd-browse,
+html[it-channel-disable-tab-swipe=true] ytd-browse[page-subtype="channels"] *,
+html[it-channel-disable-tab-swipe=true] ytd-two-column-browse-results-renderer *,
+html[it-channel-disable-tab-swipe=true] #content.ytd-browse *,
+html[it-channel-disable-tab-swipe=true] #page-manager,
+html[it-channel-disable-tab-swipe=true] #page-manager * {
 	touch-action: pan-y pinch-zoom !important;
 	overscroll-behavior-x: none !important;
 }
 
+html[it-channel-disable-tab-swipe=true] ytd-browse[page-subtype="channels"],
+html[it-channel-disable-tab-swipe=true] ytd-two-column-browse-results-renderer,
+html[it-channel-disable-tab-swipe=true] #content.ytd-browse,
+html[it-channel-disable-tab-swipe=true] #page-manager {
+	overflow-x: hidden !important;
+}
+
+html[it-channel-disable-tab-swipe=true] tp-yt-paper-tabs,
+html[it-channel-disable-tab-swipe=true] yt-tab-group-shape,
+html[it-channel-disable-tab-swipe=true] yt-tab-group-shape .yt-tab-group-shape-wiz__tabs,
+html[it-channel-disable-tab-swipe=true] #tabs-content {
+	scroll-snap-type: none !important;
+	overscroll-behavior: contain !important;
+}
+
+html[it-player-disable-touchscreen-mini-player-swipe=true] #player,
 html[it-player-disable-touchscreen-mini-player-swipe=true] #movie_player,
+html[it-player-disable-touchscreen-mini-player-swipe=true] #player-container,
+html[it-player-disable-touchscreen-mini-player-swipe=true] #full-bleed-container,
 html[it-player-disable-touchscreen-mini-player-swipe=true] .html5-video-player,
 html[it-player-disable-touchscreen-mini-player-swipe=true] .html5-video-container,
 html[it-player-disable-touchscreen-mini-player-swipe=true] .html5-main-video {

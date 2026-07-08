@@ -11,7 +11,14 @@ function makeNode({ parent = null, closestResult = null } = {}) {
 	return {
 		nodeType: 1,
 		parentElement: parent,
-		closest: jest.fn(() => closestResult)
+		closest: jest.fn(() => closestResult),
+		matches: jest.fn(() => false)
+	};
+}
+
+function makeSurfaceNode(selectorMatch) {
+	return {
+		matches: jest.fn((selector) => selector.split(',').map((item) => item.trim()).includes(selectorMatch))
 	};
 }
 
@@ -54,6 +61,7 @@ function makeTouchEvent(target, coords, extra = {}) {
 		preventDefault: jest.fn(),
 		stopPropagation: jest.fn(),
 		stopImmediatePropagation: jest.fn(),
+		composedPath: () => [target],
 		...extra
 	};
 }
@@ -69,6 +77,7 @@ function makePointerEvent(target, coords, extra = {}) {
 		preventDefault: jest.fn(),
 		stopPropagation: jest.fn(),
 		stopImmediatePropagation: jest.fn(),
+		composedPath: () => [target],
 		...extra
 	};
 }
@@ -87,10 +96,10 @@ describe('Disable channel tab swipe follow-up (#4127)', () => {
 		const { improvedTube, listeners } = loadFeature();
 		improvedTube.channelDisableTabSwipe();
 
-		const tabStrip = {};
-		const target = makeNode({ closestResult: tabStrip });
-		listeners.touchstart(makeTouchEvent(target, { x: 100, y: 100 }));
-		const moveEvent = makeTouchEvent(target, { x: 134, y: 106 });
+		const target = makeNode();
+		const surface = makeSurfaceNode('ytd-rich-grid-renderer');
+		listeners.touchstart(makeTouchEvent(target, { x: 100, y: 100 }, { composedPath: () => [target, surface] }));
+		const moveEvent = makeTouchEvent(target, { x: 134, y: 106 }, { composedPath: () => [target, surface] });
 
 		listeners.touchmove(moveEvent);
 
@@ -98,14 +107,14 @@ describe('Disable channel tab swipe follow-up (#4127)', () => {
 		expect(improvedTube.channelDisableTabSwipeState.blocked).toBe(true);
 	});
 
-	test('allows vertical movement through the tab area', () => {
+	test('allows vertical movement through the channel content area', () => {
 		const { improvedTube, listeners } = loadFeature();
 		improvedTube.channelDisableTabSwipe();
 
-		const tabStrip = {};
-		const target = makeNode({ closestResult: tabStrip });
-		listeners.touchstart(makeTouchEvent(target, { x: 100, y: 100 }));
-		const moveEvent = makeTouchEvent(target, { x: 104, y: 138 });
+		const target = makeNode();
+		const surface = makeSurfaceNode('ytd-rich-grid-renderer');
+		listeners.touchstart(makeTouchEvent(target, { x: 100, y: 100 }, { composedPath: () => [target, surface] }));
+		const moveEvent = makeTouchEvent(target, { x: 104, y: 138 }, { composedPath: () => [target, surface] });
 
 		listeners.touchmove(moveEvent);
 
@@ -117,12 +126,28 @@ describe('Disable channel tab swipe follow-up (#4127)', () => {
 		const { improvedTube, listeners } = loadFeature();
 		improvedTube.channelDisableTabSwipe();
 
-		const tabStrip = {};
-		const target = makeNode({ closestResult: tabStrip });
-		listeners.pointerdown(makePointerEvent(target, { x: 100, y: 100 }));
-		const moveEvent = makePointerEvent(target, { x: 128, y: 104 });
+		const target = makeNode();
+		const surface = makeSurfaceNode('ytd-rich-grid-renderer');
+		listeners.pointerdown(makePointerEvent(target, { x: 100, y: 100 }, { composedPath: () => [target, surface] }));
+		const moveEvent = makePointerEvent(target, { x: 128, y: 104 }, { composedPath: () => [target, surface] });
 
 		listeners.pointermove(moveEvent);
+
+		expect(moveEvent.preventDefault).toHaveBeenCalled();
+		expect(improvedTube.channelDisableTabSwipeState.blocked).toBe(true);
+	});
+
+	test('keeps blocking when move target drifts outside the tab strip after starting inside', () => {
+		const { improvedTube, listeners } = loadFeature();
+		improvedTube.channelDisableTabSwipe();
+
+		const surface = makeSurfaceNode('ytd-rich-grid-renderer');
+		const startTarget = makeNode();
+		const moveTarget = makeNode();
+		listeners.touchstart(makeTouchEvent(startTarget, { x: 100, y: 100 }, { composedPath: () => [startTarget, surface] }));
+		const moveEvent = makeTouchEvent(moveTarget, { x: 136, y: 104 }, { composedPath: () => [moveTarget, surface] });
+
+		listeners.touchmove(moveEvent);
 
 		expect(moveEvent.preventDefault).toHaveBeenCalled();
 		expect(improvedTube.channelDisableTabSwipeState.blocked).toBe(true);

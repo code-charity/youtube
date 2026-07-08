@@ -165,13 +165,18 @@ ImprovedTube.channelDisableTabSwipe = function () {
 		document.removeEventListener('pointermove', previousHandlers.pointermove, true);
 		document.removeEventListener('pointerup', previousHandlers.pointerup, true);
 		document.removeEventListener('pointercancel', previousHandlers.pointercancel, true);
+		window.removeEventListener('scroll', previousHandlers.refreshOverlay, true);
+		window.removeEventListener('resize', previousHandlers.refreshOverlay, true);
 		this.channelDisableTabSwipeHandlers = null;
 	}
 
 	if (!this.storage.channel_disable_tab_swipe || document.documentElement.dataset.pageType !== 'channel') {
+		document.documentElement?.removeAttribute?.('it-channel-disable-tab-swipe');
 		this.channelDisableTabSwipeState = null;
 		return;
 	}
+
+	document.documentElement?.setAttribute?.('it-channel-disable-tab-swipe', 'true');
 
 	const stopEvent = function (event) {
 		if (event.cancelable) event.preventDefault();
@@ -181,29 +186,123 @@ ImprovedTube.channelDisableTabSwipe = function () {
 		}
 	};
 
-	const getTabTarget = function (target) {
-		if (!target || !target.closest) return null;
+	const stopPropagationOnly = function (event) {
+		if (typeof event.stopPropagation === 'function') {
+			event.stopPropagation();
+		}
+		if (typeof event.stopImmediatePropagation === 'function') {
+			event.stopImmediatePropagation();
+		}
+	};
 
-		return target.closest('ytd-c4-tabbed-header-renderer, ytd-channel-sub-menu-renderer, tp-yt-paper-tabs, yt-tab-group-shape, [role="tab"], #tabs-content');
+	const getEventPath = function (event) {
+		if (typeof event.composedPath === 'function') {
+			return event.composedPath();
+		}
+
+		const path = [];
+		let node = event.target;
+
+		while (node) {
+			path.push(node);
+			node = node.parentNode || node.parentElement || node.host || null;
+		}
+
+		path.push(window, document);
+
+		return path;
+	};
+
+	const pathIncludesSelector = function (path, selector) {
+		return path.some((node) => node?.matches && node.matches(selector));
+	};
+
+	const pathFindSelector = function (path, selector) {
+		return path.find((node) => node?.matches && node.matches(selector)) || null;
+	};
+
+	const triggerSyntheticTap = function (target) {
+		if (!target || typeof target.click !== 'function') {
+			return;
+		}
+
+		target.click();
+	};
+
+	const getChannelGestureSurface = function (path) {
+		return pathFindSelector(
+			path,
+			[
+				'#contents.ytd-rich-grid-renderer',
+				'ytd-rich-grid-renderer',
+				'ytd-rich-grid-row',
+				'ytd-rich-item-renderer',
+				'ytd-rich-grid-media',
+				'ytd-two-column-browse-results-renderer #contents',
+				'#content.ytd-browse #contents'
+			].join(', ')
+		);
+	};
+
+	const getChannelTabSurface = function (path) {
+		return pathFindSelector(
+			path,
+			[
+				'ytd-c4-tabbed-header-renderer',
+				'ytd-channel-sub-menu-renderer',
+				'tp-yt-paper-tabs',
+				'yt-tab-group-shape',
+				'yt-tab-group-shape .yt-tab-group-shape-wiz__tabs',
+				'#tabs-content',
+				'[role="tab"]',
+				'[role="tablist"]'
+			].join(', ')
+		);
+	};
+
+	const getVideoLinkTarget = function (path) {
+		return pathFindSelector(
+			path,
+			[
+				'a#thumbnail',
+				'a[href*="/watch"]',
+				'a[href*="/shorts/"]',
+				'ytd-thumbnail a'
+			].join(', ')
+		);
 	};
 
 	const getTouchContext = function (event) {
-		const target = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
 		const touch = event.touches?.[0] || event.changedTouches?.[0];
-		const tabTarget = getTabTarget(target);
+		const path = getEventPath(event);
+		const gestureSurface = getChannelGestureSurface(path);
+		const tabSurface = getChannelTabSurface(path);
+		const videoLinkTarget = getVideoLinkTarget(path);
+		const tapTarget = videoLinkTarget || pathFindSelector(path, '[role="tab"], a, button');
 
-		if (!tabTarget || !touch) {
+		if (!gestureSurface || !touch) {
 			return null;
 		}
 
-		return {touch, tabTarget};
+		if (tabSurface) {
+			return null;
+		}
+
+		if (!videoLinkTarget && pathIncludesSelector(path, 'button, input, textarea, select, [role="button"]')) {
+			return null;
+		}
+
+		return {touch, gestureSurface, tabSurface, tapTarget, videoLinkTarget, path};
 	};
 
 	const getPointerContext = function (event) {
-		const target = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
-		const tabTarget = getTabTarget(target);
+		const path = getEventPath(event);
+		const gestureSurface = getChannelGestureSurface(path);
+		const tabSurface = getChannelTabSurface(path);
+		const videoLinkTarget = getVideoLinkTarget(path);
+		const tapTarget = videoLinkTarget || pathFindSelector(path, '[role="tab"], a, button');
 
-		if (!tabTarget) {
+		if (!gestureSurface) {
 			return null;
 		}
 
@@ -211,7 +310,15 @@ ImprovedTube.channelDisableTabSwipe = function () {
 			return null;
 		}
 
-		return {pointer: event, tabTarget};
+		if (tabSurface) {
+			return null;
+		}
+
+		if (!videoLinkTarget && pathIncludesSelector(path, 'button, input, textarea, select, [role="button"]')) {
+			return null;
+		}
+
+		return {pointer: event, gestureSurface, tabSurface, tapTarget, videoLinkTarget, path};
 	};
 
 	const resetState = function () {
@@ -230,20 +337,27 @@ ImprovedTube.channelDisableTabSwipe = function () {
 			startX: context.touch.clientX,
 			startY: context.touch.clientY,
 			blocked: false,
-			pointerId: null
+			pointerId: null,
+			startedInTabs: true,
+			startedOnTabSurface: Boolean(context.tabSurface),
+			tapTarget: context.tapTarget
 		};
+		if (context.tabSurface && event.cancelable) {
+			event.preventDefault();
+		}
+		stopPropagationOnly(event);
 	};
 
 	const touchmove = function (event) {
 		const state = ImprovedTube.channelDisableTabSwipeState;
-		const context = getTouchContext(event);
+		const touch = event.touches?.[0] || event.changedTouches?.[0];
 
-		if (!state || !context) return;
+		if (!state?.startedInTabs || !touch) return;
 
-		const deltaX = context.touch.clientX - state.startX;
-		const deltaY = Math.abs(context.touch.clientY - state.startY);
+		const deltaX = touch.clientX - state.startX;
+		const deltaY = Math.abs(touch.clientY - state.startY);
 
-		if (state.blocked || (Math.abs(deltaX) > 12 && Math.abs(deltaX) > deltaY * 1.2)) {
+		if (state.startedOnTabSurface || state.blocked || (Math.abs(deltaX) > 12 && Math.abs(deltaX) > deltaY * 1.2)) {
 			state.blocked = true;
 			stopEvent(event);
 		}
@@ -253,13 +367,27 @@ ImprovedTube.channelDisableTabSwipe = function () {
 		const state = ImprovedTube.channelDisableTabSwipeState;
 
 		if (state?.blocked) {
+			stopPropagationOnly(event);
 			stopEvent(event);
+			const deltaX = Math.abs((event.changedTouches?.[0]?.clientX ?? state.startX) - state.startX);
+			const deltaY = Math.abs((event.changedTouches?.[0]?.clientY ?? state.startY) - state.startY);
+
+			if (deltaX < 10 && deltaY < 10) {
+				triggerSyntheticTap(state.tapTarget);
+			}
 		}
 
 		resetState();
 	};
 
-	const touchcancel = function () {
+	const touchcancel = function (event) {
+		const state = ImprovedTube.channelDisableTabSwipeState;
+
+		if (state?.blocked) {
+			stopPropagationOnly(event);
+			stopEvent(event);
+		}
+
 		resetState();
 	};
 
@@ -275,20 +403,25 @@ ImprovedTube.channelDisableTabSwipe = function () {
 			startX: context.pointer.clientX,
 			startY: context.pointer.clientY,
 			blocked: false,
-			pointerId: context.pointer.pointerId
+			pointerId: context.pointer.pointerId,
+			startedInTabs: true,
+			startedOnTabSurface: Boolean(context.tabSurface),
+			tapTarget: context.tapTarget
 		};
+		if (context.tabSurface && event.cancelable) {
+			event.preventDefault();
+		}
+		stopPropagationOnly(event);
 	};
 
 	const pointermove = function (event) {
 		const state = ImprovedTube.channelDisableTabSwipeState;
-		const context = getPointerContext(event);
+		if (!state?.startedInTabs || state.pointerId !== event.pointerId) return;
 
-		if (!state || !context || state.pointerId !== context.pointer.pointerId) return;
+		const deltaX = event.clientX - state.startX;
+		const deltaY = Math.abs(event.clientY - state.startY);
 
-		const deltaX = context.pointer.clientX - state.startX;
-		const deltaY = Math.abs(context.pointer.clientY - state.startY);
-
-		if (state.blocked || (Math.abs(deltaX) > 12 && Math.abs(deltaX) > deltaY * 1.2)) {
+		if (state.startedOnTabSurface || state.blocked || (Math.abs(deltaX) > 12 && Math.abs(deltaX) > deltaY * 1.2)) {
 			state.blocked = true;
 			stopEvent(event);
 		}
@@ -298,13 +431,27 @@ ImprovedTube.channelDisableTabSwipe = function () {
 		const state = ImprovedTube.channelDisableTabSwipeState;
 
 		if (state?.blocked && state.pointerId === event.pointerId) {
+			stopPropagationOnly(event);
 			stopEvent(event);
+			const deltaX = Math.abs(event.clientX - state.startX);
+			const deltaY = Math.abs(event.clientY - state.startY);
+
+			if (deltaX < 10 && deltaY < 10) {
+				triggerSyntheticTap(state.tapTarget);
+			}
 		}
 
 		resetState();
 	};
 
-	const pointercancel = function () {
+	const pointercancel = function (event) {
+		const state = ImprovedTube.channelDisableTabSwipeState;
+
+		if (state?.blocked && state.pointerId === event.pointerId) {
+			stopPropagationOnly(event);
+			stopEvent(event);
+		}
+
 		resetState();
 	};
 

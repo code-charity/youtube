@@ -105,9 +105,12 @@ ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe = function () {
 	}
 
 	if (!this.storage.player_disable_touchscreen_mini_player_swipe) {
+		document.documentElement?.removeAttribute?.('it-player-disable-touchscreen-mini-player-swipe');
 		this.playerDisableTouchscreenMiniPlayerSwipeState = null;
 		return;
 	}
+
+	document.documentElement?.setAttribute?.('it-player-disable-touchscreen-mini-player-swipe', 'true');
 
 	const stopEvent = function (event) {
 		if (event.cancelable) event.preventDefault();
@@ -117,27 +120,62 @@ ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe = function () {
 		}
 	};
 
+	const stopPropagationOnly = function (event) {
+		if (typeof event.stopPropagation === 'function') {
+			event.stopPropagation();
+		}
+		if (typeof event.stopImmediatePropagation === 'function') {
+			event.stopImmediatePropagation();
+		}
+	};
+
+	const getEventPath = function (event) {
+		if (typeof event.composedPath === 'function') {
+			return event.composedPath();
+		}
+
+		const path = [];
+		let node = event.target;
+
+		while (node) {
+			path.push(node);
+			node = node.parentNode || node.parentElement || node.host || null;
+		}
+
+		path.push(window, document);
+
+		return path;
+	};
+
+	const pathIncludesSelector = function (path, selector) {
+		return path.some((node) => node?.matches && node.matches(selector));
+	};
+
 	const getTouchContext = function (event) {
 		const player = ImprovedTube.elements.player;
-		const target = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
 		const touch = event.touches?.[0] || event.changedTouches?.[0];
+		const path = getEventPath(event);
 
-		if (!player || !target || !touch || !player.contains(target) || player.classList.contains('ad-showing')) {
+		if (!player || !touch || player.classList.contains('ad-showing')) {
 			return null;
 		}
 
-		if (target.closest && target.closest('.ytp-chrome-bottom, .ytp-progress-bar-container, .ytp-tooltip, .ytp-settings-menu, button, a, input, textarea, select, [role="button"]')) {
+		if (!path.some((node) => node === player || node?.matches?.('#movie_player, .html5-video-player, .html5-video-container, .html5-main-video, #player, #player-container, #full-bleed-container'))) {
 			return null;
 		}
 
-		return {player, touch};
+		if (pathIncludesSelector(path, '.ytp-chrome-bottom, .ytp-progress-bar-container, .ytp-tooltip, .ytp-settings-menu, button, a, input, textarea, select, [role="button"]')) {
+			return null;
+		}
+
+		return {player, touch, path};
 	};
 
 	const getPointerContext = function (event) {
 		const player = ImprovedTube.elements.player;
-		const target = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
+		const path = getEventPath(event);
 
-		if (!player || !target || !player.contains(target) || player.classList.contains('ad-showing')) {
+		if (!player || player.classList.contains('ad-showing')) {
 			return null;
 		}
 
@@ -145,11 +183,15 @@ ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe = function () {
 			return null;
 		}
 
-		if (target.closest && target.closest('.ytp-chrome-bottom, .ytp-progress-bar-container, .ytp-tooltip, .ytp-settings-menu, button, a, input, textarea, select, [role="button"]')) {
+		if (!path.some((node) => node === player || node?.matches?.('#movie_player, .html5-video-player, .html5-video-container, .html5-main-video, #player, #player-container, #full-bleed-container'))) {
 			return null;
 		}
 
-		return {player, pointer: event};
+		if (pathIncludesSelector(path, '.ytp-chrome-bottom, .ytp-progress-bar-container, .ytp-tooltip, .ytp-settings-menu, button, a, input, textarea, select, [role="button"]')) {
+			return null;
+		}
+
+		return {player, pointer: event, path};
 	};
 
 	const resetState = function () {
@@ -168,18 +210,20 @@ ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe = function () {
 			startX: context.touch.clientX,
 			startY: context.touch.clientY,
 			blocked: false,
-			pointerId: null
+			pointerId: null,
+			startedInPlayer: true
 		};
+		stopPropagationOnly(event);
 	};
 
 	const touchmove = function (event) {
 		const state = ImprovedTube.playerDisableTouchscreenMiniPlayerSwipeState;
-		const context = getTouchContext(event);
+		const touch = event.touches?.[0] || event.changedTouches?.[0];
 
-		if (!state || !context) return;
+		if (!state?.startedInPlayer || !touch) return;
 
-		const deltaX = Math.abs(context.touch.clientX - state.startX);
-		const deltaY = context.touch.clientY - state.startY;
+		const deltaX = Math.abs(touch.clientX - state.startX);
+		const deltaY = touch.clientY - state.startY;
 
 		if (state.blocked || (deltaY > 12 && deltaY > deltaX * 1.2)) {
 			state.blocked = true;
@@ -213,18 +257,18 @@ ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe = function () {
 			startX: context.pointer.clientX,
 			startY: context.pointer.clientY,
 			blocked: false,
-			pointerId: context.pointer.pointerId
+			pointerId: context.pointer.pointerId,
+			startedInPlayer: true
 		};
+		stopPropagationOnly(event);
 	};
 
 	const pointermove = function (event) {
 		const state = ImprovedTube.playerDisableTouchscreenMiniPlayerSwipeState;
-		const context = getPointerContext(event);
+		if (!state?.startedInPlayer || state.pointerId !== event.pointerId) return;
 
-		if (!state || !context || state.pointerId !== context.pointer.pointerId) return;
-
-		const deltaX = Math.abs(context.pointer.clientX - state.startX);
-		const deltaY = context.pointer.clientY - state.startY;
+		const deltaX = Math.abs(event.clientX - state.startX);
+		const deltaY = event.clientY - state.startY;
 
 		if (state.blocked || (deltaY > 12 && deltaY > deltaX * 1.2)) {
 			state.blocked = true;

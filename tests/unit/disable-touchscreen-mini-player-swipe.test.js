@@ -19,7 +19,14 @@ function makeNode({ parent = null, closestResult = null, inPlayer = false } = {}
 		nodeType: 1,
 		parentElement: parent,
 		closest: jest.fn(() => closestResult),
+		matches: jest.fn(() => false),
 		_inPlayer: inPlayer
+	};
+}
+
+function makeSurfaceNode(selectorMatch) {
+	return {
+		matches: jest.fn((selector) => selector.split(',').map((item) => item.trim()).includes(selectorMatch))
 	};
 }
 
@@ -66,6 +73,7 @@ function makeTouchEvent(target, coords, extra = {}) {
 		preventDefault: jest.fn(),
 		stopPropagation: jest.fn(),
 		stopImmediatePropagation: jest.fn(),
+		composedPath: () => [target],
 		...extra
 	};
 }
@@ -81,6 +89,7 @@ function makePointerEvent(target, coords, extra = {}) {
 		preventDefault: jest.fn(),
 		stopPropagation: jest.fn(),
 		stopImmediatePropagation: jest.fn(),
+		composedPath: () => [target],
 		...extra
 	};
 }
@@ -100,8 +109,9 @@ describe('Disable touchscreen mini-player swipe (#4127)', () => {
 		improvedTube.playerDisableTouchscreenMiniPlayerSwipe();
 
 		const target = makeNode({ inPlayer: true });
-		listeners.touchstart(makeTouchEvent(target, { x: 100, y: 100 }));
-		const moveEvent = makeTouchEvent(target, { x: 106, y: 132 });
+		const surface = makeSurfaceNode('.html5-video-player');
+		listeners.touchstart(makeTouchEvent(target, { x: 100, y: 100 }, { composedPath: () => [target, surface] }));
+		const moveEvent = makeTouchEvent(target, { x: 106, y: 132 }, { composedPath: () => [target, surface] });
 
 		listeners.touchmove(moveEvent);
 
@@ -114,8 +124,10 @@ describe('Disable touchscreen mini-player swipe (#4127)', () => {
 		improvedTube.playerDisableTouchscreenMiniPlayerSwipe();
 
 		const controlTarget = makeNode({ inPlayer: true, closestResult: {} });
-		listeners.touchstart(makeTouchEvent(controlTarget, { x: 100, y: 100 }));
-		const moveEvent = makeTouchEvent(controlTarget, { x: 100, y: 140 });
+		const surface = makeSurfaceNode('.html5-video-player');
+		const buttonNode = makeSurfaceNode('button');
+		listeners.touchstart(makeTouchEvent(controlTarget, { x: 100, y: 100 }, { composedPath: () => [controlTarget, buttonNode, surface] }));
+		const moveEvent = makeTouchEvent(controlTarget, { x: 100, y: 140 }, { composedPath: () => [controlTarget, buttonNode, surface] });
 
 		listeners.touchmove(moveEvent);
 
@@ -128,10 +140,27 @@ describe('Disable touchscreen mini-player swipe (#4127)', () => {
 		improvedTube.playerDisableTouchscreenMiniPlayerSwipe();
 
 		const target = makeNode({ inPlayer: true });
-		listeners.pointerdown(makePointerEvent(target, { x: 80, y: 80 }));
-		const moveEvent = makePointerEvent(target, { x: 82, y: 108 });
+		const surface = makeSurfaceNode('.html5-video-player');
+		listeners.pointerdown(makePointerEvent(target, { x: 80, y: 80 }, { composedPath: () => [target, surface] }));
+		const moveEvent = makePointerEvent(target, { x: 82, y: 108 }, { composedPath: () => [target, surface] });
 
 		listeners.pointermove(moveEvent);
+
+		expect(moveEvent.preventDefault).toHaveBeenCalled();
+		expect(improvedTube.playerDisableTouchscreenMiniPlayerSwipeState.blocked).toBe(true);
+	});
+
+	test('keeps blocking when move target drifts outside the player after starting inside', () => {
+		const { improvedTube, listeners } = loadFeature();
+		improvedTube.playerDisableTouchscreenMiniPlayerSwipe();
+
+		const startTarget = makeNode({ inPlayer: true });
+		const moveTarget = makeNode({ inPlayer: false });
+		const surface = makeSurfaceNode('.html5-video-player');
+		listeners.touchstart(makeTouchEvent(startTarget, { x: 100, y: 100 }, { composedPath: () => [startTarget, surface] }));
+		const moveEvent = makeTouchEvent(moveTarget, { x: 104, y: 132 }, { composedPath: () => [moveTarget, surface] });
+
+		listeners.touchmove(moveEvent);
 
 		expect(moveEvent.preventDefault).toHaveBeenCalled();
 		expect(improvedTube.playerDisableTouchscreenMiniPlayerSwipeState.blocked).toBe(true);
