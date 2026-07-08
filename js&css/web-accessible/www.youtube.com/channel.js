@@ -142,7 +142,186 @@ ImprovedTube.channelPlayAllButton = function () {
 	}
 };
 /*------------------------------------------------------------------------------
-4.6.4 COMPACT THEME
+4.6.4 DISABLE CHANNEL TAB SWIPE
+------------------------------------------------------------------------------*/
+ImprovedTube.channelDisableTabSwipe = function () {
+	const listenerOptions = {capture: true, passive: false};
+	const previousHandlers = this.channelDisableTabSwipeHandlers;
+
+	if (previousHandlers) {
+		document.removeEventListener('touchstart', previousHandlers.touchstart, true);
+		document.removeEventListener('touchmove', previousHandlers.touchmove, true);
+		document.removeEventListener('touchend', previousHandlers.touchend, true);
+		document.removeEventListener('touchcancel', previousHandlers.touchcancel, true);
+		document.removeEventListener('pointerdown', previousHandlers.pointerdown, true);
+		document.removeEventListener('pointermove', previousHandlers.pointermove, true);
+		document.removeEventListener('pointerup', previousHandlers.pointerup, true);
+		document.removeEventListener('pointercancel', previousHandlers.pointercancel, true);
+		this.channelDisableTabSwipeHandlers = null;
+	}
+
+	if (!this.storage.channel_disable_tab_swipe || document.documentElement.dataset.pageType !== 'channel') {
+		this.channelDisableTabSwipeState = null;
+		return;
+	}
+
+	const stopEvent = function (event) {
+		if (event.cancelable) event.preventDefault();
+		event.stopPropagation();
+		if (typeof event.stopImmediatePropagation === 'function') {
+			event.stopImmediatePropagation();
+		}
+	};
+
+	const getTabTarget = function (target) {
+		if (!target || !target.closest) return null;
+
+		return target.closest('ytd-c4-tabbed-header-renderer, ytd-channel-sub-menu-renderer, tp-yt-paper-tabs, yt-tab-group-shape, [role="tab"], #tabs-content');
+	};
+
+	const getTouchContext = function (event) {
+		const target = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
+		const touch = event.touches?.[0] || event.changedTouches?.[0];
+		const tabTarget = getTabTarget(target);
+
+		if (!tabTarget || !touch) {
+			return null;
+		}
+
+		return {touch, tabTarget};
+	};
+
+	const getPointerContext = function (event) {
+		const target = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
+		const tabTarget = getTabTarget(target);
+
+		if (!tabTarget) {
+			return null;
+		}
+
+		if (event.pointerType && event.pointerType !== 'touch') {
+			return null;
+		}
+
+		return {pointer: event, tabTarget};
+	};
+
+	const resetState = function () {
+		ImprovedTube.channelDisableTabSwipeState = null;
+	};
+
+	const touchstart = function (event) {
+		const context = getTouchContext(event);
+
+		if (!context) {
+			resetState();
+			return;
+		}
+
+		ImprovedTube.channelDisableTabSwipeState = {
+			startX: context.touch.clientX,
+			startY: context.touch.clientY,
+			blocked: false,
+			pointerId: null
+		};
+	};
+
+	const touchmove = function (event) {
+		const state = ImprovedTube.channelDisableTabSwipeState;
+		const context = getTouchContext(event);
+
+		if (!state || !context) return;
+
+		const deltaX = context.touch.clientX - state.startX;
+		const deltaY = Math.abs(context.touch.clientY - state.startY);
+
+		if (state.blocked || (Math.abs(deltaX) > 12 && Math.abs(deltaX) > deltaY * 1.2)) {
+			state.blocked = true;
+			stopEvent(event);
+		}
+	};
+
+	const touchend = function (event) {
+		const state = ImprovedTube.channelDisableTabSwipeState;
+
+		if (state?.blocked) {
+			stopEvent(event);
+		}
+
+		resetState();
+	};
+
+	const touchcancel = function () {
+		resetState();
+	};
+
+	const pointerdown = function (event) {
+		const context = getPointerContext(event);
+
+		if (!context) {
+			resetState();
+			return;
+		}
+
+		ImprovedTube.channelDisableTabSwipeState = {
+			startX: context.pointer.clientX,
+			startY: context.pointer.clientY,
+			blocked: false,
+			pointerId: context.pointer.pointerId
+		};
+	};
+
+	const pointermove = function (event) {
+		const state = ImprovedTube.channelDisableTabSwipeState;
+		const context = getPointerContext(event);
+
+		if (!state || !context || state.pointerId !== context.pointer.pointerId) return;
+
+		const deltaX = context.pointer.clientX - state.startX;
+		const deltaY = Math.abs(context.pointer.clientY - state.startY);
+
+		if (state.blocked || (Math.abs(deltaX) > 12 && Math.abs(deltaX) > deltaY * 1.2)) {
+			state.blocked = true;
+			stopEvent(event);
+		}
+	};
+
+	const pointerup = function (event) {
+		const state = ImprovedTube.channelDisableTabSwipeState;
+
+		if (state?.blocked && state.pointerId === event.pointerId) {
+			stopEvent(event);
+		}
+
+		resetState();
+	};
+
+	const pointercancel = function () {
+		resetState();
+	};
+
+	this.channelDisableTabSwipeHandlers = {
+		touchstart,
+		touchmove,
+		touchend,
+		touchcancel,
+		pointerdown,
+		pointermove,
+		pointerup,
+		pointercancel
+	};
+
+	document.addEventListener('touchstart', touchstart, listenerOptions);
+	document.addEventListener('touchmove', touchmove, listenerOptions);
+	document.addEventListener('touchend', touchend, listenerOptions);
+	document.addEventListener('touchcancel', touchcancel, listenerOptions);
+	document.addEventListener('pointerdown', pointerdown, listenerOptions);
+	document.addEventListener('pointermove', pointermove, listenerOptions);
+	document.addEventListener('pointerup', pointerup, listenerOptions);
+	document.addEventListener('pointercancel', pointercancel, listenerOptions);
+};
+/*------------------------------------------------------------------------------
+4.6.5 COMPACT THEME
 ------------------------------------------------------------------------------*/
 
 var compact = compact || {}

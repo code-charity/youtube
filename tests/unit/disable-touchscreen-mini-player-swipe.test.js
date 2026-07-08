@@ -1,52 +1,139 @@
-// Test for Issue #4127: disable accidental touchscreen mini-player swipe
-
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
+
+const PLAYER_SRC = path.join(
+	__dirname,
+	'../../js&css/web-accessible/www.youtube.com/player.js'
+);
+
+function makeClassList(names = []) {
+	const set = new Set(names);
+	return {
+		contains: (name) => set.has(name)
+	};
+}
+
+function makeNode({ parent = null, closestResult = null, inPlayer = false } = {}) {
+	return {
+		nodeType: 1,
+		parentElement: parent,
+		closest: jest.fn(() => closestResult),
+		_inPlayer: inPlayer
+	};
+}
+
+function loadFeature() {
+	const listeners = {};
+	const documentMock = {
+		addEventListener: jest.fn((type, handler) => {
+			listeners[type] = handler;
+		}),
+		removeEventListener: jest.fn()
+	};
+	const playerElement = {
+		classList: makeClassList(),
+		contains: (node) => Boolean(node && node._inPlayer)
+	};
+	const improvedTube = {
+		storage: { player_disable_touchscreen_mini_player_swipe: true },
+		elements: { player: playerElement }
+	};
+
+	const sandbox = {
+		ImprovedTube: improvedTube,
+		document: documentMock,
+		window: {
+			addEventListener: jest.fn()
+		},
+		setTimeout: jest.fn(() => 0),
+		clearTimeout: jest.fn(),
+		console
+	};
+
+	vm.createContext(sandbox);
+	vm.runInContext(fs.readFileSync(PLAYER_SRC, 'utf8'), sandbox);
+
+	return { improvedTube, listeners, documentMock };
+}
+
+function makeTouchEvent(target, coords, extra = {}) {
+	return {
+		target,
+		touches: [{ clientX: coords.x, clientY: coords.y }],
+		changedTouches: [{ clientX: coords.x, clientY: coords.y }],
+		cancelable: true,
+		preventDefault: jest.fn(),
+		stopPropagation: jest.fn(),
+		stopImmediatePropagation: jest.fn(),
+		...extra
+	};
+}
+
+function makePointerEvent(target, coords, extra = {}) {
+	return {
+		target,
+		pointerId: 7,
+		pointerType: 'touch',
+		clientX: coords.x,
+		clientY: coords.y,
+		cancelable: true,
+		preventDefault: jest.fn(),
+		stopPropagation: jest.fn(),
+		stopImmediatePropagation: jest.fn(),
+		...extra
+	};
+}
 
 describe('Disable touchscreen mini-player swipe (#4127)', () => {
-	let playerContent;
-	let functionsContent;
-	let menuContent;
-	let messages;
+	test('registers touch and pointer listeners when enabled', () => {
+		const { improvedTube, documentMock } = loadFeature();
 
-	beforeAll(() => {
-		playerContent = fs.readFileSync(path.join(__dirname, '../../js&css/web-accessible/www.youtube.com/player.js'), 'utf8');
-		functionsContent = fs.readFileSync(path.join(__dirname, '../../js&css/web-accessible/functions.js'), 'utf8');
-		menuContent = fs.readFileSync(path.join(__dirname, '../../menu/skeleton-parts/player.js'), 'utf8');
-		messages = JSON.parse(fs.readFileSync(path.join(__dirname, '../../_locales/en/messages.json'), 'utf8'));
+		improvedTube.playerDisableTouchscreenMiniPlayerSwipe();
+
+		expect(documentMock.addEventListener).toHaveBeenCalledWith('touchstart', expect.any(Function), expect.objectContaining({ capture: true, passive: false }));
+		expect(documentMock.addEventListener).toHaveBeenCalledWith('pointerdown', expect.any(Function), expect.objectContaining({ capture: true, passive: false }));
 	});
 
-	test('defines the player touch-swipe blocker', () => {
-		expect(playerContent).toContain('ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe = function ()');
-		expect(playerContent).toContain("this.storage.player_disable_touchscreen_mini_player_swipe");
+	test('blocks downward swipe on the video surface', () => {
+		const { improvedTube, listeners } = loadFeature();
+		improvedTube.playerDisableTouchscreenMiniPlayerSwipe();
+
+		const target = makeNode({ inPlayer: true });
+		listeners.touchstart(makeTouchEvent(target, { x: 100, y: 100 }));
+		const moveEvent = makeTouchEvent(target, { x: 106, y: 132 });
+
+		listeners.touchmove(moveEvent);
+
+		expect(moveEvent.preventDefault).toHaveBeenCalled();
+		expect(improvedTube.playerDisableTouchscreenMiniPlayerSwipeState.blocked).toBe(true);
 	});
 
-	test('installs capture-phase touch listeners that can cancel the native gesture', () => {
-		expect(playerContent).toContain("document.addEventListener('touchstart'");
-		expect(playerContent).toContain("document.addEventListener('touchmove'");
-		expect(playerContent).toContain("document.addEventListener('touchend'");
-		expect(playerContent).toContain("document.addEventListener('touchcancel'");
-		expect(playerContent).toContain('passive: false');
-		expect(playerContent).toContain('stopImmediatePropagation');
-		expect(playerContent).toContain('event.preventDefault()');
+	test('does not block player control interactions', () => {
+		const { improvedTube, listeners } = loadFeature();
+		improvedTube.playerDisableTouchscreenMiniPlayerSwipe();
+
+		const controlTarget = makeNode({ inPlayer: true, closestResult: {} });
+		listeners.touchstart(makeTouchEvent(controlTarget, { x: 100, y: 100 }));
+		const moveEvent = makeTouchEvent(controlTarget, { x: 100, y: 140 });
+
+		listeners.touchmove(moveEvent);
+
+		expect(moveEvent.preventDefault).not.toHaveBeenCalled();
+		expect(improvedTube.playerDisableTouchscreenMiniPlayerSwipeState).toBe(null);
 	});
 
-	test('blocks only downward-dominant swipe motion', () => {
-		expect(playerContent).toContain('deltaY > 12 && deltaY > deltaX * 1.2');
-		expect(playerContent).toContain("player.classList.contains('ad-showing')");
-		expect(playerContent).toContain('.ytp-progress-bar-container');
-	});
+	test('blocks downward pointer gestures too', () => {
+		const { improvedTube, listeners } = loadFeature();
+		improvedTube.playerDisableTouchscreenMiniPlayerSwipe();
 
-	test('wires the feature on player init and video page updates', () => {
-		const matches = functionsContent.match(/ImprovedTube\.playerDisableTouchscreenMiniPlayerSwipe\(\);/g) || [];
+		const target = makeNode({ inPlayer: true });
+		listeners.pointerdown(makePointerEvent(target, { x: 80, y: 80 }));
+		const moveEvent = makePointerEvent(target, { x: 82, y: 108 });
 
-		expect(matches).toHaveLength(2);
-	});
+		listeners.pointermove(moveEvent);
 
-	test('exposes a player setting and translation label', () => {
-		expect(menuContent).toContain('player_disable_touchscreen_mini_player_swipe');
-		expect(menuContent).toContain('disableTouchscreenMiniPlayerSwipe');
-		expect(messages.disableTouchscreenMiniPlayerSwipe).toBeDefined();
-		expect(messages.disableTouchscreenMiniPlayerSwipe.message).toBe('Disable touchscreen mini-player swipe');
+		expect(moveEvent.preventDefault).toHaveBeenCalled();
+		expect(improvedTube.playerDisableTouchscreenMiniPlayerSwipeState.blocked).toBe(true);
 	});
 });

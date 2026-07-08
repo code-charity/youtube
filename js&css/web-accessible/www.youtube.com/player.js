@@ -89,6 +89,10 @@ ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe = function () {
 		document.removeEventListener('touchmove', previousHandlers.touchmove, true);
 		document.removeEventListener('touchend', previousHandlers.touchend, true);
 		document.removeEventListener('touchcancel', previousHandlers.touchcancel, true);
+		document.removeEventListener('pointerdown', previousHandlers.pointerdown, true);
+		document.removeEventListener('pointermove', previousHandlers.pointermove, true);
+		document.removeEventListener('pointerup', previousHandlers.pointerup, true);
+		document.removeEventListener('pointercancel', previousHandlers.pointercancel, true);
 		this.playerDisableTouchscreenMiniPlayerSwipeHandlers = null;
 	}
 
@@ -121,6 +125,25 @@ ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe = function () {
 		return {player, touch};
 	};
 
+	const getPointerContext = function (event) {
+		const player = ImprovedTube.elements.player;
+		const target = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
+
+		if (!player || !target || !player.contains(target) || player.classList.contains('ad-showing')) {
+			return null;
+		}
+
+		if (event.pointerType && event.pointerType !== 'touch') {
+			return null;
+		}
+
+		if (target.closest && target.closest('.ytp-chrome-bottom, .ytp-progress-bar-container, .ytp-tooltip, .ytp-settings-menu, button, a, input, textarea, select, [role="button"]')) {
+			return null;
+		}
+
+		return {player, pointer: event};
+	};
+
 	const resetState = function () {
 		ImprovedTube.playerDisableTouchscreenMiniPlayerSwipeState = null;
 	};
@@ -136,7 +159,8 @@ ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe = function () {
 		ImprovedTube.playerDisableTouchscreenMiniPlayerSwipeState = {
 			startX: context.touch.clientX,
 			startY: context.touch.clientY,
-			blocked: false
+			blocked: false,
+			pointerId: null
 		};
 	};
 
@@ -169,17 +193,70 @@ ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe = function () {
 		resetState();
 	};
 
+	const pointerdown = function (event) {
+		const context = getPointerContext(event);
+
+		if (!context) {
+			resetState();
+			return;
+		}
+
+		ImprovedTube.playerDisableTouchscreenMiniPlayerSwipeState = {
+			startX: context.pointer.clientX,
+			startY: context.pointer.clientY,
+			blocked: false,
+			pointerId: context.pointer.pointerId
+		};
+	};
+
+	const pointermove = function (event) {
+		const state = ImprovedTube.playerDisableTouchscreenMiniPlayerSwipeState;
+		const context = getPointerContext(event);
+
+		if (!state || !context || state.pointerId !== context.pointer.pointerId) return;
+
+		const deltaX = Math.abs(context.pointer.clientX - state.startX);
+		const deltaY = context.pointer.clientY - state.startY;
+
+		if (state.blocked || (deltaY > 12 && deltaY > deltaX * 1.2)) {
+			state.blocked = true;
+			stopEvent(event);
+		}
+	};
+
+	const pointerup = function (event) {
+		const state = ImprovedTube.playerDisableTouchscreenMiniPlayerSwipeState;
+
+		if (state?.blocked && state.pointerId === event.pointerId) {
+			stopEvent(event);
+		}
+
+		resetState();
+	};
+
+	const pointercancel = function () {
+		resetState();
+	};
+
 	this.playerDisableTouchscreenMiniPlayerSwipeHandlers = {
 		touchstart,
 		touchmove,
 		touchend,
-		touchcancel
+		touchcancel,
+		pointerdown,
+		pointermove,
+		pointerup,
+		pointercancel
 	};
 
 	document.addEventListener('touchstart', touchstart, listenerOptions);
 	document.addEventListener('touchmove', touchmove, listenerOptions);
 	document.addEventListener('touchend', touchend, listenerOptions);
 	document.addEventListener('touchcancel', touchcancel, listenerOptions);
+	document.addEventListener('pointerdown', pointerdown, listenerOptions);
+	document.addEventListener('pointermove', pointermove, listenerOptions);
+	document.addEventListener('pointerup', pointerup, listenerOptions);
+	document.addEventListener('pointercancel', pointercancel, listenerOptions);
 };
 /*------------------------------------------------------------------------------
 PLAYBACK SPEED

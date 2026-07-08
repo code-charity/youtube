@@ -349,6 +349,13 @@ html[it-channel-disable-tab-swipe=true] #tabs-content {
 	overscroll-behavior-x: none !important;
 }
 
+html[it-player-disable-touchscreen-mini-player-swipe=true] #movie_player,
+html[it-player-disable-touchscreen-mini-player-swipe=true] .html5-video-player,
+html[it-player-disable-touchscreen-mini-player-swipe=true] .html5-video-container,
+html[it-player-disable-touchscreen-mini-player-swipe=true] .html5-main-video {
+	touch-action: pan-x pinch-zoom !important;
+}
+
 
 /*------------------------------------------------------------------------------
 7.0 SHORTCUTS

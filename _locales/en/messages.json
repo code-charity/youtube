@@ -406,7 +406,7 @@
     "message": "Default channel tab"
   },
   "disableChannelTabSwipe": {
-    "message": "Disable channel tab swipe"
+    "message": "Disable swipe between channel tabs"
   },
   "defaultContentCountry": {
     "message": "Country (virtual travel)"
@@ -1111,7 +1111,7 @@
     "message": "Rewind/forward buttons"
   },
   "disableTouchscreenMiniPlayerSwipe": {
-    "message": "Disable touchscreen mini-player swipe"
+    "message": "Disable swipe-down mini-player gesture"
   },
   "player_rotate_button": {
     "message": "Rotate video"

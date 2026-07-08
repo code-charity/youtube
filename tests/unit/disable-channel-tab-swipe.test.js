@@ -1,36 +1,127 @@
-// Test for Issue #4127 follow-up: disable horizontal channel tab swipe
-
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
+
+const CHANNEL_SRC = path.join(
+	__dirname,
+	'../../js&css/web-accessible/www.youtube.com/channel.js'
+);
+
+function makeNode({ parent = null, closestResult = null } = {}) {
+	return {
+		nodeType: 1,
+		parentElement: parent,
+		closest: jest.fn(() => closestResult)
+	};
+}
+
+function loadFeature() {
+	const listeners = {};
+	const documentMock = {
+		documentElement: { dataset: { pageType: 'channel' } },
+		addEventListener: jest.fn((type, handler) => {
+			listeners[type] = handler;
+		}),
+		removeEventListener: jest.fn()
+	};
+	const improvedTube = {
+		storage: { channel_disable_tab_swipe: true }
+	};
+
+	const sandbox = {
+		ImprovedTube: improvedTube,
+		document: documentMock,
+		window: {},
+		location: { pathname: '/@demo/videos' },
+		console
+	};
+
+	vm.createContext(sandbox);
+	vm.runInContext(fs.readFileSync(CHANNEL_SRC, 'utf8'), sandbox);
+
+	return { improvedTube, listeners, documentMock };
+}
+
+function makeTouchEvent(target, coords, extra = {}) {
+	return {
+		target,
+		touches: [{ clientX: coords.x, clientY: coords.y }],
+		changedTouches: [{ clientX: coords.x, clientY: coords.y }],
+		cancelable: true,
+		preventDefault: jest.fn(),
+		stopPropagation: jest.fn(),
+		stopImmediatePropagation: jest.fn(),
+		...extra
+	};
+}
+
+function makePointerEvent(target, coords, extra = {}) {
+	return {
+		target,
+		pointerId: 9,
+		pointerType: 'touch',
+		clientX: coords.x,
+		clientY: coords.y,
+		cancelable: true,
+		preventDefault: jest.fn(),
+		stopPropagation: jest.fn(),
+		stopImmediatePropagation: jest.fn(),
+		...extra
+	};
+}
 
 describe('Disable channel tab swipe follow-up (#4127)', () => {
-	let channelMenuContent;
-	let stylesContent;
-	let messages;
+	test('registers listeners only on channel pages', () => {
+		const { improvedTube, documentMock } = loadFeature();
 
-	beforeAll(() => {
-		channelMenuContent = fs.readFileSync(path.join(__dirname, '../../menu/skeleton-parts/channel.js'), 'utf8');
-		stylesContent = fs.readFileSync(path.join(__dirname, '../../js&css/extension/www.youtube.com/styles.css'), 'utf8');
-		messages = JSON.parse(fs.readFileSync(path.join(__dirname, '../../_locales/en/messages.json'), 'utf8'));
+		improvedTube.channelDisableTabSwipe();
+
+		expect(documentMock.addEventListener).toHaveBeenCalledWith('touchstart', expect.any(Function), expect.objectContaining({ capture: true, passive: false }));
+		expect(documentMock.addEventListener).toHaveBeenCalledWith('pointerdown', expect.any(Function), expect.objectContaining({ capture: true, passive: false }));
 	});
 
-	test('adds a dedicated channel toggle to settings', () => {
-		expect(channelMenuContent).toContain('channel_disable_tab_swipe');
-		expect(channelMenuContent).toContain("text: 'disableChannelTabSwipe'");
-		expect(channelMenuContent).toContain("storage: 'channel_disable_tab_swipe'");
+	test('blocks horizontal tab swipe', () => {
+		const { improvedTube, listeners } = loadFeature();
+		improvedTube.channelDisableTabSwipe();
+
+		const tabStrip = {};
+		const target = makeNode({ closestResult: tabStrip });
+		listeners.touchstart(makeTouchEvent(target, { x: 100, y: 100 }));
+		const moveEvent = makeTouchEvent(target, { x: 134, y: 106 });
+
+		listeners.touchmove(moveEvent);
+
+		expect(moveEvent.preventDefault).toHaveBeenCalled();
+		expect(improvedTube.channelDisableTabSwipeState.blocked).toBe(true);
 	});
 
-	test('limits touch gestures on channel tab containers to vertical pan and pinch zoom', () => {
-		expect(stylesContent).toContain('html[it-channel-disable-tab-swipe=true] ytd-c4-tabbed-header-renderer');
-		expect(stylesContent).toContain('html[it-channel-disable-tab-swipe=true] ytd-channel-sub-menu-renderer');
-		expect(stylesContent).toContain('html[it-channel-disable-tab-swipe=true] tp-yt-paper-tabs');
-		expect(stylesContent).toContain('html[it-channel-disable-tab-swipe=true] yt-tab-group-shape');
-		expect(stylesContent).toContain('touch-action: pan-y pinch-zoom !important;');
-		expect(stylesContent).toContain('overscroll-behavior-x: none !important;');
+	test('allows vertical movement through the tab area', () => {
+		const { improvedTube, listeners } = loadFeature();
+		improvedTube.channelDisableTabSwipe();
+
+		const tabStrip = {};
+		const target = makeNode({ closestResult: tabStrip });
+		listeners.touchstart(makeTouchEvent(target, { x: 100, y: 100 }));
+		const moveEvent = makeTouchEvent(target, { x: 104, y: 138 });
+
+		listeners.touchmove(moveEvent);
+
+		expect(moveEvent.preventDefault).not.toHaveBeenCalled();
+		expect(improvedTube.channelDisableTabSwipeState.blocked).toBe(false);
 	});
 
-	test('includes an English label for the new toggle', () => {
-		expect(messages.disableChannelTabSwipe).toBeDefined();
-		expect(messages.disableChannelTabSwipe.message).toBe('Disable channel tab swipe');
+	test('blocks horizontal pointer swipe too', () => {
+		const { improvedTube, listeners } = loadFeature();
+		improvedTube.channelDisableTabSwipe();
+
+		const tabStrip = {};
+		const target = makeNode({ closestResult: tabStrip });
+		listeners.pointerdown(makePointerEvent(target, { x: 100, y: 100 }));
+		const moveEvent = makePointerEvent(target, { x: 128, y: 104 });
+
+		listeners.pointermove(moveEvent);
+
+		expect(moveEvent.preventDefault).toHaveBeenCalled();
+		expect(improvedTube.channelDisableTabSwipeState.blocked).toBe(true);
 	});
 });

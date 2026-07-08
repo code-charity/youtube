@@ -198,6 +198,7 @@ ImprovedTube.init = function () {
 	this.youtubeLanguage();
 	this.myColors();
 	this.YouTubeExperiments();
+	this.channelDisableTabSwipe();
 	this.channelCompactTheme();
 	this.categoryRefreshButton();
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
@@ -289,6 +290,7 @@ document.addEventListener('yt-navigate-finish', function () {
 		ImprovedTube.shortcutGoToSearchBox();
 		document.querySelector('#search').click();
 	} else if (document.documentElement.dataset.pageType === 'channel') {
+		ImprovedTube.channelDisableTabSwipe();
 		ImprovedTube.channelPlayAllButton();
 	}
 });
