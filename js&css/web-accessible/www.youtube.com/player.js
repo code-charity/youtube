@@ -2022,6 +2022,39 @@ ImprovedTube.playerDoubleTapSeek = function () {
 		}
 	};
 
+	var showSeekFeedback = function (seconds, side) {
+		var player = ImprovedTube.elements.player;
+		var forwardClass = 'ytp-seek-forward-bump';
+		var backwardClass = 'ytp-seek-backward-bump';
+		var seekClass = side === 'left' ? backwardClass : forwardClass;
+		var overlays;
+
+		if (!player) {
+			return;
+		}
+
+		overlays = player.querySelectorAll('.ytp-doubletap-ui, .ytp-doubletap-ui-legacy');
+
+		player.classList.remove(forwardClass, backwardClass);
+		player.classList.add(seekClass);
+
+		overlays.forEach(function (overlay) {
+			overlay.classList.remove(forwardClass, backwardClass);
+			overlay.classList.add(seekClass);
+			overlay.setAttribute('data-it-double-tap-seek-seconds', String(seconds));
+		});
+
+		clearTimeout(ImprovedTube.playerDoubleTapSeekFeedbackTimer);
+		ImprovedTube.playerDoubleTapSeekFeedbackTimer = setTimeout(function () {
+			player.classList.remove(forwardClass, backwardClass);
+
+			overlays.forEach(function (overlay) {
+				overlay.classList.remove(forwardClass, backwardClass);
+				overlay.removeAttribute('data-it-double-tap-seek-seconds');
+			});
+		}, 650);
+	};
+
 	this.playerDoubleTapSeekHandler = function (event) {
 		var player = ImprovedTube.elements.player;
 		var target = event.target && (event.target.nodeType === 1 ? event.target : event.target.parentElement);
@@ -2078,6 +2111,7 @@ ImprovedTube.playerDoubleTapSeek = function () {
 			event.stopImmediatePropagation();
 		}
 
+		showSeekFeedback(seekSeconds, tap.side);
 		seekBy(seekSeconds, tap.side);
 	};
 

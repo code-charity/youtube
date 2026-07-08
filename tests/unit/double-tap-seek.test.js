@@ -33,6 +33,12 @@ describe('Double-tap Seek Feature (#4132)', () => {
 			expect(playerContent).toContain('player_double_tap_seek');
 		});
 
+		test('should trigger YouTube seek feedback classes', () => {
+			expect(playerContent).toContain('ytp-seek-forward-bump');
+			expect(playerContent).toContain('ytp-seek-backward-bump');
+			expect(playerContent).toContain('ytp-doubletap-ui');
+		});
+
 		test('should support fixed and progressive seek modes', () => {
 			expect(playerContent).toContain("mode === 'fixed'");
 			expect(playerContent).toContain('player_double_tap_seek_double');
