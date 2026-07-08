@@ -405,6 +405,9 @@
   "defaultChannelTab": {
     "message": "Default channel tab"
   },
+  "disableChannelTabSwipe": {
+    "message": "Disable channel tab swipe"
+  },
   "defaultContentCountry": {
     "message": "Country (virtual travel)"
   },

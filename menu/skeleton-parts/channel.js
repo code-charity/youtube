@@ -67,6 +67,11 @@ extension.skeleton.main.layers.section.channel = {
 			channel_compact_theme: {
 				component: 'switch',
 				text: 'compactTheme'
+			},
+			channel_disable_tab_swipe: {
+				component: 'switch',
+				text: 'disableChannelTabSwipe',
+				storage: 'channel_disable_tab_swipe'
 			}
 		}
 	},

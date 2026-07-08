@@ -336,6 +336,19 @@ html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-cont
 	padding: 0;
 }
 
+/*------------------------------------------------------------------------------
+6.3 CHANNEL TAB SWIPE
+------------------------------------------------------------------------------*/
+html[it-channel-disable-tab-swipe=true] ytd-c4-tabbed-header-renderer,
+html[it-channel-disable-tab-swipe=true] ytd-channel-sub-menu-renderer,
+html[it-channel-disable-tab-swipe=true] tp-yt-paper-tabs,
+html[it-channel-disable-tab-swipe=true] yt-tab-group-shape,
+html[it-channel-disable-tab-swipe=true] yt-tab-group-shape .yt-tab-group-shape-wiz__tabs,
+html[it-channel-disable-tab-swipe=true] #tabs-content {
+	touch-action: pan-y pinch-zoom !important;
+	overscroll-behavior-x: none !important;
+}
+
 
 /*------------------------------------------------------------------------------
 7.0 SHORTCUTS
