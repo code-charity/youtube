@@ -149,6 +149,14 @@ ImprovedTube.channelDisableTabSwipe = function () {
 	const previousHandlers = this.channelDisableTabSwipeHandlers;
 
 	if (previousHandlers) {
+		window.removeEventListener('touchstart', previousHandlers.touchstart, true);
+		window.removeEventListener('touchmove', previousHandlers.touchmove, true);
+		window.removeEventListener('touchend', previousHandlers.touchend, true);
+		window.removeEventListener('touchcancel', previousHandlers.touchcancel, true);
+		window.removeEventListener('pointerdown', previousHandlers.pointerdown, true);
+		window.removeEventListener('pointermove', previousHandlers.pointermove, true);
+		window.removeEventListener('pointerup', previousHandlers.pointerup, true);
+		window.removeEventListener('pointercancel', previousHandlers.pointercancel, true);
 		document.removeEventListener('touchstart', previousHandlers.touchstart, true);
 		document.removeEventListener('touchmove', previousHandlers.touchmove, true);
 		document.removeEventListener('touchend', previousHandlers.touchend, true);
@@ -319,6 +327,14 @@ ImprovedTube.channelDisableTabSwipe = function () {
 	document.addEventListener('pointermove', pointermove, listenerOptions);
 	document.addEventListener('pointerup', pointerup, listenerOptions);
 	document.addEventListener('pointercancel', pointercancel, listenerOptions);
+	window.addEventListener('touchstart', touchstart, listenerOptions);
+	window.addEventListener('touchmove', touchmove, listenerOptions);
+	window.addEventListener('touchend', touchend, listenerOptions);
+	window.addEventListener('touchcancel', touchcancel, listenerOptions);
+	window.addEventListener('pointerdown', pointerdown, listenerOptions);
+	window.addEventListener('pointermove', pointermove, listenerOptions);
+	window.addEventListener('pointerup', pointerup, listenerOptions);
+	window.addEventListener('pointercancel', pointercancel, listenerOptions);
 };
 /*------------------------------------------------------------------------------
 4.6.5 COMPACT THEME

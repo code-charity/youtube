@@ -31,7 +31,10 @@ function loadFeature() {
 	const sandbox = {
 		ImprovedTube: improvedTube,
 		document: documentMock,
-		window: {},
+		window: {
+			addEventListener: jest.fn(),
+			removeEventListener: jest.fn()
+		},
 		location: { pathname: '/@demo/videos' },
 		console
 	};

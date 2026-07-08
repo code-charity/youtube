@@ -483,6 +483,14 @@ document.addEventListener('it-message-from-extension', function () {
 					ImprovedTube.playerHideProgressPreview();
 					break
 
+				case 'playerDisableTouchscreenMiniPlayerSwipe':
+					ImprovedTube.playerDisableTouchscreenMiniPlayerSwipe();
+					break
+
+				case 'channelDisableTabSwipe':
+					ImprovedTube.channelDisableTabSwipe();
+					break
+
 				case 'playerHideControls':
 					ImprovedTube.playerControls();
 					break
