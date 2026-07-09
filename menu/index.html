@@ -1,37 +1,174 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
-<title>ImprovedTube</title>
-<style> body { margin: 0; width: 320px; max-width: 320px; min-height: 522px !important; height: 584px; max-height: 584px; } </style>
-<script src="satus.js"></script>
-<script src="skeleton.js"></script>
-<script src="functions.js"></script>
-<script src="skeleton-parts/search.js"></script>
-<script src="skeleton-parts/active-features.js"></script>
-<script src="skeleton-parts/settings.js"></script>
-<script src="skeleton-parts/night-mode.js"></script>
-<script src="skeleton-parts/mixer.js"></script>
-<script src="skeleton-parts/general.js"></script>
-<script src="skeleton-parts/player.js"></script>
-<script src="skeleton-parts/appearance.js"></script>
-<script src="skeleton-parts/shortcuts.js"></script>
-<script src="skeleton-parts/channel.js"></script>
-<script src="skeleton-parts/playlist.js"></script>
-<script src="skeleton-parts/themes.js"></script>
-<script src="skeleton-parts/blocklist.js"></script>
-<script src="skeleton-parts/analyzer.js"></script>
-<script src="skeleton-parts/dark-light-switch.js"></script>
-<script src="skeleton-parts/refresh-categories.js"></script>
-<script defer src="index.js"></script>
-<link rel="stylesheet" href="satus.css">
-<link rel="stylesheet" href="styles/home.css">
-<link rel="stylesheet" href="styles/appearance.css">
-<link rel="stylesheet" href="styles/search.css">
-<link rel="stylesheet" href="styles/header.css">
-<link rel="stylesheet" href="styles/sub-options.css">
-<link rel="stylesheet" href="styles/analyzer.css">
-<link rel="stylesheet" href="styles/blocklist.css">
-<link rel="stylesheet" href="styles/fonts.css">
-<link rel="stylesheet" href="styles/mixer.css">
-<link rel="stylesheet" href="styles/settings.css">
-<link rel="stylesheet" href="styles/themes.css">
-</head><body><div id="loading" style="animation: 3s linear 0s 1 normal none running fadeIn; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 3px solid rgb(182, 233, 255); border-radius: 80px; padding: 37px; color: rgb(120, 147, 161);">...asking your browser what settings you made here before...</div>
-</body></html>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ImprovedTube</title>
+    <style>
+        body { margin: 0; width: 320px; max-width: 320px; min-height: 522px !important; height: 584px; max-height: 584px; }
+    </style>
+    <script src="satus.js"></script>
+    <script src="skeleton.js"></script>
+    <script src="functions.js"></script>
+    <script src="skeleton-parts/search.js"></script>
+    <script src="skeleton-parts/active-features.js"></script>
+    <script src="skeleton-parts/settings.js"></script>
+    <script src="skeleton-parts/night-mode.js"></script>
+    <script src="skeleton-parts/mixer.js"></script>
+    <script src="skeleton-parts/general.js"></script>
+    <script src="skeleton-parts/player.js"></script>
+    <script src="skeleton-parts/appearance.js"></script>
+    <script src="skeleton-parts/shortcuts.js"></script>
+    <script src="skeleton-parts/channel.js"></script>
+    <script src="skeleton-parts/playlist.js"></script>
+    <script src="skeleton-parts/themes.js"></script>
+    <script src="skeleton-parts/blocklist.js"></script>
+    <script src="skeleton-parts/analyzer.js"></script>
+    <script src="skeleton-parts/dark-light-switch.js"></script>
+    <script src="skeleton-parts/refresh-categories.js"></script>
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="satus.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/appearance.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/sub-options.css">
+    <link rel="stylesheet" href="styles/analyzer.css">
+    <link rel="stylesheet" href="styles/blocklist.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/mixer.css">
+    <link rel="stylesheet" href="styles/settings.css">
+    <link rel="stylesheet" href="styles/themes.css">
+</head>
+<body>
+    <div id="loading" style="animation: 3s linear 0s 1 normal none running fadeIn; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 3px solid rgb(182, 233, 255); border-radius: 80px; padding: 37px; color: rgb(120, 147, 161);">...asking your browser what settings you made here before...</div>
+
+    <!-- CONTENIDO DE LA CONFIGURACIÓN -->
+    <div id="app">
+        <div id="header">
+            <h1>ImprovedTube</h1>
+            <div id="header-actions">
+                <button id="search-btn">🔍</button>
+            </div>
+        </div>
+
+        <div id="content">
+            <!-- SECCIÓN GENERAL -->
+            <div id="general-section" class="section">
+                <h2>General</h2>
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <span class="setting-name">Atajos</span>
+                    </div>
+                    <div class="setting-control">
+                        <input type="checkbox" data-storage="shortcuts_enabled" checked>
+                    </div>
+                </div>
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <span class="setting-name">Canal</span>
+                    </div>
+                    <div class="setting-control">
+                        <input type="checkbox" data-storage="channel_enhancements" checked>
+                    </div>
+                </div>
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <span class="setting-name">Lista de reproducción</span>
+                    </div>
+                    <div class="setting-control">
+                        <input type="checkbox" data-storage="playlist_enhancements" checked>
+                    </div>
+                </div>
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <span class="setting-name">Temas</span>
+                    </div>
+                    <div class="setting-control">
+                        <input type="checkbox" data-storage="themes_enabled" checked>
+                    </div>
+                </div>
+
+                <!-- TOGGLE PARA DESACTIVAR GESTO TÁCTIL -->
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <span class="setting-name">Disable touchscreen mini-player swipe</span>
+                        <span class="setting-desc">Prevents accidental mini-player activation when swiping down on touch devices</span>
+                    </div>
+                    <div class="setting-control">
+                        <input type="checkbox" id="disableTouchGestureMiniPlayer" data-storage="disableTouchGestureMiniPlayer">
+                        <label for="disableTouchGestureMiniPlayer" class="toggle"></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN REPRODUCTOR -->
+            <div id="player-section" class="section">
+                <h2>Reproductor</h2>
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <span class="setting-name">Aplicación</span>
+                    </div>
+                    <div class="setting-control">
+                        <input type="checkbox" data-storage="player_applications" checked>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN APARIENCIA -->
+            <div id="appearance-section" class="section">
+                <h2>Apariencia</h2>
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <span class="setting-name">Lista negra</span>
+                    </div>
+                    <div class="setting-control">
+                        <input type="checkbox" data-storage="blocklist_enabled">
+                    </div>
+                </div>
+                <div class="setting-row">
+                    <div class="setting-info">
+                        <span class="setting-name">Analizador</span>
+                    </div>
+                    <div class="setting-control">
+                        <input type="checkbox" data-storage="analyzer_enabled">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Inicialización básica para que los toggles funcionen
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar valores guardados
+            var checkboxes = document.querySelectorAll('input[type="checkbox"][data-storage]');
+            checkboxes.forEach(function(checkbox) {
+                var key = checkbox.getAttribute('data-storage');
+                var savedValue = localStorage.getItem('improvedtube-' + key);
+                if (savedValue !== null) {
+                    checkbox.checked = savedValue === 'true';
+                }
+                
+                checkbox.addEventListener('change', function() {
+                    localStorage.setItem('improvedtube-' + key, this.checked);
+                    // Notificar cambios a la extensión
+                    if (window.chrome && chrome.runtime) {
+                        chrome.runtime.sendMessage({
+                            action: 'storage-set',
+                            key: key,
+                            value: this.checked
+                        });
+                    }
+                });
+            });
+
+            // Remover loading
+            var loading = document.getElementById('loading');
+            if (loading) {
+                loading.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

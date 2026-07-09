@@ -6,6 +6,14 @@
 4.10.1 IMPROVEDTUBE ICON
 ------------------------------------------------------------------------------*/
 
+// Asegurar que storage existe antes de usarlo
+if (typeof ImprovedTube.storage === 'undefined') {
+    ImprovedTube.storage = {};
+}
+
+// Definir la nueva opción ANTES de que se use
+ImprovedTube.storage.disableTouchGestureMiniPlayer = false;
+
 ImprovedTube.improvedtubeYoutubeIcon = function () {
 	var data = localStorage.getItem('improvedtube-button-position'),
 		x = 0,
@@ -145,7 +153,7 @@ ImprovedTube.improvedtubeYoutubeIcon = function () {
 };
 
 /*-----------------------------------------------------------------------------
-4.10.3 DELETE YOUTUBE COOKIES
+4.10.2 DELETE YOUTUBE COOKIES
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.deleteYoutubeCookies = function () {
@@ -163,7 +171,7 @@ ImprovedTube.deleteYoutubeCookies = function () {
 };
 
 /*-----------------------------------------------------------------------------
-4.10.4 YOUTUBE LANGUAGE
+4.10.3 YOUTUBE LANGUAGE
 -----------------------------------------------------------------------------*/
 
 ImprovedTube.youtubeLanguage = function () {
