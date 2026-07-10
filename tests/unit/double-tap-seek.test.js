@@ -4,52 +4,56 @@ const fs = require('fs');
 const path = require('path');
 
 describe('Double-tap Seek Feature (#4132)', () => {
+	let shortcutsContent;
 	let playerContent;
 	let functionsContent;
 	let menuContent;
 	let messages;
 
 	beforeAll(() => {
+		shortcutsContent = fs.readFileSync(path.join(__dirname, '../../js&css/web-accessible/www.youtube.com/shortcuts.js'), 'utf8');
 		playerContent = fs.readFileSync(path.join(__dirname, '../../js&css/web-accessible/www.youtube.com/player.js'), 'utf8');
 		functionsContent = fs.readFileSync(path.join(__dirname, '../../js&css/web-accessible/functions.js'), 'utf8');
 		menuContent = fs.readFileSync(path.join(__dirname, '../../menu/skeleton-parts/player.js'), 'utf8');
 		messages = JSON.parse(fs.readFileSync(path.join(__dirname, '../../_locales/en/messages.json'), 'utf8'));
 	});
 
-	describe('player implementation', () => {
-		test('should define playerDoubleTapSeek', () => {
-			expect(playerContent).toContain('ImprovedTube.playerDoubleTapSeek = function');
+	describe('shortcut implementation', () => {
+		test('should keep the touch listener in shortcuts.js', () => {
+			expect(shortcutsContent).toContain('touchend: function (event)');
+			expect(shortcutsContent).toContain('ImprovedTube.shortcutDoubleTapSeek(event)');
+			expect(shortcutsContent).toContain("name === 'touchend' ? hasTouchSeek : hasShortcuts");
 		});
 
-		test('should intercept touchscreen double taps before native handlers', () => {
-			expect(playerContent).toContain("document.addEventListener('touchend'");
-			expect(playerContent).toContain('passive: false');
-			expect(playerContent).toContain('stopImmediatePropagation');
+		test('should reinitialize shortcut listeners when the setting changes', () => {
+			expect(shortcutsContent).toContain('ImprovedTube.playerDoubleTapSeek = function');
+			expect(shortcutsContent).toContain('ImprovedTube.shortcutsInit();');
 		});
 
 		test('should seek through the YouTube player API', () => {
-			expect(playerContent).toContain('player.seekBy(signedSeconds)');
-			expect(playerContent).toContain('player.seekTo(targetTime, true)');
-			expect(playerContent).toContain('player_double_tap_seek');
+			expect(shortcutsContent).toContain('player.seekBy(signedSeconds)');
+			expect(shortcutsContent).toContain('player.seekTo(targetTime, true)');
+			expect(shortcutsContent).toContain('player_double_tap_seek');
 		});
 
 		test('should trigger YouTube seek feedback classes', () => {
-			expect(playerContent).toContain('ytp-seek-forward-bump');
-			expect(playerContent).toContain('ytp-seek-backward-bump');
-			expect(playerContent).toContain('ytp-doubletap-ui');
+			expect(shortcutsContent).toContain('ytp-seek-forward-bump');
+			expect(shortcutsContent).toContain('ytp-seek-backward-bump');
+			expect(shortcutsContent).toContain('ytp-doubletap-ui');
 		});
 
 		test('should support fixed and progressive seek modes', () => {
-			expect(playerContent).toContain("mode === 'fixed'");
-			expect(playerContent).toContain('player_double_tap_seek_double');
-			expect(playerContent).toContain('player_double_tap_seek_quadruple');
-			expect(playerContent).toContain('player_double_tap_seek_extra');
+			expect(shortcutsContent).toContain("this.storage.player_double_tap_seek === 'fixed'");
+			expect(shortcutsContent).toContain('player_double_tap_seek_double');
+			expect(shortcutsContent).toContain('player_double_tap_seek_quadruple');
+			expect(shortcutsContent).toContain('player_double_tap_seek_extra');
 		});
 	});
 
 	describe('feature wiring', () => {
-		test('should initialize on video page updates and new players', () => {
-			expect(functionsContent.match(/ImprovedTube\.playerDoubleTapSeek\(\);/g)).toHaveLength(2);
+		test('should avoid player-specific duplicate listener wiring', () => {
+			expect(playerContent).not.toContain('Double-tap Seek');
+			expect(functionsContent).not.toContain('ImprovedTube.playerDoubleTapSeek();');
 		});
 	});
 
