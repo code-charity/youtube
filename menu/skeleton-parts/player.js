@@ -1722,6 +1722,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'rotate'
 		},
+		player_volume_boost_button: {
+			component: 'switch',
+			text: 'volumeBoost'
+		},
 		player_hamburger_button: {
 			component: 'switch',
 			text: 'Hamburger_Menu'
