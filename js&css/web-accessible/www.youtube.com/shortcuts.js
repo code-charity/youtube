@@ -9,7 +9,8 @@ WARNING: Browser Debugger Breakpoint downstream from keydown() event will eat co
 ImprovedTube.shortcutsInit = function () {
 	// those four are _references_ to source Objects, not copies
 	const listening = ImprovedTube.input.listening,
-		listeners = ImprovedTube.input.listeners;
+		listeners = ImprovedTube.input.listeners,
+		hasTouchSeek = Boolean(this.storage.player_double_tap_seek && this.storage.player_double_tap_seek !== 'default');
 
 	// reset 'listening' shortcuts
 	for (var key in listening) delete listening[key];
@@ -40,9 +41,20 @@ ImprovedTube.shortcutsInit = function () {
 		}
 		if (potentialShortcut['keys'].size || potentialShortcut['wheel']) listening[camelName] = potentialShortcut;
 	}
-	// initialize 'listeners' only if there are actual shortcuts active
-	if (Object.keys(listening).length) {
+	const hasShortcuts = Object.keys(listening).length > 0;
+	// initialize 'listeners' only if shortcuts or touch seek are active
+	if (hasShortcuts || hasTouchSeek) {
 		for (const [name, handler] of Object.entries(this.shortcutsListeners)) {
+			const shouldListen = name === 'touchend' ? hasTouchSeek : hasShortcuts;
+
+			if (!shouldListen) {
+				if (listeners[name]) {
+					delete listeners[name];
+					window.removeEventListener(name, handler, {passive: false, capture: true});
+				}
+				continue;
+			}
+
 			// only one listener per handle
 			if (!listeners[name]) {
 				listeners[name] = true;
@@ -61,7 +73,7 @@ ImprovedTube.shortcutsInit = function () {
 		// Bind the same reset to native, in-page events so recovery is immediate
 		// and never depends on the background worker. Clearing an already-empty
 		// set is a harmless no-op, so we bind once and leave it.
-		if (!this.input.recoveryListenersBound) {
+		if (hasShortcuts && !this.input.recoveryListenersBound) {
 			this.input.recoveryListenersBound = true;
 			const resetPressedKeys = this.shortcutsListeners['improvedtube-blur'];
 			window.addEventListener('blur', resetPressedKeys);
@@ -71,7 +83,7 @@ ImprovedTube.shortcutsInit = function () {
 			document.addEventListener('yt-navigate-start', resetPressedKeys);
 		}
 	} else {
-		// no shortcuts means we dont need 'listeners', uninstall all
+		// no shortcuts or touch seek means we dont need 'listeners', uninstall all
 		for (const [name, handler] of Object.entries(this.shortcutsListeners)) {
 			if (listeners[name]) {
 				delete listeners[name];
@@ -161,6 +173,9 @@ ImprovedTube.shortcutsListeners = {
 
 	ImprovedTube.shortcutsHandler();
 },
+	touchend: function (event) {
+		ImprovedTube.shortcutDoubleTapSeek(event);
+	},
 	'improvedtube-blur': function () {
 		ImprovedTube.input.pressed.keys.clear();
 		ImprovedTube.input.pressed.wheel = 0
@@ -168,6 +183,142 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.ctrl = false;
 		ImprovedTube.input.pressed.shift = false;
 	}
+};
+
+ImprovedTube.playerDoubleTapSeek = function () {
+	ImprovedTube.shortcutsInit();
+};
+
+ImprovedTube.doubleTapSeekSeconds = function (tapCount) {
+	const readSeconds = function (key, fallback) {
+		const value = Number(ImprovedTube.storage[key]);
+
+		return Number.isFinite(value) && value > 0 ? value : fallback;
+	};
+
+	if (this.storage.player_double_tap_seek === 'fixed') {
+		return readSeconds('player_double_tap_seek_seconds', 10) * (tapCount - 1);
+	}
+
+	const doubleTapSeconds = readSeconds('player_double_tap_seek_double', 10),
+		tripleTapSeconds = readSeconds('player_double_tap_seek_triple', 20),
+		quadrupleTapSeconds = readSeconds('player_double_tap_seek_quadruple', 30),
+		extraTapSeconds = readSeconds('player_double_tap_seek_extra', 10);
+
+	if (tapCount === 2) return doubleTapSeconds;
+	if (tapCount === 3) return tripleTapSeconds;
+	if (tapCount === 4) return quadrupleTapSeconds;
+
+	return quadrupleTapSeconds + extraTapSeconds * (tapCount - 4);
+};
+
+ImprovedTube.doubleTapSeekBy = function (seconds, side) {
+	const player = this.elements.player,
+		video = this.elements.video || player?.querySelector('video'),
+		signedSeconds = seconds * (side === 'left' ? -1 : 1);
+
+	if (!player) return;
+
+	const currentTime = typeof player.getCurrentTime === 'function' ? player.getCurrentTime() : video?.currentTime,
+		duration = typeof player.getDuration === 'function' ? player.getDuration() : video?.duration;
+	let targetTime = currentTime + signedSeconds;
+
+	if (!Number.isFinite(currentTime)) {
+		if (typeof player.seekBy === 'function') player.seekBy(signedSeconds);
+		return;
+	}
+
+	if (Number.isFinite(duration) && duration > 0) {
+		targetTime = Math.min(duration, Math.max(0, targetTime));
+	} else {
+		targetTime = Math.max(0, targetTime);
+	}
+
+	if (typeof player.seekTo === 'function') {
+		player.seekTo(targetTime, true);
+	} else if (video) {
+		video.currentTime = targetTime;
+	}
+};
+
+ImprovedTube.doubleTapSeekFeedback = function (seconds, side) {
+	const player = this.elements.player,
+		forwardClass = 'ytp-seek-forward-bump',
+		backwardClass = 'ytp-seek-backward-bump',
+		seekClass = side === 'left' ? backwardClass : forwardClass;
+
+	if (!player) return;
+
+	const overlays = player.querySelectorAll('.ytp-doubletap-ui, .ytp-doubletap-ui-legacy');
+
+	player.classList.remove(forwardClass, backwardClass);
+	player.classList.add(seekClass);
+
+	overlays.forEach(function (overlay) {
+		overlay.classList.remove(forwardClass, backwardClass);
+		overlay.classList.add(seekClass);
+		overlay.setAttribute('data-it-double-tap-seek-seconds', String(seconds));
+	});
+
+	clearTimeout(ImprovedTube.doubleTapSeekFeedbackTimer);
+	ImprovedTube.doubleTapSeekFeedbackTimer = setTimeout(function () {
+		player.classList.remove(forwardClass, backwardClass);
+		overlays.forEach(function (overlay) {
+			overlay.classList.remove(forwardClass, backwardClass);
+			overlay.removeAttribute('data-it-double-tap-seek-seconds');
+		});
+	}, 650);
+};
+
+ImprovedTube.shortcutDoubleTapSeek = function (event) {
+	const mode = this.storage.player_double_tap_seek,
+		player = this.elements.player,
+		target = event.target?.nodeType === 1 ? event.target : event.target?.parentElement,
+		touch = event.changedTouches?.[0];
+
+	if (!mode || mode === 'default' || !player || !target || !touch || !player.contains(target) || player.classList.contains('ad-showing')) return;
+	if (target.closest?.('.ytp-chrome-bottom, .ytp-chrome-top, .ytp-progress-bar-container, .ytp-tooltip, .ytp-settings-menu, .ytp-popup, .ytp-button, button, a, input, textarea, select, [role="button"]')) return;
+
+	const rect = player.getBoundingClientRect(),
+		x = touch.clientX - rect.left,
+		middleStart = rect.width * .35,
+		middleEnd = rect.width * .65;
+
+	if (!rect.width) return;
+	if (x > middleStart && x < middleEnd) {
+		this.doubleTapSeekState = null;
+		return;
+	}
+
+	const side = x < middleStart ? 'left' : 'right',
+		now = Date.now(),
+		state = this.doubleTapSeekState;
+
+	if (!state || now - state.lastTapTime > 500 || state.side !== side) {
+		this.doubleTapSeekState = {
+			lastTapTime: now,
+			side,
+			tapCount: 1,
+			appliedSeconds: 0
+		};
+		return;
+	}
+
+	state.lastTapTime = now;
+	state.tapCount++;
+
+	const desiredSeconds = Math.max(this.doubleTapSeekSeconds(state.tapCount), state.appliedSeconds),
+		seekSeconds = desiredSeconds - state.appliedSeconds;
+
+	state.appliedSeconds = desiredSeconds;
+	if (seekSeconds <= 0) return;
+
+	if (event.cancelable) event.preventDefault();
+	event.stopPropagation();
+	if (typeof event.stopImmediatePropagation === 'function') event.stopImmediatePropagation();
+
+	this.doubleTapSeekFeedback(seekSeconds, side);
+	this.doubleTapSeekBy(seekSeconds, side);
 };
 /*--- jump To Key Scene ----*/
 ImprovedTube.shortcutJumpToKeyScene = ImprovedTube.jumpToKeyScene;

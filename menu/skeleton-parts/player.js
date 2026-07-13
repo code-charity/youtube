@@ -1806,6 +1806,71 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'player_playback_speed_button'
 			},
 		},
+		doubleTapSeek: {
+			component: 'section',
+			variant: 'card',
+			title: 'playerDoubleTapSeek',
+			player_double_tap_seek: {
+				component: 'select',
+				text: 'playerDoubleTapSeek',
+				value: 'default',
+				options: [{
+					value: 'default',
+					text: 'default'
+				}, {
+					value: 'fixed',
+					text: 'fixedSeekDistance'
+				}, {
+					value: 'progressive',
+					text: 'progressiveSeekDistances'
+				}]
+			},
+			player_double_tap_seek_seconds: {
+				component: 'slider',
+				text: 'doubleTapSeekSeconds',
+				min: 1,
+				max: 60,
+				step: 1,
+				textarea: true,
+				value: 10
+			},
+			player_double_tap_seek_double: {
+				component: 'slider',
+				text: 'doubleTapSeekDouble',
+				min: 1,
+				max: 60,
+				step: 1,
+				textarea: true,
+				value: 10
+			},
+			player_double_tap_seek_triple: {
+				component: 'slider',
+				text: 'doubleTapSeekTriple',
+				min: 1,
+				max: 90,
+				step: 1,
+				textarea: true,
+				value: 20
+			},
+			player_double_tap_seek_quadruple: {
+				component: 'slider',
+				text: 'doubleTapSeekQuadruple',
+				min: 1,
+				max: 120,
+				step: 1,
+				textarea: true,
+				value: 30
+			},
+			player_double_tap_seek_extra: {
+				component: 'slider',
+				text: 'doubleTapSeekExtra',
+				min: 1,
+				max: 60,
+				step: 1,
+				textarea: true,
+				value: 10
+			}
+		},
 		fullscreen_return_button: {
 			component: 'switch',
 			text: 'fullscreenReturn',

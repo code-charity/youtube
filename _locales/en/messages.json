@@ -1107,6 +1107,30 @@
   "player_rewind_and_forward_buttons": {
     "message": "Rewind/forward buttons"
   },
+  "playerDoubleTapSeek": {
+    "message": "Double-tap seek"
+  },
+  "fixedSeekDistance": {
+    "message": "Fixed seek distance"
+  },
+  "progressiveSeekDistances": {
+    "message": "Progressive seek distances"
+  },
+  "doubleTapSeekSeconds": {
+    "message": "Seek seconds"
+  },
+  "doubleTapSeekDouble": {
+    "message": "Double-tap total seconds"
+  },
+  "doubleTapSeekTriple": {
+    "message": "Triple-tap total seconds"
+  },
+  "doubleTapSeekQuadruple": {
+    "message": "Quadruple-tap total seconds"
+  },
+  "doubleTapSeekExtra": {
+    "message": "Additional-tap seconds"
+  },
   "player_rotate_button": {
     "message": "Rotate video"
   },
