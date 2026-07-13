@@ -735,6 +735,8 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
       title: "Playback Speed Control",
     });
 
+    if (!button) return;
+
     const updateSpeedText = () => {
       const currentSpeed = (this.elements.video?.playbackRate || 1.0).toFixed(
         2
@@ -1121,6 +1123,8 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 			},
 			title: 'Playback Speed (Scroll: adjust, Left: custom, Right: 1.0x)'
 		});
+
+		if (!button) return;
 
 		// Add right-click handler
 		button.addEventListener('contextmenu', function (e) {
