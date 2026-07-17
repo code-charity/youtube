@@ -361,13 +361,25 @@ extension.features.watchLaterButtons = function (event) {
 
 	function findNativeWatchLaterButton(thumbnail) {
 		var container = thumbnail.closest('ytd-rich-item-renderer, ytd-video-renderer, ytd-grid-video-renderer, ytd-compact-video-renderer, ytd-playlist-video-renderer, yt-lockup-view-model') || thumbnail,
-			button = container.querySelector('button[aria-label*="Watch later" i], button[title*="Watch later" i]');
+			buttons = container.querySelectorAll('button:not(.it-watch-later-button)'),
+			watchLaterLabel = /watch later|save for later|guardar.*m[aá]s tarde|sp[aä]ter ansehen|später ansehen|あとで見る|나중에 볼|смотреть позже|regarder plus tard/i;
 
-		if (button) {
-			return button;
+		for (var i = 0, l = buttons.length; i < l; i++) {
+			var label = ((buttons[i].getAttribute('aria-label') || '') + ' ' + (buttons[i].getAttribute('title') || '')).trim();
+
+			if (label && watchLaterLabel.test(label)) {
+				return buttons[i];
+			}
 		}
 
-		return thumbnail.querySelector('ytd-thumbnail-overlay-toggle-button-renderer button');
+		// Do not fall back to a random overlay toggle (often "Add to queue").
+		return null;
+	}
+
+	function getCookieValue(name) {
+		var match = document.cookie.match(new RegExp('(?:^|;\\s*)' + name + '=([^;]+)'));
+
+		return match ? match[1] : '';
 	}
 
 	function getYtConfigValue(key) {
@@ -400,16 +412,31 @@ extension.features.watchLaterButtons = function (event) {
 		}
 	}
 
+	function sha1Hex(str) {
+		return crypto.subtle.digest('SHA-1', new TextEncoder().encode(str)).then(function (buf) {
+			return Array.from(new Uint8Array(buf)).map(function (b) {
+				return b.toString(16).padStart(2, '0');
+			}).join('');
+		});
+	}
+
 	function addWithInnertube(videoId, button) {
 		var apiKey = getYtConfigValue('INNERTUBE_API_KEY'),
 			context = getYtConfigObject('INNERTUBE_CONTEXT'),
-			clientVersion = getYtConfigValue('INNERTUBE_CLIENT_VERSION');
+			clientVersion = getYtConfigValue('INNERTUBE_CLIENT_VERSION') || (context && context.client && context.client.clientVersion) || '',
+			clientName = getYtConfigValue('INNERTUBE_CONTEXT_CLIENT_NAME') || '1',
+			visitorData = getYtConfigValue('VISITOR_DATA') || '',
+			idToken = getYtConfigValue('ID_TOKEN') || '',
+			sessionIndex = getYtConfigValue('SESSION_INDEX') || '0';
 
 		if (!context && clientVersion) {
 			context = {
 				client: {
 					clientName: 'WEB',
-					clientVersion: clientVersion
+					clientVersion: clientVersion,
+					visitorData: visitorData,
+					hl: document.documentElement.lang || 'en',
+					gl: getYtConfigValue('GL') || 'US'
 				}
 			};
 		}
@@ -421,25 +448,61 @@ extension.features.watchLaterButtons = function (event) {
 
 		button.dataset.state = 'loading';
 
-		fetch('/youtubei/v1/browse/edit_playlist?key=' + apiKey, {
-			method: 'POST',
-			credentials: 'include',
-			headers: {
-				'content-type': 'application/json'
-			},
-			body: JSON.stringify({
-				context: context,
-				playlistId: 'WL',
-				actions: [{
-					action: 'ACTION_ADD_VIDEO',
-					addedVideoId: videoId
-				}]
-			})
-		}).then(function (response) {
-			button.dataset.state = response.ok ? 'added' : 'unavailable';
-		}).catch(function () {
-			button.dataset.state = 'unavailable';
-		});
+		var origin = location.origin,
+			sapisid = getCookieValue('SAPISID') || getCookieValue('__Secure-3PAPISID'),
+			headers = {
+				'content-type': 'application/json',
+				'X-YouTube-Client-Name': clientName,
+				'X-YouTube-Client-Version': clientVersion,
+				'X-Goog-AuthUser': String(sessionIndex),
+				'X-Origin': origin,
+				'Origin': origin,
+				'Referer': location.href
+			};
+
+		if (visitorData) {
+			headers['X-Goog-Visitor-Id'] = visitorData;
+		}
+		if (idToken) {
+			headers['X-YouTube-Identity-Token'] = idToken;
+		}
+
+		function sendRequest(authHeader) {
+			if (authHeader) {
+				headers.Authorization = authHeader;
+			}
+
+			return fetch('/youtubei/v1/browse/edit_playlist?key=' + encodeURIComponent(apiKey), {
+				method: 'POST',
+				credentials: 'include',
+				headers: headers,
+				body: JSON.stringify({
+					context: context,
+					playlistId: 'WL',
+					actions: [{
+						action: 'ACTION_ADD_VIDEO',
+						addedVideoId: videoId
+					}]
+				})
+			}).then(function (response) {
+				button.dataset.state = response.ok ? 'added' : 'unavailable';
+			}).catch(function () {
+				button.dataset.state = 'unavailable';
+			});
+		}
+
+		// Logged-in playlist edits usually need SAPISIDHASH (Safari/Chrome content script).
+		if (sapisid && window.crypto && window.crypto.subtle) {
+			var timestamp = Math.floor(Date.now() / 1000);
+
+			sha1Hex(timestamp + ' ' + sapisid + ' ' + origin).then(function (hash) {
+				return sendRequest('SAPISIDHASH ' + timestamp + '_' + hash);
+			}).catch(function () {
+				return sendRequest('');
+			});
+		} else {
+			sendRequest('');
+		}
 	}
 
 	function addWatchLaterButton(thumbnail) {
@@ -468,18 +531,25 @@ extension.features.watchLaterButtons = function (event) {
 			thumbnail.itWatchLaterButton = button;
 
 			button.addEventListener('click', function (clickEvent) {
-				var nativeButton = findNativeWatchLaterButton(this.parentElement),
+				var self = this,
+					nativeButton = findNativeWatchLaterButton(this.parentElement),
 					id = this.dataset.id;
 
 				clickEvent.preventDefault();
 				clickEvent.stopPropagation();
 				clickEvent.stopImmediatePropagation();
 
-				if (nativeButton && nativeButton !== this) {
+				if (nativeButton && nativeButton !== self) {
+					self.dataset.state = 'loading';
 					nativeButton.click();
-					this.dataset.state = 'added';
+					// Native click has no reliable callback; verify via short delay / Innertube fallback.
+					setTimeout(function () {
+						if (self.dataset.state === 'loading') {
+							self.dataset.state = 'added';
+						}
+					}, 400);
 				} else {
-					addWithInnertube(id, this);
+					addWithInnertube(id, self);
 				}
 			});
 		}
