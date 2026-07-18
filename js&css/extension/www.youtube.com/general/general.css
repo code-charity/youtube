@@ -91,6 +91,8 @@ html[it-blur-thumbnails='true'] .yt-thumbnail-view-model img,
 html[it-blur-thumbnails='true'] .yt-lockup-view-model-wiz__content-image img,
 html[it-blur-thumbnails='true'] .yt-video-card-view-model__thumbnail,
 html[it-blur-thumbnails='true'] .yt-video-card-view-model__thumbnail img,
+html[it-blur-thumbnails='true'] .ytThumbnailViewModelImage,
+html[it-blur-thumbnails='true'] .ytwTopLandscapeImageLayoutViewModelHostImageHoverOverlayContainer,
 html[it-blur-thumbnails='true'] #img.ytp-cued-thumbnail-overlay-image {
 	filter: blur(10px) !important;
 	transition: filter .2s;
@@ -100,7 +102,8 @@ html[it-blur-thumbnails='true'] ytd-thumbnail:hover img,
 html[it-blur-thumbnails='true'] ytd-playlist-thumbnail:hover img,
 html[it-blur-thumbnails='true'] .yt-thumbnail-view-model:hover img,
 html[it-blur-thumbnails='true'] .yt-lockup-view-model-wiz__content-image:hover img,
-html[it-blur-thumbnails='true'] .yt-video-card-view-model__thumbnail:hover img {
+html[it-blur-thumbnails='true'] .yt-video-card-view-model__thumbnail:hover img,
+html[it-blur-thumbnails='true'] .ytThumbnailViewModelImage:hover {
 	filter: blur(0) !important;
 }
 /*--------------------------------------------------------------
