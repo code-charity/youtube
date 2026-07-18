@@ -210,8 +210,8 @@ ImprovedTube.shortcutPlaybackSpeed = function (key) {
 
 	if (speed === undefined || isNaN(speed)) return;
 
-	ImprovedTube.playbackSpeed(speed);
-	ImprovedTube.showStatus(speed);
+	const appliedSpeed = ImprovedTube.playbackSpeed(speed);
+	if (appliedSpeed) ImprovedTube.showStatus(appliedSpeed);
 };
 /*------------------------------------------------------------------------------
 4.7.2 PICTURE IN PICTURE (PIP)
