@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-describe('Member-only video hiding (#3862)', () => {
+describe('Membership video hiding (#3862, #4223)', () => {
 	let generalCssContent;
 	let generalJsContent;
 
@@ -32,5 +32,20 @@ describe('Member-only video hiding (#3862)', () => {
 		expect(generalJsContent).toContain(
 			'yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership)'
 		);
+	});
+
+	test('static and runtime CSS target the current members-first commerce badge', () => {
+		const selectors = [
+			'ytd-grid-video-renderer:has(badge-shape.ytBadgeShapeCommerce)',
+			'ytd-rich-item-renderer:has(badge-shape.ytBadgeShapeCommerce)',
+			'yt-lockup-view-model:has(badge-shape.ytBadgeShapeCommerce)'
+		];
+
+		for (const selector of selectors) {
+			expect(generalCssContent).toContain(
+				`html[it-remove-member-only='true'] ${selector}`
+			);
+			expect(generalJsContent).toContain(selector);
+		}
 	});
 });

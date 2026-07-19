@@ -1138,7 +1138,10 @@ extension.features.removeMemberOnly = function () {
 			}
 			ytd-grid-video-renderer:has(badge-shape.yt-badge-shape--membership),
 			ytd-rich-item-renderer:has(badge-shape.yt-badge-shape--membership),
-			yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership) {
+			yt-lockup-view-model:has(badge-shape.yt-badge-shape--membership),
+			ytd-grid-video-renderer:has(badge-shape.ytBadgeShapeCommerce),
+			ytd-rich-item-renderer:has(badge-shape.ytBadgeShapeCommerce),
+			yt-lockup-view-model:has(badge-shape.ytBadgeShapeCommerce) {
 				display: none !important;
 			}
 		`;
