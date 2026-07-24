@@ -164,17 +164,18 @@ function updateContextMenu (language) {
 				// contexts: ['browser_action'] //manifest2
 			});
 		}
-		chrome.contextMenus.onClicked.addListener(function (info) {
-			const links = [
-				'https://www.improvedtube.com/donate',
-				'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
-				'https://github.com/code4charity/YouTube-Extension'
-			];
-			chrome.tabs.create({ url: links[info.menuItemId] }); //manifest3
-			// window.open(links[info.menuItemId]); //manifest2
-		});
 	});
 }
+
+chrome.contextMenus.onClicked.addListener(function (info) {
+	const links = [
+		'https://www.improvedtube.com/donate',
+		'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
+		'https://github.com/code4charity/YouTube-Extension'
+	];
+	chrome.tabs.create({ url: links[info.menuItemId] }); //manifest3
+	// window.open(links[info.menuItemId]); //manifest2
+});
 chrome.runtime.onInstalled.addListener(function () {
 	chrome.storage.local.get(function (items) {
 		updateContextMenu(items.language);

@@ -1,6 +1,10 @@
-{  
-  "hideSuggestedAction": { "message": "Скрыть рекомендуемое действие 'Смотреть товары'" },
-  "hideMerchShelf": { "message": "Скрыть 'Полку с товарами'" },
+{
+  "hideSuggestedAction": {
+    "message": "Скрыть рекомендуемое действие 'Смотреть товары'"
+  },
+  "hideMerchShelf": {
+    "message": "Скрыть 'Полку с товарами'"
+  },
   "about": {
     "message": "Об ImprovedTube"
   },
@@ -138,6 +142,9 @@
   },
   "autoplayDisable": {
     "message": "Принудительно ОТКЛ. автовоспроизведение"
+  },
+  "autoContinueWatching": {
+    "message": "Автоматически подтверждать «Продолжить просмотр?»"
   },
   "autoPlayNextShort": {
     "message": "Автовоспроизведение следующего Шортса"
@@ -373,9 +380,6 @@
   "decreaseVolume": {
     "message": "Уменьшить громкость"
   },
-  "decreaseVolume5": {
-    "message": "Уменьшить громкость на 5%"
-  },
   "deepOrange": {
     "message": "Темно-оранжевый"
   },
@@ -433,14 +437,20 @@
   "disableAutoDubbing": {
     "message": "Отключить автодублирование"
   },
+  "hideAutoDubbedOptions": {
+    "message": "Скрыть параметры автодублирования в меню"
+  },
   "disabled": {
-    "message": "ВЫключен"
+    "message": "Выключен"
   },
   "disableLikesAnimation": {
     "message": "Отключить анимацию лайков"
   },
   "disableThumbnailPlayback": {
     "message": "Отключить воспроизведение видео под курсором"
+  },
+  "muteThumbnailPreviews": {
+    "message": "Без звука при предпросмотре видео"
   },
   "dislike": {
     "message": "Дизлайк"
@@ -570,6 +580,9 @@
   },
   "fullScreenQuality": {
     "message": "Полноэкранное качество"
+  },
+  "playlistQuality": {
+    "message": "Качество плейлиста"
   },
   "fullscreenReturn": {
     "message": "Возврат в полный экран"
@@ -822,9 +835,6 @@
   },
   "increaseVolume": {
     "message": "Увеличить громкость"
-  },
-  "increaseVolume5": {
-    "message": "Увеличить громкости на 5%"
   },
   "indigo": {
     "message": "Индиго"
@@ -1123,6 +1133,9 @@
   "popupWindowButtons": {
     "message": "Кнопка всплывающего проигрывателя на каждой миниатюре"
   },
+  "watchLaterButtons": {
+    "message": "Добавить кнопку «Смотреть позже» на превью видео"
+  },
   "position": {
     "message": "Положение"
   },
@@ -1228,11 +1241,20 @@
   "removePlayables": {
     "message": "Скрыть воспроизводимые"
   },
+  "removeTopLiveGames": {
+    "message": "Скрыть «Популярные трансляции игр» на главной странице"
+  },
   "removeRelatedSearchResults": {
     "message": "Удалять похожие результаты поиска"
   },
   "removeShortsReelSearchResults": {
     "message": "Удалить Шортсы из результатов поиска"
+  },
+  "removeSubscriptionsMostRelevant": {
+    "message": "Скрыть раздел «Самые актуальные» на странице подписок"
+  },
+  "subscriptionsListLayout": {
+    "message": "Вид списка на странице подписок"
   },
   "RemoveSubtitlesForLyrics": {
     "message": "Удалить субтитры для текстов песен"
@@ -1384,6 +1406,9 @@
   "squaredUserImages": {
     "message": "Квадратные аватарки пользователей"
   },
+  "squaredThumbnails": {
+    "message": "Квадратные значки видео"
+  },
   "static": {
     "message": "Статично"
   },
@@ -1462,8 +1487,17 @@
   "thumbnails": {
     "message": "Превью"
   },
+  "thumbnailGrayscale": {
+    "message": "Черно-белые значки видео"
+  },
   "thumbnailSize": {
     "message": "Размер превью"
+  },
+  "largerThumbnailMetadata": {
+    "message": "Увеличенные метаданные превью (канал, просмотры, дата)"
+  },
+  "classicThumbnailMetadata": {
+    "message": "Классические метаданные превью (Х просмотров · Y месяцев назад)"
   },
   "thumbnailsQuality": {
     "message": "Качество превью"
@@ -1620,5 +1654,11 @@
   },
   "youtubesLight": {
     "message": "Светлая тема YouTube"
+  },
+  "smartSpeedEngine": {
+    "message": "Умный движок скорости"
+  },
+  "autoVideoRecovery": {
+    "message": "Автоматическое восстановление видео"
   }
 }

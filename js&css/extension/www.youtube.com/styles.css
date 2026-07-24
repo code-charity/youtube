@@ -235,7 +235,7 @@ html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 	line-height: 15px !important;
 	position: fixed !important;
 	padding: 5px 9px;
-	transform: translate(-50%, -150%) !important;
+	transform: translate(0, -150%) !important;
 	pointer-events: none !important;
 	color: #eee !important;
 	border-radius: 2px !important;
@@ -247,7 +247,7 @@ body.no-scroll .it-player-button--tooltip {
 	font-size: 20px !important;
 	line-height: 22px !important;
 	padding: 8px 9px !important;
-	transform: translate(-50%, -75%) !important;
+	transform: translate(0, -75%) !important;
 }
 
 /*------------------------------------------------------------------------------
@@ -2370,4 +2370,11 @@ html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd
 /* Hide empty items */
 html[it-subscriptions-list-layout="true"][it-pathname="/feed/subscriptions"] ytd-rich-item-renderer:not([is-shelf-item])[is-empty] {
     display: none !important;
+}
+
+html[it-theme=dark] [dark],
+html[it-theme=dark]:not([it-schedule=system_peference_dark]):not([it-schedule=system_peference_light]),
+html[it-theme=dark][data-system-color-scheme=dark][it-schedule=system_peference_dark],
+html[it-theme=dark][data-system-color-scheme=light][it-schedule=system_peference_light] { 
+.it-add-channel-to-blocklist { 	--yt-spec-text-secondary: #aaa !important; }
 }
