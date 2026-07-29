@@ -2631,7 +2631,7 @@ ImprovedTube.heatmap = {
                 this.sessionDisabled = !this.sessionDisabled;
                 console.log('[ImprovedTube] Smart Speed: Toggled session disabled state:', this.sessionDisabled);
                 let video = document.querySelector('video');
-                
+
                 if (this.sessionDisabled) {
                     this.indicatorElement.style.opacity = '0.5';
                     this.indicatorElement.innerText = "⚡ Off";
@@ -2639,7 +2639,12 @@ ImprovedTube.heatmap = {
                     this.showToast('⏸️ Smart Speed paused for this session');
                 } else {
                     this.indicatorElement.style.opacity = '1';
-                    this.indicatorElement.innerText = "⚡ On";
+                    // If no heatmap data, the loop can't apply speed — do it here
+                    if (this.segments.length === 0) {
+                        this.applyNoHeatmapSpeed();
+                    } else {
+                        this.indicatorElement.innerText = "⚡ On";
+                    }
                     this.showToast('▶️ Smart Speed resumed');
                 }
             });
@@ -2820,8 +2825,15 @@ ImprovedTube.heatmap = {
 
                     if (matchData && this.checkAndProcess(JSON.parse(matchData[1]), 'Fetched ytInitialData')) return;
                     if (matchResp && this.checkAndProcess(JSON.parse(matchResp[1]), 'Fetched ytInitialPlayerResponse')) return;
-                    console.log('[ImprovedTube] Smart Speed: Heatmap data not found in source either. Video lacks heatmap.');
-                }).catch(() => {});
+                    console.log('[ImprovedTube] Smart Speed: Heatmap data not found in source either. Video lacks heatmap — defaulting to minimal speed.');
+                    this.rawMarkersCache = [];
+                    this.processSegments([]);
+                }).catch(() => {
+                    // Network error — still default to minimal speed
+                    console.log('[ImprovedTube] Smart Speed: Failed to fetch source. Defaulting to minimal speed.');
+                    this.rawMarkersCache = [];
+                    this.processSegments([]);
+                });
         }
     },
 
@@ -2850,11 +2862,24 @@ ImprovedTube.heatmap = {
         return false;
     },
 
+    // Applies the minimal speed fallback when no heatmap segments exist
+    applyNoHeatmapSpeed: function() {
+        const video = document.querySelector('video');
+        let base = Number(ImprovedTube.storage.player_custom_playback_speed) || 1.0;
+        let baseMin = Number(ImprovedTube.storage.smart_speed_min) || 1.0;
+        let finalSpeed = base * baseMin;
+        if (video) video.playbackRate = finalSpeed;
+        if (this.indicatorElement) {
+            this.indicatorElement.innerText = `⚡ ${baseMin.toFixed(2)}x`;
+            this.indicatorElement.style.opacity = '1';
+        }
+    },
+
     // PROCESSING ENGINE
     processSegments: function (rawMarkers) {
         const video = document.querySelector('video');
         const duration = video ? video.duration : 0;
-        
+
         if (!duration || isNaN(duration)) {
             setTimeout(() => this.processSegments(rawMarkers), 500);
             return;
@@ -2868,9 +2893,9 @@ ImprovedTube.heatmap = {
         const channelNameElement = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
         const channelName = channelNameElement ? channelNameElement.textContent.trim() : "Unknown";
         let profiles = ImprovedTube.storage.smart_speed_profiles || {};
-        
+
         let activeProfile = profiles[channelName] || profiles[genre];
-        
+
         if (activeProfile && activeProfile.whitelist) {
             console.log(`[ImprovedTube] Smart Speed: WHITELIST ACTIVE for ${channelName || genre}. Engine idled.`);
             this.sessionDisabled = true;
@@ -2887,6 +2912,15 @@ ImprovedTube.heatmap = {
             sensitivity = activeProfile.sens || sensitivity;
             this.sessionDisabled = false;
             if (this.indicatorElement) this.indicatorElement.style.opacity = '1';
+        }
+
+        // No heatmap data — default to minimal speed (whitelist already checked above)
+        if (rawMarkers.length === 0) {
+            console.log(`[ImprovedTube] Smart Speed: No heatmap data. Applying minimal speed: ${baseMin}x multiplier.`);
+            this.applyNoHeatmapSpeed();
+            this.segments = [];
+            this.startLoop();
+            return;
         }
 
         const chunkPct = 100 / rawMarkers.length;
