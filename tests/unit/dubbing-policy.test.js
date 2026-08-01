@@ -90,6 +90,18 @@ function createContext(tracks) {
 }
 
 describe('dubbing policy', () => {
+	test('does not observe the auto-dub menu during initialization unless enabled', () => {
+		const functionsSource = fs.readFileSync(
+			path.join(__dirname, '../../js&css/web-accessible/functions.js'),
+			'utf8'
+		);
+
+		expect(functionsSource).toContain(
+			'if (ImprovedTube.storage.hide_auto_dubbed_options === true) { ImprovedTube.observeAutoDubbedMenu(); }'
+		);
+		expect(functionsSource).not.toMatch(/^\s*ImprovedTube\.observeAutoDubbedMenu\(\);\s*$/m);
+	});
+
 	test('selects a human preferred-language dub and never its auto-dub counterpart', () => {
 		const original = audioTrack({id: 'en', languageCode: 'en', name: 'English', isDefault: true});
 		const humanRussian = audioTrack({id: 'ru.1', languageCode: 'ru', name: 'Russian'});

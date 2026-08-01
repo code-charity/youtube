@@ -70,6 +70,18 @@ class FakeVideo extends FakeEventTarget {
 }
 
 describe('auto video recovery', () => {
+	test('does not run during initialization unless the feature is enabled', () => {
+		const initSource = fs.readFileSync(
+			path.join(__dirname, '../../js&css/extension/init.js'),
+			'utf8'
+		);
+
+		expect(initSource).toContain(
+			"if (extension.storage.get('auto_video_recovery') === true) { extension.features.autoVideoRecovery(); }"
+		);
+		expect(initSource).not.toMatch(/^\s*extension\.features\.autoVideoRecovery\(\);\s*$/m);
+	});
+
 	test('ignores normal startup buffering and recovers only a video that stopped after progress', () => {
 		let now = 1;
 		let nextTimerId = 1;
