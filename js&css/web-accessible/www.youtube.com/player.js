@@ -698,83 +698,6 @@ ImprovedTube.playerLoudnessNormalization = function () {
 		} catch (err) {}
 	}
 };
-ImprovedTube.playerPlaybackSpeedButton = function () {
-  if (this.storage.player_playback_speed_button === true) {
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-
-    svg.setAttribute("viewBox", "0 0 36 36");
-    svg.style.width = "100%";
-    svg.style.height = "100%";
-
-    // Simple speedometer icon
-    path.setAttribute(
-      "d",
-      "M25.9,13.1A8.2,8.2,0,0,0,18,10a8.2,8.2,0,0,0-7.9,3.1L8,12.2V22h9.8l-1-2H10v-2h3.3l1.1-2.2a6.1,6.1,0,0,1,11.2,0L26.7,18H30v2H21.8l-1-2h4.1A8.2,8.2,0,0,0,25.9,13.1Z"
-    );
-    path.setAttribute("fill", "#fff");
-
-    // Text element to show current speed
-    text.setAttribute("x", "18");
-    text.setAttribute("y", "23");
-    text.setAttribute("font-size", "8px");
-    text.setAttribute("font-weight", "bold");
-    text.setAttribute("text-anchor", "middle");
-    text.setAttribute("fill", "#fff");
-    text.setAttribute("class", "it-speed-text");
-    text.textContent = (this.elements.video?.playbackRate || 1.0).toFixed(2);
-
-    svg.appendChild(path);
-    svg.appendChild(text);
-
-    const button = this.createPlayerButton({
-      id: "it-playback-speed-button",
-      child: svg,
-      opacity: 0.85,
-      title: "Playback Speed Control",
-    });
-
-    const updateSpeedText = () => {
-      const currentSpeed = (this.elements.video?.playbackRate || 1.0).toFixed(
-        2
-      );
-      if (button) {
-        const textElement = button.querySelector(".it-speed-text");
-        if (textElement) textElement.textContent = currentSpeed;
-      }
-    };
-
-    // --- Event Listeners ---
-    button.onclick = () => {
-      const customSpeed = this.storage.player_custom_playback_speed || 1.25;
-      this.playbackSpeed(customSpeed);
-    };
-
-    button.oncontextmenu = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      this.playbackSpeed(1.0);
-      return false;
-    };
-
-    button.onwheel = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const currentSpeed = this.playbackSpeed();
-      const direction = e.deltaY < 0 ? 1 : -1;
-      let newSpeed = Math.round((currentSpeed + direction * 0.05) * 100) / 100;
-
-      if (newSpeed > 4) newSpeed = 4;
-      if (newSpeed < 0.1) newSpeed = 0.1;
-
-      this.playbackSpeed(newSpeed);
-    };
-
-    this.elements.video.addEventListener("ratechange", updateSpeedText);
-    updateSpeedText(); // Set initial value
-  }
-};
 
 /*------------------------------------------------------------------------------
 SCREENSHOT
@@ -3266,7 +3189,7 @@ ImprovedTube.heatmap = {
                 this.sessionDisabled = !this.sessionDisabled;
                 console.log('[ImprovedTube] Smart Speed: Toggled session disabled state:', this.sessionDisabled);
                 let video = document.querySelector('video');
-                
+
                 if (this.sessionDisabled) {
                     this.indicatorElement.style.opacity = '0.5';
                     this.indicatorElement.innerText = "⚡ Off";
@@ -3274,7 +3197,12 @@ ImprovedTube.heatmap = {
                     this.showToast('⏸️ Smart Speed paused for this session');
                 } else {
                     this.indicatorElement.style.opacity = '1';
-                    this.indicatorElement.innerText = "⚡ On";
+                    // If no heatmap data, the loop can't apply speed — do it here
+                    if (this.segments.length === 0) {
+                        this.applyNoHeatmapSpeed();
+                    } else {
+                        this.indicatorElement.innerText = "⚡ On";
+                    }
                     this.showToast('▶️ Smart Speed resumed');
                 }
             });
@@ -3455,8 +3383,15 @@ ImprovedTube.heatmap = {
 
                     if (matchData && this.checkAndProcess(JSON.parse(matchData[1]), 'Fetched ytInitialData')) return;
                     if (matchResp && this.checkAndProcess(JSON.parse(matchResp[1]), 'Fetched ytInitialPlayerResponse')) return;
-                    console.log('[ImprovedTube] Smart Speed: Heatmap data not found in source either. Video lacks heatmap.');
-                }).catch(() => {});
+                    console.log('[ImprovedTube] Smart Speed: Heatmap data not found in source either. Video lacks heatmap — defaulting to minimal speed.');
+                    this.rawMarkersCache = [];
+                    this.processSegments([]);
+                }).catch(() => {
+                    // Network error — still default to minimal speed
+                    console.log('[ImprovedTube] Smart Speed: Failed to fetch source. Defaulting to minimal speed.');
+                    this.rawMarkersCache = [];
+                    this.processSegments([]);
+                });
         }
     },
 
@@ -3485,11 +3420,24 @@ ImprovedTube.heatmap = {
         return false;
     },
 
+    // Applies the minimal speed fallback when no heatmap segments exist
+    applyNoHeatmapSpeed: function() {
+        const video = document.querySelector('video');
+        let base = Number(ImprovedTube.storage.player_custom_playback_speed) || 1.0;
+        let baseMin = Number(ImprovedTube.storage.smart_speed_min) || 1.0;
+        let finalSpeed = base * baseMin;
+        if (video) video.playbackRate = finalSpeed;
+        if (this.indicatorElement) {
+            this.indicatorElement.innerText = `⚡ ${baseMin.toFixed(2)}x`;
+            this.indicatorElement.style.opacity = '1';
+        }
+    },
+
     // PROCESSING ENGINE
     processSegments: function (rawMarkers) {
         const video = document.querySelector('video');
         const duration = video ? video.duration : 0;
-        
+
         if (!duration || isNaN(duration)) {
             setTimeout(() => this.processSegments(rawMarkers), 500);
             return;
@@ -3503,9 +3451,9 @@ ImprovedTube.heatmap = {
         const channelNameElement = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
         const channelName = channelNameElement ? channelNameElement.textContent.trim() : "Unknown";
         let profiles = ImprovedTube.storage.smart_speed_profiles || {};
-        
+
         let activeProfile = profiles[channelName] || profiles[genre];
-        
+
         if (activeProfile && activeProfile.whitelist) {
             console.log(`[ImprovedTube] Smart Speed: WHITELIST ACTIVE for ${channelName || genre}. Engine idled.`);
             this.sessionDisabled = true;
@@ -3522,6 +3470,15 @@ ImprovedTube.heatmap = {
             sensitivity = activeProfile.sens || sensitivity;
             this.sessionDisabled = false;
             if (this.indicatorElement) this.indicatorElement.style.opacity = '1';
+        }
+
+        // No heatmap data — default to minimal speed (whitelist already checked above)
+        if (rawMarkers.length === 0) {
+            console.log(`[ImprovedTube] Smart Speed: No heatmap data. Applying minimal speed: ${baseMin}x multiplier.`);
+            this.applyNoHeatmapSpeed();
+            this.segments = [];
+            this.startLoop();
+            return;
         }
 
         const chunkPct = 100 / rawMarkers.length;

@@ -177,10 +177,18 @@ async function removeVideosPersistentlyModify(playlistId, videoIds) {
             body: JSON.stringify({ context, actions })
         });
         if (!res.ok) {
-            const txt = await res.text();
+            const txt = await res.text().catch(() => '');
             console.warn('[ImprovedTube] Playlist modify failed', res.status, txt);
+            return false;
         }
-        return res.ok;
+        // A bare HTTP 200 does not mean the video was removed: when the request
+        // format drifts, YouTube answers 200 without applying the edit. Require a
+        // positive confirmation so the caller can fall back to the native menu.
+        const response = await res.json().catch(() => null);
+        return !!response && !response.error && (
+            response.status === 'STATUS_SUCCEEDED' ||
+            !!response.frameworkUpdates
+        );
     } catch (e) {
         console.warn('[ImprovedTube] Innertube removal failed', e);
         return false;
@@ -201,7 +209,7 @@ async function removeVideosPersistentlyEdit(playlistId, setVideoIds) {
         const hl = cfg.HL || document.documentElement.lang || 'en';
         const gl = cfg.GL || 'US';
         const visitorData = cfg.VISITOR_DATA || '';
-        const context = cfg.INNERTUBE_CONTEXT || {
+        const baseContext = cfg.INNERTUBE_CONTEXT || {
             client: {
                 clientName: 'WEB',
                 clientVersion,
@@ -214,8 +222,12 @@ async function removeVideosPersistentlyEdit(playlistId, setVideoIds) {
             },
             request: { internalExperimentFlags: [], sessionIndex: cfg.SESSION_INDEX ?? 0 }
         };
+        // Clone so we never mutate YouTube's live ytcfg context, and mirror the
+        // current native delete request, which carries adSignalsInfo in the context.
+        const context = { ...baseContext, adSignalsInfo: baseContext.adSignalsInfo || { params: [] } };
         const actions = setVideoIds.map(id => ({ action: 'ACTION_REMOVE_VIDEO', setVideoId: id }));
-        const body = { context, actions, playlistId, params: 'CAFAAQ==' };
+        // YouTube now sends params URL-escaped (the '==' padding becomes '%3D%3D').
+        const body = { context, actions, playlistId, params: 'CAFAAQ%3D%3D' };
         const url = `${location.origin}/youtubei/v1/browse/edit_playlist?prettyPrint=false`;
 
         // Build SAPISIDHASH Authorization header
@@ -251,11 +263,23 @@ async function removeVideosPersistentlyEdit(playlistId, setVideoIds) {
             body: JSON.stringify(body)
         });
         if (!res.ok) {
-            const txt = await res.text();
+            const txt = await res.text().catch(() => '');
             console.warn('[ImprovedTube] edit_playlist failed', res.status, txt);
+            return false;
         }
 
-        const response = await res.json();
+        const response = await res.json().catch(() => null);
+
+        // Only report success when YouTube confirms the edit. A bare HTTP 200 is
+        // not enough: when the request format drifts, YouTube answers 200 without
+        // removing anything, which previously made the row vanish and then reappear
+        // on refresh. Returning false lets the caller fall back to the native menu.
+        const succeeded = !!response && !response.error && (
+            response.status === 'STATUS_SUCCEEDED' ||
+            Array.isArray(response.playlistEditResults) ||
+            !!response.frameworkUpdates ||
+            !!response.newHeader
+        );
 
         if (response?.newHeader?.playlistHeaderRenderer) {
             document.querySelector("ytd-playlist-header-renderer")?.dispatchEvent(
@@ -277,7 +301,7 @@ async function removeVideosPersistentlyEdit(playlistId, setVideoIds) {
             );
         }
 
-        return res.ok;
+        return succeeded;
     } catch (e) {
         console.warn('[ImprovedTube] edit_playlist error', e);
         return false;
