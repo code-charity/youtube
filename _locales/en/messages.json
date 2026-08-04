@@ -150,6 +150,9 @@
   "autoplayDisable": {
     "message": "Force Autoplay Off"
   },
+  "forceAutoplayOnRefresh": {
+    "message": "Force autoplay / auto-resume on page reload"
+  },
   "autoContinueWatching": {
     "message": "Auto-accept «Continue watching?»"
   },

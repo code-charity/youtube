@@ -222,6 +222,7 @@ ImprovedTube.init = function () {
 		ImprovedTube.playerQualityFullScreen();
 	}
 	ImprovedTube.playerAutoContinueWatching();
+	ImprovedTube.forceAutoplayOnRefresh();
 };
 
 document.addEventListener('yt-navigate-finish', function () {
@@ -254,6 +255,7 @@ document.addEventListener('yt-navigate-finish', function () {
 	ImprovedTube.commentsSidebar();
 	ImprovedTube.categoryRefreshButton();
 	ImprovedTube.playerAutoContinueWatching();
+	ImprovedTube.forceAutoplayOnRefresh();
 	try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] nav-finish error', e); }
 
 	// Cleanup playlist handlers when navigating away from playlist pages

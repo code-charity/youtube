@@ -101,6 +101,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'autoplayDisable',
 			storage: 'player_autoplay_disable'
 		},
+		force_autoplay_on_refresh: {
+			component: 'switch',
+			text: 'forceAutoplayOnRefresh',
+			storage: 'force_autoplay_on_refresh'
+		},
 		up_next_autoplay: {
 			component: 'switch',
 			text: 'upNextAutoplay',

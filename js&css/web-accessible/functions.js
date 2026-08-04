@@ -474,6 +474,7 @@ ImprovedTube.initPlayer = function () {
 		delete ImprovedTube.elements.player.dataset.defaultQuality;
 
 		ImprovedTube.forcedPlayVideoFromTheBeginning();
+		ImprovedTube.forceAutoplayOnRefresh();
 		ImprovedTube.playerPlaybackSpeed();
 		ImprovedTube.playerSubtitles();
 		ImprovedTube.subtitlesLanguage();

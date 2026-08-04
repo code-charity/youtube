@@ -3071,3 +3071,67 @@ ImprovedTube.playerAutoContinueWatching = function () {
 		});
 	}
 };
+
+/*------------------------------------------------------------------------------
+FORCE AUTOPLAY / AUTO-RESUME ON PAGE RELOAD
+------------------------------------------------------------------------------*/
+ImprovedTube.forceAutoplayOnRefresh = function () {
+	if (this.storage.force_autoplay_on_refresh !== true) {
+		return;
+	}
+
+	if (this.storage.player_autoplay_disable === true) {
+		return;
+	}
+
+	const player = (this.elements && this.elements.player) || (typeof document !== 'undefined' ? (document.querySelector('.html5-video-player') || document.querySelector('#movie_player')) : null);
+	const video = typeof document !== 'undefined' ? document.querySelector('video') : null;
+
+	if (!player && !video) return;
+
+	const attemptPlay = function () {
+		let playPromise;
+		if (player && typeof player.playVideo === 'function') {
+			try {
+				playPromise = player.playVideo();
+			} catch (e) {
+				if (video && typeof video.play === 'function') {
+					playPromise = video.play();
+				}
+			}
+		} else if (video && typeof video.play === 'function') {
+			playPromise = video.play();
+		}
+
+		if (playPromise && typeof playPromise.catch === 'function') {
+			playPromise.catch(function (error) {
+				if (player && typeof player.mute === 'function') {
+					try { player.mute(); } catch (e) {}
+				} else if (video) {
+					video.muted = true;
+				}
+				if (player && typeof player.playVideo === 'function') {
+					try {
+						const p = player.playVideo();
+						if (p && typeof p.catch === 'function') p.catch(function () {});
+					} catch (e) {}
+				} else if (video && typeof video.play === 'function') {
+					try {
+						const p = video.play();
+						if (p && typeof p.catch === 'function') p.catch(function () {});
+					} catch (e) {}
+				}
+			});
+		}
+	};
+
+	if (player && typeof player.getPlayerState === 'function') {
+		const state = player.getPlayerState();
+		if (state !== 1 && state !== 3) {
+			attemptPlay();
+		}
+	} else if (video && video.paused) {
+		attemptPlay();
+	}
+};
+
