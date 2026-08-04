@@ -3089,21 +3089,41 @@ ImprovedTube.watchedSegments = {
 			return;
 		}
 
-		var video = this.video();
-
-		if (!video) { return; }
-
 		this.injectStyles();
-		this.attach(video);
-		this.load(this.currentVideoId());
 
 		var self = this;
 
 		clearInterval(this.render_timer);
 
-		this.render_timer = setInterval(function () { self.render(); }, this.RENDER_DELAY);
+		// The player is not always complete yet, so the tick picks it up later.
+		this.render_timer = setInterval(function () { self.tick(); }, this.RENDER_DELAY);
 
+		this.tick();
+	},
+
+	tick: function () {
+		if (!this.enabled()) {
+			this.disable();
+
+			return;
+		}
+
+		var video = this.video();
+
+		if (!video) { return; }
+
+		this.attach(video);
+		this.syncVideoId();
 		this.render();
+	},
+
+	// An empty id means the player kept going outside a watch page.
+	syncVideoId: function () {
+		var video_id = this.currentVideoId();
+
+		if (video_id && video_id !== this.video_id) {
+			this.load(video_id);
+		}
 	},
 
 	disable: function () {
@@ -3189,12 +3209,7 @@ ImprovedTube.watchedSegments = {
 			return;
 		}
 
-		var video_id = this.currentVideoId();
-
-		// An empty id means the player kept going outside a watch page.
-		if (video_id && video_id !== this.video_id) {
-			this.load(video_id);
-		}
+		this.syncVideoId();
 
 		var previous = this.last_time,
 			time = video.currentTime;
@@ -3334,12 +3349,6 @@ ImprovedTube.watchedSegments = {
 	# RENDERING
 	--------------------------------------------------------------*/
 	render: function () {
-		if (!this.enabled()) {
-			this.disable();
-
-			return;
-		}
-
 		var player = ImprovedTube.elements.player,
 			bar = player && player.querySelector('.ytp-progress-bar'),
 			duration = this.duration();

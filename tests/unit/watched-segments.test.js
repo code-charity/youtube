@@ -94,11 +94,14 @@ function createFeature () {
 	};
 
 	global.location = { href: 'https://www.youtube.com/watch?v=abcdefghijk' };
+	global.window = { addEventListener: function () {} };
 	global.document = {
+		addEventListener: function () {},
 		createElement: function () { return fakeElement(); },
 		querySelectorAll: function () { return []; },
 		querySelector: function () { return null; },
-		documentElement: { dataset: { pageType: 'video' } }
+		documentElement: { dataset: { pageType: 'video' } },
+		head: fakeElement()
 	};
 
 	const literal = extractObjectLiteral(playerContent, 'ImprovedTube.watchedSegments =');
@@ -377,6 +380,78 @@ describe('Watched sections on the seek bar (#4261)', () => {
 			feature.paint(chapter, { left: 0, right: 200, width: 200 }, 600);
 
 			expect(chapter.children[0].children).toHaveLength(0);
+		});
+	});
+
+	describe('start up', () => {
+		function buildPlayer (ImprovedTube) {
+			const chapter = fakeElement({ left: 0, right: 200, width: 200 });
+			const bar = fakeElement({ left: 0, right: 200, width: 200 });
+
+			chapter.className = 'ytp-progress-list';
+			bar.children.push(chapter);
+			bar.querySelectorAll = function () { return [chapter]; };
+
+			ImprovedTube.elements.player = {
+				className: 'html5-video-player',
+				querySelector: function () { return bar; }
+			};
+
+			return chapter;
+		}
+
+		test('waits for a player that is not complete yet', () => {
+			const { feature, ImprovedTube } = createFeature();
+
+			ImprovedTube.storage.watched_segments = { abcdefghijk: { u: 1, s: [[0, 300]] } };
+
+			const chapter = buildPlayer(ImprovedTube);
+
+			feature.init();
+
+			expect(feature.render_timer).not.toBeNull();
+			expect(feature.attached_video).toBeNull();
+			expect(chapter.children).toHaveLength(0);
+
+			// The video element shows up on a later tick.
+			ImprovedTube.elements.video = {
+				duration: 600,
+				addEventListener: function () {},
+				removeEventListener: function () {}
+			};
+
+			feature.tick();
+
+			expect(feature.attached_video).toBe(ImprovedTube.elements.video);
+			expect(feature.video_id).toBe('abcdefghijk');
+			expect(chapter.children[0].children[0].style.width).toBe('50%');
+
+			clearInterval(feature.render_timer);
+		});
+
+		test('stops itself when the setting is switched off', () => {
+			const { feature, ImprovedTube } = createFeature();
+
+			buildPlayer(ImprovedTube);
+			feature.init();
+
+			expect(feature.render_timer).not.toBeNull();
+
+			ImprovedTube.storage.player_watched_segments = false;
+			feature.tick();
+
+			expect(feature.render_timer).toBeNull();
+			expect(ImprovedTube.elements.buttons['it-watched-segments-styles']).toBeUndefined();
+		});
+
+		test('does not start on pages that are not a video', () => {
+			const { feature, ImprovedTube } = createFeature();
+
+			global.document.documentElement.dataset.pageType = 'home';
+			buildPlayer(ImprovedTube);
+			feature.init();
+
+			expect(feature.render_timer).toBeNull();
 		});
 	});
 
