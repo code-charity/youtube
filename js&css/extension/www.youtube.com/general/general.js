@@ -1222,99 +1222,331 @@ extension.features.hideWatchLater();
 --------------------------------------------------------------*/
 
 extension.features.autoVideoRecovery = function () {
-    if (this.autoVideoRecovery.recoveryInterval) {
-        clearInterval(this.autoVideoRecovery.recoveryInterval);
-        this.autoVideoRecovery.recoveryInterval = null;
+    var feature = extension.features.autoVideoRecovery,
+        previousState = feature.state,
+        STALL_GRACE_MS = 8000,
+        NO_PROGRESS_MS = 10000,
+        RELOAD_DELAY_MS = 2000,
+        RELOAD_AFTER_ATTEMPTS = 3,
+        MAX_RETRY_DELAY_MS = 30000;
+
+    function clearTimer(state, name) {
+        if (state[name]) {
+            clearTimeout(state[name]);
+            state[name] = null;
+        }
     }
+
+    function detachVideo(state) {
+        if (!state.video || !state.handlers) return;
+
+        for (var eventName in state.handlers) {
+            state.video.removeEventListener(eventName, state.handlers[eventName]);
+        }
+
+        state.video = null;
+        state.handlers = null;
+    }
+
+    function cleanup(state) {
+        if (!state) return;
+
+        state.active = false;
+        clearTimer(state, 'monitorTimer');
+        clearTimer(state, 'attachTimer');
+        clearTimer(state, 'reloadTimer');
+
+        if (state.observer) state.observer.disconnect();
+        if (state.onlineHandler) window.removeEventListener('online', state.onlineHandler);
+        if (state.reloadCleanup) state.reloadCleanup();
+
+        detachVideo(state);
+    }
+
+    cleanup(previousState);
+    feature.state = null;
 
     if (extension.storage.get('auto_video_recovery') !== true) {
         return;
     }
 
-    var stoppedByNetwork = false;
-    var recoveryInterval = null;
+    var state = {
+        active: true,
+        attempts: 0,
+        attachTimer: null,
+        hasPlaybackProgress: false,
+        handlers: null,
+        hadMediaError: false,
+        lastErrorAt: 0,
+        lastProgressAt: 0,
+        lastTime: null,
+        monitorTimer: null,
+        nextAttemptAt: 0,
+        observer: null,
+        onlineHandler: null,
+        reloadCleanup: null,
+        reloadTimer: null,
+        reloading: false,
+        shouldResume: false,
+        stalledAt: 0,
+        video: null
+    };
+
+    feature.state = state;
 
     function getVideo() {
-        return document.querySelector('video');
+        return document.querySelector('#movie_player video.html5-main-video, #movie_player video') ||
+            document.querySelector('video.html5-main-video') || document.querySelector('video');
     }
 
-    function hasSufficientBandwidth() {
-        var conn = navigator.connection;
-        if (!conn) return true; 
-        return conn.downlink > 0.3; 
+    function stopMonitoring() {
+        clearTimer(state, 'monitorTimer');
+    }
+
+    function noteProgress() {
+        state.hasPlaybackProgress = true;
+        state.hadMediaError = false;
+        state.stalledAt = 0;
+        state.lastErrorAt = 0;
+        state.attempts = 0;
+        state.nextAttemptAt = 0;
+        state.lastProgressAt = Date.now();
+        stopMonitoring();
+    }
+
+    function scheduleMonitor(delay) {
+        if (!state.active || state.monitorTimer) return;
+
+        state.monitorTimer = setTimeout(function () {
+            state.monitorTimer = null;
+            attemptRecovery();
+        }, delay);
+    }
+
+    function markStalled(video) {
+        // `waiting` is normal while YouTube starts a video. Only recover a stream
+        // that has actually made progress and then stopped advancing.
+        if (!state.active || video !== state.video || video.ended || video.paused || !state.hasPlaybackProgress) return;
+
+        state.shouldResume = true;
+        if (!state.stalledAt) state.stalledAt = Date.now();
+        scheduleMonitor(STALL_GRACE_MS);
+    }
+
+    function restorePlaybackAfterReload(video, resumeAt) {
+        var completed = false;
+
+        function scheduleResumeRetry() {
+            if (!state.active || video !== state.video || !state.shouldResume) return;
+
+            state.stalledAt = state.stalledAt || Date.now();
+            scheduleMonitor(Math.max(1000, state.nextAttemptAt - Date.now()));
+        }
+
+        function finish() {
+            if (completed) return;
+            completed = true;
+            clearTimer(state, 'reloadTimer');
+            video.removeEventListener('canplay', finish);
+            state.reloadCleanup = null;
+            state.reloading = false;
+
+            if (!state.active || video !== state.video || !state.shouldResume) return;
+
+            if (Number.isFinite(resumeAt) && resumeAt > 0 && (!Number.isFinite(video.duration) || resumeAt < video.duration)) {
+                try { video.currentTime = resumeAt; } catch (_) { }
+            }
+
+            var playResult;
+            try {
+                playResult = video.play();
+            } catch (_) {
+                scheduleResumeRetry();
+                return;
+            }
+
+            if (playResult && typeof playResult.catch === 'function') {
+                playResult.catch(function () {
+                    // `load()` can abort a pending play request. This is expected
+                    // during recovery, so retry quietly instead of logging an error.
+                    scheduleResumeRetry();
+                });
+            }
+        }
+
+        state.reloadCleanup = function () {
+            video.removeEventListener('canplay', finish);
+        };
+        video.addEventListener('canplay', finish);
+        state.reloadTimer = setTimeout(finish, 5000);
+
+        try {
+            video.load();
+        } catch (_) {
+            finish();
+            scheduleResumeRetry();
+        }
+    }
+
+    function reloadVideo(video, resumeAt) {
+        if (!state.active || state.reloading || video !== state.video) return;
+
+        state.reloading = true;
+        restorePlaybackAfterReload(video, resumeAt);
     }
 
     function attemptRecovery() {
-        if (!navigator.onLine || !hasSufficientBandwidth()) return;
+        var video = state.video,
+            now = Date.now(),
+            noProgress;
 
-        clearInterval(recoveryInterval);
-        recoveryInterval = null;
-        extension.features.autoVideoRecovery.recoveryInterval = null;
+        if (!state.active || !video || video.ended || !state.shouldResume) return;
 
-        var video = getVideo();
+        if (!navigator.onLine) {
+            scheduleMonitor(1000);
+            return;
+        }
 
-        if (video && stoppedByNetwork) {
-            stoppedByNetwork = false;
+        noProgress = state.hasPlaybackProgress && !video.paused && state.lastProgressAt && now - state.lastProgressAt >= NO_PROGRESS_MS;
+        if (!state.stalledAt && !noProgress) return;
 
-            video.play().catch(function () {
-                video.load();
-                video.play().catch(function (err) {
-                    console.warn('[ImprovedTube] Auto recovery failed:', err);
-                });
+        if (now < state.nextAttemptAt) {
+            scheduleMonitor(state.nextAttemptAt - now);
+            return;
+        }
+
+        state.attempts++;
+        state.nextAttemptAt = now + Math.min(MAX_RETRY_DELAY_MS, 1000 * Math.pow(2, Math.min(state.attempts, 5)));
+
+        var position = video.currentTime,
+            playResult;
+
+        function retryOrReload() {
+            if (!state.active || state.video !== video || !state.shouldResume) return;
+
+            if (state.hadMediaError || state.attempts >= RELOAD_AFTER_ATTEMPTS) {
+                reloadVideo(video, position);
+            } else {
+                scheduleMonitor(Math.max(1000, state.nextAttemptAt - Date.now()));
+            }
+        }
+
+        try {
+            playResult = video.play();
+        } catch (_) {
+            retryOrReload();
+            return;
+        }
+
+        if (playResult && typeof playResult.catch === 'function') {
+            playResult.catch(function () {
+                retryOrReload();
             });
         }
+
+        setTimeout(function () {
+            var stillStalled = state.active && state.video === video && state.shouldResume && !video.ended &&
+                !video.paused && (state.stalledAt || (state.lastProgressAt && Date.now() - state.lastProgressAt >= NO_PROGRESS_MS));
+
+            // Reloading the media element is disruptive and can restart normal
+            // startup buffering. Reserve it for a real media error or several
+            // failed, confirmed recovery attempts.
+            if (stillStalled && (state.hadMediaError || state.attempts >= RELOAD_AFTER_ATTEMPTS)) {
+                reloadVideo(video, position);
+            }
+        }, RELOAD_DELAY_MS);
+
+        scheduleMonitor(state.nextAttemptAt - now);
     }
 
-    function startRecoveryMonitor() {
-        if (recoveryInterval) return; // ya está corriendo
+    function attachVideo(video) {
+        if (!state.active || !video || state.video === video) return;
 
-        recoveryInterval = setInterval(attemptRecovery, 1000);
-        extension.features.autoVideoRecovery.recoveryInterval = recoveryInterval;
-    }
+        detachVideo(state);
+        state.video = video;
+        state.lastTime = video.currentTime;
+        state.lastProgressAt = Date.now();
+        state.hasPlaybackProgress = false;
+        state.hadMediaError = false;
+        state.shouldResume = !video.paused && !video.ended;
 
-    function onVideoStalled() {
-        var video = getVideo();
-        if (!video || video.paused === false) return;
+        state.handlers = {
+            play: function () {
+                state.shouldResume = true;
+                state.lastProgressAt = Date.now();
+            },
+            loadedmetadata: function () {
+                // YouTube usually reuses the same <video> node between videos.
+                // Do not carry the previous video's playback state into startup.
+                state.hasPlaybackProgress = false;
+                state.hadMediaError = false;
+                state.lastTime = video.currentTime;
+                state.lastProgressAt = Date.now();
+                state.stalledAt = 0;
+                state.attempts = 0;
+                stopMonitoring();
+            },
+            playing: noteProgress,
+            timeupdate: function () {
+                if (video.currentTime !== state.lastTime) {
+                    state.lastTime = video.currentTime;
+                    noteProgress();
+                }
+            },
+            waiting: function () { markStalled(video); },
+            stalled: function () { markStalled(video); },
+            error: function () {
+                if (state.shouldResume || !video.paused) {
+                    state.shouldResume = true;
+                    state.hadMediaError = true;
+                    state.lastErrorAt = Date.now();
+                    state.stalledAt = Date.now();
+                    scheduleMonitor(STALL_GRACE_MS);
+                }
+            },
+            pause: function () {
+                // A media error can be followed immediately by a pause event.
+                // Do not mistake that pause for the user's explicit pause.
+                if (!state.reloading && (!state.lastErrorAt || Date.now() - state.lastErrorAt > 1000)) {
+                    state.shouldResume = false;
+                    state.stalledAt = 0;
+                    state.attempts = 0;
+                    stopMonitoring();
+                }
+            },
+            ended: function () {
+                state.shouldResume = false;
+                state.stalledAt = 0;
+                stopMonitoring();
+            }
+        };
 
-        stoppedByNetwork = true;
-        startRecoveryMonitor();
-    }
-
-    function onManualPause() {
-        if (navigator.onLine) {
-            stoppedByNetwork = false;
-            clearInterval(recoveryInterval);
-            recoveryInterval = null;
-            extension.features.autoVideoRecovery.recoveryInterval = null;
+        for (var eventName in state.handlers) {
+            video.addEventListener(eventName, state.handlers[eventName]);
         }
     }
 
-    function attachVideoListeners(video) {
-        if (!video || video._itAutoRecovery) return;
-        video._itAutoRecovery = true;
+    function queueVideoAttachment() {
+        if (!state.active || state.attachTimer) return;
 
-        video.addEventListener('waiting', onVideoStalled);
-        video.addEventListener('stalled', onVideoStalled);
-        video.addEventListener('pause',   onManualPause);
+        state.attachTimer = setTimeout(function () {
+            state.attachTimer = null;
+            attachVideo(getVideo());
+        }, 50);
     }
 
-    window.addEventListener('online', function () {
-        if (stoppedByNetwork) {
-            setTimeout(attemptRecovery, 500)
-        }
-    });
+    attachVideo(getVideo());
 
-    var video = getVideo();
-    if (video) {
-        attachVideoListeners(video);
-    }
+    state.onlineHandler = function () {
+        if (!state.active || !state.shouldResume) return;
 
-    this.autoVideoRecovery.observer = new MutationObserver(function () {
-        var v = getVideo();
-        if (v) attachVideoListeners(v);
-    });
+        state.nextAttemptAt = 0;
+        scheduleMonitor(250);
+    };
+    window.addEventListener('online', state.onlineHandler);
 
-    this.autoVideoRecovery.observer.observe(document.documentElement, {
+    state.observer = new MutationObserver(queueVideoAttachment);
+    state.observer.observe(document.documentElement, {
         childList: true,
         subtree: true
     });
