@@ -2477,6 +2477,7 @@ ImprovedTube.heatmap = {
         this.data = null;
         this.segments = [];
         this.rawMarkersCache = [];
+        this.currentSpeed = null;
         
         this.injectUI();
         this.getData();
@@ -2811,6 +2812,9 @@ ImprovedTube.heatmap = {
         let baseMin = Number(ImprovedTube.storage.smart_speed_min) || 1.0;
         let baseMax = Number(ImprovedTube.storage.smart_speed_max) || 2.0;
         let sensitivity = Number(ImprovedTube.storage.smart_speed_sensitivity) || 0.5;
+        let smoothness = Number(ImprovedTube.storage.smart_speed_smoothing);
+        if (smoothness !== smoothness) smoothness = 0.3;
+        this.alpha = Math.max(0.05, 1.0 - smoothness);
 
         const genre = document.querySelector('meta[itemprop="genre"]')?.content || "Unknown";
         const channelNameElement = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
@@ -2911,18 +2915,16 @@ ImprovedTube.heatmap = {
         let activeSegment = this.segments[currentIndex];
         let targetSpeedMultiplier = activeSegment.speed;
 
-        // Smoothing Buffer (LERP)
-        let timeRemaining = activeSegment.end - currentSec;
-        if (timeRemaining < 2.5 && currentIndex + 1 < this.segments.length) {
-            let nextSpeedMultiplier = this.segments[currentIndex + 1].speed;
-            let progress = 1 - (timeRemaining / 2.5);
-            targetSpeedMultiplier = activeSegment.speed - ((activeSegment.speed - nextSpeedMultiplier) * progress);
+        let finalSpeed = base * targetSpeedMultiplier;
+
+        if (!this.currentSpeed) {
+            this.currentSpeed = finalSpeed;
+        } else {
+            this.currentSpeed = this.currentSpeed + (finalSpeed - this.currentSpeed) * this.alpha;
         }
 
-        let finalSpeed = base * targetSpeedMultiplier;
-        
-        if (Math.abs(video.playbackRate - finalSpeed) > 0.05) {
-            video.playbackRate = finalSpeed;
+        if (Math.abs(video.playbackRate - this.currentSpeed) > 0.005) {
+            video.playbackRate = this.currentSpeed;
         }
 
         if (this.indicatorElement) {

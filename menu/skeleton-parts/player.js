@@ -231,6 +231,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 							component: 'slider',
 							text: 'smartSpeedSensitivity',
 							value: 0.5, min: 0.01, max: 1.0, step: 0.01
+						},
+						smart_speed_smoothing: {
+							component: 'slider',
+							text: 'smartSpeedSmoothing',
+							value: 0.3, min: 0.0, max: 0.95, step: 0.05
 						}
 					},
 					smart_speed_profiles_card: {
