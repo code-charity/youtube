@@ -488,7 +488,7 @@
   "dislikingAVideoAddsItToBlocklist": {
     "message": "動画に低評価をつけたとき、ブロックリストに追加"
   },
-  "displayDayOfTheWeek": {
+  "displayDayOfTheWeak": {
     "message": "曜日を表示"
   },
   "donate": {
@@ -1566,7 +1566,7 @@
     "message": "透明背景の代替設定"
   },
   "hideProgressBarPreview": {
-    "message": "シークバーのプレビューを非表示に"
+    "message": "シークバーのプレビューを非表示"
   },
   "revertTheaterModeButtonSizes": {
     "message": "シアターモードボタンのサイズをデフォルトに戻す"
@@ -1590,10 +1590,10 @@
     "message": "公式グッズを非表示"
   },
   "removeSubscriptionsLiveStreams": {
-    "message": "「登録チャンネル」 ページでライブ配信を非表示"
+    "message": "「登録チャンネル」ページでライブ配信を非表示"
   },
   "autoContinueWatching": {
-    "message": "「視聴を継続しますか？」 ダイアログを自動で承認"
+    "message": "「視聴を継続しますか？」ダイアログを自動で承認"
   },
   "autoPlayNextShort": {
     "message": "ショート動画で次の動画を自動再生"
