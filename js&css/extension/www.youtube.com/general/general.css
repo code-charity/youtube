@@ -640,3 +640,33 @@ html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(4) > h3:active {
 	background-color: var(--yt-spec-10-percent-layer);
 }
+
+/* Watch Later Homepage Section */
+.it-watch-later-section {
+	margin: 16px 0;
+	padding: 16px;
+	border-radius: 12px;
+	background: var(--yt-spec-badge-chip-background, rgba(255, 255, 255, 0.05));
+	border: 1px solid var(--yt-spec-10-percent-layer, rgba(255, 255, 255, 0.1));
+}
+.it-watch-later-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+.it-watch-later-header h2 {
+	margin: 0;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--yt-spec-text-primary, #fff);
+}
+.it-watch-later-view-all {
+	color: var(--yt-spec-call-to-action, #3ea6ff);
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 0.95rem;
+}
+.it-watch-later-view-all:hover {
+	text-decoration: underline;
+}

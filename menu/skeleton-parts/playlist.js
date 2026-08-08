@@ -31,6 +31,10 @@ extension.skeleton.main.layers.section.playlist = {
 					component: 'switch',
 					text: 'reverse'
 				},
+				playlist_sort_by_duration: {
+					component: 'switch',
+					text: 'sortByDuration'
+				},
 				playlist_repeat: {
 					component: 'switch',
 					text: 'repeat'

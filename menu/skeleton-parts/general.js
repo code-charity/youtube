@@ -73,6 +73,11 @@ extension.skeleton.main.layers.section.general = {
 					text: 'hideHomePageShorts',
 					id: 'remove-home-page-shorts'
 				},
+				watch_later_on_home: {
+					component: 'switch',
+					text: 'watchLaterOnHome',
+					id: 'watch-later-on-home'
+				},
 				remove_subscriptions_shorts: {
 					component: 'switch',
 					text: 'atSubscriptions',

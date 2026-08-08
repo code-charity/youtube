@@ -1134,6 +1134,12 @@
   "playlists": {
     "message": "Playlists"
   },
+  "sortByDuration": {
+    "message": "Sort playlist by duration"
+  },
+  "watchLaterOnHome": {
+    "message": "Show Watch Later on homepage"
+  },
   "playPause": {
     "message": "Play / Pause"
   },
