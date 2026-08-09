@@ -188,6 +188,7 @@ ImprovedTube.init = function () {
 			ImprovedTube.playlistLargePlaylistHandler();
 		}
 		try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] page-data-updated error', e); }
+		try { if (ImprovedTube.playerAudioOnlyUpdate) ImprovedTube.playerAudioOnlyUpdate(); } catch (e) {}
 	});
 	this.pageType();
 	this.playerOnPlay();
@@ -276,6 +277,7 @@ document.addEventListener('yt-navigate-finish', function () {
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {
 		ImprovedTube.videoPageUpdate();
 		ImprovedTube.initPlayer();
+		try { if (ImprovedTube.playerAudioOnlyUpdate) ImprovedTube.playerAudioOnlyUpdate(); } catch (e) {}
 	}
 	if (ImprovedTube.elements.shorts_player) {
 		ImprovedTube.redirectShortsToWatch();

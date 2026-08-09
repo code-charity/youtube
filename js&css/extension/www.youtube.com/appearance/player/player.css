@@ -807,3 +807,97 @@ html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
     -moz-background-size: contain !important;
     background-color: #000 !important;
 }
+
+/*--------------------------------------------------------------
+# AUDIO-ONLY MODE
+--------------------------------------------------------------*/
+html[it-player-audio-only='true'] .html5-video-container video {
+	opacity: 0 !important;
+	visibility: hidden !important;
+}
+
+#it-audio-only-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: #0f0f0f;
+	overflow: hidden;
+	pointer-events: none;
+	user-select: none;
+}
+
+html[it-player-audio-only='true'] #it-audio-only-overlay {
+	display: flex !important;
+}
+
+.it-audio-only-bg {
+	position: absolute;
+	top: -10%;
+	left: -10%;
+	width: 120%;
+	height: 120%;
+	filter: blur(35px) brightness(0.3);
+	object-fit: cover;
+	z-index: 1;
+}
+
+.it-audio-only-content {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+	padding: 24px;
+	max-width: 80%;
+	text-align: center;
+}
+
+.it-audio-only-art {
+	width: clamp(140px, 35vh, 280px);
+	height: clamp(140px, 35vh, 280px);
+	object-fit: cover;
+	border-radius: 12px;
+	box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.it-audio-only-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(8px);
+	color: #fff;
+	padding: 5px 14px;
+	border-radius: 20px;
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.3px;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.it-audio-only-title {
+	color: #ffffff;
+	font-size: clamp(16px, 2.5vh, 22px);
+	font-weight: 600;
+	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+	max-width: 100%;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.it-audio-only-author {
+	color: rgba(255, 255, 255, 0.75);
+	font-size: clamp(13px, 1.8vh, 16px);
+	font-weight: 400;
+}

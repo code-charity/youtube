@@ -111,6 +111,17 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'ambientLighting',
 			value: true
 		},
+		player_audio_only: {
+			component: 'switch',
+			text: 'audioOnlyMode',
+			storage: 'player_audio_only',
+			id: 'player_audio_only'
+		},
+		player_audio_only_auto_music: {
+			component: 'switch',
+			text: 'autoSwitchForMusic',
+			storage: 'player_audio_only_auto_music'
+		},
 		player_autoPip: {
 			component: 'switch',
 			text: 'Auto_PiP_picture_in_picture',
@@ -1648,6 +1659,13 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'screenshot',
 			id: 'player_screenshot_button'
+		},
+		player_audio_only_button: {
+			component: 'switch',
+			text: 'audioOnlyButton',
+			id: 'player_audio_only_button',
+			storage: 'player_audio_only_button',
+			value: true
 		},
 		embed_subtitle: {
 			component: 'switch',

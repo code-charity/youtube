@@ -243,6 +243,21 @@ document.addEventListener('it-message-from-extension', function () {
 					ImprovedTube.blocklistInit();
 					break
 
+				case 'playerAudioOnly':
+				case 'playerAudioOnlyAutoMusic':
+					if (typeof ImprovedTube.playerAudioOnlyUpdate === 'function') {
+						ImprovedTube.playerAudioOnlyUpdate();
+					}
+					break
+
+				case 'playerAudioOnlyButton':
+					if (ImprovedTube.storage.player_audio_only_button === false) {
+						ImprovedTube.elements.buttons['it-audio-only-button']?.remove();
+					} else if (typeof ImprovedTube.playerAudioOnlyButton === 'function') {
+						ImprovedTube.playerAudioOnlyButton();
+					}
+					break
+
 				case 'playerPlaybackSpeed':
 				case 'playerForcedPlaybackSpeed':
 					if (ImprovedTube.storage.player_forced_playback_speed === true && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {
