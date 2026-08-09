@@ -1139,6 +1139,20 @@ function createOverlay () {
 	document.getElementById('full-bleed-container').appendChild(overlay);
 }
 
+ImprovedTube.isCinemaModeActive = function () {
+	var overlay = document.getElementById('overlay_cinema');
+	return !!(overlay && overlay.style.display !== 'none');
+};
+
+ImprovedTube.updateCinemaModeState = function () {
+	if (ImprovedTube.isCinemaModeActive()) {
+		document.documentElement.setAttribute('it-cinema-mode', 'true');
+	} else {
+		document.documentElement.removeAttribute('it-cinema-mode');
+	}
+	window.dispatchEvent(new Event('resize'));
+};
+
 ImprovedTube.playerCinemaModeButton = function () {
 	if (this.storage.player_cinema_mode_button && (/watch\?/.test(location.href))) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
@@ -1191,6 +1205,7 @@ ImprovedTube.playerCinemaModeButton = function () {
 				} else {
 					overlay.style.display = overlay.style.display === 'none' || overlay.style.display === '' ? 'block' : 'none';
 				}
+				ImprovedTube.updateCinemaModeState();
 			},
 			title: 'Cinema Mode'
 		});
@@ -1219,6 +1234,7 @@ ImprovedTube.playerCinemaModeDisable = function () {
 			}
 			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
 			if (cinemaModeButton) cinemaModeButton.style.opacity = 0.64
+			ImprovedTube.updateCinemaModeState();
 		}
 	}
 }
@@ -1254,6 +1270,7 @@ ImprovedTube.playerCinemaModeEnable = function () {
 
 				var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
 				if (cinemaModeButton) cinemaModeButton.style.opacity = 1
+				ImprovedTube.updateCinemaModeState();
 			}
 		}
 	}
