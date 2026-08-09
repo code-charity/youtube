@@ -41,7 +41,7 @@ ImprovedTube.shortcutsInit = function () {
 		if (potentialShortcut['keys'].size || potentialShortcut['wheel']) listening[camelName] = potentialShortcut;
 	}
 	// initialize 'listeners' only if there are actual shortcuts active
-	if (Object.keys(listening).length) {
+	if (Object.keys(listening).length || this.storage.player_double_tap_seek_mode) {
 		for (const [name, handler] of Object.entries(this.shortcutsListeners)) {
 			// only one listener per handle
 			if (!listeners[name]) {
@@ -167,6 +167,46 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.alt = false;
 		ImprovedTube.input.pressed.ctrl = false;
 		ImprovedTube.input.pressed.shift = false;
+	},
+	/*-----------------------------------------------------------------------------
+	TOUCH INPUT - Double-tap seek
+	-----------------------------------------------------------------------------*/
+	touchend: function (event) {
+		const mode = ImprovedTube.storage.player_double_tap_seek_mode;
+		if (!mode || mode === 'default') return;
+		const player = ImprovedTube.elements.player;
+		if (!player) return;
+		const path = event.composedPath ? event.composedPath() : [];
+		if (!path.includes(player) && !(ImprovedTube.elements.video && path.includes(ImprovedTube.elements.video))) return;
+		// Don't intercept taps on player controls (play/pause, fullscreen, settings, etc.)
+		const target = event.target;
+		if (target && target.closest && target.closest('.ytp-chrome-bottom, .ytp-chrome-top, .ytp-settings-menu, .ytp-popup, .ytp-button, button, a')) return;
+		const touch = event.changedTouches[0];
+		if (!touch) return;
+		const rect = player.getBoundingClientRect();
+		const x = touch.clientX - rect.left;
+		const isInLeftHalf = x < rect.width / 2;
+		const direction = isInLeftHalf ? -1 : 1;
+		const now = Date.now();
+		if (!ImprovedTube.input.touch) {
+			ImprovedTube.input.touch = { lastTap: 0, count: 0, direction: 0, timer: null };
+		}
+		const ts = ImprovedTube.input.touch;
+		if (ts.direction !== direction || now - ts.lastTap > 500) {
+			ts.count = 1;
+			ts.direction = direction;
+		} else {
+			ts.count++;
+		}
+		ts.lastTap = now;
+		event.preventDefault();
+		event.stopPropagation();
+		if (ts.timer) clearTimeout(ts.timer);
+		const count = ts.count;
+		ts.timer = setTimeout(function () {
+			ImprovedTube.doubleTapSeek(direction, count);
+			ts.count = 0;
+		}, 300);
 	}
 };
 /*--- jump To Key Scene ----*/
@@ -735,4 +775,48 @@ ImprovedTube.shortcutSmartSpeed = function () {
     } else if (ImprovedTube.storage.smart_speed === true) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; } 
     }
 	this.storage.smart_speed = !this.storage.smart_speed;
+};
+
+
+/*-----------------------------------------------------------------------------
+DOUBLE-TAP SEEK
+-----------------------------------------------------------------------------*/
+ImprovedTube.doubleTapSeek = function (direction, tapCount) {
+	const player = this.elements.player;
+	if (!player || !player.getCurrentTime || !player.seekTo) return;
+	const mode = this.storage.player_double_tap_seek_mode || 'default';
+	let seekAmount = 0;
+	if (mode === 'fixed') {
+		seekAmount = Number(this.storage.player_double_tap_seek_fixed_distance) || 10;
+	} else if (mode === 'progressive') {
+		const d2 = Number(this.storage.player_double_tap_seek_distance_2) || 10;
+		const d3 = Number(this.storage.player_double_tap_seek_distance_3) || 30;
+		const d4 = Number(this.storage.player_double_tap_seek_distance_4) || 60;
+		if (tapCount <= 2) seekAmount = d2;
+		else if (tapCount === 3) seekAmount = d3;
+		else seekAmount = d4;
+	}
+	if (seekAmount <= 0) return;
+	const currentTime = player.getCurrentTime();
+	const duration = player.getDuration ? player.getDuration() : Infinity;
+	const newTime = Math.max(0, Math.min(duration, currentTime + direction * seekAmount));
+	player.seekTo(newTime, true);
+	const seekClass = direction > 0 ? 'ytp-seek-forward-bump' : 'ytp-seek-backward-bump';
+	player.classList.add(seekClass);
+	const doubletapUi = player.querySelector('.ytp-doubletap-ui');
+	if (doubletapUi) {
+		doubletapUi.classList.add('ytp-doubletap-ui-show');
+		const icon = doubletapUi.querySelector('.ytp-doubletap-ui-label-icon');
+		if (icon) {
+			icon.classList.remove('ytp-doubletap-ui-label-icon-forward', 'ytp-doubletap-ui-label-icon-backward');
+			icon.classList.add(direction > 0 ? 'ytp-doubletap-ui-label-icon-forward' : 'ytp-doubletap-ui-label-icon-backward');
+		}
+	}
+	setTimeout(function () {
+		player.classList.remove(seekClass);
+		if (doubletapUi) {
+			doubletapUi.classList.remove('ytp-doubletap-ui-show');
+		}
+	}, 500);
+	this.showStatus((direction > 0 ? '+' : '') + (direction * seekAmount) + 's');
 };

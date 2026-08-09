@@ -158,6 +158,45 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		double_tap_seek: {
+			component: 'button',
+			text: 'doubleTapSeek',
+			on: {
+				click: {
+					component: 'section',
+					variant: 'card',
+					player_double_tap_seek_mode: {
+						component: 'select',
+						text: 'mode',
+						options: [
+							{ value: 'default', text: 'defaultBehavior' },
+							{ value: 'fixed', text: 'fixedDistance' },
+							{ value: 'progressive', text: 'progressiveDistance' }
+						]
+					},
+					player_double_tap_seek_fixed_distance: {
+						component: 'slider',
+						text: 'seekDistance',
+						min: 1, max: 60, step: 1, value: 10
+					},
+					player_double_tap_seek_distance_2: {
+						component: 'slider',
+						text: 'doubleTapDistance',
+						min: 1, max: 60, step: 1, value: 10
+					},
+					player_double_tap_seek_distance_3: {
+						component: 'slider',
+						text: 'tripleTapDistance',
+						min: 1, max: 120, step: 1, value: 30
+					},
+					player_double_tap_seek_distance_4: {
+						component: 'slider',
+						text: 'quadrupleTapDistance',
+						min: 1, max: 180, step: 1, value: 60
+					}
+				}
+			}
+		},
 		player_forced_volume: {
 			component: 'switch',
 			text: 'forcedVolume',
