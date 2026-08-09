@@ -1332,6 +1332,9 @@
   "seekForward10Seconds": {
     "message": "Seek forward 10 seconds"
   },
+  "seekDistance": {
+    "message": "Seek distance (seconds)"
+  },
   "seekNextChapter": {
     "message": "Seek Next Chapter"
   },

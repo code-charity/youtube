@@ -1903,9 +1903,10 @@ ImprovedTube.playerRewindAndForwardButtons = function(){
 	  child: svgForward,
    
 	  onclick: function () {
-	   ImprovedTube.elements.player.seekTo(ImprovedTube.elements.player.getCurrentTime() + 5);
+	   var distance = Number(ImprovedTube.storage.player_seek_distance) || 10;
+	   ImprovedTube.elements.player.seekTo(ImprovedTube.elements.player.getCurrentTime() + distance);
 	  },
-	  title: 'forward 5 seconds',
+	  title: 'forward',
 	 }).classList.remove('it-player-button');
 	 this.createPlayerButton({
 	  id: 'it-rewind-player-button',
@@ -1914,9 +1915,10 @@ ImprovedTube.playerRewindAndForwardButtons = function(){
 	  child: svgBackward,
    
 	  onclick: function () {
-	   ImprovedTube.elements.player.seekTo(ImprovedTube.elements.player.getCurrentTime() - 5);
+	   var distance = Number(ImprovedTube.storage.player_seek_distance) || 10;
+	   ImprovedTube.elements.player.seekTo(ImprovedTube.elements.player.getCurrentTime() - distance);
 	  },
-	  title: 'rewind 5 seconds',
+	  title: 'rewind',
 	 }).classList.remove('it-player-button');
 	}
    }
