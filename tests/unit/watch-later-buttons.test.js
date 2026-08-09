@@ -30,6 +30,9 @@ describe('Watch Later thumbnail buttons', () => {
 		expect(generalJs).toContain('nativeButton.click();');
 		expect(generalJs).toContain('ACTION_ADD_VIDEO');
 		expect(generalJs).toContain("playlistId: 'WL'");
+		expect(generalJs).toContain('SAPISIDHASH');
+		expect(generalJs).toContain('button:not(.it-watch-later-button)');
+		expect(generalJs).not.toContain("thumbnail.querySelector('ytd-thumbnail-overlay-toggle-button-renderer button')");
 	});
 
 	test('styles hover and always visibility states', () => {
