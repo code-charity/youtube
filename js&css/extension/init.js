@@ -85,6 +85,7 @@ const pageWorldFiles = [
 	'/js&css/web-accessible/www.youtube.com/channel.js',
 	'/js&css/web-accessible/www.youtube.com/shortcuts.js',
 	'/js&css/web-accessible/www.youtube.com/blocklist.js',
+	'/js&css/web-accessible/www.youtube.com/ai-content.js',
 	'/js&css/web-accessible/www.youtube.com/settings.js',
 	'/js&css/web-accessible/www.youtube.com/last-watched-overlay.js', // Neue Zeile hinzufügen
 	'/js&css/web-accessible/www.youtube.com/return-youtube-dislike.js',
@@ -271,6 +272,25 @@ document.addEventListener('it-message-from-youtube', function () {
 
 			chrome.storage.local.set({
 				watched: extension.storage.data.watched
+			});
+		} else if (message.action === 'ai_content') {
+			if (!extension.storage.data.ai_content || typeof extension.storage.data.ai_content !== 'object') {
+				extension.storage.data.ai_content = {};
+			}
+
+			if (message.type === 'add' && message.id) {
+				extension.storage.data.ai_content[message.id] = {
+					title: message.title,
+					when: message.when
+				};
+			}
+
+			if (message.type === 'remove' && message.id) {
+				delete extension.storage.data.ai_content[message.id];
+			}
+
+			chrome.storage.local.set({
+				ai_content: extension.storage.data.ai_content
 			});
 		} else if (message.action === 'set') {
 			if (message.value) {

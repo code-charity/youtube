@@ -208,6 +208,9 @@ document.addEventListener('it-message-from-extension', function () {
 
 			ImprovedTube.init();
 			ImprovedTube.blocklistInit();
+			if (typeof ImprovedTube.aiContentInit === 'function') {
+				ImprovedTube.aiContentInit();
+			}
 
 			/*--------------------------------------------------------------
 			# Immediate reaction to any change of our extension storage (settings)
@@ -241,6 +244,13 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'blocklist':
 				case 'blocklistActivate':
 					ImprovedTube.blocklistInit();
+					break
+
+				case 'aiContent':
+				case 'hideAiContent':
+					if (typeof ImprovedTube.aiContentInit === 'function') {
+						ImprovedTube.aiContentInit();
+					}
 					break
 
 				case 'playerPlaybackSpeed':

@@ -672,8 +672,17 @@
   "Hide_YouTube_Logo": {
     "message": "Hide YouTube Logo"
   },
+  "hideAIContent": {
+    "message": "Hide AI-labeled videos"
+  },
   "hideAISummary": {
     "message": "Hide AI Summaries"
+  },
+  "deleteAIContent": {
+    "message": "Clear remembered AI videos"
+  },
+  "thisWillRemoveAllAIContent": {
+    "message": "This will clear all remembered AI-labeled video IDs. Videos may reappear until they are identified again."
   },
   "hideAnimatedThumbnails": {
     "message": "Hide animated thumbnails"
