@@ -47,6 +47,10 @@ ImprovedTube.shortcutsInit = function () {
 			if (!listeners[name]) {
 				listeners[name] = true;
 				window.addEventListener(name, handler, {passive: false, capture: true});
+				// Firefox compatibility: also listen on document for keyboard events
+				if (name === 'keydown' || name === 'keyup') {
+					document.addEventListener(name, handler, {passive: false, capture: true});
+				}
 			}
 		}
 
@@ -76,6 +80,10 @@ ImprovedTube.shortcutsInit = function () {
 			if (listeners[name]) {
 				delete listeners[name];
 				window.removeEventListener(name, handler, {passive: false, capture: true});
+				// Firefox compatibility: also remove from document
+				if (name === 'keydown' || name === 'keyup') {
+					document.removeEventListener(name, handler, {passive: false, capture: true});
+				}
 			}
 		}
 	}
@@ -115,8 +123,10 @@ ImprovedTube.shortcutsHandler = function () {
 ImprovedTube.shortcutsListeners = {
 	keydown: function (event) {
 		ImprovedTube.user_interacted = true;
-		// no shortcuts over 'ignoreElements'
-		if ((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable) return;
+		// no shortcuts over 'ignoreElements' - check event target first (more reliable)
+		if (ImprovedTube.input.ignoreElements.includes(event.target.tagName) || event.target.isContentEditable) return;
+		// fallback check for activeElement (for nested elements)
+		if (document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName) && document.activeElement.isContentEditable) return;
 
 		if (!ImprovedTube.input.modifierKeys.includes(event.code)) {
 			ImprovedTube.input.pressed.keys.add(event.keyCode);
