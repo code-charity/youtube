@@ -2269,42 +2269,144 @@ html:is([it-thumbnail-size="large"], [it-thumbnail-size="medium"], [it-thumbnail
 }
 
 /* Thumbnail sizes: Search Results & History Lists */
-html[it-thumbnail-size="large"] ytd-video-renderer ytd-thumbnail {
+html[it-thumbnail-size="large"] ytd-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="large"] ytd-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="large"] ytd-video-renderer #thumbnail,
+html[it-thumbnail-size="large"] ytd-playlist-renderer ytd-playlist-thumbnail,
+html[it-thumbnail-size="large"] ytd-playlist-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="large"] ytd-item-section-renderer yt-lockup-view-model .yt-lockup-view-model-wiz__content-image,
+html[it-thumbnail-size="large"] ytd-item-section-renderer yt-lockup-view-model a.ytLockupViewModelContentImage {
+    width: 360px !important;
     max-width: 420px !important;
-    min-width: 360px !important;
+    min-width: 0 !important;
 }
-html[it-thumbnail-size="medium"] ytd-video-renderer ytd-thumbnail {
+html[it-thumbnail-size="medium"] ytd-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="medium"] ytd-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="medium"] ytd-video-renderer #thumbnail,
+html[it-thumbnail-size="medium"] ytd-playlist-renderer ytd-playlist-thumbnail,
+html[it-thumbnail-size="medium"] ytd-playlist-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="medium"] ytd-item-section-renderer yt-lockup-view-model .yt-lockup-view-model-wiz__content-image,
+html[it-thumbnail-size="medium"] ytd-item-section-renderer yt-lockup-view-model a.ytLockupViewModelContentImage {
+    width: 280px !important;
     max-width: 320px !important;
-    min-width: 280px !important;
+    min-width: 0 !important;
 }
-html[it-thumbnail-size="small"] ytd-video-renderer ytd-thumbnail {
+html[it-thumbnail-size="small"] ytd-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="small"] ytd-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="small"] ytd-video-renderer #thumbnail,
+html[it-thumbnail-size="small"] ytd-playlist-renderer ytd-playlist-thumbnail,
+html[it-thumbnail-size="small"] ytd-playlist-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="small"] ytd-item-section-renderer yt-lockup-view-model .yt-lockup-view-model-wiz__content-image,
+html[it-thumbnail-size="small"] ytd-item-section-renderer yt-lockup-view-model a.ytLockupViewModelContentImage {
+    width: 240px !important;
     max-width: 260px !important;
-    min-width: 240px !important;
+    min-width: 0 !important;
 }
-html[it-thumbnail-size="x-small"] ytd-video-renderer ytd-thumbnail {
+html[it-thumbnail-size="x-small"] ytd-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="x-small"] ytd-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="x-small"] ytd-video-renderer #thumbnail,
+html[it-thumbnail-size="x-small"] ytd-playlist-renderer ytd-playlist-thumbnail,
+html[it-thumbnail-size="x-small"] ytd-playlist-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="x-small"] ytd-item-section-renderer yt-lockup-view-model .yt-lockup-view-model-wiz__content-image,
+html[it-thumbnail-size="x-small"] ytd-item-section-renderer yt-lockup-view-model a.ytLockupViewModelContentImage {
+    width: 160px !important;
     max-width: 180px !important;
-    min-width: 160px !important;
+    min-width: 0 !important;
 }
-html[it-thumbnail-size="xx-small"] ytd-video-renderer ytd-thumbnail {
+html[it-thumbnail-size="xx-small"] ytd-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="xx-small"] ytd-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="xx-small"] ytd-video-renderer #thumbnail,
+html[it-thumbnail-size="xx-small"] ytd-playlist-renderer ytd-playlist-thumbnail,
+html[it-thumbnail-size="xx-small"] ytd-playlist-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="xx-small"] ytd-item-section-renderer yt-lockup-view-model .yt-lockup-view-model-wiz__content-image,
+html[it-thumbnail-size="xx-small"] ytd-item-section-renderer yt-lockup-view-model a.ytLockupViewModelContentImage {
+    width: 120px !important;
     max-width: 140px !important;
-    min-width: 120px !important;
+    min-width: 0 !important;
+}
+
+/* Thumbnail sizes: Playlist page video list */
+html[it-thumbnail-size="large"] ytd-playlist-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="large"] ytd-playlist-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="large"] ytd-playlist-video-renderer #thumbnail,
+html[it-thumbnail-size="large"] ytd-playlist-panel-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="large"] ytd-playlist-panel-video-renderer yt-thumbnail-view-model {
+    width: 200px !important;
+    max-width: 200px !important;
+    min-width: 0 !important;
+}
+html[it-thumbnail-size="medium"] ytd-playlist-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="medium"] ytd-playlist-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="medium"] ytd-playlist-video-renderer #thumbnail,
+html[it-thumbnail-size="medium"] ytd-playlist-panel-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="medium"] ytd-playlist-panel-video-renderer yt-thumbnail-view-model {
+    width: 160px !important;
+    max-width: 160px !important;
+    min-width: 0 !important;
+}
+html[it-thumbnail-size="small"] ytd-playlist-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="small"] ytd-playlist-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="small"] ytd-playlist-video-renderer #thumbnail,
+html[it-thumbnail-size="small"] ytd-playlist-panel-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="small"] ytd-playlist-panel-video-renderer yt-thumbnail-view-model {
+    width: 120px !important;
+    max-width: 120px !important;
+    min-width: 0 !important;
+}
+html[it-thumbnail-size="x-small"] ytd-playlist-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="x-small"] ytd-playlist-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="x-small"] ytd-playlist-video-renderer #thumbnail,
+html[it-thumbnail-size="x-small"] ytd-playlist-panel-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="x-small"] ytd-playlist-panel-video-renderer yt-thumbnail-view-model {
+    width: 90px !important;
+    max-width: 90px !important;
+    min-width: 0 !important;
+}
+html[it-thumbnail-size="xx-small"] ytd-playlist-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="xx-small"] ytd-playlist-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="xx-small"] ytd-playlist-video-renderer #thumbnail,
+html[it-thumbnail-size="xx-small"] ytd-playlist-panel-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="xx-small"] ytd-playlist-panel-video-renderer yt-thumbnail-view-model {
+    width: 70px !important;
+    max-width: 70px !important;
+    min-width: 0 !important;
 }
 
 /* Thumbnail sizes: Video Player Sidebar (Related Videos) */
-html[it-thumbnail-size="large"] ytd-compact-video-renderer ytd-thumbnail {
+html[it-thumbnail-size="large"] ytd-compact-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="large"] ytd-compact-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="large"] #related yt-lockup-view-model .yt-lockup-view-model-wiz__content-image,
+html[it-thumbnail-size="large"] #related yt-lockup-view-model a.ytLockupViewModelContentImage {
     width: 200px !important;
+    max-width: 200px !important;
 }
-html[it-thumbnail-size="medium"] ytd-compact-video-renderer ytd-thumbnail {
+html[it-thumbnail-size="medium"] ytd-compact-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="medium"] ytd-compact-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="medium"] #related yt-lockup-view-model .yt-lockup-view-model-wiz__content-image,
+html[it-thumbnail-size="medium"] #related yt-lockup-view-model a.ytLockupViewModelContentImage {
     width: 160px !important;
+    max-width: 160px !important;
 }
-html[it-thumbnail-size="small"] ytd-compact-video-renderer ytd-thumbnail {
+html[it-thumbnail-size="small"] ytd-compact-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="small"] ytd-compact-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="small"] #related yt-lockup-view-model .yt-lockup-view-model-wiz__content-image,
+html[it-thumbnail-size="small"] #related yt-lockup-view-model a.ytLockupViewModelContentImage {
     width: 120px !important;
+    max-width: 120px !important;
 }
-html[it-thumbnail-size="x-small"] ytd-compact-video-renderer ytd-thumbnail {
+html[it-thumbnail-size="x-small"] ytd-compact-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="x-small"] ytd-compact-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="x-small"] #related yt-lockup-view-model .yt-lockup-view-model-wiz__content-image,
+html[it-thumbnail-size="x-small"] #related yt-lockup-view-model a.ytLockupViewModelContentImage {
     width: 90px !important;
+    max-width: 90px !important;
 }
-html[it-thumbnail-size="xx-small"] ytd-compact-video-renderer ytd-thumbnail {
+html[it-thumbnail-size="xx-small"] ytd-compact-video-renderer ytd-thumbnail,
+html[it-thumbnail-size="xx-small"] ytd-compact-video-renderer yt-thumbnail-view-model,
+html[it-thumbnail-size="xx-small"] #related yt-lockup-view-model .yt-lockup-view-model-wiz__content-image,
+html[it-thumbnail-size="xx-small"] #related yt-lockup-view-model a.ytLockupViewModelContentImage {
     width: 70px !important;
+    max-width: 70px !important;
 }
 
 /*--------------------------------------------------------------
