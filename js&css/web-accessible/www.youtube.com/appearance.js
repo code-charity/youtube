@@ -341,6 +341,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 		const video = document.querySelector("#player .ytp-chrome-bottom") || document.querySelector("#container .ytp-chrome-bottom");
 		const watchFlexy = document.querySelector("ytd-watch-flexy");
 		const primary = document.getElementById("primary");
+		const columns = document.getElementById("columns");
 
 		// Don't set inline widths in fullscreen or theater mode - let CSS handle it
 		if (watchFlexy && (watchFlexy.hasAttribute("fullscreen") || watchFlexy.hasAttribute("theater"))) {
@@ -350,8 +351,13 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			return;
 		}
 
-		const width = video ? video.offsetWidth + 24 : 24;
-		if (width != 24 && primary && player) {
+		const rawWidth = video ? video.offsetWidth + 24 : 24;
+		// Leave room for the secondary column (comments + playlist/chat) so it is not clipped.
+		const secondaryMin = 300;
+		const gutters = 48;
+		const available = (columns?.clientWidth || window.innerWidth) - secondaryMin - gutters;
+		const width = Math.min(rawWidth, Math.max(320, available));
+		if (rawWidth != 24 && primary && player) {
 			primary.style.width = `${width}px`;
 			player.style.width = `${width}px`;
 		}
