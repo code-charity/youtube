@@ -1018,6 +1018,55 @@ ImprovedTube.playerRotateButton = function () {
 };
 
 /*------------------------------------------------------------------------------
+VOLUME BOOST BUTTON
+------------------------------------------------------------------------------*/
+ImprovedTube.playerVolumeBoostButton = function () {
+	if (this.storage.player_volume_boost_button === true) {
+		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+		path.setAttributeNS(null, 'd', 'M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z');
+
+		svg.appendChild(path);
+
+		var button = this.createPlayerButton({
+			id: 'it-volume-boost-button',
+			child: svg,
+			opacity: 0.5,
+			onclick: function () {
+				// ponytail: Web Audio API gain node. Ceiling: clipping at very high gain (>4x). Upgrade: add compressor node.
+				var video = ImprovedTube.elements.video;
+				if (!video) return;
+
+				if (!ImprovedTube.volumeBoostContext) {
+					var AudioContext = window.AudioContext || window.webkitAudioContext;
+					ImprovedTube.volumeBoostContext = new AudioContext();
+					ImprovedTube.volumeBoostSource = ImprovedTube.volumeBoostContext.createMediaElementSource(video);
+					ImprovedTube.volumeBoostGain = ImprovedTube.volumeBoostContext.createGain();
+					ImprovedTube.volumeBoostSource.connect(ImprovedTube.volumeBoostGain);
+					ImprovedTube.volumeBoostGain.connect(ImprovedTube.volumeBoostContext.destination);
+				}
+
+				var gain = ImprovedTube.volumeBoostGain.gain;
+				var current = gain.value;
+
+				// Cycle: 1x → 2x → 3x → 1x
+				var next = current >= 3 ? 1 : current + 1;
+				gain.value = next;
+
+				var btn = ImprovedTube.elements.buttons['it-volume-boost-button'];
+				if (btn) {
+					btn.style.opacity = next > 1 ? '1' : '0.5';
+					btn.dataset.title = 'Volume Boost (' + next + 'x)';
+				}
+			},
+			title: 'Volume Boost (1x)'
+		});
+	}
+};
+
+/*------------------------------------------------------------------------------
 PLAYBACK SPEED BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPlaybackSpeedButton = function () {

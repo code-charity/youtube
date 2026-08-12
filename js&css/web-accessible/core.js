@@ -348,6 +348,15 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
+				case 'playerVolumeBoostButton':
+					if (ImprovedTube.storage.player_volume_boost_button === false) {
+						ImprovedTube.elements.buttons['it-volume-boost-button']?.remove();
+						if (ImprovedTube.volumeBoostGain) {
+							ImprovedTube.volumeBoostGain.gain.value = 1;
+						}
+					}
+					break
+
 				case 'playerFitToWinButton':
 					if (ImprovedTube.storage.player_fit_to_win_button === false) {
 						ImprovedTube.elements.buttons['it-fit-to-win-player-button']?.remove();
