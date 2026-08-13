@@ -1698,6 +1698,10 @@
   "smartSpeedSensitivity": {
     "message": "Sensitivity"
   },
+  "smartSpeedSmoothing": {
+    "message": "Speed Transition Smoothness",
+    "description": "0 = instant speed jumps, 1 = very gradual transitions"
+  },
   "smartSpeedTargetToggle": {
     "message": "Enable Target Duration"
   },
