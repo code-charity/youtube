@@ -47,6 +47,11 @@ ImprovedTube.ytElementsHandler = function (node) {
 				this.blocklistNode(node);
 			}
 		}
+		if (this.storage.hide_ai_content) {
+			if ((node.href && node.classList.contains('ytd-thumbnail')) || node.classList.contains('ytd-video-preview')) {
+				this.aiContentNode(node);
+			}
+		}
 	} else if (name === 'YTD-TOGGLE-BUTTON-RENDERER' || name === 'YTD-PLAYLIST-LOOP-BUTTON-RENDERER') {
 		//can be precise   previously  node.parentComponent  & node.parentComponent.parentComponent
 		if (node.closest("YTD-MENU-RENDERER")
@@ -380,7 +385,10 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerCinemaModeButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
-		
+		if (typeof ImprovedTube.detectAiContent === 'function') {
+			ImprovedTube.detectAiContent();
+		}
+
 		// Initialize large playlist handler for playlist videos
 		if (this.getParam(location.href, 'list')) {
 			ImprovedTube.playlistLargePlaylistHandler();

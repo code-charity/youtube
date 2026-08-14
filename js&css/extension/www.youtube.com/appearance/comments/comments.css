@@ -143,7 +143,9 @@ html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comm
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary, 
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary{margin-top: 0 !important; padding-top: 0 !important; padding-right: 0; flex-grow: 1;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary::before {content: ""; height: 24px; display: block;}
-	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary {flex: 1 0 auto;padding: 0 24px; margin: 0;}
+	/* Allow primary to shrink so #secondary is not pushed off-screen (playlist/chat). */
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary {flex: 1 1 auto; min-width: 0; padding: 0 24px; margin: 0;}
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary {flex: 0 0 auto; min-width: 300px !important;}
 	html[data-page-type=video][it-comments-sidebar='true'][it-player-size="do_not_change"] ytd-watch-flexy #primary-inner {padding-top: 24px;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #player {margin: 0 auto;}
 
@@ -174,7 +176,7 @@ html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comm
 		overflow-x: hidden !important;
 	}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns {overflow: hidden;}
-	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[theater] #columns
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[theater] #columns,
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy[fullscreen] #columns {
 		height: auto;
 	}
@@ -188,6 +190,11 @@ html[data-page-type=video][it-comments-sidebar='true'] ytd-live-chat-frame#chat,
 html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #donation-shelf {
 	width: 100% !important;
 	min-width: unset !important;
+}
+
+/* Keep live chat from consuming the entire secondary column (comments stay reachable). */
+html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) ytd-live-chat-frame#chat {
+	max-height: min(40vh, 480px) !important;
 }
 
 /* GRID RELATED */
