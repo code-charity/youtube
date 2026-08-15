@@ -484,6 +484,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 		ImprovedTube.playerHideProgressPreview();
+		ImprovedTube.watchedSegments.init();
 		ImprovedTube.expandDescription();
 		setTimeout(function () { ImprovedTube.forcedTheaterMode(); }, 150);
 		if (location.href.indexOf('/embed/') === -1) { ImprovedTube.miniPlayer(); }
@@ -531,6 +532,7 @@ ImprovedTube.playerOnTimeUpdate = function () {
 };
 
 ImprovedTube.playerOnLoadedMetadata = function () {
+	ImprovedTube.watchedSegments.init();
 	setTimeout(function () { ImprovedTube.playerSize(); }, 100);
 	setTimeout(function () { if (ImprovedTube.elements.panels) { ImprovedTube.transcript(ImprovedTube.elements.panels); ImprovedTube.chapters(ImprovedTube.elements.panels); } }, 250);
 };
