@@ -2290,6 +2290,28 @@ html[it-thumbnail-size="xx-small"] ytd-video-renderer ytd-thumbnail {
     min-width: 120px !important;
 }
 
+/* Thumbnail sizes: Playlist Search Results */
+html[it-thumbnail-size="large"] ytd-playlist-video-renderer ytd-thumbnail {
+    max-width: 420px !important;
+    min-width: 360px !important;
+}
+html[it-thumbnail-size="medium"] ytd-playlist-video-renderer ytd-thumbnail {
+    max-width: 320px !important;
+    min-width: 280px !important;
+}
+html[it-thumbnail-size="small"] ytd-playlist-video-renderer ytd-thumbnail {
+    max-width: 260px !important;
+    min-width: 240px !important;
+}
+html[it-thumbnail-size="x-small"] ytd-playlist-video-renderer ytd-thumbnail {
+    max-width: 180px !important;
+    min-width: 160px !important;
+}
+html[it-thumbnail-size="xx-small"] ytd-playlist-video-renderer ytd-thumbnail {
+    max-width: 140px !important;
+    min-width: 120px !important;
+}
+
 /* Thumbnail sizes: Video Player Sidebar (Related Videos) */
 html[it-thumbnail-size="large"] ytd-compact-video-renderer ytd-thumbnail {
     width: 200px !important;
