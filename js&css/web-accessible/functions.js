@@ -123,7 +123,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		// Initialize playlist complete functionality for both custom and default playlists
 		this.playlistCompleteInit();
 
-		// This is for the playlist page sidebar, the one that appears when you click on "show all playlist"  
+		// This is for the playlist page sidebar, the one that appears when you click on "show all playlist"
 		// For default playlist (such as watch later) we have a different header renderer than for custom playlists
 		if (name === 'YTD-PAGE-HEADER-RENDERER' || (name === 'YTD-PAGE-HEADER-RENDERER' && node.classList.contains('page-header-sidebar'))) {
 			this.elements.playlist_header_sidebar = node
@@ -380,7 +380,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerCinemaModeButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
-		
+
 		// Initialize large playlist handler for playlist videos
 		if (this.getParam(location.href, 'list')) {
 			ImprovedTube.playlistLargePlaylistHandler();
@@ -417,7 +417,7 @@ ImprovedTube.playerOnPlay = function () {
 				AUTOPLAY DISABLE  player || playlist || channel trailer
 				------------------------------------------------------------------------------*/
 				if ((((ImprovedTube.storage.player_autoplay_disable === true && !location.href.includes('list='))
-					  ||(ImprovedTube.storage.playlist_autoplay === false && location.href.includes('list='))) 
+					  ||(ImprovedTube.storage.playlist_autoplay === false && location.href.includes('list=')))
 					 && location.href.includes('/watch?') // #1703 // (=video page)
 					 )||(ImprovedTube.storage.channel_trailer_autoplay === false && ImprovedTube.regex.channel.test(location.href)
 						 && !/\/(videos|shorts|playlists|community|channels|about|posts|streams|releases)$/.test(location.href))
@@ -426,11 +426,11 @@ ImprovedTube.playerOnPlay = function () {
 						 && !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
 						 ){
 						 if (!ImprovedTube.user_interacted) {  // (=user didnt click or type)
-							 try { player.pauseVideo(); } catch (error) { this.pause(); } 
+							 try { player.pauseVideo(); } catch (error) { this.pause(); }
 							 return Promise.resolve();
 						 } else {
 							 if (!ImprovedTube._autoplayTimeout) {
-								 ImprovedTube._autoplayTimeout = 
+								 ImprovedTube._autoplayTimeout =
 									 setTimeout(() => {
 										 if (!ImprovedTube.user_interacted) {
 										 try { player.pauseVideo(); } catch (error) { this.pause(); }
@@ -444,7 +444,7 @@ ImprovedTube.playerOnPlay = function () {
 					} else {
 					document.dispatchEvent(new CustomEvent('it-play'));
 				}
-				
+
 				ImprovedTube.playerLoudnessNormalization();
 				ImprovedTube.playerCinemaModeEnable();
 			}
@@ -520,7 +520,7 @@ ImprovedTube.playerOnTimeUpdate = function () {
 			if (ImprovedTube.storage.player_remaining_duration === true && document.documentElement.dataset.pageType === 'video') { ImprovedTube.playerRemainingDuration(); }
 			ImprovedTube.played_time += .5;
 			//Counting time of the player playing for the analyzer feature. (not equal to video time if playback speed isnt 1.00)
-			//We can also allow to measure session times too and HID times.   
+			//We can also allow to measure session times too and HID times.
 		}, 500);
 	}
 	clearInterval(noTimeUpdate);
@@ -552,7 +552,7 @@ ImprovedTube.playerOnPause = function (event) {
 };
 
 // if ( document.documentElement.dataset.pageType === 'video'
-// && (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.transcript === true || ImprovedTube.storage.chapters === true )) { 
+// && (ImprovedTube.storage.description === "expanded" || ImprovedTube.storage.transcript === true || ImprovedTube.storage.chapters === true )) {
 // ImprovedTube.forbidFocus =  function (ms)
 /*--------------------------------------------------------------
 # HIDE PROGRESS BAR PREVIEW
@@ -597,7 +597,7 @@ ImprovedTube.playerOnEnded = function (event) {
 ImprovedTube.onkeydown = function () {
 	ImprovedTube.pauseWhileTypingOnYoutube()
 	window.addEventListener('keydown', function () {
-		ImprovedTube.user_interacted = true; // = event.key 
+		ImprovedTube.user_interacted = true; // = event.key
 	}, true);
 };
 

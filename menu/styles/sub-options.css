@@ -13,7 +13,7 @@ NESTED (CONDITIONAL) SWITCHES
  /*-DURATION WITH SPEED-*/
 #show-remaining-duration:not([data-value=true]) + .satus-switch,
  /*-comment sidebar scrollbars-*/
-#comments-sidebar:not([data-value=true]) + .satus-switch + #comments-sidebar-simple:not([data-value=true]) + .satus-switch, 
+#comments-sidebar:not([data-value=true]) + .satus-switch + #comments-sidebar-simple:not([data-value=true]) + .satus-switch,
 /* #comments-sidebar:not([data-value=true]) + .satus-switch, */
 /*--------------------------------------------------------------
 >>> PLAYER
@@ -22,7 +22,7 @@ NESTED (CONDITIONAL) SWITCHES
 #forced-volume:not([data-value=true]) + .satus-slider,
 #forced-playback-speed:not([data-value=true]) + .satus-switch,
 #forced-playback-speed:not([data-value=true]) + .satus-switch + .satus-switch,
-#forced-playback-speed:not([data-value=true]) + .satus-switch + .satus-switch + .satus-slider, 
+#forced-playback-speed:not([data-value=true]) + .satus-switch + .satus-switch + .satus-slider,
 #player-increase-decrease-speed-buttons:not([data-value=true]) + .satus-slider,
 /* #player_repeat_button:not([data-value=true]) + .satus-switch, */
 #player_screenshot_button:not([data-value=true]) + .satus-switch,
@@ -45,7 +45,7 @@ NIGHT MODE
 /*====================================*/
 	{display: none !important;}
 
-#hide-auto-dubbed-options[data-value=true] 
+#hide-auto-dubbed-options[data-value=true]
 {display: unset !important;}
 
 #remove-home-page-shorts[data-value=true] + .satus-switch,
@@ -65,12 +65,12 @@ NIGHT MODE
 >>> PLAYER
 --------------------------------------------------------------*/
 #player_autoPip[data-value=true] + .satus-switch,
-#forced-volume[data-value=true] + .satus-slider, 
+#forced-volume[data-value=true] + .satus-slider,
 #forced-playback-speed[data-value=true] + .satus-switch,
 #forced-playback-speed[data-value=true] + .satus-switch + .satus-switch,
-#forced-playback-speed[data-value=true] + .satus-switch + .satus-switch + .satus-slider, 
-#player-increase-decrease-speed-buttons[data-value=true] + .satus-slider, 
-#player_repeat_button + .satus-switch, 
+#forced-playback-speed[data-value=true] + .satus-switch + .satus-switch + .satus-slider,
+#player-increase-decrease-speed-buttons[data-value=true] + .satus-slider,
+#player_repeat_button + .satus-switch,
 #player_cinema_mode_button +.satus-switch,
 #player_auto_cinema_mode +.satus-switch,
 #player_screenshot_button[data-value=true] + .satus-switch,
@@ -107,11 +107,11 @@ NIGHT MODE
 /*--------------------------------------------------------------
 >>> PLAYER
 --------------------------------------------------------------*/
-#forced-volume[data-value=true] + .satus-slider:not(:hover), 
+#forced-volume[data-value=true] + .satus-slider:not(:hover),
 #forced-playback-speed[data-value=true] + .satus-switch:not(:hover),
 #forced-playback-speed[data-value=true] + .satus-switch + .satus-switch:not(:hover),
-#forced-playback-speed[data-value=true] + .satus-switch + .satus-switch + .satus-slider:not(:hover), 
-#player-increase-decrease-speed-buttons[data-value=true] + .satus-slider:not(:hover), 
+#forced-playback-speed[data-value=true] + .satus-switch + .satus-switch + .satus-slider:not(:hover),
+#player-increase-decrease-speed-buttons[data-value=true] + .satus-slider:not(:hover),
 #player_screenshot_button[data-value=true] + .satus-switch:not(:hover),
 #player_screenshot_button[data-value=true] + .satus-switch + .satus-select:not(:hover),
 /*-COPY VIDEO FULL URL-*/
@@ -126,6 +126,6 @@ NIGHT MODE
 NIGHT MODE
 --------------------------------------------------------------*/
 #activate[data-value='sunset_to_sunrise'] + .satus-time--from:not(:hover),
-#activate[data-value='sunset_to_sunrise'] + * + .satus-time--to:not(:hover) 
+#activate[data-value='sunset_to_sunrise'] + * + .satus-time--to:not(:hover)
 /*====================================*/
 	{background-color:rgb(69,180,210,0.09);}

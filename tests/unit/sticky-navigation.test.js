@@ -65,10 +65,10 @@ describe('Sticky Navigation Feature', () => {
 
 	test('should not apply sticky navigation when setting is disabled', () => {
 		global.extension.storage.get.mockReturnValue(false);
-		
+
 		// Call the sticky navigation function
 		global.extension.features.stickyNavigation();
-		
+
 		// Verify that no DOM manipulation occurred
 		expect(mockMiniGuide.style.transform).toBeUndefined();
 		expect(mockGuide.style.transform).toBeUndefined();
@@ -77,22 +77,22 @@ describe('Sticky Navigation Feature', () => {
 
 	test('should apply sticky navigation when setting is enabled', () => {
 		global.extension.storage.get.mockReturnValue(true);
-		
+
 		// Call the sticky navigation function
 		global.extension.features.stickyNavigation();
-		
+
 		// Verify that DOM manipulation occurred
 		expect(mockMiniGuide.style.transform).toBe('translateX(0)');
 		expect(mockMiniGuide.style.transition).toBe('none');
 		expect(mockGuide.style.transform).toBe('translateX(0)');
 		expect(mockGuide.style.transition).toBe('none');
-		
+
 		// Verify that attributes were set correctly
 		expect(mockMiniGuide.removeAttribute).toHaveBeenCalledWith('hidden');
 		expect(mockMiniGuide.setAttribute).toHaveBeenCalledWith('aria-hidden', 'false');
 		expect(mockGuide.removeAttribute).toHaveBeenCalledWith('hidden');
 		expect(mockGuide.setAttribute).toHaveBeenCalledWith('aria-hidden', 'false');
-		
+
 		// Verify that observer was created
 		expect(global.extension.features.stickyNavigationObserver).toBeDefined();
 	});
@@ -101,17 +101,17 @@ describe('Sticky Navigation Feature', () => {
 		// First enable the feature
 		global.extension.storage.get.mockReturnValue(true);
 		global.extension.features.stickyNavigation();
-		
+
 		// Mock the observer
 		const mockObserver = {
 			disconnect: jest.fn()
 		};
 		global.extension.features.stickyNavigationObserver = mockObserver;
-		
+
 		// Now disable the feature
 		global.extension.storage.get.mockReturnValue(false);
 		global.extension.features.stickyNavigation();
-		
+
 		// Verify that observer was disconnected
 		expect(mockObserver.disconnect).toHaveBeenCalled();
 		expect(global.extension.features.stickyNavigationObserver).toBeNull();
@@ -119,14 +119,14 @@ describe('Sticky Navigation Feature', () => {
 
 	test('should handle missing navigation elements gracefully', () => {
 		global.extension.storage.get.mockReturnValue(true);
-		
+
 		// Mock document.querySelector to return null
 		global.document.querySelector = jest.fn().mockReturnValue(null);
-		
+
 		// Call the sticky navigation function
 		global.extension.features.stickyNavigation();
-		
+
 		// Should not throw an error and should still create an observer
 		expect(global.extension.features.stickyNavigationObserver).toBeDefined();
 	});
-}); 
+});

@@ -228,7 +228,7 @@ html[it-hide-video-title-fullScreen='true'] .ytp-title-text > a,
 --------------------------------------------------------------*/
 html[it-hide-gradient-bottom='true'] .ytp-gradient-bottom,
 /*------------------------------------------------------------------------------
-# CONTROLS 
+# CONTROLS
 ------------------------------------------------------------------------------*/
 html[it-player-play-button=true] .ytp-play-button,
 html[it-player-previous-button=true] .ytp-prev-button,
@@ -311,7 +311,7 @@ html[data-page-type=video][it-header-position=normal] ytd-app,
 html[data-page-type=video][it-header-position=static] ytd-app {
 	--it-header-size: 56px;
 }
-/* 
+/*
 html[data-page-type=video]:not([it-header-position]) ytd-watch-flexy:not([theater]),
 html[data-page-type=video][it-header-position=normal] ytd-watch-flexy:not([theater]),
 html[data-page-type=video][it-header-position=static] ytd-watch-flexy:not([theater]) {
@@ -450,7 +450,7 @@ html[data-page-type=video][it-player-size='max_width'] ytd-browse > ytd-two-colu
 	max-width: auto !important;
 }
 
-html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #columns.ytd-watch-flexy, 
+html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #columns.ytd-watch-flexy,
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #primary.ytd-watch-flexy {
 	max-width: 98.5% !important;
 	margin: 2px !important;
@@ -460,7 +460,7 @@ html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([full
 	margin-left: max(18px, calc(21vw - 230px)) !important;
 	margin-right:max(18px, calc(13vw - 130px)) !important;
 	max-width: 1600px !important;
-	} 
+	}
 
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #player {
 	margin-top: -20px !important;
@@ -469,25 +469,25 @@ html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([full
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #player-container-outer.ytd-watch-flexy {
 	max-width: 98.5% !important;
 }
-	
+
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) #player-container-inner.ytd-watch-flexy {
 	padding-top: calc(var(--ytd-watch-flexy-max-player-height) + 45px) !important;
 }
-	
+
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) .html5-video-container {
-	width: 100% !important;   
+	width: 100% !important;
 	height: 100% !important;
-}  
+}
 
 html[data-page-type=video][it-player-size='max_width'] ytd-watch-flexy:not([fullscreen]) video {
-	position: static !important; 
+	position: static !important;
 	top: 0 !important;
-	left: 0 !important; 
+	left: 0 !important;
 	width: 100% !important;
 	height: 100% !important;
     justify-content: center !important
 }
-	
+
 html[data-page-type=video][it-player-size='max_width'] {
 	--it-player-size: 86vh;
 }
@@ -495,7 +495,7 @@ html[data-page-type=video][it-player-size='max_width'] {
 html[data-page-type=video][it-player-size='max_width'] .ytp-fit-cover-video .html5-main-video {
 	object-fit: contain !important;
 }
-	
+
 /*--------------------------------------------------------------
 # FULL HEIGHT  "Full window"
 --------------------------------------------------------------*/
@@ -504,7 +504,7 @@ html[data-page-type=video][it-player-size='full_window'] {
 	--it-player-size: 100vh;
 }
 
-/*outdated line?*/ html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[theater]:not([fullscreen]) #player-wide-container, 
+/*outdated line?*/ html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[theater]:not([fullscreen]) #player-wide-container,
 html[data-page-type=video][it-player-size='fit_to_window'] ytd-watch-flexy[full-bleed-player]:not([fullscreen]) #full-bleed-container.ytd-watch-flexy,
 html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy[full-bleed-player]:not([fullscreen]) #full-bleed-container.ytd-watch-flexy {
 	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
@@ -529,7 +529,7 @@ html[data-page-type=video][it-player-size='fit_to_window'] {
 html[data-page-type=video][it-player-size='fit_to_window'] .ytp-fit-cover-video .html5-main-video {
 	object-fit: contain !important;
 }
-	
+
 /*--------------------------------------------------------------
 # ELEMENTS
 --------------------------------------------------------------*/
@@ -600,7 +600,7 @@ html[data-page-type='video'][it-player-size='fit_to_window'] ytd-app:not([player
 html[data-page-type='video'][it-player-size='fit_to_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy[theater]:not([fullscreen]) video {
 	position: static !important;
 /*	width: auto !important;
-	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;  
+	height: calc(var(--it-player-size, 100vh) - var(--it-header-size, 0)) !important;
 	*/
 	max-height: none !important;
 	max-width: 100% !important;

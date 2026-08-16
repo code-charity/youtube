@@ -83,8 +83,8 @@ ImprovedTube.cleanupPlaylistHandlers = function() {
 // Fix #1836: Independent inject function for button
 ImprovedTube.injectReverseButton = function() {
 	if (document.querySelector('#it-reverse-playlist')) return;
-	
-	var container = ImprovedTube.elements.playlist.actions 
+
+	var container = ImprovedTube.elements.playlist.actions
 		|| document.querySelector('ytd-playlist-panel-renderer #playlist-action-menu')
 		|| document.querySelector('.ytd-playlist-panel-renderer #playlist-action-menu')
 		|| document.querySelector('#playlist-action-menu')
@@ -93,9 +93,9 @@ ImprovedTube.injectReverseButton = function() {
 		|| document.querySelector('yt-formatted-string.title.style-scope.ytd-playlist-panel-renderer')?.parentElement
 		|| document.querySelector('ytd-playlist-panel-renderer #top-level-buttons-computed')
 		|| document.querySelector('ytd-playlist-header-renderer #playlist-action-menu');
-	
+
 	if (!container) return;
-	
+
 	var button = document.createElement('button'),
 		svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 		path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -103,7 +103,7 @@ ImprovedTube.injectReverseButton = function() {
 	button.id = 'it-reverse-playlist';
 	button.className = 'style-scope yt-icon-button' + (ImprovedTube.playlistReversed ? ' active' : '');
 	button.title = 'Reverse Playlist';
-	
+
 	button.addEventListener('click', function (event) {
 		event.preventDefault();
 		event.stopPropagation();
@@ -142,10 +142,10 @@ ImprovedTube.playlistReverseUpdate = function () {
 	if (playlist.contents && playlist.contents.length > 1) {
 		var firstItem = playlist.contents[0].playlistPanelVideoRenderer || playlist.contents[0].playlistVideoRenderer;
 		var lastItem = playlist.contents[playlist.contents.length - 1].playlistPanelVideoRenderer || playlist.contents[playlist.contents.length - 1].playlistVideoRenderer;
-		
+
 		var firstIndex = firstItem?.navigationEndpoint?.watchEndpoint?.index ?? 0;
 		var lastIndex = lastItem?.navigationEndpoint?.watchEndpoint?.index ?? 0;
-		
+
 		if (firstIndex > lastIndex) {
 			isCurrentlyReversed = true;
 		}
@@ -195,23 +195,23 @@ ImprovedTube.playlistReverseObserver = null;
 ImprovedTube.playlistReverse = function () {
 	if (this.storage.playlist_reverse === true) {
 		ImprovedTube.injectReverseButton();
-		
+
 		if (ImprovedTube.playlistReversed === true) {
 			ImprovedTube.playlistReverseUpdate();
 		}
 
 		if (!ImprovedTube.playlistReverseObserver) {
-			var targetNode = document.querySelector('ytd-playlist-panel-renderer') 
-				|| document.querySelector('ytd-watch-flexy') 
+			var targetNode = document.querySelector('ytd-playlist-panel-renderer')
+				|| document.querySelector('ytd-watch-flexy')
 				|| document.body;
-			
+
 			if (targetNode) {
 				ImprovedTube.playlistReverseObserver = new MutationObserver(function(mutations) {
 					if (!document.querySelector('#it-reverse-playlist')) {
 						ImprovedTube.injectReverseButton();
 					}
 				});
-				
+
 				ImprovedTube.playlistReverseObserver.observe(targetNode, {
 					childList: true,
 					subtree: true
@@ -427,4 +427,3 @@ ImprovedTube.playlistPopup = function () {
 		} catch (error) { console.error("Error appending playlist button panel:", error);}
 	}
 };
-

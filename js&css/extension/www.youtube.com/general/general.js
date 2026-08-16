@@ -721,12 +721,12 @@ extension.features.thumbnailsQuality = function (anything) {
 
     function handler(thumbnail) {
         if (!thumbnail.dataset.defaultSrc && qualityRegex.test(thumbnail.src)) {
-            
-            var originalSrc = thumbnail.src; 
+
+            var originalSrc = thumbnail.src;
             thumbnail.dataset.defaultSrc = originalSrc;
 
             // Strip query parameters (?sqp=...) which often block maxresdefault upgrades
-            var cleanSrc = originalSrc.split('?')[0]; 
+            var cleanSrc = originalSrc.split('?')[0];
             var newSrc = cleanSrc.replace(qualityRegex, option + '.jpg');
 
             var tempImg = new Image();
@@ -734,7 +734,7 @@ extension.features.thumbnailsQuality = function (anything) {
             tempImg.onload = function () {
                 // Ensure DOM element hasn't been recycled while downloading
                 if (thumbnail.dataset.defaultSrc === originalSrc && this.naturalHeight > 90) {
-                    thumbnail.src = newSrc; 
+                    thumbnail.src = newSrc;
                 }
                 tempImg.onload = null;
                 tempImg.onerror = null;
@@ -793,10 +793,10 @@ extension.features.thumbnailsQuality = function (anything) {
 
                         // If the IDs differ (or aren't standard videos), clear the poisoned state
                         if (storedId !== currentId) {
-                            target.removeAttribute('data-default-src'); 
+                            target.removeAttribute('data-default-src');
                         }
                     }
-                    
+
                     handler(target);
                 }
             }
@@ -820,7 +820,7 @@ extension.features.thumbnailsQuality = function (anything) {
 
         if (this.thumbnailsQuality.observer) {
             this.thumbnailsQuality.observer.disconnect();
-            this.thumbnailsQuality.observer = null; 
+            this.thumbnailsQuality.observer = null;
         }
     }
 };
@@ -886,7 +886,7 @@ if (extension.storage.get('mute_thumbnail_previews') === true) {
 		}
 	}
 
-	
+
 		// Mute any currently existing preview videos
 		mutePreviewVideos(document);
 

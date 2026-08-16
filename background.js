@@ -35,7 +35,7 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 			if (result.description === 'classic_expanded') {
 				chrome.storage.local.set({description: 'expanded'});
 			}
-		});		
+		});
 		// Shortcut renames:
 		chrome.storage.local.get(['shortcut_auto', 'shortcut_144p', 'shortcut_240p', 'shortcut_360p', 'shortcut_480p', 'shortcut_720p', 'shortcut_1080p', 'shortcut_1440p', 'shortcut_2160p', 'shortcut_2880p', 'shortcut_4320p'], function (result) {
 			// validate and move to new name

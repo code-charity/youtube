@@ -3,12 +3,12 @@ FORCED PLAY VIDEO FROM THE BEGINNING
 ------------------------------------------------------------------------------*/
 ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 	const player = this.elements.player,		video = this.elements.video,		paused = video?.paused;
- const t = this.video_url.match(this.regex.video_time)?.[1]; 
+ const t = this.video_url.match(this.regex.video_time)?.[1];
 	if (t) {
 		if (/[#&]stop=|#t=/.test(this.video_url)) return;
 		const r = document.referrer || ""; if (r && !r.includes("youtube.com")) return;
 		const h = history || ""; if (h && (h.length === 1 || !h.state?.endpoint?.watchEndpoint)) return;
-	}	
+	}
 	if (player && video && this.storage.forced_play_video_from_the_beginning && location.pathname == '/watch') {
 		// Skip the seek when the video is effectively already at 0. When
 		// YouTube's own playback starts at 0 (fresh video, never watched), a
@@ -17,7 +17,7 @@ ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 		// timestamp (currentTime > 0), which is the case this setting exists
 		// to override.
 		if (video.currentTime > 1.1) {  // video.currentTime = 0; #262
-			player.seekTo(0); 
+			player.seekTo(0);
 			// restore previous paused state after the seek
 			if (paused) { player.pauseVideo(); }
 		}
@@ -108,10 +108,10 @@ PERMANENT PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
 	var player = this.elements.player; if (!player) return;
-	var video = this.elements.video || player.querySelector('video'); 
-	option = this.storage.player_playback_speed;	
+	var video = this.elements.video || player.querySelector('video');
+	option = this.storage.player_playback_speed;
 	if (this.isset(option) === false) { option = 1; }
-	else if ( option !== 1 ) { 
+	else if ( option !== 1 ) {
 		const speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
 		 if (speed !== option && speed !== 1 && speed !== Number((Math.floor(option / 0.05) * 0.05).toFixed(2)))
 		   { console.log("skipping permanent speed, since speed was manually set differently for this video to:" + video.playbackRate + ", was it?"); return; }
@@ -188,23 +188,23 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 			//DATA  (TO-DO: make the Data available to more/all features? #1452  #1763  (Then can replace ImprovedTube.elements.category === 'music', VideoID is also used elsewhere)
 			DATA = {};
 			defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
-			keywords = false; amountOfSongs = false; 
-			
-			ImprovedTube.fetchDOMData = function () {	
+			keywords = false; amountOfSongs = false;
+
+			ImprovedTube.fetchDOMData = function () {
 				try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false; DATA.title = DATA.name;}
 			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false;
-					try { 
+					try {
 						DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
 						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
 						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
-			 } catch {}} 
-			  
+			 } catch {}}
+
 let tries = 0; const maxTries = 11; let intervalMs = 200;
 const waitForVideoTitle = setInterval(() => { const title = ImprovedTube.videoTitle?.();  tries++;
 
 if (title && title !== 'YouTube') {
     clearInterval(waitForVideoTitle);
-			 DATA.videoID = ImprovedTube.videoId() || false;     // console.log("SPEED: TITLE:" + ImprovedTube.videoTitle() + DATA.title); 
+			 DATA.videoID = ImprovedTube.videoId() || false;     // console.log("SPEED: TITLE:" + ImprovedTube.videoTitle() + DATA.title);
 			 if ( DATA.title && (DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle()) )
 				{ keywords = document.querySelector('meta[name="keywords"]')?.content || ''; ImprovedTube.speedException(); }
 				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
@@ -218,15 +218,15 @@ if (title && title !== 'YouTube') {
 					amountOfSongs = (htmlContent.slice(-80000).match(/},"subtitle":{"simpleText":"(\d*)\s/) || [])[1] || false;
 					if (keywords) { ImprovedTube.speedException(); }
 				} catch (error) { console.error('Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}', error); keywords = ''; }
-				})(); 
+				})();
 				}
 }
 
 if (tries >= maxTries) {  clearInterval(waitForVideoTitle); } intervalMs *= 1.11; }, intervalMs);
-window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});		 					
+window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});
 			};
 			ImprovedTube.fetchDOMData();
-/*	
+/*
 			if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData(); }
 			else {
 				//Invidious instances. Should be updated automatically!...
@@ -247,11 +247,11 @@ window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitFo
 					else { ImprovedTube.fetchDOMData();} }
 				})();
 			}
-*/		
+*/
 		}	// else { }
 	}
 }
-} 
+}
 /*------------------------------------------------------------------------------
 SUBTITLES
 ------------------------------------------------------------------------------*/
@@ -573,7 +573,7 @@ ImprovedTube.playerQualityFullScreen = function () {
 	setTimeout(applyQuality, 3000);
    }
 
-  
+
 /*------------------------------------------------------------------------------
 BATTERY FEATURES;   PLAYER QUALITY BASED ON POWER STATUS
 ------------------------------------------------------------------------------*/
@@ -770,12 +770,12 @@ ImprovedTube.copyTranscript = function (svg, button) {
 				}, 1000);
 				return;
 			}
-		} 
-		var transcriptButtonSelector = 'button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],' 
-										+ 'button[aria-label*="guion"], button[aria-label*="naskah"], button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="نص"], button[aria-label*="نقل"],' 
+		}
+		var transcriptButtonSelector = 'button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],'
+										+ 'button[aria-label*="guion"], button[aria-label*="naskah"], button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="نص"], button[aria-label*="نقل"],'
 										+ 'button[aria-label*="प्रतिलि"], button[aria-label*="प्रत"], button[aria-label*="লিপি"], button[aria-label*="bản ghi"], button[aria-label*="steno"],'
 										+ 'button[aria-label*="γραφ"], button[aria-label*="přep"], button[aria-label*="átir"], button[aria-label*="avsk"]';
-		var transcriptButton = document.querySelector(transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');							 
+		var transcriptButton = document.querySelector(transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');
 
 		if (!transcriptButton) {
 			var moreActionsButton = document.querySelector('#description ytd-text-inline-expander #expand, #description tp-yt-paper-button#expand');
@@ -993,13 +993,13 @@ ImprovedTube.playerRotateButton = function () {
 				if (rotate == 90 || rotate == 270) {
 					var is_vertical_video = video.videoHeight > video.videoWidth;
 										if (
-										//		( this.storage.player_cinema_mode_button === true ||  this.storage.player_auto_hide_cinema_mode_when_paused === true ||  this.storage.player_auto_cinema_mode === true 	) 
-											//  && document.querySelector('#overlay_cinema') 
+										//		( this.storage.player_cinema_mode_button === true ||  this.storage.player_auto_hide_cinema_mode_when_paused === true ||  this.storage.player_auto_cinema_mode === true 	)
+											//  && document.querySelector('#overlay_cinema')
 											document.querySelector("ytd-watch-flexy[theater]") && document.querySelector('ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen])')
 											) { transform += ' scale(' + (is_vertical_video ? video.clientWidth : video.clientHeight) / (is_vertical_video ? video.clientHeight : video.clientWidth) + ')';
 													} else {
 											transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
-										}					
+										}
 				}
 
 				if (!ImprovedTube.elements.buttons['it-rotate-styles']) {
@@ -1109,7 +1109,7 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 			var step = Number(ImprovedTube.storage.shortcuts_playback_speed_step) || 0.1;
 			var currentSpeed = ImprovedTube.playbackSpeed();
 			var newSpeed;
-			
+
 			if (e.deltaY < 0) {
 				// Scroll up: increase speed
 				newSpeed = Math.min(currentSpeed + step, 16);
@@ -1117,7 +1117,7 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 				// Scroll down: decrease speed
 				newSpeed = Math.max(currentSpeed - step, 0.0625);
 			}
-			
+
 			ImprovedTube.playbackSpeed(newSpeed);
 			ImprovedTube.showStatus(newSpeed.toFixed(2) + 'x');
 		});
@@ -1844,8 +1844,8 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 				if (
 					(/^[a-z0-9]$/i.test(e.key) || e.key === "Backspace") &&
 				!(e.ctrlKey && (e.key === "c" || e.key === "x" || e.key === "a")) &&
-				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV" 
-				 ||	((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable) 
+				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV"
+				 ||	((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable)
 				)) {
 				// Pause the video
 				// Check if player is paused
@@ -1943,14 +1943,14 @@ ImprovedTube.playerRewindAndForwardButtons = function(){
 	 path4.setAttribute("fill", "#ffffff");
 	 svgForward.appendChild(path3);
 	 svgForward.appendChild(path4);
-	
-	 
+
+
 	 this.createPlayerButton({
 	  id: 'it-forward-player-button',
 	  opacity: 0.85,
 	  position: "right",
 	  child: svgForward,
-   
+
 	  onclick: function () {
 	   ImprovedTube.elements.player.seekTo(ImprovedTube.elements.player.getCurrentTime() + 5);
 	  },
@@ -1961,7 +1961,7 @@ ImprovedTube.playerRewindAndForwardButtons = function(){
 	  opacity: 0.85,
 	  position: "right",
 	  child: svgBackward,
-   
+
 	  onclick: function () {
 	   ImprovedTube.elements.player.seekTo(ImprovedTube.elements.player.getCurrentTime() - 5);
 	  },
@@ -1976,7 +1976,7 @@ Increase and Decrease Playback Speed Buttons
 ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
     if (this.storage.player_increase_decrease_speed_buttons === true) {
         const svgNamespace = "http://www.w3.org/2000/svg";
-        
+
         const svgDecrease = document.createElementNS(svgNamespace, "svg");
         const path1 = document.createElementNS(svgNamespace, "path");
         svgDecrease.setAttribute("class", "icon");
@@ -1995,7 +1995,7 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
                 M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5
                 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z`);
         path1.setAttribute("fill", "#ffffff");
-        
+
         path1.setAttribute("transform", "translate(520, 0)");
 
         svgDecrease.appendChild(path1);
@@ -2010,11 +2010,11 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
         svg1x.setAttribute("p-id", "1636");
 
         const text1 = document.createElementNS(svgNamespace, "text");
-        text1.setAttribute("x", "512"); 
-        text1.setAttribute("y", "512"); 
+        text1.setAttribute("x", "512");
+        text1.setAttribute("y", "512");
 
         text1.setAttribute("fill", "#ffffff");
-        text1.setAttribute("font-size", "550"); 
+        text1.setAttribute("font-size", "550");
 
         text1.setAttribute("font-weight", "bold");
         text1.setAttribute("font-family", "Arial, sans-serif");
@@ -2033,9 +2033,9 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
         svgIncrease.setAttribute("height", "90%");
         svgIncrease.style.display = "block";
         svgIncrease.style.margin = "0 auto";
-        
+
         svgDecrease.style.transform = "scaleX(-1)";
-        
+
         path2.setAttribute("d", `M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5
                 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z
                 M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2
@@ -2880,92 +2880,92 @@ ImprovedTube.selectDubbedLanguage = function () {
 # JUMP TO THE NEXT KEY SCENE
 ------------------------------------------------------------------------------*/
 ImprovedTube.jumpToKeyScene = function () {
-	ImprovedTube.mostReplayed = function () {	
+	ImprovedTube.mostReplayed = function () {
 	const player = document.querySelector('video');
 
 	const data = extractYtInitialData();
-	if (!data) 
-		return console.warn("Failed to extract ytInitialData.");  
-		
+	if (!data)
+		return console.warn("Failed to extract ytInitialData.");
+
 	const markers = getMostReplayedMarkers(data);
-	if (!markers.length) 
+	if (!markers.length)
 		return console.warn("No 'Most Replayed' markers found.");
-	
+
 	const currentMillis = player.currentTime * 1000;
 	const sortedMarkers = markers.slice().sort((a, b) => a.decorationTimeMillis - b.decorationTimeMillis);
 	const nextMarker = sortedMarkers.find(m => m.decorationTimeMillis > currentMillis) || sortedMarkers[0]; // fallback to first if none ahead
 	const targetSeconds = nextMarker.decorationTimeMillis / 1000;
-	
+
 	player.currentTime = targetSeconds;
 	player.play();
-	console.log(`Jumped to Most Replayed @ ${Math.floor(targetSeconds / 60)}:${Math.floor(targetSeconds % 60).toString().padStart(2, "0")}`);	
+	console.log(`Jumped to Most Replayed @ ${Math.floor(targetSeconds / 60)}:${Math.floor(targetSeconds % 60).toString().padStart(2, "0")}`);
 
-	function extractYtInitialData() {		
+	function extractYtInitialData() {
 		const scriptTags = document.querySelectorAll('script');
 
-		for (let i = 0; i < scriptTags.length; i++) {			
+		for (let i = 0; i < scriptTags.length; i++) {
 			if (DATA.ytInitialData) { var ytIData = DATA.ytInitialData; }
 			else {
 			const scriptContent = scriptTags[i].textContent;
 			var ytIData = scriptContent.match(/var ytInitialData = ({.*?});/s);
 			}
-			
+
 			if (ytIData) {
 				try {
 					return JSON.parse(ytIData[1]);
 				} catch (e) {
 					console.warn("Failed to parse ytInitialData JSON", e);
 					return null;
-				}	
+				}
 			}
 		}
 
 		return null;
 	}
 
-	function getMostReplayedMarkers(parsedJson) {    
+	function getMostReplayedMarkers(parsedJson) {
 		const decorations = parsedJson?.['frameworkUpdates']?.['entityBatchUpdate']?.['mutations']?.[0]
 			?.['payload']?.['macroMarkersListEntity']?.['markersList']?.['markersDecoration']?.['timedMarkerDecorations'];
 		return decorations;
 	}
 	}
-	
+
 		DATA = {};
-			ImprovedTube.fetchDOMData2 = function () {	
+			ImprovedTube.fetchDOMData2 = function () {
 				try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false; DATA.title = DATA.name;}
 			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false;
-					try { 
+					try {
 						DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
 						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
 						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
-			 } catch {}} 
-			  
+			 } catch {}}
+
 let tries = 0; const maxTries = 3; let intervalMs = 25;
 const waitForVideoTitle = setInterval(() => { const title = ImprovedTube.videoTitle?.();  tries++;
 if (title && title !== 'YouTube') {
     clearInterval(waitForVideoTitle);
-			 DATA.videoID = ImprovedTube.videoId() || false;  
-			 console.log("MOST REPLAYED: TITLE:" + ImprovedTube.videoTitle() + DATA.title); 
+			 DATA.videoID = ImprovedTube.videoId() || false;
+			 console.log("MOST REPLAYED: TITLE:" + ImprovedTube.videoTitle() + DATA.title);
 			 if ( (DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle())
-				   && ((history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint)) 
+				   && ((history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint))
 				   { ImprovedTube.mostReplayed(); }
 				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
 					console.log("loading the html source:" + `https://www.youtube.com/watch?v=${DATA.videoID}`);
 					const htmlContent = await response.text();
 					DATA.ytInitialData = htmlContent.match(/var ytInitialData = ({.*?});/s);
 					if (DATA.ytInitialData) { ImprovedTube.mostReplayed(); }
-				} catch (error) { 
+				} catch (error) {
 const o = Object.assign(document.createElement('div'), { innerText: 'too few views' });
 const keySceneButton = document.querySelector('button[data-tooltip="Key Scene"]');
-		if (keySceneButton) {  keySceneButton.style.transition = 'opacity 0.4s';  keySceneButton.style.opacity = '0.3'; 
+		if (keySceneButton) {  keySceneButton.style.transition = 'opacity 0.4s';  keySceneButton.style.opacity = '0.3';
 		setTimeout(() => {    keySceneButton.style.opacity = '0.8';    }, 5000);}
 		console.error(`Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}`, error);  }
-				})(); 
+				})();
 				}
 }
 
 if (tries >= maxTries) {  clearInterval(waitForVideoTitle); } intervalMs *= 1.11; }, intervalMs);
-window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});		 					
+window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});
 			};
 			ImprovedTube.fetchDOMData2();
 
@@ -2983,12 +2983,12 @@ ImprovedTube.redirectShortsToWatch = function () {
     }
     const currentPath = window.location.pathname;
     if (currentPath.startsWith('/shorts/')) {
-        const videoId = currentPath.substring('/shorts/'.length); 
+        const videoId = currentPath.substring('/shorts/'.length);
         if (videoId) {
             const newUrl = `${window.location.origin}/watch?v=${videoId}${window.location.search}`;
             if (window.location.href !== newUrl) {
                 console.log(`ImprovedTube: Redirecting Shorts to Watch: ${window.location.href} -> ${newUrl}`);
-                window.location.replace(newUrl); 
+                window.location.replace(newUrl);
             }
         }
     }
@@ -3011,38 +3011,38 @@ ImprovedTube.addYouTubeReturnButton = function () {
         returnButton.className = 'ytp-button it-youtube-return-btn';
         returnButton.title = 'Return to YouTube';
         returnButton.setAttribute('aria-label', 'Return to YouTube');
-        
+
         // Create YouTube logo SVG
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('viewBox', '0 0 24 24');
         svg.setAttribute('width', '24');
         svg.setAttribute('height', '24');
         svg.style.fill = 'white';
-        
+
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         path.setAttribute('d', 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z');
-        
+
         svg.appendChild(path);
         returnButton.appendChild(svg);
-        
+
         // Add click handler
         returnButton.addEventListener('click', function(e) {
 			history.back();
             e.preventDefault();
-            e.stopPropagation();			
+            e.stopPropagation();
         });
-        
+
         // Insert button into player controls
         const insertButton = () => {
             const player = document.querySelector('.html5-video-player');
             const titleContainer = document.querySelector('.ytp-title-text');
-            
+
             if (player && titleContainer && player.classList.contains('ytp-fullscreen')) {
                 // Position button in top-left corner of fullscreen player
                 titleContainer.parentNode.insertBefore(returnButton, titleContainer);
             }
         };
-        
+
         // Insert button when entering fullscreen
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
@@ -3054,12 +3054,12 @@ ImprovedTube.addYouTubeReturnButton = function () {
                 }
             });
         });
-        
+
         const player = document.querySelector('.html5-video-player');
         if (player) {
             observer.observe(player, { attributes: true, attributeFilter: ['class'] });
         }
-        
+
         // Also check if already in fullscreen
         if (player && player.classList.contains('ytp-fullscreen')) {
             insertButton();
@@ -3075,13 +3075,13 @@ ImprovedTube.shortsAutoScroll = function () {
         if (!ImprovedTube.shortsAutoScrollInterval) {
             ImprovedTube.shortsAutoScrollInterval = setInterval(() => {
                 if (!location.pathname.startsWith('/shorts/')) return;
-                
+
                 const activeRenderer = document.querySelector('ytd-reel-video-renderer[is-active]');
                 const video = activeRenderer ? activeRenderer.querySelector('video') : null;
 
                 if (video && !video.dataset.itShortsScrollAttached) {
                     video.dataset.itShortsScrollAttached = 'true';
-                    
+
                     const timeupdateHandler = function () {
                         if (!ImprovedTube.storage.shorts_auto_scroll) {
                             video.removeEventListener('timeupdate', timeupdateHandler);
@@ -3093,7 +3093,7 @@ ImprovedTube.shortsAutoScroll = function () {
                         // Get fresh references to avoid stale DOM elements
                         const currentActiveRenderer = document.querySelector('ytd-reel-video-renderer[is-active]');
                         const isVideoStillActive = currentActiveRenderer && currentActiveRenderer.contains(this);
-                        
+
                         if (!isVideoStillActive) {
                             this.removeEventListener('timeupdate', timeupdateHandler);
                             delete this.dataset.itShortsScrollAttached;
@@ -3103,10 +3103,10 @@ ImprovedTube.shortsAutoScroll = function () {
                         if (this.duration && this.currentTime >= this.duration - 0.25) {
                             try {
                                 // Find next button with fresh reference
-                                const nextButton = currentActiveRenderer.querySelector('#navigation-button-down button') 
+                                const nextButton = currentActiveRenderer.querySelector('#navigation-button-down button')
                                                 || document.querySelector('#navigation-button-down button')
                                                 || document.querySelector('button[aria-label="Next video"]');
-                                
+
                                 if (nextButton) {
                                     this.pause();
                                     nextButton.click();
@@ -3119,7 +3119,7 @@ ImprovedTube.shortsAutoScroll = function () {
                             }
                         }
                     };
-                    
+
                     video.addEventListener('timeupdate', timeupdateHandler);
                 }
             }, 1000);
@@ -3129,7 +3129,7 @@ ImprovedTube.shortsAutoScroll = function () {
             clearInterval(ImprovedTube.shortsAutoScrollInterval);
             ImprovedTube.shortsAutoScrollInterval = null;
         }
-        
+
         // Clean up all existing event listeners when disabled
         document.querySelectorAll('video[data-it-shorts-scroll-attached]').forEach(video => {
             delete video.dataset.itShortsScrollAttached;
@@ -3161,10 +3161,10 @@ ImprovedTube.heatmap = {
         this.data = null;
         this.segments = [];
         this.rawMarkersCache = [];
-        
+
         this.injectUI();
         this.getData();
-        
+
         // Keeps the Whitelist shield accurately updated even if channel changes
         if (this.uiInterval) clearInterval(this.uiInterval);
         this.uiInterval = setInterval(() => this.updateWhitelistUI(), 1000);
@@ -3223,17 +3223,17 @@ ImprovedTube.heatmap = {
             this.indicatorElement = document.createElement('button');
             this.indicatorElement.id = 'it-smart-speed-indicator';
             this.indicatorElement.className = 'ytp-button';
-            
+
             // Styled as a native YouTube text button
             this.indicatorElement.style.cssText = 'width: auto; padding: 0 8px; font-weight: bold; font-size: 13px; color: white; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: opacity 0.2s;';
-            
+
             if (ImprovedTube.storage.smart_speed_indicator === false) {
                 this.indicatorElement.style.display = 'none';
             }
 
             this.indicatorElement.innerText = "⚡ 1.0x";
             this.indicatorElement.title = "Toggle Smart Speed";
-            
+
             this.indicatorElement.addEventListener('click', () => {
                 this.sessionDisabled = !this.sessionDisabled;
                 console.log('[ImprovedTube] Smart Speed: Toggled session disabled state:', this.sessionDisabled);
@@ -3266,24 +3266,24 @@ ImprovedTube.heatmap = {
             wlBtn.className = 'ytp-button';
             wlBtn.style.cssText = 'font-size: 16px; font-weight: bold; color: white; display: inline-flex; align-items: center; justify-content: center; transition: 0.2s;';
             wlBtn.innerText = '🛡️';
-            
+
             wlBtn.onclick = () => {
                 const channelNameElement = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
                 const channelName = channelNameElement ? channelNameElement.textContent.trim() : "Unknown";
-                
+
                 if (channelName === "Unknown" || !channelName) {
                     this.showToast("Channel name not loaded yet. Try again.");
                     return;
                 }
-                
+
                 let profiles = ImprovedTube.storage.smart_speed_profiles || {};
                 if (!profiles[channelName]) {
                     profiles[channelName] = { max: 2.0, min: 1.0, sens: 0.5, whitelist: false };
                 }
-                
+
                 profiles[channelName].whitelist = !profiles[channelName].whitelist;
                 ImprovedTube.messages.send({ action: 'storage-set', key: 'smart_speed_profiles', value: profiles });
-                
+
                 if (profiles[channelName].whitelist) {
                     this.showToast(`🛡️ Whitelisted ${channelName} (Speedup Disabled)`);
                 } else {
@@ -3291,7 +3291,7 @@ ImprovedTube.heatmap = {
                 }
 
                 console.log(`[ImprovedTube] Smart Speed: Toggled whitelist for ${channelName} to ${profiles[channelName].whitelist}`);
-                
+
                 this.updateWhitelistUI();
                 if (this.rawMarkersCache && this.rawMarkersCache.length > 0) {
                     this.processSegments(this.rawMarkersCache);
@@ -3322,7 +3322,7 @@ ImprovedTube.heatmap = {
             durBtn.style.cssText = 'font-size: 16px; font-weight: bold; color: white; display: inline-flex; align-items: center; justify-content: center;';
             durBtn.innerText = '⏱️';
             durBtn.title = "Set Target Duration for this video";
-            
+
             let modal = document.createElement('div');
             modal.id = 'it-smart-duration-modal';
             Object.assign(modal.style, {
@@ -3330,21 +3330,21 @@ ImprovedTube.heatmap = {
                 padding: '10px', borderRadius: '8px', display: 'none', flexDirection: 'column',
                 gap: '8px', zIndex: 9999, border: '1px solid #444', minWidth: '180px'
             });
-            
+
             let mTitle = document.createElement('div');
             mTitle.style.cssText = 'color: white; font-size: 12px; font-weight: bold;';
             mTitle.innerText = 'Target Duration';
-            
+
             let mInput = document.createElement('input');
             mInput.type = 'number';
             mInput.id = 'it-smart-duration-input';
             mInput.placeholder = 'Minutes';
             mInput.style.cssText = 'width: 100%; padding: 4px; background: #333; color: white; border: none; border-radius: 4px;';
-            
+
             let mApply = document.createElement('button');
             mApply.style.cssText = 'background: #3ea6ff; color: white; border: none; padding: 5px; border-radius: 4px; cursor: pointer;';
             mApply.innerText = 'Apply Math Algorithm';
-            
+
             let mMsg = document.createElement('div');
             mMsg.id = 'it-smart-duration-msg';
             mMsg.style.cssText = 'color: #ff4e4e; font-size: 11px;';
@@ -3361,11 +3361,11 @@ ImprovedTube.heatmap = {
             mApply.onclick = () => {
                 let inputMinutes = Number(mInput.value);
                 if (!inputMinutes) return;
-                
+
                 let targetSec = inputMinutes * 60;
                 let baseMax = Number(ImprovedTube.storage.smart_speed_max) || 2.0;
                 let duration = document.querySelector('video')?.duration || 0;
-                let absoluteMinSec = duration / baseMax; 
+                let absoluteMinSec = duration / baseMax;
 
                 if (targetSec < absoluteMinSec) {
                     mMsg.style.color = '#ff4e4e';
@@ -3388,18 +3388,18 @@ ImprovedTube.heatmap = {
     updateWhitelistUI: function() {
         const channelNameElement = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
         const channelName = channelNameElement ? channelNameElement.textContent.trim() : "Unknown";
-        
+
         let profiles = ImprovedTube.storage.smart_speed_profiles || {};
         const genre = document.querySelector('meta[itemprop="genre"]')?.content || "Unknown";
-        
+
         let isWhitelisted = (profiles[channelName] && profiles[channelName].whitelist) || (profiles[genre] && profiles[genre].whitelist);
-        
+
         let btn = document.getElementById('it-smart-whitelist-btn');
         if (btn) {
             if (isWhitelisted) {
                 btn.style.opacity = '1';
                 btn.title = `Remove ${channelName} from Whitelist`;
-                btn.style.textShadow = '0 0 8px #2ba640'; 
+                btn.style.textShadow = '0 0 8px #2ba640';
             } else {
                 btn.style.opacity = '0.5';
                 btn.title = `Add ${channelName} to Whitelist`;
@@ -3588,7 +3588,7 @@ ImprovedTube.heatmap = {
 
         let base = Number(ImprovedTube.storage.player_custom_playback_speed) || 1.0;
         const currentSec = video.currentTime;
-        
+
         let currentIndex = this.segments.findIndex(s => currentSec >= s.start && currentSec < s.end);
         if (currentIndex === -1) return;
 
@@ -3604,7 +3604,7 @@ ImprovedTube.heatmap = {
         }
 
         let finalSpeed = base * targetSpeedMultiplier;
-        
+
         if (Math.abs(video.playbackRate - finalSpeed) > 0.05) {
             video.playbackRate = finalSpeed;
         }
@@ -3617,10 +3617,10 @@ ImprovedTube.heatmap = {
     jumpToNextPeak: function() {
         const video = document.querySelector('video');
         if (!video || this.segments.length === 0) return;
-        
+
         let minSpeed = Number(ImprovedTube.storage.smart_speed_min) || 1.0;
         let peakSegment = this.segments.find(s => s.start > video.currentTime && s.speed <= (minSpeed + 0.1));
-        
+
         if (peakSegment) {
             console.log(`[ImprovedTube] Smart Speed: Skipping to peak at ${peakSegment.start}s`);
             video.currentTime = Math.max(0, peakSegment.start - 2.0);

@@ -167,7 +167,7 @@ ImprovedTube.blocklistChannel = function (node) {
 	}
 };
 
-ImprovedTube.handleDislikeButton = function() {	
+ImprovedTube.handleDislikeButton = function() {
 	// Wait for the dislike button to exist. YouTube may create/remove it dynamically.
 	const findButton = () => document.querySelector('dislike-button-view-model button');
 

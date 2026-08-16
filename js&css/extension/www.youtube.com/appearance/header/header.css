@@ -21,7 +21,7 @@ html[it-header-transparent-alternative=true][data-scroll-direction=down] #countr
 /* Hide the filter chips*/
 html[it-header-transparent-alternative=true][data-scroll-direction=down] ytd-feed-filter-chip-bar-renderer {display: none !important;}
 /* Define opacity for the icons */
-html[it-header-transparent-alternative=true] ytd-masthead #end {opacity: 1 !important; transition: opacity 2s ease;}	
+html[it-header-transparent-alternative=true] ytd-masthead #end {opacity: 1 !important; transition: opacity 2s ease;}
 /* Show the voice search button when scrolled to the top */
 html[it-header-transparent-alternative=true] #voice-search-button {display: block !important; background-color: black !important;}
 /* TURN TOP BAR SEARCH BUTTONS BARELY VISIBLE */

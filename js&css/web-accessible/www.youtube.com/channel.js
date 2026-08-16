@@ -29,21 +29,21 @@ function itIsShorts(node) {
 	const a = node.querySelector('a#thumbnail, a.yt-simple-endpoint[href]');
 	const href = (a && a.getAttribute('href')) || '';
 	if (href.startsWith('/shorts/') || /\/shorts\//.test(href)) return true;
-  
+
 	const tn = (node.tagName || '').toLowerCase();
 	if (tn === 'ytd-reel-video-renderer' || tn.includes('reel')) return true;
-  
+
 	const badgeText = Array.from(
 	  node.querySelectorAll('ytd-badge-supported-renderer, .badge, .shorts-badge')
 	).map(b => (b.textContent || '').toLowerCase()).join(' ');
 	if (badgeText.includes('shorts')) return true;
-  
+
 	const dataHref = (a && a.dataset && a.dataset.href) || '';
 	if (/\/shorts\//.test(dataHref)) return true;
-  
+
 	return false;
   }
-  
+
   function itCollectVideoIds(opts) {
 	const excludeShorts = !!(opts && opts.excludeShorts);
 	const limit = (opts && opts.limit) || 50;
@@ -55,13 +55,13 @@ function itIsShorts(node) {
 	];
 	const nodes = document.querySelectorAll(selectors.join(','));
 	const ids = [];
-  
+
 	for (const node of nodes) {
 	  if (excludeShorts && itIsShorts(node)) continue;
-  
+
 	  const a = node.querySelector('a#thumbnail, a.yt-simple-endpoint[href*="/watch"]');
 	  if (!a) continue;
-  
+
 	  let id = '';
 	  try {
 		const url = new URL(a.href, location.origin);
@@ -71,7 +71,7 @@ function itIsShorts(node) {
 		const m = href.match(/[?&]v=([^&]+)/);
 		id = (m && m[1]) || '';
 	  }
-  
+
 	  if (id) ids.push(id);
 	  if (ids.length >= limit) break;
 	}
@@ -105,18 +105,18 @@ ImprovedTube.channelPlayAllButton = function () {
 
 			button.addEventListener('click', (e) => {
 				const isMetaOpen = e.metaKey || e.ctrlKey || e.button === 1;
-				if (isMetaOpen) return; 
+				if (isMetaOpen) return;
 				const defaultFlag = true;
 				const go = (excludeShorts) => {
 				if (!excludeShorts) return;
-			
+
 				const ids = itCollectVideoIds({ excludeShorts: true, limit: 50 });
 				if (ids.length) {
 					e.preventDefault();
 					location.href = '/watch_videos?video_ids=' + ids.join(',');
 				}
 				};
-			
+
 				if (this?.storage && Object.prototype.hasOwnProperty.call(this.storage, 'exclude_shorts_in_play_all')) {
 					go(!!this.storage.exclude_shorts_in_play_all);
 				  } else if (chrome?.storage?.sync) {
@@ -135,7 +135,7 @@ ImprovedTube.channelPlayAllButton = function () {
 				go(defaultFlag);
 				}
 			});
-  
+
 		} else {
 			document.querySelector('.it-play-all-button')?.remove();
 		}
