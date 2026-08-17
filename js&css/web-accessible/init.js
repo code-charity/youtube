@@ -209,6 +209,12 @@ ImprovedTube.init = function () {
 			ImprovedTube.stop_shorts_autoloop();
 		}
 		ImprovedTube.shortsAutoScroll();
+		if (typeof ImprovedTube.detectAiContent === 'function') {
+			ImprovedTube.detectAiContent();
+		}
+	}
+	if (typeof ImprovedTube.aiContentInit === 'function') {
+		ImprovedTube.aiContentInit();
 	}
 	if (window.matchMedia) {
 		document.documentElement.dataset.systemColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -271,6 +277,10 @@ document.addEventListener('yt-navigate-finish', function () {
 				ImprovedTube.rydInitShortsObserver();
 			}, 500);
 		} catch (e) { console.error('[RYD] error', e); }
+	}
+
+	if (typeof ImprovedTube.aiContentInit === 'function') {
+		ImprovedTube.aiContentInit();
 	}
 
 	if (ImprovedTube.elements.player && ImprovedTube.elements.player.setPlaybackRate) {

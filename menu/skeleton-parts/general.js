@@ -106,6 +106,46 @@ extension.skeleton.main.layers.section.general = {
 					text: 'hideAISummary',
 					id: 'hide-ai-summary'
 				},
+				hide_ai_content: {
+					component: 'switch',
+					text: 'hideAIContent',
+					id: 'hide-ai-content'
+				},
+				delete_ai_content: {
+					component: 'button',
+					text: 'deleteAIContent',
+					style: {
+						justifyContent: 'space-between'
+					},
+					on: {
+						click: {
+							component: 'modal',
+							variant: 'confirm',
+							content: 'thisWillRemoveAllAIContent',
+							buttons: {
+								cancel: {
+									component: 'button',
+									text: 'cancel',
+									on: {
+										click: function () {
+											this.modalProvider.close();
+										}
+									}
+								},
+								reset: {
+									component: 'button',
+									text: 'accept',
+									on: {
+										click: function () {
+											satus.storage.remove('ai_content');
+											this.parentNode.parentNode.parentNode.close();
+										}
+									}
+								}
+							}
+						}
+					}
+				},
 				remove_subscriptions_most_relevant: {
 					component: 'switch',
 					text: 'removeSubscriptionsMostRelevant',

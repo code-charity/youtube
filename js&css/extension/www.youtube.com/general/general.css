@@ -116,6 +116,20 @@ html[it-hide-thumbnail-icon='true'] :is(ytd-video-renderer,ytd-promoted-video-re
 # HIDE AI SUMMARY
 ------------------------------------------------------------------------------*/
 html[it-hide-ai-summary='true'] ytd-expandable-metadata-renderer[has-video-summary],
+/*------------------------------------------------------------------------------
+# HIDE AI-LABELED VIDEOS (remembered IDs + visible badges)
+------------------------------------------------------------------------------*/
+html[it-hide-ai-content='true'] .it-ai-content,
+html[it-hide-ai-content='true'] ytd-rich-item-renderer:has([aria-label*="Made with AI" i]),
+html[it-hide-ai-content='true'] ytd-rich-item-renderer:has([aria-label*="Altered or synthetic" i]),
+html[it-hide-ai-content='true'] ytd-video-renderer:has([aria-label*="Made with AI" i]),
+html[it-hide-ai-content='true'] ytd-video-renderer:has([aria-label*="Altered or synthetic" i]),
+html[it-hide-ai-content='true'] ytd-compact-video-renderer:has([aria-label*="Made with AI" i]),
+html[it-hide-ai-content='true'] ytd-compact-video-renderer:has([aria-label*="Altered or synthetic" i]),
+html[it-hide-ai-content='true'] ytd-grid-video-renderer:has([aria-label*="Made with AI" i]),
+html[it-hide-ai-content='true'] yt-lockup-view-model:has([aria-label*="Made with AI" i]),
+html[it-hide-ai-content='true'] yt-lockup-view-model:has([aria-label*="Altered or synthetic" i]),
+html[it-hide-ai-content='true'] ytd-reel-item-renderer:has([aria-label*="Made with AI" i]),
 /*--------------------------------------------------------------
 # HIDE DOTS ON THUMBNAILS
 --------------------------------------------------------------*/
