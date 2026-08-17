@@ -807,3 +807,11 @@ html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
     -moz-background-size: contain !important;
     background-color: #000 !important;
 }
+
+/*--------------------------------------------------------------
+# VIDEO FILTERS BUTTON
+--------------------------------------------------------------*/
+#it-video-filters-button.it-video-filters-active svg {
+    fill: #3ea6ff !important;
+    filter: drop-shadow(0 0 4px rgba(62, 166, 255, 0.4));
+}

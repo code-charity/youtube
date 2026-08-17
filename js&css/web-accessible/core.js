@@ -243,6 +243,27 @@ document.addEventListener('it-message-from-extension', function () {
 					ImprovedTube.blocklistInit();
 					break
 
+				case 'videoFiltersActivate':
+				case 'videoFiltersPreset':
+				case 'videoFilterBrightness':
+				case 'videoFilterContrast':
+				case 'videoFilterSaturation':
+				case 'videoFilterHue':
+				case 'videoFilterSharpness':
+				case 'videoFilterGamma':
+					if (typeof ImprovedTube.videoFilters === 'function') {
+						ImprovedTube.videoFilters();
+					}
+					break
+
+				case 'playerVideoFiltersButton':
+					if (ImprovedTube.storage.player_video_filters_button === false) {
+						ImprovedTube.elements.buttons['it-video-filters-button']?.remove();
+					} else if (typeof ImprovedTube.playerVideoFiltersButton === 'function') {
+						ImprovedTube.playerVideoFiltersButton();
+					}
+					break
+
 				case 'playerPlaybackSpeed':
 				case 'playerForcedPlaybackSpeed':
 					if (ImprovedTube.storage.player_forced_playback_speed === true && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {

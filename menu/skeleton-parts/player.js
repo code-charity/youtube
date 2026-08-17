@@ -111,6 +111,106 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'ambientLighting',
 			value: true
 		},
+		video_filters: {
+			component: 'button',
+			text: 'videoFilters',
+			on: {
+				click: {
+					component: 'section',
+					variant: 'card',
+					video_filters_activate: {
+						component: 'switch',
+						text: 'activate',
+						storage: 'video_filters_activate',
+						value: false
+					},
+					video_filters_preset: {
+						component: 'select',
+						text: 'preset',
+						storage: 'video_filters_preset',
+						options: [{
+							text: 'normal',
+							value: 'normal'
+						}, {
+							text: 'vivid',
+							value: 'vivid'
+						}, {
+							text: 'cinema',
+							value: 'cinema'
+						}, {
+							text: 'warm',
+							value: 'warm'
+						}, {
+							text: 'cool',
+							value: 'cool'
+						}, {
+							text: 'custom',
+							value: 'custom'
+						}]
+					},
+					video_filter_brightness: {
+						component: 'slider',
+						variant: 'row',
+						text: 'brightness',
+						storage: 'video_filter_brightness',
+						min: 50,
+						max: 200,
+						step: 5,
+						value: 100
+					},
+					video_filter_contrast: {
+						component: 'slider',
+						variant: 'row',
+						text: 'contrast',
+						storage: 'video_filter_contrast',
+						min: 50,
+						max: 200,
+						step: 5,
+						value: 100
+					},
+					video_filter_saturation: {
+						component: 'slider',
+						variant: 'row',
+						text: 'saturation',
+						storage: 'video_filter_saturation',
+						min: 0,
+						max: 300,
+						step: 10,
+						value: 100
+					},
+					video_filter_hue: {
+						component: 'slider',
+						variant: 'row',
+						text: 'hue',
+						storage: 'video_filter_hue',
+						min: -180,
+						max: 180,
+						step: 5,
+						value: 0
+					},
+					video_filter_sharpness: {
+						component: 'slider',
+						variant: 'row',
+						text: 'sharpness',
+						storage: 'video_filter_sharpness',
+						min: 0,
+						max: 5,
+						step: 0.5,
+						value: 0
+					},
+					video_filter_gamma: {
+						component: 'slider',
+						variant: 'row',
+						text: 'gamma',
+						storage: 'video_filter_gamma',
+						min: 0.5,
+						max: 2.5,
+						step: 0.1,
+						value: 1
+					}
+				}
+			}
+		},
 		player_autoPip: {
 			component: 'switch',
 			text: 'Auto_PiP_picture_in_picture',
@@ -1648,6 +1748,13 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'screenshot',
 			id: 'player_screenshot_button'
+		},
+		player_video_filters_button: {
+			component: 'switch',
+			text: 'videoFiltersButton',
+			id: 'player_video_filters_button',
+			storage: 'player_video_filters_button',
+			value: true
 		},
 		embed_subtitle: {
 			component: 'switch',

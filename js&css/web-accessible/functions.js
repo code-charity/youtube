@@ -474,6 +474,7 @@ ImprovedTube.initPlayer = function () {
 
 		ImprovedTube.playerPlaybackSpeedButton();
 		ImprovedTube.playerScreenshotButton();
+		ImprovedTube.playerVideoFiltersButton();
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();
 		ImprovedTube.playerPopupButton();
