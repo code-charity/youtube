@@ -617,6 +617,85 @@ ImprovedTube.batteryFeatures = async function () {
 	}
 };
 /*------------------------------------------------------------------------------
+SMART BUFFER MANAGER
+Monitors how many seconds of video are buffered ahead of the current playhead.
+When the ahead-buffer exceeds the user-configured ceiling, quality is temporarily
+lowered to slow down further buffering. Quality is restored once the buffer
+drops back below 60% of the ceiling (hysteresis band to prevent oscillation).
+This achieves a similar benefit to "releasing" the buffer by preventing
+unbounded RAM growth on long videos — via the only mechanism a browser
+extension can actually control: stream quality selection.
+------------------------------------------------------------------------------*/
+ImprovedTube._sbmThrottled = false;
+ImprovedTube._sbmQualityBeforeThrottle = undefined;
+
+ImprovedTube.smartBufferManager = function () {
+	if (this.storage.smart_buffer !== true) {
+		// Cleanup path: if we left quality throttled and the feature is now off,
+		// restore to the user's preferred quality immediately.
+		if (this._sbmThrottled && this._sbmQualityBeforeThrottle) {
+			this.playerQuality(this._sbmQualityBeforeThrottle);
+			this._sbmQualityBeforeThrottle = undefined;
+		}
+		this._sbmThrottled = false;
+		return;
+	}
+
+	var video = this.elements.video,
+		player = this.elements.player;
+
+	if (!video || !player) return;
+
+	// Guard: skip while paused — no buffering occurs and quality changes would
+	// be confusing to the user if the video is paused mid-watch.
+	if (video.paused) return;
+
+	// Guard: skip for live streams — they have no finite duration, so a buffer
+	// ceiling is meaningless. Uses the same check as playerPlaybackSpeed().
+	if (player.getVideoData && player.getVideoData().isLive) return;
+
+	// Guard: skip if duration isn't known yet (video still loading metadata).
+	if (!isFinite(video.duration) || video.duration <= 0) return;
+
+	// --- Calculate seconds buffered ahead of the current playhead ---
+	var currentTime = video.currentTime,
+		buffered = video.buffered,
+		aheadBuffered = 0;
+
+	for (var i = 0; i < buffered.length; i++) {
+		// Find the buffered range that contains the current playhead.
+		if (buffered.start(i) <= currentTime && buffered.end(i) > currentTime) {
+			aheadBuffered = buffered.end(i) - currentTime;
+			break;
+		}
+	}
+
+	// --- Read user-configured ceiling (default: 120 seconds) ---
+	var ceiling = Number(this.storage.smart_buffer_ceiling_seconds) || 120;
+
+	// --- Throttle decision with hysteresis ---
+	if (aheadBuffered > ceiling && !this._sbmThrottled) {
+		// Buffer exceeds ceiling: lower quality to slow down further buffering.
+		// Store the current quality so we can restore it precisely later.
+		// This mirrors the exact pattern of ImprovedTube.qualityBeforeBlur in
+		// playerQualityWithoutFocus().
+		if (player.getPlaybackQuality) {
+			this._sbmQualityBeforeThrottle = player.getPlaybackQuality();
+		}
+		this.playerQuality('large'); // 480p — low enough to slow buffering, still watchable
+		this._sbmThrottled = true;
+	} else if (aheadBuffered < (ceiling * 0.6) && this._sbmThrottled) {
+		// Buffer has dropped to 60% of ceiling: restore user's preferred quality.
+		// The 60% restore threshold prevents rapid oscillation if the buffer
+		// hovers just below the ceiling.
+		if (this._sbmQualityBeforeThrottle) {
+			this.playerQuality(this._sbmQualityBeforeThrottle);
+			this._sbmQualityBeforeThrottle = undefined;
+		}
+		this._sbmThrottled = false;
+	}
+};
+/*------------------------------------------------------------------------------
 FORCED VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVolume = function () {
