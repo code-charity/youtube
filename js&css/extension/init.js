@@ -47,12 +47,14 @@ extension.events.on('init', function () {
 	extension.features.muteThumbnailPreviews();
 	extension.features.markWatchedVideos();
 	extension.features.relatedVideos();
+	extension.features.sidePanels();
 	extension.features.stickyNavigation();
 	extension.features.liveChat();
 	extension.features.comments();
 	extension.features.openNewTab();
 	extension.features.removeListParamOnNewTab();
 	extension.features.removeMemberOnly();
+	if (extension.storage.get('auto_video_recovery') === true) { extension.features.autoVideoRecovery(); }
 	if ( extension.storage.get('watch_later_buttons') && extension.storage.get('watch_later_buttons') !== 'disabled' ) { 	extension.features.watchLaterButtons(); }
 	// extension.features.hideSponsoredVideosOnHome?.();
 	bodyReady();
@@ -104,8 +106,8 @@ if ((navigator.userAgent.indexOf('Safari') !== -1
 		if (response && response.ok) {
 			finishPageWorldInit();
 		} else {
-			console.warn('Falling back to DOM injection for page-world scripts', chrome.runtime.lastError?.message || response?.error);
-			extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
+			console.warn('[ImprovedTube] Safari MAIN-world injection failed:', chrome.runtime.lastError?.message || response?.error);
+			finishPageWorldInit();
 		}
 	});
 } else {

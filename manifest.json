@@ -16,8 +16,9 @@
       "id": "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}"
     }
   },
-	"background": 	{	
-    "service_worker": "background.js"
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
   },
   "action": {
     "default_popup": "menu/index.html",
@@ -72,7 +73,6 @@
         "js&css/web-accessible/www.youtube.com/themes.js",
         "js&css/web-accessible/www.youtube.com/playlist.js",
         "js&css/web-accessible/www.youtube.com/playlist-complete-playlist.js",
-        "js&css/web-accessible/www.youtube.com/playlist-cleaner.js",
         "js&css/web-accessible/www.youtube.com/channel.js",
         "js&css/web-accessible/www.youtube.com/shortcuts.js",
         "js&css/web-accessible/www.youtube.com/blocklist.js",

@@ -35,7 +35,7 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 			if (result.description === 'classic_expanded') {
 				chrome.storage.local.set({description: 'expanded'});
 			}
-		});		
+		});
 		// Shortcut renames:
 		chrome.storage.local.get(['shortcut_auto', 'shortcut_144p', 'shortcut_240p', 'shortcut_360p', 'shortcut_480p', 'shortcut_720p', 'shortcut_1080p', 'shortcut_1440p', 'shortcut_2160p', 'shortcut_2880p', 'shortcut_4320p'], function (result) {
 			// validate and move to new name
@@ -70,6 +70,12 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 		chrome.storage.local.get('channel_default_tab', function (result) {
 			if (result.channel_default_tab === '/home') {
 				chrome.storage.local.set({channel_default_tab: '/'});
+			}
+		});
+		chrome.storage.local.get('Hide_Pause_Overlay', function (result) {
+			if (result.Hide_Pause_Overlay === true) {
+				chrome.storage.local.set({player_auto_continue_watching: true});
+				chrome.storage.local.remove(['Hide_Pause_Overlay']);
 			}
 		});
 		chrome.storage.local.get('player_quality', function (result) {
@@ -158,17 +164,18 @@ function updateContextMenu (language) {
 				// contexts: ['browser_action'] //manifest2
 			});
 		}
-		chrome.contextMenus.onClicked.addListener(function (info) {
-			const links = [
-				'https://www.improvedtube.com/donate',
-				'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
-				'https://github.com/code4charity/YouTube-Extension'
-			];
-			chrome.tabs.create({ url: links[info.menuItemId] }); //manifest3
-			// window.open(links[info.menuItemId]); //manifest2
-		});
 	});
 }
+
+chrome.contextMenus.onClicked.addListener(function (info) {
+	const links = [
+		'https://www.improvedtube.com/donate',
+		'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
+		'https://github.com/code4charity/YouTube-Extension'
+	];
+	chrome.tabs.create({ url: links[info.menuItemId] }); //manifest3
+	// window.open(links[info.menuItemId]); //manifest2
+});
 chrome.runtime.onInstalled.addListener(function () {
 	chrome.storage.local.get(function (items) {
 		updateContextMenu(items.language);

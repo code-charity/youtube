@@ -96,6 +96,11 @@ extension.skeleton.main.layers.section.general = {
 					text: 'removePlayables',
 					id: 'remove-playables'
 				},
+				remove_top_live_games: {
+					component: 'switch',
+					text: 'removeTopLiveGames',
+					id: 'remove-top-live-games'
+				},
 				hide_ai_summary: {
 					component: 'switch',
 					text: 'hideAISummary',
@@ -321,8 +326,8 @@ extension.skeleton.main.layers.section.general = {
 							if (lowResolution && value && value !== 'null') {
 								satus.storage.set('thumbnails_quality_previous', value);
 								satus.storage.set('thumbnails_quality', 'null');
-							} else { 
-								var	previous = satus.storage.get('thumbnails_quality_previous'); 
+							} else {
+								var	previous = satus.storage.get('thumbnails_quality_previous');
 								if (!lowResolution && (!value || value === 'null') && previous) {
 								satus.storage.set('thumbnails_quality', previous);
 								}
