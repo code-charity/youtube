@@ -93,15 +93,18 @@ ImprovedTube.playbackSpeed = function (newSpeed) {
 	// called with no option or demanded speed already set, only provide readback
 	if (!newSpeed || speed == newSpeed) return speed;
 
-	if (video?.playbackRate) {
-		video.playbackRate = newSpeed;
-		newSpeed = Number(video.playbackRate.toFixed(2));
-	} else if (player?.setPlaybackRate && player.getPlaybackRate) {
+	if (player?.setPlaybackRate) {
 		player.setPlaybackRate(newSpeed);
-		newSpeed = Number(player.getPlaybackRate().toFixed(2));
-	} else newSpeed = false;
+	}
+	if (video) {
+		video.playbackRate = newSpeed;
+	}
 
-	return newSpeed;
+	const applied = video?.playbackRate
+		? Number(video.playbackRate.toFixed(2))
+		: (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : false);
+
+	return applied;
 };
 /*------------------------------------------------------------------------------
 PERMANENT PLAYBACK SPEED
@@ -1087,8 +1090,8 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 				// Left click: set to custom speed from settings
 				if (e.button === 0) {
 					var customSpeed = ImprovedTube.storage.player_playback_speed || 1.25;
-					ImprovedTube.playbackSpeed(customSpeed);
-					ImprovedTube.showStatus(customSpeed + 'x');
+					var appliedSpeed = ImprovedTube.playbackSpeed(customSpeed);
+					if (appliedSpeed) ImprovedTube.showStatus(appliedSpeed + 'x');
 				}
 			},
 			title: 'Playback Speed (Scroll: adjust, Left: custom, Right: 1.0x)'
@@ -1098,8 +1101,8 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 		button.addEventListener('contextmenu', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
-			ImprovedTube.playbackSpeed(1.0);
-			ImprovedTube.showStatus('1.0x');
+			var appliedSpeed = ImprovedTube.playbackSpeed(1.0);
+			if (appliedSpeed) ImprovedTube.showStatus(appliedSpeed + 'x');
 		});
 
 		// Add wheel handler
@@ -1118,8 +1121,8 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 				newSpeed = Math.max(currentSpeed - step, 0.0625);
 			}
 			
-			ImprovedTube.playbackSpeed(newSpeed);
-			ImprovedTube.showStatus(newSpeed.toFixed(2) + 'x');
+			var appliedSpeed = ImprovedTube.playbackSpeed(newSpeed);
+			if (appliedSpeed) ImprovedTube.showStatus(appliedSpeed.toFixed(2) + 'x');
 		});
 	}
 };
@@ -2069,8 +2072,8 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
             position: "right",
             child: svg1x,
             onclick: function () {
-                ImprovedTube.playbackSpeed(1);
-                ImprovedTube.showStatus('1x');
+                const appliedSpeed = ImprovedTube.playbackSpeed(1);
+                if (appliedSpeed) ImprovedTube.showStatus(appliedSpeed + 'x');
             },
             title: 'set speed to 1x',
         }).classList.remove('it-player-button');
