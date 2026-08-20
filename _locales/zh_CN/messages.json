@@ -1048,9 +1048,6 @@
     "player_fit_to_win_button": {
         "message": "播放器适应窗口按钮"
     },
-    "player_playback_speed_button": {
-        "message": "播放器播放速度按钮"
-    },
     "player_rewind_and_forward_buttons": {
         "message": "播放器快进快退按钮"
     },

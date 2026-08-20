@@ -1082,9 +1082,6 @@
   "player_fit_to_win_button": {
     "message": "ขนาดพอดีหน้าต่าง"
   },
-  "player_playback_speed_button": {
-    "message": "ปุ่มความเร็วการเล่น"
-  },
   "player_rewind_and_forward_buttons": {
     "message": "ปุ่มกรอเดินหน้า/ถอยหลัง"
   },
