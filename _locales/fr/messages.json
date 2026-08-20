@@ -614,7 +614,7 @@
     "player_cinema_mode_button": {
         "message": "Mode Cinéma"
     },
-    "player_playback_speed_button": {
+    "playbackSpeedButton": {
         "message": "Bouton de Vitesse de Lecture"
     },
     "player_rewind_and_forward_buttons": {

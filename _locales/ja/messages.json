@@ -1046,9 +1046,6 @@
   "playerIncreaseDecreaseSpeedButtons": {
     "message": "再生速度増加/減少ボタン"
   },
-  "player_playback_speed_button": {
-    "message": "再生速度ボタン"
-  },
   "playerPlaybackSpeedStep": {
     "message": "再生速度ステップ"
   },

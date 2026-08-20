@@ -764,7 +764,7 @@
     "player": {
         "message": "Reproductor"
     },
-    "player_playback_speed_button": {
+    "playbackSpeedButton": {
         "message": "Botón de Velocidad de Reproducción"
     },
     "playerColor": {
