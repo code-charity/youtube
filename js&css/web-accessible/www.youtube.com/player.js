@@ -437,13 +437,56 @@ ImprovedTube.playerAds = function (parent) {
 AUTO FULLSCREEN
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutofullscreen = function () {
-	if (
-		this.storage.player_autofullscreen === true &&
-		document.documentElement.dataset.pageType === 'video' &&
-		!document.fullscreenElement
-	) {
-		this.elements.player.toggleFullscreen();
+	if (this.storage.player_autofullscreen !== true) {
+		return;
 	}
+	if (document.documentElement.dataset.pageType !== 'video') {
+		return;
+	}
+
+	var player = this.elements.player;
+	if (!player || typeof player.toggleFullscreen !== 'function') {
+		return;
+	}
+
+	// Once per video URL after a successful enter (avoids re-toggling on pause/play).
+	if (this._autofullscreenFor === location.href) {
+		return;
+	}
+
+	var alreadyFullscreen = !!(
+		document.fullscreenElement ||
+		document.webkitFullscreenElement ||
+		document.mozFullScreenElement ||
+		player.classList.contains('ytp-fullscreen') ||
+		(typeof player.isFullscreen === 'function' && player.isFullscreen())
+	);
+
+	if (alreadyFullscreen) {
+		this._autofullscreenFor = location.href;
+		return;
+	}
+
+	try {
+		player.toggleFullscreen();
+	} catch (error) {
+		return;
+	}
+
+	// Firefox often rejects fullscreen without a user gesture (navigate-time call).
+	// Only lock this video if fullscreen actually engaged; otherwise allow retry on play.
+	setTimeout(function () {
+		var playerNow = ImprovedTube.elements.player;
+		var ok = !!(
+			document.fullscreenElement ||
+			document.webkitFullscreenElement ||
+			document.mozFullScreenElement ||
+			(playerNow && playerNow.classList.contains('ytp-fullscreen'))
+		);
+		if (ok) {
+			ImprovedTube._autofullscreenFor = location.href;
+		}
+	}, 250);
 };
 /*------------------------------------------------------------------------------
 QUALITY

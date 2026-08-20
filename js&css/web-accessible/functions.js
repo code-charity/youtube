@@ -448,6 +448,11 @@ ImprovedTube.playerOnPlay = function () {
 
 				ImprovedTube.playerLoudnessNormalization();
 				ImprovedTube.playerCinemaModeEnable();
+				// Retry Auto-fullscreen on play: navigate-time toggleFullscreen() is often
+				// blocked by Firefox (no user gesture). Click-to-play keeps activation.
+				if (ImprovedTube.storage.player_autofullscreen === true) {
+					ImprovedTube.playerAutofullscreen();
+				}
 			}
 			return original.apply(this, arguments);
 		}
