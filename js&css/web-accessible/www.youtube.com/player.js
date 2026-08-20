@@ -273,7 +273,7 @@ ImprovedTube.playerSubtitles = function (attempt = 0) {
 		} else if (attempt < 10) {
 			setTimeout(() => {
 				ImprovedTube.playerSubtitles(attempt + 1);
-			}, 200);
+			}, 200 + 30 * attempt);
 		}
 	}
 };
