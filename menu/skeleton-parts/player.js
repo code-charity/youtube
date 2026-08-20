@@ -1678,7 +1678,25 @@ extension.skeleton.main.layers.section.player.on.click = {
 			storage: 'player_playback_speed_button',
 			id: 'player_playback_speed_button'
 		},
-
+		
+		player_playback_speed_button_b: {
+			component: 'switch',
+			text: 'playbackSpeedButton',
+			storage: 'player_playback_speed_button_b',
+			id: 'player_playback_speed_button_b',
+			children: [{
+				id: 'player_custom_playback_speed',
+				storage: 'player_custom_playback_speed',
+				component: 'slider',
+				text: 'preferredSpeed',
+				min: 0.25,
+				max: 4,
+				step: 0.05,
+				text: true,
+				value: 1.25
+			}]
+		},
+		
 		player_cinema_mode_button: {
 			component: 'switch',
 			text: 'player_cinema_mode_button',
