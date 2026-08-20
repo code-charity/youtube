@@ -2000,28 +2000,24 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
 
         svgDecrease.appendChild(path1);
 
-        const svg1x = document.createElementNS(svgNamespace, "svg");
-        svg1x.setAttribute("t", "1742599438764");
-        svg1x.setAttribute("class", "icon");
+        const svgSpeed = document.createElementNS(svgNamespace, "svg");
+        svgSpeed.setAttribute("class", "icon");
+        svgSpeed.setAttribute("viewBox", "0 0 1024 1024");
+        svgSpeed.setAttribute("version", "1.1");
+        svgSpeed.setAttribute("xmlns", svgNamespace);
 
-        svg1x.setAttribute("viewBox", "0 0 1024 1024");
-        svg1x.setAttribute("version", "1.1");
-        svg1x.setAttribute("xmlns", svgNamespace);
-        svg1x.setAttribute("p-id", "1636");
-
-        const text1 = document.createElementNS(svgNamespace, "text");
-        text1.setAttribute("x", "512"); 
-        text1.setAttribute("y", "512"); 
-
-        text1.setAttribute("fill", "#ffffff");
-        text1.setAttribute("font-size", "550"); 
-
-        text1.setAttribute("font-weight", "bold");
-        text1.setAttribute("font-family", "Arial, sans-serif");
-        text1.setAttribute("text-anchor", "middle");
-        text1.setAttribute("dominant-baseline", "central");
-        text1.textContent = "1x";
-        svg1x.appendChild(text1);
+        const speedText = document.createElementNS(svgNamespace, "text");
+        speedText.setAttribute("x", "512");
+        speedText.setAttribute("y", "512");
+        speedText.setAttribute("fill", "#ffffff");
+        speedText.setAttribute("font-size", "320");
+        speedText.setAttribute("font-weight", "bold");
+        speedText.setAttribute("font-family", "Arial, sans-serif");
+        speedText.setAttribute("text-anchor", "middle");
+        speedText.setAttribute("dominant-baseline", "central");
+        speedText.setAttribute("class", "it-speed-label");
+        speedText.textContent = "1x";
+        svgSpeed.appendChild(speedText);
 
         const svgIncrease = document.createElementNS(svgNamespace, "svg");
         const path2 = document.createElementNS(svgNamespace, "path");
@@ -2048,6 +2044,24 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
         svgIncrease.appendChild(path2);
         path2.setAttribute("transform", "translate(-20, 0)");
 
+        const formatSpeedLabel = function (speed) {
+            const value = Number(speed) || 1;
+            if (Number.isInteger(value) || Math.abs(value - Math.round(value)) < 0.001) {
+                return Math.round(value) + 'x';
+            }
+            return Number(value.toFixed(2)) + 'x';
+        };
+
+        const updateSpeedLabel = function () {
+            const label = document.querySelector('#it-1x-speed-button .it-speed-label');
+            if (!label) return;
+            const speed = ImprovedTube.elements.video?.playbackRate
+                || ImprovedTube.elements.player?.getPlaybackRate?.()
+                || 1;
+            label.textContent = formatSpeedLabel(speed);
+            label.setAttribute('font-size', label.textContent.length > 3 ? '260' : '320');
+        };
+
         this.createPlayerButton({
             id: 'it-increase-speed-button',
             opacity: 0.85,
@@ -2058,6 +2072,7 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
                 const currentSpeed = ImprovedTube.playbackSpeed();
                 let newSpeed = Math.min(currentSpeed + step, 16);
                 const appliedSpeed = ImprovedTube.playbackSpeed(newSpeed);
+                updateSpeedLabel();
                 ImprovedTube.showStatus(appliedSpeed + 'x');
             },
             title: `increase speed by ${ImprovedTube.storage.player_custom_playback_speed_step || 0.25}x`,
@@ -2067,12 +2082,13 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
             id: 'it-1x-speed-button',
             opacity: 0.85,
             position: "right",
-            child: svg1x,
+            child: svgSpeed,
             onclick: function () {
                 ImprovedTube.playbackSpeed(1);
+                updateSpeedLabel();
                 ImprovedTube.showStatus('1x');
             },
-            title: 'set speed to 1x',
+            title: 'current speed (click to reset to 1x)',
         }).classList.remove('it-player-button');
 
         this.createPlayerButton({
@@ -2085,10 +2101,16 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
                 const currentSpeed = ImprovedTube.playbackSpeed();
                 let newSpeed = Math.max(currentSpeed - step, step);
                 const appliedSpeed = ImprovedTube.playbackSpeed(newSpeed);
+                updateSpeedLabel();
                 ImprovedTube.showStatus(appliedSpeed + 'x');
             },
             title: `decrease speed by ${ImprovedTube.storage.player_custom_playback_speed_step || 0.25}x`,
         }).classList.remove('it-player-button');
+
+        if (this.elements.video) {
+            this.elements.video.addEventListener('ratechange', updateSpeedLabel);
+        }
+        updateSpeedLabel();
     }
 }
 
