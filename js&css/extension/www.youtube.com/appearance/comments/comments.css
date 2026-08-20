@@ -19,6 +19,14 @@ html[it-hide-author-avatars='true'] ytd-comments #author-thumbnail,
 html[it-hide-author-avatars='true'] ytd-comments #creator-thumbnail,
 html[it-hide-author-avatars='true'] ytd-comments #hearted-thumbnail 
 {display: none !important;}
+
+/* Hiding the avatar collapses the 36px column, but YouTube's .thread-hitbox is
+   absolutely positioned at left:0 with that same width, so it ends up covering
+   the comment's like and "read more" buttons. Let clicks through: the column it
+   was there to cover no longer exists. */
+html[it-hide-author-avatars='true'] ytd-comments ytd-comment-thread-renderer .thread-hitbox {
+	pointer-events: none !important;
+}
 /*--------------------------------------------------------------
 # SQUARED USER IMAGES
 --------------------------------------------------------------*/
