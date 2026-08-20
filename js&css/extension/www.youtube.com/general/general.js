@@ -367,7 +367,20 @@ extension.features.watchLaterButtons = function (event) {
 			return button;
 		}
 
-		return thumbnail.querySelector('ytd-thumbnail-overlay-toggle-button-renderer button');
+		var fallbackButton = thumbnail.querySelector('ytd-thumbnail-overlay-toggle-button-renderer button');
+
+		if (fallbackButton) {
+			var label = (fallbackButton.getAttribute('aria-label') || '').toLowerCase(),
+				title = (fallbackButton.getAttribute('title') || '').toLowerCase();
+
+			if (
+				label.indexOf('watch later') !== -1 ||
+				title.indexOf('watch later') !== -1 ||
+				(label.indexOf('queue') === -1 && title.indexOf('queue') === -1)
+			) {
+				return fallbackButton;
+			}
+		}
 	}
 
 	function getYtConfigValue(key) {
@@ -415,6 +428,7 @@ extension.features.watchLaterButtons = function (event) {
 		}
 
 		if (!apiKey || !context) {
+			console.warn('[ImprovedTube] Unable to resolve Innertube API key/context for Watch Later button');
 			button.dataset.state = 'unavailable';
 			return;
 		}
@@ -436,6 +450,9 @@ extension.features.watchLaterButtons = function (event) {
 				}]
 			})
 		}).then(function (response) {
+			if (!response.ok) {
+				console.warn('[ImprovedTube] Innertube Watch Later request failed with status:', response.status);
+			}
 			button.dataset.state = response.ok ? 'added' : 'unavailable';
 		}).catch(function () {
 			button.dataset.state = 'unavailable';
@@ -476,8 +493,26 @@ extension.features.watchLaterButtons = function (event) {
 				clickEvent.stopImmediatePropagation();
 
 				if (nativeButton && nativeButton !== this) {
+					var initialAriaPressed = nativeButton.getAttribute('aria-pressed'),
+						initialAriaLabel = nativeButton.getAttribute('aria-label'),
+						buttonRef = this,
+						attempts = 0;
+
 					nativeButton.click();
-					this.dataset.state = 'added';
+
+					(function checkToggle() {
+						var currentAriaPressed = nativeButton.getAttribute('aria-pressed'),
+							currentAriaLabel = nativeButton.getAttribute('aria-label');
+
+						if (currentAriaPressed !== initialAriaPressed || currentAriaLabel !== initialAriaLabel) {
+							buttonRef.dataset.state = 'added';
+						} else if (attempts < 10) {
+							attempts++;
+							setTimeout(checkToggle, 100);
+						} else {
+							addWithInnertube(id, buttonRef);
+						}
+					})();
 				} else {
 					addWithInnertube(id, this);
 				}
