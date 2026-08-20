@@ -369,6 +369,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerSize();
 		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); };
 		ImprovedTube.playerPlaybackSpeedButton();
+					ImprovedTube.playerPlaybackSpeedButtonB();
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.addYouTubeReturnButton();
 		ImprovedTube.playerRepeatButton();
@@ -472,7 +473,6 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerVolume();
 		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }
 
-		ImprovedTube.playerPlaybackSpeedButton();
 		ImprovedTube.playerScreenshotButton();
 		ImprovedTube.playerRepeatButton();
 		ImprovedTube.playerRotateButton();
@@ -481,6 +481,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerRewindAndForwardButtons();
 		ImprovedTube.playerIncreaseDecreaseSpeedButtons();
 		ImprovedTube.playerPlaybackSpeedButton();
+					ImprovedTube.playerPlaybackSpeedButtonB();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 		ImprovedTube.playerHideProgressPreview();
