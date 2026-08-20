@@ -255,19 +255,25 @@ window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitFo
 /*------------------------------------------------------------------------------
 SUBTITLES
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerSubtitles = function () {
+ImprovedTube.playerSubtitles = function (attempt = 0) {
 	const player = this.elements.player;
 
-	if (player && player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
-		switch (this.storage.player_subtitles) {
-			case true:
-			case 'enabled':
-				player.toggleSubtitlesOn();
-				break
+	if (player) {
+		if (player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
+			switch (this.storage.player_subtitles) {
+				case true:
+				case 'enabled':
+					player.toggleSubtitlesOn();
+					break
 
-			case 'disabled':
-				if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
-				break
+				case 'disabled':
+					if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
+					break
+			}
+		} else if (attempt < 10) {
+			setTimeout(() => {
+				ImprovedTube.playerSubtitles(attempt + 1);
+			}, 200 + 30 * attempt);
 		}
 	}
 };
