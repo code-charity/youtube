@@ -88,6 +88,43 @@ extension.features.youtubeHomePage = function (anything) {
 };
 
 /*--------------------------------------------------------------
+# WATCH LATER ON HOMEPAGE
+--------------------------------------------------------------*/
+extension.features.watchLaterOnHome = function () {
+	if (extension.storage.get('watch_later_on_home') === true) {
+		if (/(www|m)\.youtube\.com\/?(\?|\#|$)/.test(location.href)) {
+			if (document.getElementById('it-watch-later-home-section')) return;
+
+			var container = document.querySelector('ytd-rich-grid-renderer #contents');
+			if (!container) return;
+
+			var section = document.createElement('div');
+			section.id = 'it-watch-later-home-section';
+			section.className = 'it-watch-later-section';
+
+			var header = document.createElement('div');
+			header.className = 'it-watch-later-header';
+
+			var title = document.createElement('h2');
+			title.textContent = 'Watch Later';
+
+			var viewAllBtn = document.createElement('a');
+			viewAllBtn.href = '/playlist?list=WL';
+			viewAllBtn.className = 'it-watch-later-view-all';
+			viewAllBtn.textContent = 'Open Watch Later Playlist →';
+
+			header.appendChild(title);
+			header.appendChild(viewAllBtn);
+			section.appendChild(header);
+
+			container.parentNode.insertBefore(section, container);
+		}
+	} else {
+		document.getElementById('it-watch-later-home-section')?.remove();
+	}
+};
+
+/*--------------------------------------------------------------
 # COLLAPSE OF SUBSCRIPTION SECTIONS
 --------------------------------------------------------------*/
 
