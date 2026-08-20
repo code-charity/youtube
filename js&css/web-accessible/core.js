@@ -186,7 +186,7 @@ document.addEventListener('it-message-from-extension', function () {
 			if (typeof ImprovedTube.storage.playlist_reversed_active !== 'undefined') {
 				ImprovedTube.playlistReversed = ImprovedTube.storage.playlist_reversed_active;
 			}
-			
+
 			if (ImprovedTube.storage.block_vp9 || ImprovedTube.storage.block_av1 || ImprovedTube.storage.block_h264) {
 				let atlas = { block_vp9: 'vp9|vp09', block_h264: 'avc1', block_av1: 'av01' },
 					codec = Object.keys(atlas).reduce(function (all, key) {
@@ -214,8 +214,8 @@ document.addEventListener('it-message-from-extension', function () {
 					While most of our features are chosen permanently (set and forget) and need to run with YouTube,
 				 we only started this section for feedback and reducing new user's misunderstandings.
 						(For our simple CSS-only features this isn't necessary, since a loop is doing it and there could be a shared loop for many JS feature too)
-				Yet doing this, it could also be used for big extra visual feedback pointing at or highlighing the immediate change on youtube. 
-					(to make it most intutive to the many new or visual users, bringing changes with simple css-transations or animation. Like an interactive tutorial.) 
+				Yet doing this, it could also be used for big extra visual feedback pointing at or highlighing the immediate change on youtube.
+					(to make it most intutive to the many new or visual users, bringing changes with simple css-transations or animation. Like an interactive tutorial.)
 			--------------------------------------------------------------*/
 		} else if (message.action === 'storage-changed') {
 			let camelized_key = message.camelizedKey;
@@ -539,11 +539,11 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.selectDubbedLanguage();
 					}
 					break
-				case  'smartSpeed':           
+				case  'smartSpeed':
                     if (ImprovedTube.storage.smart_speed === true) { if(ImprovedTube.heatmap) {ImprovedTube.heatmap.init(); };
-                    } else if (ImprovedTube.storage.smart_speed === false) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; } 
+                    } else if (ImprovedTube.storage.smart_speed === false) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; }
                     }
-					break        
+					break
 				case 'returnYoutubeDislike':
 					if (ImprovedTube.storage.return_youtube_dislike === true) {
 						ImprovedTube.returnYoutubeDislike();

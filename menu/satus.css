@@ -1,7 +1,7 @@
 .satus-section--card, .satus-select, .satus-switch, .satus-switch__content {transition: background-color 0.8s ease-out !important;}
 .satus-section--card:hover, .satus-select:hover, .satus-switch:hover,  .satus-switch__content:hover  {transition: background-color 0.08s ease-out !important;}
 
-*[data-value][data-value="false"] {margin-bottom: 0; margin-top: 0; transition: margin 0.14s linear !important;}  
+*[data-value][data-value="false"] {margin-bottom: 0; margin-top: 0; transition: margin 0.14s linear !important;}
 *[data-value][data-value="true"] {margin-bottom: -4.5px !important; margin-top: -3.5px; transition: margin 0.2s linear !important;}
 
 .satus-button--general, .satus-button--appearance, .satus-button--player {
@@ -43,7 +43,7 @@ div[home-style="list"] .satus-button--analyzer {margin-top: -16px !important;}
 --------------------------------------------------------------*/
 :where([class^='satus'])::-webkit-scrollbar {width: 5px;}
 :where([class^='satus']):hover {scrollbar-width: 9px;}
-:where([class^='satus'])::-webkit-scrollbar:hover {width: 9px;}  
+:where([class^='satus'])::-webkit-scrollbar:hover {width: 9px;}
 :where([class^='satus'])::-webkit-scrollbar-thumb {background: rgba(var(--satus-light), .2);}
 :where([class^='satus'])::-webkit-scrollbar-thumb:hover {background: rgba(var(--satus-light), .4);}
 /*--------------------------------------------------------------
@@ -63,7 +63,7 @@ div[home-style="list"] .satus-button--analyzer {margin-top: -16px !important;}
 --------------------------------------------------------------*/
 .satus-base {
 	--satus-light: 0, 20, 82;
-	--satus-primary: #ff4148; 
+	--satus-primary: #ff4148;
 	--satus-alert-background--error: #501616;
 	--satus-alert-border--error: 1px solid #6f1f1f;
 	--satus-alert-foreground--error: #d77070;
@@ -291,7 +291,7 @@ div[home-style="list"] .satus-button--analyzer {margin-top: -16px !important;}
 # Parts
     # Container
     # Input
-    # 
+    #
 # Syntax highlighting
     # Regular expression
 --------------------------------------------------------------*/
@@ -349,7 +349,7 @@ div[home-style="list"] .satus-button--analyzer {margin-top: -16px !important;}
 	border-radius: 4px;
 	outline: none;
 	overflow-wrap: normal;
-/* 
+/*
 As our Syntax markup isnt read for <textarea>, is it?
 	opacity: 0;
 	max-width: none;
@@ -421,7 +421,7 @@ As our Syntax markup isnt read for <textarea>, is it?
 
 	width: 0;
 	height: 22px;
-	margin: 6px -1px; 
+	margin: 6px -1px;
 
 	border: 1px solid var(--satus-text-field-selection);
 	border-radius: 3px;
@@ -949,7 +949,7 @@ As our Syntax markup isnt read for <textarea>, is it?
 
 .satus-main {
 	display: flex;
-										  
+
 	flex: 1
 }
 /*--------------------------------------------------------------
@@ -1506,7 +1506,7 @@ As our Syntax markup isnt read for <textarea>, is it?
 /*--------------------------------------------------------------
 >>> SHORTCUT:
 ----------------------------------------------------------------
-# 
+#
 --------------------------------------------------------------*/
 
 .satus-shortcut__value {
@@ -1561,7 +1561,7 @@ As our Syntax markup isnt read for <textarea>, is it?
 	height: 32px;
 	padding: 4px 8px;
 
-				   
+
 	border-radius: 4px;
 	background: #fff;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, .15), inset 0 -3px 0 rgba(0, 0, 0, .1);
@@ -1873,9 +1873,9 @@ As our Syntax markup isnt read for <textarea>, is it?
 	opacity: .64;
 }
 
-.satus-switch, .satus-select, .satus-button, .satus-Buttons, .satus-label { 
+.satus-switch, .satus-select, .satus-button, .satus-Buttons, .satus-label {
 /*no blinking cursor when focused:*/
-	caret-color: transparent; 
+	caret-color: transparent;
 }
 
 /*--------------------------------------------------------------

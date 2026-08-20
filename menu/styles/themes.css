@@ -10,7 +10,7 @@
 	--satus-bubble-shadow-raised: 0 2px 1px 1px #D42, 0 4px 4px rgb(140, 120, 80, .37);
 	--satus-bubble-shadow-unelevated: 0 1px 1px #F51, 0 1px 2px rgb(140, 120, 80, .37);
 	--it-appearance-shadow-color: #dfdfdf;
-}	
+}
 
 .satus-base[theme='dark'] {
 	--satus-light: 255, 255, 255;

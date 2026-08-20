@@ -5,7 +5,7 @@
 	"description": "__MSG_description_ext__",
 	"version": "4.937",
 	"default_locale": "en",
-	"icons": {							
+	"icons": {
 		"16": "menu/icons/16.png",
 		"32": "menu/icons/32.png",
 		"48": "menu/icons/48.png",
@@ -27,7 +27,7 @@
 	"content_scripts": [
 		{
 			"all_frames": true,
-			"css": [ 
+			"css": [
 				"js&css/extension/www.youtube.com/styles.css",
 				"js&css/extension/www.youtube.com/night-mode/night-mode.css",
 				"js&css/extension/www.youtube.com/general/general.css",
@@ -41,7 +41,7 @@
 				"https://www.youtube.com/audiolibrary/*",
 				"https://www.youtube.com/tv*"
 			],
-			"js": [		
+			"js": [
 				"js&css/extension/core.js",
 				"js&css/extension/functions.js",
 				"js&css/extension/www.youtube.com/night-mode/night-mode.js",

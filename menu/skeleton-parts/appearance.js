@@ -546,7 +546,7 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				text: "hideTopLoadingBar",
 				tags: "remove,hide"
 			}
-		},	
+		},
 			section_2: {
 				component: 'section',
 				variant: 'card',
