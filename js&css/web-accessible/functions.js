@@ -790,10 +790,6 @@ ImprovedTube.createPlayerButton = function (options) {
 			tooltip.style.left = leftPos + 'px';
 			tooltip.style.top = rect.top - 8 + 'px';
 
-			if (this.storage && (this.storage.player_cinema_mode_button || this.storage.player_auto_hide_cinema_mode_when_paused || this.storage.player_auto_cinema_mode)) {
-				tooltip.style.zIndex = 10001;
-			} // needed for cinema mode
-
 			function mouseleave() {
 				tooltip.remove();
 
