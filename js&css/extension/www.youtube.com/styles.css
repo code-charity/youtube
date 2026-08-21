@@ -241,6 +241,7 @@ html[it-player-fit-to-win-button=true][data-page-type=video] #ftw-icon path {
 	border-radius: 2px !important;
 	background-color: rgba(28, 28, 28, .9) !important;
 	text-shadow: 0 0 2px rgb(0, 0, 0, .5) !important;
+	z-index: 10001 !important;
 }
 
 body.no-scroll .it-player-button--tooltip {
