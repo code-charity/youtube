@@ -429,12 +429,12 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function (decrease) {
 	}
 	if (decrease) {
 		// Slow down near 0   // Chrome's minimum is 0.0625. Otherwise this could seamlessly turn into single frame steps.
-		newSpeed = (speed - value < 0.1) ? Math.max(Number(speed*0.7).toFixed(2),0.0625) : (speed - value);  
+		newSpeed = (speed - value < 0.1) ? Math.max(Number(speed*0.7).toFixed(2),0.0625) : (speed - value);
 	} else {
-		// Aligning at 1.0 instead of passing by 1:		
-		if ( (speed < 1 && speed > 1-ImprovedTube.storage.shortcuts_playback_speed_step) || (speed > 1 && speed < 1+ImprovedTube.storage.shortcuts_playback_speed_step) ) {newSpeed = 1;  
+		// Aligning at 1.0 instead of passing by 1:
+		if ( (speed < 1 && speed > 1-ImprovedTube.storage.shortcuts_playback_speed_step) || (speed > 1 && speed < 1+ImprovedTube.storage.shortcuts_playback_speed_step) ) {newSpeed = 1;
 		// Firefox doesnt limit speed to 16x, we can allow more in Firefox.
-		} else { newSpeed = (speed + value > 16) ? 16 : (speed + value); } 
+		} else { newSpeed = (speed + value > 16) ? 16 : (speed + value); }
 	}
 	newSpeed = this.playbackSpeed(newSpeed);
 	if (!newSpeed) {
@@ -448,7 +448,7 @@ ImprovedTube.shortcutIncreasePlaybackSpeed = function (decrease) {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutDecreasePlaybackSpeed = function () {
 	ImprovedTube.shortcutIncreasePlaybackSpeed(true);
-}; 
+};
 /*------------------------------------------------------------------------------
 4.7.18 RESET PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
@@ -463,7 +463,7 @@ ImprovedTube.shortcutGoToSearchBox = function () {
 	document.querySelector('input#search')?.click();
 	if (ImprovedTube.originalFocus) { HTMLElement.prototype.focus = originalFocus }
 	document.querySelector('input[name="search_query"]')?.focus();
-	document.querySelector('input#search')?.focus(); 
+	document.querySelector('input#search')?.focus();
 };
 /*------------------------------------------------------------------------------
 4.7.20 ACTIVATE FULLSCREEN
@@ -659,7 +659,7 @@ ImprovedTube.shortcutRotateVideo = function () {
 											) { transform += ' scale(' + (is_vertical_video ? video.clientWidth : video.clientHeight) / (is_vertical_video ? video.clientHeight : video.clientWidth) + ')';
 													} else {
 											transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
-										}					
+										}
 	}
 	video.style.setProperty("transform", transform);
 };
@@ -688,7 +688,7 @@ ImprovedTube.shortcutCinemaMode = function () {
 	toggle(playerContainer);
 	toggle(playerContainerDefault);
 	toggle(ytdPlayer);
-	
+
 	var overlay = document.getElementById('overlay_cinema');
 	if (!overlay) {
 		createOverlay();
@@ -701,20 +701,20 @@ ImprovedTube.shortcutCinemaMode = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutRefreshCategories = function () {
 	let chipContainer = document.querySelector('ytd-feed-filter-chip-bar-renderer');
-	
+
 	if (chipContainer) {
 		chipContainer.style.display = '';
 		chipContainer.style.visibility = 'visible';
 		chipContainer.style.opacity = '1';
 		chipContainer.hidden = false;
-		
+
 		let parent = chipContainer.parentElement;
 		while (parent && parent !== document.body) {
 			parent.style.display = '';
 			parent.style.visibility = 'visible';
 			parent = parent.parentElement;
 		}
-		
+
 		const allChips = chipContainer.querySelectorAll('yt-chip-cloud-chip-renderer button');
 		if (allChips.length > 1) {
 			allChips[1].click();
@@ -732,7 +732,7 @@ ImprovedTube.shortcutRefreshCategories = function () {
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutSmartSpeed = function () {
 	if (ImprovedTube.storage.smart_speed === false) { if(ImprovedTube.heatmap) {ImprovedTube.heatmap.init(); };
-    } else if (ImprovedTube.storage.smart_speed === true) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; } 
+    } else if (ImprovedTube.storage.smart_speed === true) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; }
     }
 	this.storage.smart_speed = !this.storage.smart_speed;
 };

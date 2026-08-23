@@ -3,12 +3,12 @@ FORCED PLAY VIDEO FROM THE BEGINNING
 ------------------------------------------------------------------------------*/
 ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 	const player = this.elements.player,		video = this.elements.video,		paused = video?.paused;
- const t = this.video_url.match(this.regex.video_time)?.[1]; 
+ const t = this.video_url.match(this.regex.video_time)?.[1];
 	if (t) {
 		if (/[#&]stop=|#t=/.test(this.video_url)) return;
 		const r = document.referrer || ""; if (r && !r.includes("youtube.com")) return;
 		const h = history || ""; if (h && (h.length === 1 || !h.state?.endpoint?.watchEndpoint)) return;
-	}	
+	}
 	if (player && video && this.storage.forced_play_video_from_the_beginning && location.pathname == '/watch') {
 		// Skip the seek when the video is effectively already at 0. When
 		// YouTube's own playback starts at 0 (fresh video, never watched), a
@@ -17,7 +17,7 @@ ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 		// timestamp (currentTime > 0), which is the case this setting exists
 		// to override.
 		if (video.currentTime > 1.1) {  // video.currentTime = 0; #262
-			player.seekTo(0); 
+			player.seekTo(0);
 			// restore previous paused state after the seek
 			if (paused) { player.pauseVideo(); }
 		}
@@ -108,10 +108,10 @@ PERMANENT PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
 	var player = this.elements.player; if (!player) return;
-	var video = this.elements.video || player.querySelector('video'); 
-	option = this.storage.player_playback_speed;	
+	var video = this.elements.video || player.querySelector('video');
+	option = this.storage.player_playback_speed;
 	if (this.isset(option) === false) { option = 1; }
-	else if ( option !== 1 ) { 
+	else if ( option !== 1 ) {
 		const speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
 		 if (speed !== option && speed !== 1 && speed !== Number((Math.floor(option / 0.05) * 0.05).toFixed(2)))
 		   { console.log("skipping permanent speed, since speed was manually set differently for this video to:" + video.playbackRate + ", was it?"); return; }
@@ -188,23 +188,23 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 			//DATA  (TO-DO: make the Data available to more/all features? #1452  #1763  (Then can replace ImprovedTube.elements.category === 'music', VideoID is also used elsewhere)
 			DATA = {};
 			defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
-			keywords = false; amountOfSongs = false; 
-			
-			ImprovedTube.fetchDOMData = function () {	
+			keywords = false; amountOfSongs = false;
+
+			ImprovedTube.fetchDOMData = function () {
 				try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false; DATA.title = DATA.name;}
 			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false;
-					try { 
+					try {
 						DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
 						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
 						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
-			 } catch {}} 
-			  
+			 } catch {}}
+
 let tries = 0; const maxTries = 11; let intervalMs = 200;
 const waitForVideoTitle = setInterval(() => { const title = ImprovedTube.videoTitle?.();  tries++;
 
 if (title && title !== 'YouTube') {
     clearInterval(waitForVideoTitle);
-			 DATA.videoID = ImprovedTube.videoId() || false;     // console.log("SPEED: TITLE:" + ImprovedTube.videoTitle() + DATA.title); 
+			 DATA.videoID = ImprovedTube.videoId() || false;     // console.log("SPEED: TITLE:" + ImprovedTube.videoTitle() + DATA.title);
 			 if ( DATA.title && (DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle()) )
 				{ keywords = document.querySelector('meta[name="keywords"]')?.content || ''; ImprovedTube.speedException(); }
 				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
@@ -218,15 +218,15 @@ if (title && title !== 'YouTube') {
 					amountOfSongs = (htmlContent.slice(-80000).match(/},"subtitle":{"simpleText":"(\d*)\s/) || [])[1] || false;
 					if (keywords) { ImprovedTube.speedException(); }
 				} catch (error) { console.error('Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}', error); keywords = ''; }
-				})(); 
+				})();
 				}
 }
 
 if (tries >= maxTries) {  clearInterval(waitForVideoTitle); } intervalMs *= 1.11; }, intervalMs);
-window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});		 					
+window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});
 			};
 			ImprovedTube.fetchDOMData();
-/*	
+/*
 			if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData(); }
 			else {
 				//Invidious instances. Should be updated automatically!...
@@ -247,27 +247,33 @@ window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitFo
 					else { ImprovedTube.fetchDOMData();} }
 				})();
 			}
-*/		
+*/
 		}	// else { }
 	}
 }
-} 
+}
 /*------------------------------------------------------------------------------
 SUBTITLES
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerSubtitles = function () {
+ImprovedTube.playerSubtitles = function (attempt = 0) {
 	const player = this.elements.player;
 
-	if (player && player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
-		switch (this.storage.player_subtitles) {
-			case true:
-			case 'enabled':
-				player.toggleSubtitlesOn();
-				break
+	if (player) {
+		if (player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
+			switch (this.storage.player_subtitles) {
+				case true:
+				case 'enabled':
+					player.toggleSubtitlesOn();
+					break
 
-			case 'disabled':
-				if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
-				break
+				case 'disabled':
+					if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
+					break
+			}
+		} else if (attempt < 10) {
+			setTimeout(() => {
+				ImprovedTube.playerSubtitles(attempt + 1);
+			}, 200 + 30 * attempt);
 		}
 	}
 };
@@ -431,13 +437,56 @@ ImprovedTube.playerAds = function (parent) {
 AUTO FULLSCREEN
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerAutofullscreen = function () {
-	if (
-		this.storage.player_autofullscreen === true &&
-		document.documentElement.dataset.pageType === 'video' &&
-		!document.fullscreenElement
-	) {
-		this.elements.player.toggleFullscreen();
+	if (this.storage.player_autofullscreen !== true) {
+		return;
 	}
+	if (document.documentElement.dataset.pageType !== 'video') {
+		return;
+	}
+
+	var player = this.elements.player;
+	if (!player || typeof player.toggleFullscreen !== 'function') {
+		return;
+	}
+
+	// Once per video URL after a successful enter (avoids re-toggling on pause/play).
+	if (this._autofullscreenFor === location.href) {
+		return;
+	}
+
+	var alreadyFullscreen = !!(
+		document.fullscreenElement ||
+		document.webkitFullscreenElement ||
+		document.mozFullScreenElement ||
+		player.classList.contains('ytp-fullscreen') ||
+		(typeof player.isFullscreen === 'function' && player.isFullscreen())
+	);
+
+	if (alreadyFullscreen) {
+		this._autofullscreenFor = location.href;
+		return;
+	}
+
+	try {
+		player.toggleFullscreen();
+	} catch (error) {
+		return;
+	}
+
+	// Firefox often rejects fullscreen without a user gesture (navigate-time call).
+	// Only lock this video if fullscreen actually engaged; otherwise allow retry on play.
+	setTimeout(function () {
+		var playerNow = ImprovedTube.elements.player;
+		var ok = !!(
+			document.fullscreenElement ||
+			document.webkitFullscreenElement ||
+			document.mozFullScreenElement ||
+			(playerNow && playerNow.classList.contains('ytp-fullscreen'))
+		);
+		if (ok) {
+			ImprovedTube._autofullscreenFor = location.href;
+		}
+	}, 250);
 };
 /*------------------------------------------------------------------------------
 QUALITY
@@ -573,7 +622,7 @@ ImprovedTube.playerQualityFullScreen = function () {
 	setTimeout(applyQuality, 3000);
    }
 
-  
+
 /*------------------------------------------------------------------------------
 BATTERY FEATURES;   PLAYER QUALITY BASED ON POWER STATUS
 ------------------------------------------------------------------------------*/
@@ -770,12 +819,12 @@ ImprovedTube.copyTranscript = function (svg, button) {
 				}, 1000);
 				return;
 			}
-		} 
-		var transcriptButtonSelector = 'button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],' 
-										+ 'button[aria-label*="guion"], button[aria-label*="naskah"], button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="نص"], button[aria-label*="نقل"],' 
+		}
+		var transcriptButtonSelector = 'button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],'
+										+ 'button[aria-label*="guion"], button[aria-label*="naskah"], button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="نص"], button[aria-label*="نقل"],'
 										+ 'button[aria-label*="प्रतिलि"], button[aria-label*="प्रत"], button[aria-label*="লিপি"], button[aria-label*="bản ghi"], button[aria-label*="steno"],'
 										+ 'button[aria-label*="γραφ"], button[aria-label*="přep"], button[aria-label*="átir"], button[aria-label*="avsk"]';
-		var transcriptButton = document.querySelector(transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');							 
+		var transcriptButton = document.querySelector(transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');
 
 		if (!transcriptButton) {
 			var moreActionsButton = document.querySelector('#description ytd-text-inline-expander #expand, #description tp-yt-paper-button#expand');
@@ -993,13 +1042,13 @@ ImprovedTube.playerRotateButton = function () {
 				if (rotate == 90 || rotate == 270) {
 					var is_vertical_video = video.videoHeight > video.videoWidth;
 										if (
-										//		( this.storage.player_cinema_mode_button === true ||  this.storage.player_auto_hide_cinema_mode_when_paused === true ||  this.storage.player_auto_cinema_mode === true 	) 
-											//  && document.querySelector('#overlay_cinema') 
+										//		( this.storage.player_cinema_mode_button === true ||  this.storage.player_auto_hide_cinema_mode_when_paused === true ||  this.storage.player_auto_cinema_mode === true 	)
+											//  && document.querySelector('#overlay_cinema')
 											document.querySelector("ytd-watch-flexy[theater]") && document.querySelector('ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen])')
 											) { transform += ' scale(' + (is_vertical_video ? video.clientWidth : video.clientHeight) / (is_vertical_video ? video.clientHeight : video.clientWidth) + ')';
 													} else {
 											transform += ' scale(' + (is_vertical_video ? player.clientWidth : player.clientHeight) / (is_vertical_video ? player.clientHeight : player.clientWidth) + ')';
-										}					
+										}
 				}
 
 				if (!ImprovedTube.elements.buttons['it-rotate-styles']) {
@@ -1013,6 +1062,55 @@ ImprovedTube.playerRotateButton = function () {
 				ImprovedTube.elements.buttons['it-rotate-styles'].textContent = 'video{transform:' + transform + '}';
 			},
 			title: 'Rotate'
+		});
+	}
+};
+
+/*------------------------------------------------------------------------------
+VOLUME BOOST BUTTON
+------------------------------------------------------------------------------*/
+ImprovedTube.playerVolumeBoostButton = function () {
+	if (this.storage.player_volume_boost_button === true) {
+		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+		path.setAttributeNS(null, 'd', 'M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z');
+
+		svg.appendChild(path);
+
+		var button = this.createPlayerButton({
+			id: 'it-volume-boost-button',
+			child: svg,
+			opacity: 0.5,
+			onclick: function () {
+				// ponytail: Web Audio API gain node. Ceiling: clipping at very high gain (>4x). Upgrade: add compressor node.
+				var video = ImprovedTube.elements.video;
+				if (!video) return;
+
+				if (!ImprovedTube.volumeBoostContext) {
+					var AudioContext = window.AudioContext || window.webkitAudioContext;
+					ImprovedTube.volumeBoostContext = new AudioContext();
+					ImprovedTube.volumeBoostSource = ImprovedTube.volumeBoostContext.createMediaElementSource(video);
+					ImprovedTube.volumeBoostGain = ImprovedTube.volumeBoostContext.createGain();
+					ImprovedTube.volumeBoostSource.connect(ImprovedTube.volumeBoostGain);
+					ImprovedTube.volumeBoostGain.connect(ImprovedTube.volumeBoostContext.destination);
+				}
+
+				var gain = ImprovedTube.volumeBoostGain.gain;
+				var current = gain.value;
+
+				// Cycle: 1x → 2x → 3x → 1x
+				var next = current >= 3 ? 1 : current + 1;
+				gain.value = next;
+
+				var btn = ImprovedTube.elements.buttons['it-volume-boost-button'];
+				if (btn) {
+					btn.style.opacity = next > 1 ? '1' : '0.5';
+					btn.dataset.title = 'Volume Boost (' + next + 'x)';
+				}
+			},
+			title: 'Volume Boost (1x)'
 		});
 	}
 };
@@ -1060,7 +1158,7 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 			var step = Number(ImprovedTube.storage.shortcuts_playback_speed_step) || 0.1;
 			var currentSpeed = ImprovedTube.playbackSpeed();
 			var newSpeed;
-			
+
 			if (e.deltaY < 0) {
 				// Scroll up: increase speed
 				newSpeed = Math.min(currentSpeed + step, 16);
@@ -1068,12 +1166,91 @@ ImprovedTube.playerPlaybackSpeedButton = function () {
 				// Scroll down: decrease speed
 				newSpeed = Math.max(currentSpeed - step, 0.0625);
 			}
-			
+
 			ImprovedTube.playbackSpeed(newSpeed);
 			ImprovedTube.showStatus(newSpeed.toFixed(2) + 'x');
 		});
 	}
 };
+
+ImprovedTube.playerPlaybackSpeedButtonB = function () {
+  if (this.storage.player_playback_speed_button_b === true) {
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+
+    svg.setAttribute("viewBox", "0 0 36 36");
+    svg.style.width = "100%";
+    svg.style.height = "100%";
+
+    // Simple speedometer icon
+    path.setAttribute(
+      "d",
+      "M25.9,13.1A8.2,8.2,0,0,0,18,10a8.2,8.2,0,0,0-7.9,3.1L8,12.2V22h9.8l-1-2H10v-2h3.3l1.1-2.2a6.1,6.1,0,0,1,11.2,0L26.7,18H30v2H21.8l-1-2h4.1A8.2,8.2,0,0,0,25.9,13.1Z"
+    );
+    path.setAttribute("fill", "#fff");
+
+    // Text element to show current speed
+    text.setAttribute("x", "18");
+    text.setAttribute("y", "23");
+    text.setAttribute("font-size", "8px");
+    text.setAttribute("font-weight", "bold");
+    text.setAttribute("text-anchor", "middle");
+    text.setAttribute("fill", "#fff");
+    text.setAttribute("class", "it-speed-text");
+    text.textContent = (this.elements.video?.playbackRate || 1.0).toFixed(2);
+
+    svg.appendChild(path);
+    svg.appendChild(text);
+
+    const button = this.createPlayerButton({
+      id: "it-playback-speed-button",
+      child: svg,
+      opacity: 0.85,
+      title: "Playback Speed Control",
+    });
+
+    const updateSpeedText = () => {
+      const currentSpeed = (this.elements.video?.playbackRate || 1.0).toFixed(
+        2
+      );
+      if (button) {
+        const textElement = button.querySelector(".it-speed-text");
+        if (textElement) textElement.textContent = currentSpeed;
+      }
+    };
+
+    // --- Event Listeners ---
+    button.onclick = () => {
+      const customSpeed = this.storage.player_custom_playback_speed || 1.25;
+      this.playbackSpeed(customSpeed);
+    };
+
+    button.oncontextmenu = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.playbackSpeed(1.0);
+      return false;
+    };
+
+    button.onwheel = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const currentSpeed = this.playbackSpeed();
+      const direction = e.deltaY < 0 ? 1 : -1;
+      let newSpeed = Math.round((currentSpeed + direction * 0.05) * 100) / 100;
+
+      if (newSpeed > 4) newSpeed = 4;
+      if (newSpeed < 0.1) newSpeed = 0.1;
+
+      this.playbackSpeed(newSpeed);
+    };
+
+    this.elements.video.addEventListener("ratechange", updateSpeedText);
+    updateSpeedText(); // Set initial value
+  }
+};
+
 
 /*------------------------------------------------------------------------------
 FIT-TO-WIN BUTTON
@@ -1795,8 +1972,8 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 				if (
 					(/^[a-z0-9]$/i.test(e.key) || e.key === "Backspace") &&
 				!(e.ctrlKey && (e.key === "c" || e.key === "x" || e.key === "a")) &&
-				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV" 
-				 ||	((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable) 
+				( document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA" || document.activeElement.tagName === "DIV"
+				 ||	((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable)
 				)) {
 				// Pause the video
 				// Check if player is paused
@@ -1894,14 +2071,14 @@ ImprovedTube.playerRewindAndForwardButtons = function(){
 	 path4.setAttribute("fill", "#ffffff");
 	 svgForward.appendChild(path3);
 	 svgForward.appendChild(path4);
-	
-	 
+
+
 	 this.createPlayerButton({
 	  id: 'it-forward-player-button',
 	  opacity: 0.85,
 	  position: "right",
 	  child: svgForward,
-   
+
 	  onclick: function () {
 	   ImprovedTube.elements.player.seekTo(ImprovedTube.elements.player.getCurrentTime() + 5);
 	  },
@@ -1912,7 +2089,7 @@ ImprovedTube.playerRewindAndForwardButtons = function(){
 	  opacity: 0.85,
 	  position: "right",
 	  child: svgBackward,
-   
+
 	  onclick: function () {
 	   ImprovedTube.elements.player.seekTo(ImprovedTube.elements.player.getCurrentTime() - 5);
 	  },
@@ -1927,7 +2104,7 @@ Increase and Decrease Playback Speed Buttons
 ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
     if (this.storage.player_increase_decrease_speed_buttons === true) {
         const svgNamespace = "http://www.w3.org/2000/svg";
-        
+
         const svgDecrease = document.createElementNS(svgNamespace, "svg");
         const path1 = document.createElementNS(svgNamespace, "path");
         svgDecrease.setAttribute("class", "icon");
@@ -1946,7 +2123,7 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
                 M0,341.4C0,206.7,109.6,97.1,244.3,97.1c31.3,0,61.8,5.8,90.6,17.4c12.4,5,18.4,19,13.5,31.4c-5,12.4-19,18.4-31.4,13.5
                 c-23.1-9.2-47.6-13.9-72.7-13.9c-108,0-195.9,87.9-195.9,195.9c0,13.4-10.8,24.2-24.2,24.2C10.8,365.6,0,354.8,0,341.4z`);
         path1.setAttribute("fill", "#ffffff");
-        
+
         path1.setAttribute("transform", "translate(520, 0)");
 
         svgDecrease.appendChild(path1);
@@ -1961,11 +2138,11 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
         svg1x.setAttribute("p-id", "1636");
 
         const text1 = document.createElementNS(svgNamespace, "text");
-        text1.setAttribute("x", "512"); 
-        text1.setAttribute("y", "512"); 
+        text1.setAttribute("x", "512");
+        text1.setAttribute("y", "512");
 
         text1.setAttribute("fill", "#ffffff");
-        text1.setAttribute("font-size", "550"); 
+        text1.setAttribute("font-size", "550");
 
         text1.setAttribute("font-weight", "bold");
         text1.setAttribute("font-family", "Arial, sans-serif");
@@ -1984,9 +2161,9 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
         svgIncrease.setAttribute("height", "90%");
         svgIncrease.style.display = "block";
         svgIncrease.style.margin = "0 auto";
-        
+
         svgDecrease.style.transform = "scaleX(-1)";
-        
+
         path2.setAttribute("d", `M188.5,270.3c-24.4,28.1-23.2,71.7,2.6,98.6c14.4,15.1,33.7,22.6,52.9,22.6c18.8,0,37.5-7.2,51.8-21.5
                 c6.5-6.5,11.6-14,15.1-21.9l0,0l94.5-183.2c2.5-5.2-2.9-10.6-8.1-8.1l-183.2,94.5l0,0C204.6,255.5,195.9,261.9,188.5,270.3z
                 M221.9,296.1c6.1-6.1,14.1-9.2,22.1-9.2s16,3.1,22.2,9.2c12.2,12.2,12.2,32.1,0,44.3c-6.1,6.1-14.1,9.2-22.2,9.2
@@ -2046,80 +2223,740 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
 /*------------------------------------------------------------------------------
 # DISABLE AUTO DUBBING
 ------------------------------------------------------------------------------*/
+ImprovedTube.getAudioTrackInfo = function (track) {
+	return track?.getLanguageInfo?.() || {};
+};
+
+ImprovedTube.normalizeAudioTrackText = function (value) {
+	return String(value || '').trim().toLocaleLowerCase();
+};
+
+ImprovedTube.audioTrackIsAutoDubbed = function (track) {
+	const info = this.getAudioTrackInfo(track);
+	const metadata = [track, info, track?.audioTrack, track?.audioTrackData, info?.audioTrack];
+	const autoFlags = [
+		'isAutoDubbed',
+		'isAutoDubbing',
+		'isAutomaticallyDubbed',
+		'autoDubbed',
+		'autoDubbing',
+		'isAutoGenerated',
+		'isMachineGenerated',
+		'isSynthetic'
+	];
+
+	for (const source of metadata) {
+		if (!source || typeof source !== 'object') continue;
+		if (autoFlags.some(flag => source[flag] === true)) return true;
+	}
+
+	const descriptor = metadata.flatMap(function (source) {
+		if (!source || typeof source !== 'object') return [];
+		return [source.id, source.name, source.languageCode, source.languageName, source.kind];
+	}).join(' ').toLocaleLowerCase();
+
+	if (/auto[\s_-]*dub|automatic[\s_-]*dub|machine[\s_-]*dub|synthetic[\s_-]*dub|generated[\s_-]*dub/.test(descriptor)) {
+		return true;
+	}
+
+	const autoLabels = this.autoDubbedTrackLabels;
+	const name = this.normalizeAudioTrackText(info.name || track?.languageName);
+	if (autoLabels && autoLabels.url === location.href && name) {
+		const labelMatchesTrack = label => label === name || label.startsWith(name + ' ') || label.includes(name + ' auto');
+		const appearsInAutoSection = Array.from(autoLabels.values).some(labelMatchesTrack);
+		const appearsInManualSection = Array.from(autoLabels.manualValues || []).some(labelMatchesTrack);
+
+		// A human dub and an automatic dub can have exactly the same visible
+		// language label. Menu text alone cannot identify which track object is
+		// automatic in that case, so preserve the human track unless the metadata
+		// checks above provided unambiguous auto-dub evidence.
+		return appearsInAutoSection && !appearsInManualSection;
+	}
+
+	return false;
+};
+
+ImprovedTube.audioTrackMatchesLanguage = function (track, language) {
+	const selected = this.normalizeAudioTrackText(language);
+	if (!selected) return false;
+
+	const info = this.getAudioTrackInfo(track);
+	const codes = [info.id, info.languageCode, track?.id, track?.languageCode]
+		.map(this.normalizeAudioTrackText)
+		.filter(Boolean);
+	const names = [info.name, info.languageName, track?.name, track?.languageName]
+		.map(this.normalizeAudioTrackText)
+		.filter(Boolean);
+
+	return codes.some(code => code === selected || code.startsWith(selected + '.') || code.startsWith(selected + '-') || code.startsWith(selected + '_')) ||
+		names.some(name => name === selected || name.includes(selected));
+};
+
+ImprovedTube.findOriginalAudioTrack = function (audioTracks) {
+	if (!audioTracks?.length) return null;
+
+	const originalWords = ['original', 'originale', 'originalny', 'originalaudio', 'origineel', 'orijinal', 'оригинал', 'оригинальная'];
+	const isNamedOriginal = track => {
+		const name = this.normalizeAudioTrackText(this.getAudioTrackInfo(track).name);
+		return originalWords.some(word => name.includes(word));
+	};
+	const hasAsrCaption = track => Array.isArray(track?.captionTracks) && track.captionTracks.some(caption => caption.kind === 'asr');
+	const isDefault = track => this.getAudioTrackInfo(track).isDefault === true || track?.isDefault === true;
+
+	return audioTracks.find(track => track?.isOriginal === true || this.getAudioTrackInfo(track).isOriginal === true) ||
+		audioTracks.find(isNamedOriginal) || audioTracks.find(hasAsrCaption) || audioTracks.find(isDefault) || audioTracks[0];
+};
+
+ImprovedTube.getPreferredAudioLanguage = function () {
+	const selected = this.storage.player_default_dubbed_language;
+	if (selected && selected !== 'disabled') return selected;
+
+	return this.storage.preferred_dubbing_language || '';
+};
+
+ImprovedTube.audioTracksAreEqual = function (firstTrack, secondTrack) {
+	if (firstTrack === secondTrack) return true;
+
+	const firstInfo = this.getAudioTrackInfo(firstTrack);
+	const secondInfo = this.getAudioTrackInfo(secondTrack);
+	const firstId = firstInfo.id || firstTrack?.id;
+	const secondId = secondInfo.id || secondTrack?.id;
+
+	return Boolean(firstId && secondId && firstId === secondId);
+};
+
+ImprovedTube.selectPermittedAudioTrack = function (player, preferredLanguage) {
+	const tracks = player?.getAvailableAudioTracks?.();
+	if (!tracks?.length) return null;
+
+	const blockAutoDubbing = this.storage.disable_auto_dubbing === true;
+	const permittedTracks = blockAutoDubbing ? tracks.filter(track => !this.audioTrackIsAutoDubbed(track)) : tracks;
+	const requestedLanguage = preferredLanguage || this.getPreferredAudioLanguage();
+	let targetTrack = requestedLanguage ? permittedTracks.find(track => this.audioTrackMatchesLanguage(track, requestedLanguage)) : null;
+
+	if (!targetTrack && blockAutoDubbing) {
+		targetTrack = this.findOriginalAudioTrack(permittedTracks) || this.findOriginalAudioTrack(tracks);
+	}
+
+	const currentTrack = player.getAudioTrack?.();
+	if (targetTrack && !this.audioTracksAreEqual(currentTrack, targetTrack)) {
+		player.setAudioTrack(targetTrack);
+	}
+	return targetTrack || null;
+};
+
 ImprovedTube.disableAutoDubbing = function () {
-	const player = this.elements.player;
-	const tracks = player?.getAvailableAudioTracks();
-	const originalTrack = tracks ? findOriginalAudioTrack(tracks) : null;
-	
-	if (originalTrack) {
-		player.setAudioTrack(originalTrack);
-	}
+	// These lifecycle helpers belong only to this feature. Define them lazily so
+	// they do not exist when auto-dubbing protection has never been enabled.
+	ImprovedTube.stopAutoDubbingGuard = function () {
+		const guard = this.autoDubbingGuard;
+		if (!guard) return;
 
-	function findOriginalAudioTrack(audioTracks) {
-		// Score tracks based on likely original source
-		for (const track of audioTracks) {
-			if (hasOriginalKeyword(track)) {
-				return track;
-			}
+		clearInterval(guard.interval);
+		guard.video?.removeEventListener('loadedmetadata', guard.forceSelection);
+		guard.video?.removeEventListener('playing', guard.enforce);
+		this.autoDubbingGuard = null;
+	};
+
+	ImprovedTube.enforceAutoDubbingPolicy = function () {
+		const player = this.elements.player;
+		if (!player?.getAvailableAudioTracks) return;
+
+		if (this.autoDubbingGuard?.player !== player) this.stopAutoDubbingGuard();
+
+		if (!this.autoDubbingGuard) {
+			const video = player.querySelector?.('video');
+			const canReadCurrentTrack = typeof player.getAudioTrack === 'function';
+			const guard = {
+				player,
+				video,
+				enforce: function () {
+					// The storage listener normally stops the guard synchronously. Keep
+					// this check for a callback that was already queued before disabling.
+					if (ImprovedTube.storage.disable_auto_dubbing !== true || !canReadCurrentTrack) return;
+
+					const currentTrack = player.getAudioTrack();
+					if (currentTrack && ImprovedTube.audioTrackIsAutoDubbed(currentTrack)) {
+						ImprovedTube.selectPermittedAudioTrack(player);
+					}
+				},
+				forceSelection: function () {
+					setTimeout(function () {
+						if (ImprovedTube.storage.disable_auto_dubbing === true) {
+							ImprovedTube.selectPermittedAudioTrack(player);
+						}
+					}, 0);
+				}
+			};
+
+			guard.interval = canReadCurrentTrack ? setInterval(guard.enforce, 1000) : null;
+			video?.addEventListener('loadedmetadata', guard.forceSelection);
+			video?.addEventListener('playing', guard.enforce);
+			this.autoDubbingGuard = guard;
 		}
 
-		for (const track of audioTracks) {
-			if (hasASR(track)) {
-				return track;
-			}
-		}
+		this.autoDubbingGuard.enforce();
+	};
 
-		function hasASR(track) {
-			return Array.isArray(track.captionTracks) && 
-				track.captionTracks.some(ct => ct.kind === 'asr');
-		}
-
-		function hasOriginalKeyword(track) {
-			var name = track?.getLanguageInfo?.()?.name?.toLowerCase() || '';
-			const localizedOriginalWords = ['original', 'originale', 'originalny', 'originalaudio', 'origineel', 'orijinal']; // Add more if needed
-			
-			return localizedOriginalWords.some(word => name.includes(word));
-		}
-
-		// As a fallback: default or first item
-		const fallback = audioTracks.find(t => t?.getLanguageInfo?.()?.isDefault) || audioTracks[0];
-		console.log(fallback);
-		return fallback;
-	}
-}
+	this.selectPermittedAudioTrack(this.elements.player);
+	this.enforceAutoDubbingPolicy();
+};
 
 /*------------------------------------------------------------------------------
 # HIDE AUTO-DUBBED MENU ITEMS
 ------------------------------------------------------------------------------*/
 ImprovedTube.observeAutoDubbedMenu = function () {
-		if (ImprovedTube.storage.hide_auto_dubbed_options !== true) return;
+	const state = ImprovedTube.autoDubbedMenuObserver;
+	if (ImprovedTube.storage.hide_auto_dubbed_options !== true) {
+		state?.disconnect();
+		ImprovedTube.autoDubbedMenuObserver = null;
+		ImprovedTube.cancelAutoDubbedMenuLayoutRefresh();
+		ImprovedTube.hideAutoDubbedMenuItems();
+		return;
+	}
+
+	if (state) {
+		ImprovedTube.hideAutoDubbedMenuItems();
+		return;
+	}
+
+	const playerContainer = document.querySelector('#movie_player');
+	if (!playerContainer) return;
+
+	ImprovedTube.autoDubbedMenuObserver = new MutationObserver(function (records) {
+		// YouTube reuses submenu nodes. A panel marked as leaving becomes eligible
+		// again only when YouTube explicitly attaches it in a later mutation batch;
+		// moving the same subtree within one update is still part of the old panel.
+		const removedNodes = new Set();
+		records?.forEach(function (record) {
+			Array.from(record.removedNodes || []).forEach(node => removedNodes.add(node));
+		});
+		records?.forEach(function (record) {
+			Array.from(record.addedNodes || []).forEach(function (node) {
+				if (node?.nodeType !== 1 || removedNodes.has(node)) return;
+
+				if (node.matches?.('.ytp-panel-menu')) delete node.itAutoDubbedMenuLeaving;
+				node.querySelectorAll?.('.ytp-panel-menu').forEach(function (panel) {
+					delete panel.itAutoDubbedMenuLeaving;
+				});
+			});
+		});
+
+		// Layout probes are mounted under the player briefly. They are not a
+		// YouTube menu update and must not schedule another probe recursively.
+		const relevantUpdate = records?.some(function (record) {
+			if (record.type === 'attributes') {
+				const target = record.target;
+				return target?.dataset?.itAutoDubbedHidden === 'true' ||
+					target?.classList?.contains('ytp-panel') ||
+					target?.classList?.contains('ytp-panel-menu') ||
+					target?.classList?.contains('ytp-settings-menu');
+			}
+
+			const nodes = Array.from(record.addedNodes || []).concat(Array.from(record.removedNodes || []));
+			return nodes.length === 0 || !nodes.every(ImprovedTube.isAutoDubbedMenuLayoutProbe);
+		});
+		if (!relevantUpdate) return;
+
+		ImprovedTube.hideAutoDubbedMenuItems();
+	});
+	ImprovedTube.autoDubbedMenuObserver.observe(playerContainer, {
+		attributeFilter: ['class', 'style'],
+		attributes: true,
+		childList: true,
+		subtree: true
+	});
+	ImprovedTube.hideAutoDubbedMenuItems();
+};
+
+ImprovedTube.isAutoDubbedMenuHeader = function (item) {
+	const label = this.normalizeAudioTrackText(item?.textContent);
+	return /auto[\s-]*dub|automatic[\s-]*dubb|automatically[\s-]*dub|авто(?:матическ(?:ое|ая|ий)?\s*)?(?:дубляж|дублирован)|дублировани[ея]\s+автоматически|dublagem\s+automática|doblaje\s+automático|synchronisation\s+automatique|automatische\s+(?:synchronisation|vertonung)/.test(label);
+};
+
+ImprovedTube.rememberAutoDubbedMenuItems = function (items) {
+	if (!this.autoDubbedTrackLabels || this.autoDubbedTrackLabels.url !== location.href) {
+		this.autoDubbedTrackLabels = {url: location.href, values: new Set(), manualValues: new Set()};
+	}
+
+	let inAutoDubbedSection = false;
+	items.forEach(item => {
+		if (item.classList.contains('ytp-menuitem-section-header')) {
+			inAutoDubbedSection = this.isAutoDubbedMenuHeader(item);
+		} else {
+			const label = this.normalizeAudioTrackText(item.textContent);
+			if (!label) return;
+
+			if (inAutoDubbedSection) {
+				this.autoDubbedTrackLabels.values.add(label);
+			} else {
+				this.autoDubbedTrackLabels.manualValues.add(label);
+			}
+		}
+	});
+};
+
+ImprovedTube.isAutoDubbedMenuLayoutProbe = function (node) {
+	return node?.nodeType === 1 && (
+		node.dataset?.itAutoDubbedMenuLayoutProbe === 'true' ||
+		node.closest?.('[data-it-auto-dubbed-menu-layout-probe="true"]')
+	);
+};
+
+ImprovedTube.releaseAutoDubbedMenuLayout = function (panel) {
+	if (!panel) return;
+
+	// YouTube adds the outgoing animation class about 20 ms after Back. Mark the
+	// audio panel immediately so observer callbacks in that gap cannot make it
+	// reclaim the popup and constrain the root panel's native measurement.
+	panel.itAutoDubbedMenuLeaving = true;
+	ImprovedTube.cancelAutoDubbedMenuLayoutRefresh();
+	ImprovedTube.restoreAutoDubbedMenuLayout(panel, {force: true});
+	if (ImprovedTube.autoDubbedMenuPanel === panel) ImprovedTube.autoDubbedMenuPanel = null;
+};
+
+ImprovedTube.restoreAutoDubbedMenuBeforeBack = function (event) {
+	const backControl = event.target?.closest?.('.ytp-panel-back-button, .ytp-panel-title');
+	const panel = ImprovedTube.autoDubbedMenuPanel;
+	const menuPanel = panel?.closest?.('.ytp-panel');
+	if (!backControl || !menuPanel || backControl.closest?.('.ytp-panel') !== menuPanel) return;
+
+	// Run in the capture phase so YouTube measures the root menu only after the
+	// compact audio-menu constraints have been removed.
+	ImprovedTube.releaseAutoDubbedMenuLayout(panel);
+};
+
+ImprovedTube.restoreAutoDubbedMenuBeforePanelFocus = function (event) {
+	const focusedPanel = event.target?.closest?.('.ytp-panel');
+	if (!focusedPanel) return;
+
+	// The same audio panel object can be detached and reused on a later opening.
+	// Focus is moved to it before YouTube measures it, so it is safe to release
+	// the marker here even in variants that reparent rather than re-create nodes.
+	const focusedMenu = focusedPanel.querySelector?.('.ytp-panel-menu');
+	if (focusedMenu?.itAutoDubbedMenuLeaving === true) delete focusedMenu.itAutoDubbedMenuLeaving;
+
+	const panel = ImprovedTube.autoDubbedMenuPanel;
+	if (panel && panel.closest?.('.ytp-panel') !== focusedPanel) {
+		ImprovedTube.releaseAutoDubbedMenuLayout(panel);
+	}
+};
+
+ImprovedTube.restoreAutoDubbedMenuLayout = function (panel, options) {
+	if (!panel) return;
+
+	const force = options?.force === true;
+	const menuPanel = panel.closest?.('.ytp-panel');
+	const settingsMenu = menuPanel?.closest?.('.ytp-settings-menu');
+	// YouTube detaches the old submenu at the end of its slide transition. Keep
+	// the elements captured while it was connected, because closest() can no
+	// longer reach the shared settings popup by the time the observer restores it.
+	const elements = new Set(panel.itAutoDubbedMenuLayoutElements || []);
+	[panel, menuPanel, settingsMenu].filter(Boolean).forEach(element => elements.add(element));
+	elements.forEach(function (element) {
+		const saved = element.dataset.itAutoDubbedMenuLayout;
+		if (!saved) return;
+
+		try {
+			const styles = JSON.parse(saved);
+			const applied = JSON.parse(element.dataset.itAutoDubbedMenuAppliedLayout || 'null');
+			for (const property in styles) {
+				const value = styles[property];
+				const appliedValue = applied?.[property];
+				// Late observer cleanup preserves dimensions YouTube has already set
+				// for the root menu; capture cleanup runs before those values exist.
+				if (!force && appliedValue && (
+					element.style.getPropertyValue(property) !== appliedValue.value ||
+					element.style.getPropertyPriority(property) !== appliedValue.priority
+				)) continue;
+
+				if (value.value) {
+					element.style.setProperty(property, value.value, value.priority);
+				} else {
+					element.style.removeProperty(property);
+				}
+			}
+		} catch (_) {
+			for (const property of [
+				'width', 'min-width', 'max-width',
+				'height', 'min-height', 'max-height',
+				'overflow', 'overflow-x', 'overflow-y'
+			]) {
+				element.style.removeProperty(property);
+			}
+		}
+
+		delete element.dataset.itAutoDubbedMenuLayout;
+		delete element.dataset.itAutoDubbedMenuAppliedLayout;
+	});
+
+	delete panel.itAutoDubbedMenuLayoutElements;
+};
+
+ImprovedTube.restoreAutoDubbedMenuLayoutProperties = function (element, properties) {
+	const saved = element?.dataset?.itAutoDubbedMenuLayout;
+	if (!saved) return;
+
+	try {
+		const styles = JSON.parse(saved);
+		properties.forEach(function (property) {
+			const value = styles[property];
+			if (!value) return;
+
+			const currentValue = element.style.getPropertyValue(property);
+			const currentPriority = element.style.getPropertyPriority(property);
+			if (currentValue === value.value && currentPriority === value.priority) return;
+
+			if (value.value) {
+				element.style.setProperty(property, value.value, value.priority);
+			} else {
+				element.style.removeProperty(property);
+			}
+		});
+	} catch (_) { }
+};
+
+ImprovedTube.saveAutoDubbedMenuLayout = function (element) {
+	if (!element || element.dataset.itAutoDubbedMenuLayout) return;
+
+	const savedStyles = {};
+	for (const property of [
+		'width', 'min-width', 'max-width',
+		'height', 'min-height', 'max-height',
+		'overflow', 'overflow-x', 'overflow-y'
+	]) {
+		savedStyles[property] = {
+			value: element.style.getPropertyValue(property),
+			priority: element.style.getPropertyPriority(property)
+		};
+	}
+
+	element.dataset.itAutoDubbedMenuLayout = JSON.stringify(savedStyles);
+};
+
+ImprovedTube.saveAutoDubbedMenuAppliedLayout = function (element) {
+	if (!element) return;
+
+	const appliedStyles = {};
+	for (const property of [
+		'width', 'min-width', 'max-width',
+		'height', 'min-height', 'max-height',
+		'overflow', 'overflow-x', 'overflow-y'
+	]) {
+		appliedStyles[property] = {
+			value: element.style.getPropertyValue(property),
+			priority: element.style.getPropertyPriority(property)
+		};
+	}
+
+	element.dataset.itAutoDubbedMenuAppliedLayout = JSON.stringify(appliedStyles);
+};
+
+ImprovedTube.measureFilteredAudioMenuLayout = function (panel) {
+	const player = panel?.closest?.('.html5-video-player, #movie_player');
+	const menuPanel = panel?.closest?.('.ytp-panel');
+	const popup = menuPanel?.closest?.('.ytp-popup') || menuPanel;
+	if (!player || !popup?.cloneNode || !player.appendChild) return null;
+
+	// A settings popup can contain more than one panel while YouTube animates
+	// between menus. Mark the live audio panel so its exact clone can be found.
+	panel.dataset.itAutoDubbedMenuSource = 'true';
+	let probe;
+	try {
+		probe = popup.cloneNode(true);
+	} catch (_) {
+		return null;
+	} finally {
+		delete panel.dataset.itAutoDubbedMenuSource;
+	}
+
+	const probeMenu = probe.querySelector?.('[data-it-auto-dubbed-menu-source="true"]') ||
+		(probe.matches?.('.ytp-panel-menu') ? probe : probe.querySelector?.('.ytp-panel-menu'));
+	const probePanel = probeMenu?.closest?.('.ytp-panel') ||
+		(probe.matches?.('.ytp-panel') ? probe : probe.querySelector?.('.ytp-panel'));
+	if (!probePanel || !probeMenu) return null;
+	if (probeMenu.dataset) delete probeMenu.dataset.itAutoDubbedMenuSource;
+
+	probe.dataset.itAutoDubbedMenuLayoutProbe = 'true';
+	probe.querySelectorAll?.('[data-it-auto-dubbed-hidden="true"]').forEach(function (item) {
+		item.remove?.() || item.parentNode?.removeChild(item);
+	});
+
+	// This is a real copy of YouTube's panel, in the same player and with only
+	// the hidden section removed. Its natural size is therefore the size YouTube
+	// would calculate after the menu is closed and opened again.
+	[probe, probePanel, probeMenu].forEach(function (element) {
+		for (const property of [
+			'width', 'min-width', 'max-width',
+			'height', 'min-height', 'max-height',
+			'left', 'right'
+		]) {
+			element.style.removeProperty(property);
+		}
+	});
+
+	probe.style.setProperty('display', 'block', 'important');
+	probe.style.setProperty('visibility', 'hidden', 'important');
+	probe.style.setProperty('pointer-events', 'none', 'important');
+	probe.style.setProperty('position', 'absolute', 'important');
+	probe.style.setProperty('left', '-10000px', 'important');
+	probe.style.setProperty('right', 'auto', 'important');
+	probe.style.setProperty('bottom', 'auto', 'important');
+	probe.style.setProperty('top', '0', 'important');
+	probe.style.setProperty('transform', 'none', 'important');
+	probe.style.setProperty('transition', 'none', 'important');
+	probePanel.style.setProperty('display', 'block', 'important');
+	probePanel.style.setProperty('transform', 'none', 'important');
+	probePanel.style.setProperty('transition', 'none', 'important');
+	probeMenu.style.setProperty('display', 'block', 'important');
+	probeMenu.style.setProperty('transform', 'none', 'important');
+	probeMenu.style.setProperty('transition', 'none', 'important');
+
+	try {
+		player.appendChild(probe);
+		const probeRect = probe.getBoundingClientRect?.() || {};
+		const panelRect = probePanel.getBoundingClientRect?.() || {};
+		const width = probeRect.width || probe.offsetWidth || panelRect.width || probePanel.offsetWidth;
+		const height = probeRect.height || probe.offsetHeight || probe.scrollHeight ||
+			panelRect.height || probePanel.offsetHeight || probePanel.scrollHeight ||
+			probeMenu.offsetHeight || probeMenu.scrollHeight;
+		// .ytp-panel, not .ytp-panel-menu, is YouTube's actual overflow-y
+		// container. Detect whether the remaining native panel really needs it.
+		const menuClientHeight = probePanel.clientHeight || probePanel.offsetHeight || 0;
+		const menuScrollHeight = probePanel.scrollHeight || menuClientHeight;
+
+		return {
+			height: Number.isFinite(height) && height > 0 ? Math.ceil(height) : 0,
+			scrollable: menuClientHeight > 0 && menuScrollHeight > menuClientHeight + 1,
+			width: Number.isFinite(width) && width > 0 ? Math.ceil(width) : 0
+		};
+	} catch (_) {
+		return null;
+	} finally {
+		probe.remove?.() || probe.parentNode?.removeChild(probe);
+	}
+};
+
+ImprovedTube.applyFilteredAudioMenuLayout = function (panel) {
+	const menuPanel = panel?.closest?.('.ytp-panel');
+	const settingsMenu = menuPanel?.closest?.('.ytp-settings-menu');
+	// Clear YouTube's old offset while .ytp-panel is still scrollable. Once
+	// overflow becomes `clip`, scrollTop can no longer be changed reliably.
+	this.resetFilteredAudioMenuScroll(panel);
+	const layout = this.measureFilteredAudioMenuLayout(panel);
+	if (!menuPanel || !layout || (!layout.width && !layout.height)) return;
+
+	const layoutElements = new Set(panel.itAutoDubbedMenuLayoutElements || []);
+	[panel, menuPanel, settingsMenu].filter(Boolean).forEach(element => layoutElements.add(element));
+	panel.itAutoDubbedMenuLayoutElements = Array.from(layoutElements);
+	menuPanel.addEventListener?.('click', ImprovedTube.restoreAutoDubbedMenuBeforeBack, true);
+	settingsMenu?.addEventListener?.('focusin', ImprovedTube.restoreAutoDubbedMenuBeforePanelFocus, true);
+
+	// The inner table can retain the height and overflow of the unfiltered audio
+	// list even after its rows are hidden. That stale box is what leaves the
+	// first opening blank/scrolled; let the filtered rows define it naturally.
+	ImprovedTube.saveAutoDubbedMenuLayout(panel);
+	for (const [property, value] of [
+		['height', 'auto'],
+		['min-height', '0px'],
+		['max-height', 'none'],
+		['overflow', 'visible'],
+		['overflow-x', 'visible'],
+		['overflow-y', 'visible']
+	]) {
+		if (panel.style.getPropertyValue(property) !== value || panel.style.getPropertyPriority(property) !== 'important') {
+			panel.style.setProperty(property, value, 'important');
+		}
+	}
+
+	// YouTube writes the calculated dimensions to both elements. Updating only
+	// .ytp-panel leaves the visible .ytp-settings-menu at its pre-filter size.
+	[menuPanel, settingsMenu].filter(Boolean).forEach(function (element) {
+		ImprovedTube.saveAutoDubbedMenuLayout(element);
+
+		for (const property of ['width', 'min-width', 'max-width']) {
+			const value = layout.width ? layout.width + 'px' : '';
+			if (value && (element.style.getPropertyValue(property) !== value || element.style.getPropertyPriority(property) !== 'important')) {
+				element.style.setProperty(property, value, 'important');
+			}
+		}
+		for (const property of ['height', 'min-height', 'max-height']) {
+			const value = layout.height ? layout.height + 'px' : '';
+			if (value && (element.style.getPropertyValue(property) !== value || element.style.getPropertyPriority(property) !== 'important')) {
+				element.style.setProperty(property, value, 'important');
+			}
+		}
+	});
+
+	// Disable scrolling on the actual .ytp-panel when all remaining manual
+	// tracks fit. `clip` prevents both a scrollbar and YouTube's later
+	// scrollIntoView() from restoring the offset of the hidden auto-dub track.
+	if (layout.scrollable) {
+		ImprovedTube.restoreAutoDubbedMenuLayoutProperties(menuPanel, ['overflow', 'overflow-x', 'overflow-y']);
+	} else {
+		for (const property of ['overflow', 'overflow-x', 'overflow-y']) {
+			if (menuPanel.style.getPropertyValue(property) !== 'clip' || menuPanel.style.getPropertyPriority(property) !== 'important') {
+				menuPanel.style.setProperty(property, 'clip', 'important');
+			}
+		}
+	}
+
+	[panel, menuPanel, settingsMenu].filter(Boolean).forEach(ImprovedTube.saveAutoDubbedMenuAppliedLayout);
+};
+
+ImprovedTube.cancelAutoDubbedMenuLayoutRefresh = function () {
+	const job = this.autoDubbedMenuLayoutJob;
+	if (!job) return;
+
+	const cancelFrame = window.cancelAnimationFrame?.bind(window) || clearTimeout;
+	if (job.frame) cancelFrame(job.frame);
+	job.timers.forEach(clearTimeout);
+	this.autoDubbedMenuLayoutJob = null;
+};
+
+ImprovedTube.resetFilteredAudioMenuScroll = function (panel) {
+	const menuPanel = panel?.closest?.('.ytp-panel');
+	const settingsMenu = menuPanel?.closest?.('.ytp-settings-menu');
+
+	// On the first opening YouTube scrolls to the selected auto-dubbed item
+	// before that section is hidden. The shortened menu then keeps this obsolete
+	// scroll offset and appears blank until it is closed and opened again.
+	[panel, menuPanel, settingsMenu].filter(Boolean).forEach(function (element) {
+		if (typeof element.scrollTop === 'number' && element.scrollTop !== 0) {
+			element.scrollTop = 0;
+		}
+	});
+};
+
+ImprovedTube.refreshAutoDubbedMenuLayout = function (panel) {
+	if (!panel) return;
+
+	const scheduleFrame = window.requestAnimationFrame?.bind(window) || function (callback) {
+		return setTimeout(callback, 0);
+	};
+	const recalculate = function () {
+		if (ImprovedTube.autoDubbedMenuPanel !== panel ||
+			ImprovedTube.storage.hide_auto_dubbed_options !== true || panel.isConnected === false ||
+			!panel.querySelector?.('[data-it-auto-dubbed-hidden="true"]') ||
+			ImprovedTube.getAutoDubbedAudioMenuPanel() !== panel) {
+			ImprovedTube.cancelAutoDubbedMenuLayoutRefresh();
+			ImprovedTube.restoreAutoDubbedMenuLayout(panel);
+			if (ImprovedTube.autoDubbedMenuPanel === panel) ImprovedTube.autoDubbedMenuPanel = null;
+			return;
+		}
+
+		// YouTube measures the first audio panel before our filter runs and can
+		// rewrite its inline dimensions during the opening transition. Re-measure
+		// a filtered clone and keep both live containers at that native size.
+		ImprovedTube.resetFilteredAudioMenuScroll(panel);
+		ImprovedTube.applyFilteredAudioMenuLayout(panel);
+		void panel.offsetWidth;
+	};
+
+	this.cancelAutoDubbedMenuLayoutRefresh();
+	const job = {frame: null, timers: []};
+	this.autoDubbedMenuLayoutJob = job;
+	job.frame = scheduleFrame(recalculate);
+	job.timers = [0, 50, 150, 350, 750].map(function (delay) {
+		return setTimeout(recalculate, delay);
+	});
+};
+
+ImprovedTube.getAutoDubbedAudioMenuPanel = function () {
+	const panels = document.querySelectorAll?.('.ytp-settings-menu .ytp-panel-menu') || [];
+	let activePanel = null;
+	let activeIntersection = 0;
+	let activeIntersectionRatio = 0;
+
+	// Rank every settings panel before checking its contents. During Back,
+	// YouTube can keep the old audio panel in the DOM after the root panel is
+	// already visible; that stale panel must not reclaim the shared popup.
+	for (const panel of panels) {
+		if (panel.itAutoDubbedMenuLeaving === true) continue;
+
+		const layoutPanel = panel.closest?.('.ytp-panel') || panel;
+		// These classes make an outgoing panel transparent and translate it away.
+		// It must release the shared popup immediately, before YouTube detaches it.
+		if (layoutPanel.classList?.contains('ytp-panel-animate-back') ||
+			layoutPanel.classList?.contains('ytp-panel-animate-forward')) continue;
+
+		const settingsMenu = layoutPanel.closest?.('.ytp-settings-menu') || panel.closest?.('.ytp-settings-menu');
+		const rect = layoutPanel.getBoundingClientRect?.();
+		const menuRect = settingsMenu?.getBoundingClientRect?.();
+		if (!rect || !menuRect || rect.width <= 0 || rect.height <= 0 || menuRect.width <= 0 || menuRect.height <= 0) continue;
+
+		// YouTube keeps both submenu panels rendered during and after its slide
+		// transition. offsetParent therefore also matches the old, translated panel.
+		// Only the panel occupying the visible settings popup may own its layout.
+		const intersectionWidth = Math.max(0, Math.min(rect.right, menuRect.right) - Math.max(rect.left, menuRect.left));
+		const intersectionHeight = Math.max(0, Math.min(rect.bottom, menuRect.bottom) - Math.max(rect.top, menuRect.top));
+		const intersection = intersectionWidth * intersectionHeight;
+		const intersectionRatio = intersection / (rect.width * rect.height);
+		if (intersectionRatio > activeIntersectionRatio ||
+			(intersectionRatio === activeIntersectionRatio && intersection > activeIntersection)) {
+			activeIntersection = intersection;
+			activeIntersectionRatio = intersectionRatio;
+			activePanel = panel;
+		}
+	}
+
+	if (!activePanel) return null;
+
+	const items = activePanel.querySelectorAll('.ytp-menuitem');
+	const containsAutoDubbedSection = Array.from(items).some(function (item) {
+		return item.classList.contains('ytp-menuitem-section-header') && ImprovedTube.isAutoDubbedMenuHeader(item);
+	});
+
+	return containsAutoDubbedSection ? activePanel : null;
+};
+
 ImprovedTube.hideAutoDubbedMenuItems = function () {
-    const panel = document.querySelector('.ytp-panel .ytp-panel-menu');
-    if (!panel) return;
+	const previousPanel = ImprovedTube.autoDubbedMenuPanel;
+	const panel = ImprovedTube.getAutoDubbedAudioMenuPanel();
+	if (!panel) {
+		ImprovedTube.cancelAutoDubbedMenuLayoutRefresh();
+		ImprovedTube.restoreAutoDubbedMenuLayout(previousPanel);
+		ImprovedTube.autoDubbedMenuPanel = null;
+		return;
+	}
+	if (previousPanel && previousPanel !== panel) ImprovedTube.restoreAutoDubbedMenuLayout(previousPanel);
+	ImprovedTube.autoDubbedMenuPanel = panel;
 
-    const items = panel.querySelectorAll('.ytp-menuitem');
-    let autoDubbedSection = false;
+	const shouldHide = ImprovedTube.storage.hide_auto_dubbed_options === true;
+	const items = panel.querySelectorAll('.ytp-menuitem');
+	ImprovedTube.rememberAutoDubbedMenuItems(items);
 
-    items.forEach(function (item) {
-        if (item.classList.contains('ytp-menuitem-section-header')) {
-            item.style.display = 'none';
-            autoDubbedSection = true;
-        } else if (autoDubbedSection) {
-            item.style.display = 'none';
-        }
-    });
-};	
-    const observer = new MutationObserver(function () {
-        const panel = document.querySelector('.ytp-panel .ytp-panel-menu');
-        if (panel) {
-            ImprovedTube.hideAutoDubbedMenuItems();
-        }
-    });
+	let inAutoDubbedSection = false;
+	let hiddenItemCount = 0;
+	items.forEach(function (item) {
+		if (item.classList.contains('ytp-menuitem-section-header')) {
+			inAutoDubbedSection = ImprovedTube.isAutoDubbedMenuHeader(item);
+		}
 
-    const playerContainer = document.querySelector('#movie_player');
-    if (playerContainer) {
-        observer.observe(playerContainer, { childList: true, subtree: true });
-    }
+		if (shouldHide && inAutoDubbedSection) {
+			item.dataset.itAutoDubbedHidden = 'true';
+			if (item.style.getPropertyValue('display') !== 'none' || item.style.getPropertyPriority('display') !== 'important') {
+				item.style.setProperty('display', 'none', 'important');
+			}
+			hiddenItemCount++;
+		} else if (item.dataset.itAutoDubbedHidden === 'true') {
+			delete item.dataset.itAutoDubbedHidden;
+			item.style.removeProperty('display');
+		}
+	});
+
+	if (shouldHide && hiddenItemCount > 0) {
+		// Do the complete filtered layout synchronously. MutationObserver callbacks
+		// run before paint, so the oversized/scrolled intermediate state is never
+		// presented to the user.
+		ImprovedTube.resetFilteredAudioMenuScroll(panel);
+		ImprovedTube.applyFilteredAudioMenuLayout(panel);
+		ImprovedTube.refreshAutoDubbedMenuLayout(panel);
+	} else {
+		ImprovedTube.cancelAutoDubbedMenuLayoutRefresh();
+		ImprovedTube.restoreAutoDubbedMenuLayout(panel);
+		ImprovedTube.autoDubbedMenuPanel = null;
+	}
 };
 
 /*------------------------------------------------------------------------------
@@ -2134,19 +2971,8 @@ ImprovedTube.preferredDubbingLanguage = function () {
 	const preferred = (ImprovedTube.storage.preferred_dubbing_language || '').trim().toLowerCase();
 	if (!preferred) return;
 
-	const player = this.elements.player;
-	const tracks = player?.getAvailableAudioTracks();
-	if (!tracks || !tracks.length) return;
-
-	const match = tracks.find(function (track) {
-		const langCode = (track?.getLanguageInfo?.()?.languageCode || '').toLowerCase();
-		const langName = (track?.getLanguageInfo?.()?.name || '').toLowerCase();
-		return langCode.startsWith(preferred) || langName.includes(preferred);
-	});
-
-	if (match) {
-		player.setAudioTrack(match);
-	}
+	this.selectPermittedAudioTrack(this.elements.player, preferred);
+	if (this.storage.disable_auto_dubbing === true) this.enforceAutoDubbingPolicy?.();
 };
 /*------------------------------------------------------------------------------
 # SELECT DEFAULT DUBBED LANGUAGE
@@ -2167,27 +2993,13 @@ ImprovedTube.selectDubbedLanguage = function () {
 		}
 
 		const tracks = player.getAvailableAudioTracks();
-		if (!tracks || tracks.length <= 1) {
+		if (!tracks || !tracks.length) {
 			if (tries >= maxTries) clearInterval(interval);
 			return;
 		}
 
-		const selected = selectedLang.toLowerCase();
-
-		const targetTrack = tracks.find(function (track) {
-			const info = track?.getLanguageInfo?.();
-			if (!info) return false;
-			// audio tracks use 'id' (e.g. "en.1", "en"), not 'languageCode'
-			const trackId = (info.id || '').toLowerCase();
-			return trackId === selected ||
-				trackId.startsWith(selected + '.') ||
-				trackId.startsWith(selected + '-');
-		});
-
-		if (targetTrack) {
-			player.setAudioTrack(targetTrack);
-			clearInterval(interval);
-		} else if (tries >= maxTries) {
+		const targetTrack = self.selectPermittedAudioTrack(player, selectedLang);
+		if (targetTrack || tries >= maxTries) {
 			clearInterval(interval);
 		}
 	}, 300);
@@ -2196,92 +3008,92 @@ ImprovedTube.selectDubbedLanguage = function () {
 # JUMP TO THE NEXT KEY SCENE
 ------------------------------------------------------------------------------*/
 ImprovedTube.jumpToKeyScene = function () {
-	ImprovedTube.mostReplayed = function () {	
+	ImprovedTube.mostReplayed = function () {
 	const player = document.querySelector('video');
 
 	const data = extractYtInitialData();
-	if (!data) 
-		return console.warn("Failed to extract ytInitialData.");  
-		
+	if (!data)
+		return console.warn("Failed to extract ytInitialData.");
+
 	const markers = getMostReplayedMarkers(data);
-	if (!markers.length) 
+	if (!markers.length)
 		return console.warn("No 'Most Replayed' markers found.");
-	
+
 	const currentMillis = player.currentTime * 1000;
 	const sortedMarkers = markers.slice().sort((a, b) => a.decorationTimeMillis - b.decorationTimeMillis);
 	const nextMarker = sortedMarkers.find(m => m.decorationTimeMillis > currentMillis) || sortedMarkers[0]; // fallback to first if none ahead
 	const targetSeconds = nextMarker.decorationTimeMillis / 1000;
-	
+
 	player.currentTime = targetSeconds;
 	player.play();
-	console.log(`Jumped to Most Replayed @ ${Math.floor(targetSeconds / 60)}:${Math.floor(targetSeconds % 60).toString().padStart(2, "0")}`);	
+	console.log(`Jumped to Most Replayed @ ${Math.floor(targetSeconds / 60)}:${Math.floor(targetSeconds % 60).toString().padStart(2, "0")}`);
 
-	function extractYtInitialData() {		
+	function extractYtInitialData() {
 		const scriptTags = document.querySelectorAll('script');
 
-		for (let i = 0; i < scriptTags.length; i++) {			
+		for (let i = 0; i < scriptTags.length; i++) {
 			if (DATA.ytInitialData) { var ytIData = DATA.ytInitialData; }
 			else {
 			const scriptContent = scriptTags[i].textContent;
 			var ytIData = scriptContent.match(/var ytInitialData = ({.*?});/s);
 			}
-			
+
 			if (ytIData) {
 				try {
 					return JSON.parse(ytIData[1]);
 				} catch (e) {
 					console.warn("Failed to parse ytInitialData JSON", e);
 					return null;
-				}	
+				}
 			}
 		}
 
 		return null;
 	}
 
-	function getMostReplayedMarkers(parsedJson) {    
+	function getMostReplayedMarkers(parsedJson) {
 		const decorations = parsedJson?.['frameworkUpdates']?.['entityBatchUpdate']?.['mutations']?.[0]
 			?.['payload']?.['macroMarkersListEntity']?.['markersList']?.['markersDecoration']?.['timedMarkerDecorations'];
 		return decorations;
 	}
 	}
-	
+
 		DATA = {};
-			ImprovedTube.fetchDOMData2 = function () {	
+			ImprovedTube.fetchDOMData2 = function () {
 				try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false; DATA.title = DATA.name;}
 			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false;
-					try { 
+					try {
 						DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
 						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
 						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
-			 } catch {}} 
-			  
+			 } catch {}}
+
 let tries = 0; const maxTries = 3; let intervalMs = 25;
 const waitForVideoTitle = setInterval(() => { const title = ImprovedTube.videoTitle?.();  tries++;
 if (title && title !== 'YouTube') {
     clearInterval(waitForVideoTitle);
-			 DATA.videoID = ImprovedTube.videoId() || false;  
-			 console.log("MOST REPLAYED: TITLE:" + ImprovedTube.videoTitle() + DATA.title); 
+			 DATA.videoID = ImprovedTube.videoId() || false;
+			 console.log("MOST REPLAYED: TITLE:" + ImprovedTube.videoTitle() + DATA.title);
 			 if ( (DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle())
-				   && ((history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint)) 
+				   && ((history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint))
 				   { ImprovedTube.mostReplayed(); }
 				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
 					console.log("loading the html source:" + `https://www.youtube.com/watch?v=${DATA.videoID}`);
 					const htmlContent = await response.text();
 					DATA.ytInitialData = htmlContent.match(/var ytInitialData = ({.*?});/s);
 					if (DATA.ytInitialData) { ImprovedTube.mostReplayed(); }
-				} catch (error) { 
+				} catch (error) {
 const o = Object.assign(document.createElement('div'), { innerText: 'too few views' });
 const keySceneButton = document.querySelector('button[data-tooltip="Key Scene"]');
-		if (keySceneButton) {  keySceneButton.style.transition = 'opacity 0.4s';  keySceneButton.style.opacity = '0.3'; 
+		if (keySceneButton) {  keySceneButton.style.transition = 'opacity 0.4s';  keySceneButton.style.opacity = '0.3';
 		setTimeout(() => {    keySceneButton.style.opacity = '0.8';    }, 5000);}
 		console.error(`Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}`, error);  }
-				})(); 
+				})();
 				}
 }
 
 if (tries >= maxTries) {  clearInterval(waitForVideoTitle); } intervalMs *= 1.11; }, intervalMs);
-window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});		 					
+window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});
 			};
 			ImprovedTube.fetchDOMData2();
 
@@ -2299,12 +3111,12 @@ ImprovedTube.redirectShortsToWatch = function () {
     }
     const currentPath = window.location.pathname;
     if (currentPath.startsWith('/shorts/')) {
-        const videoId = currentPath.substring('/shorts/'.length); 
+        const videoId = currentPath.substring('/shorts/'.length);
         if (videoId) {
             const newUrl = `${window.location.origin}/watch?v=${videoId}${window.location.search}`;
             if (window.location.href !== newUrl) {
                 console.log(`ImprovedTube: Redirecting Shorts to Watch: ${window.location.href} -> ${newUrl}`);
-                window.location.replace(newUrl); 
+                window.location.replace(newUrl);
             }
         }
     }
@@ -2327,38 +3139,38 @@ ImprovedTube.addYouTubeReturnButton = function () {
         returnButton.className = 'ytp-button it-youtube-return-btn';
         returnButton.title = 'Return to YouTube';
         returnButton.setAttribute('aria-label', 'Return to YouTube');
-        
+
         // Create YouTube logo SVG
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('viewBox', '0 0 24 24');
         svg.setAttribute('width', '24');
         svg.setAttribute('height', '24');
         svg.style.fill = 'white';
-        
+
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
         path.setAttribute('d', 'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z');
-        
+
         svg.appendChild(path);
         returnButton.appendChild(svg);
-        
+
         // Add click handler
         returnButton.addEventListener('click', function(e) {
 			history.back();
             e.preventDefault();
-            e.stopPropagation();			
+            e.stopPropagation();
         });
-        
+
         // Insert button into player controls
         const insertButton = () => {
             const player = document.querySelector('.html5-video-player');
             const titleContainer = document.querySelector('.ytp-title-text');
-            
+
             if (player && titleContainer && player.classList.contains('ytp-fullscreen')) {
                 // Position button in top-left corner of fullscreen player
                 titleContainer.parentNode.insertBefore(returnButton, titleContainer);
             }
         };
-        
+
         // Insert button when entering fullscreen
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
@@ -2370,12 +3182,12 @@ ImprovedTube.addYouTubeReturnButton = function () {
                 }
             });
         });
-        
+
         const player = document.querySelector('.html5-video-player');
         if (player) {
             observer.observe(player, { attributes: true, attributeFilter: ['class'] });
         }
-        
+
         // Also check if already in fullscreen
         if (player && player.classList.contains('ytp-fullscreen')) {
             insertButton();
@@ -2391,13 +3203,13 @@ ImprovedTube.shortsAutoScroll = function () {
         if (!ImprovedTube.shortsAutoScrollInterval) {
             ImprovedTube.shortsAutoScrollInterval = setInterval(() => {
                 if (!location.pathname.startsWith('/shorts/')) return;
-                
+
                 const activeRenderer = document.querySelector('ytd-reel-video-renderer[is-active]');
                 const video = activeRenderer ? activeRenderer.querySelector('video') : null;
 
                 if (video && !video.dataset.itShortsScrollAttached) {
                     video.dataset.itShortsScrollAttached = 'true';
-                    
+
                     const timeupdateHandler = function () {
                         if (!ImprovedTube.storage.shorts_auto_scroll) {
                             video.removeEventListener('timeupdate', timeupdateHandler);
@@ -2409,7 +3221,7 @@ ImprovedTube.shortsAutoScroll = function () {
                         // Get fresh references to avoid stale DOM elements
                         const currentActiveRenderer = document.querySelector('ytd-reel-video-renderer[is-active]');
                         const isVideoStillActive = currentActiveRenderer && currentActiveRenderer.contains(this);
-                        
+
                         if (!isVideoStillActive) {
                             this.removeEventListener('timeupdate', timeupdateHandler);
                             delete this.dataset.itShortsScrollAttached;
@@ -2419,10 +3231,10 @@ ImprovedTube.shortsAutoScroll = function () {
                         if (this.duration && this.currentTime >= this.duration - 0.25) {
                             try {
                                 // Find next button with fresh reference
-                                const nextButton = currentActiveRenderer.querySelector('#navigation-button-down button') 
+                                const nextButton = currentActiveRenderer.querySelector('#navigation-button-down button')
                                                 || document.querySelector('#navigation-button-down button')
                                                 || document.querySelector('button[aria-label="Next video"]');
-                                
+
                                 if (nextButton) {
                                     this.pause();
                                     nextButton.click();
@@ -2435,7 +3247,7 @@ ImprovedTube.shortsAutoScroll = function () {
                             }
                         }
                     };
-                    
+
                     video.addEventListener('timeupdate', timeupdateHandler);
                 }
             }, 1000);
@@ -2445,7 +3257,7 @@ ImprovedTube.shortsAutoScroll = function () {
             clearInterval(ImprovedTube.shortsAutoScrollInterval);
             ImprovedTube.shortsAutoScrollInterval = null;
         }
-        
+
         // Clean up all existing event listeners when disabled
         document.querySelectorAll('video[data-it-shorts-scroll-attached]').forEach(video => {
             delete video.dataset.itShortsScrollAttached;
@@ -2477,10 +3289,10 @@ ImprovedTube.heatmap = {
         this.data = null;
         this.segments = [];
         this.rawMarkersCache = [];
-        
+
         this.injectUI();
         this.getData();
-        
+
         // Keeps the Whitelist shield accurately updated even if channel changes
         if (this.uiInterval) clearInterval(this.uiInterval);
         this.uiInterval = setInterval(() => this.updateWhitelistUI(), 1000);
@@ -2539,17 +3351,17 @@ ImprovedTube.heatmap = {
             this.indicatorElement = document.createElement('button');
             this.indicatorElement.id = 'it-smart-speed-indicator';
             this.indicatorElement.className = 'ytp-button';
-            
+
             // Styled as a native YouTube text button
             this.indicatorElement.style.cssText = 'width: auto; padding: 0 8px; font-weight: bold; font-size: 13px; color: white; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: opacity 0.2s;';
-            
+
             if (ImprovedTube.storage.smart_speed_indicator === false) {
                 this.indicatorElement.style.display = 'none';
             }
 
             this.indicatorElement.innerText = "⚡ 1.0x";
             this.indicatorElement.title = "Toggle Smart Speed";
-            
+
             this.indicatorElement.addEventListener('click', () => {
                 this.sessionDisabled = !this.sessionDisabled;
                 console.log('[ImprovedTube] Smart Speed: Toggled session disabled state:', this.sessionDisabled);
@@ -2582,24 +3394,24 @@ ImprovedTube.heatmap = {
             wlBtn.className = 'ytp-button';
             wlBtn.style.cssText = 'font-size: 16px; font-weight: bold; color: white; display: inline-flex; align-items: center; justify-content: center; transition: 0.2s;';
             wlBtn.innerText = '🛡️';
-            
+
             wlBtn.onclick = () => {
                 const channelNameElement = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
                 const channelName = channelNameElement ? channelNameElement.textContent.trim() : "Unknown";
-                
+
                 if (channelName === "Unknown" || !channelName) {
                     this.showToast("Channel name not loaded yet. Try again.");
                     return;
                 }
-                
+
                 let profiles = ImprovedTube.storage.smart_speed_profiles || {};
                 if (!profiles[channelName]) {
                     profiles[channelName] = { max: 2.0, min: 1.0, sens: 0.5, whitelist: false };
                 }
-                
+
                 profiles[channelName].whitelist = !profiles[channelName].whitelist;
                 ImprovedTube.messages.send({ action: 'storage-set', key: 'smart_speed_profiles', value: profiles });
-                
+
                 if (profiles[channelName].whitelist) {
                     this.showToast(`🛡️ Whitelisted ${channelName} (Speedup Disabled)`);
                 } else {
@@ -2607,7 +3419,7 @@ ImprovedTube.heatmap = {
                 }
 
                 console.log(`[ImprovedTube] Smart Speed: Toggled whitelist for ${channelName} to ${profiles[channelName].whitelist}`);
-                
+
                 this.updateWhitelistUI();
                 if (this.rawMarkersCache && this.rawMarkersCache.length > 0) {
                     this.processSegments(this.rawMarkersCache);
@@ -2638,7 +3450,7 @@ ImprovedTube.heatmap = {
             durBtn.style.cssText = 'font-size: 16px; font-weight: bold; color: white; display: inline-flex; align-items: center; justify-content: center;';
             durBtn.innerText = '⏱️';
             durBtn.title = "Set Target Duration for this video";
-            
+
             let modal = document.createElement('div');
             modal.id = 'it-smart-duration-modal';
             Object.assign(modal.style, {
@@ -2646,21 +3458,21 @@ ImprovedTube.heatmap = {
                 padding: '10px', borderRadius: '8px', display: 'none', flexDirection: 'column',
                 gap: '8px', zIndex: 9999, border: '1px solid #444', minWidth: '180px'
             });
-            
+
             let mTitle = document.createElement('div');
             mTitle.style.cssText = 'color: white; font-size: 12px; font-weight: bold;';
             mTitle.innerText = 'Target Duration';
-            
+
             let mInput = document.createElement('input');
             mInput.type = 'number';
             mInput.id = 'it-smart-duration-input';
             mInput.placeholder = 'Minutes';
             mInput.style.cssText = 'width: 100%; padding: 4px; background: #333; color: white; border: none; border-radius: 4px;';
-            
+
             let mApply = document.createElement('button');
             mApply.style.cssText = 'background: #3ea6ff; color: white; border: none; padding: 5px; border-radius: 4px; cursor: pointer;';
             mApply.innerText = 'Apply Math Algorithm';
-            
+
             let mMsg = document.createElement('div');
             mMsg.id = 'it-smart-duration-msg';
             mMsg.style.cssText = 'color: #ff4e4e; font-size: 11px;';
@@ -2677,11 +3489,11 @@ ImprovedTube.heatmap = {
             mApply.onclick = () => {
                 let inputMinutes = Number(mInput.value);
                 if (!inputMinutes) return;
-                
+
                 let targetSec = inputMinutes * 60;
                 let baseMax = Number(ImprovedTube.storage.smart_speed_max) || 2.0;
                 let duration = document.querySelector('video')?.duration || 0;
-                let absoluteMinSec = duration / baseMax; 
+                let absoluteMinSec = duration / baseMax;
 
                 if (targetSec < absoluteMinSec) {
                     mMsg.style.color = '#ff4e4e';
@@ -2704,18 +3516,18 @@ ImprovedTube.heatmap = {
     updateWhitelistUI: function() {
         const channelNameElement = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
         const channelName = channelNameElement ? channelNameElement.textContent.trim() : "Unknown";
-        
+
         let profiles = ImprovedTube.storage.smart_speed_profiles || {};
         const genre = document.querySelector('meta[itemprop="genre"]')?.content || "Unknown";
-        
+
         let isWhitelisted = (profiles[channelName] && profiles[channelName].whitelist) || (profiles[genre] && profiles[genre].whitelist);
-        
+
         let btn = document.getElementById('it-smart-whitelist-btn');
         if (btn) {
             if (isWhitelisted) {
                 btn.style.opacity = '1';
                 btn.title = `Remove ${channelName} from Whitelist`;
-                btn.style.textShadow = '0 0 8px #2ba640'; 
+                btn.style.textShadow = '0 0 8px #2ba640';
             } else {
                 btn.style.opacity = '0.5';
                 btn.title = `Add ${channelName} to Whitelist`;
@@ -2904,7 +3716,7 @@ ImprovedTube.heatmap = {
 
         let base = Number(ImprovedTube.storage.player_custom_playback_speed) || 1.0;
         const currentSec = video.currentTime;
-        
+
         let currentIndex = this.segments.findIndex(s => currentSec >= s.start && currentSec < s.end);
         if (currentIndex === -1) return;
 
@@ -2920,7 +3732,7 @@ ImprovedTube.heatmap = {
         }
 
         let finalSpeed = base * targetSpeedMultiplier;
-        
+
         if (Math.abs(video.playbackRate - finalSpeed) > 0.05) {
             video.playbackRate = finalSpeed;
         }
@@ -2933,10 +3745,10 @@ ImprovedTube.heatmap = {
     jumpToNextPeak: function() {
         const video = document.querySelector('video');
         if (!video || this.segments.length === 0) return;
-        
+
         let minSpeed = Number(ImprovedTube.storage.smart_speed_min) || 1.0;
         let peakSegment = this.segments.find(s => s.start > video.currentTime && s.speed <= (minSpeed + 0.1));
-        
+
         if (peakSegment) {
             console.log(`[ImprovedTube] Smart Speed: Skipping to peak at ${peakSegment.start}s`);
             video.currentTime = Math.max(0, peakSegment.start - 2.0);

@@ -160,14 +160,14 @@ extension.features.stickyNavigation = function () {
 		function ensureNavigationVisible() {
 			const miniGuide = document.querySelector('ytd-mini-guide-renderer');
 			const guide = document.querySelector('ytd-guide-renderer');
-			
+
 			if (miniGuide) {
 				miniGuide.style.transform = 'translateX(0)';
 				miniGuide.style.transition = 'none';
 				miniGuide.removeAttribute('hidden');
 				miniGuide.setAttribute('aria-hidden', 'false');
 			}
-			
+
 			if (guide) {
 				guide.style.transform = 'translateX(0)';
 				guide.style.transition = 'none';
@@ -182,7 +182,7 @@ extension.features.stickyNavigation = function () {
 		// Set up observer to watch for navigation changes
 		const observer = new MutationObserver(function(mutations) {
 			mutations.forEach(function(mutation) {
-				if (mutation.type === 'attributes' && 
+				if (mutation.type === 'attributes' &&
 					(mutation.attributeName === 'hidden' || mutation.attributeName === 'aria-hidden')) {
 					ensureNavigationVisible();
 				}
@@ -192,14 +192,14 @@ extension.features.stickyNavigation = function () {
 		// Observe navigation elements
 		const miniGuide = document.querySelector('ytd-mini-guide-renderer');
 		const guide = document.querySelector('ytd-guide-renderer');
-		
+
 		if (miniGuide) {
 			observer.observe(miniGuide, {
 				attributes: true,
 				attributeFilter: ['hidden', 'aria-hidden']
 			});
 		}
-		
+
 		if (guide) {
 			observer.observe(guide, {
 				attributes: true,

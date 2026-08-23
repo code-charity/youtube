@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
->>> DETAILS  
+>>> DETAILS
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # General
@@ -16,11 +16,11 @@ html[it-youtubeDetailButtons='hide_labels']  #menu button div:nth-child(2) {visi
 html[it-youtubeDetailButtons='half_transparent'] #subscribe-button button,
 html[it-youtubeDetailButtons='half_transparent'] #menu button {opacity:0.5;}
 html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button,
-html[it-youtubeDetailButtons='transparent_background'] #menu button {background-color:rgba(0, 0, 0, 0.2) !important;}  
+html[it-youtubeDetailButtons='transparent_background'] #menu button {background-color:rgba(0, 0, 0, 0.2) !important;}
 html[it-youtubeDetailButtons='transparent_background'] #subscribe-button button {color:#111 !important;}
-	/*------SHOW my DISLIKE in RED------*/  
+	/*------SHOW my DISLIKE in RED------*/
 html[it-red-dislike-button='true'] #top-level-buttons-computed #segmented-dislike-button ytd-toggle-button-renderer *[aria-pressed='true'] yt-icon {color: #f02200 !important;}
-	/*------SUBSCRIBE BUTTON------*/  
+	/*------SUBSCRIBE BUTTON------*/
 html[it-subscribe='grey'] #subscribe-button button {background-color: #DDD !important; color:#111 !important;}
 html[it-subscribe='transparent'] #subscribe-button button {background-color:rgba(0, 0, 0, 0.4) !important; color:#111 !important;}
 	/*  DISPLAY: NONE;*/
@@ -32,8 +32,8 @@ html[it-join='hidden'] #sponsor-button,
 html[it-join='hidden'] ytd-sponsorships-offer-module-renderer,
 html[it-purchase='remove_label'] #purchase-button button .yt-spec-button-shape-next__button-text-content,
 html[it-purchase='hidden'] #purchase-button,
-html[it-youtubeDetailButtons='remove_labels'] #menu button div:nth-child(2), 
-html[it-youtubeDetailButtons='remove_labels'] #menu button .yt-spec-button-shape-next__button-text-content, 
+html[it-youtubeDetailButtons='remove_labels'] #menu button div:nth-child(2),
+html[it-youtubeDetailButtons='remove_labels'] #menu button .yt-spec-button-shape-next__button-text-content,
 html[it-youtubeDetailButtons='remove_labels'] #subscribe-button .yt-spec-button-shape-next__button-text-content,
 html[it-youtubeDetailButtons='remove'] #menu button,
 html[it-youtubeDetailButtons='remove'] #subscribe-button button,
@@ -64,7 +64,7 @@ html[it-hide-share-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has
 html[it-hide-share-button='hidden'] #menu button:has(svg path[d^="M15 5.63 20.66"]),
 html[it-hide-share-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M15 5.63 20.66"]),
 html[it-hide-share-button='icons_only'] #menu button:has(svg path[d^="M15 5.63 20.66"]) div:nth-child(2),
-html[it-hide-share-button='icons_only'] #menu button:has(svg path[d^="M15 5.63 20.66"]) .yt-spec-button-shape-next__button-text-content, 
+html[it-hide-share-button='icons_only'] #menu button:has(svg path[d^="M15 5.63 20.66"]) .yt-spec-button-shape-next__button-text-content,
 	/*------# HIDE ASK BUTTON------*/
 html[it-hide-ask-button='hidden'] #menu yt-button-view-model:has(svg path[d^="M480-80q0-83-31.5"]),
 html[it-hide-ask-button='hidden'] #flexible-item-buttons yt-button-view-model:has(svg path[d^="M480-80q0-83-31.5"]),
@@ -78,7 +78,7 @@ html[it-hide-download-button='icons_only'] ytd-download-button-renderer #text,
 html[it-hide-download-button='hidden'] #menu button:has(svg path[d^="M17 18v1H6v-1h11"]),
 html[it-hide-download-button='hidden'] #flexible-item-buttons button:has(svg path[d^="M17 18v1H6v-1h11"]),
 html[it-hide-download-button='icons_only'] #menu button:has(svg path[d^="M17 18v1H6v-1h11"]) div:nth-child(2),
-html[it-hide-download-button='icons_only'] #menu button:has(svg path[d^="M17 18v1H6v-1h11"]) .yt-spec-button-shape-next__button-text-content, 
+html[it-hide-download-button='icons_only'] #menu button:has(svg path[d^="M17 18v1H6v-1h11"]) .yt-spec-button-shape-next__button-text-content,
 	/*------# HIDE THANKS BUTTON------*/
 html[it-hide-thanks-button='hidden'] #menu yt-button-view-model:has(svg path[d^="M16.25 2A6.7 6.7"]),
 html[it-hide-thanks-button='hidden'] #flexible-item-buttons yt-button-view-model:has(svg path[d^="M16.25 2A6.7 6.7"]),
@@ -121,15 +121,15 @@ html[it-hide-report-button='hidden'] #flexible-item-buttons yt-button-view-model
 html[it-hide-report-button='hidden'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="m4 2.999-.146.073A1.55"]),
 html[it-hide-report-button='icons_only'] #menu button:has(svg path[d^="m4 2.999-.146.073A1.55"]) div:nth-child(2),
 html[it-hide-report-button='icons_only'] #menu button:has(svg path[d^="m4 2.999-.146.073A1.55"]) .yt-spec-button-shape-next__button-text-content,
-html[it-hide-report-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="m4 2.999-.146.073A1.55"]) yt-formatted-string, 
+html[it-hide-report-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:has(svg path[d^="m4 2.999-.146.073A1.55"]) yt-formatted-string,
 /*previous, with current options:*/
 html[it-hide-report-button='hidden'] #top-level-buttons-computed button#Report-button,
 html[it-hide-report-button='hidden'] #menu button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]),
-html[it-hide-report-button='hidden'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]), 
+html[it-hide-report-button='hidden'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]),
 /*previous, literally:*/
 html[it-hide-report-button='true'] #top-level-buttons-computed button#Report-button,
 html[it-hide-report-button='true'] #menu button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]),
-html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]), 
+html[it-hide-report-button='true'] #flexible-item-buttons button:has(svg path[d^="m13.18 4 .24 1.2.16.8H19v7h-5.18l-.24-1.2-.16-.8H6V4h7.18M14"]),
 	/*------HIDE MORE BUTTON------*/
 html[it-hide-more-button='true'] #menu #button [class*="dropdown"],
 html[it-hide-more-button='true'] #menu button:has(svg path[d^="M7.5 12c0 .83-.67 1."]),
@@ -159,9 +159,9 @@ html[it-description='hidden'] ytd-expander.ytd-video-secondary-info-renderer,
 html[it-description='hidden'] #description-inline-expander,
 /*----->>> FOOTER: # Hide --------*/
 html[it-popup-ad='true'] ytd-guide-renderer #footer,
-html[it-popup-ad='true'] yt-mealbar-promo-renderer  
+html[it-popup-ad='true'] yt-mealbar-promo-renderer
  /*=================================*/
-        {display: none !important;}  
+        {display: none !important;}
  /*---------------------------------*/
 
 	/*------# ICON ONLY MODE MARGIN FIX, BUTTONS ------*/
@@ -186,19 +186,19 @@ html[it-hide-report-button='icons_only'] tp-yt-paper-listbox tp-yt-paper-item:ha
  /*=================================*/
     	{margin-right: 4px !important;}
 /*  Dated:
-html[it-description='classic'] .ytd-watch-flexy #info-contents, 
-html[it-description='classic'] .ytd-watch-flexy #meta-contents { display: block !important; } 
+html[it-description='classic'] .ytd-watch-flexy #info-contents,
+html[it-description='classic'] .ytd-watch-flexy #meta-contents { display: block !important; }
 html[it-description='classic'] #below.ytd-watch-flexy { top:-20px; }
 html[it-description='classic'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
 html[it-description='classic'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
 
 html[it-description='classic_expanded'] .ytd-watch-flexy #info-contents,
-html[it-description='classic_expanded'] .ytd-watch-flexy #meta-contents { display: block !important; } 
+html[it-description='classic_expanded'] .ytd-watch-flexy #meta-contents { display: block !important; }
 html[it-description='classic_expanded'] #below.ytd-watch-flexy { top:-20px; }
 html[it-description='classic_expanded'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
 html[it-description='classic_expanded'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }
 
-html[it-description='classic_hidden'] .ytd-watch-flexy #info-contents { display: block !important; } 
+html[it-description='classic_hidden'] .ytd-watch-flexy #info-contents { display: block !important; }
 html[it-description='classic_hidden'] #below.ytd-watch-flexy { top:-20px; }
 html[it-description='classic_hidden'] ytd-menu-renderer[has-flexible-items] { overflow-y: unset !important; }
 html[it-description='classic_hidden'] ytd-video-primary-info-renderer { padding-bottom: 14px !important; }

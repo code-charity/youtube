@@ -11,14 +11,14 @@ extension.skeleton.main.layers.section.blocklist = {
 			section1: {
 				component: 'section',
 				variant: 'card',
-				
+
 				blocklist_activate: {
 					component: 'switch',
 					variant: 'activation',
 					text: 'activate'
 				},
 			},
-			
+
 			section2: {
 				component: 'section',
 				variant: 'card',
@@ -27,7 +27,7 @@ extension.skeleton.main.layers.section.blocklist = {
 					text: 'dislikingAVideoAddsItToBlocklist',
 					storage: 'blocklist_dislike_trigger',
 					id: 'blocklist_dislike_trigger'
-					
+
 				}
 			},
 

@@ -1103,9 +1103,6 @@
    "player_fit_to_win_button": {
       "message": "창에 맞추기"
    },
-   "player_playback_speed_button": {
-      "message": "재생 속도 버튼"
-   },
    "player_rewind_and_forward_buttons": {
       "message": "되감기/앞으로 버튼"
    },

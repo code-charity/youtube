@@ -14,11 +14,19 @@ html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #spin
 html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #continuations,
 html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #contents > ytd-continuation-item-renderer,
 html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #contents > ytd-comment-thread-renderer,
-/*AVATARS-*/ 
+/*AVATARS-*/
 html[it-hide-author-avatars='true'] ytd-comments #author-thumbnail,
 html[it-hide-author-avatars='true'] ytd-comments #creator-thumbnail,
-html[it-hide-author-avatars='true'] ytd-comments #hearted-thumbnail 
+html[it-hide-author-avatars='true'] ytd-comments #hearted-thumbnail
 {display: none !important;}
+
+/* Hiding the avatar collapses the 36px column, but YouTube's .thread-hitbox is
+   absolutely positioned at left:0 with that same width, so it ends up covering
+   the comment's like and "read more" buttons. Let clicks through: the column it
+   was there to cover no longer exists. */
+html[it-hide-author-avatars='true'] ytd-comments ytd-comment-thread-renderer .thread-hitbox {
+	pointer-events: none !important;
+}
 /*--------------------------------------------------------------
 # SQUARED USER IMAGES
 --------------------------------------------------------------*/
@@ -63,8 +71,8 @@ html[it-comments='collapsed'][data-page-type=video] ytd-comments:not([it-activat
 @media screen and (min-width: 1599px) {
 	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #player {margin-left: -20px !important;}
 	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #columns {display:flex !important; max-width:100% !important;}
-	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #comments {max-width: min(850px, 19vw) !important; margin-left:-12px;} 
-	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true][it-sidebar-left='true'] #comments {margin-right: -25px  !important;} 
+	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #comments {max-width: min(850px, 19vw) !important; margin-left:-12px;}
+	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true][it-sidebar-left='true'] #comments {margin-right: -25px  !important;}
 	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #related {margin-right: -22px !important; max-width: max(360px, 18vw) !important;}
 	html[data-page-type=video][it-comments-sidebar-simple='true'][it-columns=true] #secondary {margin-right: -22px !important; max-width: max(360px, 18vw) !important;}
 
@@ -80,7 +88,7 @@ html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comm
 }
 
 /* 2 COLS FEATURE */
-@media screen and (min-width: 1952px) {	
+@media screen and (min-width: 1952px) {
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true] ytd-watch-flexy #related {flex-shrink: 4; min-width: 300px;}
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true] ytd-watch-flexy:not([theater]):not([fullscreen]) #related {width: auto !important;}
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true] ytd-watch-flexy #columns {max-width: 100%;}
@@ -99,8 +107,8 @@ html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comm
 		Might also think on the edge-cases were both options are active
 	--------------------------------------------------------------*/
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true][it-sidebar-left='true'] ytd-watch-flexy #secondary {order: 6;} /*TO DELETE once top is implemented*/
-	
-	
+
+
 	/* PADDINGS */
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true]:not([it-sidebar-left='true']) ytd-watch-flexy #primary {padding: 0 14px 0 24px;}
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true]:not([it-sidebar-left='true']) ytd-watch-flexy #secondary {padding-right: 0;}
@@ -112,7 +120,7 @@ html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comm
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true][it-sidebar-left='true'] ytd-watch-flexy #secondary{border-right: 1px solid var(--yt-spec-10-percent-layer)}
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true]:not([it-sidebar-left='true']) ytd-watch-flexy #secondary{border-left: 1px solid var(--yt-spec-10-percent-layer)}
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true] ytd-watch-flexy #related > :first-child {padding-top: 24px;}
-	
+
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true][it-sidebar-left='true'] ytd-watch-flexy #related{padding: 0 14px 0 24px; border-right: 1px solid var(--yt-spec-10-percent-layer)}
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true]:not([it-sidebar-left='true']) ytd-watch-flexy #related{padding: 0 24px 0 14px; border-left: 1px solid var(--yt-spec-10-percent-layer)}
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true] ytd-watch-flexy[theater] #columns,
@@ -121,7 +129,7 @@ html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comm
 
 	/* or unset */
 	html[data-page-type=video][it-comments-sidebar='true'][it-columns=true] #columns {max-width: 2400px !important;}
-} 
+}
 
 @media screen and (min-width: 1000px) and (max-width: 1951px) {
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary {max-width: calc((100% - 420px) - 48px) !important;} /*UP TO (-658px)*/
@@ -134,13 +142,13 @@ html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comm
 		margin: 0;
 		padding: 24px 24px 0 24px;
 	}
-	
+
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #primary-content {overflow: hidden;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns {justify-content: flex-start !important; overflow-x: hidden;}
-	
+
 }
 @media screen and (min-width: 1000px){
-	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary, 
+	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary,
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary{margin-top: 0 !important; padding-top: 0 !important; padding-right: 0; flex-grow: 1;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #secondary::before {content: ""; height: 24px; display: block;}
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #primary {flex: 1 0 auto;padding: 0 24px; margin: 0;}
@@ -166,7 +174,7 @@ html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comm
 	html[data-page-type=video][it-comments-sidebar='true'][it-header-position=hidden_on_video_page] ytd-watch-flexy:not([theater]):not([fullscreen]) #columns {
 		height: calc(100vh);
 	}
-	
+
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #primary,
 	html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy:not([theater]):not([fullscreen]) #secondary {
 		height: inherit;
@@ -184,7 +192,7 @@ html[data-theme='black'][it-comments='collapsed'][data-page-type=video] ytd-comm
 html[data-page-type=video][it-comments-sidebar='true'] #contentContainer::after {pointer-events: none !important;} /*DISABLES the swap-from-left channels sidebar*/
 html[data-page-type=video][it-comments-sidebar='true'] ytd-reel-shelf-renderer {width: 100%; padding: 0 16px; box-sizing: border-box;}
 html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #playlist,
-html[data-page-type=video][it-comments-sidebar='true'] ytd-live-chat-frame#chat, 
+html[data-page-type=video][it-comments-sidebar='true'] ytd-live-chat-frame#chat,
 html[data-page-type=video][it-comments-sidebar='true'] ytd-watch-flexy #donation-shelf {
 	width: 100% !important;
 	min-width: unset !important;
@@ -207,7 +215,7 @@ html[data-page-type=video]:not([it-player-size]) #playlist #items,
 html[data-page-type=video]:not([it-player-size='do_not_change']) #playlist #items {
 	max-height: min(var(--it-player-height), 77vh);
 	padding-bottom: 0;
-}  
+}
 
 /* CUSTOM ENHANCEMENTS */
 html[data-page-type=video][it-comments-sidebar='true'] #playlist #items {max-height: calc(70px * 4 + 4px); padding-bottom: 0;}    /* currently shows up to 4 videos */

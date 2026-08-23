@@ -1029,7 +1029,7 @@ satus.locale.get = function (string) {
 satus.locale.import = function (code, callback, path) {
 	// if (!path) {  path = '_locales/';   }
 	let promiseChain = Promise.resolve();
-	
+
 	function importLocale (locale, successCallback) {
 		promiseChain = promiseChain.then(() => {
 			var url = chrome.runtime.getURL(path + locale + '/messages.json');

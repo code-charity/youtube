@@ -1091,9 +1091,6 @@
   "player_fit_to_win_button": {
     "message": "Вписать в окно"
   },
-  "player_playback_speed_button": {
-    "message": "Кнопка ускорения воспроизведения"
-  },
   "player_rewind_and_forward_buttons": {
     "message": "Кнопки перемотки назад / вперед"
   },

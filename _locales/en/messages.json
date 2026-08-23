@@ -706,8 +706,11 @@
     "message": "Hide details"
   },
   "hideEndscreen": {
-    "message": "Hide endscreen"
+    "message": "Hide endcards"
   },
+  "hideLastframe": {
+    "message": "Hide ended video (last frame)"
+  },  
   "hideFeaturedContent": {
     "message": "Hide featured content"
   },
@@ -1101,14 +1104,14 @@
   "player_fit_to_win_button": {
     "message": "Fit to window"
   },
-  "player_playback_speed_button": {
-    "message": "Playback Speed Button"
-  },
   "player_rewind_and_forward_buttons": {
     "message": "Rewind/forward buttons"
   },
   "player_rotate_button": {
     "message": "Rotate video"
+  },
+  "player_volume_boost_button": {
+    "message": "Volume Boost button"
   },
   "playerAutoPipOutside": {
     "message": "Auto-PiP only outside source Tab"
@@ -1295,6 +1298,9 @@
   },
   "rotate": {
     "message": "Rotate"
+  },
+  "volumeBoost": {
+    "message": "Volume Boost"
   },
   "save": {
     "message": "Save"

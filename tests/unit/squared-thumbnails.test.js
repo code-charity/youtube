@@ -64,10 +64,12 @@ describe('Squared thumbnails option', () => {
 		expect(englishMessages).toContain('"Squared thumbnails"');
 	});
 
-	test('removes rounded corners from current and legacy thumbnail renderers', () => {
+	test('removes rounded corners from current, legacy, preview and shorts thumbnail renderers', () => {
 		expect(generalCssContent).toContain("html[it-squared-thumbnails='true'] ytd-thumbnail");
 		expect(generalCssContent).toContain("html[it-squared-thumbnails='true'] yt-thumbnail-view-model");
 		expect(generalCssContent).toContain("html[it-squared-thumbnails='true'] .yt-lockup-view-model-wiz__content-image");
+		expect(generalCssContent).toContain("html[it-squared-thumbnails='true'] ytd-video-preview #media-container");
+		expect(generalCssContent).toContain("html[it-squared-thumbnails='true'] .shortsLockupViewModelHostThumbnailParentContainer");
 		expect(generalCssContent).toContain('--yt-img-border-radius: 0 !important');
 		expect(generalCssContent).toContain('border-radius: 0 !important');
 	});

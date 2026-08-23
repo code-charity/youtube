@@ -227,6 +227,10 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					component: "switch",
 					text: "hideEndscreen"
 				},
+				player_hide_lastframe: {
+					component: "switch",
+					text: "hideLastframe"
+				},
 				hide_includes_paid_promotion: {
 					component: 'switch',
 					text: 'hideIncludesPaidPromotion',
@@ -546,7 +550,7 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 				text: "hideTopLoadingBar",
 				tags: "remove,hide"
 			}
-		},	
+		},
 			section_2: {
 				component: 'section',
 				variant: 'card',
