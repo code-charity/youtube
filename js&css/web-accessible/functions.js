@@ -775,7 +775,12 @@ ImprovedTube.createPlayerButton = function (options) {
 
 			// Fullscreen mode only paints the fullscreen element's subtree, so a tooltip
 			// appended to document.body would be hidden behind the video (issue #4294).
-			(document.fullscreenElement || document.body).appendChild(tooltip);
+			const fullscreenRoot = document.fullscreenElement ||
+				document.webkitFullscreenElement ||
+				document.mozFullScreenElement ||
+				document.body;
+
+			fullscreenRoot.appendChild(tooltip);
 
 			const tooltipWidth = tooltip.offsetWidth || tooltip.getBoundingClientRect().width;
 			const centerX = rect.left + (rect.width / 2);
