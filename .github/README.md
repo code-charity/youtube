@@ -178,8 +178,7 @@ For info on how to contribute, see the <a href="https://github.com/code-for-char
 <a href="https://github.com/_____">(You?)</a><br>
 <code><code>❌</code><a href="https://github.com/ImprovedTube/ImprovedTube/blob/master/_locales/____/messages.json" title="Estonian">Estonian</a></code> :
 <a href="https://github.com/_____">(You?)</a><br> </td></tr><tr><td> 
-<div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translations">Help us Translate</a>]
-<br> (=here), or on ​<a href="https://crowdin.com/project/1655556">Crowdin</a></div>
+<div align="center">[<a href="https://github.com/code-for-charity/YouTube-Extension/wiki/Translations">Help us Translate</a>]</div>
 
  - ...Many popular languages are  <br> spoken more / written less, but <br> please add yours!  <br> (even if just a few words for fun.)</i>
  
