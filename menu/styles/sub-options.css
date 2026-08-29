@@ -27,6 +27,7 @@ NESTED (CONDITIONAL) SWITCHES
 /* #player_repeat_button:not([data-value=true]) + .satus-switch, */
 #player_screenshot_button:not([data-value=true]) + .satus-switch,
 #player_screenshot_button:not([data-value=true]) + .satus-switch + .satus-select,
+#player_playback_speed_button_b:not([data-value=true]) + .satus-slider,
 /*-COPY VIDEO FULL URL-*/
 #copy-video-id:not([data-value=true]) + .satus-switch,
 /*-COPY PLAYLIST VIDEO FULL URL-*/
@@ -75,6 +76,7 @@ NIGHT MODE
 #player_auto_cinema_mode +.satus-switch,
 #player_screenshot_button[data-value=true] + .satus-switch,
 #player_screenshot_button[data-value=true] + .satus-switch + .satus-select,
+#player_playback_speed_button_b[data-value=true] + .satus-slider,
 /*-COPY VIDEO FULL URL-*/
 #copy-video-id[data-value=true] + .satus-switch,
 /*-COPY PLAYLIST VIDEO FULL URL-*/
