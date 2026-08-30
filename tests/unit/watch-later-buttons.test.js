@@ -37,4 +37,14 @@ describe('Watch Later thumbnail buttons', () => {
 		expect(generalCss).toContain("html[it-watch-later-buttons='hover']");
 		expect(generalCss).toContain("html[it-watch-later-buttons='always']");
 	});
+
+	test('injects button outside the aria-hidden thumbnail anchor (#4305)', () => {
+		// The button must be appended to the thumbnail's parent container, not
+		// directly to the anchor itself. YouTube marks the anchor with
+		// aria-hidden="true", so a focusable button inside it triggers the
+		// "Blocked aria-hidden on an element because its descendant retained
+		// focus" warning when clicked.
+		expect(generalJs).not.toMatch(/thumbnail\.appendChild\s*\(\s*button\s*\)/);
+		expect(generalJs).toMatch(/(?:container|parentElement)\.appendChild\s*\(\s*button\s*\)/);
+	});
 });
