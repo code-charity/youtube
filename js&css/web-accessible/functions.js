@@ -845,7 +845,8 @@ ImprovedTube.showStatus = function (value) {
 
 	ImprovedTube.status_timer = setTimeout(function () { ImprovedTube.elements.status.remove(); }, 500);
 
-	this.elements.player.appendChild(this.elements.status);
+	const player = (document.documentElement.dataset.pageType === 'shorts') ? this.elements.shorts_player : this.elements.player;
+	player.appendChild(this.elements.status);
 };
 
 ImprovedTube.videoId = (url = document.URL) => url.match(ImprovedTube.regex.video_id)?.[1] || new URL(url).searchParams.get('v') || movie_player?.getVideoData?.().video_id || (console.log('No VIDEO ID URL MATCH match: Regex & url are:', ImprovedTube.regex.video_id, url), undefined);

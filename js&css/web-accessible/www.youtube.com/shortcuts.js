@@ -375,7 +375,7 @@ ImprovedTube.shortcutSeekPreviousChapter = function () {
 4.7.13 INCREASE VOLUME
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutIncreaseVolume = function (decrease) {
-	const player = this.elements.player,
+	const player = (document.documentElement.dataset.pageType === 'shorts') ? this.elements.shorts_player : this.elements.player,
 		value = Number(this.storage.shortcuts_volume_step) || 5,
 		direction = decrease ? 'Decrease' : 'Increase';
 
