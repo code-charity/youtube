@@ -1757,5 +1757,32 @@
   },
   "autoVideoRecovery": {
   "message": "Auto video recovery"
+  },
+  "doubleTapSeek": {
+    "message": "Double-tap seek"
+  },
+  "mode": {
+    "message": "Mode"
+  },
+  "defaultBehavior": {
+    "message": "Default (YouTube native)"
+  },
+  "fixedDistance": {
+    "message": "Fixed distance"
+  },
+  "progressiveDistance": {
+    "message": "Progressive distance"
+  },
+  "seekDistance": {
+    "message": "Seek distance (seconds)"
+  },
+  "doubleTapDistance": {
+    "message": "Double-tap distance (seconds)"
+  },
+  "tripleTapDistance": {
+    "message": "Triple-tap distance (seconds)"
+  },
+  "quadrupleTapDistance": {
+    "message": "Quadruple-tap distance (seconds)"
   }
 }
