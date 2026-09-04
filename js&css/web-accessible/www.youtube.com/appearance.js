@@ -1067,7 +1067,8 @@ ImprovedTube.videoFilters = function () {
 		(this.isset(this.storage.video_filter_gamma) && Number(this.storage.video_filter_gamma) !== 1)
 	);
 
-	if (!isEnabled && !document.getElementById('it-video-filters-style')) {
+	if (!isEnabled  // move to /js&css/web-accessible/core.js    && !document.getElementById('it-video-filters-style')
+				) {
 		return;
 	}
 
