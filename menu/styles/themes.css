@@ -224,6 +224,13 @@
 	height: 48px !important;
 }
 
+.satus-label--none-theme {
+	height: 48px !important;
+	background: transparent;
+	outline: 1px dashed currentColor;
+	outline-offset: -1px;
+}
+
 .satus-label--dark-theme {
 	position: relative;
     height: 48px !important; margin-top: -5px !important;
