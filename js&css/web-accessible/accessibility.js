@@ -89,7 +89,8 @@
 	}
 
 	function pageStyleText () {
-		return 'button[class*="it-"]:focus-visible,a[class*="it-"]:focus-visible,button[id^="it-"]:focus-visible,a[id^="it-"]:focus-visible,.it-player-button:focus-visible,.it-button:focus-visible{outline:2px solid Highlight!important;outline-offset:2px!important}';
+		return 'button[class*="it-"]:focus-visible,a[class*="it-"]:focus-visible,button[id^="it-"]:focus-visible,a[id^="it-"]:focus-visible,.it-player-button:focus-visible,.it-button:focus-visible{outline:2px solid Highlight!important;outline-offset:2px!important}' +
+			'html[it-hide-home-category-bar="true"][it-pathname="/"] ytd-feed-filter-chip-bar-renderer{display:none!important}';
 	}
 
 	function installFocusStyle () {
