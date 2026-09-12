@@ -331,7 +331,7 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 					text: 'youtubeLanguage',
 					storage: 'youtube_language',
 					options: function () {
-						return [{value: 'disabled', text: "Disabled"}].concat(extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.language.on.click.section.languages);
+						return [{value: 'disabled', text: "disabled"}].concat(extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSection.language.on.click.section.languages);
 					},
 					on: {
 						change: function (event) {

@@ -1757,5 +1757,83 @@
   },
   "autoVideoRecovery": {
   "message": "Auto video recovery"
+  },
+  "hideWatchLaterVideos": {
+    "message": "Hide Watch Later Videos"
+  },
+  "maxWidthWithinPage": {
+    "message": "Max. width within the page"
+  },
+  "smartSpeedSelectYouTubeCategory": {
+    "message": "1. Select YouTube Category"
+  },
+  "smartSpeedSelectCategory": {
+    "message": "Select Category..."
+  },
+  "categoryEntertainment": {
+    "message": "Entertainment"
+  },
+  "categoryMusic": {
+    "message": "Music"
+  },
+  "categoryGaming": {
+    "message": "Gaming"
+  },
+  "categoryPeopleBlogs": {
+    "message": "People & Blogs"
+  },
+  "categoryComedy": {
+    "message": "Comedy"
+  },
+  "categoryHowtoStyle": {
+    "message": "Howto & Style"
+  },
+  "categoryFilmAnimation": {
+    "message": "Film & Animation"
+  },
+  "categoryEducation": {
+    "message": "Education"
+  },
+  "categoryScienceTechnology": {
+    "message": "Science & Technology"
+  },
+  "categorySports": {
+    "message": "Sports"
+  },
+  "categoryNewsPolitics": {
+    "message": "News & Politics"
+  },
+  "categoryAutosVehicles": {
+    "message": "Autos & Vehicles"
+  },
+  "categoryTravelEvents": {
+    "message": "Travel & Events"
+  },
+  "categoryPetsAnimals": {
+    "message": "Pets & Animals"
+  },
+  "categoryNonprofitsActivism": {
+    "message": "Nonprofits & Activism"
+  },
+  "smartSpeedAddSelectedCategory": {
+    "message": "➕ Add Selected Category"
+  },
+  "smartSpeedEnterAddChannelName": {
+    "message": "➕ Enter & Add Channel Name"
+  },
+  "smartSpeedChannelPrompt": {
+    "message": "Enter Channel Handle (e.g., @MrBeast) or Name:"
+  },
+  "smartSpeedWhitelistDisable": {
+    "message": "Whitelist (Disable Speedup)"
+  },
+  "smartSpeedMaxProfileSpeed": {
+    "message": "Max Speed"
+  },
+  "smartSpeedMinProfileSpeed": {
+    "message": "Min Speed"
+  },
+  "smartSpeedDeleteProfile": {
+    "message": "🗑️ Delete Profile"
   }
 }
