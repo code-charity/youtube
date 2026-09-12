@@ -188,6 +188,126 @@
 		return tabindex !== null && tabindex !== undefined && Number(tabindex) >= 0;
 	}
 
+	function firstFocusable (container) {
+		if (!container || typeof container.querySelector !== 'function') return null;
+		return container.querySelector('button:not([disabled]),[role="button"][tabindex="0"],[role="switch"][tabindex="0"],select:not([disabled]),input:not([disabled]),textarea:not([disabled]),[tabindex="0"]');
+	}
+
+	function isLayerComponent (element) {
+		if (!element || !element.classList) return false;
+		const tagName = String(element.tagName || '').toLowerCase();
+		if (tagName === 'button' || tagName === 'input' || tagName === 'select' || tagName === 'textarea') return true;
+		if (element.classList.contains('satus-switch') ||
+			element.classList.contains('satus-select') ||
+			element.classList.contains('satus-checkbox') ||
+			element.classList.contains('satus-radio') ||
+			element.classList.contains('satus-slider') ||
+			element.classList.contains('satus-text-field') ||
+			element.classList.contains('satus-time') ||
+			element.classList.contains('satus-shortcut') ||
+			element.classList.contains('satus-color-picker')) return true;
+		return !!(element.classList.contains('satus-section') && element.dataset && element.dataset.title);
+	}
+
+	function componentLandingTarget (component) {
+		if (!component) return null;
+		if (component.classList && component.classList.contains('satus-section') && component.dataset && component.dataset.title) {
+			const heading = component.querySelector && component.querySelector('.it-a11y-heading');
+			return heading || component;
+		}
+
+		// For compound form components, focus the visible wrapper rather than the
+		// native input/select inside it. This positions a screen reader at the first
+		// logical item without forcing it straight into focus/forms mode.
+		if (component.classList && (
+			component.classList.contains('satus-select') ||
+			component.classList.contains('satus-checkbox') ||
+			component.classList.contains('satus-radio') ||
+			component.classList.contains('satus-slider') ||
+			component.classList.contains('satus-text-field') ||
+			component.classList.contains('satus-time')
+		)) {
+			if (!component.hasAttribute || !component.hasAttribute('tabindex')) component.setAttribute('tabindex', '-1');
+			return component;
+		}
+
+		return component;
+	}
+
+	function layerLandingTarget (layer) {
+		if (!layer) return null;
+		function walk (parent) {
+			const children = parent && parent.children ? Array.from(parent.children) : [];
+			for (const child of children) {
+				if (isLayerComponent(child)) return componentLandingTarget(child);
+				const nested = walk(child);
+				if (nested) return nested;
+			}
+			return null;
+		}
+		return walk(layer);
+	}
+
+	function modalName (modal) {
+		if (!modal || !modal.classList) return safeLocale('dialog', 'Dialog');
+		if (modal.classList.contains('search-results')) return safeLocale('search', 'Search results');
+		if (modal.classList.contains('satus-modal--vertical-menu')) return safeLocale('menu', 'Menu');
+		if (modal.classList.contains('satus-modal--shortcut')) return safeLocale('shortcut', 'Keyboard shortcut');
+		if (modal.classList.contains('satus-modal--color-picker')) return safeLocale('color', 'Color picker');
+		return safeLocale('dialog', 'Dialog');
+	}
+
+	function ensureModalCloseButton (modal, surface) {
+		if (!modal || !surface || !modal.classList || !modal.classList.contains('satus-modal--vertical-menu')) return null;
+		const children = surface.children ? Array.from(surface.children) : [];
+		for (const child of children) {
+			if (child.getAttribute && child.getAttribute('data-it-a11y-close') === 'true') return child;
+		}
+		if (!root.document || typeof root.document.createElement !== 'function') return null;
+		const button = root.document.createElement('button');
+		button.type = 'button';
+		button.className = 'satus-button it-a11y-modal-close';
+		button.setAttribute('data-it-a11y-close', 'true');
+		const label = safeLocale('close', 'Close');
+		button.textContent = label;
+		button.setAttribute('aria-label', label);
+		button.addEventListener('click', function (event) {
+			if (event && typeof event.preventDefault === 'function') event.preventDefault();
+			if (typeof modal.close === 'function') modal.close();
+		});
+		if (typeof surface.appendChild === 'function') surface.appendChild(button);
+		return button;
+	}
+
+	function enhanceModal (modal) {
+		if (!modal || modal.__itA11yModal) return;
+		modal.__itA11yModal = true;
+		const surface = typeof modal.querySelector === 'function' ? (modal.querySelector('.satus-modal__surface') || modal) : modal;
+		const isSearchResults = !!(modal.classList && modal.classList.contains('search-results'));
+
+		if (isSearchResults) {
+			// Search results are controlled by a search field outside this container.
+			// Treating them as aria-modal would incorrectly imply that focus is trapped here.
+			surface.setAttribute('role', 'region');
+			surface.removeAttribute('aria-modal');
+			setLabel(surface, modalName(modal), false);
+			return;
+		}
+
+		surface.setAttribute('role', 'dialog');
+		surface.setAttribute('aria-modal', 'true');
+		setLabel(surface, modalName(modal), false);
+		ensureModalCloseButton(modal, surface);
+		setTimeout(function () {
+			const target = firstFocusable(surface);
+			if (target && typeof target.focus === 'function') target.focus();
+		}, 0);
+		// Escape and post-close focus intentionally remain under the original
+		// ImprovedTube/Chrome popup behavior. Intercepting Escape here cannot
+		// prevent Chrome from dismissing the extension popup and may conflict
+		// with the browser's own focus restoration.
+	}
+
 	function enhanceIframe (frame) {
 		if (!frame || frame.getAttribute('title')) return;
 		frame.setAttribute('title', safeLocale('improvedTube', 'ImprovedTube content'));
@@ -210,6 +330,7 @@
 		includeSelf('.satus-shortcut,.satus-color-picker', function (el) { enhanceCustomButton(el); });
 		includeSelf('button.satus-button', enhanceButton);
 		includeSelf('.satus-section[data-title]', enhanceSection);
+		includeSelf('.satus-modal', enhanceModal);
 		includeSelf('iframe', enhanceIframe);
 
 		const title = root.document && root.document.querySelector ? root.document.querySelector('.satus-span--title') : null;
@@ -217,6 +338,18 @@
 			title.setAttribute('role', 'heading');
 			title.setAttribute('aria-level', '1');
 		}
+	}
+
+	function focusNewestLayer (layers) {
+		if (!layers || !root.document) return;
+		const all = layers.querySelectorAll ? layers.querySelectorAll('.satus-layers__layer') : [];
+		const layer = all && all.length ? all[all.length - 1] : null;
+		if (!layer) return;
+		setTimeout(function () {
+			if (!layer.isConnected) return;
+			const target = layerLandingTarget(layer) || firstFocusable(layer);
+			if (target && typeof target.focus === 'function') target.focus();
+		}, 0);
 	}
 
 	function install () {
@@ -235,6 +368,12 @@
 							for (const node of mutation.addedNodes || []) {
 							if (node && node.nodeType === 1) {
 								enhanceRoot(node);
+								if (node.matches?.('.satus-layers__layer')) {
+									setTimeout(function () {
+										const target = layerLandingTarget(node) || firstFocusable(node);
+										if (target && typeof target.focus === 'function') target.focus();
+									}, 0);
+								}
 							}
 						}
 					}
@@ -242,6 +381,13 @@
 				observer.observe(root.document.documentElement, {subtree: true, childList: true, attributes: true, attributeFilter: ['data-value', 'data-title']});
 			}
 
+			root.document.addEventListener('open', function (event) {
+				const layers = event.target && event.target.classList && event.target.classList.contains('satus-layers') ? event.target : event.target?.closest?.('.satus-layers');
+				if (layers) {
+					enhanceRoot(layers);
+					focusNewestLayer(layers);
+				}
+			}, true);
 		};
 
 		if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', start, {once: true});
@@ -258,6 +404,9 @@
 		enhanceCustomButton,
 		enhanceButton,
 		enhanceSection,
+		layerLandingTarget,
+		ensureModalCloseButton,
+		enhanceModal,
 		enhanceIframe,
 		enhanceRoot,
 		install
