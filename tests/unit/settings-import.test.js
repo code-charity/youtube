@@ -97,6 +97,8 @@ describe('Settings import persistence', () => {
 			action: 'import-settings'
 		});
 		expect(context.close).toHaveBeenCalledTimes(1);
+		expect(context.chrome.runtime.sendMessage.mock.invocationCallOrder[0])
+			.toBeLessThan(context.close.mock.invocationCallOrder[0]);
 	});
 
 	test('keeps browser-account restore open until the local write completes', () => {
@@ -113,4 +115,30 @@ describe('Settings import persistence', () => {
 		expect(context.satus.storage.data).toEqual({theme: 'dark', player_volume: 80});
 		expect(modalProvider.close).toHaveBeenCalledTimes(1);
 	});
+    test('returns storage errors without updating the cache or closing', () => {
+        const failure = {message: 'storage unavailable'};
+        context.chrome.runtime.lastError = failure;
+        const callback = jest.fn();
+        context.extension.applyImportedSettings({theme: 'dark'}, callback);
+        storageCallback();
+        expect(callback).toHaveBeenCalledWith(failure);
+        expect(context.satus.storage.data).toEqual({});
+        expect(context.satus.events.trigger).toHaveBeenCalledWith('storage-import-error', failure);
+        expect(context.satus.events.trigger).not.toHaveBeenCalledWith('storage-import');
+        expect(context.close).not.toHaveBeenCalled();
+    });
+
+    test('keeps file import open when persistence fails', () => {
+        const log = jest.spyOn(console, 'error').mockImplementation(() => {});
+        try {
+            context.extension.importSettings();
+            modal.buttons.ok.on.click();
+            input.changeListener.call(input);
+            context.chrome.runtime.lastError = {message: 'storage unavailable'};
+            storageCallback();
+            expect(context.close).not.toHaveBeenCalled();
+            expect(context.chrome.runtime.sendMessage).not.toHaveBeenCalled();
+        } finally { log.mockRestore(); }
+    });
+
 });
