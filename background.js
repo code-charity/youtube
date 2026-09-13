@@ -168,9 +168,12 @@ function updateContextMenu (language) {
 }
 
 chrome.contextMenus.onClicked.addListener(function (info) {
+	const isFirefox = chrome.runtime.getURL('').startsWith('moz-extension://');
 	const links = [
 		'https://www.improvedtube.com/donate',
-		'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
+		isFirefox
+			? 'https://addons.mozilla.org/firefox/addon/youtube-addon/'
+			: 'https://chrome.google.com/webstore/detail/improve-youtube-video-you/bnomihfieiccainjcjblhegjgglakjdd',
 		'https://github.com/code4charity/YouTube-Extension'
 	];
 	chrome.tabs.create({ url: links[info.menuItemId] }); //manifest3
