@@ -1757,5 +1757,8 @@
   },
   "autoVideoRecovery": {
   "message": "Auto video recovery"
+  },
+  "hideHomeCategoryBar": {
+    "message": "Hide category bar on YouTube home page"
   }
 }

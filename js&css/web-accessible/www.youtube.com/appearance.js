@@ -475,11 +475,11 @@ ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript ==
 	if (available) {
 		if (!ImprovedTube.originalFocus) {ImprovedTube.originalFocus = HTMLElement.prototype.focus;}  // Backing up default method. Youtube doesn't use alternatives Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy)
 		ImprovedTube.forbidFocus =  function (ms) {
-			HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling for a moment."); }
+			// Accessibility: native HTMLElement.prototype.focus remains unchanged.
 			if(document.hidden) ms = 3*ms;
 			setTimeout(function() { HTMLElement.prototype.focus = ImprovedTube.originalFocus; }, ms); 	// Restoring JS's "focus()"
 		}
-		ImprovedTube.forbidFocus(2100);
+		// Accessibility: preserve native HTMLElement.focus(); do not globally suppress focus.
 		const descriptionTranscript = el.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
 		descriptionTranscript ? descriptionTranscript.click() : el.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
 		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
@@ -493,11 +493,11 @@ ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === tr
 	if (available) {
 		if (!ImprovedTube.originalFocus) { ImprovedTube.originalFocus = HTMLElement.prototype.focus;}  // Backing up default method. Youtube doesn't use alternatives Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy)
 		ImprovedTube.forbidFocus =  function (ms) {
-			HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling for a moment."); }
+			// Accessibility: native HTMLElement.prototype.focus remains unchanged.
 			if(document.hidden) ms = 3*ms;
 			setTimeout(function() { HTMLElement.prototype.focus = ImprovedTube.originalFocus; }, ms); 	// Restoring JS's "focus()"
 		}
-		ImprovedTube.forbidFocus(2100);
+		// Accessibility: preserve native HTMLElement.focus(); do not globally suppress focus.
 		const modernChapters = el.querySelector('[modern-chapters] #navigation-button button[aria-label]');
 		modernChapters ? modernChapters.click() : el.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
 		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
@@ -698,12 +698,12 @@ ImprovedTube.expandDescription = function (el) {
 	if (this.storage.description === "expanded") {
 		if (!ImprovedTube.originalFocus) { ImprovedTube.originalFocus = HTMLElement.prototype.focus;}  // Backing up default method. Youtube doesn't use alternatives Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy)
 		ImprovedTube.forbidFocus =  function (ms) {
-			HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling for a moment."); }
+			// Accessibility: native HTMLElement.prototype.focus remains unchanged.
 			if(document.hidden) ms = 3*ms;
 			setTimeout(function() { HTMLElement.prototype.focus = ImprovedTube.originalFocus; }, ms); 	// Restoring JS's "focus()"
 		}
 		if (el) {
-			ImprovedTube.forbidFocus(2100); // setTimeout(function () {ImprovedTube.elements.player.focus();}, 2500);
+			// Accessibility: preserve native HTMLElement.focus(); do not globally suppress focus. // setTimeout(function () {ImprovedTube.elements.player.focus();}, 2500);
 			el.click();
 		}
 		else { // wait for the description

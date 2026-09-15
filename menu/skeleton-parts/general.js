@@ -149,6 +149,11 @@ extension.skeleton.main.layers.section.general = {
 					}],
 					tags: 'trending,subscriptions,history,watch,search,undistracted,zen'
 				},
+				hide_home_category_bar: {
+					component: 'switch',
+					text: 'hideHomeCategoryBar',
+					storage: 'hide_home_category_bar'
+				},
 				left: {
 					component: 'section',
 					variant: 'card',
