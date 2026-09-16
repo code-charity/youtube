@@ -153,7 +153,7 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 						text: "fullWindow",
 						value: "full_window"
 					}, {
-						text: "Max. width within the page",
+						text: "maxWidthWithinPage",
 						value: "max_width"
 					}, {
 						text: "fitToWindow",

@@ -376,24 +376,24 @@ extension.skeleton.main.layers.section.player.on.click = {
 
 													add_category_dropdown: {
 														component: 'select',
-														text: '1. Select YouTube Category',
+														text: 'smartSpeedSelectYouTubeCategory',
 														options: [
-															{value: 'none', text: 'Select Category...'},
-															{value: 'Entertainment', text: 'Entertainment'},
-															{value: 'Music', text: 'Music'},
-															{value: 'Gaming', text: 'Gaming'},
-															{value: 'People & Blogs', text: 'People & Blogs'},
-															{value: 'Comedy', text: 'Comedy'},
-															{value: 'Howto & Style', text: 'Howto & Style'},
-															{value: 'Film & Animation', text: 'Film & Animation'},
-															{value: 'Education', text: 'Education'},
-															{value: 'Science & Technology', text: 'Science & Technology'},
-															{value: 'Sports', text: 'Sports'},
-															{value: 'News & Politics', text: 'News & Politics'},
-															{value: 'Autos & Vehicles', text: 'Autos & Vehicles'},
-															{value: 'Travel & Events', text: 'Travel & Events'},
-															{value: 'Pets & Animals', text: 'Pets & Animals'},
-															{value: 'Nonprofits & Activism', text: 'Nonprofits & Activism'}
+															{value: 'none', text: 'smartSpeedSelectCategory'},
+															{value: 'Entertainment', text: 'categoryEntertainment'},
+															{value: 'Music', text: 'categoryMusic'},
+															{value: 'Gaming', text: 'categoryGaming'},
+															{value: 'People & Blogs', text: 'categoryPeopleBlogs'},
+															{value: 'Comedy', text: 'categoryComedy'},
+															{value: 'Howto & Style', text: 'categoryHowtoStyle'},
+															{value: 'Film & Animation', text: 'categoryFilmAnimation'},
+															{value: 'Education', text: 'categoryEducation'},
+															{value: 'Science & Technology', text: 'categoryScienceTechnology'},
+															{value: 'Sports', text: 'categorySports'},
+															{value: 'News & Politics', text: 'categoryNewsPolitics'},
+															{value: 'Autos & Vehicles', text: 'categoryAutosVehicles'},
+															{value: 'Travel & Events', text: 'categoryTravelEvents'},
+															{value: 'Pets & Animals', text: 'categoryPetsAnimals'},
+															{value: 'Nonprofits & Activism', text: 'categoryNonprofitsActivism'}
 														],
 														on: {
 															change: function() { tempCategory = this.value; }
@@ -401,7 +401,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 													},
 													add_category_btn: {
 														component: 'button',
-														text: '➕ Add Selected Category',
+														text: 'smartSpeedAddSelectedCategory',
 														on: {
 															click: function() {
 																if (tempCategory !== 'none') {
@@ -419,10 +419,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 
 													add_channel_btn: {
 														component: 'button',
-														text: '➕ Enter & Add Channel Name',
+														text: 'smartSpeedEnterAddChannelName',
 														on: {
 															click: function() {
-																let name = prompt("Enter Channel Handle (e.g., @MrBeast) or Name:");
+																let name = prompt(satus.locale.get('smartSpeedChannelPrompt'));
 																if (name) {
 																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles') || {});
 																	let newObj = {};
@@ -443,10 +443,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 													skeleton['rule_' + safeKey + '_' + ts] = {
 														component: 'section',
 														variant: 'card',
-														title: key,
+														title: ({'Entertainment':'categoryEntertainment', 'Music':'categoryMusic', 'Gaming':'categoryGaming', 'People & Blogs':'categoryPeopleBlogs', 'Comedy':'categoryComedy', 'Howto & Style':'categoryHowtoStyle', 'Film & Animation':'categoryFilmAnimation', 'Education':'categoryEducation', 'Science & Technology':'categoryScienceTechnology', 'Sports':'categorySports', 'News & Politics':'categoryNewsPolitics', 'Autos & Vehicles':'categoryAutosVehicles', 'Travel & Events':'categoryTravelEvents', 'Pets & Animals':'categoryPetsAnimals', 'Nonprofits & Activism':'categoryNonprofitsActivism'}[key] || key),
 														whitelist_toggle: {
 															component: 'switch',
-															text: 'Whitelist (Disable Speedup)',
+															text: 'smartSpeedWhitelistDisable',
 															value: profiles[key].whitelist || false,
 															on: {
 																change: function() {
@@ -457,7 +457,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 															}
 														},
 														max_slider: {
-															component: 'slider', text: 'Max Speed', value: profiles[key].max, min: 1.0, max: 4.0, step: 0.1,
+															component: 'slider', text: 'smartSpeedMaxProfileSpeed', value: profiles[key].max, min: 1.0, max: 4.0, step: 0.1,
 															on: {
 																change: function() {
 																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles'));
@@ -467,7 +467,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 															}
 														},
 														min_slider: {
-															component: 'slider', text: 'Min Speed', value: profiles[key].min, min: 0.5, max: 2.0, step: 0.1,
+															component: 'slider', text: 'smartSpeedMinProfileSpeed', value: profiles[key].min, min: 0.5, max: 2.0, step: 0.1,
 															on: {
 																change: function() {
 																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles'));
@@ -477,7 +477,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 															}
 														},
 														sens_slider: {
-															component: 'slider', text: 'Sensitivity', value: profiles[key].sens || 0.5, min: 0.01, max: 1.0, step: 0.01,
+															component: 'slider', text: 'smartSpeedSensitivity', value: profiles[key].sens || 0.5, min: 0.01, max: 1.0, step: 0.01,
 															on: {
 																change: function() {
 																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles'));
@@ -487,7 +487,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 															}
 														},
 														delete_btn: {
-															component: 'button', text: '🗑️ Delete Profile',
+															component: 'button', text: 'smartSpeedDeleteProfile',
 															on: {
 																click: function() {
 																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles'));
