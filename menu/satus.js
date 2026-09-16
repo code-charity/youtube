@@ -1057,6 +1057,14 @@ satus.locale.import = function (code, callback, path) {
 		try {
 			chrome.i18n.getAcceptLanguages(function (languages) {
 				languages = languages.map(language => language.replace('-', '_'));
+				// Accessibility: prefer the Chrome UI language when ImprovedTube language is Default.
+				try {
+					const uiLanguage = chrome.i18n.getUILanguage().replace('-', '_');
+					const uiBase = uiLanguage.split('_')[0];
+					const preferred = [uiLanguage];
+					if (uiBase && uiBase !== uiLanguage) preferred.push(uiBase);
+					languages = preferred.concat(languages.filter(language => preferred.indexOf(language) === -1));
+				} catch (_) {}
 				for (let i = languages.length - 1; i >= 0; i--) {
 					if (languages[i].includes('_')) {
 						let languageWithoutCountryCode = languages[i].substring(0, 2);
