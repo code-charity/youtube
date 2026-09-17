@@ -460,6 +460,10 @@ extension.features.watchLaterButtons = function (event) {
 	}
 
 	function addWatchLaterButton(thumbnail) {
+		// `container` is the renderer wrapping the thumbnail anchor; it hosts
+		// the button. parentElement is null only for a detached node or the
+		// document root, which does not occur for YouTube renderers, so the
+		// guards below treat a null container as "nothing to do".
 		var videoId = thumbnail ? getVideoId(thumbnail.href) : null,
 			container = thumbnail ? thumbnail.parentElement : null;
 

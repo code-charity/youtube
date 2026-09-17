@@ -138,5 +138,23 @@ describe('Watch Later thumbnail buttons', () => {
 			expect(renderer.querySelectorAll('button').length).toBe(0);
 			expect(thumbnail.querySelectorAll('button').length).toBe(0);
 		});
+
+		test('handles a thumbnail with no parent container (parentElement === null)', () => {
+			const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
+			const { document } = dom.window;
+			const addWatchLaterButton = buildAddWatchLaterButton(generalJs, document);
+
+			// Detached node: parentElement is null. This is the edge case raised in
+			// review — the function must bail out instead of throwing on
+			// container.appendChild.
+			const thumbnail = document.createElement('a');
+			thumbnail.href = '/watch?v=dQw4w9WgXcQ';
+			thumbnail.setAttribute('aria-hidden', 'true');
+
+			expect(thumbnail.parentElement).toBeNull();
+			expect(() => addWatchLaterButton(thumbnail)).not.toThrow();
+			expect(thumbnail.querySelectorAll('button').length).toBe(0);
+			expect(thumbnail.itWatchLaterButton).toBeFalsy();
+		});
 	});
 });
