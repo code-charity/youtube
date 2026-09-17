@@ -129,6 +129,24 @@ extension.exportSettings = function () {
 # IMPORT SETTINGS
 --------------------------------------------------------------*/
 
+// Keep the import UI open until one batch write makes the in-memory and persisted settings agree.
+extension.applyImportedSettings = function (data, callback) {
+	chrome.storage.local.set(data, function () {
+		if (chrome.runtime.lastError) {
+			satus.events.trigger('storage-import-error', chrome.runtime.lastError);
+			if (callback) callback(chrome.runtime.lastError);
+
+			return;
+		}
+
+		// Populate the cache before notifying subscribers.
+		Object.assign(satus.storage.data, data);
+		satus.events.trigger('storage-import');
+
+		if (callback) callback();
+	});
+};
+
 extension.importSettings = function () {
 	if (location.href.indexOf('action=import-settings') !== -1) {
 		satus.render({
@@ -159,19 +177,19 @@ extension.importSettings = function () {
 
 								file_reader.onload = function () {
 									var data = JSON.parse(this.result);
-									for (var key in data) {
-										satus.storage.set(key, data[key]);
-									}
 
-									setTimeout(function () {
+									extension.applyImportedSettings(data, function (error) {
+										if (error) {
+											console.error(error);
+
+											return;
+										}
+
 										chrome.runtime.sendMessage({
 											action: 'import-settings'
 										});
-
-										setTimeout(function () {
-											close();
-										}, 128);
-									}, 256);
+										close();
+									});
 								};
 
 								file_reader.readAsText(this.files[0]);
@@ -246,13 +264,22 @@ extension.pullSettings = function () {
 				text: 'ok',
 				on: {
 					click: function () {
+						// Capture the click handler's receiver before entering the async callback.
+						var modal_provider = this.modalProvider;
+
 						chrome.storage.sync.get('settings', function (r) {
 							var data = JSON.parse(r['settings']);
-							for (var key in data) {
-								satus.storage.set(key, data[key]);
-							}
+
+							extension.applyImportedSettings(data, function (error) {
+								if (error) {
+									console.error(error);
+
+									return;
+								}
+
+								modal_provider.close();
+							});
 						});
-						this.modalProvider.close();
 					}
 				}
 			}
