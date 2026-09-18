@@ -105,6 +105,22 @@ ImprovedTube.playbackSpeed = function (newSpeed) {
 	return newSpeed;
 };
 /*------------------------------------------------------------------------------
+LIVE HEAD PLAYBACK SPEED RESET
+------------------------------------------------------------------------------*/
+// Speeds are applied to the <video> element directly, so YouTube's player still reports 1x
+// and never drops back to 1x at the live head like it does for its own speed menu (#4346).
+// Without this, playback > 1x at the live head stalls, buffers, catches up again, forever.
+ImprovedTube.playerLiveHeadSpeedReset = function (event) {
+	const video = event?.target;
+	if (!video || !(video.playbackRate > 1)) return;
+	const player = video.closest?.('.html5-video-player') || ImprovedTube.elements.player;
+	if (!player?.getVideoData?.()?.isLive) return;
+	if (player.getProgressState?.()?.isAtLiveHead !== true) return;
+
+	video.playbackRate = 1;
+	ImprovedTube.showStatus(1);
+};
+/*------------------------------------------------------------------------------
 PERMANENT PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
