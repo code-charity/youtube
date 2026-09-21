@@ -2,7 +2,7 @@
 FORCED PLAY VIDEO FROM THE BEGINNING
 ------------------------------------------------------------------------------*/
 ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
-	const player = this.elements.player,		video = this.elements.video,		paused = video?.paused;
+	const player = this.elements.player,		video = this.elements.video;
  const t = this.video_url.match(this.regex.video_time)?.[1];
 	if (t) {
 		if (/[#&]stop=|#t=/.test(this.video_url)) return;
@@ -16,11 +16,36 @@ ImprovedTube.forcedPlayVideoFromTheBeginning = function () {
 		// opening moments. Only seek when YouTube has resumed from a saved
 		// timestamp (currentTime > 0), which is the case this setting exists
 		// to override.
-		if (video.currentTime > 1.1) {  // video.currentTime = 0; #262
-			player.seekTo(0);
-			// restore previous paused state after the seek
-			if (paused) { player.pauseVideo(); }
-		}
+		const forceRestart = () => {
+			if (video.currentTime > 1.1) {  // video.currentTime = 0; #262
+				const wasPaused = video.paused;
+				player.seekTo(0);
+				// restore previous paused state after the seek
+				if (wasPaused) { player.pauseVideo(); }
+			}
+		};
+
+		forceRestart();
+
+		// On SPA navigations (playlist auto-advance, clicking a previously
+		// watched video from recommendations/history) YouTube applies its own
+		// "resume to saved position" seek asynchronously, after the
+		// synchronous check above already ran with currentTime still ~0. Catch
+		// that late seek once, bounded to a short grace window, instead of
+		// blindly re-polling. #4349
+		const navigatedUrl = this.video_url;
+		let settled = false;
+		const onSeeked = () => {
+			if (settled || this.video_url !== navigatedUrl) return;
+			settled = true;
+			video.removeEventListener('seeked', onSeeked);
+			forceRestart();
+		};
+		video.addEventListener('seeked', onSeeked);
+		setTimeout(() => {
+			settled = true;
+			video.removeEventListener('seeked', onSeeked);
+		}, 2000);
 	}
 };
 /*------------------------------------------------------------------------------
