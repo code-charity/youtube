@@ -1353,18 +1353,22 @@ var xpath = function (xpathToExecute) {
 	return result;
 }
 
-function createOverlay () {
-	var overlay = document.createElement('div');
-	overlay.id = 'overlay_cinema';
-	overlay.style.position = 'fixed';
-	overlay.style.top = '0';
-	overlay.style.left = '0';
-	overlay.style.width = '100%';
-	overlay.style.height = '100%';
-	overlay.style.backgroundColor = 'rgba(0, 0, 0, 1)';
-	overlay.style.zIndex = '9999';
-	overlay.style.display = 'block';
-	document.getElementById('full-bleed-container').appendChild(overlay);
+// Darkens everything outside the player via a box-shadow "spotlight" on
+// #ytd-player, instead of a full-page overlay element paired with a
+// manually elevated z-index on the player containers. YouTube's player DOM
+// nesting has changed enough that raising z-index on player-container /
+// player-full-bleed-container / ytd-player no longer outranks a page-level
+// fixed overlay (they end up compared across different stacking contexts),
+// so the overlay ended up covering the whole page - video, controls and
+// all - with no way back short of a refresh. #ytd-player's own box tracks
+// the real player size in both the default and theater layouts, so drawing
+// the darkening as its own box-shadow keeps it correctly stacked
+// automatically, with no z-index/stacking-context guesswork involved. #4353
+ImprovedTube.cinemaModeSetVisible = function (visible) {
+	var ytdPlayer = document.getElementById('ytd-player');
+	if (!ytdPlayer) return false;
+	ytdPlayer.style.boxShadow = visible ? '0 0 0 9999px rgba(0, 0, 0, 1)' : '';
+	return true;
 }
 
 ImprovedTube.playerCinemaModeButton = function () {
@@ -1383,42 +1387,8 @@ ImprovedTube.playerCinemaModeButton = function () {
 			child: svg,
 			opacity: 0.64,
 			onclick: function () {
-				var playerContainer = document.getElementById('player-full-bleed-container');
-				var playerContainerDefault =
-					document.getElementById("player-container");
-				var zIndex = 1;
-
-				if (
-					(playerContainer && playerContainer.style.zIndex == 10000) ||
-					(playerContainerDefault &&
-						playerContainerDefault.style.zIndex == 10000)
-					) {
-					zIndex = 1;
-				} else {
-					zIndex = 10000;
-				}
-
-				var ytdPlayer = document.getElementById('ytd-player');
-
-				if (playerContainer) {
-					playerContainer.style.zIndex = zIndex;
-					playerContainer.style.position = zIndex === 10000 ? 'relative' : '';
-				}
-				if (playerContainerDefault) {
-					playerContainerDefault.style.zIndex = zIndex;
-					playerContainerDefault.style.position = zIndex === 10000 ? 'relative' : '';
-				}
-				if (ytdPlayer) {
-					ytdPlayer.style.zIndex = zIndex;
-					ytdPlayer.style.position = zIndex === 10000 ? 'relative' : '';
-				}
-
-				var overlay = document.getElementById('overlay_cinema');
-				if (!overlay) {
-					createOverlay();
-				} else {
-					overlay.style.display = overlay.style.display === 'none' || overlay.style.display === '' ? 'block' : 'none';
-				}
+				ImprovedTube.cinemaModeActive = !ImprovedTube.cinemaModeActive;
+				ImprovedTube.cinemaModeSetVisible(ImprovedTube.cinemaModeActive);
 			},
 			title: 'Cinema Mode'
 		});
@@ -1426,28 +1396,10 @@ ImprovedTube.playerCinemaModeButton = function () {
 }
 
 ImprovedTube.playerCinemaModeDisable = function () {
-	if (this.storage.player_auto_hide_cinema_mode_when_paused) {
-		var overlay = document.getElementById('overlay_cinema');
-		if (overlay) {
-			overlay.style.display = 'none'
-			var playerContainer = document.getElementById('player-full-bleed-container');
-			if (playerContainer) {
-				playerContainer.style.zIndex = 1;
-				playerContainer.style.position = '';
-			}
-			var playerContainerDefault = document.getElementById('player-container');
-			if (playerContainerDefault) {
-				playerContainerDefault.style.zIndex = 1;
-				playerContainerDefault.style.position = '';
-			}
-			var ytdPlayer = document.getElementById('ytd-player');
-			if (ytdPlayer) {
-				ytdPlayer.style.zIndex = 1;
-				ytdPlayer.style.position = '';
-			}
-			var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
-			if (cinemaModeButton) cinemaModeButton.style.opacity = 0.64
-		}
+	if (this.storage.player_auto_hide_cinema_mode_when_paused && ImprovedTube.cinemaModeActive) {
+		ImprovedTube.cinemaModeSetVisible(false);
+		var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
+		if (cinemaModeButton) cinemaModeButton.style.opacity = 0.64
 	}
 }
 
@@ -1455,30 +1407,12 @@ ImprovedTube.playerCinemaModeEnable = function () {
 	if (this.storage.player_auto_cinema_mode || this.storage.player_auto_hide_cinema_mode_when_paused) {
 
 		if ((/watch\?/.test(location.href))) {
-			var overlay = document.getElementById('overlay_cinema');
-
-			if (this.storage.player_auto_cinema_mode === true && !overlay) {
-				createOverlay();
-				overlay = document.getElementById('overlay_cinema');
+			if (this.storage.player_auto_cinema_mode === true) {
+				ImprovedTube.cinemaModeActive = true;
 			}
 
-			if (overlay) {
-				overlay.style.display = 'block'
-				var player = document.getElementById('player-full-bleed-container');
-				if (player) {
-					player.style.zIndex = 10000;
-					player.style.position = 'relative';
-				}
-				var playerDefault = document.getElementById('player-container');
-				if (playerDefault) {
-					playerDefault.style.zIndex = 10000;
-					playerDefault.style.position = 'relative';
-				}
-				var ytdPlayer = document.getElementById('ytd-player');
-				if (ytdPlayer) {
-					ytdPlayer.style.zIndex = 10000;
-					ytdPlayer.style.position = 'relative';
-				}
+			if (ImprovedTube.cinemaModeActive) {
+				ImprovedTube.cinemaModeSetVisible(true);
 
 				var cinemaModeButton = xpath('//*[@id="it-cinema-mode-button"]')[0]
 				if (cinemaModeButton) cinemaModeButton.style.opacity = 1
