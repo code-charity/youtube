@@ -101,6 +101,42 @@ describe('Settings import persistence', () => {
 			.toBeLessThan(context.close.mock.invocationCallOrder[0]);
 	});
 
+	test('updates menu attributes after a browser-account restore persists', () => {
+		const listeners = {};
+		const attributes = {};
+		const modalProvider = {close: jest.fn()};
+		context.extension.skeleton.rendered = {
+			setAttribute: (key, value) => { attributes[key] = value; },
+			removeAttribute: (key) => { delete attributes[key]; }
+		};
+		context.satus.storage.data = {theme: 'light'};
+		context.satus.storage.get = (key) => context.satus.storage.data[key];
+		context.satus.storage.import = (callback) => callback(context.satus.storage.data);
+		context.satus.locale = {import: (language, callback) => callback()};
+		context.satus.parentify = jest.fn();
+		context.satus.isset = (value) => value !== undefined && value !== null;
+		context.satus.events.on = (event, listener) => { listeners[event] = listener; };
+		context.satus.events.trigger.mockImplementation((event) => {
+			if (listeners[event]) listeners[event]();
+		});
+		context.location.href = 'moz-extension://test/menu/index.html';
+		vm.runInNewContext(
+			fs.readFileSync(path.join(__dirname, '../../menu/index.js'), 'utf8'),
+			context
+		);
+
+		expect(attributes.theme).toBe('light');
+		context.extension.pullSettings();
+		modal.buttons.ok.on.click.call({modalProvider});
+		expect(attributes.theme).toBe('light');
+		expect(modalProvider.close).not.toHaveBeenCalled();
+
+		storageCallback();
+
+		expect(attributes.theme).toBe('dark');
+		expect(modalProvider.close).toHaveBeenCalledTimes(1);
+	});
+
 	test('keeps browser-account restore open until the local write completes', () => {
 		const modalProvider = {close: jest.fn()};
 

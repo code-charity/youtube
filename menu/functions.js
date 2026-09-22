@@ -141,6 +141,8 @@ extension.applyImportedSettings = function (data, callback) {
 
 		// Populate the cache before notifying subscribers.
 		Object.assign(satus.storage.data, data);
+		// Preserve the write notification used to refresh the open menu's attributes.
+		satus.events.trigger('storage-set');
 		satus.events.trigger('storage-import');
 
 		if (callback) callback();
