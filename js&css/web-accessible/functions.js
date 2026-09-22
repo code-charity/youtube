@@ -498,8 +498,13 @@ ImprovedTube.initPlayer = function () {
 		if (ImprovedTube.storage.hide_auto_dubbed_options === true) { ImprovedTube.observeAutoDubbedMenu(); }
 		if (ImprovedTube.storage.preferred_dubbing_language) { ImprovedTube.preferredDubbingLanguage(); }
 		if (ImprovedTube.storage.player_default_dubbed_language && ImprovedTube.storage.player_default_dubbed_language !== 'disabled') { ImprovedTube.selectDubbedLanguage(); }
+		if (ImprovedTube.storage.smart_speed === true) {
+			if (ImprovedTube.smartSpeed?.init) { ImprovedTube.smartSpeed.init(); }
+			else if (ImprovedTube.heatmap?.init) { ImprovedTube.heatmap.init(); }
+		}
 	}
 };
+
 
 var timeUpdateInterval = null;
 var noTimeUpdate = null;
