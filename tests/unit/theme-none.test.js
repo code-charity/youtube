@@ -70,20 +70,44 @@ describe('setTheme with the "none" theme', () => {
 	});
 });
 
-describe('theme stylesheet with the "none" theme', () => {
-	const css = fs.readFileSync(
-		path.join(__dirname, '../../js&css/extension/www.youtube.com/styles.css'),
-		'utf8'
-	);
+describe('theme stylesheets with the "none" theme', () => {
+	// Every stylesheet the extension ships, not just the one that has these rules
+	// today: a rule added to a sibling file would otherwise keep restyling the
+	// page under "none" without failing anything.
+	const cssRoot = path.join(__dirname, '../../js&css');
+
+	function stylesheets(dir) {
+		return fs.readdirSync(dir, {withFileTypes: true}).flatMap(entry => {
+			const full = path.join(dir, entry.name);
+			if (entry.isDirectory()) return stylesheets(full);
+			return entry.isFile() && entry.name.endsWith('.css') ? [full] : [];
+		});
+	}
+
+	const files = stylesheets(cssRoot);
+
+	test('every shipped stylesheet is checked', () => {
+		expect(files.length).toBeGreaterThan(1);
+	});
 
 	test('no rule meant for "any theme but default" also matches "none"', () => {
 		// `html[it-theme]` matches every stored theme, "none" included, so each of
 		// these rules has to exclude "none" explicitly or it restyles the page anyway.
-		const selectors = css.match(/html\[it-theme\]:not\(\[it-theme=default\]\)[^,{]*/g) || [];
+		const offenders = [];
+		let checked = 0;
 
-		expect(selectors.length).toBeGreaterThan(0);
-		for (const selector of selectors) {
-			expect(selector).toContain(':not([it-theme=none])');
+		for (const file of files) {
+			const css = fs.readFileSync(file, 'utf8');
+			const selectors = css.match(/html\[it-theme\]:not\(\[it-theme=default\]\)[^,{]*/g) || [];
+			for (const selector of selectors) {
+				checked += 1;
+				if (!selector.includes(':not([it-theme=none])')) {
+					offenders.push(`${path.relative(cssRoot, file)}: ${selector.trim()}`);
+				}
+			}
 		}
+
+		expect(offenders).toEqual([]);
+		expect(checked).toBe(10);
 	});
 });
