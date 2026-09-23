@@ -134,9 +134,9 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 				var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + '|' + musicIdentifiers.source, "i");
 				var musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
 				if (!musicRegexMatch) {
-					var musicIdentifiersTagsOnly = /^(lyrics|remix|song|music|AMV|theme song|full song|\(Musical Genre\)|jazz|reggae)$/i;
+					var musicIdentifiersTagsOnly = /^(lyrics|remix|song|music|AMV|theme song|full song)$|\(Musical Genre\)|^jazz|^reggae/i;
 					var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + '|' + musicIdentifiers.source, "i");
-				    var keywordList = (keywords || '').split(',').map(keyword => keyword.trim()).filter(Boolean);
+				    var keywordList = (keywords || '').split(', ').map(keyword => keyword.trim()).filter(Boolean);
 				    var musicKeywordCount = keywordList.filter(keyword => musicIdentifiersTags.test(keyword)).length;
 					keywordsAmount = keywordList.length;
 					if ( keywordsAmount && musicKeywordCount / keywordsAmount > 0.08) {
