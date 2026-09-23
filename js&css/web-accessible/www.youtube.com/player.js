@@ -134,10 +134,12 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 				var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + '|' + musicIdentifiers.source, "i");
 				var musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
 				if (!musicRegexMatch) {
-					var musicIdentifiersTagsOnly = /, (lyrics|remix|song|music|AMV|theme song|full song),|\(Musical Genre\)|, jazz|, reggae/i;
+					var musicIdentifiersTagsOnly = /^(lyrics|remix|song|music|AMV|theme song|full song)$|\(Musical Genre\)|^jazz|^reggae/i;
 					var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + '|' + musicIdentifiers.source, "i");
-				  keywordsAmount = 1 + ((keywords || '').match(/,/) || []).length;
-					if ( ((keywords || '').match(musicIdentifiersTags) || []).length / keywordsAmount > 0.08) {
+				    var keywordList = (keywords || '').split(', ').map(keyword => keyword.trim()).filter(Boolean);
+				    var musicKeywordCount = keywordList.filter(keyword => musicIdentifiersTags.test(keyword)).length;
+					keywordsAmount = keywordList.length;
+					if ( keywordsAmount && musicKeywordCount / keywordsAmount > 0.08) {
 						musicRegexMatch = true}}
 				notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(DATA.title + " " + keywords);
 				// (Tags/keywords shouldnt lie & very few songs titles might have these words)
@@ -163,7 +165,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 			||	( DATA.genre === 'Music' && musicRegexMatch && (typeof songDurationType !== 'undefined'
 						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(DATA.title + " " + keywords)
 							&& 1000 <= DATA.lengthSeconds )) ) // && DATA.lengthSeconds <= 5000
-			|| (amountOfSongs && testSongDuration(DATA.lengthSeconds, amountOfSongs ) !== 'undefined')
+			|| (amountOfSongs && typeof testSongDuration(DATA.lengthSeconds, amountOfSongs ) !== 'undefined')
 		 //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
 				)	{ player.setPlaybackRate(1); video.playbackRate = 1; console.log ("...,thus must be music?"); }
 				else { 	// Now this video might rarely be music
