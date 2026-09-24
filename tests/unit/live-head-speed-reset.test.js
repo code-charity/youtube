@@ -27,24 +27,24 @@ const liveHeadSpeedReset = extractFunction(
 	'ImprovedTube.playerLiveHeadSpeedReset = function (event) {'
 );
 
-function setup({ rate = 5, isLive = true, isAtLiveHead = true } = {}) {
+function setup({ rate = 5, isLive = true, isAtLiveHead = true, closestFindsPlayer = true, elementsPlayer } = {}) {
 	const player = {
 		getVideoData: () => ({ isLive }),
 		getProgressState: () => ({ isAtLiveHead })
 	};
 	const video = {
 		playbackRate: rate,
-		closest: selector => (selector === '.html5-video-player' ? player : null)
+		closest: selector => (closestFindsPlayer && selector === '.html5-video-player' ? player : null)
 	};
 	const statuses = [];
 	const ImprovedTube = {
-		elements: {},
+		elements: { player: elementsPlayer },
 		showStatus: value => statuses.push(value)
 	};
 
 	vm.runInNewContext(liveHeadSpeedReset, { ImprovedTube });
 
-	return { ImprovedTube, video, statuses };
+	return { ImprovedTube, video, statuses, player };
 }
 
 describe('playerLiveHeadSpeedReset (#4346)', () => {
@@ -91,5 +91,26 @@ describe('playerLiveHeadSpeedReset (#4346)', () => {
 		expect(() => ImprovedTube.playerLiveHeadSpeedReset({ target: video })).not.toThrow();
 		expect(video.playbackRate).toBe(5);
 		expect(statuses).toEqual([]);
+	});
+
+	test('does nothing when closest() finds no player and there is no elements.player fallback', () => {
+		const { ImprovedTube, video, statuses } = setup({ closestFindsPlayer: false });
+
+		expect(() => ImprovedTube.playerLiveHeadSpeedReset({ target: video })).not.toThrow();
+		expect(video.playbackRate).toBe(5);
+		expect(statuses).toEqual([]);
+	});
+
+	test('falls back to ImprovedTube.elements.player when closest() finds no player', () => {
+		const elementsPlayer = {
+			getVideoData: () => ({ isLive: true }),
+			getProgressState: () => ({ isAtLiveHead: true })
+		};
+		const { ImprovedTube, video, statuses } = setup({ closestFindsPlayer: false, elementsPlayer });
+
+		ImprovedTube.playerLiveHeadSpeedReset({ target: video });
+
+		expect(video.playbackRate).toBe(1);
+		expect(statuses).toEqual([1]);
 	});
 });
