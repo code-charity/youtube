@@ -560,11 +560,44 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.selectDubbedLanguage();
 					}
 					break
-				case  'smartSpeed':
-                    if (ImprovedTube.storage.smart_speed === true) { if(ImprovedTube.heatmap) {ImprovedTube.heatmap.init(); };
-                    } else if (ImprovedTube.storage.smart_speed === false) { if(ImprovedTube.heatmap) { ImprovedTube.heatmap.isEnabled = false; document.querySelector("video").playbackRate = 1.0; }
-                    }
+				case 'smartSpeed':
+				case 'smartSpeedIndicator':
+				case 'smartSpeedMin':
+				case 'smartSpeedMax':
+				case 'smartSpeedSensitivity':
+				case 'smartSpeedCaptionsEnabled':
+				case 'smartSpeedCaptionWeight':
+				case 'smartSpeedSpeechLeadSeconds':
+				case 'smartSpeedSpeechReleaseSeconds':
+				case 'smartSpeedSponsorblockEnabled':
+				case 'smartSpeedIntrooutroEnabled':
+				case 'smartSpeedIntrooutroMax':
+				case 'smartSpeedSkipIntroButton':
+				case 'smartSpeedSkipSponsorButton':
+				case 'smartSpeedNoHeatmapFallbackMode':
+				case 'smartSpeedNoHeatmapFixedSpeed':
+				case 'smartSpeedWhitelistShorts':
+				case 'smartSpeedShortVideoThresholdSeconds':
+				case 'smartSpeedWhitelistLive':
+				case 'smartSpeedRulePriority':
+				case 'smartSpeedProfiles':
+					if (message.key === 'smart_speed') {
+						if (ImprovedTube.storage.smart_speed === true) {
+							if (ImprovedTube.smartSpeed?.init) { ImprovedTube.smartSpeed.init(); }
+							else if (ImprovedTube.heatmap?.init) { ImprovedTube.heatmap.init(); }
+						} else if (ImprovedTube.storage.smart_speed === false) {
+							if (ImprovedTube.smartSpeed?._teardown) { ImprovedTube.smartSpeed._teardown(); }
+							else if (ImprovedTube.heatmap?.isEnabled !== undefined) { ImprovedTube.heatmap.isEnabled = false; }
+							const v = document.querySelector("video");
+							if (v) v.playbackRate = 1.0;
+						}
+					} else {
+						if (ImprovedTube.smartSpeed?.onStorageChanged) {
+							ImprovedTube.smartSpeed.onStorageChanged(message.key, message.value);
+						}
+					}
 					break
+
 				case 'returnYoutubeDislike':
 					if (ImprovedTube.storage.return_youtube_dislike === true) {
 						ImprovedTube.returnYoutubeDislike();

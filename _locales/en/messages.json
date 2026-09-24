@@ -1835,5 +1835,81 @@
   },
   "smartSpeedDeleteProfile": {
     "message": "🗑️ Delete Profile"
+  },
+  "smartSpeedCaptionsEnable": {
+    "message": "Enable Transcript Analysis"
+  },
+  "smartSpeedCaptionWeight": {
+    "message": "Caption Weight"
+  },
+  "smartSpeedSpeechLeadSeconds": {
+    "message": "Speech Lead-in (Seconds)"
+  },
+  "smartSpeedSpeechReleaseSeconds": {
+    "message": "Speech Release (Seconds)"
+  },
+  "smartSpeedSponsorBlockEnable": {
+    "message": "SponsorBlock Integration"
+  },
+  "smartSpeedIntroOutroEnable": {
+    "message": "Intro/Outro Detection"
+  },
+  "smartSpeedIntroOutroMax": {
+    "message": "Intro/Outro Max Speed"
+  },
+  "smartSpeedSkipIntroButton": {
+    "message": "Show 'Skip Intro' Button"
+  },
+  "smartSpeedSkipSponsorButton": {
+    "message": "Show 'Skip Sponsor' Button"
+  },
+  "smartSpeedNoHeatmapFallbackMode": {
+    "message": "Fallback Mode (No Heatmap)"
+  },
+  "smartSpeedFallbackCaptions": {
+    "message": "Transcript / Speech Detection"
+  },
+  "smartSpeedFallbackDefaultSpeed": {
+    "message": "Normal Speed (1.0x)"
+  },
+  "smartSpeedFallbackFixedSpeed": {
+    "message": "Fixed Speed"
+  },
+  "smartSpeedNoHeatmapFixedSpeed": {
+    "message": "Fixed Fallback Speed"
+  },
+  "smartSpeedWhitelistShorts": {
+    "message": "Disable for Shorts"
+  },
+  "smartSpeedShortVideoThreshold": {
+    "message": "Short Video Threshold (Seconds)"
+  },
+  "smartSpeedWhitelistLive": {
+    "message": "Disable for Live Streams"
+  },
+  "smartSpeedRulePriority": {
+    "message": "Rule Evaluation Priority"
+  },
+  "smartSpeedPriorityChannelCategoryLanguage": {
+    "message": "Channel > Category > Language"
+  },
+  "smartSpeedPriorityChannelLanguageCategory": {
+    "message": "Channel > Language > Category"
+  },
+  "smartSpeedPriorityLanguageChannelCategory": {
+    "message": "Language > Channel > Category"
+  },
+  "smartSpeedPriorityCategoryChannelLanguage": {
+    "message": "Category > Channel > Language"
+  },
+  "smartSpeedSelectLanguage": {
+    "message": "2. Select Audio Language"
+  },
+  "smartSpeedSelectLanguagePlaceholder": {
+    "message": "Select Language..."
+  },
+  "smartSpeedAddSelectedLanguage": {
+    "message": "➕ Add Selected Language"
   }
 }
+
