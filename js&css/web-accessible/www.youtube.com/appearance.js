@@ -275,6 +275,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			state.hasApplied = 2
 		}
 		else { /// <1000
+			restoreAskPanel();
 			if (state.hasApplied == 1) {
 				moveNode(document.getElementById("primary-inner"), document.getElementById("related"));
 				let comments = document.querySelector("#comments");
@@ -317,6 +318,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			moveNode(primaryInner, document.getElementById("related"))
 			moveNode(secondaryInner, document.getElementById("chat-template"));
 			moveNode(secondaryInner, comments);
+			placeAskPanel(secondaryInner, comments);
 		})
 	}
 	function moveNode (parent, child) {
@@ -324,13 +326,35 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			parent.appendChild(child);
 		}
 	}
+	function placeAskPanel(secondaryInner, comments) {
+		const askPanel = document.querySelector('ytd-engagement-panel-section-list-renderer[target-id="PAyouchat"]');
+		if (!askPanel || !secondaryInner) return;
+		if (comments && comments.parentElement === secondaryInner) {
+			secondaryInner.insertBefore(askPanel, comments);
+		} else if (askPanel.parentElement !== secondaryInner) {
+			secondaryInner.appendChild(askPanel);
+		}
+	}
+	function restoreAskPanel() {
+		const askPanel = document.querySelector('ytd-engagement-panel-section-list-renderer[target-id="PAyouchat"]');
+		const panels = document.getElementById("panels");
+		if (askPanel && panels && askPanel.parentElement !== panels) {
+			panels.appendChild(askPanel);
+		}
+	}
 	function isLayoutApplied (wideLayout) {
 		const secondaryInner = document.getElementById("secondary-inner");
 		const comments = document.querySelector("#comments");
 		const related = document.getElementById("related");
 		const relatedParent = wideLayout ? document.getElementById("columns") : document.getElementById("primary-inner");
+		const askPanel = document.querySelector('ytd-engagement-panel-section-list-renderer[target-id="PAyouchat"]');
 
-		return comments && comments.parentElement === secondaryInner && related && related.parentElement === relatedParent;
+		const askPanelOk = !askPanel || (
+			askPanel.parentElement === secondaryInner &&
+			(!comments || comments.parentElement !== secondaryInner ||
+				!!(askPanel.compareDocumentPosition(comments) & Node.DOCUMENT_POSITION_FOLLOWING))
+		);
+		return comments && comments.parentElement === secondaryInner && related && related.parentElement === relatedParent && askPanelOk;
 	}
 	function scheduleSidebar () {
 		clearTimeout(state.sidebarRetryTimer);
