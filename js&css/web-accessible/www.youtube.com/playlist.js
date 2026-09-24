@@ -173,21 +173,41 @@ ImprovedTube.playlistReverseUpdate = function () {
 
 	ImprovedTube.elements.ytd_watch.updatePageData_(JSON.parse(JSON.stringify(ImprovedTube.elements.ytd_watch.data)));
 
-	setTimeout(function () {
+	// On a fresh page load (e.g. refreshing while a playlist is already set
+	// to reversed) #4353's player chrome - <ytd-player>, <yt-playlist-manager>
+	// - can still be initializing when this fires. ImprovedTube.elements.ytd_player
+	// in particular is populated by a separate, async DOM walk and isn't
+	// guaranteed to be set yet. Previously that missing check meant
+	// ytd_player.updatePlayerComponents() below could throw on undefined,
+	// silently aborting the rest of this callback - including the direct
+	// panel-data patch - so the panel and next-video order stayed
+	// unreversed even though playlist.contents itself was already reversed
+	// above, and the toggle button (which only reflects the setting, not
+	// this update) still showed as active.
+	var attempts = 0;
+	function applyReversedPlaylistToPlayer() {
+		attempts++;
 		var playlist_manager = document.querySelector('yt-playlist-manager');
 		var playlist_panel = document.querySelector('ytd-playlist-panel-renderer');
-		if (playlist_manager) {
-			ImprovedTube.elements.ytd_player.updatePlayerComponents(null, autoplay, null, playlist);
+		var ytd_player = ImprovedTube.elements.ytd_player || document.querySelector('ytd-player');
+
+		if (playlist_manager && ytd_player) {
+			ytd_player.updatePlayerComponents(null, autoplay, null, playlist);
 			playlist_manager.autoplayData = autoplay;
 			playlist_manager.setPlaylistData(playlist);
-			ImprovedTube.elements.ytd_player.updatePlayerPlaylist_(playlist);
+			ytd_player.updatePlayerPlaylist_(playlist);
 		}
 		if (playlist_panel && playlist_panel.data) {
 			// Update the panel directly to ensure Polymer re-renders it
 			playlist_panel.data = playlist;
 			if (typeof playlist_panel.updateData === 'function') playlist_panel.updateData(playlist);
 		}
-	}, 100);
+
+		if (!(playlist_manager && ytd_player && playlist_panel) && attempts < 5) {
+			setTimeout(applyReversedPlaylistToPlayer, 200);
+		}
+	}
+	setTimeout(applyReversedPlaylistToPlayer, 100);
 };
 
 ImprovedTube.playlistReverseObserver = null;

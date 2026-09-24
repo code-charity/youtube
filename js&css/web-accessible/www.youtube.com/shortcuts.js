@@ -670,31 +670,8 @@ ImprovedTube.shortcutActivateFitToWindow = function() {
 4.7.31 CINEMA MODE
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutCinemaMode = function () {
-	var playerContainer = document.getElementById('player-full-bleed-container');
-	var playerContainerDefault = document.getElementById('player-container');
-	var ytdPlayer = document.getElementById('ytd-player');
-
-	function toggle(container) {
-		if (!container) return;
-		if (container.style.zIndex == 10000) {
-			container.style.zIndex = 1;
-			container.style.position = '';
-		} else {
-			container.style.zIndex = 10000;
-			container.style.position = 'relative';
-		}
-	}
-
-	toggle(playerContainer);
-	toggle(playerContainerDefault);
-	toggle(ytdPlayer);
-
-	var overlay = document.getElementById('overlay_cinema');
-	if (!overlay) {
-		createOverlay();
-	} else {
-		overlay.style.display = overlay.style.display === 'none' || overlay.style.display === '' ? 'block' : 'none';
-	}
+	ImprovedTube.cinemaModeActive = !ImprovedTube.cinemaModeActive;
+	ImprovedTube.cinemaModeSetVisible(ImprovedTube.cinemaModeActive);
 }
 /*------------------------------------------------------------------------------
 4.7.32 REFRESH CATEGORIES
