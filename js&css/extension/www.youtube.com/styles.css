@@ -733,20 +733,20 @@ html[it-theme=plain] #cinematics {
 }
 
 /* Background-color update */
-html[it-theme]:not([it-theme=default]) ytd-app,
-html[it-theme]:not([it-theme=default]) ytd-browse-view,
-html[it-theme]:not([it-theme=default]) ytd-watch-flexy,
-html[it-theme]:not([it-theme=default]) #page,
-html[it-theme]:not([it-theme=default]) #content { background-color: var(--yt-spec-base-background) !important; };
+html[it-theme]:not([it-theme=default]):not([it-theme=none]) ytd-app,
+html[it-theme]:not([it-theme=default]):not([it-theme=none]) ytd-browse-view,
+html[it-theme]:not([it-theme=default]):not([it-theme=none]) ytd-watch-flexy,
+html[it-theme]:not([it-theme=default]):not([it-theme=none]) #page,
+html[it-theme]:not([it-theme=default]):not([it-theme=none]) #content { background-color: var(--yt-spec-base-background) !important; };
 
 /*video detail text color. Fix. Themes didnt apply video description text color*/
-html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
-html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string__link--call-to-action-color {color: var(--yt-spec-call-to-action)}
+html[it-theme]:not([it-theme=default]):not([it-theme=none]):not([it-theme=dark]) .yt-core-attributed-string--link-inherit-color {color: var(--yt-spec-text-primary) !important}
+html[it-theme]:not([it-theme=default]):not([it-theme=none]):not([it-theme=dark]) .yt-core-attributed-string__link--call-to-action-color {color: var(--yt-spec-call-to-action)}
 /*The next two lines below can be removed if exact theming consistency isn't the goal and we just want to keep it simple.*/
-html[it-theme]:not([it-theme=default]):not([it-theme=dark]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-call-to-action) !important}
+html[it-theme]:not([it-theme=default]):not([it-theme=none]):not([it-theme=dark]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-call-to-action) !important}
 /* Actually this above line is wrong. Default behavior is to have #tags near the views and upload date have two different colors depending if the video detail is expanded or not, but I don't know how to replicate that.*/
-html[it-theme]:not([it-theme=default]):not([it-theme=dark]) yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-text-primary) !important}
-html[it-theme]:not([it-theme=default]):not([it-theme=dark]) .yt-core-attributed-string--highlight-text-decorator .yt-core-attributed-string__link--display-type {color: var(--yt-spec-text-primary)}
+html[it-theme]:not([it-theme=default]):not([it-theme=none]):not([it-theme=dark]) yt-formatted-string[has-link-only_]:not([force-default-style]) a.yt-simple-endpoint.yt-formatted-string {color: var(--yt-spec-text-primary) !important}
+html[it-theme]:not([it-theme=default]):not([it-theme=none]):not([it-theme=dark]) .yt-core-attributed-string--highlight-text-decorator .yt-core-attributed-string__link--display-type {color: var(--yt-spec-text-primary)}
 
 /*BLACK*/
 html[it-theme=black] [dark],
