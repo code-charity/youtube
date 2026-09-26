@@ -129,6 +129,41 @@ extension.exportSettings = function () {
 # IMPORT SETTINGS
 --------------------------------------------------------------*/
 
+// Success merges partial settings, then emits one storage-set and one storage-import
+// notification per batch. Failure emits only storage-import-error and leaves the cache unchanged.
+extension.applyImportedSettings = function (data, callback) {
+	if (!data || typeof data !== 'object' || Array.isArray(data)) {
+		var error = new Error('Imported settings must be an object');
+		satus.events.trigger('storage-import-error', error);
+		if (callback) callback(error);
+
+		return;
+	}
+
+	chrome.storage.local.set(data, function () {
+		if (chrome.runtime.lastError) {
+			satus.events.trigger('storage-import-error', chrome.runtime.lastError);
+			if (callback) callback(chrome.runtime.lastError);
+
+			return;
+		}
+
+		// Populate the cache before notifying subscribers.
+		Object.assign(satus.storage.data, data);
+		// Preserve the write notification used to refresh the open menu's attributes.
+		satus.events.trigger('storage-set');
+		satus.events.trigger('storage-import');
+
+		if (callback) callback();
+	});
+};
+
+extension.showSettingsImportError = function (modal_provider, error) {
+	console.error(error);
+	modal_provider.surface.content.textContent = satus.locale.get('settingsImportFailed');
+	modal_provider.surface.content.setAttribute('role', 'alert');
+};
+
 extension.importSettings = function () {
 	if (location.href.indexOf('action=import-settings') !== -1) {
 		satus.render({
@@ -150,28 +185,41 @@ extension.importSettings = function () {
 					text: 'ok',
 					on: {
 						click: function () {
+							var modal_provider = this.modalProvider;
 							var input = document.createElement('input');
 
 							input.type = 'file';
 
 							input.addEventListener('change', function () {
+								if (!this.files[0]) return;
 								var file_reader = new FileReader();
 
 								file_reader.onload = function () {
-									var data = JSON.parse(this.result);
-									for (var key in data) {
-										satus.storage.set(key, data[key]);
+									var data;
+									try {
+										data = JSON.parse(this.result);
+									} catch (error) {
+										satus.events.trigger('storage-import-error', error);
+										extension.showSettingsImportError(modal_provider, error);
+										return;
 									}
 
-									setTimeout(function () {
+									extension.applyImportedSettings(data, function (error) {
+										if (error) {
+											extension.showSettingsImportError(modal_provider, error);
+
+											return;
+										}
+
 										chrome.runtime.sendMessage({
 											action: 'import-settings'
 										});
-
-										setTimeout(function () {
-											close();
-										}, 128);
-									}, 256);
+										close();
+									});
+								};
+								file_reader.onerror = function () {
+									satus.events.trigger('storage-import-error', this.error);
+									extension.showSettingsImportError(modal_provider, this.error);
 								};
 
 								file_reader.readAsText(this.files[0]);
@@ -246,13 +294,34 @@ extension.pullSettings = function () {
 				text: 'ok',
 				on: {
 					click: function () {
+						// Capture the click handler's receiver before entering the async callback.
+						var modal_provider = this.modalProvider;
+
 						chrome.storage.sync.get('settings', function (r) {
-							var data = JSON.parse(r['settings']);
-							for (var key in data) {
-								satus.storage.set(key, data[key]);
+							if (chrome.runtime.lastError) {
+								satus.events.trigger('storage-import-error', chrome.runtime.lastError);
+								extension.showSettingsImportError(modal_provider, chrome.runtime.lastError);
+								return;
 							}
+							var data;
+							try {
+								data = JSON.parse(r && r['settings']);
+							} catch (error) {
+								satus.events.trigger('storage-import-error', error);
+								extension.showSettingsImportError(modal_provider, error);
+								return;
+							}
+
+							extension.applyImportedSettings(data, function (error) {
+								if (error) {
+									extension.showSettingsImportError(modal_provider, error);
+
+									return;
+								}
+
+								modal_provider.close();
+							});
 						});
-						this.modalProvider.close();
 					}
 				}
 			}
