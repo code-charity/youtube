@@ -8,10 +8,17 @@ describe('Settings import persistence', () => {
 	let input;
 	let modal;
 	let storageCallback;
+	let modalProvider;
+	let fileReadError;
 
 	beforeEach(() => {
 		jest.useFakeTimers();
 		importedFile = JSON.stringify({theme: 'dark', player_volume: 80});
+		fileReadError = undefined;
+		modalProvider = {
+			close: jest.fn(),
+			surface: {content: {textContent: '', setAttribute: jest.fn()}}
+		};
 		input = {
 			files: [{}],
 			addEventListener: jest.fn((event, listener) => {
@@ -23,12 +30,17 @@ describe('Settings import persistence', () => {
 		context = {
 			Blob,
 			URL,
-			console,
+			console: {error: jest.fn()},
 			close: jest.fn(),
 			location: {href: 'moz-extension://test/menu/index.html?action=import-settings'},
 			document: {createElement: jest.fn(() => input)},
 			FileReader: class {
 				readAsText() {
+					if (fileReadError) {
+						this.error = fileReadError;
+						this.onerror();
+						return;
+					}
 					this.result = importedFile;
 					this.onload();
 				}
@@ -37,6 +49,7 @@ describe('Settings import persistence', () => {
 			clearTimeout,
 			extension: {skeleton: {rendered: {}}},
 			satus: {
+				locale: {get: (key) => key},
 				events: {trigger: jest.fn()},
 				storage: {
 					data: {},
@@ -77,7 +90,7 @@ describe('Settings import persistence', () => {
 
 	test('waits for the imported settings to persist before notifying and closing', () => {
 		context.extension.importSettings();
-		modal.buttons.ok.on.click();
+		modal.buttons.ok.on.click.call({modalProvider});
 		input.changeListener.call(input);
 
 		expect(context.chrome.storage.local.set).toHaveBeenCalledTimes(1);
@@ -168,13 +181,84 @@ describe('Settings import persistence', () => {
         const log = jest.spyOn(console, 'error').mockImplementation(() => {});
         try {
             context.extension.importSettings();
-            modal.buttons.ok.on.click();
+            modal.buttons.ok.on.click.call({modalProvider});
             input.changeListener.call(input);
             context.chrome.runtime.lastError = {message: 'storage unavailable'};
             storageCallback();
             expect(context.close).not.toHaveBeenCalled();
             expect(context.chrome.runtime.sendMessage).not.toHaveBeenCalled();
+            expect(modalProvider.surface.content.textContent).toBe('settingsImportFailed');
         } finally { log.mockRestore(); }
     });
+
+	test('shows a browser-account write failure and keeps existing settings', () => {
+		context.satus.storage.data = {theme: 'light', untouched: true};
+		context.extension.pullSettings();
+		modal.buttons.ok.on.click.call({modalProvider});
+		context.chrome.runtime.lastError = {message: 'quota exceeded'};
+		storageCallback();
+		expect(modalProvider.surface.content.textContent).toBe('settingsImportFailed');
+		expect(modalProvider.surface.content.setAttribute).toHaveBeenCalledWith('role', 'alert');
+		expect(modalProvider.close).not.toHaveBeenCalled();
+		expect(context.satus.storage.data).toEqual({theme: 'light', untouched: true});
+		expect(context.satus.events.trigger).not.toHaveBeenCalledWith('storage-set');
+	});
+
+	test('reports sync read errors before parsing or writing', () => {
+		const failure = {message: 'sync unavailable'};
+		context.chrome.storage.sync.get.mockImplementation((key, callback) => {
+			context.chrome.runtime.lastError = failure;
+			callback(undefined);
+		});
+		context.extension.pullSettings();
+		expect(() => modal.buttons.ok.on.click.call({modalProvider})).not.toThrow();
+		expect(context.chrome.storage.local.set).not.toHaveBeenCalled();
+		expect(context.satus.events.trigger).toHaveBeenCalledWith('storage-import-error', failure);
+		expect(modalProvider.surface.content.textContent).toBe('settingsImportFailed');
+		expect(modalProvider.close).not.toHaveBeenCalled();
+	});
+
+	test.each([undefined, {}, {settings: '{'}, {settings: 'null'}, {settings: '[]'}])(
+		'reports invalid browser-account data without a write: %p', (result) => {
+			context.chrome.storage.sync.get.mockImplementation((key, callback) => callback(result));
+			context.extension.pullSettings();
+			expect(() => modal.buttons.ok.on.click.call({modalProvider})).not.toThrow();
+			expect(context.chrome.storage.local.set).not.toHaveBeenCalled();
+			expect(modalProvider.surface.content.textContent).toBe('settingsImportFailed');
+			expect(modalProvider.close).not.toHaveBeenCalled();
+		});
+
+	test('reports invalid file JSON without closing the importer', () => {
+		importedFile = '{';
+		context.extension.importSettings();
+		modal.buttons.ok.on.click.call({modalProvider});
+		expect(() => input.changeListener.call(input)).not.toThrow();
+		expect(context.chrome.storage.local.set).not.toHaveBeenCalled();
+		expect(modalProvider.surface.content.textContent).toBe('settingsImportFailed');
+		expect(context.close).not.toHaveBeenCalled();
+	});
+
+	test('reports file read errors and allows a successful retry', () => {
+		fileReadError = new Error('file unavailable');
+		context.extension.importSettings();
+		modal.buttons.ok.on.click.call({modalProvider});
+		input.changeListener.call(input);
+		expect(modalProvider.surface.content.textContent).toBe('settingsImportFailed');
+		expect(context.chrome.storage.local.set).not.toHaveBeenCalled();
+		fileReadError = undefined;
+		input.changeListener.call(input);
+		storageCallback();
+		expect(context.close).toHaveBeenCalledTimes(1);
+		expect(context.satus.storage.data.theme).toBe('dark');
+	});
+
+	test('merges partial settings and emits one notification pair per successful batch', () => {
+		context.satus.storage.data = {theme: 'light', untouched: true};
+		context.extension.applyImportedSettings({theme: 'dark'});
+		expect(context.satus.events.trigger).not.toHaveBeenCalled();
+		storageCallback();
+		expect(context.satus.storage.data).toEqual({theme: 'dark', untouched: true});
+		expect(context.satus.events.trigger.mock.calls).toEqual([['storage-set'], ['storage-import']]);
+	});
 
 });

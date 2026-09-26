@@ -1,4 +1,7 @@
 {
+  "settingsImportFailed": {
+    "message": "Settings could not be restored. Please try again."
+  },
   "dontShortenTitles": { 	"message": "Full Video Titles (don't shorten)" },
 	 "preferredDubbingLanguage": {
 		"message": "Preferred dubbing language"

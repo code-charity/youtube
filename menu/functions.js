@@ -129,8 +129,17 @@ extension.exportSettings = function () {
 # IMPORT SETTINGS
 --------------------------------------------------------------*/
 
-// Keep the import UI open until one batch write makes the in-memory and persisted settings agree.
+// Success merges partial settings, then emits one storage-set and one storage-import
+// notification per batch. Failure emits only storage-import-error and leaves the cache unchanged.
 extension.applyImportedSettings = function (data, callback) {
+	if (!data || typeof data !== 'object' || Array.isArray(data)) {
+		var error = new Error('Imported settings must be an object');
+		satus.events.trigger('storage-import-error', error);
+		if (callback) callback(error);
+
+		return;
+	}
+
 	chrome.storage.local.set(data, function () {
 		if (chrome.runtime.lastError) {
 			satus.events.trigger('storage-import-error', chrome.runtime.lastError);
@@ -147,6 +156,12 @@ extension.applyImportedSettings = function (data, callback) {
 
 		if (callback) callback();
 	});
+};
+
+extension.showSettingsImportError = function (modal_provider, error) {
+	console.error(error);
+	modal_provider.surface.content.textContent = satus.locale.get('settingsImportFailed');
+	modal_provider.surface.content.setAttribute('role', 'alert');
 };
 
 extension.importSettings = function () {
@@ -170,19 +185,28 @@ extension.importSettings = function () {
 					text: 'ok',
 					on: {
 						click: function () {
+							var modal_provider = this.modalProvider;
 							var input = document.createElement('input');
 
 							input.type = 'file';
 
 							input.addEventListener('change', function () {
+								if (!this.files[0]) return;
 								var file_reader = new FileReader();
 
 								file_reader.onload = function () {
-									var data = JSON.parse(this.result);
+									var data;
+									try {
+										data = JSON.parse(this.result);
+									} catch (error) {
+										satus.events.trigger('storage-import-error', error);
+										extension.showSettingsImportError(modal_provider, error);
+										return;
+									}
 
 									extension.applyImportedSettings(data, function (error) {
 										if (error) {
-											console.error(error);
+											extension.showSettingsImportError(modal_provider, error);
 
 											return;
 										}
@@ -192,6 +216,10 @@ extension.importSettings = function () {
 										});
 										close();
 									});
+								};
+								file_reader.onerror = function () {
+									satus.events.trigger('storage-import-error', this.error);
+									extension.showSettingsImportError(modal_provider, this.error);
 								};
 
 								file_reader.readAsText(this.files[0]);
@@ -270,11 +298,23 @@ extension.pullSettings = function () {
 						var modal_provider = this.modalProvider;
 
 						chrome.storage.sync.get('settings', function (r) {
-							var data = JSON.parse(r['settings']);
+							if (chrome.runtime.lastError) {
+								satus.events.trigger('storage-import-error', chrome.runtime.lastError);
+								extension.showSettingsImportError(modal_provider, chrome.runtime.lastError);
+								return;
+							}
+							var data;
+							try {
+								data = JSON.parse(r && r['settings']);
+							} catch (error) {
+								satus.events.trigger('storage-import-error', error);
+								extension.showSettingsImportError(modal_provider, error);
+								return;
+							}
 
 							extension.applyImportedSettings(data, function (error) {
 								if (error) {
-									console.error(error);
+									extension.showSettingsImportError(modal_provider, error);
 
 									return;
 								}
