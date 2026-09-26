@@ -1,7 +1,7 @@
 {
   "dontShortenTitles": { 	"message": "Full Video Titles (don't shorten)" },
 	 "preferredDubbingLanguage": {
-		"message": "Preferred dubbing language"
+		"message": "Preferred auto-dubbing language"
 	},
   "hideSuggestedAction": {
     "message": "Hide Suggested Action 'View products'"
@@ -445,10 +445,10 @@
     "message": "Dim"
   },
   "disableAutoDubbing": {
-    "message": "Disable auto dubbing"
+    "message": "Disable auto-dubbing"
   },
   "hideAutoDubbedOptions": {
-    "message": "Hide auto-dubbed options in menu"
+    "message": "Hide auto-dubbing options in menu"
   },
   "disabled": {
     "message": "Disabled"
