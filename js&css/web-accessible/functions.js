@@ -414,6 +414,9 @@ ImprovedTube.playerOnPlay = function () {
 
 				this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 				this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
+
+				this.removeEventListener('waiting', ImprovedTube.playerLiveHeadSpeedReset);
+				this.addEventListener('waiting', ImprovedTube.playerLiveHeadSpeedReset);
 				/*------------------------------------------------------------------------------
 				AUTOPLAY DISABLE  player || playlist || channel trailer
 				------------------------------------------------------------------------------*/
