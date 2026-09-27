@@ -739,6 +739,57 @@ ImprovedTube.playerVolume = function () {
 	}
 };
 /*------------------------------------------------------------------------------
+VOLUME SCROLL (adjust volume by scrolling the mousewheel over the player) #4331
+------------------------------------------------------------------------------*/
+ImprovedTube.playerVolumeScroll = function () {
+	var player = this.elements.player;
+
+	if (!player) {
+		return;
+	}
+
+	// Always detach any previously-bound handler so re-invocation never stacks listeners.
+	if (this._volumeScrollHandler) {
+		player.removeEventListener('wheel', this._volumeScrollHandler, { passive: false });
+		this._volumeScrollHandler = null;
+	}
+
+	if (this.storage.player_volume_scroll !== true) {
+		return;
+	}
+
+	this._volumeScrollHandler = function (event) {
+		event.preventDefault();
+		event.stopPropagation();
+
+		if (typeof player.getVolume !== 'function' || typeof player.setVolume !== 'function') {
+			return;
+		}
+
+		var step = Number(ImprovedTube.storage.player_volume_scroll_step) || 5;
+		var current = player.getVolume();
+		var newVolume;
+
+		if (event.deltaY < 0) {
+			newVolume = Math.min(current + step, 100);
+		} else {
+			newVolume = Math.max(current - step, 0);
+		}
+
+		newVolume = Math.round(newVolume);
+
+		player.setVolume(newVolume);
+
+		if (newVolume > 0 && typeof player.unMute === 'function' && player.isMuted && player.isMuted()) {
+			player.unMute();
+		}
+
+		ImprovedTube.showStatus(newVolume + '%');
+	};
+
+	player.addEventListener('wheel', this._volumeScrollHandler, { passive: false });
+};
+/*------------------------------------------------------------------------------
 LOUDNESS NORMALIZATION
 ------------------------------------------------------------------------------*/
 ImprovedTube.onvolumechange = function () {

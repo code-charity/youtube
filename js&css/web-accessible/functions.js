@@ -476,6 +476,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerQuality();
 		ImprovedTube.batteryFeatures();
 		ImprovedTube.playerVolume();
+		ImprovedTube.playerVolumeScroll();
 		if (this.storage.player_always_repeat === true) { ImprovedTube.playerRepeat(); }
 
 		ImprovedTube.playerScreenshotButton();
