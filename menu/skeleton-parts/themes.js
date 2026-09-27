@@ -75,6 +75,19 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			}
 		}
 	},
+	// Leaves YouTube's own styling alone, for people who theme it with
+	// Stylus or similar and don't want the extension to fight them.
+	none: {
+		component: 'label',
+		variant: 'none-theme',
+		text: 'none',
+		tags: 'off,disable,stylus,userstyle,userstyles',
+		radio: {
+			component: 'radio',
+			group: 'theme',
+			value: 'none'
+		}
+	},
 	custom: {
 		component: 'label',
 		variant: 'custom-theme',

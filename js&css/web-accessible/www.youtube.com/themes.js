@@ -125,6 +125,9 @@ ImprovedTube.setTheme = function () {
 			this.elements.my_colors?.remove();
 			break
 
+		// 'none' leaves YouTube's own light/dark mode alone (no `dark` attribute,
+		// no PREF f6 cookie) so user styles such as Stylus are not fought.
+		case 'none':
 		case 'default':
 			document.getElementById('cinematics')?.removeAttribute('style');
 			this.elements.my_colors?.remove();
