@@ -334,10 +334,12 @@ html[it-pathname='/feed/subscriptions'][it-collapse-of-subscription-sections='tr
 --------------------------------------------------------------*/
 html[it-scroll-bar=hidden] body {overflow-y: overlay;}
 html[it-scroll-bar=hidden] ::-webkit-scrollbar {display: none;}
-html[it-scroll-bar=hidden],
-html[it-scroll-bar=hidden][dark],
-html[it-scroll-bar=hidden] ytd-app {
-    scrollbar-color: unset;
+@supports (scrollbar-color: unset) {
+	html[it-scroll-bar=hidden],
+	html[it-scroll-bar=hidden][dark],
+	html[it-scroll-bar=hidden] ytd-app {
+		scrollbar-color: unset;
+	}
 }
 /*--------------------------------------------------------------
 # ADD "SCROLL TO TOP"
@@ -630,6 +632,7 @@ html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth
 	min-height: var(--paper-item-min-height,48px);
 	display: flex;
 	align-items: center;
+	-webkit-user-select: none;
 	user-select: none;
 }
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(2) > h3:hover,
