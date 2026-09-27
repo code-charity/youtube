@@ -419,6 +419,10 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
+				case 'playerVolumeScroll':
+					ImprovedTube.playerVolumeScroll();
+					break
+
 				case 'playerPlaybackSpeedButton':
 					if (ImprovedTube.storage.player_playback_speed_button === false) {
 						document.querySelector('#it-playback-speed-button')?.remove();

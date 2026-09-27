@@ -1954,7 +1954,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			storage: 'player_playback_speed_button',
 			id: 'player_playback_speed_button'
 		},
-		
 		player_playback_speed_button_b: {
 			component: 'switch',
 			text: 'playbackSpeedButton',
@@ -1971,7 +1970,24 @@ extension.skeleton.main.layers.section.player.on.click = {
 			step: 0.05,
 			value: 1.25
 		},
-		
+
+		player_volume_scroll: {
+			component: 'switch',
+			text: 'volumeScroll',
+			storage: 'player_volume_scroll',
+			id: 'player_volume_scroll',
+			children: [{
+				id: 'player_volume_scroll_step',
+				storage: 'player_volume_scroll_step',
+				component: 'slider',
+				text: 'volumeScrollStep',
+				min: 1,
+				max: 20,
+				step: 1,
+				textarea: true,
+				value: 5
+			}]
+		},
 		player_cinema_mode_button: {
 			component: 'switch',
 			text: 'player_cinema_mode_button',

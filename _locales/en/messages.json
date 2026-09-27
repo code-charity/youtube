@@ -582,6 +582,12 @@
   "forcedVolume": {
     "message": "Force Volume"
   },
+  "volumeScroll": {
+    "message": "Scroll to change volume"
+  },
+  "volumeScrollStep": {
+    "message": "Volume step (%)"
+  },
   "forceSDR": {
     "message": "Avoid HDR, keep SDR"
   },
