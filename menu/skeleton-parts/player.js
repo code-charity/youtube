@@ -1976,17 +1976,17 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'volumeScroll',
 			storage: 'player_volume_scroll',
 			id: 'player_volume_scroll',
-			children: [{
-				id: 'player_volume_scroll_step',
-				storage: 'player_volume_scroll_step',
-				component: 'slider',
-				text: 'volumeScrollStep',
-				min: 1,
-				max: 20,
-				step: 1,
-				textarea: true,
-				value: 5
-			}]
+		},
+		player_volume_scroll_step: {
+			id: 'player_volume_scroll_step',
+			storage: 'player_volume_scroll_step',
+			component: 'slider',
+			text: 'volumeScrollStep',
+			min: 1,
+			max: 20,
+			step: 1,
+			textarea: true,
+			value: 5
 		},
 		player_cinema_mode_button: {
 			component: 'switch',
