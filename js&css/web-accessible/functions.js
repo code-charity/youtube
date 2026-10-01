@@ -227,6 +227,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 			let thumbnailObserverAttached = false;
 			const observer = new MutationObserver((mutationList) => {
 				const els = ImprovedTube.elements;
+				const hadLeftControls = !!els.player_left_controls;
 				for (const mutation of mutationList) {
 					if (mutation.type !== 'childList') continue;
 					for (const addedNode of mutation.addedNodes) {
@@ -241,6 +242,12 @@ ImprovedTube.ytElementsHandler = function (node) {
 				if (!thumbnailObserverAttached && els.player_thumbnail) {
 					thumbnailObserverAttached = true;
 					observePlayerThumbnail(els.player_thumbnail);
+				}
+				// Repeat setup no-ops until left controls exist. Retry once when this
+				// batch first discovers them, before the fallback observer disconnects.
+				// Later mutations, including the button's own insertion, must not retry.
+				if (!hadLeftControls && els.player_left_controls) {
+					ImprovedTube.playerRepeatButton();
 				}
 				// Stop observing once all elements have been found
 				if (els.player_left_controls && els.player_right_controls && els.player_thumbnail && els.player_subtitles_button) {
