@@ -1954,22 +1954,25 @@ extension.skeleton.main.layers.section.player.on.click = {
 			storage: 'player_playback_speed_button',
 			id: 'player_playback_speed_button'
 		},
-		
-		player_playback_speed_button_b: {
-			component: 'switch',
-			text: 'playbackSpeedButton',
-			storage: 'player_playback_speed_button_b',
-			id: 'player_playback_speed_button_b',
-		},
-		player_playback_speed_button_b_slider: {
+		player_playback_speed_slider: {
 			id: 'player_custom_playback_speed',
 			storage: 'player_custom_playback_speed',
 			component: 'slider',
 			text: 'preferredSpeed',
-			min: 0.25,
-			max: 4,
+			min: 0.1,
+			max: 16,
 			step: 0.05,
 			value: 1.25
+		},
+		player_playback_speed_step: {
+			storage: 'player_playback_speed_step',
+			component: 'slider',
+			text: 'playbackSpeedStep',
+			textarea: true,
+			min: 0.01,
+			max: 1,
+			step: 0.01,
+			value: 0.25
 		},
 		
 		player_cinema_mode_button: {

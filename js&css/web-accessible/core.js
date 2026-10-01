@@ -420,10 +420,12 @@ document.addEventListener('it-message-from-extension', function () {
 					break
 
 				case 'playerPlaybackSpeedButton':
-					if (ImprovedTube.storage.player_playback_speed_button === false) {
-						document.querySelector('#it-playback-speed-button')?.remove();
-					} else if (ImprovedTube.storage.player_playback_speed_button === true) {
-						ImprovedTube.playerPlaybackSpeedButton();
+					if (ImprovedTube.storage.player_playback_speed_button !== true) { // Also clean up when the setting is removed.
+						ImprovedTube.playerPlaybackSpeedButtonVideo?.removeEventListener(
+							'ratechange', ImprovedTube.playerPlaybackSpeedButtonUpdate
+						);
+						delete ImprovedTube.playerPlaybackSpeedButtonVideo;
+						ImprovedTube.elements.buttons['it-playback-speed-button']?.remove();
 					}
 					break
 

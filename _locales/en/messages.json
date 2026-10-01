@@ -1086,6 +1086,9 @@
   "preferredSpeed": {
     "message": "Preferred speed"
   },
+  "playbackSpeedStep": {
+    "message": "Playback speed step"
+  },
   "playbackSpeedHotkey": {
     "message": "Playback speed hotkeys"
   },

@@ -1196,139 +1196,98 @@ ImprovedTube.playerVolumeBoostButton = function () {
 /*------------------------------------------------------------------------------
 PLAYBACK SPEED BUTTON
 ------------------------------------------------------------------------------*/
+ImprovedTube.playerPlaybackSpeedButtonUpdate = function () {
+	const button = ImprovedTube.elements.buttons['it-playback-speed-button'];
+	const textElement = button?.querySelector('.it-playback-speed-text');
+	if (textElement) {
+		textElement.textContent = (ImprovedTube.playerPlaybackSpeedButtonVideo?.playbackRate || 1.0).toFixed(2);
+	}
+};
+
 ImprovedTube.playerPlaybackSpeedButton = function () {
 	if (this.storage.player_playback_speed_button === true) {
-		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
-			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		this.playerPlaybackSpeedButtonVideo?.removeEventListener('ratechange', this.playerPlaybackSpeedButtonUpdate);
+		delete this.playerPlaybackSpeedButtonVideo;
 
-		svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
-		path.setAttributeNS(null, 'd', 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z');
+		const svgNS = 'http://www.w3.org/2000/svg';
+		const svg = document.createElementNS(svgNS, 'svg');
+		const meter = document.createElementNS(svgNS, 'path');
+		const needle = document.createElementNS(svgNS, 'path');
+		const text = document.createElementNS(svgNS, 'text');
+		svg.setAttribute('viewBox', '0 0 200 200');
+		meter.setAttribute('d', 'M 20 100 A 80 80 0 0 1 180 100 M 32 100 L 45 100 M 41 66 L 52 73 M 66 41 L 73 52 M 100 32 L 100 46 M 134 41 L 127 52 M 159 66 L 148 73 M 168 100 L 155 100');
+		meter.setAttribute('fill', 'none');
+		meter.setAttribute('stroke', 'currentColor');
+		meter.setAttribute('stroke-width', '10');
+		meter.setAttribute('stroke-linecap', 'round');
+		needle.setAttribute('d', 'M 96 102 L 139 70 L 104 108 Z M 109 103 A 9 9 0 1 1 91 103 A 9 9 0 1 1 109 103 Z');
+		needle.setAttribute('fill', 'currentColor');
+		needle.setAttribute('stroke', 'currentColor');
+		needle.setAttribute('stroke-width', '3');
+		needle.setAttribute('stroke-linejoin', 'round');
+		text.setAttribute('class', 'it-playback-speed-text');
+		text.setAttribute('x', '100');
+		text.setAttribute('y', '180');
+		text.setAttribute('text-anchor', 'middle');
+		text.setAttribute('font-family', 'sans-serif');
+		text.setAttribute('font-size', '60');
+		text.setAttribute('font-weight', '900');
+		text.setAttribute('fill', 'currentColor');
+		text.setAttribute('style', 'font-variant-numeric: tabular-nums;');
+		text.textContent = '1.00';
+		svg.append(meter, needle, text);
 
-		svg.appendChild(path);
-
-		var button = this.createPlayerButton({
+		const button = this.createPlayerButton({
 			id: 'it-playback-speed-button',
 			child: svg,
-			opacity: 0.7,
+			opacity: 1,
 			onclick: function (e) {
 				// Left click: set to custom speed from settings
 				if (e.button === 0) {
-					var customSpeed = ImprovedTube.storage.player_playback_speed || 1.25;
+					const customSpeed = ImprovedTube.storage.player_custom_playback_speed || 1.25;
 					ImprovedTube.playbackSpeed(customSpeed);
-					ImprovedTube.showStatus(customSpeed + 'x');
+					ImprovedTube.showStatus(customSpeed.toFixed(2) + 'x');
 				}
 			},
-			title: 'Playback Speed (Scroll: adjust, Left: custom, Right: 1.0x)'
+			title: 'Playback Speed Control (Scroll: adjust, Left: custom, Right: 1.0x)'
 		});
+
+		if (!button) return;
 
 		// Add right-click handler
 		button.addEventListener('contextmenu', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
 			ImprovedTube.playbackSpeed(1.0);
-			ImprovedTube.showStatus('1.0x');
+			ImprovedTube.showStatus('1.00x');
 		});
 
 		// Add wheel handler
 		button.addEventListener('wheel', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
-			var step = Number(ImprovedTube.storage.shortcuts_playback_speed_step) || 0.1;
-			var currentSpeed = ImprovedTube.playbackSpeed();
-			var newSpeed;
+			const step = Number(ImprovedTube.storage.player_playback_speed_step) || 0.25;
+			const currentSpeed = ImprovedTube.playbackSpeed();
+			let newSpeed;
 
 			if (e.deltaY < 0) {
 				// Scroll up: increase speed
 				newSpeed = Math.min(currentSpeed + step, 16);
 			} else {
 				// Scroll down: decrease speed
-				newSpeed = Math.max(currentSpeed - step, 0.0625);
+				// Match the slider minimum and avoid the rounding offset caused by Chromium's 0.0625 minimum.
+				newSpeed = Math.max(currentSpeed - step, 0.1);
 			}
 
 			ImprovedTube.playbackSpeed(newSpeed);
 			ImprovedTube.showStatus(newSpeed.toFixed(2) + 'x');
 		});
+
+		this.playerPlaybackSpeedButtonVideo = this.elements.video;
+		this.playerPlaybackSpeedButtonVideo?.addEventListener('ratechange', this.playerPlaybackSpeedButtonUpdate);
+		this.playerPlaybackSpeedButtonUpdate(); // Set initial value
 	}
 };
-
-ImprovedTube.playerPlaybackSpeedButtonB = function () {
-  if (this.storage.player_playback_speed_button_b === true) {
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-
-    svg.setAttribute("viewBox", "0 0 36 36");
-    svg.style.width = "100%";
-    svg.style.height = "100%";
-
-    // Simple speedometer icon
-    path.setAttribute(
-      "d",
-      "M25.9,13.1A8.2,8.2,0,0,0,18,10a8.2,8.2,0,0,0-7.9,3.1L8,12.2V22h9.8l-1-2H10v-2h3.3l1.1-2.2a6.1,6.1,0,0,1,11.2,0L26.7,18H30v2H21.8l-1-2h4.1A8.2,8.2,0,0,0,25.9,13.1Z"
-    );
-    path.setAttribute("fill", "#fff");
-
-    // Text element to show current speed
-    text.setAttribute("x", "18");
-    text.setAttribute("y", "23");
-    text.setAttribute("font-size", "8px");
-    text.setAttribute("font-weight", "bold");
-    text.setAttribute("text-anchor", "middle");
-    text.setAttribute("fill", "#fff");
-    text.setAttribute("class", "it-speed-text");
-    text.textContent = (this.elements.video?.playbackRate || 1.0).toFixed(2);
-
-    svg.appendChild(path);
-    svg.appendChild(text);
-
-    const button = this.createPlayerButton({
-      id: "it-playback-speed-button",
-      child: svg,
-      opacity: 0.85,
-      title: "Playback Speed Control",
-    });
-
-    const updateSpeedText = () => {
-      const currentSpeed = (this.elements.video?.playbackRate || 1.0).toFixed(
-        2
-      );
-      if (button) {
-        const textElement = button.querySelector(".it-speed-text");
-        if (textElement) textElement.textContent = currentSpeed;
-      }
-    };
-
-    // --- Event Listeners ---
-    button.onclick = () => {
-      const customSpeed = this.storage.player_custom_playback_speed || 1.25;
-      this.playbackSpeed(customSpeed);
-    };
-
-    button.oncontextmenu = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      this.playbackSpeed(1.0);
-      return false;
-    };
-
-    button.onwheel = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const currentSpeed = this.playbackSpeed();
-      const direction = e.deltaY < 0 ? 1 : -1;
-      let newSpeed = Math.round((currentSpeed + direction * 0.05) * 100) / 100;
-
-      if (newSpeed > 4) newSpeed = 4;
-      if (newSpeed < 0.1) newSpeed = 0.1;
-
-      this.playbackSpeed(newSpeed);
-    };
-
-    this.elements.video.addEventListener("ratechange", updateSpeedText);
-    updateSpeedText(); // Set initial value
-  }
-};
-
 
 /*------------------------------------------------------------------------------
 FIT-TO-WIN BUTTON
