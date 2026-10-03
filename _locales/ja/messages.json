@@ -1571,6 +1571,12 @@
   "playbackSpeedButton": {
     "message": "再生速度変更ボタン"
   },
+  "preferredSpeed": {
+    "message": "カスタム再生速度"
+  },
+  "playbackSpeedStep": {
+    "message": "速度変更の増減幅"
+  },
   "fullscreenReturn": {
     "message": "フルスクリーン解除ボタン"
   },
