@@ -4186,10 +4186,11 @@ SMART SPEED ENGINE
         _baseRate() { return toNum(ImprovedTube.storage.player_custom_playback_speed, 1, 0.0625, 16); },
 
         _setRate(rate) {
-            const v = this._getVideo();
-            if (!v || Math.abs(v.playbackRate - rate) < 0.01) return;
-            this.expectedRate = rate;
-            v.playbackRate = rate;
+			const v = this._getVideo();
+			const clampedRate = toNum(rate, 1, 0.0625, 16);
+			if (!v || Math.abs(v.playbackRate - clampedRate) < 0.01) return;
+			this.expectedRate = clampedRate;
+			v.playbackRate = clampedRate;
         },
 
         _setState(next) {
