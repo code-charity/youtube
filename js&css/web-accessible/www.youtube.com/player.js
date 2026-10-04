@@ -4146,13 +4146,11 @@ SMART SPEED ENGINE
 
         _setRate(rate) {
 			const v = this._getVideo();
-			const clampedRate = toNum(rate, 1, 0.0625, 16);
-			if (!v || Math.abs(v.playbackRate - clampedRate) < 0.01) return;
-			this.expectedRate = clampedRate;
-			v.playbackRate = clampedRate;
-        },
+			if (!v || Math.abs(v.playbackRate - rate) < 0.01) return; 
+			this.expectedRate = v.playbackRate = toNum(rate, 1, 0.0625, 16); // Clamped to Chromium's limit. Smart Speed could also do nothing, if a user momentarily sets a certain speed and one too hard to listen to.
+								},
 
-        _setState(next) {
+									_setState(next) {
             this.state = next;
             UI.onStateChanged(this, next);
         },
