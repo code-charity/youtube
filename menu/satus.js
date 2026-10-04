@@ -424,54 +424,6 @@ satus.getAnimationDuration = function (element) {
 };
 
 /*--------------------------------------------------------------
-
-# CRYPTION
-
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# DECRYPTION
---------------------------------------------------------------*/
-satus.decrypt = async function (text, password) {
-	var iv = text.slice(0, 24).match(/.{2}/g).map(byte => parseInt(byte, 16)),
-		algorithm = {
-			name: 'AES-GCM',
-			iv: new Uint8Array(iv)
-		};
-
-	try {
-		var data = new TextDecoder().decode(await crypto.subtle.decrypt(
-			algorithm,
-			await crypto.subtle.importKey(
-				'raw',
-				await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password)),
-				algorithm,
-				false, ['decrypt']
-			),
-			new Uint8Array(atob(text.slice(24)).match(/[\s\S]/g).map(ch => ch.charCodeAt(0)))
-		));
-	} catch (err) {
-		return false;
-	}
-
-	return data;
-};
-/*--------------------------------------------------------------
-# ENCRYPTION
---------------------------------------------------------------*/
-satus.encrypt = async function (text, password) {
-	var iv = crypto.getRandomValues(new Uint8Array(12)),
-		algorithm = {
-			name: 'AES-GCM',
-			iv: iv
-		};
-
-	return Array.from(iv).map(b => ('00' + b.toString(16)).slice(-2)).join('') + btoa(Array.from(new Uint8Array(await crypto.subtle.encrypt(
-		algorithm,
-		await crypto.subtle.importKey('raw', await crypto.subtle.digest('SHA-256', new TextEncoder().encode(password)), algorithm, false, ['encrypt']),
-		new TextEncoder().encode(text)
-	))).map(byte => String.fromCharCode(byte)).join(''));
-};
-/*--------------------------------------------------------------
 # EVENTS
 
 --------------------------------------------------------------*/
