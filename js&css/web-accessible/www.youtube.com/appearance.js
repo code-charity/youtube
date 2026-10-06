@@ -1124,20 +1124,39 @@ ImprovedTube.videoFilters = function () {
 		const kernel = `0 ${neg} 0 ${neg} ${center} ${neg} 0 ${neg} 0`;
 		const exp = g > 0 ? (1 / g).toFixed(3) : 1;
 
-		svgEl.innerHTML = `
-			<filter id="it-video-filter">
-				${sh > 0 ? `<feConvolveMatrix order="3" preserveAlpha="true" kernelMatrix="${kernel}" result="sharp"/>` : ''}
-				${g !== 1 ? `
-					<feComponentTransfer ${sh > 0 ? 'in="sharp"' : ''}>
-						<feFuncR type="gamma" exponent="${exp}"/>
-						<feFuncG type="gamma" exponent="${exp}"/>
-						<feFuncB type="gamma" exponent="${exp}"/>
-					</feComponentTransfer>
-				` : ''}
-			</filter>
-		`;
+		svgEl.textContent = ''; // Clear existing children safely
+		
+		const ns = 'http://www.w3.org/2000/svg';
+		const filter = document.createElementNS(ns, 'filter');
+		filter.setAttribute('id', 'it-video-filter');
+
+		if (sh > 0) {
+			const feConvolveMatrix = document.createElementNS(ns, 'feConvolveMatrix');
+			feConvolveMatrix.setAttribute('order', '3');
+			feConvolveMatrix.setAttribute('preserveAlpha', 'true');
+			feConvolveMatrix.setAttribute('kernelMatrix', kernel);
+			feConvolveMatrix.setAttribute('result', 'sharp');
+			filter.appendChild(feConvolveMatrix);
+		}
+
+		if (g !== 1) {
+			const feComponentTransfer = document.createElementNS(ns, 'feComponentTransfer');
+			if (sh > 0) {
+				feComponentTransfer.setAttribute('in', 'sharp');
+			}
+
+			['feFuncR', 'feFuncG', 'feFuncB'].forEach(funcType => {
+				const feFunc = document.createElementNS(ns, funcType);
+				feFunc.setAttribute('type', 'gamma');
+				feFunc.setAttribute('exponent', exp);
+				feComponentTransfer.appendChild(feFunc);
+			});
+			filter.appendChild(feComponentTransfer);
+		}
+		
+		svgEl.appendChild(filter);
 	} else {
-		svgEl.innerHTML = '';
+		svgEl.textContent = '';
 	}
 
 	if (!styleEl) {
