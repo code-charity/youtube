@@ -996,7 +996,7 @@ ImprovedTube.playerVideoFiltersButton = function () {
 
 		svg.appendChild(path);
 
-		const isActive = this.storage.video_filters_activate !== false && 
+		const isActive = this.storage.video_filters_activate === true &&
 			(this.storage.video_filters_preset !== 'normal' || 
 			 (Number(this.storage.video_filter_brightness) !== 100 && this.isset(this.storage.video_filter_brightness)) ||
 			 (Number(this.storage.video_filter_contrast) !== 100 && this.isset(this.storage.video_filter_contrast)) ||
@@ -1016,20 +1016,36 @@ ImprovedTube.playerVideoFiltersButton = function () {
 					let nextIdx = (presets.indexOf(current) + 1) % presets.length;
 					let nextPreset = presets[nextIdx];
 					ImprovedTube.storage.video_filters_preset = nextPreset;
-					ImprovedTube.storage.video_filters_activate = true;
+					ImprovedTube.storage.video_filters_activate = nextPreset !== 'normal';
 					ImprovedTube.messages.send({ action: 'set', key: 'video_filters_preset', value: nextPreset });
-					ImprovedTube.messages.send({ action: 'set', key: 'video_filters_activate', value: true });
+					ImprovedTube.messages.send({ action: 'set', key: 'video_filters_activate', value: ImprovedTube.storage.video_filters_activate });
 					ImprovedTube.videoFilters();
 					ImprovedTube.showStatus('Filter: ' + nextPreset.toUpperCase());
 				} else {
-					ImprovedTube.storage.video_filters_activate = ImprovedTube.storage.video_filters_activate === false ? true : false;
-					ImprovedTube.messages.send({ action: 'set', key: 'video_filters_activate', value: ImprovedTube.storage.video_filters_activate });
+					const newState = ImprovedTube.storage.video_filters_activate !== true;
+					ImprovedTube.storage.video_filters_activate = newState;
+					if (newState && (!ImprovedTube.storage.video_filters_preset || ImprovedTube.storage.video_filters_preset === 'normal') &&
+						!ImprovedTube.isset(ImprovedTube.storage.video_filter_brightness) &&
+						!ImprovedTube.isset(ImprovedTube.storage.video_filter_contrast) &&
+						!ImprovedTube.isset(ImprovedTube.storage.video_filter_saturation) &&
+						!ImprovedTube.isset(ImprovedTube.storage.video_filter_hue) &&
+						!ImprovedTube.isset(ImprovedTube.storage.video_filter_sharpness) &&
+						!ImprovedTube.isset(ImprovedTube.storage.video_filter_gamma)) {
+						ImprovedTube.storage.video_filters_preset = 'vivid';
+						ImprovedTube.messages.send({ action: 'set', key: 'video_filters_preset', value: 'vivid' });
+					}
+					ImprovedTube.messages.send({ action: 'set', key: 'video_filters_activate', value: newState });
 					ImprovedTube.videoFilters();
-					ImprovedTube.showStatus('Filters: ' + (ImprovedTube.storage.video_filters_activate ? 'ON' : 'OFF'));
+					ImprovedTube.showStatus('Filters: ' + (newState ? 'ON' : 'OFF'));
 				}
 			},
 			title: 'Video Filters (Click: Toggle, Shift+Click: Cycle Presets)'
 		});
+
+		const btn = document.querySelector('#it-video-filters-button');
+		if (btn && isActive) {
+			btn.classList.add('it-video-filters-active');
+		}
 	}
 };
 /*------------------------------------------------------------------------------
