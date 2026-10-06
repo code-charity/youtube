@@ -495,6 +495,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerPlaybackSpeedButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
+		ImprovedTube.playerDisableTouchSwipeToMiniplayer();
 		ImprovedTube.playerHideProgressPreview();
 		ImprovedTube.expandDescription();
 		setTimeout(function () { ImprovedTube.forcedTheaterMode(); }, 150);
