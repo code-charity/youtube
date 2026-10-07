@@ -1407,6 +1407,9 @@
   "showRemainingDuration": {
     "message": "Show video remaining duration"
   },
+  "showWatchedSectionsOnSeekBar": {
+    "message": "Show watched sections on the seek bar"
+  },
   "showVersion": {
     "message": "Show version"
   },
