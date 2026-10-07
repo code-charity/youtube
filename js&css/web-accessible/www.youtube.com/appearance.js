@@ -241,6 +241,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 		setGrid();
 		applyObserver();
 		observeLayoutChanges();
+		handlePlaylistOverflow();
 		if (!state.initialized) {
 			window.addEventListener("resize", sidebar);
 			// Listen for fullscreen changes to properly recalculate player size
@@ -288,6 +289,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			}
 			state.hasApplied = 0;
 		}
+		handlePlaylistOverflow();
 	}
 	function setGrid () {
 		let checkParentInterval = setInterval(() => {
@@ -433,6 +435,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			if ((wideLayout && state.hasApplied === 1 && isLayoutApplied(true)) ||
 				(!wideLayout && mediumLayout && state.hasApplied === 2 && isLayoutApplied(false)) ||
 				(!mediumLayout && state.hasApplied === 0)) {
+				handlePlaylistOverflow();
 				return;
 			}
 			clearTimeout(state.layoutTimer);
@@ -452,6 +455,21 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 				callback.apply(this, args);
 			}, delay);
 		};
+	}
+	function handlePlaylistOverflow () {
+		const columns = document.getElementById("columns");
+		if (!columns) return;
+		// When a playlist or live chat is present, the sidebar content (playlist + comments)
+		// can exceed the viewport height. The #columns overflow:hidden rule in comments.css
+		// clips the bottom of the content, making the playlist and related videos invisible.
+		// Allow vertical overflow so the full content is accessible.
+		const playlist = document.querySelector("#playlist");
+		const liveChat = document.querySelector("#chat-container");
+		if (playlist || liveChat) {
+			columns.style.overflow = "visible";
+		} else {
+			columns.style.overflow = "";
+		}
 	}
 }
 /*------------------------------------------------------------------------------
