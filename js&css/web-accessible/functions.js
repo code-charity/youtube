@@ -397,7 +397,7 @@ ImprovedTube.playerOnPlay = function () {
 					 // the ~1 second of playback that causes watch history entries.
 					 // YouTube's player API (pauseVideo) has latency, but the raw
 					 // HTML5 video.pause() is near-instant.
-					 const video = this.querySelector('video') || document.querySelector('video');
+					 const video = this; // Pause the intercepted media element.
 					 if (!ImprovedTube.user_interacted) {  // (=user didnt click or type)
 					 if (video) { video.pause(); }
 					 try { player.pauseVideo(); } catch (error) { if (!video) this.pause(); } 
