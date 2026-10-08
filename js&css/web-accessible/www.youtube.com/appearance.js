@@ -508,17 +508,14 @@ ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === tr
 ------------------------------------------------------------------------------*/
 ImprovedTube.livechat = function () {
 	if (this.storage.livechat === "collapsed") {
-		if (typeof isCollapsed === 'undefined') { var isCollapsed = false; }
-		if (ImprovedTube.elements.livechat && !isCollapsed) {
-			ImprovedTube.elements.livechat.button.click();
-			isCollapsed = true
+		var button = this.elements.livechat && this.elements.livechat.button;
+		if (button && !this.elements.livechat.collapsed) {
+			button.click();
+			this.elements.livechat.collapsed = true;
 		}
-	} /* else{
-        if(isCollapsed){
-            ImprovedTube.elements.livechat.button.click();
-            isCollapsed = false
-        }
-    } */
+	} else if (this.elements.livechat) {
+		this.elements.livechat.collapsed = false;
+	}
 };
 /*------------------------------------------------------------------------------
   DETAILS

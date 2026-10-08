@@ -203,14 +203,27 @@ html[it-livechat='collapsed'] #chat-container::before {
 	align-items: center !important;
 }
 
-html[it-livechat='collapsed'] #chat-container:not([it-activated]) > ytd-live-chat-frame#chat,
-html[it-livechat='collapsed'][it-livechat='hidden'] ytd-live-chat-frame#chat {
+/* #4199 - YouTube stretches #chat-container to the player height. Cap the
+   collapsed shell at the 48px "Show live chat" bar so the column under it
+   does not stay blank. [it-activated] stays unconstrained so the bar can
+   restore YouTube's chat height. */
+html[it-livechat='collapsed'] #chat-container:not([it-activated]) {
+	height: 48px !important;
+	max-height: 48px !important;
+	min-height: 0 !important;
+	flex: 0 0 auto !important;
+	overflow: hidden !important;
+	top: auto !important;
+	bottom: auto !important;
+}
+
+html[it-livechat='collapsed'] #chat-container:not([it-activated]) ytd-live-chat-frame#chat,
+html[it-livechat='collapsed'] #chat-container:not([it-activated]) iframe#chatframe {
 	display: none !important;
 }
 
-html[it-livechat='collapsed']
-#chat-container:not([it-activated])::before,
-#chat-container[it-activated]::before {
+html[it-livechat='collapsed'] #chat-container:not([it-activated])::before,
+html[it-livechat='collapsed'] #chat-container[it-activated]::before {
 	background-color: #272727 !important;
 	border-radius: 8px !important;
 	cursor: pointer;
