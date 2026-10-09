@@ -1918,13 +1918,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'screenshot',
 			id: 'player_screenshot_button'
 		},
-		player_video_filters_button: {
-			component: 'switch',
-			text: 'videoFiltersButton',
-			id: 'player_video_filters_button',
-			storage: 'player_video_filters_button',
-			value: true
-		},
 		embed_subtitle: {
 			component: 'switch',
 			text: 'Subtitle_Capture_including_the_current_words',
@@ -1946,6 +1939,13 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 				return options;
 			}
+		},
+		player_video_filters_button: {
+			component: 'switch',
+			text: 'videoFiltersButton',
+			id: 'player_video_filters_button',
+			storage: 'player_video_filters_button',
+			value: true
 		},
 
 		player_playback_speed_button: {
