@@ -209,6 +209,9 @@ document.addEventListener('it-message-from-extension', function () {
 			ImprovedTube.init();
 			ImprovedTube.blocklistInit();
 
+			// let other scripts and extensions know the initialization is done
+			document.dispatchEvent(new CustomEvent('init_completed'));
+
 			/*--------------------------------------------------------------
 			# Immediate reaction to any change of our extension storage (settings)
 					While most of our features are chosen permanently (set and forget) and need to run with YouTube,
