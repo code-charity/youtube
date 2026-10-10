@@ -1026,7 +1026,7 @@
     "message": "「すべて再生」ボタン"
   },
   "playbackSpeed": {
-    "message": "再生速度の上下切り替え"
+    "message": "再生速度"
   },
   "playbackSpeedHotkey": {
     "message": "再生速度の一発切り替え"
