@@ -210,6 +210,9 @@
   "blockMusic": {
     "message": "Skip Ads while I play music"
   },
+  "blockOpus": {
+    "message": "Block Opus"
+  },
   "blockVp8": {
     "message": "Block VP8"
   },
