@@ -1748,6 +1748,10 @@ extension.skeleton.main.layers.section.player.on.click = {
 								}
 							}
 						},
+						block_opus: {
+							component: 'switch',
+							text: 'blockOpus'
+						},
 						sanitize: function () {
 							if (satus.storage.get('player_h264')) {
 								if ((!satus.storage.get('block_vp9') || !satus.storage.get('block_av1') && satus.storage.get('block_h264')) ||
