@@ -125,6 +125,10 @@ def chromium(browser):
 		if browser in ('edge', 'whale'):
 			data['name'] = _sanitize_name_for_store(data.get('name', ''), browser)
 
+		# Patch background for ManifestV3
+		if 'background' in data:
+			data['background'].pop('scripts', None)
+
 		json_file.seek(0)
 		json.dump(data, json_file, indent=4, sort_keys=True)
 		json_file.truncate()
