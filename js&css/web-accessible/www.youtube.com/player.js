@@ -1385,9 +1385,10 @@ var xpath = function (xpathToExecute) {
 // the darkening as its own box-shadow keeps it correctly stacked
 // automatically, with no z-index/stacking-context guesswork involved. #4353
 ImprovedTube.cinemaModeSetVisible = function (visible) {
-	var ytdPlayer = document.getElementById('ytd-player');
-	if (!ytdPlayer) return false;
-	ytdPlayer.style.boxShadow = visible ? '0 0 0 9999px rgba(0, 0, 0, 1)' : '';
+	// #ytd-player / #movie_player can be 0px tall while the <video> overflows them,
+	// so a box-shadow "spotlight" has no hole and only paints the page background.
+	// Instead flag <html> and let player.css hide everything except the player.
+	document.documentElement.toggleAttribute('it-cinema-mode', !!visible);
 	return true;
 }
 
