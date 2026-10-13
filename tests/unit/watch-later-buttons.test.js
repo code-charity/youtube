@@ -37,6 +37,14 @@ describe('Watch Later thumbnail buttons', () => {
 		expect(generalCss).toContain(".it-watch-later-button");
 		expect(generalCss).toContain("html[it-watch-later-buttons='hover']");
 		expect(generalCss).toContain("html[it-watch-later-buttons='always']");
+		// Hover scoping: the button only appears when the user is over the
+		// thumbnail anchor inside a renderer, not when hovering any
+		// descendant of the renderer (title, meta, etc.). The old wildcard
+		// `*:hover>.it-watch-later-button` widened the hover area in grid
+		// views to the whole card; the new selector scopes to a renderer
+		// type that has a thumbnail hovered inside it.
+		expect(generalCss).not.toMatch(/\* :hover\s*>\s*\.it-watch-later-button/);
+		expect(generalCss).toMatch(/html\[it-watch-later-buttons='hover'\][^{]*:has\(a#thumbnail:hover\)\s*>\s*\.it-watch-later-button/);
 	});
 
 	describe('addWatchLaterButton (#4305) — appends to parent, not aria-hidden anchor', () => {
