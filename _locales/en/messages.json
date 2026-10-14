@@ -471,6 +471,9 @@
   "dislikingAVideoAddsItToBlocklist": {
     "message": "Disliking a video adds it to Blocklist"
   },
+  "hideBlockedVideosCompletely": {
+    "message": "Hide blocked videos completely"
+  },
   "displayDayOfTheWeak": {
     "message": "Display day of the week"
   },

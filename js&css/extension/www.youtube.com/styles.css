@@ -640,6 +640,12 @@ html:not([data-page-type=channel]) .it-blocklisted-channel:hover ytd-thumbnail {
 	transition: max-width 0.4s ease 1.1s;
 	height: auto;
 }
+
+html[it-blocklist-hide-completely=true] .it-blocklisted-video,
+html[it-blocklist-hide-completely=true]:not([data-page-type=channel]) .it-blocklisted-channel {
+	display: none !important;
+}
+
 /*------------NEW---------------*/
 
 .improvedtube-sidebar-a {
