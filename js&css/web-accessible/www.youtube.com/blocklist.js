@@ -124,7 +124,8 @@ ImprovedTube.blocklistChannel = function (node) {
 		const id = location.pathname.match(ImprovedTube.regex.channel)?.groups?.name,
 			title = this.parentNode.__dataHost?.__data?.data?.title
 				|| ytInitialData?.metadata?.channelMetadataRenderer?.title
-				|| document.querySelector('yt-dynamic-text-view-model .yt-core-attributed-string')?.innerText,
+				|| document.querySelector('yt-dynamic-text-view-model .yt-core-attributed-string')?.innerText
+				|| document.querySelector('yt-page-header-view-model h1')?.innerText,
 			preview = document.querySelector('yt-decorated-avatar-view-model img')?.src
 				|| document.querySelector('#channel-header-container #avatar img#img')?.src
 				|| this.parentNode.__dataHost?.__data?.data?.avatar?.thumbnails?.[0]?.url;
