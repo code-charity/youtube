@@ -642,7 +642,8 @@ html:not([data-page-type=channel]) .it-blocklisted-channel:hover ytd-thumbnail {
 }
 
 html[it-blocklist-hide-completely=true] .it-blocklisted-video,
-html[it-blocklist-hide-completely=true]:not([data-page-type=channel]) .it-blocklisted-channel {
+html[it-blocklist-hide-completely=true]:not([data-page-type=channel]) .it-blocklisted-channel,
+html[it-blocklist-hide-completely=true]:not([data-page-type=channel]) ytd-shelf-renderer:has(ytd-vertical-list-renderer > #items > :is(.it-blocklisted-video, .it-blocklisted-channel)):not(:has(ytd-vertical-list-renderer > #items > :not(.it-blocklisted-video, .it-blocklisted-channel))) {
 	display: none !important;
 }
 
