@@ -827,11 +827,11 @@ ImprovedTube.copyTranscript = function (svg, button) {
 		svg.style.opacity = '1';
 		button.dataset.tooltip = 'FetchingTranscript';
 
-		var existingTranscriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer');
+		var existingTranscriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model');
 		if (existingTranscriptSegments.length > 0) {
 			var transcriptText = '';
 			existingTranscriptSegments.forEach(function (segment) {
-				var textElement = segment.querySelector('.segment-text');
+				var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
 				if (textElement) {
 					transcriptText += textElement.textContent.trim() + ' ';
 				}
@@ -893,7 +893,7 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 	var checkInterval = setInterval(function () {
 		attempts++;
 
-		var transcriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer');
+		var transcriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model');
 
 		if (transcriptSegments.length > 0) {
 			clearInterval(checkInterval);
@@ -901,7 +901,7 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 			var transcriptText = '';
 
 			transcriptSegments.forEach(function (segment) {
-				var textElement = segment.querySelector('.segment-text');
+				var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
 				if (textElement) {
 					transcriptText += textElement.textContent.trim() + ' ';
 				}
