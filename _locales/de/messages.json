@@ -1525,5 +1525,236 @@
   },
   "playbackSpeedButton": {
     "message": "Wiedergabegeschwindigkeit-Button"
+  },
+    "dontShortenTitles": {
+    "message": "Vollständige Videotitel (nicht einkürzen)"
+  },
+  "preferredDubbingLanguage": {
+    "message": "Bevorzugte Synchronisationssprache"
+  },
+  "hideSuggestedAction": {
+    "message": "Vorgeschlagene Aktion 'Produkte ansehen' ausblenden"
+  },
+  "hideMerchShelf": {
+    "message": "'Merch-Shelf' ausblenden"
+  },
+  "ask": {
+    "message": "Fragen"
+  },
+  "removeSubscriptionsLiveStreams": {
+    "message": "Livestreams bei 'Abos' ausblenden"
+  },
+  "autoContinueWatching": {
+    "message": "„Weiterschauen?“ automatisch akzeptieren"
+  },
+  "autoPlayNextShort": {
+    "message": "Nächsten Short automatisch abspielen"
+  },
+  "categoryRefreshButton": {
+    "message": "Aktualisierungs-Button für Kategorien hinzufügen"
+  },
+  "cinemaMode": {
+    "message": "Kinomodus"
+  },
+  "copyTranscript": {
+    "message": "📋 Transkript kopieren"
+  },
+  "FetchingTranscript": {
+    "message": "Wird abgerufen..."
+  },
+  "TranscriptError": {
+    "message": "Fehler"
+  },
+  "disableSidebarScroll": {
+    "message": "Scrollen in der Seitenleiste deaktivieren"
+  },
+  "hideAutoDubbedOptions": {
+    "message": "Automatisch synchronisierte Optionen im Menü ausblenden"
+  },
+  "muteThumbnailPreviews": {
+    "message": "Ton bei Vorschaubildern deaktivieren"
+  },
+  "dislikingAVideoAddsItToBlocklist": {
+    "message": "Nicht gemochte Videos zur Sperrliste hinzufügen"
+  },
+  "excludeShortsInPlayAll": {
+    "message": "Shorts bei „Alle abspielen“ ausschließen"
+  },
+  "fullScreenQuality": {
+    "message": "Vollbildqualität"
+  },
+  "playlistQuality": {
+    "message": "Playlist-Qualität"
+  },
+  "fullscreenReturn": {
+    "message": "Vollbild verlassen"
+  },
+  "hideLastframe": {
+    "message": "Beendetes Video (letztes Videobild) ausblenden"
+  },
+  "hideProgressBarPreview": {
+    "message": "Vorschau der Zeitleiste ausblenden"
+  },
+  "hidePauseOverlay": {
+    "message": "Pause-Overlay ausblenden"
+  },
+  "Optimal": {
+    "message": "optimal"
+  },
+  "preferredSpeed": {
+    "message": "bevorzugte Geschwindigkeit"
+  },
+  "playbackSpeedHotkey": {
+    "message": "Hotkeys für Wiedergabegeschwindigkeit"
+  },
+  "player_volume_boost_button": {
+    "message": "Lautstärkeverstärkungs-Button"
+  },
+  "playerIncreaseDecreaseSpeedButtons": {
+    "message": "Buttons zum Erhöhen/Verringern der Geschwindigkeit"
+  },
+  "playerPlaybackSpeedStep": {
+    "message": "Schrittweite der Abspielgeschwindigkeit"
+  },
+  "watchLaterButtons": {
+    "message": "„Später ansehen“-Button zu Vorschaubildern hinzufügen"
+  },
+  "refreshCategories": {
+    "message": "Kategorien aktualisieren"
+  },
+  "returnYoutubeDislike": {
+    "message": "YouTube Dislikes zurückbringen"
+  },
+  "returnYoutubeDislikeDescription": {
+    "message": "Video-Dislikes mithilfe der Return-YouTube-Dislike-API anzeigen"
+  },
+  "removePlayables": {
+    "message": "Playables ausblenden"
+  },
+  "removeTopLiveGames": {
+    "message": "'Die besten Livespiele' auf der Startseite ausblenden"
+  },
+  "removeSubscriptionsMostRelevant": {
+    "message": "Abschnitt „Relevanteste“ auf der Abos-Seite ausblenden"
+  },
+  "subscriptionsListLayout": {
+    "message": "Listenlayout auf der Abos-Seite"
+  },
+  "revertTheaterModeButtonSizes": {
+    "message": "Kinomodus-Button-Größen zurücksetzen"
+  },
+  "volumeBoost": {
+    "message": "Lautstärkeverstärkung"
+  },
+  "secondaryColor": {
+    "message": "Sekundäre Farbe"
+  },
+  "shortsAlwaysShowButtons": {
+    "message": "Kontroll-Buttons bei Shorts immer anzeigen"
+  },
+  "shortsAlwaysShowCaptions": {
+    "message": "Untertitel-Button"
+  },
+  "shortsAlwaysShowFullscreen": {
+    "message": "Vollbild-Button"
+  },
+  "ccIndicator": {
+    "message": "CC-Indikator (Untertitel) auf der Videos-Seite eines Kanals wiederherstellen"
+  },
+  "sidePanels": {
+    "message": "Seitenbereiche (Später ansehen, In diesem Video, ...)"
+  },
+  "sidePanelsOnlyOneExpanded": {
+    "message": "Nur einen Bereich gleichzeitig öffnen"
+  },
+  "smartSpeed": {
+    "message": "Weniger angesehene Abschnitte beschleunigen"
+  },
+  "squaredThumbnails": {
+    "message": "Abgerundete Ecken bei Vorschaubildern entfernen"
+  },
+  "thumbnailGrayscale": {
+    "message": "Graustufen für Vorschaubilder"
+  },
+  "largerThumbnailMetadata": {
+    "message": "Metadaten von Vorschaubildern vergrößern (Kanal, Aufrufe, Alter)"
+  },
+  "classicThumbnailMetadata": {
+    "message": "Klassische Vorschaubild-Metadaten (X Aufrufe · vor Y Monaten)"
+  },
+  "transparentBackgroundAlternative": {
+    "message": "Alternativer transparenter Hintergrund"
+  },
+  "videoFilters": {
+    "message": "Video-Filter"
+  },
+  "videoFiltersButton": {
+    "message": "Video-Filter-Button"
+  },
+  "preset": {
+    "message": "Voreinstellung"
+  },
+  "vivid": {
+    "message": "Lebendig"
+  },
+  "cinema": {
+    "message": "Kino"
+  },
+  "warm": {
+    "message": "Warm"
+  },
+  "cool": {
+    "message": "Kühl"
+  },
+  "contrast": {
+    "message": "Kontrast"
+  },
+  "saturation": {
+    "message": "Sättigung"
+  },
+  "hue": {
+    "message": "Farbton"
+  },
+  "sharpness": {
+    "message": "Schärfe"
+  },
+  "gamma": {
+    "message": "Gamma"
+  },
+  "smartSpeedEngine": {
+    "message": "Smart-Speed-Engine"
+  },
+  "smartSpeedEnable": {
+    "message": "Smart Speed aktivieren"
+  },
+  "smartSpeedIndicator": {
+    "message": "On-Screen-Anzeige anzeigen"
+  },
+  "smartSpeedMin": {
+    "message": "Mindestgeschwindigkeit (meistgesehene Stellen)"
+  },
+  "smartSpeedMax": {
+    "message": "Mindestgeschwindigkeit (weniger gesehene Stellen)"
+  },
+  "smartSpeedSensitivity": {
+    "message": "Empfindlichkeit"
+  },
+  "smartSpeedTargetToggle": {
+    "message": "Ziellänge aktivieren"
+  },
+  "smartSpeedTargetMinutes": {
+    "message": "Ziellänge (Minuten)"
+  },
+  "smartSpeedProfiles": {
+    "message": "Kategorie- und Kanalprofile"
+  },
+  "smartSpeedAddProfile": {
+    "message": "Kanalprofil hinzufügen"
+  },
+  "smartSpeedWhitelisted": {
+    "message": "Kanal für Smart Speed freigegeben!"
+  },
+  "autoVideoRecovery": {
+    "message": "Automatische Videowiederherstellung"
   }
 }
