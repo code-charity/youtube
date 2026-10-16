@@ -238,8 +238,10 @@ html[it-exact-upload-date='true'] #info #date + #info-strings>#dot,
 /*--------------------------------------------------------------
 # DISABLE LIKES ANIMATION
 --------------------------------------------------------------*/
-html[it-disable-likes-animation='true'] yt-animated-rolling-number {
-	display: none !important;
+html[it-disable-likes-animation='true'] yt-animated-rolling-number,
+html[it-disable-likes-animation='true'] yt-animated-rolling-number * {
+	transition: none !important;
+	animation: none !important;
 }
 
 html[it-disable-likes-animation='true'] #top-level-buttons-computed #segmented-like-button ytd-toggle-button-renderer span {
