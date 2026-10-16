@@ -1373,22 +1373,108 @@ var xpath = function (xpathToExecute) {
 	return result;
 }
 
-// Darkens everything outside the player via a box-shadow "spotlight" on
-// #ytd-player, instead of a full-page overlay element paired with a
-// manually elevated z-index on the player containers. YouTube's player DOM
-// nesting has changed enough that raising z-index on player-container /
-// player-full-bleed-container / ytd-player no longer outranks a page-level
-// fixed overlay (they end up compared across different stacking contexts),
-// so the overlay ended up covering the whole page - video, controls and
-// all - with no way back short of a refresh. #ytd-player's own box tracks
-// the real player size in both the default and theater layouts, so drawing
-// the darkening as its own box-shadow keeps it correctly stacked
-// automatically, with no z-index/stacking-context guesswork involved. #4353
-ImprovedTube.cinemaModeSetVisible = function (visible) {
-	var ytdPlayer = document.getElementById('ytd-player');
-	if (!ytdPlayer) return false;
-	ytdPlayer.style.boxShadow = visible ? '0 0 0 9999px rgba(0, 0, 0, 1)' : '';
+// Cinema mode darkens everything around the player. Two earlier approaches
+// each failed in one direction. A page-level fixed overlay paired with a
+// manually elevated z-index on the player containers no longer out-ranks
+// anything: YouTube's player DOM nesting changed enough that the overlay
+// and the player end up compared across different stacking contexts, so the
+// overlay covered the whole page - video, controls and all - with no way
+// back short of a refresh (#4353, #4381). Moving the darkening to a
+// box-shadow on #ytd-player itself keeps the video visible, but paints it in
+// #ytd-player's own paint layer, so everything YouTube stacks above that
+// (masthead, sidebar, metadata, popups) stayed undarkened, and any ancestor
+// that clips overflow could cut the shadow off entirely.
+//
+// So draw it on a dedicated element instead: a fixed, pointer-events-free
+// div sized to #ytd-player's current rect, carrying the darkening as its own
+// box-shadow. An outer box-shadow only ever paints *outside* that rect, so
+// the player can never be covered, while the div is a top-level fixed
+// element with a z-index above YouTube's chrome, so the rest of the page is
+// darkened regardless of the player's stacking context. The rect is
+// re-measured whenever the layout changes, because YouTube moves and resizes
+// the player underneath us (theater mode, miniplayer-on-scroll, resizing).
+ImprovedTube.cinemaModeSyncSpotlight = function () {
+	var spotlight = document.getElementById('it-cinema-mode-spotlight'),
+		ytdPlayer = document.getElementById('ytd-player'),
+		rect = ytdPlayer && ytdPlayer.getBoundingClientRect();
+
+	if (!spotlight) return false;
+
+	// Nothing to spotlight without a measurable player, and fullscreen
+	// renders in the browser's own top layer, so it needs no darkening.
+	if (!rect || !rect.width || !rect.height || document.fullscreenElement) {
+		spotlight.style.display = 'none';
+		return false;
+	}
+
+	spotlight.style.removeProperty('display');
+	spotlight.style.top = rect.top + 'px';
+	spotlight.style.left = rect.left + 'px';
+	spotlight.style.width = rect.width + 'px';
+	spotlight.style.height = rect.height + 'px';
+
 	return true;
+}
+
+ImprovedTube.cinemaModeOnLayoutChange = function () {
+	if (ImprovedTube.cinemaModeSyncScheduled) return;
+
+	ImprovedTube.cinemaModeSyncScheduled = true;
+
+	requestAnimationFrame(function () {
+		ImprovedTube.cinemaModeSyncScheduled = false;
+		ImprovedTube.cinemaModeSyncSpotlight();
+	});
+}
+
+ImprovedTube.cinemaModeSetVisible = function (visible) {
+	var spotlight = document.getElementById('it-cinema-mode-spotlight'),
+		ytdPlayer = document.getElementById('ytd-player');
+
+	// Earlier versions put the darkening straight onto the player element.
+	if (ytdPlayer && ytdPlayer.style.boxShadow) ytdPlayer.style.removeProperty('box-shadow');
+
+	if (!visible) {
+		if (spotlight) {
+			window.removeEventListener('resize', ImprovedTube.cinemaModeOnLayoutChange, true);
+			window.removeEventListener('scroll', ImprovedTube.cinemaModeOnLayoutChange, true);
+			document.removeEventListener('fullscreenchange', ImprovedTube.cinemaModeOnLayoutChange, true);
+			ImprovedTube.cinemaModeResizeObserver?.disconnect();
+			spotlight.remove();
+		}
+
+		return true;
+	}
+
+	if (!ytdPlayer) return false;
+
+	if (!spotlight) {
+		spotlight = document.createElement('div');
+		spotlight.id = 'it-cinema-mode-spotlight';
+		spotlight.style.position = 'fixed';
+		// clicks, the player controls and text selection all stay usable
+		spotlight.style.pointerEvents = 'none';
+		// above YouTube's own chrome, whose highest layers sit near 2 to 3k
+		spotlight.style.zIndex = '2000000';
+		spotlight.style.boxShadow = '0 0 0 9999px rgba(0, 0, 0, 1)';
+
+		document.documentElement.appendChild(spotlight);
+
+		window.addEventListener('resize', ImprovedTube.cinemaModeOnLayoutChange, true);
+		window.addEventListener('scroll', ImprovedTube.cinemaModeOnLayoutChange, true);
+		document.addEventListener('fullscreenchange', ImprovedTube.cinemaModeOnLayoutChange, true);
+	}
+
+	// Theater mode and the sidebar resize the player without a window resize,
+	// and the player may not have been laid out yet when auto cinema mode
+	// turns this on, so follow #ytd-player's own box as well.
+	if (window.ResizeObserver) {
+		ImprovedTube.cinemaModeResizeObserver = ImprovedTube.cinemaModeResizeObserver
+			|| new ResizeObserver(ImprovedTube.cinemaModeOnLayoutChange);
+		ImprovedTube.cinemaModeResizeObserver.observe(ytdPlayer);
+	}
+
+	return ImprovedTube.cinemaModeSyncSpotlight();
 }
 
 ImprovedTube.playerCinemaModeButton = function () {
