@@ -348,7 +348,15 @@ document.addEventListener('it-message-from-extension', function () {
 							ImprovedTube.elements.buttons['it-cinema-mode-button']?.remove();
 							ImprovedTube.elements.buttons['it-cinema-mode-styles']?.remove();
 						}
+
+						// Taking the toggle away must not leave the page stuck darkened
+						// with nothing left to turn it off with.
+						if (ImprovedTube.storage.player_auto_cinema_mode !== true) {
+							ImprovedTube.cinemaModeActive = false;
+							ImprovedTube.cinemaModeSetVisible(false);
+						}
 					}
+					break
 
 				case 'playerRepeatButton':
 					if (ImprovedTube.storage.player_repeat_button === false) {
