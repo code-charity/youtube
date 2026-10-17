@@ -14,6 +14,8 @@ html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #spin
 html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #continuations,
 html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #contents > ytd-continuation-item-renderer,
 html[it-comments='hidden'] ytd-comments ytd-item-section-renderer#sections #contents > ytd-comment-thread-renderer,
+/*COMMENT IMAGES AND GIFS*/
+html[it-hide-comment-images='true'] ytw-comment-image-attachment-view-model,
 /*AVATARS-*/
 html[it-hide-author-avatars='true'] ytd-comments #author-thumbnail,
 html[it-hide-author-avatars='true'] ytd-comments #creator-thumbnail,

@@ -986,6 +986,11 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 				component: "switch",
 				text: 'hide_author_avatars'
 			},
+			hide_comment_images: {
+				component: "switch",
+				text: 'hideCommentImages',
+				tags: "hide,remove,gif"
+			},
 			hide_comments_count: {
 				component: "switch",
 				text: "hideCommentsCount",
