@@ -297,6 +297,100 @@ extension.skeleton.main.layers.section.player.on.click = {
 			max: 3.17,
 			step: .01
 		},
+		channel_playback_speed: {
+			component: 'button',
+			text: 'channelPlaybackSpeed',
+			on: {
+				click: {
+					component: 'section',
+					variant: 'card',
+					channel_playback_speed_list: {
+						component: 'section',
+						on: {
+							render: function () {
+								let container = this;
+
+								function updateView() {
+									container.innerHTML = '';
+									let skeleton = {};
+									let ts = Date.now();
+									let storedSpeeds = satus.storage.get('channel_playback_speeds');
+									let channelSpeeds;
+
+									if (storedSpeeds === undefined) {
+										channelSpeeds = {};
+										satus.storage.set('channel_playback_speeds', channelSpeeds);
+									} else {
+										channelSpeeds = typeof storedSpeeds === 'object' && storedSpeeds !== null ? storedSpeeds : {};
+									}
+
+									skeleton['add_channel_btn_' + ts] = {
+										component: 'button',
+										text: 'channelPlaybackSpeedAdd',
+										on: {
+											click: function() {
+												let name = prompt(satus.locale.get('channelPlaybackSpeedPrompt'));
+												if (name) {
+													let speed = prompt(satus.locale.get('channelPlaybackSpeedSpeedPrompt'), '1.25');
+													if (speed && !isNaN(parseFloat(speed))) {
+														let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds') || {});
+														freshState[name] = parseFloat(speed);
+														satus.storage.set('channel_playback_speeds', freshState);
+														updateView();
+													}
+												}
+											}
+										}
+									};
+
+									for (let channelName in channelSpeeds) {
+										let safeKey = channelName.replace(/[^a-zA-Z0-9]/g, '_');
+
+										skeleton['speed_' + safeKey + '_' + ts] = {
+											component: 'section',
+											variant: 'card',
+											title: channelName,
+											speed_slider: {
+												component: 'slider',
+												text: 'playbackSpeed',
+												value: channelSpeeds[channelName],
+												min: 0.1,
+												max: 3.17,
+												step: 0.01,
+												textarea: true,
+												on: {
+													change: function() {
+														let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds'));
+														freshState[channelName] = Number(this.value);
+														satus.storage.set('channel_playback_speeds', freshState);
+													}
+												}
+											},
+											delete_btn: {
+												component: 'button',
+												text: 'delete',
+												on: {
+													click: function() {
+														let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds'));
+														delete freshState[channelName];
+														satus.storage.set('channel_playback_speeds', freshState);
+														updateView();
+													}
+												}
+											}
+										};
+									}
+
+									satus.render(skeleton, container);
+								}
+
+								updateView();
+							}
+						}
+					}
+				}
+			}
+		},
 		smart_speed: {
 			component: 'button',
 			text: 'smartSpeedEngine',
