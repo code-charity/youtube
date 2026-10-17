@@ -108,7 +108,7 @@ if (localStorage['it-codec'] || localStorage['it-player30fps']) {
 		}
 		if (localStorage['it-player30fps']) {
 			var match = /framerate=(\d+)/.exec(mime);
-			if (match && match[1] > 30) return '';
+			if (match && Number(match[1]) > 30) return '';
 		}
 		return callback.call(self, mime);
 	};
@@ -154,10 +154,10 @@ ImprovedTube.messages.create();
 
 ImprovedTube.messages.listener = function () {
 	document.addEventListener('it-message-from-youtube--readed', function () {
-		ImprovedTube.messages.queue.pop();
+		ImprovedTube.messages.queue.shift();
 
 		if (ImprovedTube.messages.queue.length > 0) {
-			ImprovedTube.messages.element.textContent = message;
+			ImprovedTube.messages.element.textContent = ImprovedTube.messages.queue[0];
 
 			document.dispatchEvent(new CustomEvent('it-message-from-youtube'));
 		}

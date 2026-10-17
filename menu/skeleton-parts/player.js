@@ -1113,7 +1113,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 							text: 'green',
 							value: '#0f0'
 						}, {
-							value: 'cyan',
 							text: 'cyan',
 							value: '#0ff'
 						}, {
@@ -1169,7 +1168,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 							text: 'green',
 							value: '#0f0'
 						}, {
-							value: 'cyan',
 							text: 'cyan',
 							value: '#0ff'
 						}, {
@@ -1562,8 +1560,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 				render: function () {
 					// relies on options.text above auto always starting with a number for parseInt to work
 					const options = this.childNodes[2].options,
-						index = this.childNodes[2].selectedIndex;
-					cutoff = 1080;
+						index = this.childNodes[2].selectedIndex,
+						cutoff = 1080;
 					if (satus.storage.get('player_h264')) {
 						if (parseInt(options[index].text) > cutoff) {
 							this.childNodes[1].style = 'color: red!important; font-weight: bold;';

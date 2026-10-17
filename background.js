@@ -144,7 +144,7 @@ function getLocale (language, callback) {
 /*--------------------------------------------------------------
 # CONTEXT MENU
 --------------------------------------------------------------*/
-function updateContextMenu (language) {
+function updateContextMenu (language = 'default') {
 	if (!language || language === 'default') language = chrome.i18n.getUILanguage();
 	getLocale(language, function (response) {
 		const items = [

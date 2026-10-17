@@ -461,7 +461,7 @@ ImprovedTube.shortcutResetPlaybackSpeed = function () {
 ImprovedTube.shortcutGoToSearchBox = function () {
 	document.querySelector('input[name="search_query"]')?.click();
 	document.querySelector('input#search')?.click();
-	if (ImprovedTube.originalFocus) { HTMLElement.prototype.focus = originalFocus }
+	if (ImprovedTube.originalFocus) { HTMLElement.prototype.focus = ImprovedTube.originalFocus }
 	document.querySelector('input[name="search_query"]')?.focus();
 	document.querySelector('input#search')?.focus();
 };
@@ -484,11 +484,12 @@ ImprovedTube.shortcutActivateCaptions = function () {
 /*------Chapters------*/
 ImprovedTube.shortcutChapters = function () {
 	const available = document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || document.querySelector('[target-id*=chapters]').clientHeight;
+	let modernChapters, visibilityButton;
 	if (available) {
-		const modernChapters = document.querySelector('[modern-chapters] #navigation-button button[aria-label]');
+		modernChapters = document.querySelector('[modern-chapters] #navigation-button button[aria-label]');
 		modernChapters ? modernChapters.click() : document.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
 	} else {
-		const visibilityButton = document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]');
+		visibilityButton = document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]');
 		visibilityButton ? visibilityButton.click() : document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
 	}
 	if (!modernChapters && visibilityButton) {
@@ -498,11 +499,12 @@ ImprovedTube.shortcutChapters = function () {
 /*------Transcript------*/
 ImprovedTube.shortcutTranscript = function () {
 	const available = document.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || document.querySelector('[target-id*=transcript]').clientHeight;
+	let descriptionTranscript, transcriptButton;
 	if (available) {
-		const descriptionTranscript = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
+		descriptionTranscript = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
 		descriptionTranscript ? descriptionTranscript.click() : document.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
 	} else {
-		const transcriptButton = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
+		transcriptButton = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
 		transcriptButton ? transcriptButton.click() : document.querySelector('[target-id*=transcript] #visibility-button button')?.click();
 	}
 	if (!descriptionTranscript && transcriptButton) {
