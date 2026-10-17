@@ -195,7 +195,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 							}
 						}
 						if (mutation.type === 'attributes' && mutation.attributeName === 'id' && mutation.target.querySelector('*[id^="ad-text"], *[id^="skip-button"], .ytp-ad-skip-button-modern.ytp-button',)) {
-							ImprovedTube.playerAds(addedNode);
+							ImprovedTube.playerAds(mutation.target);
 						}
 					}
 				}).observe(node, {
@@ -734,7 +734,7 @@ ImprovedTube.setCookie = function (name, value) {
 
 	date.setTime(date.getTime() + 3.154e+10);
 
-	document.cookie = name + '=' + value + '; path=/; domain=.youtube.com; expires=' + date.toGMTString();
+	document.cookie = name + '=' + value + '; path=/; domain=.youtube.com; expires=' + date.toUTCString();
 };
 
 ImprovedTube.createIconButton = function (options) {
@@ -860,8 +860,8 @@ ImprovedTube.showStatus = function (value) {
 	player.appendChild(this.elements.status);
 };
 
-ImprovedTube.videoId = (url = document.URL) => url.match(ImprovedTube.regex.video_id)?.[1] || new URL(url).searchParams.get('v') || movie_player?.getVideoData?.().video_id || (console.log('No VIDEO ID URL MATCH match: Regex & url are:', ImprovedTube.regex.video_id, url), undefined);
-ImprovedTube.videoTitle = function () { return document.title?.replace(/\s*-\s*YouTube$/, '') || movie_player.getVideoData().title || document.querySelector('#title > h1 > *')?.textContent };
+ImprovedTube.videoId = (url = document.URL) => url.match(ImprovedTube.regex.video_id)?.[1] || new URL(url).searchParams.get('v') || (document.getElementById('movie_player') || window['movie_player'])?.getVideoData?.().video_id || (console.log('No VIDEO ID URL MATCH match: Regex & url are:', ImprovedTube.regex.video_id, url), undefined);
+ImprovedTube.videoTitle = function () { return document.title?.replace(/\s*-\s*YouTube$/, '') || (document.getElementById('movie_player') || window['movie_player'])?.getVideoData?.()?.title || document.querySelector('#title > h1 > *')?.textContent };
 
 // Function to extract and store the number of subscribers
 ImprovedTube.extractSubscriberCount = function (subscriberCountNode) {

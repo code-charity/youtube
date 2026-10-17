@@ -822,7 +822,7 @@ satus.render = function (skeleton, container, property, childrenOnly, prepend, s
 		container = element.childrenContainer || element;
 	}
 
-	if ((!element || element.renderChildren !== false) & skip_children !== true) {
+	if ((!element || element.renderChildren !== false) && skip_children !== true) {
 		for (var key in skeleton) {
 			var item = skeleton[key];
 
@@ -913,7 +913,8 @@ satus.storage.import = function (keys, callback) {
 		// satus.log('STORAGE: data was successfully imported');
 		satus.events.trigger('storage-import');
 		if (callback) callback(items);
-		loading.style.display = 'none';
+		var loading = document.getElementById('loading');
+		if (loading) loading.style.display = 'none';
 	});
 };
 /*--------------------------------------------------------------

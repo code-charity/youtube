@@ -135,7 +135,7 @@ PERMANENT PLAYBACK SPEED
 ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
 	var player = this.elements.player; if (!player) return;
 	var video = this.elements.video || player.querySelector('video');
-	option = this.storage.player_playback_speed;
+	var option = this.storage.player_playback_speed;
 	if (this.isset(option) === false) { option = 1; }
 	else if ( option !== 1 ) {
 		const speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
@@ -146,6 +146,12 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 	{ player.setPlaybackRate(Number(option)); if (!video) { video = { playbackRate: 1 }; };	video.playbackRate = Number(option); // #1729 q2 // hi! @raszpl
 		if ( (this.storage.player_force_speed_on_music !== true || this.storage.player_dont_speed_education === true)
 		 	&& option !== 1) {
+			var DATA = {},
+				defaultKeywords = "video,sharing,camera,phone,video phone,free,upload",
+				keywords = '',
+				amountOfSongs = false,
+				notMusicRegexMatch = false,
+				keywordsAmount = 0;
 			ImprovedTube.speedException = function () {
 				if (this.storage.player_dont_speed_education === true && DATA.genre === 'Education')
 				{player.setPlaybackRate(Number(1));	video.playbackRate = Number(1); return;}
@@ -172,7 +178,7 @@ ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_
 					function parseDuration (duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0);
 						return h * 3600 + m * 60 + s; }
 					DATA.lengthSeconds = parseDuration(DATA.duration); 	}
-				function testSongDuration (s, ytMusic) {
+				function testSongDuration (s, ytMusic = null) {
 					if (135 <= s && s <= 260) {return 'veryCommon';}
 					if (105 <= s && s <= 420) {return 'common';}
 					if (420 <= s && s <= 720) {return 'long';}
@@ -4118,7 +4124,7 @@ SMART SPEED ENGINE
             this.targetBias = 0;
             this.targetDurationOverride = null;
         }
-        get isCurrent() { return !Engine.session === false && Engine.session === this; }
+        get isCurrent() { return Engine.session === this; }
         dispose() { try { this.abort?.abort(); } catch (e) { /* already aborted */ } }
     }
 
@@ -4210,7 +4216,7 @@ SMART SPEED ENGINE
         },
 
         /*---------------------------- lifecycle ----------------------------*/
-        init(video) {
+        init(video = null) {
             const enabled = ImprovedTube.storage.smart_speed === true;
             const videoId = this._getVideoId();
 
