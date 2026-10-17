@@ -822,6 +822,11 @@ ImprovedTube.screenshot = function () {
 	});
 };
 
+ImprovedTube.transcriptButtonSelector = 'button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],'
+										+ 'button[aria-label*="guion"], button[aria-label*="naskah"], button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="نص"], button[aria-label*="نقل"],'
+										+ 'button[aria-label*="प्रतिलि"], button[aria-label*="प्रत"], button[aria-label*="লিপি"], button[aria-label*="bản ghi"], button[aria-label*="steno"],'
+										+ 'button[aria-label*="γραφ"], button[aria-label*="přep"], button[aria-label*="átir"], button[aria-label*="avsk"]';
+
 ImprovedTube.copyTranscript = function (svg, button) {
 	try {
 		svg.style.opacity = '1';
@@ -848,10 +853,7 @@ ImprovedTube.copyTranscript = function (svg, button) {
 				return;
 			}
 		}
-		var transcriptButtonSelector = 'button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],'
-										+ 'button[aria-label*="guion"], button[aria-label*="naskah"], button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="نص"], button[aria-label*="نقل"],'
-										+ 'button[aria-label*="प्रतिलि"], button[aria-label*="प्रत"], button[aria-label*="লিপি"], button[aria-label*="bản ghi"], button[aria-label*="steno"],'
-										+ 'button[aria-label*="γραφ"], button[aria-label*="přep"], button[aria-label*="átir"], button[aria-label*="avsk"]';
+		var transcriptButtonSelector = ImprovedTube.transcriptButtonSelector;
 		var transcriptButton = document.querySelector(transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');
 
 		if (!transcriptButton) {
@@ -935,6 +937,114 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 			}, 2000);
 		}
 	}, 250);
+};
+
+ImprovedTube.transcriptSegmentsToText = function (segments) {
+	return segments.map(function (segment) {
+		return segment.time ? '[' + segment.time + '] ' + segment.text : segment.text;
+	}).join('\n');
+};
+
+ImprovedTube.transcriptFileName = function (videoId, title) {
+	var name = (videoId ? videoId + ' ' : '') + (title || 'transcript');
+	return name.replace(/[\\/:*?"<>|]+/g, ' ').replace(/\s+/g, ' ').trim().substr(0, 120) + '.txt';
+};
+
+ImprovedTube.readTranscriptSegments = function () {
+	var segments = [];
+	// YouTube's current panel uses transcript-segment-view-model; ytd-transcript-segment-renderer is the older markup
+	document.querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model').forEach(function (segment) {
+		var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
+		var timeElement = segment.querySelector('.segment-timestamp, .ytwTranscriptSegmentViewModelTimestamp');
+		var text = textElement ? textElement.textContent.trim() : '';
+		if (text) {
+			segments.push({time: timeElement ? timeElement.textContent.trim() : '', text: text});
+		}
+	});
+	return segments;
+};
+
+// Calls onReady(segments, openedPanel) once the transcript lines are in the page, opening YouTube's
+// transcript panel first when needed. Calls onError() when the video has no transcript or it never loads.
+ImprovedTube.getTranscriptSegments = function (onReady, onError) {
+	var segments = ImprovedTube.readTranscriptSegments();
+	if (segments.length > 0) {
+		onReady(segments, false);
+		return;
+	}
+
+	var findTranscriptButton = function () {
+		return document.querySelector(ImprovedTube.transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');
+	};
+	var waitForSegments = function () {
+		var attempts = 0;
+		var checkInterval = setInterval(function () {
+			attempts++;
+			var found = ImprovedTube.readTranscriptSegments();
+			if (found.length > 0) {
+				clearInterval(checkInterval);
+				onReady(found, true);
+			} else if (attempts >= 20) {
+				clearInterval(checkInterval);
+				onError();
+			}
+		}, 250);
+	};
+	var openTranscript = function () {
+		var transcriptButton = findTranscriptButton();
+		if (!transcriptButton) {
+			onError();
+			return;
+		}
+		transcriptButton.click();
+		waitForSegments();
+	};
+
+	if (findTranscriptButton()) {
+		openTranscript();
+		return;
+	}
+	var moreActionsButton = document.querySelector('#description ytd-text-inline-expander #expand, #description tp-yt-paper-button#expand');
+	if (moreActionsButton && !moreActionsButton.hasAttribute('hidden')) {
+		moreActionsButton.click();
+		setTimeout(openTranscript, 500);
+	} else {
+		onError();
+	}
+};
+
+ImprovedTube.downloadTranscript = function (svg, button) {
+	var resetButton = function (delay) {
+		setTimeout(function () {
+			button.dataset.tooltip = 'DownloadTranscript';
+			svg.style.opacity = '.5';
+		}, delay);
+	};
+
+	svg.style.opacity = '1';
+	button.dataset.tooltip = 'FetchingTranscript';
+
+	ImprovedTube.getTranscriptSegments(function (segments, openedPanel) {
+		var a = document.createElement('a');
+		a.href = URL.createObjectURL(new Blob([ImprovedTube.transcriptSegmentsToText(segments)], {type: 'text/plain;charset=utf-8'}));
+		a.download = ImprovedTube.transcriptFileName(ImprovedTube.videoId(), ImprovedTube.videoTitle());
+		a.click();
+		setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+
+		button.dataset.tooltip = 'Downloaded!';
+		resetButton(1000);
+		if (openedPanel) {
+			var closeButton = document.querySelector('ytd-engagement-panel-title-header-renderer button[aria-label*="lose"]') ||
+				document.querySelector('ytd-engagement-panel-title-header-renderer button[aria-label*="акрыть"]');
+			if (closeButton) {
+				closeButton.click();
+			}
+		}
+	}, function () {
+		console.error('ImprovedTube: Transcript not available for this video');
+		button.dataset.tooltip = 'TranscriptError';
+		resetButton(2000);
+	});
 };
 
 ImprovedTube.renderSubtitle = function (ctx, captionElements) {

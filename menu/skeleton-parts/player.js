@@ -2039,6 +2039,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'copyTranscript',
 				value: true
 			},
+			download_transcript: {
+				component: 'switch',
+				text: 'downloadTranscript',
+				value: false
+			},
 			below_player_screenshot: {
 				component: 'switch',
 				text: 'screenshot',
