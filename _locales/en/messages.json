@@ -276,6 +276,18 @@
   "channel": {
     "message": "Channel"
   },
+  "channelPlaybackSpeed": {
+    "message": "Channel-specific Playback Speed"
+  },
+  "channelPlaybackSpeedAdd": {
+    "message": "Add channel"
+  },
+  "channelPlaybackSpeedPrompt": {
+    "message": "Enter channel name:"
+  },
+  "channelPlaybackSpeedSpeedPrompt": {
+    "message": "Enter playback speed (e.g., 1.25, 1.5, 2.0):"
+  },
   "channels": {
     "message": "Channels"
   },
