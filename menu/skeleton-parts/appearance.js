@@ -634,8 +634,7 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 			},
 			hdr_badge: {
 				component: "switch",
-				text: "hdrBadge",
-				value: true
+				text: "hdrBadge"
 			}
 			}
 		}
