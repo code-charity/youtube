@@ -943,6 +943,110 @@ ImprovedTube.channelVideosCount = function () {
 		xhr.send();
 	}
 };
+/*------------------------------------------------------------------------------
+SHOW HDR BADGE NEXT TO THE VIDEO TITLE
+------------------------------------------------------------------------------*/
+ImprovedTube.hdrBadge = function () {
+	var badgeClass = 'it-hdr-badge';
+
+	function clearBadge () {
+		var old = document.querySelectorAll('.' + badgeClass),
+			i;
+		for (i = 0; i < old.length; i++) {
+			old[i].remove();
+		}
+	}
+
+	clearBadge();
+
+	if (this.storage.hdr_badge !== true) { return; }
+	if (document.documentElement.dataset.pageType !== 'video') { return; }
+
+	var self = this,
+		videoId = null;
+	try { videoId = self.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v'); } catch (e) {}
+
+	function belongsToVideo (resp) {
+		if (!resp || typeof resp !== 'object') { return false; }
+		var id = resp.videoDetails && resp.videoDetails.videoId;
+		return !id || !videoId || id === videoId;
+	}
+
+	function isHdrResponse (resp) {
+		var formats, i, format, colorInfo, tc, primaries;
+		if (!resp || typeof resp !== 'object' || !resp.streamingData) { return false; }
+		formats = resp.streamingData.adaptiveFormats || [];
+		for (i = 0; i < formats.length; i++) {
+			format = formats[i] || {};
+			colorInfo = format.colorInfo || {};
+			tc = String(colorInfo.transferCharacteristics || '').toUpperCase();
+			// PQ (SMPTE 2084 / HDR10)
+			if (tc.indexOf('2084') !== -1 || tc.indexOf('PQ') !== -1) { return true; }
+			// HLG (ARIB STD-B67)
+			if (tc.indexOf('HLG') !== -1 || tc.indexOf('B67') !== -1 || tc.indexOf('ARIB') !== -1) { return true; }
+			primaries = String(colorInfo.primaries || colorInfo.colorGamut || '').toUpperCase();
+			if (primaries.indexOf('2020') !== -1 || primaries.indexOf('2100') !== -1) { return true; }
+			if (String(format.qualityLabel || '').toUpperCase().indexOf('HDR') !== -1) { return true; }
+			// VP9 Profile 2 is YouTube's HDR carrier codec
+			if (/VP0?9[\._]0?2/i.test(format.mimeType || '')) { return true; }
+		}
+		return false;
+	}
+
+	function getResponse () {
+		var player, resp;
+		try {
+			player = document.getElementById('movie_player');
+			if (player && typeof player.getPlayerResponse === 'function') {
+				resp = player.getPlayerResponse();
+				if (resp && belongsToVideo(resp)) { return resp; }
+			}
+		} catch (e) {}
+		try {
+			if (belongsToVideo(window.ytInitialPlayerResponse)) { return window.ytInitialPlayerResponse; }
+		} catch (e) {}
+		return null;
+	}
+
+	function ensureBadge () {
+		var title = document.querySelector('ytd-watch-metadata #title') || document.querySelector('#above-the-fold #title'),
+			badge;
+		if (!title) { return false; }
+		if (title.querySelector('.' + badgeClass)) { return true; }
+		badge = document.createElement('span');
+		badge.className = badgeClass;
+		badge.textContent = 'HDR';
+		badge.title = 'This video offers HDR (shown even while Windows is in SDR mode)';
+		title.appendChild(badge);
+		return true;
+	}
+
+	function attempt (retriesLeft) {
+		if (document.documentElement.dataset.pageType !== 'video') { return; }
+		var resp = getResponse();
+		if (resp && isHdrResponse(resp)) {
+			if (ensureBadge()) {
+				// Title node may be re-created by YouTube after we checked; verify briefly.
+				if (retriesLeft > 0) {
+					setTimeout(function () {
+						if (!document.querySelector('.' + badgeClass)) { attempt(retriesLeft - 1); }
+					}, 1500);
+				}
+			} else if (retriesLeft > 0) {
+				// HDR confirmed but the title node is not in the DOM yet; wait for it.
+				setTimeout(function () { attempt(retriesLeft - 1); }, 1200);
+			}
+			return;
+		}
+		// Player response may not be populated yet (or belong to the previous
+		// video right after SPA navigation); retry a few times, then give up.
+		if (retriesLeft > 0) {
+			setTimeout(function () { attempt(retriesLeft - 1); }, 1200);
+		}
+	}
+
+	attempt(4);
+};
 if (ImprovedTube.storage.header_transparent2 === true) {
 	/*------------------------------------------------------------------------------
     TURN TOP BAR TRANSPARENT WHEN SCROLLING

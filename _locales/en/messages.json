@@ -645,6 +645,9 @@
   "hdThumbnail": {
     "message": "HD thumbnail"
   },
+  "hdrBadge": {
+    "message": "Show HDR badge next to the video title"
+  },
   "header": {
     "message": "Header"
   },

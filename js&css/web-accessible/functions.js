@@ -371,6 +371,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.dayOfWeek();
 		ImprovedTube.exactUploadDate();
 		ImprovedTube.channelVideosCount();
+		ImprovedTube.hdrBadge();
 		ImprovedTube.upNextAutoplay();
 		ImprovedTube.playerAutofullscreen();
 		ImprovedTube.playerSize();

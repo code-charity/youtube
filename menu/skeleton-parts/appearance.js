@@ -631,6 +631,11 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 			cc_indicator: {
 				component: "switch",
 				text: "ccIndicator"
+			},
+			hdr_badge: {
+				component: "switch",
+				text: "hdrBadge",
+				value: true
 			}
 			}
 		}

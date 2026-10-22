@@ -5,6 +5,7 @@
 # General
 --------------------------------------------------------------*/
 #info #info-text {max-height: 6rem; display: block;}
+.it-hdr-badge{display:inline-block;margin-left:8px;padding:1px 6px;border:1px solid #e6c200;border-radius:4px;color:#e6c200;font-size:12px;font-weight:600;line-height:1.4;vertical-align:middle;white-space:nowrap;}
 html:not([it-below-player-screenshot='false']) #above-the-fold  #channel-name,
 html:not([it-below-player-pip='false']) #above-the-fold  #channel-name,
 html[it-below-player-loop='true'] #above-the-fold  #channel-name { max-height: max(25px, 1.5vw) }
