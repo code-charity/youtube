@@ -306,23 +306,46 @@ ImprovedTube.playerSubtitles = function (attempt = 0) {
 	}
 };
 /*------------------------------------------------------------------------------
+RETRY PLAYER ACTION
+------------------------------------------------------------------------------*/
+// On SPA navigation the player can exist before the new video's captions or
+// audio tracks are ready. `action` returns true when done, false to try again
+// later, or 'stop' when the player is ready but the action cannot apply.
+// Retries end on the next navigation, so they never act on another video.
+ImprovedTube.retryPlayerAction = function (action, attempts = 6, delay = 400) {
+	const url = location.href;
+	const tryAction = function (attempt) {
+		if (location.href !== url) return;
+		if (action() === false && attempt < attempts) {
+			setTimeout(function () { tryAction(attempt + 1); }, delay * attempt);
+		}
+	};
+
+	tryAction(1);
+};
+/*------------------------------------------------------------------------------
 SUBTITLES LANGUAGE
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesLanguage = function () {
-	const option = this.storage.subtitles_language,
-		player = this.elements.player;
-	let subtitlesState;
+	const option = this.storage.subtitles_language;
+	if (!option) return;
 
-	if (option && player && player.getOption && player.setOption && player.isSubtitlesOn && player.toggleSubtitles) {
-		const matchedTrack = player.getOption('captions', 'tracklist', {includeAsr: true})?.find(track => track.languageCode.includes(option) && (!track.vss_id.includes("a.") || this.storage.auto_generate));
+	this.retryPlayerAction(() => {
+		const player = this.elements.player;
+		if (!player || !player.getOption || !player.setOption || !player.isSubtitlesOn || !player.toggleSubtitles) return false;
 
-		if (matchedTrack) {
-			subtitlesState = player.isSubtitlesOn();
-			player.setOption('captions', 'track', matchedTrack);
-			// setOption forces Subtitles ON, restore state from before calling it.
-			if (!subtitlesState) { player.toggleSubtitles(); }
-		}
-	}
+		const tracklist = player.getOption('captions', 'tracklist', {includeAsr: true});
+		if (!tracklist?.length) return false;
+
+		const matchedTrack = tracklist.find(track => track.languageCode.includes(option) && (!track.vss_id.includes("a.") || this.storage.auto_generate));
+		if (!matchedTrack) return 'stop';
+
+		const subtitlesState = player.isSubtitlesOn();
+		player.setOption('captions', 'track', matchedTrack);
+		// setOption forces Subtitles ON, restore state from before calling it.
+		if (!subtitlesState) { player.toggleSubtitles(); }
+		return true;
+	});
 };
 /*------------------------------------------------------------------------------
 SUBTITLES FONT FAMILY
@@ -2513,8 +2536,17 @@ ImprovedTube.disableAutoDubbing = function () {
 		this.autoDubbingGuard.enforce();
 	};
 
-	this.selectPermittedAudioTrack(this.elements.player);
-	this.enforceAutoDubbingPolicy();
+	// After SPA navigation the player may not expose its audio tracks yet, and
+	// enforceAutoDubbingPolicy would return without installing the guard.
+	this.retryPlayerAction(() => {
+		if (this.storage.disable_auto_dubbing !== true) return 'stop';
+		const player = this.elements.player;
+		if (!player?.getAvailableAudioTracks) return false;
+
+		this.selectPermittedAudioTrack(player);
+		this.enforceAutoDubbingPolicy();
+		return true;
+	});
 };
 
 /*------------------------------------------------------------------------------
