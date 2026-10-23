@@ -3149,7 +3149,7 @@ satus.user.device.connection = function () {
 --------------------------------------------------------------*/
 
 satus.search = function (query, object, callback) {
-	const included = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button'],
+	const included = ['switch', 'select', 'slider', 'shortcut', 'radio', 'color-picker', 'label', 'button', 'time'],
 		excluded = [
 			'baseProvider',
 			'layersProvider',
@@ -3165,20 +3165,44 @@ satus.search = function (query, object, callback) {
 
 	query = query.toLowerCase();
 
+	function getSubheading (target) {
+		let p = target;
+		while (p && p.parentObject && !p.parentObject.category && p.parentObject.component !== 'button') {
+			if (p.parentObject.title && typeof p.parentObject.title === 'string') {
+				return p.parentObject.title;
+			}
+			p = p.parentObject;
+		}
+		return undefined;
+	}
+
 	function parse (items) {
 		threads++;
 
 		for (const [key, item] of Object.entries(items)) {
 			if (!excluded.includes(key)) {
-				if (item.component && item.text
+				if (item.component
 					// list of elements we allow search on
 					&& included.includes(item.component)
 					// only pass buttons whose parents are variant: 'card' or special case 'appearance' (this one abuses variant tag for CSS)
-					&& (item.component != 'button' || item.parentObject?.variant == "card" || item.parentObject?.variant == "appearance")
-					// try to match query against localized description, fallback on component name
-					&& (satus.locale.data[item.text] ? satus.locale.data[item.text] : item.text).toLowerCase().includes(query)) {
-					// plop matching results in array - this means we cant have two elements with same name in results
-					results[key] = Object.assign({}, item);
+					&& (item.component != 'button' || item.parentObject?.variant == "card" || item.parentObject?.variant == "appearance")) {
+					
+					let text = item.text || item.label?.text || '',
+						localizedText = satus.locale.data[text] || text,
+						tags = typeof item.tags === 'string' ? item.tags : '',
+						subheading = getSubheading(item) || (typeof item.title === 'string' ? item.title : ''),
+						localizedSubheading = subheading ? (satus.locale.data[subheading] || subheading) : '';
+
+					let match = (localizedText && localizedText.toLowerCase().includes(query))
+						|| (text && text.toLowerCase().includes(query))
+						|| (tags && tags.toLowerCase().includes(query))
+						|| (subheading && subheading.toLowerCase().includes(query))
+						|| (localizedSubheading && localizedSubheading.toLowerCase().includes(query));
+
+					if (match) {
+						// plop matching results in array - this means we cant have two elements with same name in results
+						results[key] = Object.assign({}, item);
+					}
 				}
 
 				if (satus.isObject(item)
