@@ -685,6 +685,27 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				button.appendChild(svg);
 				section.insertAdjacentElement('afterend', button);
 			}
+
+			if (this.storage.download_transcript === true && !document.querySelector('#it-below-player-download-transcript')) {
+				const button = document.createElement('button'),
+					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+				button.className = 'improvedtube-player-button';
+				button.id = 'it-below-player-download-transcript';
+				button.dataset.tooltip = 'DownloadTranscript';
+				svg.style.opacity = '.5';
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				path.setAttributeNS(null, 'd', 'M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z');
+
+				button.onclick = function () {
+					ImprovedTube.downloadTranscript(svg, button);
+				};
+
+				svg.appendChild(path);
+				button.appendChild(svg);
+				section.insertAdjacentElement('afterend', button);
+			}
 	  }
 	}
 };

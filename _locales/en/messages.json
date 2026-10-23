@@ -339,6 +339,9 @@
   "copyTranscript": {
     "message": "📋 Copy Transcript"
   },
+  "downloadTranscript": {
+    "message": "📜📥 Download Transcript (.txt)"
+  },
   "FetchingTranscript": {
     "message": "Fetching..."
   },
