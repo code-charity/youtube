@@ -291,7 +291,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 	}
 	function setGrid () {
 		let checkParentInterval = setInterval(() => {
-			container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement;
+			const container = document.querySelector("#related ytd-compact-video-renderer.style-scope")?.parentElement;
 			if (container) {
 				clearInterval(checkParentInterval);
 				container.style.display = "flex";

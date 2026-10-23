@@ -4,7 +4,23 @@ jest.mock('../../js&css/extension/core', () => ({
 	events: {
 		listeners: {},
 		on: jest.fn(),
-		trigger: jest.fn(),
+		trigger: async function (type, data) {
+			const listeners = this.listeners[type];
+
+			if (listeners) {
+				for (let i = 0, l = listeners.length; i < l; i++) {
+					const listener = listeners[i];
+
+					if (typeof listener === 'function') {
+						if (listener instanceof (async function () { }).constructor === true) {
+							await listener(data);
+						} else {
+							listener(data);
+						}
+					}
+				}
+			}
+		},
 	},
 	features: {},
 	functions: {},
@@ -35,28 +51,6 @@ jest.mock('../../js&css/extension/core', () => ({
 		}
 		return result;
 	}),
-
-	events: {
-		// Mock implementation of the events function
-		listeners: {},
-		trigger: async function (type, data) {
-			const listeners = this.listeners[type];
-
-			if (listeners) {
-				for (let i = 0, l = listeners.length; i < l; i++) {
-					const listener = listeners[i];
-
-					if (typeof listener === 'function') {
-						if (listener instanceof (async function () { }).constructor === true) {
-							await listener(data);
-						} else {
-							listener(data);
-						}
-					}
-				}
-			}
-		},
-	},
 
 }));
 

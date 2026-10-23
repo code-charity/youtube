@@ -110,7 +110,7 @@ function subscriptionEntries() {
 
 extension.features.collapseOfSubscriptionSections = function (event) {
 	if (typeof event === "boolean") {
-		subs = subscriptionEntries()
+		const subs = subscriptionEntries();
 		if (subs instanceof Error) {
 			console.error(subs.message)
 			return
@@ -239,7 +239,7 @@ extension.features.defaultContentCountry = function (changed) {
 
 			date.setTime(date.getTime() + 3.154e+10);
 
-			document.cookie = 's_gl=' + value + '; path=/; domain=.youtube.com; expires=' + date.toGMTString();
+			document.cookie = 's_gl=' + value + '; path=/; domain=.youtube.com; expires=' + date.toUTCString();
 		} else {
 			document.cookie = 's_gl=0; path=/; domain=.youtube.com; expires=Thu, 01 Jan 1970 00:00:01 GMT';
 		}
@@ -282,7 +282,8 @@ extension.features.popupWindowButtons = function (event) {
 								var videoLink = extension.features.popupWindowButtons.findVideoLink(this.parentElement);
 								if (!videoLink) return;
 								try { this.dataset.id = videoLink.href.match(/(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/)[1] } catch (error) { console.log(error); return; };
-								ytPlayer = document.querySelector("#movie_player");
+								const ytPlayer = document.querySelector("#movie_player");
+								let width, height;
 								if (ytPlayer) { width = ytPlayer.offsetWidth * 0.65; height = ytPlayer.offsetHeight * 0.65 } else { width = innerWidth * 0.4; height = innerHeight * 0.4; }
 								if (!ytPlayer) {
 									let shorts = /short/.test(videoLink.href);
