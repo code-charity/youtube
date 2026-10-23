@@ -135,7 +135,19 @@ PERMANENT PLAYBACK SPEED
 ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
 	var player = this.elements.player; if (!player) return;
 	var video = this.elements.video || player.querySelector('video');
-	option = this.storage.player_playback_speed;
+	
+	// Check for channel-specific playback speed
+	var channelNameEl = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
+	var channelName = channelNameEl ? channelNameEl.textContent.trim() : '';
+	var channelSpeeds = this.storage.channel_playback_speeds || {};
+	
+	// Use channel-specific speed if available, otherwise use global speed
+	if (channelName && channelSpeeds[channelName] && typeof channelSpeeds[channelName] === 'number') {
+		option = channelSpeeds[channelName];
+	} else {
+		option = this.storage.player_playback_speed;
+	}
+	
 	if (this.isset(option) === false) { option = 1; }
 	else if ( option !== 1 ) {
 		const speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
