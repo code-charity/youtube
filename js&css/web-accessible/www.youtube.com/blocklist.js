@@ -52,7 +52,7 @@ ImprovedTube.blocklistNode = function (node) {
 				channel = this.parentNode.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name
 					|| ImprovedTube.blocklistLockupChannel(this.parentNode, video)
 					// video-preview doesnt have Channel info, extract from source thumbnail
-					|| ((video && this.parentNode?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video).parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
+					|| ((video && this.parentNode?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video)?.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
 				blockedElement = ImprovedTube.blocklistElementTypeHelper(node),
 
 				// Yes, this is horrible. Cant find better way of extracting title :(
@@ -276,7 +276,7 @@ ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 			channel = mutation.target.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name
 				|| ImprovedTube.blocklistLockupChannel(mutation.target, video)
 				// video-preview doesnt have Channel info, extract from source thumbnail
-				|| ((video && mutation.target?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video).parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
+				|| ((video && mutation.target?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video)?.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
 			blockedElement = ImprovedTube.blocklistElementTypeHelper(mutation.target);
 
 		if (!blockedElement) return; // unknown thumbnail cell type, bail out
