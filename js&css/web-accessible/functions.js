@@ -390,10 +390,12 @@ ImprovedTube.videoPageUpdate = function () {
 		if ( this.storage.hdr_badge === true && document.documentElement.dataset.pageType === 'video') {		ImprovedTube.hdrBadge(); };
 
 		// Initialize large playlist handler for playlist videos
-		if (this.getParam(location.href, 'list')) {
+		// Skip queue-type playlists (WL, RD, etc.) to prevent interference
+		var listId = this.getParam(location.href, 'list');
+		if (listId && listId !== 'WL' && listId !== 'RD' && listId.indexOf('RDAMVM') !== 0 && listId.indexOf('OLAK5uy_') !== 0) {
 			ImprovedTube.playlistLargePlaylistHandler();
 		} else {
-			// Cleanup when not on a playlist
+			// Cleanup when not on a playlist or on a queue-type playlist
 			if (typeof ImprovedTube.cleanupPlaylistHandlers === 'function') {
 				ImprovedTube.cleanupPlaylistHandlers();
 			}
