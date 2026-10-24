@@ -959,9 +959,6 @@ ImprovedTube.hdrBadge = function () {
 
 	clearBadge();
 
-	if (this.storage.hdr_badge !== true) { return; }
-	if (document.documentElement.dataset.pageType !== 'video') { return; }
-
 	var self = this,
 		videoId = null;
 	try { videoId = self.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v'); } catch (e) {}
