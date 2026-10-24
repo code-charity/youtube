@@ -387,6 +387,7 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerCinemaModeButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
+		if ( this.storage.hdr_badge === true && document.documentElement.dataset.pageType === 'video') {		ImprovedTube.hdrBadge(); };
 
 		// Initialize large playlist handler for playlist videos
 		if (this.getParam(location.href, 'list')) {
