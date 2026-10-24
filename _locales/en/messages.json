@@ -672,6 +672,9 @@
   "hide_author_avatars": {
     "message": "Hide author avatars"
   },
+  "hideCommentImages": {
+    "message": "Hide images and GIFs in comments"
+  },
   "hide_labels": {
     "message": "Hide names"
   },
