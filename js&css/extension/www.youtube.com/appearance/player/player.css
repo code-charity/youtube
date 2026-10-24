@@ -815,3 +815,29 @@ html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
     fill: #3ea6ff !important;
     filter: drop-shadow(0 0 4px rgba(62, 166, 255, 0.4));
 }
+
+/*--------------------------------------------------------------
+# CINEMA MODE (toggled by ImprovedTube.cinemaModeSetVisible)
+--------------------------------------------------------------*/
+
+html[it-cinema-mode],
+html[it-cinema-mode] body,
+html[it-cinema-mode] ytd-app,
+html[it-cinema-mode] ytd-page-manager,
+html[it-cinema-mode] ytd-watch-flexy {
+	background: #000 !important;
+}
+
+html[it-cinema-mode] ytd-masthead,
+html[it-cinema-mode] #guide,
+html[it-cinema-mode] tp-yt-app-drawer,
+html[it-cinema-mode] ytd-mini-guide-renderer,
+html[it-cinema-mode] ytd-watch-flexy #secondary,
+html[it-cinema-mode] ytd-watch-flexy #below,
+html[it-cinema-mode] ytd-watch-flexy #panels,
+html[it-cinema-mode] ytd-watch-flexy #cinematics,
+html[it-cinema-mode] ytd-watch-flexy #chat-container,
+html[it-cinema-mode] ytd-watch-flexy #related,
+html[it-cinema-mode] ytd-watch-flexy #comments {
+	display: none !important;
+}
