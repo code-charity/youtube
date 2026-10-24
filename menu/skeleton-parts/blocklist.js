@@ -28,6 +28,10 @@ extension.skeleton.main.layers.section.blocklist = {
 					storage: 'blocklist_dislike_trigger',
 					id: 'blocklist_dislike_trigger'
 
+				},
+				blocklist_hide_completely: {
+					component: 'switch',
+					text: 'hideBlockedVideosCompletely'
 				}
 			},
 
