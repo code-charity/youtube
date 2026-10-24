@@ -33,6 +33,7 @@ function playerResponse(videoId, formats) {
 function createHarness({setting = true, response = null, pageType = 'video', staleBadges = []} = {}) {
 	const appended = [];
 	const removed = [];
+	const scheduled = [];
 	staleBadges.forEach(badge => {
 		badge.remove = () => { removed.push(badge); };
 	});
@@ -47,7 +48,7 @@ function createHarness({setting = true, response = null, pageType = 'video', sta
 		String,
 		RegExp,
 		console,
-		setTimeout: () => 0,
+		setTimeout: callback => scheduled.push(callback),
 		document: {
 			documentElement: {dataset: {pageType}},
 			getElementById: id => (id === 'movie_player' ? moviePlayer : null),
@@ -63,7 +64,7 @@ function createHarness({setting = true, response = null, pageType = 'video', sta
 		}
 	};
 	loadHdrBadge(context);
-	return {context, appended, removed};
+	return {context, appended, removed, scheduled};
 }
 
 describe('HDR badge (ImprovedTube.hdrBadge)', () => {
@@ -127,9 +128,9 @@ describe('HDR badge (ImprovedTube.hdrBadge)', () => {
 		expect(appended.length).toBe(0);
 	});
 
-	test('shows no badge when the setting is off, but clears stale badges', () => {
+	test.each([false, null, 1, 'true'])('clears stale badges without displaying a new one when the setting is %p', setting => {
 		const stale = [{}];
-		const {context, appended, removed} = createHarness({setting: false, staleBadges: stale,
+		const {context, appended, removed, scheduled} = createHarness({setting, staleBadges: stale,
 			response: playerResponse('abc123abc12', [
 				adaptiveFormat({colorInfo: {transferCharacteristics: 'SMPTE2084'}})
 			])
@@ -137,6 +138,30 @@ describe('HDR badge (ImprovedTube.hdrBadge)', () => {
 		context.ImprovedTube.hdrBadge();
 		expect(appended.length).toBe(0);
 		expect(removed.length).toBe(1);
+		expect(scheduled.length).toBe(0);
+	});
+
+	test('shows no badge when the setting has not been saved', () => {
+		const {context, appended, scheduled} = createHarness({
+			response: playerResponse('abc123abc12', [adaptiveFormat({qualityLabel: '2160p HDR'})])
+		});
+		delete context.ImprovedTube.storage.hdr_badge;
+		context.ImprovedTube.hdrBadge();
+		expect(appended.length).toBe(0);
+		expect(scheduled.length).toBe(0);
+	});
+
+	test.each([[false, 0], [true, 1]])('honors setting %p when a pending retry runs', (setting, expectedBadges) => {
+		const {context, appended, scheduled} = createHarness();
+		context.ImprovedTube.hdrBadge();
+		expect(scheduled.length).toBe(1);
+		context.ImprovedTube.storage.hdr_badge = setting;
+		context.window.ytInitialPlayerResponse = playerResponse('abc123abc12', [
+			adaptiveFormat({qualityLabel: '2160p HDR'})
+		]);
+		scheduled.shift()();
+		expect(appended.length).toBe(expectedBadges);
+		expect(scheduled.length).toBe(expectedBadges);
 	});
 
 	test('ignores a player response that belongs to another video (SPA staleness)', () => {
