@@ -1082,7 +1082,7 @@ ImprovedTube.hdrBadge = function () {
 	}
 
 	function attempt (retriesLeft) {
-		if (document.documentElement.dataset.pageType !== 'video') { return; }
+		if (self.storage.hdr_badge !== true || document.documentElement.dataset.pageType !== 'video') { return; }
 		var resp = getResponse();
 		if (resp && isHdrResponse(resp)) {
 			if (ensureBadge()) {
