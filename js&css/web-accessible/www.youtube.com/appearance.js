@@ -1022,8 +1022,15 @@ ImprovedTube.hdrBadge = function () {
 
 	clearBadge();
 
-	var self = this,
-		videoId = null;
+	var self = this || ImprovedTube;
+
+	// Not every caller reaches this function through the storage-guarded
+	// wrapper in functions.js (unit tests invoke hdrBadge directly), so the
+	// function honors the setting itself: with hdr_badge off, a call only
+	// clears stale badges.
+	if (!self.storage || self.storage.hdr_badge !== true) { return; }
+
+	var videoId = null;
 	try { videoId = self.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v'); } catch (e) {}
 
 	function belongsToVideo (resp) {
