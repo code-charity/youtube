@@ -5,7 +5,8 @@ ImprovedTube.blocklistNode = function (node) {
 	if (!this.storage.blocklist_activate || !node) return;
 
 	const video = node.href?.match(ImprovedTube.regex.video_id)?.[1] || (node.classList?.contains('ytd-video-preview') ? 'video-preview' : null),
-		channel = node.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name,
+		channel = node.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name
+			|| this.blocklistLockupChannel(node, video),
 		blockedElement = this.blocklistElementTypeHelper(node);
 
 	if (!video) return; // not interested in nodes without one
@@ -49,6 +50,7 @@ ImprovedTube.blocklistNode = function (node) {
 			if (!this.parentNode.href) return; // no href no action
 			const video = this.parentNode.href?.match(ImprovedTube.regex.video_id)?.[1],
 				channel = this.parentNode.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name
+					|| ImprovedTube.blocklistLockupChannel(this.parentNode, video)
 					// video-preview doesnt have Channel info, extract from source thumbnail
 					|| ((video && this.parentNode?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video).parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
 				blockedElement = ImprovedTube.blocklistElementTypeHelper(node),
@@ -230,7 +232,7 @@ ImprovedTube.blocklistInit = function () {
 		if (!this.storage.blocklist.channels || typeof this.storage.blocklist.channels !== 'object') {
 			this.storage.blocklist.channels = {};
 		}
-		for (const thumbnail of document.querySelectorAll('a.ytd-thumbnail[href], a.ytd-video-preview')) {
+		for (const thumbnail of document.querySelectorAll('a.ytd-thumbnail[href], a.ytLockupViewModelContentImage[href], a.ytd-video-preview')) {
 			this.blocklistNode(thumbnail);
 		}
 		if (document.querySelector('YTD-SUBSCRIBE-BUTTON-RENDERER, YT-SUBSCRIBE-BUTTON-VIEW-MODEL, YTD-BUTTON-RENDERER.ytd-c4-tabbed-header-renderer')) {
@@ -272,6 +274,7 @@ ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 	for (const mutation of mutationList) {
 		const video = mutation.target.href?.match(ImprovedTube.regex.video_id)?.[1],
 			channel = mutation.target.parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name
+				|| ImprovedTube.blocklistLockupChannel(mutation.target, video)
 				// video-preview doesnt have Channel info, extract from source thumbnail
 				|| ((video && mutation.target?.classList.contains('ytd-video-preview')) ? ImprovedTube.elements.observerList.find(a => a.id == 'thumbnail' && a.href?.match(ImprovedTube.regex.video_id)?.[1] === video).parentNode?.__dataHost?.__data?.data?.shortBylineText?.runs?.[0]?.navigationEndpoint?.commandMetadata?.webCommandMetadata?.url?.match(ImprovedTube.regex.channel)?.groups?.name : null),
 			blockedElement = ImprovedTube.blocklistElementTypeHelper(mutation.target);
@@ -299,7 +302,23 @@ ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 	}
 });
 
+// new lockup thumbnails have no __dataHost, and the list next to player has no channel link: read the channel from lockupViewModel data
+ImprovedTube.blocklistLockupChannel = function (node, video) {
+	if (!video || !node.classList?.contains('ytLockupViewModelContentImage')) return;
+
+	const lockup = node.closest('ytd-rich-item-renderer')?.data?.content?.lockupViewModel
+		|| node.closest('ytd-item-section-renderer')?.data?.contents?.find(item => item.lockupViewModel?.contentId === video)?.lockupViewModel;
+
+	if (lockup?.contentId !== video) return; // reused cell whose data is not updated yet
+
+	return JSON.stringify(lockup).match(/"canonicalBaseUrl":"([^"]+)"/)?.[1]?.match(ImprovedTube.regex.channel)?.groups?.name;
+};
+
 ImprovedTube.blocklistElementTypeHelper = function (node) {
+	// new lockup thumbnails: home grid (inside ytd-rich-item-renderer) and list next to player
+	if (node.classList.contains('ytLockupViewModelContentImage')) {
+		return node.closest('ytd-rich-item-renderer') || node.closest('yt-lockup-view-model');
+	}
 	switch (node.parentNode.className.replace('style-scope ', '')) {
 		case 'ytd-compact-video-renderer':
 			// list next to player

@@ -42,7 +42,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		}
 		if (this.storage.blocklist_activate) {
 			// we are interested in thumbnails and video-previews, skip ones with 'button.it-add-to-blocklist' already
-			if (((node.href && node.classList.contains('ytd-thumbnail')) || node.classList.contains('ytd-video-preview'))
+			if (((node.href && (node.classList.contains('ytd-thumbnail') || node.classList.contains('ytLockupViewModelContentImage'))) || node.classList.contains('ytd-video-preview'))
 				&& !node.querySelector("button.it-add-to-blocklist")) {
 				this.blocklistNode(node);
 			}
