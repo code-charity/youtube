@@ -1940,6 +1940,9 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "hideHomeCategoryBar": {
+    "message": "Hide category bar on YouTube home page"
   }
 }
 
