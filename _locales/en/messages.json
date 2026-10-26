@@ -771,6 +771,9 @@
   "hideProgressBarPreview": {
     "message": "Hide progress bar preview"
   },
+  "disablePreciseSeeking": {
+    "message": "Disable precise seeking (keeps the video playing)"
+  },
   "hideReport": {
     "message": "Hide 'Report'"
   },
