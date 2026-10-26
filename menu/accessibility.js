@@ -103,10 +103,81 @@
 		return name || '';
 	}
 
+	function resolveDocumentLanguage (storedLanguage) {
+		let language = String(storedLanguage || '');
+		if (!language || language === 'default') {
+			try {
+				if (root.chrome && root.chrome.i18n && typeof root.chrome.i18n.getUILanguage === 'function') {
+					language = root.chrome.i18n.getUILanguage() || '';
+				}
+			} catch (_) {}
+			if (!language || language === 'default') language = (root.navigator && root.navigator.language) || 'en';
+		}
+		language = language.replace(/_/g, '-');
+		return /^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$/.test(language) ? language : 'en';
+	}
+
+	function updateLanguage (storedLanguage) {
+		if (!root.document || !root.document.documentElement) return;
+		let language = storedLanguage;
+		if (language === undefined) {
+			try {
+				if (typeof satus !== 'undefined' && satus.storage && typeof satus.storage.get === 'function') language = satus.storage.get('language') || '';
+			} catch (_) {
+				language = '';
+			}
+		}
+		root.document.documentElement.lang = resolveDocumentLanguage(language);
+	}
+
+	function translateStructuredSelect (wrapper, control) {
+		if (!wrapper || !control || String(control.tagName || '').toLowerCase() !== 'select') return control;
+		const skeletonKey = wrapper.skeleton && wrapper.skeleton.text;
+		let type = '';
+		if (skeletonKey === 'defaultContentCountry') type = 'region';
+		else if (skeletonKey === 'language' || skeletonKey === 'youtubeLanguage' || skeletonKey === 'improvedtubeLanguage') type = 'language';
+		if (!type) return control;
+
+		let storedLanguage = '';
+		try {
+			if (typeof satus !== 'undefined' && satus.storage && typeof satus.storage.get === 'function') storedLanguage = satus.storage.get('language') || '';
+		} catch (_) {}
+		const language = resolveDocumentLanguage(storedLanguage);
+		if (!/^es(?:-|$)/i.test(language)) return control;
+
+		const DisplayNames = root.Intl && root.Intl.DisplayNames;
+		if (typeof DisplayNames !== 'function') return control;
+		let displayNames;
+		try {
+			displayNames = new DisplayNames([language], {type});
+		} catch (_) {
+			return control;
+		}
+		const options = control.options ? Array.from(control.options) : (control.children ? Array.from(control.children) : []);
+		for (const option of options) {
+			const value = String(option.value || '').trim();
+			if (!value) continue;
+			if (value === 'default') {
+				option.textContent = safeLocale('default', 'Predeterminado');
+				continue;
+			}
+			if (value === 'disabled') {
+				option.textContent = safeLocale('disabled', 'Desactivado');
+				continue;
+			}
+			try {
+				const translated = displayNames.of(value.replace(/_/g, '-'));
+				if (translated) option.textContent = translated;
+			} catch (_) {}
+		}
+		return control;
+	}
+
 	function enhanceNativeControl (wrapper, selector, localizer) {
 		if (!wrapper || typeof wrapper.querySelector !== 'function') return null;
 		const control = wrapper.querySelector(selector);
 		if (!control) return null;
+		translateStructuredSelect(wrapper, control);
 		setLabel(control, controlName(wrapper, localizer), false);
 		return control;
 	}
@@ -350,6 +421,7 @@
 		if (!root.document || installed) return;
 		installed = true;
 		visuallyHiddenStyle();
+		updateLanguage();
 
 		const start = function () {
 			pendingStart = null;
@@ -411,7 +483,10 @@
 		skeletonName,
 		controlName,
 		accessibleName,
+		resolveDocumentLanguage,
+		updateLanguage,
 		enhanceSwitch,
+		translateStructuredSelect,
 		enhanceNativeControl,
 		enhanceCustomButton,
 		enhanceButton,
