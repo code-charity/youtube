@@ -2193,6 +2193,31 @@ ImprovedTube.playerHideProgressPreview = function () {
 	}
 };
 
+/*------------------------------------------------------------------------------
+DISABLE PRECISE SEEKING
+--------------------------------------------------------------------------------
+	Moving the mouse up while dragging the progress bar opens YouTube's precise
+	seeking strip, which pauses the video. Close it as soon as the player
+	reports it open, before playback stops.
+------------------------------------------------------------------------------*/
+ImprovedTube.playerDisablePreciseSeeking = function () {
+	var player = this.elements.player;
+
+	if (this._preciseSeekingObserver) {
+		this._preciseSeekingObserver.disconnect();
+		this._preciseSeekingObserver = null;
+	}
+
+	if (this.storage.player_disable_precise_seeking !== true || !player) return;
+
+	this._preciseSeekingObserver = new MutationObserver(function () {
+		if (player.classList.contains('ytp-fine-scrubbing-enable')) {
+			var dismiss = player.querySelector('.ytp-fine-scrubbing-dismiss');
+			if (dismiss) dismiss.click();
+		}
+	});
+	this._preciseSeekingObserver.observe(player, { attributes: true, attributeFilter: ['class'] });
+};
 
 /*------------------------------------------------------------------------------
 Rewind and Forward Buttons
