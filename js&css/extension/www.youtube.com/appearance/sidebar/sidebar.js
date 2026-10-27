@@ -20,9 +20,10 @@ extension.features.sidePanels.handleClick = function (event) {
 	var target = event.target;
 	if (!target || !target.closest) return;
 
-	// Find the close (X) button inside a side panel header. YouTube renders it as
-	// a <button> with aria-label "Close" or as the SVG path with that role.
-	var closeButton = target.closest('#secondary #panels > * button[aria-label="Close"], #playlist button[aria-label="Close"]');
+	// Find the close (X) button inside a side panel header. Its aria-label is
+	// translated ("Close", "Fechar", ...) and can be longer ("Close transcript"),
+	// so match the #visibility-button wrapper YouTube puts around it instead.
+	var closeButton = target.closest('#secondary #panels > * #visibility-button button, #playlist button[aria-label="Close"]');
 	if (!closeButton) return;
 
 	var panel = closeButton.closest('#secondary #panels > *');
@@ -61,7 +62,7 @@ extension.features.sidePanels.handleHeaderClick = function (event) {
 	var header = target.closest('#secondary #panels > * #header, #secondary #panels > * #header-container, #secondary #panels > * #title, #playlist #header-container, #playlist #title');
 	if (!header) return;
 
-	if (target.closest('button[aria-label="Close"]')) return;
+	if (target.closest('#visibility-button, button[aria-label="Close"]')) return;
 
 	var panel = header.closest('#secondary #panels > *');
 	if (!panel && header.closest('#playlist')) {
@@ -70,7 +71,7 @@ extension.features.sidePanels.handleHeaderClick = function (event) {
 	if (!panel || !panel.hasAttribute('it-panel-collapsed')) return;
 
 	// Avoid hijacking legitimate header button clicks (overflow menu, options, etc.).
-	if (target.closest('button:not([aria-label="Close"])')) return;
+	if (target.closest('button')) return;
 	if (target.closest('a')) return;
 
 	event.preventDefault();
