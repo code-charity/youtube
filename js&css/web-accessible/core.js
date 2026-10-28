@@ -617,6 +617,17 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
+				case 'archiveTranscripts':
+				case 'recordViewingLog':
+					if (ImprovedTube.transcriptArchive) {
+						ImprovedTube.transcriptArchive.init();
+					}
+					break
+
+				case 'transcriptArchive':
+					ImprovedTube.transcriptArchive?.onStorageChanged?.(message.key, message.value);
+					break
+
 				case 'returnYoutubeDislike':
 					if (ImprovedTube.storage.return_youtube_dislike === true) {
 						ImprovedTube.returnYoutubeDislike();
