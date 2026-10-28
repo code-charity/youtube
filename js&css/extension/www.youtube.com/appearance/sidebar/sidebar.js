@@ -129,24 +129,26 @@ extension.features.relatedVideos = function (anything) {
 # LIVECHAT
 --------------------------------------------------------------*/
 
-extension.features.liveChat = function () {
+extension.features.livechat = function () {
 	if (extension.storage.get('livechat') === 'collapsed') {
-		window.addEventListener('click', function(event) {
-			if (extension.storage.get('livechat') !== 'collapsed') return;
+		window.addEventListener('click', extension.features.livechat.handleClick, true);
+	}
+};
 
-			var chat = event.target.closest('#chat-container');
-			if (!chat) return;
+extension.features.livechat.handleClick = function (event) {
+	if (extension.storage.get('livechat') !== 'collapsed') return;
 
-			var rect = chat.getBoundingClientRect();
-			if (
-				event.clientX - rect.left >= 0 &&
-				event.clientX - rect.left < rect.width &&
-				event.clientY - rect.top >= 0 &&
-				event.clientY - rect.top < 48
-			) {
-				chat.toggleAttribute('it-activated');
-			}
-		}, true);
+	var chat = event.target.closest('#chat-container');
+	if (!chat) return;
+
+	var rect = chat.getBoundingClientRect();
+	if (
+		event.clientX - rect.left >= 0 &&
+		event.clientX - rect.left < rect.width &&
+		event.clientY - rect.top >= 0 &&
+		event.clientY - rect.top < 48
+	) {
+		chat.toggleAttribute('it-activated');
 	}
 };
 
