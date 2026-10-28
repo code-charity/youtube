@@ -1940,6 +1940,62 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "archive": {
+    "message": "Archive"
+  },
+  "archiveSettings": {
+    "message": "Archive settings"
+  },
+  "archiveTranscripts": {
+    "message": "Archive transcripts of watched videos"
+  },
+  "recordViewingLog": {
+    "message": "Record a viewing log"
+  },
+  "searchTranscripts": {
+    "message": "Search archived transcripts"
+  },
+  "searchResults": {
+    "message": "Search results"
+  },
+  "recentlyArchived": {
+    "message": "Recently archived"
+  },
+  "archiveIsEmpty": {
+    "message": "No transcripts archived yet. Enable the archive and watch a video with captions."
+  },
+  "ranking": {
+    "message": "Ranking"
+  },
+  "personalRanking": {
+    "message": "Personal (watched and paused parts)"
+  },
+  "globalRanking": {
+    "message": "Global popularity (most replayed x video views)"
+  },
+  "viewingLog": {
+    "message": "Viewing log"
+  },
+  "viewingLogIsEmpty": {
+    "message": "No viewing history recorded yet."
+  },
+  "deleteArchive": {
+    "message": "Delete archived transcripts"
+  },
+  "deleteViewingLog": {
+    "message": "Delete viewing log"
+  },
+  "areYouSureYouWantToDeleteTheArchive": {
+    "message": "Delete all archived transcripts? This cannot be undone."
+  },
+  "areYouSureYouWantToDeleteTheViewingLog": {
+    "message": "Delete the whole viewing log? This cannot be undone."
+  },
+  "watched": {
+    "message": "watched"
+  },
+  "paused": {
+    "message": "paused"
   }
 }
-
