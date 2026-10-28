@@ -49,7 +49,7 @@ extension.events.on('init', function () {
 	extension.features.relatedVideos();
 	extension.features.sidePanels();
 	extension.features.stickyNavigation();
-	extension.features.liveChat();
+	extension.features.livechat();
 	extension.features.comments();
 	extension.features.openNewTab();
 	extension.features.removeListParamOnNewTab();
