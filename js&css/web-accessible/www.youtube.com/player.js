@@ -2118,6 +2118,36 @@ ImprovedTube.miniPlayer = function () {
 };
 
 /*------------------------------------------------------------------------------
+DISABLE NATIVE MINIPLAYER
+--------------------------------------------------------------------------------
+	Leaving the watch page (or pressing "i") shrinks the video into YouTube's
+	miniplayer, which keeps playing. Close it with its own close button as soon
+	as the player reports it minimized, which also stops the video.
+------------------------------------------------------------------------------*/
+ImprovedTube.playerDisableMiniplayer = function () {
+	var player = this.elements.player;
+	var wasMinimized = false;
+
+	if (this._miniplayerObserver) {
+		this._miniplayerObserver.disconnect();
+		this._miniplayerObserver = null;
+	}
+
+	if (this.storage.player_disable_miniplayer !== true || !player) return;
+
+	this._miniplayerObserver = new MutationObserver(function () {
+		var isMinimized = player.classList.contains('ytp-player-minimized');
+
+		if (isMinimized && !wasMinimized) {
+			var closeButton = document.querySelector('ytd-miniplayer .ytp-miniplayer-close-button');
+			if (closeButton) closeButton.click();
+		}
+		wasMinimized = isMinimized;
+	});
+	this._miniplayerObserver.observe(player, { attributes: true, attributeFilter: ['class'] });
+};
+
+/*------------------------------------------------------------------------------
 CUSTOM PAUSE FUNCTIONS
 ------------------------------------------------------------------------------*/
 ImprovedTube.pauseWhileTypingOnYoutube = function () {

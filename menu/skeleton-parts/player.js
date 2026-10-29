@@ -2004,6 +2004,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'customMiniPlayer'
 		},
+		player_disable_miniplayer: {
+			component: 'switch',
+			text: 'disableMiniplayer',
+			tags: 'miniplayer,mini,player,background'
+		},
 		forced_play_video_from_the_beginning: {
 			component: 'switch',
 			text: 'forcedPlayVideoFromTheBeginning'
