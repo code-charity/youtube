@@ -3380,52 +3380,31 @@ ImprovedTube.shortsAutoScroll = function () {
             ImprovedTube.shortsAutoScrollInterval = setInterval(() => {
                 if (!location.pathname.startsWith('/shorts/')) return;
 
-                const activeRenderer = document.querySelector('ytd-reel-video-renderer[is-active]');
-                const video = activeRenderer ? activeRenderer.querySelector('video') : null;
+                // ytd-reel-video-renderer[is-active] no longer exists (#4017),
+                // so use the video of #shorts-player or else the one that is playing
+                const video = document.querySelector('#shorts-player video')
+                            || Array.from(document.querySelectorAll('video')).find(v => !v.paused);
 
-                if (video && !video.dataset.itShortsScrollAttached) {
-                    video.dataset.itShortsScrollAttached = 'true';
+                if (!video || video.dataset.itShortsScrollAttached) return;
+                video.dataset.itShortsScrollAttached = 'true';
 
-                    const timeupdateHandler = function () {
-                        if (!ImprovedTube.storage.shorts_auto_scroll) {
-                            video.removeEventListener('timeupdate', timeupdateHandler);
-                            delete video.dataset.itShortsScrollAttached;
-                            return;
-                        }
-                        if (this.paused) return;
+                // the short has to end instead of looping, otherwise 'ended' never fires
+                video.loop = false;
+                video.itShortsScrollObserver = new MutationObserver(() => {
+                    if (video.loop) video.loop = false;
+                });
+                video.itShortsScrollObserver.observe(video, { attributes: true, attributeFilter: ['loop'] });
 
-                        // Get fresh references to avoid stale DOM elements
-                        const currentActiveRenderer = document.querySelector('ytd-reel-video-renderer[is-active]');
-                        const isVideoStillActive = currentActiveRenderer && currentActiveRenderer.contains(this);
+                // YouTube reuses the same video element for the next short, so the listener stays attached
+                video.itShortsScrollHandler = function () {
+                    if (!ImprovedTube.storage.shorts_auto_scroll || !location.pathname.startsWith('/shorts/')) return;
 
-                        if (!isVideoStillActive) {
-                            this.removeEventListener('timeupdate', timeupdateHandler);
-                            delete this.dataset.itShortsScrollAttached;
-                            return;
-                        }
+                    const nextButton = document.querySelector('#navigation-button-down button')
+                                    || document.querySelector('button[aria-label="Next video"]');
 
-                        if (this.duration && this.currentTime >= this.duration - 0.25) {
-                            try {
-                                // Find next button with fresh reference
-                                const nextButton = currentActiveRenderer.querySelector('#navigation-button-down button')
-                                                || document.querySelector('#navigation-button-down button')
-                                                || document.querySelector('button[aria-label="Next video"]');
-
-                                if (nextButton) {
-                                    this.pause();
-                                    nextButton.click();
-                                }
-                            } catch (error) {
-                                console.warn('[ImprovedTube] Shorts auto-scroll error:', error);
-                                // Remove listener on error to prevent breaking
-                                this.removeEventListener('timeupdate', timeupdateHandler);
-                                delete this.dataset.itShortsScrollAttached;
-                            }
-                        }
-                    };
-
-                    video.addEventListener('timeupdate', timeupdateHandler);
-                }
+                    if (nextButton) nextButton.click();
+                };
+                video.addEventListener('ended', video.itShortsScrollHandler);
             }, 1000);
         }
     } else {
@@ -3434,8 +3413,12 @@ ImprovedTube.shortsAutoScroll = function () {
             ImprovedTube.shortsAutoScrollInterval = null;
         }
 
-        // Clean up all existing event listeners when disabled
+        // Clean up all existing listeners when disabled
         document.querySelectorAll('video[data-it-shorts-scroll-attached]').forEach(video => {
+            video.removeEventListener('ended', video.itShortsScrollHandler);
+            if (video.itShortsScrollObserver) video.itShortsScrollObserver.disconnect();
+            delete video.itShortsScrollHandler;
+            delete video.itShortsScrollObserver;
             delete video.dataset.itShortsScrollAttached;
         });
     }
