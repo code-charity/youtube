@@ -41,6 +41,15 @@ describe('Playlist total duration (#4437)', () => {
 		expect(ImprovedTube.playlistParseDuration('10:00:00')).toBe(36000);
 	});
 
+	test('parses dot-separated durations from locales like Indonesian', () => {
+		// Some YouTube locales (e.g. Indonesian) render durations with dots
+		// instead of colons: "1.27.41" means 1:27:41
+		expect(ImprovedTube.playlistParseDuration('1.27.41')).toBe(5261);
+		expect(ImprovedTube.playlistParseDuration('1.08.06')).toBe(4086);
+		expect(ImprovedTube.playlistParseDuration('8.30')).toBe(510);
+		expect(ImprovedTube.playlistParseDuration('1.27.41\n    1.27.41')).toBe(5261);
+	});
+
 	test('extracts the first duration from duplicated or padded overlay text', () => {
 		// YouTube overlays can carry the duration twice or with extra whitespace
 		expect(ImprovedTube.playlistParseDuration('1:27:41\n    1:27:41')).toBe(5261);
