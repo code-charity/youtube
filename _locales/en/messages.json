@@ -351,6 +351,9 @@
   "downloadTranscript": {
     "message": "📜📥 Download Transcript (.txt)"
   },
+  "toggleTranscriptButton": {
+    "message": "📜 Show / Hide Transcript"
+  },
   "FetchingTranscript": {
     "message": "Fetching..."
   },

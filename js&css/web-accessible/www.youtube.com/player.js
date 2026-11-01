@@ -1100,6 +1100,49 @@ ImprovedTube.downloadTranscript = function (svg, button) {
 	});
 };
 
+// Opens YouTube's transcript panel, or closes it when it is already open.
+// Calls onError() when the video has no transcript.
+ImprovedTube.toggleTranscriptPanel = function (onError) {
+	// YouTube may show the transcript in its own panel or as a tab of the "In this video" panel
+	// (target-id engagement-panel-macro-markers-auto-chapters), so also look for transcript lines inside
+	var openPanel = Array.from(document.querySelectorAll('ytd-engagement-panel-section-list-renderer[visibility="ENGAGEMENT_PANEL_VISIBILITY_EXPANDED"]')).find(function (panel) {
+		return (panel.getAttribute('target-id') || '').indexOf('transcript') !== -1 || panel.querySelector('ytd-transcript-segment-renderer, transcript-segment-view-model');
+	});
+	if (openPanel) {
+		// The close button's aria-label is translated, so find it through YouTube's #visibility-button wrapper
+		var closeButton = openPanel.querySelector('#visibility-button button');
+		if (closeButton) {
+			closeButton.click();
+		}
+		return;
+	}
+
+	var findTranscriptButton = function () {
+		return document.querySelector('ytd-video-description-transcript-section-renderer button') || document.querySelector(ImprovedTube.transcriptButtonSelector);
+	};
+	var openTranscript = function () {
+		var transcriptButton = findTranscriptButton();
+		if (transcriptButton) {
+			transcriptButton.click();
+		} else {
+			onError();
+		}
+	};
+
+	if (findTranscriptButton()) {
+		openTranscript();
+		return;
+	}
+	// The "Show transcript" button sits in the description, which may still be collapsed
+	var moreActionsButton = document.querySelector('#description ytd-text-inline-expander #expand, #description tp-yt-paper-button#expand');
+	if (moreActionsButton && !moreActionsButton.hasAttribute('hidden')) {
+		moreActionsButton.click();
+		setTimeout(openTranscript, 500);
+	} else {
+		onError();
+	}
+};
+
 ImprovedTube.renderSubtitle = function (ctx, captionElements) {
 	if (ctx && captionElements) {
 		captionElements.forEach(function (captionElement, index) {

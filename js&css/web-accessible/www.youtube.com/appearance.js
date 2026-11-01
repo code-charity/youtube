@@ -748,6 +748,32 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 				button.appendChild(svg);
 				section.insertAdjacentElement('afterend', button);
 			}
+
+			if (this.storage.toggle_transcript_button === true && !document.querySelector('#it-below-player-toggle-transcript')) {
+				const button = document.createElement('button'),
+					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+				button.className = 'improvedtube-player-button';
+				button.id = 'it-below-player-toggle-transcript';
+				button.dataset.tooltip = 'Transcript';
+				svg.style.opacity = '.5';
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				path.setAttributeNS(null, 'd', 'M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z');
+
+				button.onclick = function () {
+					ImprovedTube.toggleTranscriptPanel(function () {
+						button.dataset.tooltip = 'TranscriptError';
+						setTimeout(function () {
+							button.dataset.tooltip = 'Transcript';
+						}, 2000);
+					});
+				};
+
+				svg.appendChild(path);
+				button.appendChild(svg);
+				section.insertAdjacentElement('afterend', button);
+			}
 	  }
 	}
 };

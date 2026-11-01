@@ -496,6 +496,15 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
+				case 'toggleTranscriptButton':
+					if (ImprovedTube.storage.toggle_transcript_button === true) {
+						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
+						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+					} else {
+						document.querySelector('#it-below-player-toggle-transcript')?.remove();
+					}
+					break
+
 				case 'dayOfWeek':
 					if (ImprovedTube.storage.day_of_week === false) {
 						document.querySelector(".ytd-day-of-week")?.remove();

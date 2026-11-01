@@ -329,6 +329,9 @@
   "copyTranscript": {
     "message": "📋 Копия текста видео"
   },
+  "toggleTranscriptButton": {
+    "message": "📜 Показать / скрыть текст видео"
+  },
   "FetchingTranscript": {
     "message": "Готово..."
   },

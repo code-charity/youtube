@@ -2395,6 +2395,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'downloadTranscript',
 				value: false
 			},
+			toggle_transcript_button: {
+				component: 'switch',
+				text: 'toggleTranscriptButton',
+				value: false
+			},
 			below_player_screenshot: {
 				component: 'switch',
 				text: 'screenshot',
