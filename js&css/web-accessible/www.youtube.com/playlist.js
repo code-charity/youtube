@@ -475,11 +475,13 @@ ImprovedTube.playlistParseDuration = function (text) {
 	if (!text) return null;
 
 	// Extract the first time pattern: some overlays carry the duration twice
-	// (e.g. "1:27:41\n    1:27:41") or with surrounding text
-	var match = String(text).match(/(\d{1,3}:)?\d{1,2}:\d{2}/);
+	// (e.g. "1:27:41\n    1:27:41") or with surrounding text. Some YouTube
+	// locales (e.g. Indonesian) render durations with dots ("1.27.41"), so
+	// accept both ':' and '.' as separators.
+	var match = String(text).match(/(\d{1,3}[:.])?\d{1,2}[:.]\d{2}/);
 	if (!match) return null;
 
-	var parts = match[0].split(':'),
+	var parts = match[0].split(/[:.]/),
 		seconds = 0;
 	for (var i = 0; i < parts.length; i++) {
 		seconds = seconds * 60 + parseInt(parts[i], 10);
