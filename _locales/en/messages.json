@@ -264,6 +264,15 @@
   "categories": {
     "message": "Categories"
   },
+  "categoryPlaybackSpeed": {
+    "message": "Category-specific Playback Speed (overrides default)"
+  },
+  "categoryPlaybackSpeedAdd": {
+    "message": "Add category"
+  },
+  "categoryPlaybackSpeedSelect": {
+    "message": "Select category..."
+  },
   "categoryRefreshButton": {
     "message": "Add category refresh button"
   },
@@ -274,13 +283,13 @@
     "message": "Channel"
   },
   "channelPlaybackSpeed": {
-    "message": "Channel-specific Playback Speed"
+    "message": "Channel-specific Playback Speed (overrides default)"
   },
   "channelPlaybackSpeedAdd": {
     "message": "Add channel"
   },
   "channelPlaybackSpeedPrompt": {
-    "message": "Enter channel name:"
+    "message": "Enter channel name, @handle, or channel ID:"
   },
   "channelPlaybackSpeedSpeedPrompt": {
     "message": "Enter playback speed (e.g., 1.25, 1.5, 2.0):"

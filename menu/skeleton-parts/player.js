@@ -391,6 +391,115 @@ extension.skeleton.main.layers.section.player.on.click = {
 				}
 			}
 		},
+		category_playback_speed: {
+			component: 'button',
+			text: 'categoryPlaybackSpeed',
+			on: {
+				click: {
+					component: 'section',
+					variant: 'card',
+					category_playback_speed_list: {
+						component: 'section',
+						on: {
+							render: function () {
+								let container = this;
+								function updateView() {
+									container.innerHTML = '';
+									let skeleton = {};
+									let ts = Date.now();
+									let storedSpeeds = satus.storage.get('category_playback_speeds');
+									let categorySpeeds;
+									if (storedSpeeds === undefined) {
+										categorySpeeds = {};
+										satus.storage.set('category_playback_speeds', categorySpeeds);
+									} else {
+										categorySpeeds = typeof storedSpeeds === 'object' && storedSpeeds !== null ? storedSpeeds : {};
+									}
+									let tempCategory = 'none';
+									skeleton['add_category_dropdown_' + ts] = {
+										component: 'select',
+										text: 'categoryPlaybackSpeedSelect',
+										options: [
+											{value: 'none', text: 'smartSpeedSelectCategory'},
+											{value: 'Entertainment', text: 'categoryEntertainment'},
+											{value: 'Music', text: 'categoryMusic'},
+											{value: 'Gaming', text: 'categoryGaming'},
+											{value: 'People & Blogs', text: 'categoryPeopleBlogs'},
+											{value: 'Comedy', text: 'categoryComedy'},
+											{value: 'Howto & Style', text: 'categoryHowtoStyle'},
+											{value: 'Film & Animation', text: 'categoryFilmAnimation'},
+											{value: 'Education', text: 'categoryEducation'},
+											{value: 'Science & Technology', text: 'categoryScienceTechnology'},
+											{value: 'Sports', text: 'categorySports'},
+											{value: 'News & Politics', text: 'categoryNewsPolitics'},
+											{value: 'Autos & Vehicles', text: 'categoryAutosVehicles'},
+											{value: 'Travel & Events', text: 'categoryTravelEvents'},
+											{value: 'Pets & Animals', text: 'categoryPetsAnimals'},
+											{value: 'Nonprofits & Activism', text: 'categoryNonprofitsActivism'},
+										],
+										on: {
+											change: function() { tempCategory = this.value; }
+										}
+									};
+									skeleton['add_category_btn_' + ts] = {
+										component: 'button',
+										text: 'categoryPlaybackSpeedAdd',
+										on: {
+											click: function() {
+												if (tempCategory !== 'none') {
+													let freshState = Object.assign({}, satus.storage.get('category_playback_speeds') || {});
+													if (!(tempCategory in freshState)) { freshState[tempCategory] = 1; }
+													satus.storage.set('category_playback_speeds', freshState);
+													updateView();
+												}
+											}
+										}
+									};
+									for (let categoryName in categorySpeeds) {
+										let safeKey = categoryName.replace(/[^a-zA-Z0-9]/g, '_');
+										skeleton['speed_' + safeKey + '_' + ts] = {
+											component: 'section',
+											variant: 'card',
+											title: categoryName,
+											speed_slider: {
+												component: 'slider',
+												text: 'playbackSpeed',
+												value: categorySpeeds[categoryName],
+												min: 0.1,
+												max: 3.17,
+												step: 0.01,
+												textarea: true,
+												on: {
+													change: function() {
+														let freshState = Object.assign({}, satus.storage.get('category_playback_speeds'));
+														freshState[categoryName] = Number(this.value);
+														satus.storage.set('category_playback_speeds', freshState);
+													}
+												}
+											},
+											delete_btn: {
+												component: 'button',
+												text: 'delete',
+												on: {
+													click: function() {
+														let freshState = Object.assign({}, satus.storage.get('category_playback_speeds'));
+														delete freshState[categoryName];
+														satus.storage.set('category_playback_speeds', freshState);
+														updateView();
+													}
+												}
+											}
+										};
+									}
+									satus.render(skeleton, container);
+								}
+								updateView();
+							}
+						}
+					}
+				}
+			}
+		},
 		smart_speed: {
 			component: 'button',
 			text: 'smartSpeedEngine',
