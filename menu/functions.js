@@ -45,6 +45,46 @@ extension.attributes = function () {
 };
 
 /*--------------------------------------------------------------
+# TEXT PROMPT
+--------------------------------------------------------------*/
+// In-menu replacement for window.prompt(). Firefox draws the native
+// prompt wider than the popup, so it gets cut off (#4444).
+extension.prompt = function (message, defaultValue, callback) {
+	var field = {
+		component: 'text-field',
+		storage: false,
+		rows: 1,
+		lineNumbers: false
+	};
+	var modal = satus.render({
+		component: 'modal',
+		variant: 'confirm',
+		content: {
+			message: {
+				component: 'span',
+				text: message
+			},
+			field: field
+		},
+		ok: function () {
+			callback(field.rendered.value);
+		}
+	}, extension.skeleton.rendered);
+
+	field.rendered.style.marginTop = '8px';
+	field.rendered.value = defaultValue || '';
+	field.rendered.pre.update();
+	field.rendered.input.addEventListener('keydown', function (event) {
+		if (event.key === 'Enter') {
+			event.preventDefault();
+			modal.close();
+			callback(field.rendered.value);
+		}
+	});
+	field.rendered.focus();
+};
+
+/*--------------------------------------------------------------
 # EXPORT SETTINGS
 --------------------------------------------------------------*/
 

@@ -329,16 +329,18 @@ extension.skeleton.main.layers.section.player.on.click = {
 										text: 'channelPlaybackSpeedAdd',
 										on: {
 											click: function() {
-												let name = prompt(satus.locale.get('channelPlaybackSpeedPrompt'));
-												if (name) {
-													let speed = prompt(satus.locale.get('channelPlaybackSpeedSpeedPrompt'), '1.25');
-													if (speed && !isNaN(parseFloat(speed))) {
-														let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds') || {});
-														freshState[name] = parseFloat(speed);
-														satus.storage.set('channel_playback_speeds', freshState);
-														updateView();
+												extension.prompt('channelPlaybackSpeedPrompt', '', function (name) {
+													if (name) {
+														extension.prompt('channelPlaybackSpeedSpeedPrompt', '1.25', function (speed) {
+															if (speed && !isNaN(parseFloat(speed))) {
+																let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds') || {});
+																freshState[name] = parseFloat(speed);
+																satus.storage.set('channel_playback_speeds', freshState);
+																updateView();
+															}
+														});
 													}
-												}
+												});
 											}
 										}
 									};
@@ -670,15 +672,16 @@ extension.skeleton.main.layers.section.player.on.click = {
 														text: 'smartSpeedEnterAddChannelName',
 														on: {
 															click: function() {
-																let name = prompt(satus.locale.get('smartSpeedChannelPrompt'));
-																if (name) {
-																	let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles') || {});
-																	let newObj = {};
-																	newObj[name] = { max: 2.0, min: 1.0, sens: 0.5, whitelist: false };
+																extension.prompt('smartSpeedChannelPrompt', '', function (name) {
+																	if (name) {
+																		let freshState = Object.assign({}, satus.storage.get('smart_speed_profiles') || {});
+																		let newObj = {};
+																		newObj[name] = { max: 2.0, min: 1.0, sens: 0.5, whitelist: false };
 
-																	satus.storage.set('smart_speed_profiles', Object.assign(newObj, freshState));
-																	updateView();
-																}
+																		satus.storage.set('smart_speed_profiles', Object.assign(newObj, freshState));
+																		updateView();
+																	}
+																});
 															}
 														}
 													}
