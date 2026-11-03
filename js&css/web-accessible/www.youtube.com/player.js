@@ -130,12 +130,40 @@ ImprovedTube.playbackSpeed = function (newSpeed) {
 	return newSpeed;
 };
 /*------------------------------------------------------------------------------
+LIVE HEAD PLAYBACK SPEED RESET
+------------------------------------------------------------------------------*/
+// Speeds are applied to the <video> element directly, so YouTube's player still reports 1x
+// and never drops back to 1x at the live head like it does for its own speed menu (#4346).
+// Without this, playback > 1x at the live head stalls, buffers, catches up again, forever.
+ImprovedTube.playerLiveHeadSpeedReset = function (event) {
+	const video = event?.target;
+	if (!video || !(video.playbackRate > 1)) return;
+	const player = video.closest?.('.html5-video-player') || ImprovedTube.elements.player;
+	if (!player?.getVideoData?.()?.isLive) return;
+	if (player.getProgressState?.()?.isAtLiveHead !== true) return;
+
+	video.playbackRate = 1;
+	ImprovedTube.showStatus(1);
+};
+/*------------------------------------------------------------------------------
 PERMANENT PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
 	var player = this.elements.player; if (!player) return;
 	var video = this.elements.video || player.querySelector('video');
-	option = this.storage.player_playback_speed;
+	
+	// Check for channel-specific playback speed
+	var channelNameEl = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
+	var channelName = channelNameEl ? channelNameEl.textContent.trim() : '';
+	var channelSpeeds = this.storage.channel_playback_speeds || {};
+	
+	// Use channel-specific speed if available, otherwise use global speed
+	if (channelName && channelSpeeds[channelName] && typeof channelSpeeds[channelName] === 'number') {
+		option = channelSpeeds[channelName];
+	} else {
+		option = this.storage.player_playback_speed;
+	}
+	
 	if (this.isset(option) === false) { option = 1; }
 	else if ( option !== 1 ) {
 		const speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
@@ -306,23 +334,46 @@ ImprovedTube.playerSubtitles = function (attempt = 0) {
 	}
 };
 /*------------------------------------------------------------------------------
+RETRY PLAYER ACTION
+------------------------------------------------------------------------------*/
+// On SPA navigation the player can exist before the new video's captions or
+// audio tracks are ready. `action` returns true when done, false to try again
+// later, or 'stop' when the player is ready but the action cannot apply.
+// Retries end on the next navigation, so they never act on another video.
+ImprovedTube.retryPlayerAction = function (action, attempts = 6, delay = 400) {
+	const url = location.href;
+	const tryAction = function (attempt) {
+		if (location.href !== url) return;
+		if (action() === false && attempt < attempts) {
+			setTimeout(function () { tryAction(attempt + 1); }, delay * attempt);
+		}
+	};
+
+	tryAction(1);
+};
+/*------------------------------------------------------------------------------
 SUBTITLES LANGUAGE
 ------------------------------------------------------------------------------*/
 ImprovedTube.subtitlesLanguage = function () {
-	const option = this.storage.subtitles_language,
-		player = this.elements.player;
-	let subtitlesState;
+	const option = this.storage.subtitles_language;
+	if (!option) return;
 
-	if (option && player && player.getOption && player.setOption && player.isSubtitlesOn && player.toggleSubtitles) {
-		const matchedTrack = player.getOption('captions', 'tracklist', {includeAsr: true})?.find(track => track.languageCode.includes(option) && (!track.vss_id.includes("a.") || this.storage.auto_generate));
+	this.retryPlayerAction(() => {
+		const player = this.elements.player;
+		if (!player || !player.getOption || !player.setOption || !player.isSubtitlesOn || !player.toggleSubtitles) return false;
 
-		if (matchedTrack) {
-			subtitlesState = player.isSubtitlesOn();
-			player.setOption('captions', 'track', matchedTrack);
-			// setOption forces Subtitles ON, restore state from before calling it.
-			if (!subtitlesState) { player.toggleSubtitles(); }
-		}
-	}
+		const tracklist = player.getOption('captions', 'tracklist', {includeAsr: true});
+		if (!tracklist?.length) return false;
+
+		const matchedTrack = tracklist.find(track => track.languageCode.includes(option) && (!track.vss_id.includes("a.") || this.storage.auto_generate));
+		if (!matchedTrack) return 'stop';
+
+		const subtitlesState = player.isSubtitlesOn();
+		player.setOption('captions', 'track', matchedTrack);
+		// setOption forces Subtitles ON, restore state from before calling it.
+		if (!subtitlesState) { player.toggleSubtitles(); }
+		return true;
+	});
 };
 /*------------------------------------------------------------------------------
 SUBTITLES FONT FAMILY
@@ -822,16 +873,21 @@ ImprovedTube.screenshot = function () {
 	});
 };
 
+ImprovedTube.transcriptButtonSelector = 'button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],'
+										+ 'button[aria-label*="guion"], button[aria-label*="naskah"], button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="نص"], button[aria-label*="نقل"],'
+										+ 'button[aria-label*="प्रतिलि"], button[aria-label*="प्रत"], button[aria-label*="লিপি"], button[aria-label*="bản ghi"], button[aria-label*="steno"],'
+										+ 'button[aria-label*="γραφ"], button[aria-label*="přep"], button[aria-label*="átir"], button[aria-label*="avsk"]';
+
 ImprovedTube.copyTranscript = function (svg, button) {
 	try {
 		svg.style.opacity = '1';
 		button.dataset.tooltip = 'FetchingTranscript';
 
-		var existingTranscriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer');
+		var existingTranscriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model');
 		if (existingTranscriptSegments.length > 0) {
 			var transcriptText = '';
 			existingTranscriptSegments.forEach(function (segment) {
-				var textElement = segment.querySelector('.segment-text');
+				var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
 				if (textElement) {
 					transcriptText += textElement.textContent.trim() + ' ';
 				}
@@ -848,10 +904,7 @@ ImprovedTube.copyTranscript = function (svg, button) {
 				return;
 			}
 		}
-		var transcriptButtonSelector = 'button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],'
-										+ 'button[aria-label*="guion"], button[aria-label*="naskah"], button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="نص"], button[aria-label*="نقل"],'
-										+ 'button[aria-label*="प्रतिलि"], button[aria-label*="प्रत"], button[aria-label*="লিপি"], button[aria-label*="bản ghi"], button[aria-label*="steno"],'
-										+ 'button[aria-label*="γραφ"], button[aria-label*="přep"], button[aria-label*="átir"], button[aria-label*="avsk"]';
+		var transcriptButtonSelector = ImprovedTube.transcriptButtonSelector;
 		var transcriptButton = document.querySelector(transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');
 
 		if (!transcriptButton) {
@@ -893,7 +946,7 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 	var checkInterval = setInterval(function () {
 		attempts++;
 
-		var transcriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer');
+		var transcriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model');
 
 		if (transcriptSegments.length > 0) {
 			clearInterval(checkInterval);
@@ -901,7 +954,7 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 			var transcriptText = '';
 
 			transcriptSegments.forEach(function (segment) {
-				var textElement = segment.querySelector('.segment-text');
+				var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
 				if (textElement) {
 					transcriptText += textElement.textContent.trim() + ' ';
 				}
@@ -916,11 +969,7 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 					button.dataset.tooltip = 'CopyTranscript';
 					svg.style.opacity = '.5';
 					// Close transcript panel
-					var closeButton = document.querySelector('ytd-engagement-panel-title-header-renderer button[aria-label*="lose"]') ||
-						document.querySelector('ytd-engagement-panel-title-header-renderer button[aria-label*="акрыть"]');
-					if (closeButton) {
-						closeButton.click();
-					}
+					ImprovedTube.closeTranscriptPanel();
 				}, 1000);
 			} else {
 				throw new Error('Transcript is empty');
@@ -935,6 +984,120 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 			}, 2000);
 		}
 	}, 250);
+};
+
+ImprovedTube.transcriptSegmentsToText = function (segments) {
+	return segments.map(function (segment) {
+		return segment.time ? '[' + segment.time + '] ' + segment.text : segment.text;
+	}).join('\n');
+};
+
+ImprovedTube.transcriptFileName = function (videoId, title) {
+	var name = (videoId ? videoId + ' ' : '') + (title || 'transcript');
+	return name.replace(/[\\/:*?"<>|]+/g, ' ').replace(/\s+/g, ' ').trim().substr(0, 120) + '.txt';
+};
+
+ImprovedTube.readTranscriptSegments = function () {
+	var segments = [];
+	// YouTube's current panel uses transcript-segment-view-model; ytd-transcript-segment-renderer is the older markup
+	document.querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model').forEach(function (segment) {
+		var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
+		var timeElement = segment.querySelector('.segment-timestamp, .ytwTranscriptSegmentViewModelTimestamp');
+		var text = textElement ? textElement.textContent.trim() : '';
+		if (text) {
+			segments.push({time: timeElement ? timeElement.textContent.trim() : '', text: text});
+		}
+	});
+	return segments;
+};
+
+// Closes the open transcript panel. The close button's aria-label is translated,
+// so find it through the panel's target-id and YouTube's #visibility-button wrapper.
+ImprovedTube.closeTranscriptPanel = function () {
+	var closeButton = document.querySelector('ytd-engagement-panel-section-list-renderer[target-id*="transcript"][visibility="ENGAGEMENT_PANEL_VISIBILITY_EXPANDED"] #visibility-button button');
+	if (closeButton) {
+		closeButton.click();
+	}
+};
+
+
+// Calls onReady(segments, openedPanel) once the transcript lines are in the page, opening YouTube's
+// transcript panel first when needed. Calls onError() when the video has no transcript or it never loads.
+ImprovedTube.getTranscriptSegments = function (onReady, onError) {
+	var segments = ImprovedTube.readTranscriptSegments();
+	if (segments.length > 0) {
+		onReady(segments, false);
+		return;
+	}
+
+	var findTranscriptButton = function () {
+		return document.querySelector(ImprovedTube.transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');
+	};
+	var waitForSegments = function () {
+		var attempts = 0;
+		var checkInterval = setInterval(function () {
+			attempts++;
+			var found = ImprovedTube.readTranscriptSegments();
+			if (found.length > 0) {
+				clearInterval(checkInterval);
+				onReady(found, true);
+			} else if (attempts >= 20) {
+				clearInterval(checkInterval);
+				onError();
+			}
+		}, 250);
+	};
+	var openTranscript = function () {
+		var transcriptButton = findTranscriptButton();
+		if (!transcriptButton) {
+			onError();
+			return;
+		}
+		transcriptButton.click();
+		waitForSegments();
+	};
+
+	if (findTranscriptButton()) {
+		openTranscript();
+		return;
+	}
+	var moreActionsButton = document.querySelector('#description ytd-text-inline-expander #expand, #description tp-yt-paper-button#expand');
+	if (moreActionsButton && !moreActionsButton.hasAttribute('hidden')) {
+		moreActionsButton.click();
+		setTimeout(openTranscript, 500);
+	} else {
+		onError();
+	}
+};
+
+ImprovedTube.downloadTranscript = function (svg, button) {
+	var resetButton = function (delay) {
+		setTimeout(function () {
+			button.dataset.tooltip = 'DownloadTranscript';
+			svg.style.opacity = '.5';
+		}, delay);
+	};
+
+	svg.style.opacity = '1';
+	button.dataset.tooltip = 'FetchingTranscript';
+
+	ImprovedTube.getTranscriptSegments(function (segments, openedPanel) {
+		var a = document.createElement('a');
+		a.href = URL.createObjectURL(new Blob([ImprovedTube.transcriptSegmentsToText(segments)], {type: 'text/plain;charset=utf-8'}));
+		a.download = ImprovedTube.transcriptFileName(ImprovedTube.videoId(), ImprovedTube.videoTitle());
+		a.click();
+		setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+
+		button.dataset.tooltip = 'Downloaded!';
+		resetButton(1000);
+		if (openedPanel) {
+			ImprovedTube.closeTranscriptPanel();
+		}
+	}, function () {
+		console.error('ImprovedTube: Transcript not available for this video');
+		button.dataset.tooltip = 'TranscriptError';
+		resetButton(2000);
+	});
 };
 
 ImprovedTube.renderSubtitle = function (ctx, captionElements) {
@@ -987,7 +1150,7 @@ ImprovedTube.playerScreenshotButton = function () {
 VIDEO FILTERS BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVideoFiltersButton = function () {
-	if (this.storage.player_video_filters_button !== false) {
+	if (this.storage.player_video_filters_button === true) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -1385,9 +1548,10 @@ var xpath = function (xpathToExecute) {
 // the darkening as its own box-shadow keeps it correctly stacked
 // automatically, with no z-index/stacking-context guesswork involved. #4353
 ImprovedTube.cinemaModeSetVisible = function (visible) {
-	var ytdPlayer = document.getElementById('ytd-player');
-	if (!ytdPlayer) return false;
-	ytdPlayer.style.boxShadow = visible ? '0 0 0 9999px rgba(0, 0, 0, 1)' : '';
+	// #ytd-player / #movie_player can be 0px tall while the <video> overflows them,
+	// so a box-shadow "spotlight" has no hole and only paints the page background.
+	// Instead flag <html> and let player.css hide everything except the player.
+	document.documentElement.toggleAttribute('it-cinema-mode', !!visible);
 	return true;
 }
 
@@ -2414,8 +2578,17 @@ ImprovedTube.disableAutoDubbing = function () {
 		this.autoDubbingGuard.enforce();
 	};
 
-	this.selectPermittedAudioTrack(this.elements.player);
-	this.enforceAutoDubbingPolicy();
+	// After SPA navigation the player may not expose its audio tracks yet, and
+	// enforceAutoDubbingPolicy would return without installing the guard.
+	this.retryPlayerAction(() => {
+		if (this.storage.disable_auto_dubbing !== true) return 'stop';
+		const player = this.elements.player;
+		if (!player?.getAvailableAudioTracks) return false;
+
+		this.selectPermittedAudioTrack(player);
+		this.enforceAutoDubbingPolicy();
+		return true;
+	});
 };
 
 /*------------------------------------------------------------------------------
@@ -4933,5 +5106,405 @@ ImprovedTube.playerAutoContinueWatching = function () {
 			childList: true,
 			subtree: true
 		});
+	}
+};
+
+/*------------------------------------------------------------------------------
+WATCHED SECTIONS ON THE SEEK BAR
+--------------------------------------------------------------------------------
+	Records which parts of a video were actually played and paints them on the
+	progress bar, so scattered sections of long videos or streams stay visible.
+	The layer is inserted below YouTube's own bars, which keeps the played and
+	the buffered progress untouched.
+------------------------------------------------------------------------------*/
+ImprovedTube.watchedSegments = {
+	STORAGE_KEY: 'watched_segments',
+	MAX_VIDEOS: 200,
+	MERGE_GAP: 1,
+	RENDER_DELAY: 1000,
+	SAVE_DELAY: 5000,
+
+	attached_video: null,
+	dirty: false,
+	handlers: null,
+	last_time: null,
+	render_timer: null,
+	save_timer: null,
+	segments: [],
+	video_id: '',
+
+	enabled: function () {
+		return ImprovedTube.storage.player_watched_segments === true;
+	},
+
+	video: function () {
+		return ImprovedTube.elements.video || document.querySelector('#movie_player video');
+	},
+
+	duration: function () {
+		var video = this.video(),
+			duration = video && video.duration;
+
+		return typeof duration === 'number' && isFinite(duration) && duration > 0 ? duration : 0;
+	},
+
+	currentVideoId: function () {
+		var match = ImprovedTube.regex.video_id.exec(location.href);
+
+		return match ? match[1] : '';
+	},
+
+	adShowing: function () {
+		var player = ImprovedTube.elements.player;
+
+		return !!player && /ad-showing|ad-interrupting/.test(player.className);
+	},
+
+	init: function () {
+		var page_type = document.documentElement.dataset.pageType;
+
+		if (!this.enabled() || (page_type !== 'video' && page_type !== 'embed')) {
+			this.disable();
+
+			return;
+		}
+
+		this.injectStyles();
+
+		var self = this;
+
+		clearInterval(this.render_timer);
+
+		// The player is not always complete yet, so the tick picks it up later.
+		this.render_timer = setInterval(function () { self.tick(); }, this.RENDER_DELAY);
+
+		this.tick();
+	},
+
+	tick: function () {
+		if (!this.enabled()) {
+			this.disable();
+
+			return;
+		}
+
+		var video = this.video();
+
+		if (!video) { return; }
+
+		this.attach(video);
+		this.syncVideoId();
+		this.render();
+	},
+
+	// An empty id means the player kept going outside a watch page.
+	syncVideoId: function () {
+		var video_id = this.currentVideoId();
+
+		if (video_id && video_id !== this.video_id) {
+			this.load(video_id);
+		}
+	},
+
+	disable: function () {
+		clearInterval(this.render_timer);
+
+		this.render_timer = null;
+
+		this.save();
+		this.detach();
+		this.clear();
+
+		ImprovedTube.elements.buttons['it-watched-segments-styles']?.remove();
+
+		delete ImprovedTube.elements.buttons['it-watched-segments-styles'];
+	},
+
+	injectStyles: function () {
+		if (ImprovedTube.elements.buttons['it-watched-segments-styles']) { return; }
+
+		var style = document.createElement('style');
+
+		style.id = 'it-watched-segments-styles';
+		style.textContent = '.it-watched-segments{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}'
+			+ '.it-watched-segment{position:absolute;top:0;height:100%;background:var(--it-watched-segment-color,rgba(62,166,255,.85))}';
+
+		ImprovedTube.elements.buttons['it-watched-segments-styles'] = style;
+
+		(document.head || document.documentElement).appendChild(style);
+	},
+
+	attach: function (video) {
+		if (this.attached_video === video) { return; }
+
+		var self = this;
+
+		if (!this.handlers) {
+			this.handlers = {
+				timeupdate: function () { self.track(); },
+				seeking: function () { self.last_time = null; },
+				pause: function () { self.last_time = null; self.save(); },
+				ended: function () { self.last_time = null; self.save(); }
+			};
+
+			window.addEventListener('pagehide', function () { self.save(); });
+			document.addEventListener('visibilitychange', function () {
+				if (document.visibilityState === 'hidden') { self.save(); }
+			});
+		}
+
+		this.detach();
+
+		for (var type in this.handlers) {
+			video.addEventListener(type, this.handlers[type]);
+		}
+
+		this.attached_video = video;
+	},
+
+	detach: function () {
+		if (!this.attached_video || !this.handlers) { return; }
+
+		for (var type in this.handlers) {
+			this.attached_video.removeEventListener(type, this.handlers[type]);
+		}
+
+		this.attached_video = null;
+	},
+
+	/*--------------------------------------------------------------
+	# TRACKING
+	----------------------------------------------------------------
+		Only the distance between two consecutive time updates counts
+		as watched, so seeking, ads and paused players add nothing.
+	--------------------------------------------------------------*/
+	track: function () {
+		if (!this.enabled()) { return; }
+
+		var video = this.attached_video;
+
+		if (!video || !this.duration() || this.adShowing()) {
+			this.last_time = null;
+
+			return;
+		}
+
+		this.syncVideoId();
+
+		var previous = this.last_time,
+			time = video.currentTime;
+
+		this.last_time = time;
+
+		if (previous === null || video.paused || video.seeking) { return; }
+
+		var step = time - previous,
+			limit = 5 * Math.max(1, video.playbackRate || 1);
+
+		if (step <= 0 || step > limit) { return; }
+
+		if (this.add(previous, time)) {
+			this.dirty = true;
+
+			this.scheduleSave();
+		}
+	},
+
+	add: function (start, end) {
+		var segments = this.segments,
+			gap = this.MERGE_GAP,
+			from = Math.max(0, Math.round(start * 10) / 10),
+			to = Math.max(from, Math.round(end * 10) / 10),
+			first = 0,
+			last = 0;
+
+		while (first < segments.length && segments[first][1] + gap < from) {
+			first++;
+		}
+
+		last = first;
+
+		while (last < segments.length && segments[last][0] - gap <= to) {
+			from = Math.min(from, segments[last][0]);
+			to = Math.max(to, segments[last][1]);
+			last++;
+		}
+
+		if (last === first + 1 && segments[first][0] === from && segments[first][1] === to) { return false; }
+
+		segments.splice(first, last - first, [from, to]);
+
+		return true;
+	},
+
+	sanitize: function (segments) {
+		var result = [];
+
+		if (!Array.isArray(segments)) { return result; }
+
+		for (var i = 0, l = segments.length; i < l; i++) {
+			var segment = segments[i];
+
+			if (!Array.isArray(segment) || segment.length !== 2) { continue; }
+
+			var from = Number(segment[0]),
+				to = Number(segment[1]);
+
+			if (!isFinite(from) || !isFinite(to) || from < 0 || to <= from) { continue; }
+
+			result.push([from, to]);
+		}
+
+		result.sort(function (a, b) { return a[0] - b[0]; });
+
+		return result;
+	},
+
+	/*--------------------------------------------------------------
+	# STORAGE
+	--------------------------------------------------------------*/
+	load: function (video_id) {
+		if (video_id === this.video_id) { return; }
+
+		this.save();
+
+		var store = ImprovedTube.storage[this.STORAGE_KEY],
+			entry = store && typeof store === 'object' ? store[video_id] : null;
+
+		this.video_id = video_id;
+		this.last_time = null;
+		this.dirty = false;
+		this.segments = this.sanitize(entry && entry.s);
+	},
+
+	scheduleSave: function () {
+		if (this.save_timer) { return; }
+
+		var self = this;
+
+		this.save_timer = setTimeout(function () { self.save(); }, this.SAVE_DELAY);
+	},
+
+	save: function () {
+		clearTimeout(this.save_timer);
+
+		this.save_timer = null;
+
+		if (!this.dirty || !this.video_id) { return; }
+
+		this.dirty = false;
+
+		var store = ImprovedTube.storage[this.STORAGE_KEY];
+
+		if (!store || typeof store !== 'object') {
+			store = {};
+
+			ImprovedTube.storage[this.STORAGE_KEY] = store;
+		}
+
+		if (this.segments.length) {
+			store[this.video_id] = { u: Date.now(), s: this.segments };
+		} else {
+			delete store[this.video_id];
+		}
+
+		var ids = Object.keys(store);
+
+		if (ids.length > this.MAX_VIDEOS) {
+			ids.sort(function (a, b) { return ((store[a] && store[a].u) || 0) - ((store[b] && store[b].u) || 0); });
+
+			for (var i = 0, l = ids.length - this.MAX_VIDEOS; i < l; i++) {
+				delete store[ids[i]];
+			}
+		}
+
+		ImprovedTube.messages.send({
+			action: 'set',
+			key: this.STORAGE_KEY,
+			value: store
+		});
+	},
+
+	/*--------------------------------------------------------------
+	# RENDERING
+	--------------------------------------------------------------*/
+	render: function () {
+		var player = ImprovedTube.elements.player,
+			bar = player && player.querySelector('.ytp-progress-bar'),
+			duration = this.duration();
+
+		// While an ad runs the bar shows the ad, not the video.
+		if (!bar || !duration || !this.segments.length || this.adShowing()) {
+			this.clear();
+
+			return;
+		}
+
+		var bar_rect = bar.getBoundingClientRect();
+
+		if (!bar_rect.width) { return; }
+
+		// One list per chapter, so every chapter maps to its own slice of the video.
+		var lists = bar.querySelectorAll('.ytp-progress-list');
+
+		if (!lists.length) {
+			this.paint(bar, bar_rect, duration);
+		} else {
+			for (var i = 0, l = lists.length; i < l; i++) {
+				this.paint(lists[i], bar_rect, duration);
+			}
+		}
+	},
+
+	paint: function (list, bar_rect, duration) {
+		var rect = list.getBoundingClientRect();
+
+		if (!rect.width) { return; }
+
+		var layer = list.querySelector(':scope > .it-watched-segments');
+
+		if (!layer) {
+			layer = document.createElement('div');
+			layer.className = 'it-watched-segments';
+
+			list.insertBefore(layer, list.firstChild);
+		}
+
+		var from = (rect.left - bar_rect.left) / bar_rect.width * duration,
+			span = rect.width / bar_rect.width * duration,
+			count = 0;
+
+		for (var i = 0, l = this.segments.length; i < l; i++) {
+			var start = Math.max(this.segments[i][0], from),
+				end = Math.min(this.segments[i][1], from + span);
+
+			if (end <= start) { continue; }
+
+			var element = layer.children[count];
+
+			if (!element) {
+				element = document.createElement('div');
+				element.className = 'it-watched-segment';
+
+				layer.appendChild(element);
+			}
+
+			element.style.left = (start - from) / span * 100 + '%';
+			element.style.width = (end - start) / span * 100 + '%';
+
+			count++;
+		}
+
+		while (layer.children.length > count) {
+			layer.lastChild.remove();
+		}
+	},
+
+	clear: function () {
+		var layers = document.querySelectorAll('.it-watched-segments');
+
+		for (var i = 0, l = layers.length; i < l; i++) {
+			layers[i].remove();
+		}
 	}
 };

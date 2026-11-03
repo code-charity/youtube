@@ -234,9 +234,6 @@
   "bottomRight": {
     "message": "Bottom right"
   },
-  "brightness": {
-    "message": "Brightness"
-  },
   "brown": {
     "message": "Brown"
   },
@@ -275,6 +272,18 @@
   },
   "channel": {
     "message": "Channel"
+  },
+  "channelPlaybackSpeed": {
+    "message": "Channel-specific Playback Speed"
+  },
+  "channelPlaybackSpeedAdd": {
+    "message": "Add channel"
+  },
+  "channelPlaybackSpeedPrompt": {
+    "message": "Enter channel name:"
+  },
+  "channelPlaybackSpeedSpeedPrompt": {
+    "message": "Enter playback speed (e.g., 1.25, 1.5, 2.0):"
   },
   "channels": {
     "message": "Channels"
@@ -338,6 +347,9 @@
   },
   "copyTranscript": {
     "message": "📋 Copy Transcript"
+  },
+  "downloadTranscript": {
+    "message": "📜📥 Download Transcript (.txt)"
   },
   "FetchingTranscript": {
     "message": "Fetching..."
@@ -470,6 +482,9 @@
   },
   "dislikingAVideoAddsItToBlocklist": {
     "message": "Disliking a video adds it to Blocklist"
+  },
+  "hideBlockedVideosCompletely": {
+    "message": "Hide blocked videos completely"
   },
   "displayDayOfTheWeak": {
     "message": "Display day of the week"
@@ -645,6 +660,9 @@
   "hdThumbnail": {
     "message": "HD thumbnail"
   },
+  "hdrBadge": {
+    "message": "Show HDR badge next to the video title"
+  },
   "header": {
     "message": "Header"
   },
@@ -656,6 +674,12 @@
   },
   "hide_author_avatars": {
     "message": "Hide author avatars"
+  },
+  "hideCommentImages": {
+    "message": "Hide images and GIFs in comments"
+  },
+  "blurCommentImages": {
+    "message": "Blur images and GIFs in comments"
   },
   "hide_labels": {
     "message": "Hide names"
@@ -1413,6 +1437,9 @@
   "showRemainingDuration": {
     "message": "Show video remaining duration"
   },
+  "showWatchedSectionsOnSeekBar": {
+    "message": "Show watched sections on the seek bar"
+  },
   "showVersion": {
     "message": "Show version"
   },
@@ -1445,6 +1472,9 @@
   },
   "squaredThumbnails": {
     "message": "Squared thumbnails"
+  },
+  "blurThumbnails": {
+    "message": "Blur thumbnails"
   },
   "static": {
     "message": "Static"

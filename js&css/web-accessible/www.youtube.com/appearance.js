@@ -241,6 +241,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 		setGrid();
 		applyObserver();
 		observeLayoutChanges();
+		handlePlaylistOverflow();
 		if (!state.initialized) {
 			window.addEventListener("resize", sidebar);
 			// Listen for fullscreen changes to properly recalculate player size
@@ -275,6 +276,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			state.hasApplied = 2
 		}
 		else { /// <1000
+			restoreAskPanel();
 			if (state.hasApplied == 1) {
 				moveNode(document.getElementById("primary-inner"), document.getElementById("related"));
 				let comments = document.querySelector("#comments");
@@ -288,6 +290,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			}
 			state.hasApplied = 0;
 		}
+		handlePlaylistOverflow();
 	}
 	function setGrid () {
 		let checkParentInterval = setInterval(() => {
@@ -317,6 +320,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			moveNode(primaryInner, document.getElementById("related"))
 			moveNode(secondaryInner, document.getElementById("chat-template"));
 			moveNode(secondaryInner, comments);
+			placeAskPanel(secondaryInner, comments);
 		})
 	}
 	function moveNode (parent, child) {
@@ -324,13 +328,35 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			parent.appendChild(child);
 		}
 	}
+	function placeAskPanel(secondaryInner, comments) {
+		const askPanel = document.querySelector('ytd-engagement-panel-section-list-renderer[target-id="PAyouchat"]');
+		if (!askPanel || !secondaryInner) return;
+		if (comments && comments.parentElement === secondaryInner) {
+			secondaryInner.insertBefore(askPanel, comments);
+		} else if (askPanel.parentElement !== secondaryInner) {
+			secondaryInner.appendChild(askPanel);
+		}
+	}
+	function restoreAskPanel() {
+		const askPanel = document.querySelector('ytd-engagement-panel-section-list-renderer[target-id="PAyouchat"]');
+		const panels = document.getElementById("panels");
+		if (askPanel && panels && askPanel.parentElement !== panels) {
+			panels.appendChild(askPanel);
+		}
+	}
 	function isLayoutApplied (wideLayout) {
 		const secondaryInner = document.getElementById("secondary-inner");
 		const comments = document.querySelector("#comments");
 		const related = document.getElementById("related");
 		const relatedParent = wideLayout ? document.getElementById("columns") : document.getElementById("primary-inner");
+		const askPanel = document.querySelector('ytd-engagement-panel-section-list-renderer[target-id="PAyouchat"]');
 
-		return comments && comments.parentElement === secondaryInner && related && related.parentElement === relatedParent;
+		const askPanelOk = !askPanel || (
+			askPanel.parentElement === secondaryInner &&
+			(!comments || comments.parentElement !== secondaryInner ||
+				!!(askPanel.compareDocumentPosition(comments) & Node.DOCUMENT_POSITION_FOLLOWING))
+		);
+		return comments && comments.parentElement === secondaryInner && related && related.parentElement === relatedParent && askPanelOk;
 	}
 	function scheduleSidebar () {
 		clearTimeout(state.sidebarRetryTimer);
@@ -433,6 +459,7 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 			if ((wideLayout && state.hasApplied === 1 && isLayoutApplied(true)) ||
 				(!wideLayout && mediumLayout && state.hasApplied === 2 && isLayoutApplied(false)) ||
 				(!mediumLayout && state.hasApplied === 0)) {
+				handlePlaylistOverflow();
 				return;
 			}
 			clearTimeout(state.layoutTimer);
@@ -452,6 +479,21 @@ ImprovedTube.commentsSidebar = function () { if (ImprovedTube.storage.comments_s
 				callback.apply(this, args);
 			}, delay);
 		};
+	}
+	function handlePlaylistOverflow () {
+		const columns = document.getElementById("columns");
+		if (!columns) return;
+		// When a playlist or live chat is present, the sidebar content (playlist + comments)
+		// can exceed the viewport height. The #columns overflow:hidden rule in comments.css
+		// clips the bottom of the content, making the playlist and related videos invisible.
+		// Allow vertical overflow so the full content is accessible.
+		const playlist = document.querySelector("#playlist");
+		const liveChat = document.querySelector("#chat-container");
+		if (playlist || liveChat) {
+			columns.style.overflow = "visible";
+		} else {
+			columns.style.overflow = "";
+		}
 	}
 }
 /*------------------------------------------------------------------------------
@@ -679,6 +721,27 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 
 				button.onclick = function () {
 					ImprovedTube.copyTranscript(svg, button);
+				};
+
+				svg.appendChild(path);
+				button.appendChild(svg);
+				section.insertAdjacentElement('afterend', button);
+			}
+
+			if (this.storage.download_transcript === true && !document.querySelector('#it-below-player-download-transcript')) {
+				const button = document.createElement('button'),
+					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+				button.className = 'improvedtube-player-button';
+				button.id = 'it-below-player-download-transcript';
+				button.dataset.tooltip = 'DownloadTranscript';
+				svg.style.opacity = '.5';
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				path.setAttributeNS(null, 'd', 'M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z');
+
+				button.onclick = function () {
+					ImprovedTube.downloadTranscript(svg, button);
 				};
 
 				svg.appendChild(path);
@@ -942,6 +1005,114 @@ ImprovedTube.channelVideosCount = function () {
 		xhr.open("GET", "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + id + "&key=" + key, true);
 		xhr.send();
 	}
+};
+/*------------------------------------------------------------------------------
+SHOW HDR BADGE NEXT TO THE VIDEO TITLE
+------------------------------------------------------------------------------*/
+ImprovedTube.hdrBadge = function () {
+	var badgeClass = 'it-hdr-badge';
+
+	function clearBadge () {
+		var old = document.querySelectorAll('.' + badgeClass),
+			i;
+		for (i = 0; i < old.length; i++) {
+			old[i].remove();
+		}
+	}
+
+	clearBadge();
+
+	var self = this || ImprovedTube;
+
+	// Not every caller reaches this function through the storage-guarded
+	// wrapper in functions.js (unit tests invoke hdrBadge directly), so the
+	// function honors the setting itself: with hdr_badge off, a call only
+	// clears stale badges.
+	if (!self.storage || self.storage.hdr_badge !== true) { return; }
+
+	var videoId = null;
+	try { videoId = self.getParam(location.href.slice(location.href.indexOf('?') + 1), 'v'); } catch (e) {}
+
+	function belongsToVideo (resp) {
+		if (!resp || typeof resp !== 'object') { return false; }
+		var id = resp.videoDetails && resp.videoDetails.videoId;
+		return !id || !videoId || id === videoId;
+	}
+
+	function isHdrResponse (resp) {
+		var formats, i, format, colorInfo, tc, primaries;
+		if (!resp || typeof resp !== 'object' || !resp.streamingData) { return false; }
+		formats = resp.streamingData.adaptiveFormats || [];
+		for (i = 0; i < formats.length; i++) {
+			format = formats[i] || {};
+			colorInfo = format.colorInfo || {};
+			tc = String(colorInfo.transferCharacteristics || '').toUpperCase();
+			// PQ (SMPTE 2084 / HDR10)
+			if (tc.indexOf('2084') !== -1 || tc.indexOf('PQ') !== -1) { return true; }
+			// HLG (ARIB STD-B67)
+			if (tc.indexOf('HLG') !== -1 || tc.indexOf('B67') !== -1 || tc.indexOf('ARIB') !== -1) { return true; }
+			primaries = String(colorInfo.primaries || colorInfo.colorGamut || '').toUpperCase();
+			if (primaries.indexOf('2020') !== -1 || primaries.indexOf('2100') !== -1) { return true; }
+			if (String(format.qualityLabel || '').toUpperCase().indexOf('HDR') !== -1) { return true; }
+			// VP9 Profile 2 is YouTube's HDR carrier codec
+			if (/VP0?9[\._]0?2/i.test(format.mimeType || '')) { return true; }
+		}
+		return false;
+	}
+
+	function getResponse () {
+		var player, resp;
+		try {
+			player = document.getElementById('movie_player');
+			if (player && typeof player.getPlayerResponse === 'function') {
+				resp = player.getPlayerResponse();
+				if (resp && belongsToVideo(resp)) { return resp; }
+			}
+		} catch (e) {}
+		try {
+			if (belongsToVideo(window.ytInitialPlayerResponse)) { return window.ytInitialPlayerResponse; }
+		} catch (e) {}
+		return null;
+	}
+
+	function ensureBadge () {
+		var title = document.querySelector('ytd-watch-metadata #title') || document.querySelector('#above-the-fold #title'),
+			badge;
+		if (!title) { return false; }
+		if (title.querySelector('.' + badgeClass)) { return true; }
+		badge = document.createElement('span');
+		badge.className = badgeClass;
+		badge.textContent = 'HDR';
+		badge.title = 'This video offers HDR (shown even while Windows is in SDR mode)';
+		title.appendChild(badge);
+		return true;
+	}
+
+	function attempt (retriesLeft) {
+		if (self.storage.hdr_badge !== true || document.documentElement.dataset.pageType !== 'video') { return; }
+		var resp = getResponse();
+		if (resp && isHdrResponse(resp)) {
+			if (ensureBadge()) {
+				// Title node may be re-created by YouTube after we checked; verify briefly.
+				if (retriesLeft > 0) {
+					setTimeout(function () {
+						if (!document.querySelector('.' + badgeClass)) { attempt(retriesLeft - 1); }
+					}, 1500);
+				}
+			} else if (retriesLeft > 0) {
+				// HDR confirmed but the title node is not in the DOM yet; wait for it.
+				setTimeout(function () { attempt(retriesLeft - 1); }, 1200);
+			}
+			return;
+		}
+		// Player response may not be populated yet (or belong to the previous
+		// video right after SPA navigation); retry a few times, then give up.
+		if (retriesLeft > 0) {
+			setTimeout(function () { attempt(retriesLeft - 1); }, 1200);
+		}
+	}
+
+	attempt(4);
 };
 if (ImprovedTube.storage.header_transparent2 === true) {
 	/*------------------------------------------------------------------------------

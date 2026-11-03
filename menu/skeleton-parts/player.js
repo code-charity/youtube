@@ -297,6 +297,100 @@ extension.skeleton.main.layers.section.player.on.click = {
 			max: 3.17,
 			step: .01
 		},
+		channel_playback_speed: {
+			component: 'button',
+			text: 'channelPlaybackSpeed',
+			on: {
+				click: {
+					component: 'section',
+					variant: 'card',
+					channel_playback_speed_list: {
+						component: 'section',
+						on: {
+							render: function () {
+								let container = this;
+
+								function updateView() {
+									container.innerHTML = '';
+									let skeleton = {};
+									let ts = Date.now();
+									let storedSpeeds = satus.storage.get('channel_playback_speeds');
+									let channelSpeeds;
+
+									if (storedSpeeds === undefined) {
+										channelSpeeds = {};
+										satus.storage.set('channel_playback_speeds', channelSpeeds);
+									} else {
+										channelSpeeds = typeof storedSpeeds === 'object' && storedSpeeds !== null ? storedSpeeds : {};
+									}
+
+									skeleton['add_channel_btn_' + ts] = {
+										component: 'button',
+										text: 'channelPlaybackSpeedAdd',
+										on: {
+											click: function() {
+												let name = prompt(satus.locale.get('channelPlaybackSpeedPrompt'));
+												if (name) {
+													let speed = prompt(satus.locale.get('channelPlaybackSpeedSpeedPrompt'), '1.25');
+													if (speed && !isNaN(parseFloat(speed))) {
+														let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds') || {});
+														freshState[name] = parseFloat(speed);
+														satus.storage.set('channel_playback_speeds', freshState);
+														updateView();
+													}
+												}
+											}
+										}
+									};
+
+									for (let channelName in channelSpeeds) {
+										let safeKey = channelName.replace(/[^a-zA-Z0-9]/g, '_');
+
+										skeleton['speed_' + safeKey + '_' + ts] = {
+											component: 'section',
+											variant: 'card',
+											title: channelName,
+											speed_slider: {
+												component: 'slider',
+												text: 'playbackSpeed',
+												value: channelSpeeds[channelName],
+												min: 0.1,
+												max: 3.17,
+												step: 0.01,
+												textarea: true,
+												on: {
+													change: function() {
+														let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds'));
+														freshState[channelName] = Number(this.value);
+														satus.storage.set('channel_playback_speeds', freshState);
+													}
+												}
+											},
+											delete_btn: {
+												component: 'button',
+												text: 'delete',
+												on: {
+													click: function() {
+														let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds'));
+														delete freshState[channelName];
+														satus.storage.set('channel_playback_speeds', freshState);
+														updateView();
+													}
+												}
+											}
+										};
+									}
+
+									satus.render(skeleton, container);
+								}
+
+								updateView();
+							}
+						}
+					}
+				}
+			}
+		},
 		smart_speed: {
 			component: 'button',
 			text: 'smartSpeedEngine',
@@ -1252,11 +1346,6 @@ extension.skeleton.main.layers.section.player.on.click = {
     component: 'switch',
     text: 'hideAutoDubbedOptions'
 		},
-		preferred_dubbing_language: {
-			component: 'input',
-			text: 'preferredDubbingLanguage',
-			placeholder: 'e.g. en, fr, de, ja'
-    },
 		player_default_dubbed_language: {
 			component: 'select',
 			text: 'defaultDubbedLanguage',
@@ -1517,6 +1606,266 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'Zulu'
 			}]
 		},
+		preferred_dubbing_language: {
+			text: 'preferredDubbingLanguage',
+			component: 'select',
+			options: [{
+				value: 'disabled',
+				text: 'disabled'
+			}, {
+				value: 'af',
+				text: 'Afrikaans'
+			}, {
+				value: 'sq',
+				text: 'Albanian'
+			}, {
+				value: 'am',
+				text: 'Amharic'
+			}, {
+				value: 'ar',
+				text: 'Arabic'
+			}, {
+				value: 'hy',
+				text: 'Armenian'
+			}, {
+				value: 'az',
+				text: 'Azerbaijani'
+			}, {
+				value: 'bn',
+				text: 'Bangla'
+			}, {
+				value: 'eu',
+				text: 'Basque'
+			}, {
+				value: 'be',
+				text: 'Belarusian'
+			}, {
+				value: 'bs',
+				text: 'Bosnian'
+			}, {
+				value: 'bg',
+				text: 'Bulgarian'
+			}, {
+				value: 'my',
+				text: 'Burmese'
+			}, {
+				value: 'ca',
+				text: 'Catalan'
+			}, {
+				value: 'zh-Hans',
+				text: 'Chinese (Simplified)'
+			}, {
+				value: 'zh-Hant',
+				text: 'Chinese (Traditional)'
+			}, {
+				value: 'hr',
+				text: 'Croatian'
+			}, {
+				value: 'cs',
+				text: 'Czech'
+			}, {
+				value: 'da',
+				text: 'Danish'
+			}, {
+				value: 'nl',
+				text: 'Dutch'
+			}, {
+				value: 'en',
+				text: 'English'
+			}, {
+				value: 'et',
+				text: 'Estonian'
+			}, {
+				value: 'fil',
+				text: 'Filipino'
+			}, {
+				value: 'fi',
+				text: 'Finnish'
+			}, {
+				value: 'fr',
+				text: 'French'
+			}, {
+				value: 'gl',
+				text: 'Galician'
+			}, {
+				value: 'ka',
+				text: 'Georgian'
+			}, {
+				value: 'de',
+				text: 'German'
+			}, {
+				value: 'el',
+				text: 'Greek'
+			}, {
+				value: 'gu',
+				text: 'Gujarati'
+			}, {
+				value: 'iw',
+				text: 'Hebrew'
+			}, {
+				value: 'hi',
+				text: 'Hindi'
+			}, {
+				value: 'hu',
+				text: 'Hungarian'
+			}, {
+				value: 'is',
+				text: 'Icelandic'
+			}, {
+				value: 'id',
+				text: 'Indonesian'
+			}, {
+				value: 'ga',
+				text: 'Irish'
+			}, {
+				value: 'it',
+				text: 'Italian'
+			}, {
+				value: 'ja',
+				text: 'Japanese'
+			}, {
+				value: 'kn',
+				text: 'Kannada'
+			}, {
+				value: 'kk',
+				text: 'Kazakh'
+			}, {
+				value: 'km',
+				text: 'Khmer'
+			}, {
+				value: 'ko',
+				text: 'Korean'
+			}, {
+				value: 'ky',
+				text: 'Kyrgyz'
+			}, {
+				value: 'lo',
+				text: 'Lao'
+			}, {
+				value: 'lv',
+				text: 'Latvian'
+			}, {
+				value: 'lt',
+				text: 'Lithuanian'
+			}, {
+				value: 'mk',
+				text: 'Macedonian'
+			}, {
+				value: 'ms',
+				text: 'Malay'
+			}, {
+				value: 'ml',
+				text: 'Malayalam'
+			}, {
+				value: 'mt',
+				text: 'Maltese'
+			}, {
+				value: 'mr',
+				text: 'Marathi'
+			}, {
+				value: 'mn',
+				text: 'Mongolian'
+			}, {
+				value: 'ne',
+				text: 'Nepali'
+			}, {
+				value: 'no',
+				text: 'Norwegian'
+			}, {
+				value: 'fa',
+				text: 'Persian'
+			}, {
+				value: 'pl',
+				text: 'Polish'
+			}, {
+				value: 'pt',
+				text: 'Portuguese'
+			}, {
+				value: 'pa',
+				text: 'Punjabi'
+			}, {
+				value: 'ro',
+				text: 'Romanian'
+			}, {
+				value: 'ru',
+				text: 'Russian'
+			}, {
+				value: 'sr',
+				text: 'Serbian'
+			}, {
+				value: 'si',
+				text: 'Sinhala'
+			}, {
+				value: 'sk',
+				text: 'Slovak'
+			}, {
+				value: 'sl',
+				text: 'Slovenian'
+			}, {
+				value: 'so',
+				text: 'Somali'
+			}, {
+				value: 'es',
+				text: 'Spanish'
+			}, {
+				value: 'sw',
+				text: 'Swahili'
+			}, {
+				value: 'sv',
+				text: 'Swedish'
+			}, {
+				value: 'tg',
+				text: 'Tajik'
+			}, {
+				value: 'ta',
+				text: 'Tamil'
+			}, {
+				value: 'tt',
+				text: 'Tatar'
+			}, {
+				value: 'te',
+				text: 'Telugu'
+			}, {
+				value: 'th',
+				text: 'Thai'
+			}, {
+				value: 'tr',
+				text: 'Turkish'
+			}, {
+				value: 'tk',
+				text: 'Turkmen'
+			}, {
+				value: 'uk',
+				text: 'Ukrainian'
+			}, {
+				value: 'ur',
+				text: 'Urdu'
+			}, {
+				value: 'ug',
+				text: 'Uyghur'
+			}, {
+				value: 'uz',
+				text: 'Uzbek'
+			}, {
+				value: 'vi',
+				text: 'Vietnamese'
+			}, {
+				value: 'cy',
+				text: 'Welsh'
+			}, {
+				value: 'xh',
+				text: 'Xhosa'
+			}, {
+				value: 'yi',
+				text: 'Yiddish'
+			}, {
+				value: 'yo',
+				text: 'Yoruba'
+			}, {
+				value: 'zu',
+				text: 'Zulu'
+			}]
+  },
 		player_quality: {
 			component: 'select',
 			text: 'quality',
@@ -1948,8 +2297,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'videoFiltersButton',
 			id: 'player_video_filters_button',
-			storage: 'player_video_filters_button',
-			value: true
+			storage: 'player_video_filters_button'
 		},
 
 		player_playback_speed_button: {
@@ -2039,6 +2387,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'copyTranscript',
 				value: true
 			},
+			download_transcript: {
+				component: 'switch',
+				text: 'downloadTranscript',
+				value: false
+			},
 			below_player_screenshot: {
 				component: 'switch',
 				text: 'screenshot',
@@ -2102,7 +2455,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: "button",
 			text: "hidePlayerControlsBarButtons",
 			on: {
-				click: 'main.layers.section.appearance.on.click.player.on.click.player_hide_controls_options.on.click'
+				click: 'main.layers.section.appearance.on.click.player.on.click.section_1.player_hide_controls_options.on.click'
 			}
 		}
 	}

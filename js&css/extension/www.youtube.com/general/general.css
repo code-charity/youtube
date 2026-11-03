@@ -15,6 +15,7 @@
 # Hide thumbnail icon
 # Hide dots on thumbnails
 # Squared thumbnails
+# Blur thumbnails
 --------------------------------------------------------------*/
 html[it-cursorLighting=true] #below			{opacity:.4; transition:3s;}
 html[it-cursorLighting=true] #below:hover	{opacity:1; transition:.5s;}
@@ -43,8 +44,12 @@ html[it-cursorLighting=true] ytd-guide-entry-renderer:hover,   /*ytd-watch-next-
 html[it-cursorLighting=true] #donation-shelf:hover,
 html[it-cursorLighting=true] ytd-ad-slot-renderer:hover,
 html[it-cursorLighting=true] #player-ads:hover			{opacity:1; transition:.3s}
+html[it-cursorLighting=true] ytd-feed-filter-chip-bar-renderer,
+html[it-cursorLighting=true] #chips-wrapper,
 html[it-cursorLighting=true] ytd-two-column-browse-results-renderer,
 html[it-cursorLighting=true] ytd-search			{opacity:.7; transition:5s;}
+html[it-cursorLighting=true] ytd-feed-filter-chip-bar-renderer:hover,
+html[it-cursorLighting=true] #chips-wrapper:hover,
 html[it-cursorLighting=true] ytd-two-column-browse-results-renderer:hover,
 html[it-cursorLighting=true] ytd-search:hover	{opacity:1; transition:3s}
 html[it-cursorLighting=true]:not([data-page-type=video]) #guide-content,
@@ -81,6 +86,31 @@ html[it-squared-thumbnails='true'] .shortsLockupViewModelHostThumbnailParentCont
 	--yt-img-border-radius: 0 !important;
 	--yt-thumbnail-border-radius: 0 !important;
 	border-radius: 0 !important;
+}
+/*--------------------------------------------------------------
+# BLUR THUMBNAILS
+--------------------------------------------------------------*/
+html[it-blur-thumbnails='true'] ytd-thumbnail img,
+html[it-blur-thumbnails='true'] ytd-playlist-thumbnail #thumbnail,
+html[it-blur-thumbnails='true'] ytd-playlist-thumbnail img,
+html[it-blur-thumbnails='true'] .yt-thumbnail-view-model img,
+html[it-blur-thumbnails='true'] .yt-lockup-view-model-wiz__content-image img,
+html[it-blur-thumbnails='true'] .yt-video-card-view-model__thumbnail,
+html[it-blur-thumbnails='true'] .yt-video-card-view-model__thumbnail img,
+html[it-blur-thumbnails='true'] .ytThumbnailViewModelImage,
+html[it-blur-thumbnails='true'] .ytwTopLandscapeImageLayoutViewModelHostImageHoverOverlayContainer,
+html[it-blur-thumbnails='true'] #img.ytp-cued-thumbnail-overlay-image {
+	filter: blur(10px) !important;
+	transition: filter .2s;
+}
+
+html[it-blur-thumbnails='true'] ytd-thumbnail:hover img,
+html[it-blur-thumbnails='true'] ytd-playlist-thumbnail:hover img,
+html[it-blur-thumbnails='true'] .yt-thumbnail-view-model:hover img,
+html[it-blur-thumbnails='true'] .yt-lockup-view-model-wiz__content-image:hover img,
+html[it-blur-thumbnails='true'] .yt-video-card-view-model__thumbnail:hover img,
+html[it-blur-thumbnails='true'] .ytThumbnailViewModelImage:hover {
+	filter: blur(0) !important;
 }
 /*--------------------------------------------------------------
 HIDING STUFF   (display:none !important) (Usually the !important isn't necessary)
@@ -610,11 +640,23 @@ html[it-larger-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__d
   Hides the play-triangle icon that YouTube inserted in front of
   the view count on thumbnails. The accompanying JS expands the
   shortened time-ago text and restores the interpunct delimiter.
+
+  YouTube renamed these view-model classes from the hyphenated
+  "-wiz__" form to camelCase, which is why the last selector exists.
+  The hyphenated selectors stay for surfaces still served the old
+  markup. Target the leading icon by name rather than every icon in
+  the row, so the channel verified badge keeps rendering.
+
+  camelCase names observed on watch and results pages, 2026-08.
+  YouTube renames these every few months, so if the play triangle
+  reappears, read the row markup first and add the new name here
+  rather than widening this to every icon in the row.
 --------------------------------------------------------------*/
 html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-row .yt-content-metadata-view-model-wiz__metadata-icon,
 html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-row yt-icon,
 html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-text > svg,
-html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-text > yt-icon {
+html[it-classic-thumbnail-metadata='true'] .yt-content-metadata-view-model-wiz__metadata-text > yt-icon,
+html[it-classic-thumbnail-metadata='true'] .ytContentMetadataViewModelMetadataRow .ytContentMetadataViewModelLeadingIcon {
 	display: none !important;
 }
 

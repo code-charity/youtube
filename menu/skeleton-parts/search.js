@@ -60,10 +60,10 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 							parent = result,
 							category,
 							subcategory,
+							subheading,
 							text;
 
 						while (parent.parentObject && !parent.parentObject.category) {
-
 							parent = parent.parentObject;
 						}
 
@@ -85,43 +85,51 @@ extension.skeleton.header.sectionEnd.search.on.click = {
 							} else {
 								subcategory = parent.text;
 							}
-
-							if (category === subcategory) {
-								text = satus.locale.get(category);
-							} else {
-								text = satus.locale.get(category) + ' > ' + satus.locale.get(subcategory);
-							}
-
-							skeleton[category + subcategory + '_label'] = {
-								component: 'span',
-								class: 'satus-section--label',
-								text: text
-							};
-
-							if (!skeleton[category + subcategory]) {
-								skeleton[category + subcategory] = {
-									component: 'section',
-									variant: 'card'
-								};
-							}
-
-							skeleton[category + subcategory][key] = result;
-						} else {
-							skeleton[category + '_label'] = {
-								component: 'span',
-								class: 'satus-section--label',
-								text: category
-							};
-
-							if (!skeleton[category]) {
-								skeleton[category] = {
-									component: 'section',
-									variant: 'card'
-								};
-							}
-
-							skeleton[category][key] = result;
 						}
+
+						let p = result;
+						while (p.parentObject && !p.parentObject.category && p.parentObject.component !== 'button') {
+							if (p.parentObject.title && typeof p.parentObject.title === 'string') {
+								subheading = p.parentObject.title;
+								break;
+							}
+							p = p.parentObject;
+						}
+
+						let parts = [];
+						if (category) {
+							parts.push(satus.locale.get(category));
+						}
+						if (subcategory && subcategory !== category) {
+							let subcategoryText = satus.locale.get(subcategory);
+							if (!parts.includes(subcategoryText)) {
+								parts.push(subcategoryText);
+							}
+						}
+						if (subheading) {
+							let subheadingText = satus.locale.get(subheading);
+							if (!parts.includes(subheadingText)) {
+								parts.push(subheadingText);
+							}
+						}
+
+						text = parts.join(' > ');
+						let groupKey = (category || '') + '_' + (subcategory || '') + '_' + (subheading || '');
+
+						skeleton[groupKey + '_label'] = {
+							component: 'span',
+							class: 'satus-section--label',
+							text: text
+						};
+
+						if (!skeleton[groupKey]) {
+							skeleton[groupKey] = {
+								component: 'section',
+								variant: 'card'
+							};
+						}
+
+						skeleton[groupKey][key] = result;
 					}
 
 					if (Object.keys(results).length === 0) {

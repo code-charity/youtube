@@ -265,6 +265,11 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					component: 'switch',
 					text: 'disablePreciseSeeking',
 					storage: 'player_disable_precise_seeking',
+				player_watched_segments: {
+					component: 'switch',
+					text: 'showWatchedSectionsOnSeekBar',
+					storage: 'player_watched_segments',
+					tags: 'progress,seek,bar,history,watched',
 				},
 				player_hide_controls_options: {
 					component: "button",
@@ -636,6 +641,10 @@ extension.skeleton.main.layers.section.appearance.on.click.details = {
 			cc_indicator: {
 				component: "switch",
 				text: "ccIndicator"
+			},
+			hdr_badge: {
+				component: "switch",
+				text: "hdrBadge"
 			}
 			}
 		}
@@ -990,6 +999,16 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 			hide_author_avatars: {
 				component: "switch",
 				text: 'hide_author_avatars'
+			},
+			hide_comment_images: {
+				component: "switch",
+				text: 'hideCommentImages',
+				tags: "hide,remove,gif"
+			},
+			blur_comment_images: {
+				component: "switch",
+				text: 'blurCommentImages',
+				tags: "blur,gif,spoiler"
 			},
 			hide_comments_count: {
 				component: "switch",

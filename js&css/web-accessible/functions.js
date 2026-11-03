@@ -42,7 +42,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 		}
 		if (this.storage.blocklist_activate) {
 			// we are interested in thumbnails and video-previews, skip ones with 'button.it-add-to-blocklist' already
-			if (((node.href && node.classList.contains('ytd-thumbnail')) || node.classList.contains('ytd-video-preview'))
+			if (((node.href && (node.classList.contains('ytd-thumbnail') || node.classList.contains('ytLockupViewModelContentImage'))) || node.classList.contains('ytd-video-preview'))
 				&& !node.querySelector("button.it-add-to-blocklist")) {
 				this.blocklistNode(node);
 			}
@@ -387,12 +387,15 @@ ImprovedTube.videoPageUpdate = function () {
 		ImprovedTube.playerCinemaModeButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
+		if ( this.storage.hdr_badge === true && document.documentElement.dataset.pageType === 'video') {		ImprovedTube.hdrBadge(); };
 
 		// Initialize large playlist handler for playlist videos
-		if (this.getParam(location.href, 'list')) {
+		// Skip queue-type playlists (WL, RD, etc.) to prevent interference
+		var listId = this.getParam(location.href, 'list');
+		if (listId && listId !== 'WL' && listId !== 'RD' && listId.indexOf('RDAMVM') !== 0 && listId.indexOf('OLAK5uy_') !== 0) {
 			ImprovedTube.playlistLargePlaylistHandler();
 		} else {
-			// Cleanup when not on a playlist
+			// Cleanup when not on a playlist or on a queue-type playlist
 			if (typeof ImprovedTube.cleanupPlaylistHandlers === 'function') {
 				ImprovedTube.cleanupPlaylistHandlers();
 			}
@@ -420,6 +423,9 @@ ImprovedTube.playerOnPlay = function () {
 
 				this.removeEventListener('ended', ImprovedTube.playerOnEnded, true);
 				this.addEventListener('ended', ImprovedTube.playerOnEnded, true);
+
+				this.removeEventListener('waiting', ImprovedTube.playerLiveHeadSpeedReset);
+				this.addEventListener('waiting', ImprovedTube.playerLiveHeadSpeedReset);
 				/*------------------------------------------------------------------------------
 				AUTOPLAY DISABLE  player || playlist || channel trailer
 				------------------------------------------------------------------------------*/
@@ -498,6 +504,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerHideProgressPreview();
 		ImprovedTube.playerDisablePreciseSeeking();
 		ImprovedTube.expandDescription();
+		if (ImprovedTube.storage.player_watched_segments === true) {ImprovedTube.watchedSegments.init();}
 		setTimeout(function () { ImprovedTube.forcedTheaterMode(); }, 150);
 		if (location.href.indexOf('/embed/') === -1) { ImprovedTube.miniPlayer(); }
 		if (ImprovedTube.storage.disable_auto_dubbing === true) { ImprovedTube.disableAutoDubbing(); }
@@ -549,6 +556,7 @@ ImprovedTube.playerOnTimeUpdate = function () {
 };
 
 ImprovedTube.playerOnLoadedMetadata = function () {
+	if (ImprovedTube.storage.player_watched_segments === true) {ImprovedTube.watchedSegments.init();}
 	setTimeout(function () { ImprovedTube.playerSize(); }, 100);
 	setTimeout(function () { if (ImprovedTube.elements.panels) { ImprovedTube.transcript(ImprovedTube.elements.panels); ImprovedTube.chapters(ImprovedTube.elements.panels); } }, 250);
 };

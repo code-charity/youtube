@@ -349,6 +349,7 @@ document.addEventListener('it-message-from-extension', function () {
 							ImprovedTube.elements.buttons['it-cinema-mode-styles']?.remove();
 						}
 					}
+					break
 
 				case 'playerRepeatButton':
 					if (ImprovedTube.storage.player_repeat_button === false) {
@@ -486,6 +487,15 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
+				case 'downloadTranscript':
+					if (ImprovedTube.storage.download_transcript === true) {
+						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
+						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+					} else {
+						document.querySelector('.improvedtube-player-button[data-tooltip="DownloadTranscript"]')?.remove();
+					}
+					break
+
 				case 'dayOfWeek':
 					if (ImprovedTube.storage.day_of_week === false) {
 						document.querySelector(".ytd-day-of-week")?.remove();
@@ -521,6 +531,10 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerDisablePreciseSeeking':
 					ImprovedTube.playerDisablePreciseSeeking();
 					break;
+
+				case 'playerWatchedSegments':
+					ImprovedTube.watchedSegments.init();
+					break
 
 				case 'playerHideControls':
 					ImprovedTube.playerControls();

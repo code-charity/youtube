@@ -9,12 +9,15 @@ function loadDubbingPolicy(context) {
 	);
 	const start = source.indexOf('ImprovedTube.getAudioTrackInfo = function (track) {');
 	const end = source.indexOf('ImprovedTube.jumpToKeyScene = function () {', start);
+	const retryStart = source.indexOf('ImprovedTube.retryPlayerAction = function');
+	const retryEnd = source.indexOf('ImprovedTube.subtitlesLanguage = function', retryStart);
 
-	if (start < 0 || end < 0) {
+	if (start < 0 || end < 0 || retryStart < 0 || retryEnd < 0) {
 		throw new Error('Dubbing policy source was not found');
 	}
 
 	vm.createContext(context);
+	vm.runInContext(source.slice(retryStart, retryEnd), context);
 	vm.runInContext(source.slice(start, end), context);
 }
 
@@ -187,6 +190,50 @@ describe('dubbing policy', () => {
 		expect(selectedTrack()).toBe(humanRussian);
 		expect(context.ImprovedTube.stopAutoDubbingGuard).toBeUndefined();
 		expect(context.ImprovedTube.enforceAutoDubbingPolicy).toBeUndefined();
+	});
+
+	test('installs the guard once the player exposes audio tracks after SPA navigation (#4407)', () => {
+		const original = audioTrack({id: 'en', languageCode: 'en', name: 'English', isDefault: true});
+		const autoRussian = audioTrack({id: 'ru.2', languageCode: 'ru', name: 'Russian', isAutoDubbed: true});
+		const {context, player, selectedTrack} = createContext([autoRussian, original]);
+		const getAvailableAudioTracks = player.getAvailableAudioTracks;
+		const pendingRetries = [];
+		context.setTimeout = callback => {
+			pendingRetries.push(callback);
+			return 1;
+		};
+		delete player.getAvailableAudioTracks;
+
+		context.ImprovedTube.disableAutoDubbing();
+		expect(context.ImprovedTube.autoDubbingGuard).toBeUndefined();
+		expect(pendingRetries).toHaveLength(1);
+
+		player.getAvailableAudioTracks = getAvailableAudioTracks;
+		pendingRetries.shift()();
+
+		expect(selectedTrack()).toBe(original);
+		expect(context.ImprovedTube.autoDubbingGuard.player).toBe(player);
+		expect(pendingRetries).toHaveLength(0);
+	});
+
+	test('does not apply a pending auto-dubbing retry to the next video', () => {
+		const original = audioTrack({id: 'en', languageCode: 'en', name: 'English', isDefault: true});
+		const {context, player} = createContext([original]);
+		const getAvailableAudioTracks = player.getAvailableAudioTracks;
+		const pendingRetries = [];
+		context.setTimeout = callback => {
+			pendingRetries.push(callback);
+			return 1;
+		};
+		delete player.getAvailableAudioTracks;
+
+		context.ImprovedTube.disableAutoDubbing();
+		context.location.href = 'https://www.youtube.com/watch?v=next-video';
+		player.getAvailableAudioTracks = getAvailableAudioTracks;
+		pendingRetries.shift()();
+
+		expect(context.ImprovedTube.autoDubbingGuard).toBeUndefined();
+		expect(pendingRetries).toHaveLength(0);
 	});
 
 	test('falls back to the original track when the preferred language exists only as auto-dub', () => {

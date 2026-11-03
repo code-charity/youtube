@@ -26,10 +26,9 @@ describe('Cinema mode no longer blacks out the whole page (issue #4353)', () => 
 		expect(playerJs).not.toContain("document.getElementById('overlay_cinema')");
 	});
 
-	test('darkens via a box-shadow spotlight on #ytd-player instead', () => {
+	test('toggles an it-cinema-mode attribute on <html> that player.css uses to hide everything but the player', () => {
 		expect(playerJs).toContain('ImprovedTube.cinemaModeSetVisible = function');
-		expect(playerJs).toContain("document.getElementById('ytd-player')");
-		expect(playerJs).toContain('0 0 0 9999px rgba(0, 0, 0, 1)');
+		expect(playerJs).toContain("toggleAttribute('it-cinema-mode'");
 	});
 
 	test('manual toggle button, auto-enable and auto-disable all share the same toggle state and helper', () => {
