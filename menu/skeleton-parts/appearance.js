@@ -261,6 +261,11 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					text: 'hideProgressBarPreview',
 					storage: 'player_hide_progress_preview',
 				},
+				player_disable_precise_seeking: {
+					component: 'switch',
+					text: 'disablePreciseSeeking',
+					storage: 'player_disable_precise_seeking',
+				},
 				player_hide_controls_options: {
 					component: "button",
 					text: "hidePlayerControlsBarButtons",

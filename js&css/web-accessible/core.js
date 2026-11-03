@@ -516,7 +516,11 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'playerHideProgressPreview':
 					ImprovedTube.playerHideProgressPreview();
-					break
+					break;
+
+				case 'playerDisablePreciseSeeking':
+					ImprovedTube.playerDisablePreciseSeeking();
+					break;
 
 				case 'playerHideControls':
 					ImprovedTube.playerControls();
