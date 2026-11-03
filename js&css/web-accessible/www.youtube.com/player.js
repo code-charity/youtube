@@ -969,11 +969,7 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 					button.dataset.tooltip = 'CopyTranscript';
 					svg.style.opacity = '.5';
 					// Close transcript panel
-					var closeButton = document.querySelector('ytd-engagement-panel-title-header-renderer button[aria-label*="lose"]') ||
-						document.querySelector('ytd-engagement-panel-title-header-renderer button[aria-label*="акрыть"]');
-					if (closeButton) {
-						closeButton.click();
-					}
+					ImprovedTube.closeTranscriptPanel();
 				}, 1000);
 			} else {
 				throw new Error('Transcript is empty');
@@ -1014,6 +1010,16 @@ ImprovedTube.readTranscriptSegments = function () {
 	});
 	return segments;
 };
+
+// Closes the open transcript panel. The close button's aria-label is translated,
+// so find it through the panel's target-id and YouTube's #visibility-button wrapper.
+ImprovedTube.closeTranscriptPanel = function () {
+	var closeButton = document.querySelector('ytd-engagement-panel-section-list-renderer[target-id*="transcript"][visibility="ENGAGEMENT_PANEL_VISIBILITY_EXPANDED"] #visibility-button button');
+	if (closeButton) {
+		closeButton.click();
+	}
+};
+
 
 // Calls onReady(segments, openedPanel) once the transcript lines are in the page, opening YouTube's
 // transcript panel first when needed. Calls onError() when the video has no transcript or it never loads.
@@ -1085,11 +1091,7 @@ ImprovedTube.downloadTranscript = function (svg, button) {
 		button.dataset.tooltip = 'Downloaded!';
 		resetButton(1000);
 		if (openedPanel) {
-			var closeButton = document.querySelector('ytd-engagement-panel-title-header-renderer button[aria-label*="lose"]') ||
-				document.querySelector('ytd-engagement-panel-title-header-renderer button[aria-label*="акрыть"]');
-			if (closeButton) {
-				closeButton.click();
-			}
+			ImprovedTube.closeTranscriptPanel();
 		}
 	}, function () {
 		console.error('ImprovedTube: Transcript not available for this video');
