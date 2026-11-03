@@ -678,6 +678,9 @@
   "hideCommentImages": {
     "message": "Hide images and GIFs in comments"
   },
+  "blurCommentImages": {
+    "message": "Blur images and GIFs in comments"
+  },
   "hide_labels": {
     "message": "Hide names"
   },

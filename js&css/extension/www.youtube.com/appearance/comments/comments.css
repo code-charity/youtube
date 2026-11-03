@@ -29,6 +29,16 @@ html[it-hide-author-avatars='true'] ytd-comments #hearted-thumbnail
 html[it-hide-author-avatars='true'] ytd-comments ytd-comment-thread-renderer .thread-hitbox {
 	pointer-events: none !important;
 }
+
+/* Blur images and GIFs in comments until hovered */
+html[it-blur-comment-images='true'] ytw-comment-image-attachment-view-model {
+	filter: blur(10px) !important;
+	transition: filter .2s;
+}
+
+html[it-blur-comment-images='true'] ytw-comment-image-attachment-view-model:hover {
+	filter: blur(0) !important;
+}
 /*--------------------------------------------------------------
 # SQUARED USER IMAGES
 --------------------------------------------------------------*/

@@ -1001,6 +1001,11 @@ extension.skeleton.main.layers.section.appearance.on.click.comments = {
 				text: 'hideCommentImages',
 				tags: "hide,remove,gif"
 			},
+			blur_comment_images: {
+				component: "switch",
+				text: 'blurCommentImages',
+				tags: "blur,gif,spoiler"
+			},
 			hide_comments_count: {
 				component: "switch",
 				text: "hideCommentsCount",
