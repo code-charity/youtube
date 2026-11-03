@@ -1148,7 +1148,7 @@ ImprovedTube.playerScreenshotButton = function () {
 VIDEO FILTERS BUTTON
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerVideoFiltersButton = function () {
-	if (this.storage.player_video_filters_button !== false) {
+	if (this.storage.player_video_filters_button === true) {
 		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
