@@ -299,10 +299,9 @@ document.addEventListener('it-message-from-extension', function () {
 					break
 
 				case 'transcript':
-					if (ImprovedTube.storage.transcript === true) {
-						document.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');
-					} else if (ImprovedTube.storage.transcript === false) {
-						document.querySelector('*[target-id*=transcript] #visibility-button button')?.click();
+					// Switching it on is handled by ImprovedTube.transcript(), called after this switch
+					if (ImprovedTube.storage.transcript !== true) {
+						ImprovedTube.closeTranscriptPanel();
 					}
 					break
 
