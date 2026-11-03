@@ -2297,8 +2297,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'videoFiltersButton',
 			id: 'player_video_filters_button',
-			storage: 'player_video_filters_button',
-			value: true
+			storage: 'player_video_filters_button'
 		},
 
 		player_playback_speed_button: {
