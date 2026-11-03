@@ -622,6 +622,12 @@ extension.skeleton.header.sectionEnd.menu.on.click.settings.on.click.secondSecti
 						}
 					}
 				}
+			},
+			video_metadata_debug: {
+				component: 'switch',
+				text: 'videoMetadataDebugLog',
+				storage: 'video_metadata_debug',
+				value: false
 			}
 		}
 	}

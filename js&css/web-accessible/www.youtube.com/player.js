@@ -3186,99 +3186,28 @@ ImprovedTube.selectDubbedLanguage = function () {
 # JUMP TO THE NEXT KEY SCENE
 ------------------------------------------------------------------------------*/
 ImprovedTube.jumpToKeyScene = function () {
-	ImprovedTube.mostReplayed = function () {
 	const player = document.querySelector('video');
-
-	const data = extractYtInitialData();
-	if (!data)
-		return console.warn("Failed to extract ytInitialData.");
-
-	const markers = getMostReplayedMarkers(data);
-	if (!markers.length)
-		return console.warn("No 'Most Replayed' markers found.");
-
-	const currentMillis = player.currentTime * 1000;
-	const sortedMarkers = markers.slice().sort((a, b) => a.decorationTimeMillis - b.decorationTimeMillis);
-	const nextMarker = sortedMarkers.find(m => m.decorationTimeMillis > currentMillis) || sortedMarkers[0]; // fallback to first if none ahead
-	const targetSeconds = nextMarker.decorationTimeMillis / 1000;
-
-	player.currentTime = targetSeconds;
-	player.play();
-	console.log(`Jumped to Most Replayed @ ${Math.floor(targetSeconds / 60)}:${Math.floor(targetSeconds % 60).toString().padStart(2, "0")}`);
-
-	function extractYtInitialData() {
-		const scriptTags = document.querySelectorAll('script');
-
-		for (let i = 0; i < scriptTags.length; i++) {
-			if (DATA.ytInitialData) { var ytIData = DATA.ytInitialData; }
-			else {
-			const scriptContent = scriptTags[i].textContent;
-			var ytIData = scriptContent.match(/var ytInitialData = ({.*?});/s);
-			}
-
-			if (ytIData) {
-				try {
-					return JSON.parse(ytIData[1]);
-				} catch (e) {
-					console.warn("Failed to parse ytInitialData JSON", e);
-					return null;
-				}
-			}
+	if (!player) {
+		console.warn("[ImprovedTube:jumpToKeyScene] No video player found.");
+		return;
+	}
+	ImprovedTube.VideoMetadata.getMostReplayedMarkersAsync().then(markers => {
+		if (!markers.length) {
+			console.debug("[ImprovedTube:jumpToKeyScene] No 'Most Replayed' markers found.");
+			return;
 		}
+		const currentMillis = player.currentTime * 1000;
+		const sortedMarkers = markers.slice().sort((a, b) => a.decorationTimeMillis - b.decorationTimeMillis);
+		const nextMarker = sortedMarkers.find(m => m.decorationTimeMillis > currentMillis) || sortedMarkers[0]; // fallback to first if none ahead
+		const targetSeconds = nextMarker.decorationTimeMillis / 1000;
 
-		return null;
-	}
-
-	function getMostReplayedMarkers(parsedJson) {
-		const decorations = parsedJson?.['frameworkUpdates']?.['entityBatchUpdate']?.['mutations']?.[0]
-			?.['payload']?.['macroMarkersListEntity']?.['markersList']?.['markersDecoration']?.['timedMarkerDecorations'];
-		return decorations;
-	}
-	}
-
-		DATA = {};
-			ImprovedTube.fetchDOMData2 = function () {
-				try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false; DATA.title = DATA.name;}
-			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false;
-					try {
-						DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
-						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
-						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
-			 } catch {}}
-
-let tries = 0; const maxTries = 3; let intervalMs = 25;
-const waitForVideoTitle = setInterval(() => { const title = ImprovedTube.videoTitle?.();  tries++;
-if (title && title !== 'YouTube') {
-    clearInterval(waitForVideoTitle);
-			 DATA.videoID = ImprovedTube.videoId() || false;
-			 console.log("MOST REPLAYED: TITLE:" + ImprovedTube.videoTitle() + DATA.title);
-			 if ( (DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle())
-				   && ((history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint))
-				   { ImprovedTube.mostReplayed(); }
-				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
-					console.log("loading the html source:" + `https://www.youtube.com/watch?v=${DATA.videoID}`);
-					const htmlContent = await response.text();
-					DATA.ytInitialData = htmlContent.match(/var ytInitialData = ({.*?});/s);
-					if (DATA.ytInitialData) { ImprovedTube.mostReplayed(); }
-				} catch (error) {
-const o = Object.assign(document.createElement('div'), { innerText: 'too few views' });
-const keySceneButton = document.querySelector('button[data-tooltip="Key Scene"]');
-		if (keySceneButton) {  keySceneButton.style.transition = 'opacity 0.4s';  keySceneButton.style.opacity = '0.3';
-		setTimeout(() => {    keySceneButton.style.opacity = '0.8';    }, 5000);}
-		console.error(`Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}`, error);  }
-				})();
-				}
-}
-
-if (tries >= maxTries) {  clearInterval(waitForVideoTitle); } intervalMs *= 1.11; }, intervalMs);
-window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});
-			};
-			ImprovedTube.fetchDOMData2();
-
-
-
-
-}
+		player.currentTime = targetSeconds;
+		player.play();
+		console.log(`[ImprovedTube:jumpToKeyScene] Jumped to Most Replayed @ ${Math.floor(targetSeconds / 60)}:${Math.floor(targetSeconds % 60).toString().padStart(2, "0")}`);
+	}).catch(error => {
+		console.error("[ImprovedTube:jumpToKeyScene] Error fetching Most Replayed markers:", error);
+	});
+};
 
 /*------------------------------------------------------------------------------
 REDIRECT SHORTS TO WATCH URL
