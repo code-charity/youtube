@@ -2385,16 +2385,6 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'keyScene',
 				value: true
 			},
-			copy_transcript: {
-				component: 'switch',
-				text: 'copyTranscript',
-				value: true
-			},
-			download_transcript: {
-				component: 'switch',
-				text: 'downloadTranscript',
-				value: false
-			},
 			below_player_screenshot: {
 				component: 'switch',
 				text: 'screenshot',
@@ -2460,6 +2450,47 @@ extension.skeleton.main.layers.section.player.on.click = {
 			on: {
 				click: 'main.layers.section.appearance.on.click.player.on.click.section_1.player_hide_controls_options.on.click'
 			}
+		}
+	},
+	section_3: {
+		component: 'section',
+		variant: 'card',
+		title: 'Transcript',
+		transcript: {
+			component: 'switch',
+			text: 'transcriptAlwaysExpanded',
+			value: false,
+			id: 'transcript',
+			on: {
+				click: function () {
+					// "Always expanded" and "To the side! (No page margin)" (Appearance > Sidebar) exclude each other
+					setTimeout(function () {
+						if (satus.storage.get('transcript') && satus.storage.get('no_page_margin')) {
+							satus.storage.set('no_page_margin', false);
+						}
+					}, 250);
+				}
+			}
+		},
+		compact_spacing: {
+			component: 'switch',
+			text: 'compact_spacing',
+			storage: 'compactSpacing'
+		},
+		toggle_transcript_button: {
+			component: 'switch',
+			text: 'toggleTranscriptButton',
+			value: false
+		},
+		copy_transcript: {
+			component: 'switch',
+			text: 'copyTranscript',
+			value: true
+		},
+		download_transcript: {
+			component: 'switch',
+			text: 'downloadTranscript',
+			value: false
 		}
 	}
 };

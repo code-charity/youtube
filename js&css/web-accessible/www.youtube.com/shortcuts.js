@@ -497,17 +497,9 @@ ImprovedTube.shortcutChapters = function () {
 };
 /*------Transcript------*/
 ImprovedTube.shortcutTranscript = function () {
-	const available = document.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || document.querySelector('[target-id*=transcript]').clientHeight;
-	if (available) {
-		const descriptionTranscript = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
-		descriptionTranscript ? descriptionTranscript.click() : document.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
-	} else {
-		const transcriptButton = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
-		transcriptButton ? transcriptButton.click() : document.querySelector('[target-id*=transcript] #visibility-button button')?.click();
-	}
-	if (!descriptionTranscript && transcriptButton) {
-		console.error('shortcutTranscript: Cant fint proper Enble button, falling back to unreliable bruteforce method');
-	}
+	ImprovedTube.toggleTranscriptPanel(function () {
+		console.log('ImprovedTube: this video has no transcript');
+	});
 };
 /*------------------------------------------------------------------------------
 4.7.22 LIKE

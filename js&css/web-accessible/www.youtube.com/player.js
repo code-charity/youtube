@@ -931,7 +931,8 @@ ImprovedTube.copyTranscript = function (svg, button) {
 
 	} catch (error) {
 		console.error('ImprovedTube: Failed to copy transcript:', error);
-		button.dataset.tooltip = 'TranscriptError';
+		// Tooltips show data-tooltip as is, so use readable text
+		button.dataset.tooltip = 'No transcript';
 		setTimeout(function () {
 			button.dataset.tooltip = 'CopyTranscript';
 			svg.style.opacity = '.5';
@@ -977,7 +978,7 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 		} else if (attempts >= maxAttempts) {
 			clearInterval(checkInterval);
 			console.error('ImprovedTube: Timeout waiting for transcript');
-			button.dataset.tooltip = 'TranscriptError';
+			button.dataset.tooltip = "Transcript didn't load";
 			setTimeout(function () {
 				button.dataset.tooltip = 'CopyTranscript';
 				svg.style.opacity = '.5';
@@ -1011,18 +1012,78 @@ ImprovedTube.readTranscriptSegments = function () {
 	return segments;
 };
 
-// Closes the open transcript panel. The close button's aria-label is translated,
-// so find it through the panel's target-id and YouTube's #visibility-button wrapper.
+/*------------------------------------------------------------------------------
+TRANSCRIPT PANEL
+YouTube shows the transcript either in its own side panel (target-id contains "transcript")
+or as a tab of the "In this video" panel (target-id engagement-panel-macro-markers-auto-chapters),
+so an expanded panel counts as the transcript if its target-id says so or it holds transcript lines.
+------------------------------------------------------------------------------*/
+ImprovedTube.findOpenTranscriptPanel = function () {
+	return Array.from(document.querySelectorAll('ytd-engagement-panel-section-list-renderer[visibility="ENGAGEMENT_PANEL_VISIBILITY_EXPANDED"]')).find(function (panel) {
+		return (panel.getAttribute('target-id') || '').indexOf('transcript') !== -1 || panel.querySelector('ytd-transcript-segment-renderer, transcript-segment-view-model');
+	}) || null;
+};
+
+ImprovedTube.isTranscriptOpen = function () {
+	return ImprovedTube.findOpenTranscriptPanel() !== null;
+};
+
+// The description's "Show transcript" button
+ImprovedTube.findTranscriptButton = function () {
+	return document.querySelector('ytd-video-description-transcript-section-renderer button') || document.querySelector(ImprovedTube.transcriptButtonSelector);
+};
+
+// Clicks "Show transcript", expanding the description first when the button is still hidden in it.
+// Calls onOpened() after the click and onError() when the video has no transcript.
+ImprovedTube.openTranscriptPanel = function (onOpened, onError) {
+	onOpened = onOpened || function () {};
+	onError = onError || function () {};
+	var clickTranscriptButton = function () {
+		var transcriptButton = ImprovedTube.findTranscriptButton();
+		if (transcriptButton) {
+			transcriptButton.click();
+			onOpened();
+		} else {
+			onError();
+		}
+	};
+
+	if (ImprovedTube.findTranscriptButton()) {
+		clickTranscriptButton();
+		return;
+	}
+	var moreActionsButton = document.querySelector('#description ytd-text-inline-expander #expand, #description tp-yt-paper-button#expand');
+	if (moreActionsButton && !moreActionsButton.hasAttribute('hidden')) {
+		moreActionsButton.click();
+		setTimeout(clickTranscriptButton, 500);
+	} else {
+		onError();
+	}
+};
+
+// Closes the open transcript. The X button's aria-label is translated,
+// so find it through YouTube's #visibility-button wrapper.
 ImprovedTube.closeTranscriptPanel = function () {
-	var closeButton = document.querySelector('ytd-engagement-panel-section-list-renderer[target-id*="transcript"][visibility="ENGAGEMENT_PANEL_VISIBILITY_EXPANDED"] #visibility-button button');
+	var panel = ImprovedTube.findOpenTranscriptPanel();
+	var closeButton = panel && panel.querySelector('#visibility-button button');
 	if (closeButton) {
 		closeButton.click();
 	}
 };
 
+// Opens YouTube's transcript panel, or closes it when it is already open.
+// Calls onError() when the video has no transcript.
+ImprovedTube.toggleTranscriptPanel = function (onError) {
+	if (ImprovedTube.isTranscriptOpen()) {
+		ImprovedTube.closeTranscriptPanel();
+	} else {
+		ImprovedTube.openTranscriptPanel(null, onError);
+	}
+};
 
 // Calls onReady(segments, openedPanel) once the transcript lines are in the page, opening YouTube's
-// transcript panel first when needed. Calls onError() when the video has no transcript or it never loads.
+// transcript panel first when needed. Calls onError('unavailable') when the video has no transcript,
+// onError('timeout') when it never loads.
 ImprovedTube.getTranscriptSegments = function (onReady, onError) {
 	var segments = ImprovedTube.readTranscriptSegments();
 	if (segments.length > 0) {
@@ -1030,10 +1091,7 @@ ImprovedTube.getTranscriptSegments = function (onReady, onError) {
 		return;
 	}
 
-	var findTranscriptButton = function () {
-		return document.querySelector(ImprovedTube.transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');
-	};
-	var waitForSegments = function () {
+	ImprovedTube.openTranscriptPanel(function () {
 		var attempts = 0;
 		var checkInterval = setInterval(function () {
 			attempts++;
@@ -1043,31 +1101,12 @@ ImprovedTube.getTranscriptSegments = function (onReady, onError) {
 				onReady(found, true);
 			} else if (attempts >= 20) {
 				clearInterval(checkInterval);
-				onError();
+				onError('timeout');
 			}
 		}, 250);
-	};
-	var openTranscript = function () {
-		var transcriptButton = findTranscriptButton();
-		if (!transcriptButton) {
-			onError();
-			return;
-		}
-		transcriptButton.click();
-		waitForSegments();
-	};
-
-	if (findTranscriptButton()) {
-		openTranscript();
-		return;
-	}
-	var moreActionsButton = document.querySelector('#description ytd-text-inline-expander #expand, #description tp-yt-paper-button#expand');
-	if (moreActionsButton && !moreActionsButton.hasAttribute('hidden')) {
-		moreActionsButton.click();
-		setTimeout(openTranscript, 500);
-	} else {
-		onError();
-	}
+	}, function () {
+		onError('unavailable');
+	});
 };
 
 ImprovedTube.downloadTranscript = function (svg, button) {
@@ -1093,9 +1132,9 @@ ImprovedTube.downloadTranscript = function (svg, button) {
 		if (openedPanel) {
 			ImprovedTube.closeTranscriptPanel();
 		}
-	}, function () {
-		console.error('ImprovedTube: Transcript not available for this video');
-		button.dataset.tooltip = 'TranscriptError';
+	}, function (reason) {
+		console.error('ImprovedTube: Transcript ' + (reason === 'timeout' ? 'did not load' : 'not available for this video'));
+		button.dataset.tooltip = reason === 'timeout' ? "Transcript didn't load" : 'No transcript';
 		resetButton(2000);
 	});
 };
