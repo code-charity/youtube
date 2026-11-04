@@ -2188,12 +2188,23 @@ ImprovedTube.pauseWhileTypingOnYoutube = function () {
 HIDE PROGRESS BAR PREVIEW
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerHideProgressPreview = function () {
-	if (this.storage.player_hide_progress_preview === true) {
-		document.documentElement.setAttribute('it-hide-progress-preview', 'true');
+    if (this.storage.player_hide_progress_preview === true) {
+        document.documentElement.setAttribute('it-hide-progress-preview', 'true');
+    } else {
+        document.documentElement.removeAttribute('it-hide-progress-preview');
+    }
+};
+
+
+
+ImprovedTube.playerDisablePreciseSeeking = function () {
+	if (this.storage.player_disable_precise_seeking === true) {
+		document.documentElement.setAttribute('it-disable-precise-seeking', 'true');
 	} else {
-		document.documentElement.removeAttribute('it-hide-progress-preview');
+		document.documentElement.removeAttribute('it-disable-precise-seeking');
 	}
 };
+
 
 
 /*------------------------------------------------------------------------------

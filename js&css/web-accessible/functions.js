@@ -502,6 +502,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
 		ImprovedTube.playerHideProgressPreview();
+		ImprovedTube.playerDisablePreciseSeeking();
 		ImprovedTube.expandDescription();
 		if (ImprovedTube.storage.player_watched_segments === true) {ImprovedTube.watchedSegments.init();}
 		setTimeout(function () { ImprovedTube.forcedTheaterMode(); }, 150);
