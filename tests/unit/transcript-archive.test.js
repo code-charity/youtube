@@ -349,6 +349,8 @@ describe('Nearby videos and captions', () => {
 		expect(library.captionTrack(response).baseUrl).toBe('https://example.com/en');
 		expect(library.captionUrl('//example.com/en?x=1', 'https:')).toBe('https://example.com/en?x=1&fmt=json3');
 		expect(library.captionUrl('/api?fmt=vtt', 'https://www.youtube.com')).toBe('https://www.youtube.com/api?fmt=json3');
+		expect(library.captionUrl('/api?v=1&fmt=srv3&x=2', 'https://www.youtube.com', null)).toBe('https://www.youtube.com/api?v=1&x=2');
+		expect(library.captionUrl('/api?v=1', 'https://www.youtube.com', 'vtt')).toBe('https://www.youtube.com/api?v=1&fmt=vtt');
 	});
 
 	test('parses JSON3 captions', () => {
@@ -471,8 +473,8 @@ describe('Watch page integration', () => {
 			clearInterval: () => {},
 			setTimeout: () => 1,
 			clearTimeout: () => {},
-			fetch: () => Promise.reject(new Error('not used')),
-			DOMParser: function () {
+			fetch: overrides.fetch || (() => Promise.reject(new Error('not used'))),
+			DOMParser: overrides.DOMParser || function () {
 				return {parseFromString: () => ({querySelectorAll: () => []})};
 			}
 		};
@@ -723,6 +725,59 @@ describe('Watch page integration', () => {
 		expect(archive.collectFeedIds()).toEqual(['aaaaaaaaaaa', 'bbbbbbbbbbb']);
 	});
 
+	test('retries the caption track without JSON3 when the first body is empty', async () => {
+		const calls = [];
+		const nodes = [{textContent: ' Hello ', getAttribute: () => '1'}];
+
+		createContext({
+			fetch: (url) => {
+				calls.push(url);
+
+				return Promise.resolve({
+					ok: true,
+					text: () => Promise.resolve(/[?&]fmt=json3/.test(url) ? '' : '<transcript/>')
+				});
+			},
+			DOMParser: function () {
+				return {parseFromString: () => ({querySelectorAll: () => nodes})};
+			}
+		});
+
+		const segments = await new Promise((resolve) => {
+			archive.fetchTrack({
+				baseUrl: 'https://www.youtube.com/api/timedtext?v=1&fmt=srv3',
+				languageCode: 'en'
+			}, resolve);
+		});
+
+		expect(calls).toHaveLength(2);
+		expect(calls[0]).toContain('fmt=json3');
+		expect(calls[1]).not.toContain('fmt=');
+		expect(segments).toEqual([{t: 1, text: 'Hello'}]);
+	});
+
+	test('does not retry when JSON3 already has cues', async () => {
+		const calls = [];
+
+		createContext({
+			fetch: (url) => {
+				calls.push(url);
+
+				return Promise.resolve({
+					ok: true,
+					text: () => Promise.resolve(JSON.stringify({events: [{tStartMs: 1000, segs: [{utf8: 'one'}]}]}))
+				});
+			}
+		});
+
+		const segments = await new Promise((resolve) => {
+			archive.fetchTrack({baseUrl: 'https://www.youtube.com/api/timedtext?v=1'}, resolve);
+		});
+
+		expect(calls).toHaveLength(1);
+		expect(segments).toEqual([{t: 1, text: 'one'}]);
+	});
+
 	test('starts the feed scan instead of the player tracking on the subscriptions page', () => {
 		createContext({
 			storage: {archive_transcripts: true, archive_subscription_videos: true},
@@ -786,6 +841,19 @@ describe('Wiring', () => {
 
 		expect(player).toContain('ImprovedTube.captureFrame');
 		expect(page).toContain('ImprovedTube.captureFrame');
+	});
+
+	test('page-to-extension messages are sent in order', () => {
+		// The archive writes several keys in a row, so both bridges must move
+		// through the queue instead of dropping everything after the first.
+		const page = read('js&css', 'web-accessible', 'core.js');
+		const extension = read('js&css', 'extension', 'core.js');
+
+		[page, extension].forEach((source) => {
+			expect(source).toContain('.messages.queue.shift()');
+			expect(source).toContain('.messages.queue[0]');
+			expect(source).not.toContain('.messages.queue.pop()');
+		});
 	});
 
 	test('the menu exposes the switches, search and ranking', () => {

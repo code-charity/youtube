@@ -154,10 +154,13 @@ ImprovedTube.messages.create();
 
 ImprovedTube.messages.listener = function () {
 	document.addEventListener('it-message-from-youtube--readed', function () {
-		ImprovedTube.messages.queue.pop();
+		// The message that was just read is the head of the queue. Using
+		// pop() here used to drop the newest message and leave the queue
+		// stuck, which lost back-to-back archive/diary writes.
+		ImprovedTube.messages.queue.shift();
 
 		if (ImprovedTube.messages.queue.length > 0) {
-			ImprovedTube.messages.element.textContent = message;
+			ImprovedTube.messages.element.textContent = ImprovedTube.messages.queue[0];
 
 			document.dispatchEvent(new CustomEvent('it-message-from-youtube'));
 		}

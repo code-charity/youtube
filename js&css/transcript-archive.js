@@ -817,7 +817,7 @@
 			|| null;
 	}
 
-	function captionUrl(track, origin) {
+	function captionUrl(track, origin, format) {
 		if (isObject(track)) {
 			track = track.baseUrl;
 		}
@@ -834,11 +834,23 @@
 			url = (origin || location.origin) + url;
 		}
 
-		if (/[?&]fmt=/.test(url)) {
-			return url.replace(/([?&])fmt=[^&]*/, '$1fmt=json3');
+		// `null` means "leave the track's own format alone". YouTube
+		// sometimes answers an empty body for JSON3, but still serves the
+		// original format, so the caller can retry with that.
+		if (format === null) {
+			return url.replace(/([?&])fmt=[^&]*/g, '$1')
+				.replace(/\?&/, '?')
+				.replace(/&&/g, '&')
+				.replace(/[?&]$/, '');
 		}
 
-		return url + (url.indexOf('?') === -1 ? '?' : '&') + 'fmt=json3';
+		format = format || 'json3';
+
+		if (/[?&]fmt=/.test(url)) {
+			return url.replace(/([?&])fmt=[^&]*/, '$1fmt=' + format);
+		}
+
+		return url + (url.indexOf('?') === -1 ? '?' : '&') + 'fmt=' + format;
 	}
 
 	function parseJson3(text) {

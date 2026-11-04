@@ -641,20 +641,43 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 
 			var self = this;
 
-			fetch(url).then(function (response) {
-				return response.ok ? response.text() : null;
-			}).then(function (text) {
-				if (!text) {
-					return;
+			this.fetchTrack(track, function (segments) {
+				self.storeTranscript(segments, track.languageCode || '');
+			});
+		},
+
+		// JSON3 is the compact format, but YouTube sometimes returns an empty
+		// body for it and still serves the track's original format. Try that
+		// once before giving up, so nearby videos keep their captions.
+		fetchTrack: function (track, callback) {
+			var self = this,
+				json_url = library.captionUrl(track, location.origin),
+				raw_url = library.captionUrl(track, location.origin, null);
+
+			function attempt(url) {
+				if (!url) {
+					return Promise.resolve([]);
 				}
 
-				var segments = self.parseTimedText(text);
+				return fetch(url).then(function (response) {
+					return response.ok ? response.text() : '';
+				}).then(function (text) {
+					return text ? self.parseTimedText(text) : [];
+				}).catch(function () {
+					return [];
+				});
+			}
 
+			attempt(json_url).then(function (segments) {
+				if (segments.length || raw_url === json_url) {
+					return segments;
+				}
+
+				return attempt(raw_url);
+			}).then(function (segments) {
 				if (segments.length) {
-					self.storeTranscript(segments, track.languageCode || '');
+					callback(segments);
 				}
-			}).catch(function () {
-				// The panel may still provide the transcript on a later tick.
 			});
 		},
 
@@ -826,21 +849,14 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 				return response.ok ? response.text() : null;
 			}).then(function (html) {
 				var player_response = html && library.parseWatchPage(html),
-					track = library.captionTrack(player_response),
-					url = library.captionUrl(track, location.origin);
+					track = library.captionTrack(player_response);
 
-				if (!track || !url) {
+				if (!track) {
 					return;
 				}
 
-				return fetch(url).then(function (response) {
-					return response.ok ? response.text() : null;
-				}).then(function (text) {
-					var segments = library.parseJson3(text);
-
-					if (segments.length) {
-						self.storeNearby(player_response, segments, source, track.languageCode || '');
-					}
+				self.fetchTrack(track, function (segments) {
+					self.storeNearby(player_response, segments, source, track.languageCode || '');
 				});
 			}).catch(function () {
 				// Offline, rate limited or no captions: try the next one later.

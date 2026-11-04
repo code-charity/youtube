@@ -80,6 +80,10 @@
 	}
 
 	function renderStorage(container) {
+		if (!container || !library) {
+			return;
+		}
+
 		var content = contentOf(container, 'storage'),
 			archive = getArchive(),
 			diary = getDiary(),
