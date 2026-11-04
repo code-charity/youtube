@@ -8,8 +8,6 @@ NESTED (CONDITIONAL) SWITCHES
 /*-----------------
 >>> Appearance
 -----------------*/
-/*-transcript compact spacing-*/
-#transcript:not([data-value=true]) + .satus-switch,
  /*-DURATION WITH SPEED-*/
 #show-remaining-duration:not([data-value=true]) + .satus-switch,
  /*-comment sidebar scrollbars-*/
@@ -57,8 +55,6 @@ NIGHT MODE
 /*-----------------
 >>> Appearance
 -----------------*/
-/*-transcript compact spacing-*/
-#transcript[data-value=true] + .satus-switch,
  /*-DURATION WITH SPEED-*/
 #show-remaining-duration[data-value=true] + .satus-switch,
  /*-comment sidebar scrollbars-*/
@@ -102,8 +98,6 @@ NIGHT MODE
 /*-----------------
 >>> Appearance
 -----------------*/
-/*-transcript compact spacing-*/
-#transcript[data-value=true] + .satus-switch:not(:hover),
  /*-DURATION WITH SPEED-*/
 #show-remaining-duration[data-value=true] + .satus-switch:not(:hover),
  /*-comment sidebar scrollbars-*/
