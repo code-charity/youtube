@@ -504,7 +504,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerHideProgressPreview();
 		ImprovedTube.expandDescription();
 		if (ImprovedTube.storage.player_watched_segments === true) {ImprovedTube.watchedSegments.init();}
-		if (ImprovedTube.storage.archive_transcripts === true || ImprovedTube.storage.record_viewing_log === true) {ImprovedTube.transcriptArchive?.init();}
+		if (ImprovedTube.storage.archive_transcripts === true || ImprovedTube.storage.record_viewing_log === true || ImprovedTube.storage.auto_screenshot === true) {ImprovedTube.transcriptArchive?.init();}
 		setTimeout(function () { ImprovedTube.forcedTheaterMode(); }, 150);
 		if (location.href.indexOf('/embed/') === -1) { ImprovedTube.miniPlayer(); }
 		if (ImprovedTube.storage.disable_auto_dubbing === true) { ImprovedTube.disableAutoDubbing(); }

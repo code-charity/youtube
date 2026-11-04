@@ -45,6 +45,166 @@
 		}
 	}
 
+	function formatBytes(bytes) {
+		if (bytes >= 1024 * 1024 * 1024) {
+			return Math.round(bytes / 1024 / 1024 / 1024 * 10) / 10 + ' GB';
+		}
+
+		return Math.round(bytes / 1024 / 1024 * 100) / 100 + ' MB';
+	}
+
+	function getDiary() {
+		var store = storage();
+
+		return library ? library.sanitizeDiaryIndex(store ? store.get('watching_diary') : null) : {};
+	}
+
+	function estimateUsage() {
+		var store = storage(),
+			bytes = 0;
+
+		if (!store) {
+			return 0;
+		}
+
+		var data = store.data || {};
+
+		Object.keys(data).forEach(function (key) {
+			if (key === 'transcript_archive' || key === 'viewing_log' || key === 'watching_diary'
+				|| key.indexOf('watching_diary_') === 0) {
+				bytes += library.byteLength(JSON.stringify(data[key]));
+			}
+		});
+
+		return bytes;
+	}
+
+	function renderStorage(container) {
+		var content = contentOf(container, 'storage'),
+			archive = getArchive(),
+			diary = getDiary(),
+			videos = Object.keys(archive).length,
+			frames = Object.keys(diary).reduce(function (total, id) {
+				return total + diary[id].frames;
+			}, 0);
+
+		removeChildren(content);
+		content.appendChild(createText(
+			'div',
+			'it-archive-empty',
+			videos + ' ' + satus.locale.get('archivedVideos')
+				+ ' · ' + satus.locale.get('watchingDiary')
+				+ ': ' + Object.keys(diary).length + ' / ' + frames + ' ' + satus.locale.get('frames')
+				+ ' · ' + satus.locale.get('storageUsed') + ': ' + formatBytes(estimateUsage())
+		));
+	}
+
+	function renderFrames(grid, video_id, frames) {
+		removeChildren(grid);
+
+		frames.forEach(function (frame) {
+			var link = document.createElement('a'),
+				image = document.createElement('img'),
+				time = createText('span', 'it-archive-frame-time', library.formatTime(frame.t));
+
+			link.className = 'it-archive-frame';
+			link.href = 'https://www.youtube.com/watch?v=' + encodeURIComponent(video_id) + '&t=' + Math.floor(frame.t || 0);
+			link.target = '_blank';
+			link.rel = 'noopener';
+
+			image.src = frame.data;
+			image.alt = '';
+			image.loading = 'lazy';
+
+			link.appendChild(image);
+			link.appendChild(time);
+			grid.appendChild(link);
+		});
+	}
+
+	function renderDiary(container) {
+		if (!container) {
+			return;
+		}
+
+		var content = contentOf(container, 'diary'),
+			diary = getDiary(),
+			entries = Object.keys(diary).map(function (id) {
+				return diary[id];
+			}).sort(function (a, b) {
+				return b.at - a.at;
+			});
+
+		removeChildren(content);
+
+		if (!entries.length) {
+			content.appendChild(createText('div', 'it-archive-empty', satus.locale.get('watchingDiaryIsEmpty')));
+
+			return;
+		}
+
+		entries.forEach(function (entry) {
+			var details = document.createElement('details'),
+				summary = document.createElement('summary'),
+				body = document.createElement('div'),
+				title = createText('span', 'it-archive-result-title', entry.title || entry.id),
+				meta = createText('span', 'it-archive-result-meta', ''),
+				part = [];
+
+			details.className = 'it-archive-diary';
+
+			if (entry.channel) {
+				part.push(entry.channel);
+			}
+
+			if (entry.frames) {
+				part.push(entry.frames + ' ' + satus.locale.get('frames'));
+			}
+
+			if (entry.at) {
+				part.push(new Date(entry.at).toLocaleString());
+			}
+
+			meta.textContent = part.join(' · ');
+
+			if (entry.thumb) {
+				var thumbnail = document.createElement('img');
+
+				thumbnail.className = 'it-archive-result-thumbnail';
+				thumbnail.src = entry.thumb;
+				thumbnail.alt = '';
+				thumbnail.loading = 'lazy';
+				summary.appendChild(thumbnail);
+			}
+
+			body.className = 'it-archive-result-body';
+			body.appendChild(title);
+			body.appendChild(meta);
+			summary.appendChild(body);
+			details.appendChild(summary);
+
+			var grid = document.createElement('div');
+
+			grid.className = 'it-archive-frames';
+			details.appendChild(grid);
+
+			// Frames are data URLs, so only load a video when it is opened.
+			details.addEventListener('toggle', function () {
+				if (!details.open || details.dataset.loaded === 'true') {
+					return;
+				}
+
+				details.dataset.loaded = 'true';
+
+				var frames = library.sanitizeDiary(storage() && storage().get('watching_diary_' + entry.id)).frames;
+
+				renderFrames(grid, entry.id, frames);
+			});
+
+			content.appendChild(details);
+		});
+	}
+
 	// The satus section owns its title/header, so the generated rows live in
 	// their own child instead of replacing the whole section.
 	function contentOf(section, name) {
@@ -121,6 +281,12 @@
 
 			if (result.channel) {
 				details.push(result.channel);
+			}
+
+			if (result.source === 'related') {
+				details.push(satus.locale.get('relatedVideo'));
+			} else if (result.source === 'subscription') {
+				details.push(satus.locale.get('subscriptionVideo'));
 			}
 
 			if (result.timeText) {
@@ -220,9 +386,55 @@
 						component: 'switch',
 						text: 'archiveTranscripts'
 					},
+					archive_related_videos: {
+						component: 'switch',
+						text: 'archiveRelatedVideos'
+					},
+					archive_subscription_videos: {
+						component: 'switch',
+						text: 'archiveSubscriptionVideos'
+					},
 					record_viewing_log: {
 						component: 'switch',
 						text: 'recordViewingLog'
+					},
+					auto_screenshot: {
+						component: 'switch',
+						text: 'autoScreenshot'
+					},
+					archive_storage_limit: {
+						component: 'select',
+						text: 'storageLimit',
+						options: [{
+							text: 'unlimited',
+							value: '0'
+						}, {
+							text: 'videos100',
+							value: '100'
+						}, {
+							text: 'videos1000',
+							value: '1000'
+						}, {
+							text: 'videos10000',
+							value: '10000'
+						}]
+					},
+					archive_storage_budget: {
+						component: 'select',
+						text: 'storageBudget',
+						options: [{
+							text: 'unlimited',
+							value: '0'
+						}, {
+							text: 'megabytes500',
+							value: '500'
+						}, {
+							text: 'megabytes2000',
+							value: '2000'
+						}, {
+							text: 'megabytes10000',
+							value: '10000'
+						}]
 					}
 				},
 
@@ -294,6 +506,30 @@
 					}
 				},
 
+				diarySection: {
+					component: 'section',
+					variant: 'card',
+					class: 'it-archive-diary-list',
+					title: 'watchingDiary',
+					on: {
+						render: function () {
+							renderDiary(this);
+						}
+					}
+				},
+
+				storageSection: {
+					component: 'section',
+					variant: 'card',
+					class: 'it-archive-storage',
+					title: 'storage',
+					on: {
+						render: function () {
+							renderStorage(this);
+						}
+					}
+				},
+
 				clearSection: {
 					component: 'section',
 					variant: 'card',
@@ -324,6 +560,28 @@
 
 								satus.storage.remove('viewing_log');
 								renderLog(document.querySelector('.it-archive-log'));
+							}
+						}
+					},
+
+					clear_diary: {
+						component: 'button',
+						text: 'deleteWatchingDiary',
+						on: {
+							click: function () {
+								if (!confirm(satus.locale.get('areYouSureYouWantToDeleteTheWatchingDiary'))) {
+									return;
+								}
+
+								var index = getDiary();
+
+								Object.keys(index).forEach(function (id) {
+									satus.storage.remove('watching_diary_' + id);
+								});
+
+								satus.storage.remove('watching_diary');
+								renderDiary(document.querySelector('.it-archive-diary-list'));
+								renderStorage(document.querySelector('.it-archive-storage'));
 							}
 						}
 					}
@@ -373,7 +631,13 @@
 		+ '.it-archive-result-meta{font-size:11px;opacity:.65;margin-top:2px}'
 		+ '.it-archive-result-snippet{font-size:12px;line-height:1.35;margin-top:4px;opacity:.85;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}'
 		+ '.it-archive-heading{font-size:11px;text-transform:uppercase;letter-spacing:.04em;opacity:.6;padding:2px 0 6px}'
-		+ '.it-archive-empty{font-size:12px;opacity:.6;padding:6px 0}';
+		+ '.it-archive-empty{font-size:12px;opacity:.6;padding:6px 0}'
+		+ '.it-archive-diary summary{display:flex;gap:10px;padding:8px 0;cursor:pointer;border-bottom:1px solid rgba(128,128,128,.2);list-style:none}'
+		+ '.it-archive-diary summary::-webkit-details-marker{display:none}'
+		+ '.it-archive-frames{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:6px;padding:4px 0 12px}'
+		+ '.it-archive-frame{position:relative;display:block;text-decoration:none;color:#fff}'
+		+ '.it-archive-frame img{width:100%;display:block;border-radius:4px}'
+		+ '.it-archive-frame-time{position:absolute;right:4px;bottom:4px;font-size:10px;padding:1px 4px;border-radius:3px;background:rgba(0,0,0,.7)}';
 
 	(document.head || document.documentElement).appendChild(style);
 
@@ -381,7 +645,7 @@
 	// writes from the content script or another menu instance.
 	if (typeof satus !== 'undefined' && satus.storage && typeof satus.storage.onchanged === 'function') {
 		satus.storage.onchanged(function (key, value) {
-			if (key !== 'transcript_archive' && key !== 'viewing_log') {
+			if (key !== 'transcript_archive' && key !== 'viewing_log' && key !== 'watching_diary' && key.indexOf('watching_diary_') !== 0) {
 				return;
 			}
 
@@ -392,9 +656,13 @@
 					document.getElementById('it-archive-results'),
 					document.querySelector('.it-archive-search input')?.value || ''
 				);
-			} else {
+			} else if (key === 'viewing_log') {
 				renderLog(document.querySelector('.it-archive-log'));
+			} else if (key === 'watching_diary') {
+				renderDiary(document.querySelector('.it-archive-diary-list'));
 			}
+
+			renderStorage(document.querySelector('.it-archive-storage'));
 		});
 	}
 })();

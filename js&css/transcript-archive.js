@@ -8,16 +8,19 @@
 	index that both the content script and the extension menu use:
 
 	# Data
+	# Eviction
 	# Matching
 	# Ranking
 	# Search
+	# Nearby videos
+	# Watching diary
 
 	Storage layout (chrome.storage.local):
 
 	transcript_archive = {
 		<video id>: {
 			id, title, channel, channel_id, duration, language,
-			updated, views,
+			updated, views, source,
 			watched: [[start, end], ...],
 			pauses: [[time, count], ...],
 			heatmap: [{start, duration, score}, ...],
@@ -26,12 +29,32 @@
 		}
 	}
 
+		`source` is `watched`, `related` or `subscription`, so the menu can
+		tell videos the user watched apart from videos that were only
+		archived from a recommendation.
+
 	viewing_log = [{
 		v: <video id>, t: title, c: channel,
 		at: <started timestamp>, end: <last timestamp>,
 		from: <first watched second>, to: <last watched second>,
 		sec: <seconds actually watched>, pauses: <pause count>
 	}, ...]
+
+	watching_diary = {
+		<video id>: {id, title, channel, duration, at, frames, from, to}
+	}
+
+	watching_diary_<video id> = {
+		id, frames: [{t, at, data}, ...]
+	}
+
+		`data` is a downscaled JPEG data URL of the player frame, captured
+		with the same canvas code as the existing screenshot feature.
+
+	There is no fixed cap by default (UNLIMITED = 0). When the user sets a
+	limit, whole videos are dropped newest-first. A byte budget drops the
+	least relevant videos first, so watched, rewatched and long-watched
+	entries survive the longest.
 --------------------------------------------------------------*/
 
 (function (root, factory) {
@@ -49,10 +72,15 @@
 
 	var STORAGE_KEY = 'transcript_archive';
 	var LOG_KEY = 'viewing_log';
-	var MAX_VIDEOS = 100;
-	var MAX_LOG_ENTRIES = 500;
+	var DIARY_KEY = 'watching_diary';
+	var DIARY_KEY_PREFIX = 'watching_diary_';
+	var UNLIMITED = 0;
+	var MAX_VIDEOS = UNLIMITED;
+	var MAX_LOG_ENTRIES = UNLIMITED;
 	var MAX_SEGMENTS = 20000;
 	var PAUSE_WINDOW = 10;
+	var DIARY_MIN_GAP = 5;
+	var MEGABYTE = 1024 * 1024;
 
 	/*--------------------------------------------------------------
 	# HELPERS
@@ -126,6 +154,44 @@
 		}
 
 		return null;
+	}
+
+	// chrome.storage stores JSON, so the UTF-8 length of the serialized
+	// value is a good estimate of how much room an entry takes.
+	function byteLength(value) {
+		var text = String(value === null || value === undefined ? '' : value),
+			bytes = 0;
+
+		for (var i = 0, l = text.length; i < l; i++) {
+			var code = text.charCodeAt(i);
+
+			if (code < 0x80) {
+				bytes += 1;
+			} else if (code < 0x800) {
+				bytes += 2;
+			} else if (code >= 0xd800 && code <= 0xdbff && i + 1 < l) {
+				bytes += 4;
+				i++;
+			} else {
+				bytes += 3;
+			}
+		}
+
+		return bytes;
+	}
+
+	function entrySize(entry) {
+		return byteLength(JSON.stringify(entry));
+	}
+
+	function storeSize(store) {
+		var total = 0;
+
+		Object.keys(isObject(store) ? store : {}).forEach(function (id) {
+			total += byteLength(id) + entrySize(store[id]);
+		});
+
+		return total;
 	}
 
 	function formatTime(value) {
@@ -364,6 +430,7 @@
 			language: String(entry.language || '').trim(),
 			updated: Math.max(0, number(entry.updated, 0)),
 			views: Math.max(0, Math.round(number(entry.views, 0))),
+			source: ['watched', 'related', 'subscription'].indexOf(entry.source) === -1 ? 'watched' : entry.source,
 			watched: sanitizeWatched(entry.watched),
 			pauses: sanitizePauses(entry.pauses),
 			heatmap: sanitizeHeatmap(entry.heatmap),
@@ -390,11 +457,32 @@
 		return result;
 	}
 
+	/*--------------------------------------------------------------
+	# EVICTION
+
+	User-setting limits (`max`) are a count. Zero/negative/Infinity means
+	unlimited, which is the default. The byte budget is a second, optional
+	safety net: it drops the least relevant videos instead of the oldest
+	ones, so a large transcript archive can still fill the disk without
+	losing the parts that were actually watched.
+	--------------------------------------------------------------*/
+
+	function relevance(entry) {
+		if (!isObject(entry)) {
+			return 0;
+		}
+
+		return Math.log1p(Math.max(0, number(entry.views, 0))) * 3
+			+ watchedRatio(entry) * 2
+			+ (entry.segments && entry.segments.length ? 1 : 0)
+			+ (entry.source === 'watched' ? 1 : 0);
+	}
+
 	function prune(store, max) {
-		var limit = Math.max(1, number(max, MAX_VIDEOS)),
+		var limit = number(max, UNLIMITED),
 			ids = Object.keys(store);
 
-		if (ids.length <= limit) {
+		if (!(limit > 0) || !isFinite(limit) || ids.length <= limit) {
 			return store;
 		}
 
@@ -403,6 +491,40 @@
 		});
 
 		for (var i = 0, l = ids.length - limit; i < l; i++) {
+			delete store[ids[i]];
+		}
+
+		return store;
+	}
+
+	function pruneToBudget(store, maxBytes) {
+		var budget = number(maxBytes, 0);
+
+		if (!(budget > 0) || !isFinite(budget) || !isObject(store)) {
+			return store;
+		}
+
+		var ids = Object.keys(store),
+			total = storeSize(store);
+
+		if (total <= budget) {
+			return store;
+		}
+
+		ids.sort(function (a, b) {
+			return (relevance(store[a]) - relevance(store[b]))
+				|| (number(store[a] && store[a].updated, 0) - number(store[b] && store[b].updated, 0));
+		});
+
+		// At least one entry always survives, even when it alone is larger
+		// than the budget.
+
+		for (var i = 0, l = ids.length; i < l; i++) {
+			if (total <= budget || Object.keys(store).length <= 1) {
+				break;
+			}
+
+			total -= byteLength(ids[i]) + entrySize(store[ids[i]]);
 			delete store[ids[i]];
 		}
 
@@ -455,6 +577,14 @@
 		entry.language = String(input.language || entry.language || '').trim();
 		entry.duration = Math.max(entry.duration, number(input.duration, 0));
 
+		if (input.source && ['watched', 'related', 'subscription'].indexOf(input.source) !== -1) {
+			// Never downgrade a video the user actually watched to a
+			// recommendation-only entry.
+			if (entry.source !== 'watched' || input.source === 'watched') {
+				entry.source = input.source;
+			}
+		}
+
 		if (input.increment_views !== false) {
 			entry.views = Math.max(1, entry.views + 1);
 		}
@@ -483,7 +613,8 @@
 
 		store[id] = entry;
 
-		prune(store, input.maxVideos || MAX_VIDEOS);
+		prune(store, input.maxVideos !== undefined ? input.maxVideos : MAX_VIDEOS);
+		pruneToBudget(store, input.maxBytes !== undefined ? input.maxBytes : 0);
 
 		return entry;
 	}
@@ -499,7 +630,9 @@
 		// Keep the newest entry first so the menu can simply slice the list.
 		entries.unshift(normalized);
 
-		return entries.slice(0, Math.max(1, number(max, MAX_LOG_ENTRIES)));
+		var limit = number(max, MAX_LOG_ENTRIES);
+
+		return !(limit > 0) || !isFinite(limit) ? entries : entries.slice(0, limit);
 	}
 
 	function sanitizeLogEntry(raw) {
@@ -524,6 +657,385 @@
 			sec: Math.max(0, number(raw.sec || raw.seconds, 0)),
 			pauses: Math.max(0, Math.round(number(raw.pauses, 0)))
 		};
+	}
+
+	/*--------------------------------------------------------------
+	# NEARBY VIDEOS / CAPTIONS
+
+	Related videos and the subscription feed are archived by fetching
+	their watch page and reading the same `ytInitialPlayerResponse` that
+	the watch page itself uses. The helpers below stay DOM-free so the
+	menu and the tests can use them too.
+	--------------------------------------------------------------*/
+
+	function collectVideoIds(source, options) {
+		options = isObject(options) ? options : {};
+
+		var exclude = String(options.exclude || ''),
+			limit = Math.max(1, Math.round(number(options.limit, 50))),
+			ids = [],
+			seen = {};
+
+		function add(value) {
+			var id = String(value || '').trim();
+
+			if (ids.length >= limit || !/^[A-Za-z0-9_-]{11}$/.test(id) || id === exclude || seen[id]) {
+				return;
+			}
+
+			seen[id] = true;
+			ids.push(id);
+		}
+
+		function walk(object, depth) {
+			if (!object || typeof object !== 'object' || depth > 30 || ids.length >= limit) {
+				return;
+			}
+
+			if (Array.isArray(object)) {
+				for (var i = 0, l = object.length; i < l && ids.length < limit; i++) {
+					walk(object[i], depth + 1);
+				}
+
+				return;
+			}
+
+			if (typeof object.videoId === 'string') {
+				add(object.videoId);
+			}
+
+			// lockupViewModel uses contentId for videos, channels and playlists.
+			if (typeof object.contentId === 'string' && /VIDEO/.test(String(object.contentType || ''))) {
+				add(object.contentId);
+			}
+
+			for (var key in object) {
+				if (Object.prototype.hasOwnProperty.call(object, key) && ids.length < limit) {
+					walk(object[key], depth + 1);
+				}
+			}
+		}
+
+		walk(source, 0);
+
+		return ids;
+	}
+
+	function videoIdsFromLinks(links, options) {
+		options = isObject(options) ? options : {};
+
+		var exclude = String(options.exclude || ''),
+			limit = Math.max(1, Math.round(number(options.limit, 50))),
+			ids = [],
+			seen = {};
+
+		for (var i = 0, l = links ? links.length : 0; i < l && ids.length < limit; i++) {
+			var link = links[i],
+				href = String(link && (link.href || link.url) || ''),
+				match = href.match(/[?&]v=([A-Za-z0-9_-]{11})/);
+
+			if (!match || match[1] === exclude || seen[match[1]]) {
+				continue;
+			}
+
+			seen[match[1]] = true;
+			ids.push(match[1]);
+		}
+
+		return ids;
+	}
+
+	// Reads the first balanced JSON object after a marker, ignoring braces
+	// inside strings. Avoids a regex that breaks on nested player data.
+	function parseJsonAfter(text, marker) {
+		var value = String(text || ''),
+			index = value.indexOf(String(marker || ''));
+
+		if (index === -1) {
+			return null;
+		}
+
+		var start = value.indexOf('{', index);
+
+		if (start === -1) {
+			return null;
+		}
+
+		var depth = 0,
+			in_string = false,
+			escaped = false;
+
+		for (var i = start, l = value.length; i < l; i++) {
+			var character = value.charAt(i);
+
+			if (in_string) {
+				if (escaped) {
+					escaped = false;
+				} else if (character === '\\') {
+					escaped = true;
+				} else if (character === '"') {
+					in_string = false;
+				}
+			} else if (character === '"') {
+				in_string = true;
+			} else if (character === '{') {
+				depth++;
+			} else if (character === '}') {
+				depth--;
+
+				if (depth === 0) {
+					try {
+						return JSON.parse(value.slice(start, i + 1));
+					} catch (error) {
+						return null;
+					}
+				}
+			}
+		}
+
+		return null;
+	}
+
+	function parseWatchPage(html) {
+		return parseJsonAfter(html, 'ytInitialPlayerResponse');
+	}
+
+	function captionTrack(response) {
+		var tracks = response
+			&& response.captions
+			&& response.captions.playerCaptionsTracklistRenderer
+			&& response.captions.playerCaptionsTracklistRenderer.captionTracks;
+
+		if (!Array.isArray(tracks) || tracks.length === 0) {
+			return null;
+		}
+
+		return tracks.find(function (track) { return track.languageCode === 'en' && track.kind !== 'asr'; })
+			|| tracks.find(function (track) { return track.languageCode === 'en'; })
+			|| tracks.find(function (track) { return track.isTranslatable; })
+			|| tracks[0]
+			|| null;
+	}
+
+	function captionUrl(track, origin) {
+		if (isObject(track)) {
+			track = track.baseUrl;
+		}
+
+		var url = String(track || '');
+
+		if (!url) {
+			return '';
+		}
+
+		if (url.indexOf('//') === 0) {
+			url = (origin || location.protocol) + url;
+		} else if (url.charAt(0) === '/') {
+			url = (origin || location.origin) + url;
+		}
+
+		if (/[?&]fmt=/.test(url)) {
+			return url.replace(/([?&])fmt=[^&]*/, '$1fmt=json3');
+		}
+
+		return url + (url.indexOf('?') === -1 ? '?' : '&') + 'fmt=json3';
+	}
+
+	function parseJson3(text) {
+		var segments = [];
+
+		try {
+			var data = JSON.parse(String(text || ''));
+
+			(data.events || []).forEach(function (event) {
+				if (!event.segs) {
+					return;
+				}
+
+				var value = event.segs.map(function (part) {
+					return part.utf8 || '';
+				}).join('').replace(/\s+/g, ' ').trim();
+
+				if (value) {
+					segments.push({
+						t: Number(event.tStartMs || 0) / 1000,
+						text: value
+					});
+				}
+			});
+		} catch (error) {
+			return [];
+		}
+
+		return sanitizeSegments(segments);
+	}
+
+	function videoDetails(response) {
+		var details = response && response.videoDetails || {},
+			microformat = response && response.microformat && response.microformat.playerMicroformatRenderer || {};
+
+		return {
+			id: String(details.videoId || ''),
+			title: String(details.title || '').replace(/\s*-\s*YouTube$/, '').trim(),
+			channel: String(details.author || microformat.ownerChannelName || '').trim(),
+			channel_id: String(details.channelId || microformat.externalChannelId || '').trim(),
+			duration: Math.max(0, number(details.lengthSeconds, 0)),
+			views: Math.max(0, number(details.viewCount || microformat.viewCount, 0)),
+			language: String(captionTrack(response) && captionTrack(response).languageCode || '')
+		};
+	}
+
+	/*--------------------------------------------------------------
+	# WATCHING DIARY
+
+	One entry per video holds the captured frames. The index keeps the
+	menu fast without loading every data URL.
+	--------------------------------------------------------------*/
+
+	function sanitizeFrame(raw) {
+		if (!isObject(raw)) {
+			return null;
+		}
+
+		var time = number(raw.t !== undefined ? raw.t : raw.time, -1),
+			at = Math.max(0, number(raw.at, 0)) || Date.now(),
+			data = String(raw.data || raw.src || '');
+
+		if (time < 0 || !/^data:image\/(png|jpe?g|webp);base64,/i.test(data)) {
+			return null;
+		}
+
+		return {
+			t: Math.round(time * 10) / 10,
+			at: at,
+			data: data
+		};
+	}
+
+	function sanitizeDiary(raw) {
+		var frames = [];
+
+		if (Array.isArray(raw)) {
+			raw = { frames: raw };
+		}
+
+		if (!isObject(raw) || !Array.isArray(raw.frames)) {
+			return { frames: frames };
+		}
+
+		raw.frames.forEach(function (item) {
+			var frame = sanitizeFrame(item);
+
+			if (frame) {
+				frames.push(frame);
+			}
+		});
+
+		frames.sort(function (a, b) { return a.t - b.t; });
+
+		return { frames: frames };
+	}
+
+	function appendDiaryFrame(diary, raw, min_gap) {
+		var frame = sanitizeFrame(raw),
+			gap = Math.max(0, number(min_gap, DIARY_MIN_GAP)),
+			result = sanitizeDiary(diary);
+
+		if (!frame) {
+			return result;
+		}
+
+		var index = -1;
+
+		for (var i = 0, l = result.frames.length; i < l; i++) {
+			if (Math.abs(result.frames[i].t - frame.t) <= gap) {
+				index = i;
+				break;
+			}
+		}
+
+		if (index === -1) {
+			result.frames.push(frame);
+		} else {
+			result.frames[index] = frame;
+		}
+
+		result.frames.sort(function (a, b) { return a.t - b.t; });
+
+		return result;
+	}
+
+	function sanitizeDiaryIndex(index) {
+		var result = {};
+
+		if (!isObject(index)) {
+			return result;
+		}
+
+		Object.keys(index).forEach(function (id) {
+			var entry = index[id];
+
+			if (!isObject(entry)) {
+				return;
+			}
+
+			result[id] = {
+				id: id,
+				title: String(entry.title || '').trim(),
+				channel: String(entry.channel || '').trim(),
+				duration: Math.max(0, number(entry.duration, 0)),
+				at: Math.max(0, number(entry.at, 0)),
+				frames: Math.max(0, Math.round(number(entry.frames, 0))),
+				from: Math.max(0, number(entry.from, 0)),
+				to: Math.max(0, number(entry.to, 0)),
+				thumb: /^data:image\/(png|jpe?g|webp);base64,/i.test(entry.thumb || '') ? entry.thumb : ''
+			};
+		});
+
+		return result;
+	}
+
+	function updateDiaryIndex(index, info) {
+		var result = sanitizeDiaryIndex(index),
+			id = String(isObject(info) && (info.id || info.videoId) || '').trim();
+
+		if (!id) {
+			return result;
+		}
+
+		result[id] = {
+			id: id,
+			title: String(info.title || (result[id] && result[id].title) || '').trim(),
+			channel: String(info.channel || (result[id] && result[id].channel) || '').trim(),
+			duration: Math.max(number(info.duration, 0), result[id] ? result[id].duration : 0),
+			at: Math.max(0, number(info.at, 0)) || Date.now(),
+			frames: Math.max(0, Math.round(number(info.frames, result[id] ? result[id].frames : 0))),
+			from: Math.max(0, number(info.from, 0)),
+			to: Math.max(0, number(info.to, 0)),
+			thumb: /^data:image\/(png|jpe?g|webp);base64,/i.test(info.thumb || '') ? info.thumb : (result[id] ? result[id].thumb : '')
+		};
+
+		return result;
+	}
+
+	function pruneDiaryIndex(index, max) {
+		var result = sanitizeDiaryIndex(index),
+			limit = number(max, UNLIMITED),
+			ids = Object.keys(result);
+
+		if (!(limit > 0) || !isFinite(limit) || ids.length <= limit) {
+			return result;
+		}
+
+		ids.sort(function (a, b) {
+			return number(result[a].at, 0) - number(result[b].at, 0);
+		});
+
+		for (var i = 0, l = ids.length - limit; i < l; i++) {
+			delete result[ids[i]];
+		}
+
+		return result;
 	}
 
 	/*--------------------------------------------------------------
@@ -641,6 +1153,7 @@
 			videoId: entry.id,
 			title: entry.title,
 			channel: entry.channel,
+			source: entry.source,
 			time: first ? first.t : 0,
 			timeText: first ? formatTime(first.t) : '',
 			text: first ? first.text : '',
@@ -709,6 +1222,7 @@
 					videoId: entry.id,
 					title: entry.title,
 					channel: entry.channel,
+					source: entry.source,
 					time: segment.t,
 					timeText: formatTime(segment.t),
 					text: segment.text,
@@ -767,15 +1281,25 @@
 	return {
 		STORAGE_KEY: STORAGE_KEY,
 		LOG_KEY: LOG_KEY,
+		DIARY_KEY: DIARY_KEY,
+		DIARY_KEY_PREFIX: DIARY_KEY_PREFIX,
+		UNLIMITED: UNLIMITED,
 		MAX_VIDEOS: MAX_VIDEOS,
 		MAX_LOG_ENTRIES: MAX_LOG_ENTRIES,
 		MAX_SEGMENTS: MAX_SEGMENTS,
 		PAUSE_WINDOW: PAUSE_WINDOW,
+		MEGABYTE: MEGABYTE,
 
 		normalize: normalize,
 		tokenize: tokenize,
 		parseTime: parseTime,
 		formatTime: formatTime,
+		byteLength: byteLength,
+		entrySize: entrySize,
+		storeSize: storeSize,
+		relevance: relevance,
+		prune: prune,
+		pruneToBudget: pruneToBudget,
 		sanitizeSegments: sanitizeSegments,
 		sanitizeWatched: sanitizeWatched,
 		sanitizePauses: sanitizePauses,
@@ -783,6 +1307,20 @@
 		sanitizeEntry: sanitizeEntry,
 		sanitizeStore: sanitizeStore,
 		sanitizeLogEntry: sanitizeLogEntry,
+		collectVideoIds: collectVideoIds,
+		videoIdsFromLinks: videoIdsFromLinks,
+		parseJsonAfter: parseJsonAfter,
+		parseWatchPage: parseWatchPage,
+		captionTrack: captionTrack,
+		captionUrl: captionUrl,
+		parseJson3: parseJson3,
+		videoDetails: videoDetails,
+		sanitizeFrame: sanitizeFrame,
+		sanitizeDiary: sanitizeDiary,
+		appendDiaryFrame: appendDiaryFrame,
+		sanitizeDiaryIndex: sanitizeDiaryIndex,
+		updateDiaryIndex: updateDiaryIndex,
+		pruneDiaryIndex: pruneDiaryIndex,
 		addWatched: addWatched,
 		recordView: recordView,
 		appendLog: appendLog,

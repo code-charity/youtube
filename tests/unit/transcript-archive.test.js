@@ -111,6 +111,56 @@ describe('Recording archived views', () => {
 		expect(Object.keys(store).sort()).toEqual(['new', 'newest']);
 	});
 
+	test('is unlimited by default, and zero also means unlimited', () => {
+		const store = {};
+
+		for (let index = 0; index < 250; index++) {
+			library.recordView(store, {videoId: 'video' + String(index).padStart(6, '0')}, index);
+		}
+
+		expect(Object.keys(store)).toHaveLength(250);
+		expect(library.recordView(store, {videoId: 'zerolimit001', maxVideos: 0}, 999)).toBeTruthy();
+	});
+
+	test('does not downgrade a watched video that is later archived as related', () => {
+		const store = {};
+
+		library.recordView(store, {videoId: 'abcdefghijk', source: 'watched', watched: [[0, 10]]}, 1);
+		library.recordView(store, {videoId: 'abcdefghijk', source: 'related', segments: [{t: 1, text: 'x'}]}, 2);
+
+		expect(store.abcdefghijk.source).toBe('watched');
+	});
+
+	test('evicts the least relevant entries first when a byte budget is set', () => {
+		const store = {};
+
+		library.recordView(store, {
+			videoId: 'watched0001',
+			duration: 20,
+			watched: [[0, 20]],
+			segments: [{t: 0, text: 'watched '.repeat(20)}]
+		}, 1000);
+		library.recordView(store, {
+			videoId: 'related0001',
+			source: 'related',
+			increment_views: false,
+			segments: [{t: 0, text: 'related '.repeat(20)}]
+		}, 2000);
+
+		const budget = library.entrySize(store.watched0001) + 'watched0001'.length;
+		library.pruneToBudget(store, budget, 'related0001');
+
+		expect(store.watched0001).toBeDefined();
+		expect(store.related0001).toBeUndefined();
+	});
+
+	test('counts UTF-8 bytes and entry sizes', () => {
+		expect(library.byteLength('abc')).toBe(3);
+		expect(library.byteLength('é')).toBe(2);
+		expect(library.byteLength('😀')).toBe(4);
+		expect(library.entrySize({a: 'b'})).toBe(JSON.stringify({a: 'b'}).length);
+	});
+
 	test('sanitizes broken stored data instead of throwing', () => {
 		expect(library.sanitizeStore({
 			ok: {
@@ -233,6 +283,134 @@ describe('Viewing log', () => {
 	});
 });
 
+describe('Nearby videos and captions', () => {
+	test('collects video ids from nested watch data, ignoring other content types', () => {
+		const data = {
+			contents: [
+				{videoRenderer: {videoId: 'aaaaaaaaaaa'}},
+				{lockupViewModel: {contentId: 'bbbbbbbbbbb', contentType: 'LOCKUP_CONTENT_TYPE_VIDEO'}},
+				{lockupViewModel: {contentId: 'ccccccccccc', contentType: 'LOCKUP_CONTENT_TYPE_PLAYLIST'}},
+				{navigationEndpoint: {watchEndpoint: {videoId: 'ddddddddddd'}}}
+			]
+		};
+
+		expect(library.collectVideoIds(data, {limit: 10})).toEqual([
+			'aaaaaaaaaaa',
+			'bbbbbbbbbbb',
+			'ddddddddddd'
+		]);
+		expect(library.collectVideoIds(data, {limit: 10, exclude: 'aaaaaaaaaaa'})).toEqual([
+			'bbbbbbbbbbb',
+			'ddddddddddd'
+		]);
+	});
+
+	test('collects ids from anchors and removes duplicates', () => {
+		expect(library.videoIdsFromLinks([
+			{href: 'https://www.youtube.com/watch?v=aaaaaaaaaaa&t=10'},
+			{href: '/watch?v=aaaaaaaaaaa'},
+			{href: 'https://www.youtube.com/watch?v=bbbbbbbbbbb'},
+			{href: 'https://www.youtube.com/@channel'}
+		], {limit: 10})).toEqual(['aaaaaaaaaaa', 'bbbbbbbbbbb']);
+	});
+
+	test('reads the balanced player response out of a watch page', () => {
+		const response = library.parseWatchPage(
+			'<script>var ytInitialPlayerResponse = {"nested":{"brace":"}"},'
+			+ '"videoDetails":{"videoId":"abcdefghijk","title":"Title","author":"Channel",'
+			+ '"lengthSeconds":"60","viewCount":"123"}};</script>'
+		);
+
+		expect(response).toMatchObject({
+			videoDetails: {videoId: 'abcdefghijk', title: 'Title'}
+		});
+		expect(library.videoDetails(response)).toMatchObject({
+			id: 'abcdefghijk',
+			title: 'Title',
+			channel: 'Channel',
+			duration: 60,
+			views: 123
+		});
+	});
+
+	test('picks a caption track and requests JSON cues', () => {
+		const response = {
+			captions: {
+				playerCaptionsTracklistRenderer: {
+					captionTracks: [
+						{languageCode: 'de', baseUrl: 'https://example.com/de'},
+						{languageCode: 'en', kind: 'asr', baseUrl: 'https://example.com/en-asr'},
+						{languageCode: 'en', baseUrl: 'https://example.com/en'}
+					]
+				}
+			}
+		};
+
+		expect(library.captionTrack(response).baseUrl).toBe('https://example.com/en');
+		expect(library.captionUrl('//example.com/en?x=1', 'https:')).toBe('https://example.com/en?x=1&fmt=json3');
+		expect(library.captionUrl('/api?fmt=vtt', 'https://www.youtube.com')).toBe('https://www.youtube.com/api?fmt=json3');
+	});
+
+	test('parses JSON3 captions', () => {
+		expect(library.parseJson3(JSON.stringify({
+			events: [
+				{tStartMs: 1000, segs: [{utf8: ' Hello '}, {utf8: 'world'}]},
+				{tStartMs: 3000, segs: [{utf8: 'again'}]}
+			]
+		}))).toEqual([
+			{t: 1, text: 'Hello world'},
+			{t: 3, text: 'again'}
+		]);
+	});
+});
+
+describe('Watching diary data', () => {
+	const frame = (time, data = 'data:image/jpeg;base64,AAAA') => ({t: time, at: 1000 + time, data});
+
+	test('drops malformed frames and sorts the rest', () => {
+		expect(library.sanitizeDiary({frames: [
+			frame(20),
+			{t: 5, data: 'https://example.com/not-a-data-url'},
+			frame(10)
+		]})).toEqual({frames: [frame(10), frame(20)]});
+	});
+
+	test('replaces a frame captured within the minimum gap', () => {
+		const diary = library.appendDiaryFrame({frames: [frame(10)]}, frame(12, 'data:image/jpeg;base64,BBBB'), 5);
+		const far = library.appendDiaryFrame(diary, frame(30), 5);
+
+		expect(diary.frames).toHaveLength(1);
+		expect(diary.frames[0].data).toBe('data:image/jpeg;base64,BBBB');
+		expect(far.frames.map(item => item.t)).toEqual([12, 30]);
+	});
+
+	test('updates and prunes the diary index', () => {
+		let index = {};
+
+		index = library.updateDiaryIndex(index, {id: 'aaaaaaaaaaa', title: 'Old', at: 1, frames: 2, thumb: frame(0).data});
+		index = library.updateDiaryIndex(index, {id: 'bbbbbbbbbbb', title: 'New', at: 2, frames: 1});
+		index = library.updateDiaryIndex(index, {id: 'aaaaaaaaaaa', at: 3, frames: 3, thumb: frame(0).data});
+
+		expect(index.aaaaaaaaaaa).toMatchObject({title: 'Old', frames: 3, at: 3});
+
+		index = library.pruneDiaryIndex(index, 1);
+
+		expect(Object.keys(index)).toEqual(['aaaaaaaaaaa']);
+	});
+
+	test('keeps the index unlimited by default', () => {
+		let index = {};
+
+		for (let position = 0; position < 50; position++) {
+			index = library.updateDiaryIndex(index, {id: 'video' + String(position).padStart(6, '0'), at: position});
+		}
+
+		const pruned = library.pruneDiaryIndex(index, 0);
+
+		expect(Object.keys(pruned)).toHaveLength(50);
+	});
+});
+
 describe('Watch page integration', () => {
 	let archive;
 	let ImprovedTube;
@@ -248,7 +426,10 @@ describe('Watch page integration', () => {
 			duration: 600,
 			paused: false,
 			playbackRate: 1,
+			readyState: 4,
 			seeking: false,
+			videoHeight: 360,
+			videoWidth: 640,
 			addEventListener: function (type, listener) { listeners[type] = listener; },
 			removeEventListener: function (type) { delete listeners[type]; }
 		};
@@ -268,14 +449,18 @@ describe('Watch page integration', () => {
 			ImprovedTubeTranscriptArchive: library,
 			document: {
 				addEventListener: function () {},
-				documentElement: {dataset: {pageType: 'video'}},
+				documentElement: {dataset: {pageType: overrides.pageType || 'video'}},
 				getElementById: () => null,
 				querySelector: () => null,
-				querySelectorAll: () => [],
+				querySelectorAll: () => overrides.links || [],
 				title: 'Example video - YouTube',
 				visibilityState: 'visible'
 			},
-			window: {addEventListener: function () {}, ytInitialPlayerResponse: null},
+			window: {
+				addEventListener: function () {},
+				ytInitialData: overrides.ytInitialData || null,
+				ytInitialPlayerResponse: null
+			},
 			location: {
 				href: 'https://www.youtube.com/watch?v=abcdefghijk',
 				origin: 'https://www.youtube.com',
@@ -462,9 +647,98 @@ describe('Watch page integration', () => {
 		expect(archive.entry).toMatchObject({id: 'abcdefghijk', segments: []});
 	});
 
+	test('captures a watching-diary frame from the player and updates the index', () => {
+		createContext({storage: {auto_screenshot: true}});
+
+		ImprovedTube.captureFrame = () => ({
+			toDataURL: () => 'data:image/jpeg;base64,AAAA'
+		});
+
+		archive.load('abcdefghijk');
+		archive.meta = {title: 'Example video', channel: 'Example channel', duration: 600};
+		archive.captureDiary(video);
+		archive.captureDiary(video);
+
+		const index = sent.filter(message => message.key === 'watching_diary').pop();
+		const frames = sent.filter(message => message.key === 'watching_diary_abcdefghijk').pop();
+
+		expect(index.value.abcdefghijk).toMatchObject({
+			title: 'Example video',
+			channel: 'Example channel',
+			frames: 1
+		});
+		expect(frames.value.frames).toEqual([{
+			t: 10,
+			at: expect.any(Number),
+			data: 'data:image/jpeg;base64,AAAA'
+		}]);
+	});
+
+	test('does not capture diary frames while paused or without the switch', () => {
+		createContext({storage: {auto_screenshot: false}});
+
+		ImprovedTube.captureFrame = () => ({
+			toDataURL: () => 'data:image/jpeg;base64,AAAA'
+		});
+
+		archive.load('abcdefghijk');
+		archive.captureDiary(video);
+
+		expect(sent.some(message => message.key.indexOf('watching_diary') === 0)).toBe(false);
+
+		ImprovedTube.storage.auto_screenshot = true;
+		video.paused = true;
+		archive.captureDiary(video);
+
+		expect(sent.some(message => message.key.indexOf('watching_diary') === 0)).toBe(false);
+	});
+
+	test('queues related videos and skips ones that already have captions', () => {
+		createContext({
+			storage: {archive_transcripts: true, archive_related_videos: true},
+			ytInitialData: {contents: [{videoRenderer: {videoId: 'related0001'}}, {videoRenderer: {videoId: 'related0002'}}]}
+		});
+
+		archive.load('abcdefghijk');
+		archive.store.related0001 = library.sanitizeEntry({segments: [{t: 0, text: 'archived'}]}, 'related0001');
+
+		expect(archive.collectRelatedIds('abcdefghijk')).toEqual(['related0001', 'related0002']);
+
+		archive.queueNearby(archive.collectRelatedIds('abcdefghijk'), 'related');
+
+		expect(archive.nearby_queue).toEqual(['related0002']);
+	});
+
+	test('reads the subscription feed from the page anchors', () => {
+		createContext({
+			storage: {archive_transcripts: true, archive_subscription_videos: true},
+			pageType: 'subscriptions',
+			links: [
+				{href: 'https://www.youtube.com/watch?v=aaaaaaaaaaa'},
+				{href: 'https://www.youtube.com/watch?v=aaaaaaaaaaa'},
+				{href: 'https://www.youtube.com/watch?v=bbbbbbbbbbb'}
+			]
+		});
+
+		expect(archive.collectFeedIds()).toEqual(['aaaaaaaaaaa', 'bbbbbbbbbbb']);
+	});
+
+	test('starts the feed scan instead of the player tracking on the subscriptions page', () => {
+		createContext({
+			storage: {archive_transcripts: true, archive_subscription_videos: true},
+			pageType: 'subscriptions'
+		});
+
+		archive.tick();
+
+		expect(archive.video_id).toBe('');
+		expect(archive.tick_timer).toBeNull();
+	});
+
 	test('stops when both settings are switched off', () => {
 		ImprovedTube.storage.archive_transcripts = false;
 		ImprovedTube.storage.record_viewing_log = false;
+		ImprovedTube.storage.auto_screenshot = false;
 
 		archive.init();
 
@@ -494,11 +768,24 @@ describe('Wiring', () => {
 	test('the feature is initialised with the player and reacts to its switches', () => {
 		const functions = read('js&css', 'web-accessible', 'functions.js');
 		const core = read('js&css', 'web-accessible', 'core.js');
+		const init = read('js&css', 'web-accessible', 'init.js');
 
 		expect(functions).toContain('ImprovedTube.transcriptArchive?.init()');
 		expect(core).toContain("case 'archiveTranscripts':");
 		expect(core).toContain("case 'recordViewingLog':");
+		expect(core).toContain("case 'archiveRelatedVideos':");
+		expect(core).toContain("case 'archiveSubscriptionVideos':");
+		expect(core).toContain("case 'autoScreenshot':");
 		expect(core).toContain("case 'transcriptArchive':");
+		expect(init).toContain("dataset.pageType === 'subscriptions'");
+	});
+
+	test('the watching diary reuses the screenshot frame capture', () => {
+		const player = read('js&css', 'web-accessible', 'www.youtube.com', 'player.js');
+		const page = read('js&css', 'web-accessible', 'www.youtube.com', 'transcript-archive.js');
+
+		expect(player).toContain('ImprovedTube.captureFrame');
+		expect(page).toContain('ImprovedTube.captureFrame');
 	});
 
 	test('the menu exposes the switches, search and ranking', () => {
@@ -506,9 +793,16 @@ describe('Wiring', () => {
 
 		expect(menu).toContain('archive_transcripts');
 		expect(menu).toContain('record_viewing_log');
+		expect(menu).toContain('archive_related_videos');
+		expect(menu).toContain('archive_subscription_videos');
+		expect(menu).toContain('auto_screenshot');
+		expect(menu).toContain('archive_storage_limit');
+		expect(menu).toContain('archive_storage_budget');
 		expect(menu).toContain("storage: 'transcript_search_ranking'");
 		expect(menu).toContain('renderResults');
 		expect(menu).toContain('renderLog');
+		expect(menu).toContain('renderDiary');
+		expect(menu).toContain('renderStorage');
 
 		const home = read('menu', 'styles', 'home.css');
 
@@ -518,7 +812,10 @@ describe('Wiring', () => {
 	test('the labels are translated', () => {
 		const messages = JSON.parse(read('_locales', 'en', 'messages.json'));
 
-		['archive', 'archiveTranscripts', 'recordViewingLog', 'searchTranscripts', 'personalRanking', 'globalRanking', 'viewingLog'].forEach(key => {
+		['archive', 'archiveTranscripts', 'recordViewingLog', 'searchTranscripts', 'personalRanking', 'globalRanking', 'viewingLog',
+			'archiveRelatedVideos', 'archiveSubscriptionVideos', 'autoScreenshot', 'storageLimit', 'storageBudget', 'unlimited',
+			'videos100', 'videos1000', 'videos10000', 'watchingDiary', 'watchingDiaryIsEmpty', 'deleteWatchingDiary',
+			'relatedVideo', 'subscriptionVideo'].forEach(key => {
 			expect(messages[key]).toBeDefined();
 		});
 	});

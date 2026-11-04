@@ -240,6 +240,9 @@ document.addEventListener('it-message-from-extension', function () {
 					localStorage.removeItem('it-player30fps');
 				}
 			}
+			if (typeof message.key === 'string' && (message.key === 'watching_diary' || message.key.indexOf('watching_diary_') === 0)) {
+				ImprovedTube.transcriptArchive?.onStorageChanged?.(message.key, message.value);
+			}
 			switch (camelized_key) {
 				case 'blocklist':
 				case 'blocklistActivate':
@@ -619,6 +622,11 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'archiveTranscripts':
 				case 'recordViewingLog':
+				case 'archiveRelatedVideos':
+				case 'archiveSubscriptionVideos':
+				case 'autoScreenshot':
+				case 'archiveStorageLimit':
+				case 'archiveStorageBudget':
 					if (ImprovedTube.transcriptArchive) {
 						ImprovedTube.transcriptArchive.init();
 					}

@@ -4,6 +4,10 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 	Archives the captions of videos that are watched so they can be searched
 	later, and keeps a viewing log of the videos that were played.
 
+	When enabled, it also archives the captions of related videos and of the
+	subscription feed, and it can store downscaled player frames as a watching
+	diary (using the same frame capture as the existing screenshot feature).
+
 	The data handling and the search index live in js&css/transcript-archive.js
 	so the extension menu can use them without the content-script bridge.
 ------------------------------------------------------------------------------*/
@@ -19,21 +23,47 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 	var FETCH_COOLDOWN = 10 * 60 * 1000;
 	var MIN_LOG_SECONDS = 2;
 
+	// Nearby videos are archived slowly and politely: one request per
+	// interval, and only a handful per page.
+	var NEARBY_INTERVAL = 20000;
+	var NEARBY_SCAN_INTERVAL = 30000;
+	var NEARBY_LIMIT = 25;
+
+	// Watching diary frames: one every minute of playback, downscaled.
+	var FRAME_INTERVAL = 60000;
+	var FRAME_MIN_GAP = 5;
+	var FRAME_MAX_WIDTH = 480;
+	var FRAME_QUALITY = 0.6;
+
 	ImprovedTube.transcriptArchive = {
 		library: library,
 
 		SAVE_DELAY: SAVE_DELAY,
 		TICK_DELAY: TICK_DELAY,
 		FETCH_COOLDOWN: FETCH_COOLDOWN,
+		NEARBY_INTERVAL: NEARBY_INTERVAL,
+		NEARBY_SCAN_INTERVAL: NEARBY_SCAN_INTERVAL,
+		NEARBY_LIMIT: NEARBY_LIMIT,
+		FRAME_INTERVAL: FRAME_INTERVAL,
+		FRAME_MIN_GAP: FRAME_MIN_GAP,
+		FRAME_MAX_WIDTH: FRAME_MAX_WIDTH,
 
 		attached_video: null,
 		counted: false,
+		diary: null,
+		diary_id: '',
 		dirty: false,
 		entry: null,
 		fetch_attempts: {},
 		handlers: null,
+		last_frame_at: 0,
+		last_frame_time: -1,
 		last_time: null,
 		meta: null,
+		nearby_at: 0,
+		nearby_queue: [],
+		nearby_scanned_at: 0,
+		nearby_source: 'related',
 		pauses: [],
 		pending_heatmap: null,
 		pending_metrics: null,
@@ -54,8 +84,42 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 			return ImprovedTube.storage.record_viewing_log === true;
 		},
 
+		relatedEnabled: function () {
+			return this.enabled() && ImprovedTube.storage.archive_related_videos === true;
+		},
+
+		subscriptionsEnabled: function () {
+			return this.enabled() && ImprovedTube.storage.archive_subscription_videos === true;
+		},
+
+		diaryEnabled: function () {
+			return ImprovedTube.storage.auto_screenshot === true;
+		},
+
 		active: function () {
-			return this.enabled() || this.logEnabled();
+			return this.enabled() || this.logEnabled() || this.diaryEnabled();
+		},
+
+		// Zero means unlimited, which is the default.
+		limit: function () {
+			var value = Number(ImprovedTube.storage.archive_storage_limit);
+
+			return isFinite(value) && value > 0 ? Math.round(value) : 0;
+		},
+
+		// Zero means no byte budget, which is the default.
+		budget: function () {
+			var value = Number(ImprovedTube.storage.archive_storage_budget);
+
+			return isFinite(value) && value > 0 ? value * library.MEGABYTE : 0;
+		},
+
+		pageType: function () {
+			return document.documentElement.dataset.pageType || '';
+		},
+
+		subscriptionsPage: function () {
+			return this.pageType() === 'subscriptions' || location.pathname.indexOf('/feed/subscriptions') === 0;
 		},
 
 		video: function () {
@@ -116,15 +180,25 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 
 			this.entry = null;
 			this.store = null;
+			this.diary = null;
+			this.diary_id = '';
 			this.video_id = '';
 			this.last_time = null;
 			this.counted = false;
 			this.dirty = false;
+			this.nearby_queue = [];
 		},
 
 		tick: function () {
 			if (!this.active()) {
 				this.disable();
+
+				return;
+			}
+
+			// The subscription feed has no player, so it gets its own scan.
+			if (this.pageType() !== 'video' && this.pageType() !== 'embed') {
+				this.scanFeed();
 
 				return;
 			}
@@ -163,6 +237,8 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 
 			this.track();
 			this.capture(video_id);
+			this.captureNearby(video_id);
+			this.captureDiary(video);
 		},
 
 		load: function (video_id) {
@@ -172,6 +248,8 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 
 			this.video_id = video_id;
 			this.last_time = null;
+			this.last_frame_at = 0;
+			this.last_frame_time = -1;
 			this.counted = false;
 			this.dirty = false;
 			this.watched = [];
@@ -181,6 +259,8 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 			this.pending_metrics = null;
 			this.pending_views = 0;
 			this.meta = null;
+			this.nearby_queue = [];
+			this.nearby_scanned_at = 0;
 
 			if (this.enabled()) {
 				var store = this.readStore(),
@@ -192,6 +272,8 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 				this.store = null;
 				this.entry = null;
 			}
+
+			this.loadDiary();
 
 			this.startSession();
 			this.updateMetadata(null, this.video());
@@ -242,7 +324,7 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 				to: session.to,
 				sec: session.sec,
 				pauses: session.pauses
-			});
+			}, this.limit());
 
 			ImprovedTube.storage[library.LOG_KEY] = log;
 
@@ -550,35 +632,11 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 				return;
 			}
 
-			var tracks = response.captions
-				&& response.captions.playerCaptionsTracklistRenderer
-				&& response.captions.playerCaptionsTracklistRenderer.captionTracks;
+			var track = library.captionTrack(response),
+				url = library.captionUrl(track, location.origin);
 
-			if (!Array.isArray(tracks) || tracks.length === 0) {
+			if (!track || !url) {
 				return;
-			}
-
-			var track = tracks.find(function (item) { return item.languageCode === 'en' && item.kind !== 'asr'; })
-				|| tracks.find(function (item) { return item.languageCode === 'en'; })
-				|| tracks.find(function (item) { return item.isTranslatable; })
-				|| tracks[0];
-
-			if (!track || !track.baseUrl) {
-				return;
-			}
-
-			var url = track.baseUrl;
-
-			if (url.indexOf('//') === 0) {
-				url = location.protocol + url;
-			} else if (url.charAt(0) === '/') {
-				url = location.origin + url;
-			}
-
-			if (/[?&]fmt=/.test(url)) {
-				url = url.replace(/([?&])fmt=[^&]*/, '$1fmt=json3');
-			} else {
-				url += (url.indexOf('?') === -1 ? '?' : '&') + 'fmt=json3';
 			}
 
 			var self = this;
@@ -613,53 +671,31 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 		},
 
 		parseTimedText: function (text) {
-			var segments = [],
-				value = String(text || '').trim();
+			var value = String(text || '').trim();
 
 			if (!value) {
-				return segments;
+				return [];
 			}
 
 			if (value.charAt(0) === '{' || value.charAt(0) === '[') {
-				try {
-					var data = JSON.parse(value);
-
-					(data.events || []).forEach(function (event) {
-						if (!event.segs) {
-							return;
-						}
-
-						var text = event.segs.map(function (part) {
-							return part.utf8 || '';
-						}).join('').replace(/\s+/g, ' ').trim();
-
-						if (text) {
-							segments.push({
-								t: Number(event.tStartMs || 0) / 1000,
-								text: text
-							});
-						}
-					});
-				} catch (error) {
-					segments = [];
-				}
+				return library.parseJson3(value);
 			}
 
-			if (!segments.length) {
-				try {
-					var nodes = new DOMParser().parseFromString(value, 'text/xml').querySelectorAll('text');
+			var segments = [];
 
-					nodes.forEach(function (node) {
-						var text = node.textContent.replace(/\s+/g, ' ').trim(),
-							start = parseFloat(node.getAttribute('start') || '0');
+			try {
+				var nodes = new DOMParser().parseFromString(value, 'text/xml').querySelectorAll('text');
 
-						if (text && isFinite(start)) {
-							segments.push({ t: start, text: text });
-						}
-					});
-				} catch (error) {
-					segments = [];
-				}
+				nodes.forEach(function (node) {
+					var text = node.textContent.replace(/\s+/g, ' ').trim(),
+						start = parseFloat(node.getAttribute('start') || '0');
+
+					if (text && isFinite(start)) {
+						segments.push({ t: start, text: text });
+					}
+				});
+			} catch (error) {
+				segments = [];
 			}
 
 			return library.sanitizeSegments(segments);
@@ -684,22 +720,303 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 		},
 
 		/*--------------------------------------------------------------
+		# RELATED VIDEOS / SUBSCRIPTION FEED
+		--------------------------------------------------------------*/
+
+		scanFeed: function () {
+			if (!this.subscriptionsEnabled() || !this.subscriptionsPage()) {
+				return;
+			}
+
+			if (Date.now() - this.nearby_scanned_at < this.NEARBY_SCAN_INTERVAL) {
+				return;
+			}
+
+			this.nearby_scanned_at = Date.now();
+			this.queueNearby(this.collectFeedIds(), 'subscription');
+			this.processNearby();
+		},
+
+		collectFeedIds: function () {
+			var links = document.querySelectorAll(
+				'ytd-rich-item-renderer a#thumbnail[href*="/watch?v="],'
+				+ 'ytd-video-renderer a#thumbnail[href*="/watch?v="],'
+				+ 'ytd-grid-video-renderer a#thumbnail[href*="/watch?v="]'
+			);
+
+			return library.videoIdsFromLinks(links, { limit: this.NEARBY_LIMIT });
+		},
+
+		collectRelatedIds: function (video_id) {
+			var ids = library.collectVideoIds(window.ytInitialData, {
+				exclude: video_id,
+				limit: this.NEARBY_LIMIT
+			});
+
+			if (!ids.length) {
+				ids = library.videoIdsFromLinks(document.querySelectorAll(
+					'#secondary a#thumbnail[href*="/watch?v="], ytd-watch-next-secondary-results-renderer a#thumbnail[href*="/watch?v="]'
+				), {
+					exclude: video_id,
+					limit: this.NEARBY_LIMIT
+				});
+			}
+
+			return ids;
+		},
+
+		queueNearby: function (ids, source) {
+			var store = this.store || this.readStore(),
+				self = this;
+
+			ids.forEach(function (id) {
+				if (self.nearby_queue.indexOf(id) !== -1) {
+					return;
+				}
+
+				// Already archived with captions? Nothing to do.
+				if (store[id] && store[id].segments && store[id].segments.length) {
+					return;
+				}
+
+				self.nearby_queue.push(id);
+			});
+
+			if (ids.length) {
+				this.nearby_source = source;
+			}
+		},
+
+		captureNearby: function (video_id) {
+			if (!this.relatedEnabled() && !this.subscriptionsEnabled()) {
+				return;
+			}
+
+			if (Date.now() - this.nearby_scanned_at >= this.NEARBY_SCAN_INTERVAL) {
+				this.nearby_scanned_at = Date.now();
+				this.queueNearby(this.collectRelatedIds(video_id), 'related');
+			}
+
+			this.processNearby();
+		},
+
+		processNearby: function () {
+			if (!this.nearby_queue.length || Date.now() - this.nearby_at < this.NEARBY_INTERVAL) {
+				return;
+			}
+
+			this.nearby_at = Date.now();
+
+			var id = this.nearby_queue.shift(),
+				source = this.nearby_source;
+
+			this.fetchNearby(id, source);
+		},
+
+		fetchNearby: function (id, source) {
+			if (!id) {
+				return;
+			}
+
+			var self = this;
+
+			fetch('https://www.youtube.com/watch?v=' + encodeURIComponent(id), {
+				credentials: 'include'
+			}).then(function (response) {
+				return response.ok ? response.text() : null;
+			}).then(function (html) {
+				var player_response = html && library.parseWatchPage(html),
+					track = library.captionTrack(player_response),
+					url = library.captionUrl(track, location.origin);
+
+				if (!track || !url) {
+					return;
+				}
+
+				return fetch(url).then(function (response) {
+					return response.ok ? response.text() : null;
+				}).then(function (text) {
+					var segments = library.parseJson3(text);
+
+					if (segments.length) {
+						self.storeNearby(player_response, segments, source, track.languageCode || '');
+					}
+				});
+			}).catch(function () {
+				// Offline, rate limited or no captions: try the next one later.
+			});
+		},
+
+		storeNearby: function (response, segments, source, language) {
+			var details = library.videoDetails(response),
+				id = details.id || '';
+
+			if (!id || id === this.video_id) {
+				return;
+			}
+
+			var store = this.readStore();
+
+			library.recordView(store, {
+				videoId: id,
+				title: details.title,
+				channel: details.channel,
+				channel_id: details.channel_id,
+				duration: details.duration,
+				language: language || details.language,
+				increment_views: false,
+				source: source === 'subscription' ? 'subscription' : 'related',
+				segments: segments,
+				heatmap: this.findHeatmap(response),
+				metrics: { views: details.views, likes: 0 },
+				maxVideos: this.limit(),
+				maxBytes: this.budget()
+			});
+
+			this.store = store;
+			ImprovedTube.storage[library.STORAGE_KEY] = store;
+
+			this.send(library.STORAGE_KEY, store);
+		},
+
+		/*--------------------------------------------------------------
+		# WATCHING DIARY
+		--------------------------------------------------------------*/
+
+		loadDiary: function () {
+			if (!this.diaryEnabled() || !this.video_id) {
+				this.diary = null;
+				this.diary_id = '';
+
+				return;
+			}
+
+			this.diary_id = this.video_id;
+			this.diary = library.sanitizeDiary(ImprovedTube.storage[library.DIARY_KEY_PREFIX + this.video_id]);
+		},
+
+		captureDiary: function (video) {
+			if (!this.diaryEnabled() || !this.video_id || this.adShowing()) {
+				return;
+			}
+
+			if (!video || video.paused || video.readyState < 2 || !video.videoWidth) {
+				return;
+			}
+
+			var now = Date.now(),
+				time = video.currentTime;
+
+			if (now - this.last_frame_at < FRAME_INTERVAL) {
+				return;
+			}
+
+			if (this.last_frame_time >= 0 && Math.abs(time - this.last_frame_time) < FRAME_MIN_GAP) {
+				return;
+			}
+
+			if (typeof ImprovedTube.captureFrame !== 'function') {
+				return;
+			}
+
+			var canvas = ImprovedTube.captureFrame({ maxWidth: FRAME_MAX_WIDTH });
+
+			if (!canvas) {
+				return;
+			}
+
+			this.last_frame_at = now;
+			this.last_frame_time = time;
+
+			var data;
+
+			try {
+				data = canvas.toDataURL('image/jpeg', FRAME_QUALITY);
+			} catch (error) {
+				return;
+			}
+
+			if (this.diary_id !== this.video_id || !this.diary) {
+				this.loadDiary();
+			}
+
+			this.diary = library.appendDiaryFrame(this.diary, {
+				t: time,
+				at: now,
+				data: data
+			}, FRAME_MIN_GAP);
+
+			var key = library.DIARY_KEY_PREFIX + this.video_id;
+
+			ImprovedTube.storage[key] = this.diary;
+			this.send(key, this.diary);
+
+			this.saveDiaryIndex(now);
+		},
+
+		saveDiaryIndex: function (now) {
+			var meta = this.meta || {},
+				frames = this.diary && this.diary.frames || [],
+				index = library.sanitizeDiaryIndex(ImprovedTube.storage[library.DIARY_KEY]),
+				before = Object.keys(index);
+
+			if (!frames.length) {
+				return;
+			}
+
+			index = library.updateDiaryIndex(index, {
+				id: this.video_id,
+				title: meta.title || '',
+				channel: meta.channel || '',
+				duration: meta.duration || 0,
+				at: now,
+				frames: frames.length,
+				from: frames[0].t,
+				to: frames[frames.length - 1].t,
+				thumb: frames[0].data
+			});
+
+			index = library.pruneDiaryIndex(index, this.limit());
+
+			before.forEach(function (id) {
+				if (!index[id]) {
+					ImprovedTube.transcriptArchive.send(library.DIARY_KEY_PREFIX + id, null);
+				}
+			});
+
+			ImprovedTube.storage[library.DIARY_KEY] = index;
+			this.send(library.DIARY_KEY, index);
+		},
+
+		/*--------------------------------------------------------------
 		# STORAGE
 		--------------------------------------------------------------*/
 
 		onStorageChanged: function (key, value) {
-			if (key !== library.STORAGE_KEY) {
+			if (key === library.STORAGE_KEY) {
+				// The menu can delete the archive while this tab keeps a local
+				// copy for pending writes. A removal/empty value wins.
+				if (!value || typeof value !== 'object' || Object.keys(value).length === 0) {
+					this.store = {};
+
+					if (this.video_id) {
+						this.entry = library.sanitizeEntry({}, this.video_id);
+					}
+				}
+
 				return;
 			}
 
-			// The menu can delete the archive while this tab keeps a local
-			// copy for pending writes. A removal/empty value wins.
-			if (!value || typeof value !== 'object' || Object.keys(value).length === 0) {
-				this.store = {};
-
-				if (this.video_id) {
-					this.entry = library.sanitizeEntry({}, this.video_id);
+			if (key === library.DIARY_KEY && this.diary_id) {
+				if (!value || typeof value !== 'object' || !value[this.diary_id]) {
+					this.diary = null;
 				}
+
+				return;
+			}
+
+			if (key === library.DIARY_KEY_PREFIX + this.diary_id) {
+				this.diary = library.sanitizeDiary(value);
 			}
 		},
 
@@ -787,11 +1104,14 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 					duration: meta.duration,
 					language: meta.language,
 					increment_views: this.pending_views > 0,
+					source: 'watched',
 					watched: this.watched,
 					pauses: this.pauses,
 					segments: this.pending_segments,
 					heatmap: this.pending_heatmap,
-					metrics: this.pending_metrics
+					metrics: this.pending_metrics,
+					maxVideos: this.limit(),
+					maxBytes: this.budget()
 				});
 
 			if (!entry) {

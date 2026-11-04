@@ -1950,8 +1950,74 @@
   "archiveTranscripts": {
     "message": "Archive transcripts of watched videos"
   },
+  "archiveRelatedVideos": {
+    "message": "Also archive related videos"
+  },
+  "archiveSubscriptionVideos": {
+    "message": "Also archive videos from subscriptions"
+  },
   "recordViewingLog": {
     "message": "Record a viewing log"
+  },
+  "autoScreenshot": {
+    "message": "Watching diary (automatic screenshots)"
+  },
+  "storage": {
+    "message": "Storage"
+  },
+  "storageLimit": {
+    "message": "Limit the archive"
+  },
+  "storageBudget": {
+    "message": "Storage budget"
+  },
+  "unlimited": {
+    "message": "Unlimited (recommended)"
+  },
+  "videos100": {
+    "message": "Keep 100 videos"
+  },
+  "videos1000": {
+    "message": "Keep 1,000 videos"
+  },
+  "videos10000": {
+    "message": "Keep 10,000 videos"
+  },
+  "megabytes500": {
+    "message": "500 MB"
+  },
+  "megabytes2000": {
+    "message": "2 GB"
+  },
+  "megabytes10000": {
+    "message": "10 GB"
+  },
+  "archivedVideos": {
+    "message": "archived videos"
+  },
+  "storageUsed": {
+    "message": "Storage used"
+  },
+  "watchingDiary": {
+    "message": "Watching diary"
+  },
+  "watchingDiaryIsEmpty": {
+    "message": "No screenshots captured yet."
+  },
+  "frames": {
+    "message": "frames"
+  },
+  "deleteWatchingDiary": {
+    "message": "Delete watching diary"
+  },
+  "areYouSureYouWantToDeleteTheWatchingDiary": {
+    "message": "Delete all watching-diary screenshots? This cannot be undone."
+  },
+  "relatedVideo": {
+    "message": "related"
+  },
+  "subscriptionVideo": {
+    "message": "subscription"
   },
   "searchTranscripts": {
     "message": "Search archived transcripts"
