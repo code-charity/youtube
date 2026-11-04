@@ -506,6 +506,7 @@ ImprovedTube.initPlayer = function () {
 		if (ImprovedTube.storage.player_watched_segments === true) {ImprovedTube.watchedSegments.init();}
 		setTimeout(function () { ImprovedTube.forcedTheaterMode(); }, 150);
 		if (location.href.indexOf('/embed/') === -1) { ImprovedTube.miniPlayer(); }
+		ImprovedTube.playerDisableMiniplayer();
 		if (ImprovedTube.storage.disable_auto_dubbing === true) { ImprovedTube.disableAutoDubbing(); }
 		if (ImprovedTube.storage.hide_auto_dubbed_options === true) { ImprovedTube.observeAutoDubbedMenu(); }
 		if (ImprovedTube.storage.preferred_dubbing_language) { ImprovedTube.preferredDubbingLanguage(); }
