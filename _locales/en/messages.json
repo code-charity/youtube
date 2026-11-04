@@ -354,6 +354,9 @@
   "toggleTranscriptButton": {
     "message": "📜 Show / Hide Transcript"
   },
+  "transcriptAlwaysExpanded": {
+    "message": "Always expanded"
+  },
   "FetchingTranscript": {
     "message": "Fetching..."
   },

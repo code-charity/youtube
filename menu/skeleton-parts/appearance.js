@@ -1096,28 +1096,6 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				component: "switch",
 				text: "hideThumbnails"
 			},
-			transcript: {
-				component: 'switch',
-				text: 'Transcript',
-				value: false,
-				id: 'transcript',
-				on: {
-					click: function () {
-						setTimeout(() => {
-							if (satus.storage.get('transcript')) {
-								if (satus.storage.get('no_page_margin')) {
-									this.nextSibling.nextSibling.click();
-								}
-							}
-						}, 250);
-					}
-				}
-			},
-			compact_spacing: {
-				component: "switch",
-				text: 'compact_spacing',
-				storage: 'compactSpacing'
-			},
 			no_page_margin: {
 				component: 'switch',
 				text: 'To_the_side_No_page_margin',
@@ -1125,11 +1103,10 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				value: false,
 				on: {
 					click: function () {
-						setTimeout(() => {
-							if (satus.storage.get('no_page_margin')) {
-								if (satus.storage.get('transcript')) {
-									this.previousSibling.previousSibling.click();
-								}
+						// excludes Player > Transcript > "Always expanded"
+						setTimeout(function () {
+							if (satus.storage.get('no_page_margin') && satus.storage.get('transcript')) {
+								satus.storage.set('transcript', false);
 							}
 						}, 250);
 					}
