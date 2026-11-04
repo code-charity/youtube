@@ -202,10 +202,12 @@ extension.messages.create = function () {
 
 extension.messages.listener = function () {
 	document.addEventListener('it-message-from-extension--readed', function () {
-		extension.messages.queue.pop();
+		// Keep the queue moving in FIFO order. pop() used to drop the newest
+		// message and leave the bridge stuck, which lost storage updates.
+		extension.messages.queue.shift();
 
 		if (extension.messages.queue.length > 0) {
-			extension.messages.element.textContent = message;
+			extension.messages.element.textContent = extension.messages.queue[0];
 
 			document.dispatchEvent(new CustomEvent('it-message-from-extension'));
 		}
