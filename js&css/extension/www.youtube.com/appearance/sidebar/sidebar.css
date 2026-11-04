@@ -111,11 +111,6 @@ html[data-page-type=video][it-compactSpacing='true'] timeline-item-view-model:ha
 html[data-page-type=video][it-compactSpacing='true'] transcript-segment-view-model
 {line-height:1.3 !important;}
 
-html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'],
-html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript']  ytd-engagement-panel-section-list-renderer #content {
-	max-height: 69vh !important;
-	margin-top:40px !important;
-}
 
 /*--------------------------------------------------------------
 # RELATED VIDEO STYLES
