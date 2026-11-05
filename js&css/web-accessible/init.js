@@ -1,6 +1,8 @@
 /*--------------------------------------------------------------
 >>> INITIALIZATION
 --------------------------------------------------------------*/
+if (typeof ImprovedTubePageAccessibility !== 'undefined') ImprovedTubePageAccessibility.install();
+
 if (document.body) { ImprovedTube.childHandler(document.body); }
 
 ImprovedTube.observer = new MutationObserver(function (mutationList) {

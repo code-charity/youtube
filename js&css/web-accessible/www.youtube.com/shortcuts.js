@@ -461,7 +461,7 @@ ImprovedTube.shortcutResetPlaybackSpeed = function () {
 ImprovedTube.shortcutGoToSearchBox = function () {
 	document.querySelector('input[name="search_query"]')?.click();
 	document.querySelector('input#search')?.click();
-	if (ImprovedTube.originalFocus) { HTMLElement.prototype.focus = originalFocus }
+	// Accessibility: native HTMLElement.prototype.focus is intentionally untouched.
 	document.querySelector('input[name="search_query"]')?.focus();
 	document.querySelector('input#search')?.focus();
 };
