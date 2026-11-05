@@ -684,3 +684,10 @@ html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(4) > h3:active {
 	background-color: var(--yt-spec-10-percent-layer);
 }
+
+/*--------------------------------------------------------------
+# HIDE CATEGORY BAR ON YOUTUBE HOME PAGE
+--------------------------------------------------------------*/
+html[it-hide-home-category-bar='true'][it-pathname='/'] ytd-feed-filter-chip-bar-renderer {
+	display: none !important;
+}
