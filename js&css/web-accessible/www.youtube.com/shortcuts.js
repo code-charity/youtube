@@ -118,6 +118,24 @@ ImprovedTube.shortcutsListeners = {
 		// no shortcuts over 'ignoreElements'
 		if ((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable) return;
 
+		// Issue #4441: Override YouTube's native arrow key volume handling
+		// to respect the user-configured volume step setting.
+		// YouTube hardcodes volume step of 5 for arrow keys regardless of settings.
+		if (event.keyCode === 38 || event.keyCode === 40) {
+			const player = ImprovedTube.elements.player;
+			if (player && player.setVolume && player.getVolume) {
+				event.preventDefault();
+				event.stopPropagation();
+				const value = Number(ImprovedTube.storage.shortcuts_volume_step) || 5;
+				if (event.keyCode === 38) {
+					player.setVolume(player.getVolume() + value);
+				} else {
+					player.setVolume(player.getVolume() - value);
+				}
+				return;
+			}
+		}
+
 		if (!ImprovedTube.input.modifierKeys.includes(event.code)) {
 			ImprovedTube.input.pressed.keys.add(event.keyCode);
 		}
