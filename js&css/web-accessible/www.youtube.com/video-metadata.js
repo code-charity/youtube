@@ -26,16 +26,16 @@ const SOURCE = {
 	FETCHED_DOM: 'fetchedDom',
 };
 // Common source groups used by the field table below.
-const SOURCE_PRIORITY_WITH_DOM = Object.freeze([SOURCE.CURRENT_PLAYER_RESPONSE, SOURCE.CURRENT_DOM, SOURCE.FETCHED_PLAYER_RESPONSE, SOURCE.FETCHED_DOM]);
+const SOURCE_PRIORITY_PLAYER_AND_DOM = Object.freeze([SOURCE.CURRENT_PLAYER_RESPONSE, SOURCE.CURRENT_DOM, SOURCE.FETCHED_PLAYER_RESPONSE, SOURCE.FETCHED_DOM]);
 const SOURCE_PRIORITY_PLAYER_RESPONSE_ONLY = Object.freeze([SOURCE.CURRENT_PLAYER_RESPONSE, SOURCE.FETCHED_PLAYER_RESPONSE]);
 const SOURCE_PRIORITY_YT_INITIAL_DATA = Object.freeze([SOURCE.CURRENT_YT_INITIAL_DATA, SOURCE.FETCHED_YT_INITIAL_DATA]);
 
 // Field-to-source mapping defines the current metadata schema.
 const VIDEO_METADATA_SOURCE_PRIORITY = {
-	title: SOURCE_PRIORITY_WITH_DOM,
-	genre: SOURCE_PRIORITY_WITH_DOM, // Video category.
-	lengthSeconds: SOURCE_PRIORITY_WITH_DOM,
-	duration: SOURCE_PRIORITY_WITH_DOM,
+	title: SOURCE_PRIORITY_PLAYER_AND_DOM,
+	genre: SOURCE_PRIORITY_PLAYER_AND_DOM, // Video category.
+	lengthSeconds: SOURCE_PRIORITY_PLAYER_AND_DOM,
+	duration: SOURCE_PRIORITY_PLAYER_AND_DOM,
 	// keywords: Explicit video keywords from player responses. DOM meta keywords
 	// are intentionally ignored because YouTube may auto-fill generic localized
 	// defaults when explicit keywords are missing.
@@ -59,6 +59,8 @@ const DEFAULT_METADATA_KEYS = ['title', 'keywords', 'genre', 'lengthSeconds', 'c
 
 ImprovedTube.VideoMetadata = {
 	entries: new Map(),
+	// Retains fetched watch-page HTML for development/debugging when enabled.
+	debugKeepFetchedWatchPageHtml: false,
 
 	/**
 	 * Resolves selected metadata fields asynchronously, defaulting to the standard metadata keys.
@@ -86,6 +88,7 @@ ImprovedTube.VideoMetadata = {
 			if (!entry) {
 				return null;
 			}
+			this._resetFailedSources(entry);
 
 			// getDataAsync() eagerly resolves the selected metadata fields.
 			// Leave expensive or feature-specific fields lazy and load them through focused getters.
@@ -312,7 +315,33 @@ ImprovedTube.VideoMetadata = {
 			return null;
 		}
 		const entry = this._getEntry(videoId, force);
+		this._resetFailedSources(entry);
 		return this._getEntryFieldAsync(entry, key, options);
+	},
+
+	_resetFailedSources: function (entry) {
+		if (!entry?.state?.sourceStatus) {
+			return;
+		}
+
+		const {state} = entry;
+		if (state.sourceStatus.fetchedWatchPage === 'failed'
+			|| (state.sourceStatus[SOURCE.FETCHED_DOM] === 'failed' && !entry.rawFetchedWatchPageHtml)) {
+			state.fetchStatus = 'idle';
+			state.sourceStatus.fetchedWatchPage = 'idle';
+			state.sourceStatus[SOURCE.FETCHED_DOM] = 'idle';
+			state.sources[SOURCE.FETCHED_PLAYER_RESPONSE] = null;
+			state.sources[SOURCE.FETCHED_DOM] = null;
+			entry.rawFetchedWatchPageHtml = null;
+			entry.rawFetchedYtInitialData = null;
+			entry.rawFetchedYtInitialPlayerResponse = null;
+			return;
+		}
+
+		if (state.sourceStatus[SOURCE.FETCHED_DOM] === 'failed') {
+			state.sourceStatus[SOURCE.FETCHED_DOM] = 'idle';
+			state.sources[SOURCE.FETCHED_DOM] = null;
+		}
 	},
 
 	_getEntry: function (videoId, force = false) {
@@ -373,7 +402,7 @@ ImprovedTube.VideoMetadata = {
 					[SOURCE.FETCHED_DOM]: null,
 				},
 				// fetchedWatchPage prepares fetchedYtInitialPlayerResponse and fetchedYtInitialData.
-				// fetchedDom is parsed lazily from the fetched HTML only when needed.
+				// fetchedDom is prepared alongside fetched player data.
 				// currentYtInitialData and fetchedYtInitialData are read from live/raw payloads.
 				sourceStatus: {
 					[SOURCE.CURRENT_PLAYER_RESPONSE]: 'idle',
@@ -384,6 +413,7 @@ ImprovedTube.VideoMetadata = {
 			},
 			rawFetchedYtInitialData: null,
 			rawFetchedYtInitialPlayerResponse: null,
+			// Released after DOM metadata extraction unless debugKeepFetchedWatchPageHtml is enabled.
 			rawFetchedWatchPageHtml: null,
 			fetchPromise: null,
 		};
@@ -458,14 +488,7 @@ ImprovedTube.VideoMetadata = {
 		if (!url || typeof url !== 'string') {
 			return null;
 		}
-		try {
-			return ImprovedTube.videoId(url);
-		} catch (error) {
-			return url.match(/[?&]v=([a-zA-Z0-9_-]{11})/)?.[1]
-				|| url.match(/\/embed\/([a-zA-Z0-9_-]{11})/)?.[1]
-				|| url.match(/\/shorts\/([a-zA-Z0-9_-]{11})/)?.[1]
-				|| null;
-		}
+		return url.match(ImprovedTube.regex.video_id)?.[1] || null;
 	},
 
 	_getTargetVideoId: function (options) {
@@ -508,7 +531,6 @@ ImprovedTube.VideoMetadata = {
 		},
 		[SOURCE.FETCHED_DOM]: async function (entry, sourceName) {
 			await this._ensureFetchedWatchPage(entry, 'required:' + sourceName);
-			this._ensureFetchedDomSource(entry);
 		},
 	},
 
@@ -570,8 +592,15 @@ ImprovedTube.VideoMetadata = {
 
 	_ensureFetchedWatchPage: async function (entry, reason) {
 		const videoId = entry.data.videoId;
-		if (entry.state.sourceStatus.fetchedWatchPage === 'done' || entry.state.sourceStatus.fetchedWatchPage === 'failed') {
-			this._log.debug?.(`ensureFetchedWatchPage cacheHit ${this._formatDebugFields({videoId, status: entry.state.sourceStatus.fetchedWatchPage, reason: reason || ''})}`);
+		if (entry.state.sourceStatus.fetchedWatchPage === 'done') {
+			if (entry.state.sourceStatus[SOURCE.FETCHED_DOM] === 'idle' && entry.rawFetchedWatchPageHtml) {
+				this._ensureFetchedDomSource(entry);
+			}
+			this._log.debug?.(`ensureFetchedWatchPage cacheHit ${this._formatDebugFields({videoId, status: 'done', reason: reason || ''})}`);
+			return;
+		}
+		if (entry.state.sourceStatus.fetchedWatchPage === 'failed') {
+			this._log.debug?.(`ensureFetchedWatchPage skippedAfterFailure ${this._formatDebugFields({videoId, reason: reason || '', lastFetchReason: entry.state.lastFetchReason || ''})}`);
 			return;
 		}
 
@@ -592,12 +621,18 @@ ImprovedTube.VideoMetadata = {
 
 		// Use the watch URL as the metadata fetch path, including for Shorts video ids.
 		const fetchPromise = fetch(`https://www.youtube.com/watch?v=${videoId}`, {credentials: 'same-origin'})
-			.then(response => response.text())
+			.then(response => {
+				// HTTP failures should ideally be classified by status (for example, retryable vs. permanent).
+				// For now, all non-2xx responses are recorded as a failed fetch.
+				if (!response.ok) {
+					throw new Error(`watch page fetch failed: HTTP ${response.status}`);
+				}
+				return response.text();
+			})
 			.then(html => {
 				const fetchedYtInitialPlayerResponse = this._extractInlineJsonByMarker(html, 'var ytInitialPlayerResponse = ');
 				const fetchedYtInitialData = this._extractInlineJsonByMarker(html, 'var ytInitialData = ');
 
-				entry.rawFetchedWatchPageHtml = html;
 				entry.rawFetchedYtInitialPlayerResponse = this._isPlayerResponseCurrent(fetchedYtInitialPlayerResponse, videoId)
 					? fetchedYtInitialPlayerResponse
 					: null;
@@ -607,22 +642,37 @@ ImprovedTube.VideoMetadata = {
 						metadata: this._buildPlayerMetadata(entry.rawFetchedYtInitialPlayerResponse, videoId),
 					}
 					: null;
+				entry.rawFetchedWatchPageHtml = html;
+				this._ensureFetchedDomSource(entry);
+				if (!this.debugKeepFetchedWatchPageHtml) {
+					entry.rawFetchedWatchPageHtml = null;
+				}
 
 				entry.state.fetchStatus = 'done';
 				entry.state.sourceStatus.fetchedWatchPage = 'done';
 				entry.state.lastUpdate = Date.now();
+				const fetchDebugFields = {
+					videoId,
+					hasFetchedYtInitialPlayerResponse: Boolean(entry.state.sources[SOURCE.FETCHED_PLAYER_RESPONSE]),
+					hasRetainedHtml: Boolean(entry.rawFetchedWatchPageHtml),
+					fetchedDomStatus: entry.state.sourceStatus[SOURCE.FETCHED_DOM],
+					hasFetchedYtInitialData: Boolean(entry.rawFetchedYtInitialData),
+				};
 				this._log.debug?.(
-					`ensureFetchedWatchPage done ${this._formatDebugFields({videoId, hasFetchedYtInitialPlayerResponse: Boolean(entry.state.sources[SOURCE.FETCHED_PLAYER_RESPONSE]), hasFetchedHtml: Boolean(entry.rawFetchedWatchPageHtml), hasFetchedYtInitialData: Boolean(entry.rawFetchedYtInitialData)})}`,
+					`ensureFetchedWatchPage done ${this._formatDebugFields(fetchDebugFields)}`,
 					{
 						fetchedYtInitialPlayerResponseMetadata: entry.state.sources[SOURCE.FETCHED_PLAYER_RESPONSE]?.metadata || null,
-						hasFetchedHtml: Boolean(entry.rawFetchedWatchPageHtml),
-						hasFetchedYtInitialData: Boolean(entry.rawFetchedYtInitialData),
+						hasRetainedHtml: fetchDebugFields.hasRetainedHtml,
+						hasFetchedYtInitialData: fetchDebugFields.hasFetchedYtInitialData,
 					}
 				);
 				return entry.data;
 			}).catch(error => {
 				entry.state.fetchStatus = 'failed';
 				entry.state.sourceStatus.fetchedWatchPage = 'failed';
+				if (!this.debugKeepFetchedWatchPageHtml) {
+					entry.rawFetchedWatchPageHtml = null;
+				}
 				this._log.warn('ensureFetchedWatchPage: failed', {error, videoId, reason});
 				return entry.data;
 			}).finally(() => {
@@ -637,27 +687,46 @@ ImprovedTube.VideoMetadata = {
 
 	_ensureFetchedDomSource: function (entry) {
 		const videoId = entry.data.videoId;
-		if (entry.state.sourceStatus[SOURCE.FETCHED_DOM] === 'done' || entry.state.sourceStatus[SOURCE.FETCHED_DOM] === 'failed') {
-			this._log.debug?.(`ensureFetchedDomSource cacheHit ${this._formatDebugFields({videoId, status: entry.state.sourceStatus[SOURCE.FETCHED_DOM], hasSource: Boolean(entry.state.sources[SOURCE.FETCHED_DOM])})}`);
+		if (entry.state.sourceStatus[SOURCE.FETCHED_DOM] === 'done') {
+			this._log.debug?.(`ensureFetchedDomSource cacheHit ${this._formatDebugFields({videoId, status: 'done', hasSource: Boolean(entry.state.sources[SOURCE.FETCHED_DOM])})}`);
+			return;
+		}
+		if (entry.state.sourceStatus[SOURCE.FETCHED_DOM] === 'failed') {
+			this._log.debug?.(`ensureFetchedDomSource skippedAfterFailure ${this._formatDebugFields({videoId, reason: 'previousFailure'})}`);
 			return;
 		}
 
 		if (!entry.rawFetchedWatchPageHtml) {
+			entry.state.sources[SOURCE.FETCHED_DOM] = null;
 			entry.state.sourceStatus[SOURCE.FETCHED_DOM] = 'failed';
 			this._log.debug?.(`ensureFetchedDomSource skipped ${this._formatDebugFields({videoId, reason: 'noFetchedHtml'})}`);
+			entry.state.lastUpdate = Date.now();
 			return;
 		}
 
-		const fetchedDocument = this._parseHtml(entry.rawFetchedWatchPageHtml);
-		entry.state.sources[SOURCE.FETCHED_DOM] = fetchedDocument
-			? {metadata: this._buildDomMetadata(fetchedDocument, videoId, true)}
-			: null;
-		entry.state.sourceStatus[SOURCE.FETCHED_DOM] = fetchedDocument ? 'done' : 'failed';
-		entry.state.lastUpdate = Date.now();
-		this._log.debug?.(
-			`ensureFetchedDomSource done ${this._formatDebugFields({videoId, hasSource: Boolean(entry.state.sources[SOURCE.FETCHED_DOM]), keys: this._formatDebugKeys(entry.state.sources[SOURCE.FETCHED_DOM]?.metadata)})}`,
-			entry.state.sources[SOURCE.FETCHED_DOM]?.metadata || null
-		);
+		try {
+			const fetchedDocument = this._parseHtml(entry.rawFetchedWatchPageHtml);
+			if (!fetchedDocument) {
+				entry.state.sources[SOURCE.FETCHED_DOM] = null;
+				entry.state.sourceStatus[SOURCE.FETCHED_DOM] = 'failed';
+				this._log.debug?.(`ensureFetchedDomSource skipped ${this._formatDebugFields({videoId, reason: 'parseFailed'})}`);
+				return;
+			}
+
+			const source = {metadata: this._buildDomMetadata(fetchedDocument, videoId, true)};
+			entry.state.sources[SOURCE.FETCHED_DOM] = source;
+			entry.state.sourceStatus[SOURCE.FETCHED_DOM] = 'done';
+			this._log.debug?.(
+				`ensureFetchedDomSource done ${this._formatDebugFields({videoId, hasSource: Boolean(source), keys: this._formatDebugKeys(source.metadata)})}`,
+				source.metadata || null
+			);
+		} catch (error) {
+			entry.state.sources[SOURCE.FETCHED_DOM] = null;
+			entry.state.sourceStatus[SOURCE.FETCHED_DOM] = 'failed';
+			this._log.warn('ensureFetchedDomSource: failed', {error, videoId});
+		} finally {
+			entry.state.lastUpdate = Date.now();
+		}
 	},
 
 	_waitForCurrentPlayerResponseSource: async function (entry) {
@@ -1102,6 +1171,19 @@ ImprovedTube.VideoMetadata = {
 	},
 
 	_setNotFound: function (entry, key) {
+		const sourceStatusKey = sourceName => (
+			sourceName === SOURCE.FETCHED_PLAYER_RESPONSE || sourceName === SOURCE.FETCHED_YT_INITIAL_DATA
+				? 'fetchedWatchPage'
+				: sourceName
+		);
+		const failedSource = (VIDEO_METADATA_SOURCE_PRIORITY[key] || []).find(sourceName => (
+			entry.state.sourceStatus[sourceStatusKey(sourceName)] === 'failed'
+		));
+		if (failedSource) {
+			this._log.debug?.(`setNotFound skipped ${this._formatDebugFields({key, reason: 'sourceFailed', source: failedSource})}`);
+			return;
+		}
+
 		entry.data[key] = null;
 		entry.state.source[key] = 'not-found';
 		this._log.debug?.(`setNotFound ${this._formatDebugFields({key, value: entry.data[key]})}`);
