@@ -253,6 +253,20 @@ html[it-player-subtitlesLine-button=true] button.ytp-subtitles-button.ytp-button
 html[it-player-hide-annotations='true'] .annotation,
 html[it-player-hide-annotations='true'] .annotation-type-text,
 html[it-player-hide-annotations='true'] .annotation-shape,
+html[it-player-hide-annotations='true'] .annotation-type-custom,
+html[it-player-hide-annotations='true'] .video-annotations,
+html[it-player-hide-annotations='true'] .video-custom-annotations,
+html[it-player-hide-annotations='true'] .ytp-iv-video-content,
+html[it-player-hide-annotations='true'] .iv-branding,
+html[it-player-hide-annotations='true'] .iv-promo,
+html[it-player-hide-annotations='true'] .iv-click-target,
+html[it-player-hide-annotations='true'] .iv-card,
+html[it-player-hide-annotations='true'] .iv-drawer,
+html[it-player-hide-annotations='true'] .ytp-suggested-action,
+html[it-player-hide-annotations='true'] .ytp-suggested-action-badge,
+html[it-player-hide-annotations='true'] .ytp-featured-product,
+html[it-player-hide-annotations='true'] .ytp-timely-actions-content,
+html[it-player-hide-annotations='true'] .ytp-timely-actions-overlay,
 /*--------------------------------------------------------------
 # HIDE ENDSCREEN
 --------------------------------------------------------------*/
