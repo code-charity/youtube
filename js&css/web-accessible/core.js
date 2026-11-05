@@ -401,6 +401,9 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.elements.buttons['it-increase-speed-button']?.remove();
 						ImprovedTube.elements.buttons['it-decrease-speed-button']?.remove();
 						ImprovedTube.elements.buttons['it-1x-speed-button']?.remove();
+						ImprovedTube.elements.buttons['it-speed-readout-button']?.remove();
+						ImprovedTube.playerSpeedReadoutVideo?.removeEventListener('ratechange', ImprovedTube.playerSpeedReadoutUpdate);
+						delete ImprovedTube.playerSpeedReadoutVideo;
 					}
 					break
 
