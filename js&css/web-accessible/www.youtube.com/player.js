@@ -2270,6 +2270,26 @@ ImprovedTube.playerRewindAndForwardButtons = function(){
 /*------------------------------------------------------------------------------
 Increase and Decrease Playback Speed Buttons
 ------------------------------------------------------------------------------*/
+/* Current playback speed readout, shown between the speed buttons (#4209) */
+ImprovedTube.playerSpeedReadoutFormat = function (rate) {
+	const speed = Number(rate);
+
+	if (!Number.isFinite(speed) || speed <= 0) {
+		return '1x';
+	}
+
+	return String(Number(speed.toFixed(2))) + 'x';
+};
+
+ImprovedTube.playerSpeedReadoutUpdate = function () {
+	const text = ImprovedTube.elements.buttons['it-speed-readout-button']?.querySelector('.it-speed-readout-text');
+	const video = ImprovedTube.playerSpeedReadoutVideo || ImprovedTube.elements.video;
+
+	if (text && video) {
+		text.textContent = ImprovedTube.playerSpeedReadoutFormat(video.playbackRate);
+	}
+};
+
 ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
     if (this.storage.player_increase_decrease_speed_buttons === true) {
         const svgNamespace = "http://www.w3.org/2000/svg";
@@ -2371,6 +2391,41 @@ ImprovedTube.playerIncreaseDecreaseSpeedButtons = function () {
             },
             title: 'set speed to 1x',
         }).classList.remove('it-player-button');
+
+        const svgReadout = document.createElementNS(svgNamespace, "svg");
+        const textReadout = document.createElementNS(svgNamespace, "text");
+
+        svgReadout.setAttribute("class", "icon");
+        svgReadout.setAttribute("viewBox", "0 0 1024 1024");
+        svgReadout.setAttribute("width", "90%");
+        svgReadout.setAttribute("height", "90%");
+        textReadout.setAttribute("class", "it-speed-readout-text");
+        textReadout.setAttribute("x", "512");
+        textReadout.setAttribute("y", "512");
+        textReadout.setAttribute("fill", "#ffffff");
+        textReadout.setAttribute("font-size", "380");
+        textReadout.setAttribute("font-weight", "bold");
+        textReadout.setAttribute("font-family", "Arial, sans-serif");
+        textReadout.setAttribute("text-anchor", "middle");
+        textReadout.setAttribute("dominant-baseline", "central");
+        textReadout.textContent = "1x";
+        svgReadout.appendChild(textReadout);
+
+        this.createPlayerButton({
+            id: 'it-speed-readout-button',
+            opacity: 0.85,
+            position: "right",
+            child: svgReadout,
+            title: 'current playback speed',
+        }).classList.remove('it-player-button');
+
+        const speedVideo = this.elements.player?.querySelector('video') || this.elements.video;
+        if (speedVideo) {
+            this.playerSpeedReadoutVideo?.removeEventListener('ratechange', this.playerSpeedReadoutUpdate);
+            this.playerSpeedReadoutVideo = speedVideo;
+            speedVideo.addEventListener('ratechange', this.playerSpeedReadoutUpdate);
+            ImprovedTube.playerSpeedReadoutUpdate();
+        }
 
         this.createPlayerButton({
             id: 'it-decrease-speed-button',
