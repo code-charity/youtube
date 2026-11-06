@@ -59,6 +59,9 @@ const DEFAULT_METADATA_KEYS = ['title', 'keywords', 'genre', 'lengthSeconds', 'c
 
 ImprovedTube.VideoMetadata = {
 	entries: new Map(),
+	// Default garbage collection limits: maximum cached entries count and maximum entry age in milliseconds.
+	gcDefaultMaxEntries: 100,
+	gcDefaultMaxAgeMs: 30 * 60 * 1000, // 30(minutes)
 	// Retains fetched watch-page HTML for development/debugging when enabled.
 	debugKeepFetchedWatchPageHtml: false,
 
@@ -170,15 +173,13 @@ ImprovedTube.VideoMetadata = {
 	 * Removes stale metadata cache entries.
 	 *
 	 * @param {Object} [options] - Optional garbage-collection settings.
-	 * @param {number|null} [options.maxEntries=50] - Target maximum entries after pruning removable entries; null disables count-based pruning, and invalid values fall back to the default.
+	 * @param {number|null} [options.maxEntries=100] - Target maximum entries after pruning removable entries; null disables count-based pruning, and invalid values fall back to the default.
 	 * @param {number|null} [options.maxAgeMs=1800000] - Maximum idle time in milliseconds since lastAccessedAt; null disables age-based pruning, and invalid values fall back to the default.
 	 * @param {boolean} [options.keepCurrent=true] - Whether to protect the current video entry from removal.
 	 * @param {boolean} [options.dryRun=false] - Whether to report candidates without deleting entries.
 	 * @returns {Object} Summary of removed or candidate cache entries and skipped entries.
 	 */
 	gc: function (options) {
-		const defaultMaxEntries = 50;
-		const defaultMaxAgeMs = 30 * 60 * 1000;
 		const before = this.entries?.size || 0;
 		const result = {
 			before,
@@ -205,12 +206,12 @@ ImprovedTube.VideoMetadata = {
 			? null
 			: (Number.isFinite(optionMaxEntries) && normalizedMaxEntries > 0)
 				? normalizedMaxEntries
-				: defaultMaxEntries;
+				: this.gcDefaultMaxEntries;
 		const maxAgeMs = optionMaxAgeMs === null
 			? null
 			: (Number.isFinite(optionMaxAgeMs) && optionMaxAgeMs > 0)
 				? optionMaxAgeMs
-				: defaultMaxAgeMs;
+				: this.gcDefaultMaxAgeMs;
 		const currentVideoId = keepCurrent ? this._getVideoId() : null;
 		const removableEntries = [];
 

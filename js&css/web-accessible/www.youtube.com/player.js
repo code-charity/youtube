@@ -3192,7 +3192,7 @@ ImprovedTube.jumpToKeyScene = function () {
 		return;
 	}
 	ImprovedTube.VideoMetadata.getMostReplayedMarkersAsync().then(markers => {
-		if (!markers.length) {
+		if (!markers?.length) {
 			console.debug("[ImprovedTube:jumpToKeyScene] No 'Most Replayed' markers found.");
 			return;
 		}
