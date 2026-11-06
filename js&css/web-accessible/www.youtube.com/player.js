@@ -311,27 +311,28 @@ window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitFo
 /*------------------------------------------------------------------------------
 SUBTITLES
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerSubtitles = function (attempt = 0) {
-	const player = this.elements.player;
+ImprovedTube.playerSubtitles = function () {
+	const option = this.storage.player_subtitles;
+	if (option === undefined || option === null || option === false) return;
 
-	if (player) {
-		if (player.isSubtitlesOn && player.toggleSubtitles && player.toggleSubtitlesOn) {
-			switch (this.storage.player_subtitles) {
-				case true:
-				case 'enabled':
-					player.toggleSubtitlesOn();
-					break
+	this.retryPlayerAction(() => {
+		const player = this.elements.player;
+		if (!player || !player.isSubtitlesOn || !player.toggleSubtitles || !player.toggleSubtitlesOn) return false;
 
-				case 'disabled':
-					if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
-					break
-			}
-		} else if (attempt < 10) {
-			setTimeout(() => {
-				ImprovedTube.playerSubtitles(attempt + 1);
-			}, 200 + 30 * attempt);
+		switch (option) {
+			case true:
+			case 'enabled':
+				if (!player.isSubtitlesOn()) { player.toggleSubtitlesOn(); }
+				return player.isSubtitlesOn() === true;
+
+			case 'disabled':
+				if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
+				return player.isSubtitlesOn() === false;
+
+			default:
+				return 'stop';
 		}
-	}
+	});
 };
 /*------------------------------------------------------------------------------
 RETRY PLAYER ACTION
