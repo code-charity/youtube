@@ -326,8 +326,13 @@ ImprovedTube.playerSubtitles = function () {
 				return player.isSubtitlesOn() === true;
 
 			case 'disabled':
-				if (player.isSubtitlesOn()) { player.toggleSubtitles(); }
-				return player.isSubtitlesOn() === false;
+				if (player.isSubtitlesOn()) {
+					player.toggleSubtitles();
+					return player.isSubtitlesOn() === false;
+				}
+				// Right after SPA navigation isSubtitlesOn() can read a stale false while
+				// YouTube still turns captions on, so keep checking for the retry window.
+				return false;
 
 			default:
 				return 'stop';
