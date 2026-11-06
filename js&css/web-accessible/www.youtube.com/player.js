@@ -409,14 +409,18 @@ ImprovedTube.subtitlesUserSettings = function () {
 			charEdgeStyle: this.storage.subtitles_character_edge_style,
 			textOpacity: this.storage.subtitles_font_opacity
 		},
-		userSettings = Object.keys(ourSettings).filter(e => ourSettings[e]),
-		player = this.elements.player;
+		userSettings = Object.keys(ourSettings).filter(e => ourSettings[e]);
 
-	if (userSettings.length && player && player.getSubtitlesUserSettings && player.updateSubtitlesUserSettings) {
+	if (!userSettings.length) return;
+
+	this.retryPlayerAction(() => {
+		const player = this.elements.player;
+		if (!player?.getSubtitlesUserSettings || !player.updateSubtitlesUserSettings) return false;
+
 		let ytSettings = player.getSubtitlesUserSettings(),
 			setting;
 
-		if (!ytSettings) return; //null SubtitlesUserSettings seem to mean subtitles not available
+		if (!ytSettings) return false;
 
 		for (const value of userSettings) {
 			setting = null;
@@ -447,7 +451,8 @@ ImprovedTube.subtitlesUserSettings = function () {
 			}
 		}
 		player.updateSubtitlesUserSettings(ytSettings);
-	}
+		return true;
+	});
 };
 /*------------------------------------------------------------------------------
 SUBTITLES DISABLE SUBTILES FOR LYRICS
@@ -3149,38 +3154,32 @@ ImprovedTube.preferredDubbingLanguage = function () {
 	const preferred = (ImprovedTube.storage.preferred_dubbing_language || '').trim().toLowerCase();
 	if (!preferred) return;
 
-	this.selectPermittedAudioTrack(this.elements.player, preferred);
-	if (this.storage.disable_auto_dubbing === true) this.enforceAutoDubbingPolicy?.();
+	this.retryPlayerAction(() => {
+		const player = this.elements.player;
+		const tracks = player?.getAvailableAudioTracks?.();
+		if (!tracks?.length) return false;
+
+		const selectedTrack = this.selectPermittedAudioTrack(player, preferred);
+		if (!selectedTrack) return false;
+
+		if (this.storage.disable_auto_dubbing === true) this.enforceAutoDubbingPolicy?.();
+		return true;
+	});
 };
 /*------------------------------------------------------------------------------
 # SELECT DEFAULT DUBBED LANGUAGE
 ------------------------------------------------------------------------------*/
 ImprovedTube.selectDubbedLanguage = function () {
-	const self = this;
 	const selectedLang = this.storage.player_default_dubbed_language;
 	if (!selectedLang || selectedLang === 'disabled') return;
 
-	var tries = 0;
-	var maxTries = 10;
-	var interval = setInterval(function () {
-		tries++;
-		const player = self.elements.player;
-		if (!player || !player.getAvailableAudioTracks) {
-			if (tries >= maxTries) clearInterval(interval);
-			return;
-		}
+	this.retryPlayerAction(() => {
+		const player = this.elements.player;
+		const tracks = player?.getAvailableAudioTracks?.();
+		if (!tracks?.length) return false;
 
-		const tracks = player.getAvailableAudioTracks();
-		if (!tracks || !tracks.length) {
-			if (tries >= maxTries) clearInterval(interval);
-			return;
-		}
-
-		const targetTrack = self.selectPermittedAudioTrack(player, selectedLang);
-		if (targetTrack || tries >= maxTries) {
-			clearInterval(interval);
-		}
-	}, 300);
+		return this.selectPermittedAudioTrack(player, selectedLang) ? true : false;
+	}, 6, 300);
 };
 /*------------------------------------------------------------------------------
 # JUMP TO THE NEXT KEY SCENE
