@@ -3164,7 +3164,7 @@ ImprovedTube.preferredDubbingLanguage = function () {
 
 		if (this.storage.disable_auto_dubbing === true) this.enforceAutoDubbingPolicy?.();
 		return true;
-	});
+	}, 6, 200);
 };
 /*------------------------------------------------------------------------------
 # SELECT DEFAULT DUBBED LANGUAGE

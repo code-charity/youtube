@@ -127,6 +127,35 @@ describe('SPA player settings retry', () => {
 		expect(pendingRetries).toHaveLength(0);
 	});
 
+	test('keeps the default dubbed language as the final choice when both audio settings are enabled', () => {
+		let tracks = [];
+		let selectedTrack = null;
+		const player = {getAvailableAudioTracks: () => tracks};
+		const {context} = createContext({
+			preferred_dubbing_language: 'fr',
+			player_default_dubbed_language: 'ja'
+		}, player);
+		const scheduledRetries = [];
+		context.setTimeout = (callback, delay) => {
+			scheduledRetries.push({callback, delay});
+			return scheduledRetries.length;
+		};
+		context.ImprovedTube.selectPermittedAudioTrack = (receivedPlayer, language) => {
+			selectedTrack = tracks.find(track => track.language === language) || null;
+			return selectedTrack;
+		};
+
+		context.ImprovedTube.preferredDubbingLanguage();
+		context.ImprovedTube.selectDubbedLanguage();
+
+		expect(scheduledRetries.map(retry => retry.delay)).toEqual([200, 300]);
+		tracks = [{language: 'fr'}, {language: 'ja'}];
+		scheduledRetries.sort((first, second) => first.delay - second.delay);
+		scheduledRetries.forEach(retry => retry.callback());
+
+		expect(selectedTrack).toBe(tracks[1]);
+	});
+
 	test('does not retry a player setting for the next video after navigation', () => {
 		let tracks = [];
 		const player = {getAvailableAudioTracks: () => tracks};
