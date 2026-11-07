@@ -75,6 +75,16 @@ extension.skeleton.main.layers.section.themes.on.click.section = {
 			}
 		}
 	},
+	none: {
+		component: 'label',
+		variant: 'none-theme',
+		text: 'none',
+		radio: {
+			component: 'radio',
+			group: 'theme',
+			value: 'none'
+		}
+	},
 	custom: {
 		component: 'label',
 		variant: 'custom-theme',
