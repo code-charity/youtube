@@ -841,3 +841,23 @@ html[it-cinema-mode] ytd-watch-flexy #related,
 html[it-cinema-mode] ytd-watch-flexy #comments {
 	display: none !important;
 }
+
+/*--------------------------------------------------------------
+# DISABLE PLAYER ANIMATIONS
+--------------------------------------------------------------*/
+
+html[it-player-disable-animations='true'] #movie_player,
+html[it-player-disable-animations='true'] #movie_player *,
+html[it-player-disable-animations='true'] .ytp-settings-menu,
+html[it-player-disable-animations='true'] .ytp-settings-menu *,
+html[it-player-disable-animations='true'] .ytp-panel,
+html[it-player-disable-animations='true'] .ytp-panel *,
+html[it-player-disable-animations='true'] .ytp-panel-menu,
+html[it-player-disable-animations='true'] .ytp-panel-menu *,
+html[it-player-disable-animations='true'] .ytp-menuitem,
+html[it-player-disable-animations='true'] .ytp-menuitem *,
+html[it-player-disable-animations='true'] .ytp-tooltip,
+html[it-player-disable-animations='true'] .ytp-tooltip * {
+	transition: none !important;
+	animation: none !important;
+}
