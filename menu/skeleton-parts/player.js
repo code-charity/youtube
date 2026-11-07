@@ -2395,6 +2395,22 @@ extension.skeleton.main.layers.section.player.on.click = {
 				text: 'downloadTranscript',
 				value: false
 			},
+			transcript_timestamps: {
+				component: 'select',
+				text: 'transcriptTimestamps',
+				tags: 'transcript,captions,subtitles,timestamps,time,stamp,copy,download,txt,srt',
+				options: [{
+					text: 'transcriptTimestampsAsNow',
+					value: 'default'
+				}, {
+					text: 'transcriptTimestampsWith',
+					value: 'with'
+				}, {
+					text: 'transcriptTimestampsWithout',
+					value: 'without'
+				}],
+				value: 'default'
+			},
 			below_player_screenshot: {
 				component: 'switch',
 				text: 'screenshot',
