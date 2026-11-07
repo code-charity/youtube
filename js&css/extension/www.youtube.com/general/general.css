@@ -495,8 +495,17 @@ html[it-scroll-to-top='true'] #it-scroll-to-top:hover {
 	pointer-events: none !important;
 }
 
+/* Show the button on hover only when the user is over the actual thumbnail
+   anchor inside the renderer. The previous `*:hover>.it-watch-later-button`
+   widened the hover region to the whole renderer card in grid views (title
+   + meta + adjacent cards), which is noisier than the original thumbnail-
+   only affordance. Scope to the renderer types that host the button plus a
+   `:has(a#thumbnail:hover)` to require a real thumbnail hover; the
+   `> .it-watch-later-button` combinator still matches because the button
+   is appended to the renderer's direct children in `addWatchLaterButton`,
+   not to the `aria-hidden` thumbnail itself. */
 html[it-watch-later-buttons='always'] .it-watch-later-button,
-html[it-watch-later-buttons='hover'] *:hover>.it-watch-later-button {
+html[it-watch-later-buttons='hover'] :is(ytd-rich-item-renderer, ytd-video-renderer, ytd-grid-video-renderer, ytd-compact-video-renderer, yt-lockup-view-model, ytd-playlist-video-renderer):has(a#thumbnail:hover) > .it-watch-later-button {
 	visibility: visible !important;
 	opacity: 1 !important;
 }
