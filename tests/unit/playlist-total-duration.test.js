@@ -136,6 +136,14 @@ describe('Playlist total duration (#4437)', () => {
 		expect(sourceContent).not.toContain('white-space:nowrap');
 	});
 
+	test('keeps the sum in sync when YouTube hides the original host row', () => {
+		const sourceContent = fs.readFileSync(filePath, 'utf8');
+		// YouTube swaps header rows while scrolling; the update must fall back to
+		// the still-rendered badge instead of freezing the label
+		expect(sourceContent).toContain('existingBadge');
+		expect(sourceContent).toContain("'replace'");
+	});
+
 	test('cleans up badge and observer when the switch is off', () => {
 		const sourceContent = fs.readFileSync(filePath, 'utf8');
 		expect(sourceContent).toContain('ImprovedTube.playlistTotalDurationCleanup');

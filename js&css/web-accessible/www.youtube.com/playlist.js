@@ -587,7 +587,18 @@ ImprovedTube.playlistTotalDurationUpdate = function () {
 			}
 		}
 	}
-	if (!host) return;
+	if (!host) {
+		// YouTube swaps which header row is visible while scrolling (collapse/
+		// expand), which hides the row the badge was anchored to. If the badge
+		// itself is still rendered, keep its sum in sync instead of freezing it.
+		var existingBadge = document.getElementById('it-playlist-total-duration');
+		if (existingBadge && existingBadge.getClientRects().length) {
+			host = existingBadge;
+			hostMode = 'replace';
+		} else {
+			return;
+		}
+	}
 
 	var label = 'Total duration: ' + this.playlistFormatDuration(sum);
 	var totalVideos = this.elements.ytd_watch && this.elements.ytd_watch.playlistData
@@ -618,9 +629,11 @@ ImprovedTube.playlistTotalDurationUpdate = function () {
 		// can never be clipped by YouTube's narrow flex rows
 		badge.style.cssText = 'display:block;margin-top:2px;color:var(--yt-spec-text-secondary);';
 	}
-	var expectedParent = hostMode === 'after' ? host.parentElement : host;
-	if (badge.parentElement !== expectedParent) {
-		expectedParent.appendChild(badge);
+	if (hostMode !== 'replace') {
+		var expectedParent = hostMode === 'after' ? host.parentElement : host;
+		if (badge.parentElement !== expectedParent) {
+			expectedParent.appendChild(badge);
+		}
 	}
 	if (badge.textContent !== label) badge.textContent = label;
 
