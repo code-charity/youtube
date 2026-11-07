@@ -647,12 +647,11 @@ ImprovedTube.playlistTotalDurationObserve = function () {
 };
 
 // Debounced entry point: safe to call for every relevant DOM addition
-// (ytElementsHandler), every SPA page update and every settings change.
+// (ytElementsHandler) and every SPA page update. When the switch is off these
+// calls just return - the on/off reaction lives in core.js, which responds to
+// the settings message by calling playlistTotalDurationCleanup().
 ImprovedTube.playlistTotalDuration = function () {
-	if (this.storage.playlist_total_duration !== true) {
-		this.playlistTotalDurationCleanup();
-		return;
-	}
+	if (this.storage.playlist_total_duration !== true) return;
 
 	if (!location.search.match(this.regex.playlist_id)) return;
 

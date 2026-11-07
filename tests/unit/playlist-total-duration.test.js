@@ -108,6 +108,12 @@ describe('Playlist total duration (#4437)', () => {
 		expect(initJs).toContain('ImprovedTube.playlistTotalDuration();');
 	});
 
+	test('responds to the settings switch via storage messaging (core.js)', () => {
+		const coreJs = fs.readFileSync(path.join(__dirname, '../../js&css/web-accessible/core.js'), 'utf8');
+		expect(coreJs).toContain("case 'playlistTotalDuration'");
+		expect(coreJs).toContain('ImprovedTube.playlistTotalDurationCleanup();');
+	});
+
 	test('is exposed as a settings switch with an English label', () => {
 		const menuJs = fs.readFileSync(path.join(__dirname, '../../menu/skeleton-parts/playlist.js'), 'utf8');
 		expect(menuJs).toContain('playlist_total_duration');
