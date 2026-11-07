@@ -953,14 +953,20 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 
 			var transcriptText = '';
 
-			transcriptSegments.forEach(function (segment) {
-				var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
-				if (textElement) {
-					transcriptText += textElement.textContent.trim() + ' ';
-				}
-			});
+			if (ImprovedTube.transcriptUseTimestamps(false)) {
+				transcriptText = ImprovedTube.transcriptSegmentsToText(
+					ImprovedTube.readTranscriptSegments(), true
+				);
+			} else {
+				transcriptSegments.forEach(function (segment) {
+					var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
+					if (textElement) {
+						transcriptText += textElement.textContent.trim() + ' ';
+					}
+				});
 
-			transcriptText = transcriptText.trim();
+				transcriptText = transcriptText.trim();
+			}
 
 			if (transcriptText) {
 				navigator.clipboard.writeText(transcriptText);
@@ -986,9 +992,23 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 	}, 250);
 };
 
-ImprovedTube.transcriptSegmentsToText = function (segments) {
+ImprovedTube.transcriptUseTimestamps = function (fallback) {
+	var choice = ImprovedTube.storage && ImprovedTube.storage.transcript_timestamps;
+
+	if (choice === 'with') {
+		return true;
+	}
+	if (choice === 'without') {
+		return false;
+	}
+	return fallback;
+};
+
+ImprovedTube.transcriptSegmentsToText = function (segments, withTimestamps) {
+	var addTimes = withTimestamps !== false;
+
 	return segments.map(function (segment) {
-		return segment.time ? '[' + segment.time + '] ' + segment.text : segment.text;
+		return addTimes && segment.time ? '[' + segment.time + '] ' + segment.text : segment.text;
 	}).join('\n');
 };
 
@@ -1083,7 +1103,7 @@ ImprovedTube.downloadTranscript = function (svg, button) {
 
 	ImprovedTube.getTranscriptSegments(function (segments, openedPanel) {
 		var a = document.createElement('a');
-		a.href = URL.createObjectURL(new Blob([ImprovedTube.transcriptSegmentsToText(segments)], {type: 'text/plain;charset=utf-8'}));
+		a.href = URL.createObjectURL(new Blob([ImprovedTube.transcriptSegmentsToText(segments, ImprovedTube.transcriptUseTimestamps(true))], {type: 'text/plain;charset=utf-8'}));
 		a.download = ImprovedTube.transcriptFileName(ImprovedTube.videoId(), ImprovedTube.videoTitle());
 		a.click();
 		setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
