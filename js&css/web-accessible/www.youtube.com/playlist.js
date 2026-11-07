@@ -457,3 +457,232 @@ ImprovedTube.playlistPopup = function () {
 		} catch (error) { console.error("Error appending playlist button panel:", error);}
 	}
 };
+/*------------------------------------------------------------------------------
+4.5.7 TOTAL DURATION
+------------------------------------------------------------------------------*/
+// Shows the combined length of the videos in a playlist (feature request #4437):
+// - on the playlist page (/playlist?list=...), next to the header stats
+// - on the watch page, inside the playlist panel header
+// YouTube renders long playlists in chunks (~100 items), so the sum covers the
+// currently rendered items and updates live as more load. While not every
+// video is rendered, the label shows "loaded/total" so a partial sum is never
+// mistaken for the full playlist length.
+// Supports both YouTube playlist layouts: the legacy one
+// (ytd-playlist-video-renderer + .metadata-stats) and the current one
+// (yt-lockup-view-model items + ytd-playlist-sidebar-primary-info-renderer #stats).
+
+ImprovedTube.playlistParseDuration = function (text) {
+	if (!text) return null;
+
+	// Extract the first time pattern: some overlays carry the duration twice
+	// (e.g. "1:27:41\n    1:27:41") or with surrounding text. Some YouTube
+	// locales (e.g. Indonesian) render durations with dots ("1.27.41"), so
+	// accept both ':' and '.' as separators.
+	var match = String(text).match(/(\d{1,3}[:.])?\d{1,2}[:.]\d{2}/);
+	if (!match) return null;
+
+	var parts = match[0].split(/[:.]/),
+		seconds = 0;
+	for (var i = 0; i < parts.length; i++) {
+		seconds = seconds * 60 + parseInt(parts[i], 10);
+	}
+	return seconds > 0 ? seconds : null;
+};
+
+ImprovedTube.playlistFormatDuration = function (totalSeconds) {
+	totalSeconds = Math.max(0, Math.floor(Number(totalSeconds) || 0));
+
+	var hours = Math.floor(totalSeconds / 3600),
+		minutes = Math.floor((totalSeconds % 3600) / 60),
+		seconds = totalSeconds % 60,
+		mm = hours ? String(minutes).padStart(2, '0') : String(minutes),
+		ss = String(seconds).padStart(2, '0');
+
+	return (hours ? hours + ':' : '') + mm + ':' + ss;
+};
+
+ImprovedTube.playlistVideoDurationSeconds = function (renderer) {
+	if (!renderer) return null;
+
+	// Polymer renderers usually carry the exact length in their data object
+	var lengthSeconds = renderer.data && renderer.data.lengthSeconds;
+	if (typeof lengthSeconds === 'number' && lengthSeconds > 0) return lengthSeconds;
+	var parsed = parseInt(lengthSeconds, 10);
+	if (!isNaN(parsed) && parsed > 0) return parsed;
+
+	// Fallbacks: the duration overlay rendered on the thumbnail
+	// (legacy layout and watch panel, then the current lockup layout)
+	if (typeof renderer.querySelector !== 'function') return null;
+
+	var overlay = renderer.querySelector('ytd-thumbnail-overlay-time-status-renderer');
+	if (overlay) {
+		var fromOverlay = this.playlistParseDuration(overlay.textContent);
+		if (fromOverlay) return fromOverlay;
+	}
+
+	var badge = renderer.querySelector('yt-thumbnail-badge-view-model');
+	if (badge) {
+		var fromBadge = this.playlistParseDuration(badge.textContent);
+		if (fromBadge) return fromBadge;
+	}
+
+	return null;
+};
+
+// The rendered playlist items relevant on the current page.
+ImprovedTube.playlistTotalDurationItems = function () {
+	if (location.pathname === '/playlist') {
+		// The current layout renders items as yt-lockup-view-model; only count
+		// the ones that actually belong to this playlist (their link carries
+		// the list parameter), so unrelated sections can never skew the sum.
+		var listId = (location.search.match(this.regex.playlist_id) || [])[1];
+		return Array.prototype.filter.call(
+			document.querySelectorAll('ytd-playlist-video-renderer, yt-lockup-view-model'),
+			function (renderer) {
+				if (renderer.tagName !== 'YT-LOCKUP-VIEW-MODEL') return true;
+				var link = renderer.querySelector('a[href*="watch"]');
+				return !!(link && listId && link.href.indexOf('list=' + listId) !== -1);
+			}
+		);
+	}
+
+	// Watch page: only items inside the playlist panel
+	return Array.prototype.slice.call(
+		document.querySelectorAll('ytd-playlist-panel-renderer ytd-playlist-panel-video-renderer, ytd-playlist-panel-renderer yt-lockup-view-model')
+	);
+};
+
+ImprovedTube.playlistTotalDurationUpdate = function () {
+	var renderers = this.playlistTotalDurationItems();
+	if (!renderers.length) return;
+
+	var sum = 0, counted = 0;
+	for (var i = 0; i < renderers.length; i++) {
+		var seconds = this.playlistVideoDurationSeconds(renderers[i]);
+		if (seconds) {
+			sum += seconds;
+			counted++;
+		}
+	}
+	if (!counted) return;
+
+	// Where the total belongs: playlist header stats (legacy or current
+	// layout) or the watch page playlist panel header. YouTube keeps retired
+	// containers around hidden, so only accept a host that is actually visible.
+	var hostSelectors = [
+		'ytd-playlist-header-renderer .metadata-stats',
+		'.ytPageHeaderViewModelHeadlineInfo yt-content-metadata-view-model .ytContentMetadataViewModelMetadataRow:last-child',
+		'ytd-playlist-panel-renderer #header-description'
+	];
+	var host = null, hostMode = null;
+	for (var h = 0; h < hostSelectors.length && !host; h++) {
+		// YouTube can render the same metadata twice (e.g. retired + current
+		// layout), so scan every match and take the visible one
+		var candidates = document.querySelectorAll(hostSelectors[h]);
+		for (var c = 0; c < candidates.length; c++) {
+			if (candidates[c].getClientRects().length) {
+				host = candidates[c];
+				hostMode = h === 2 ? 'inside' : 'after';
+				break;
+			}
+		}
+	}
+	if (!host) {
+		// YouTube swaps which header row is visible while scrolling (collapse/
+		// expand), which hides the row the badge was anchored to. If the badge
+		// itself is still rendered, keep its sum in sync instead of freezing it.
+		var existingBadge = document.getElementById('it-playlist-total-duration');
+		if (existingBadge && existingBadge.getClientRects().length) {
+			host = existingBadge;
+			hostMode = 'replace';
+		} else {
+			return;
+		}
+	}
+
+	var label = 'Total duration: ' + this.playlistFormatDuration(sum);
+	var totalVideos = this.elements.ytd_watch && this.elements.ytd_watch.playlistData
+		? this.elements.ytd_watch.playlistData.totalVideos
+		: null;
+	if (!totalVideos) {
+		// Playlist page: the sidebar's first stat is always the video count
+		var stats = document.querySelector('ytd-playlist-sidebar-primary-info-renderer');
+		var firstStat = stats && stats.data && stats.data.stats && stats.data.stats[0];
+		var firstStatText = firstStat
+			? String(firstStat.simpleText || (firstStat.runs || []).map(function (r) { return r.text; }).join(''))
+			: '';
+		var countMatch = firstStatText.match(/[\d.,]+/);
+		if (countMatch) totalVideos = parseInt(countMatch[0].replace(/\D/g, ''), 10) || null;
+	}
+	// 'counted' covers only items with an available duration: videos that are
+	// private, deleted or not yet lazy-rendered have none, so the sum is over
+	// the available durations and the label says exactly that
+	if (totalVideos && counted < totalVideos) {
+		label += ' (' + counted + '/' + totalVideos + ' durations available)';
+	}
+
+	var badge = document.getElementById('it-playlist-total-duration');
+	if (!badge) {
+		badge = document.createElement('span');
+		badge.id = 'it-playlist-total-duration';
+		// own line under the stats (or inside the panel header), so the text
+		// can never be clipped by YouTube's narrow flex rows
+		badge.style.cssText = 'display:block;margin-top:2px;color:var(--yt-spec-text-secondary);';
+	}
+	if (hostMode !== 'replace') {
+		var expectedParent = hostMode === 'after' ? host.parentElement : host;
+		if (badge.parentElement !== expectedParent) {
+			expectedParent.appendChild(badge);
+		}
+	}
+	if (badge.textContent !== label) badge.textContent = label;
+
+	// YouTube re-renders the stats and list containers on its own (which would
+	// drop our badge), so watch them and re-apply when that happens
+	this.playlistTotalDurationObserve();
+};
+
+ImprovedTube.playlistTotalDurationObserve = function () {
+	if (!this.playlistTotalDurationObserver) {
+		var self = this;
+		this.playlistTotalDurationObserver = new MutationObserver(function () {
+			self.playlistTotalDuration();
+		});
+	}
+
+	// (re-)attaching to an already observed node is harmless
+	var containers = document.querySelectorAll('ytd-playlist-sidebar-renderer, ytd-playlist-header-renderer, ytd-page-header-renderer, ytd-playlist-panel-renderer, yt-item-section-renderer, ytd-playlist-video-list-renderer');
+	for (var i = 0; i < containers.length; i++) {
+		if (containers[i].getClientRects().length) {
+			this.playlistTotalDurationObserver.observe(containers[i], { childList: true, subtree: true });
+		}
+	}
+};
+
+// Debounced entry point: safe to call for every relevant DOM addition
+// (ytElementsHandler) and every SPA page update. When the switch is off these
+// calls just return - the on/off reaction lives in core.js, which responds to
+// the settings message by calling playlistTotalDurationCleanup().
+ImprovedTube.playlistTotalDuration = function () {
+	if (this.storage.playlist_total_duration !== true) return;
+
+	if (!location.search.match(this.regex.playlist_id)) return;
+
+	var self = this;
+	clearTimeout(this.playlistTotalDurationTimer);
+	this.playlistTotalDurationTimer = setTimeout(function () {
+		self.playlistTotalDurationUpdate();
+	}, 250);
+};
+
+ImprovedTube.playlistTotalDurationCleanup = function () {
+	clearTimeout(this.playlistTotalDurationTimer);
+
+	if (this.playlistTotalDurationObserver) {
+		this.playlistTotalDurationObserver.disconnect();
+		this.playlistTotalDurationObserver = null;
+	}
+
+	var badge = document.getElementById('it-playlist-total-duration');
+	if (badge) badge.remove();
+};

@@ -186,6 +186,7 @@ ImprovedTube.init = function () {
 			ImprovedTube.playlistCopyVideoIdButton();
 			ImprovedTube.playlistCompleteInit();
 			ImprovedTube.playlistLargePlaylistHandler();
+			ImprovedTube.playlistTotalDuration();
 		}
 		try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] page-data-updated error', e); }
 		try { if (ImprovedTube.videoFilters) ImprovedTube.videoFilters(); } catch (e) {}

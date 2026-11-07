@@ -52,6 +52,11 @@ extension.skeleton.main.layers.section.playlist = {
 					component: 'switch',
 					text: 'copyVideoUrl',
 					value: false
+				},
+				playlist_total_duration: {
+					component: 'switch',
+					text: 'playlistTotalDuration',
+					value: false
 				}
 			},
 			section3: {

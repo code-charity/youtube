@@ -612,6 +612,9 @@
   "playlistQuality": {
     "message": "Playlist quality"
   },
+  "playlistTotalDuration": {
+    "message": "Total duration"
+  },
   "fullscreenReturn": {
     "message": "Fullscreen return"
   },
@@ -1945,4 +1948,3 @@
     "message": "➕ Add Selected Language"
   }
 }
-

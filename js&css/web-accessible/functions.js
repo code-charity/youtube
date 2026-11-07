@@ -119,6 +119,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 	}
 	else if (name === 'YTD-PLAYLIST-HEADER-RENDERER' || (name === 'YTD-MENU-RENDERER' && node.classList.contains('ytd-playlist-panel-renderer')) || (name === 'YTD-PAGE-HEADER-RENDERER' && node.classList.contains('page-header-sidebar'))) {
 		this.playlistPopup();
+		this.playlistTotalDuration();
 
 		// Initialize playlist complete functionality for both custom and default playlists
 		this.playlistCompleteInit();
@@ -132,6 +133,14 @@ ImprovedTube.ytElementsHandler = function (node) {
 	} else if (name === 'YTD-PLAYLIST-VIDEO-RENDERER') {
 		// Attach quick action buttons to playlist video items
 		this.playlistEnsureQuickButtons(node);
+		this.playlistTotalDuration();
+	} else if (name === 'YT-LOCKUP-VIEW-MODEL'
+		|| name === 'YTD-PLAYLIST-PANEL-RENDERER'
+		|| name === 'YTD-PLAYLIST-PANEL-VIDEO-RENDERER'
+		|| name === 'YTD-PLAYLIST-SIDEBAR-PRIMARY-INFO-RENDERER') {
+		// Keep the playlist total duration (#4437) in sync as YouTube
+		// renders playlist items and headers (both layouts)
+		this.playlistTotalDuration();
 	} else if (name === 'YTD-SUBSCRIBE-BUTTON-RENDERER'
 		|| name === 'YT-SUBSCRIBE-BUTTON-VIEW-MODEL'
 		|| (name === 'YTD-BUTTON-RENDERER' && node.classList.contains('ytd-c4-tabbed-header-renderer'))) {
