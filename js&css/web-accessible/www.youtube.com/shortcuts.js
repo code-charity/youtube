@@ -112,6 +112,33 @@ ImprovedTube.shortcutsHandler = function () {
 	}
 };
 
+// Issue #4441: returns true when the current pressed state exactly matches one
+// of the user-configured shortcuts. Used to keep configured bindings ahead of
+// the arrow key volume override, so a remapped arrow (e.g. play/pause on
+// ArrowUp) or an arrow + modifier binding is not swallowed by the override.
+ImprovedTube.matchesConfiguredShortcut = function () {
+	const pressed = ImprovedTube.input.pressed;
+
+	for (const shortcut of Object.values(ImprovedTube.input.listening)) {
+		if (pressed.keys.size != shortcut.keys.size
+			|| pressed.wheel != shortcut.wheel
+			|| pressed.alt != shortcut.alt
+			|| pressed.ctrl != shortcut.ctrl
+			|| pressed.shift != shortcut.shift) continue;
+
+		let matched = true;
+		for (const pressedKey of pressed.keys.values()) {
+			if (!shortcut.keys.has(pressedKey)) {
+				matched = false;
+				break;
+			}
+		}
+		if (matched) return true;
+	}
+
+	return false;
+};
+
 ImprovedTube.shortcutsListeners = {
 	keydown: function (event) {
 		ImprovedTube.user_interacted = true;
@@ -125,6 +152,31 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.alt = event.altKey;
 		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
 		ImprovedTube.input.pressed.shift = event.shiftKey;
+
+		// Issue #4441: Override YouTube's native arrow key volume handling to
+		// respect the user-configured volume step setting (YouTube hardcodes a
+		// step of 5 for its native arrow keys). Configured shortcuts keep
+		// priority: when the arrow or arrow + modifier combination matches a
+		// user binding — e.g. volume remapped to A/Z and play/pause to ArrowUp —
+		// we let shortcutsHandler() run instead of swallowing the event.
+		if (
+			(event.keyCode === 38 || event.keyCode === 40) &&
+			!event.altKey && !event.ctrlKey && !event.shiftKey && !event.metaKey &&
+			!ImprovedTube.matchesConfiguredShortcut()
+		) {
+			const player = ImprovedTube.elements.player;
+			if (player && player.setVolume && player.getVolume) {
+				event.preventDefault();
+				event.stopPropagation();
+				const value = Number(ImprovedTube.storage.shortcuts_volume_step) || 5;
+				if (event.keyCode === 38) {
+					player.setVolume(player.getVolume() + value);
+				} else {
+					player.setVolume(player.getVolume() - value);
+				}
+				return;
+			}
+		}
 
 		ImprovedTube.shortcutsHandler();
 	},
