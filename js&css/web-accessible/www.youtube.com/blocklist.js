@@ -78,21 +78,26 @@ ImprovedTube.blocklistNode = function (node) {
 
 			// this button can perform three functions in this particular order:
 			if (channel && blockedElement.classList.contains('it-blocklisted-channel')) {
-				// unblocking whole channel
-				type = 'channel';
+    			// unblocking whole channel
+    			type = 'channel';
 			} else if (blockedElement.classList.contains('it-blocklisted-video')) {
-				// unblocking blocklisted video
+    		// unblocking blocklisted video
+			} else if (blockedElement.classList.contains('it-blocklisted-playlist')) {
+    		// unblocking blocklisted playlist
+    		type = 'playlist';
+			} else if (playlist) {
+    		// block this playlist
+    		added = true;
+    		type = 'playlist';
 			} else {
-				// block this video
-				added = true;
-			}
-
+    		// block this video
+    		added = true;			}
 			// this message will trigger 'storage-changed' event and eventually blocklistInit() full rescan
 			ImprovedTube.messages.send({
 				action: 'blocklist',
 				added: added,
 				type: type,
-				id: type == 'channel' ? channel : video,
+				id: type == 'channel' ? channel : (type == 'playlist' ? playlist : video),
 				title: title,
 				when: Date.parse(new Date().toDateString()) / 100000
 			});
