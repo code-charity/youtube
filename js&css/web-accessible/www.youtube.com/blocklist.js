@@ -9,7 +9,8 @@ ImprovedTube.blocklistNode = function (node) {
 			|| this.blocklistLockupChannel(node, video),
 		blockedElement = this.blocklistElementTypeHelper(node);
 
-	if (!video) return; // not interested in nodes without one
+	const playlist = node.href?.match(/[&?]list=([^&]+)/)?.[1];
+		if (!video && !playlist) return; // not interested in nodes without one
 
 	// YT reuses Thumbnail cells dynamically, need to monitor all created Thumbnail links and dynamically apply/remove 'it-blocklisted-*' classes
 	if (!this.elements.observerList.includes(node)) {
