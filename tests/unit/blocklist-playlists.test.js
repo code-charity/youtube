@@ -50,7 +50,7 @@ describe('Blocklist playlist blocking (issue #4348)', () => {
 	});
 
 	test('adds playlists button to UI menu', () => {
-		expect(menuJs).toContain("Playlists");
+		expect(menuJs).toContain("text: 'playlists'");
 		expect(menuJs).toContain("blocklist.playlists");
 		expect(menuJs).toContain("Object.keys(blocklist.playlists)");
 	});
