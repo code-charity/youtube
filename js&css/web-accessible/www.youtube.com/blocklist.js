@@ -247,7 +247,7 @@ ImprovedTube.blocklistInit = function () {
 			this.storage.blocklist.channels = {};
 		}
 		if (!this.storage.blocklist.playlists || typeof this.storage.blocklist.playlists !== 'object') {
-    		this.storage.blocklist.playlists = {};
+    			this.storage.blocklist.playlists = {};
 		}
 		for (const thumbnail of document.querySelectorAll('a.ytd-thumbnail[href], a.ytLockupViewModelContentImage[href], a.ytd-video-preview')) {
 			this.blocklistNode(thumbnail);
@@ -285,7 +285,7 @@ ImprovedTube.blocklistInit = function () {
 			blocked.classList.remove('it-blocklisted-channel');
 		}
 		for (const blocked of document.querySelectorAll('.it-blocklisted-playlist')) {
-    		blocked.classList.remove('it-blocklisted-playlist');
+    			blocked.classList.remove('it-blocklisted-playlist');
 		}
 	}
 };
