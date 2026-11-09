@@ -225,13 +225,16 @@ ImprovedTube.blocklistInit = function () {
 		// initialize and (re)scan whole page. Called on load after 'storage-loaded'
 		// and blocklist 'storage-changed' event (adding/removing blocks)
 		if (!this.storage.blocklist || typeof this.storage.blocklist !== 'object') {
-			this.storage.blocklist = {videos: {}, channels: {}};
+			this.storage.blocklist = {videos: {}, channels: {}, playlists: {}};
 		}
 		if (!this.storage.blocklist.videos || typeof this.storage.blocklist.channels !== 'object') {
 			this.storage.blocklist.videos = {};
 		}
 		if (!this.storage.blocklist.channels || typeof this.storage.blocklist.channels !== 'object') {
 			this.storage.blocklist.channels = {};
+		}
+		if (!this.storage.blocklist.playlists || typeof this.storage.blocklist.playlists !== 'object') {
+    		this.storage.blocklist.playlists = {};
 		}
 		for (const thumbnail of document.querySelectorAll('a.ytd-thumbnail[href], a.ytLockupViewModelContentImage[href], a.ytd-video-preview')) {
 			this.blocklistNode(thumbnail);
