@@ -298,11 +298,17 @@ ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 
 		if (!blockedElement) return; // unknown thumbnail cell type, bail out
 
-		if (!video) {
+		if (!video && !playlist) {
 			// no video ID means monitored thumbnail/video-preview node went inactive
 			blockedElement.classList.remove('it-blocklisted-video');
 			blockedElement.classList.remove('it-blocklisted-channel');
 			return;
+		}
+		if (!playlist) return;
+		if (ImprovedTube.storage.blocklist?.playlists[playlist]) {
+    		blockedElement.classList.add('it-blocklisted-playlist');
+		} else {
+    		blockedElement.classList.remove('it-blocklisted-playlist');
 		}
 
 		if (ImprovedTube.storage.blocklist?.videos[video]) {
