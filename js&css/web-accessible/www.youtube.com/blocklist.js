@@ -284,6 +284,9 @@ ImprovedTube.blocklistInit = function () {
 		for (const blocked of document.querySelectorAll('.it-blocklisted-channel')) {
 			blocked.classList.remove('it-blocklisted-channel');
 		}
+		for (const blocked of document.querySelectorAll('.it-blocklisted-playlist')) {
+    		blocked.classList.remove('it-blocklisted-playlist');
+		}
 	}
 };
 
