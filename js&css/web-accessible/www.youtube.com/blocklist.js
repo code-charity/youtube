@@ -40,6 +40,13 @@ ImprovedTube.blocklistNode = function (node) {
 			blockedElement.classList.remove('it-blocklisted-channel');
 		}
 	}
+	if (playlist) {
+    	if (ImprovedTube.storage.blocklist?.playlists[playlist]) {
+        	blockedElement.classList.add('it-blocklisted-playlist');
+    	} else {
+        	blockedElement.classList.remove('it-blocklisted-playlist');
+    	}
+	}
 
 	// skip blocklist button creation if one already exists, in theory this never happens due to check in functions.js
 	if (node.querySelector("button.it-add-to-blocklist")) return;
