@@ -40,13 +40,20 @@ const fakePanel = (targetId, hasSegments) => {
 
 // Runs the given files against a fake page: `elements` maps a selector to the element it finds,
 // `expandedPanels` are the side panels that are open. Timers only run when flushTimers() is called.
-const load = (files, {elements = {}, expandedPanels = [], storage = {}} = {}) => {
+// `allPanels` are every side panel on the page, open or not; `clipboard` collects copied text.
+const load = (files, {elements = {}, expandedPanels = [], allPanels = [], storage = {}, clipboard = []} = {}) => {
 	const timers = [];
 	const context = {
 		ImprovedTube: {storage},
+		navigator: {clipboard: {writeText: (text) => clipboard.push(text)}},
 		document: {
 			querySelector: (selector) => elements[selector] || null,
-			querySelectorAll: (selector) => (selector === EXPANDED_PANELS ? expandedPanels : []),
+			querySelectorAll: (selector) => {
+				if (selector === EXPANDED_PANELS) return expandedPanels;
+				if (selector === 'ytd-engagement-panel-section-list-renderer') return allPanels;
+				if (selector === SEGMENTS) return allPanels.flatMap((panel) => panel.querySelectorAll(SEGMENTS));
+				return [];
+			},
 			addEventListener: () => {},
 			documentElement: {dataset: {}, setAttribute: () => {}, removeAttribute: () => {}},
 			createElement: () => ({style: {}, setAttribute: () => {}, appendChild: () => {}, addEventListener: () => {}})
@@ -73,6 +80,65 @@ const load = (files, {elements = {}, expandedPanels = [], storage = {}} = {}) =>
 	const runOneTimer = () => { const fn = timers.shift(); if (fn) fn(); };
 	return {ImprovedTube: context.ImprovedTube, flushTimers, runOneTimer, document: context.document, elements};
 };
+
+// A transcript line as YouTube's old panel draws it
+const fakeLine = (time, text) => ({
+	querySelector: (selector) => {
+		if (selector.includes('segment-text')) return {textContent: text};
+		if (selector.includes('segment-timestamp')) return {textContent: time};
+		return null;
+	}
+});
+
+// A side panel holding the given transcript lines
+const linesPanel = (targetId, visibility, lines) => ({
+	getAttribute: (name) => ({'target-id': targetId, visibility: 'ENGAGEMENT_PANEL_VISIBILITY_' + visibility})[name] || null,
+	querySelector: (selector) => {
+		if (selector === SEGMENTS) return lines[0] || null;
+		if (selector === '#visibility-button button') return fakeButton();
+		return null;
+	},
+	querySelectorAll: (selector) => (selector === SEGMENTS ? lines : [])
+});
+
+const someLines = () => [fakeLine('0:00', 'Hello'), fakeLine('0:04', 'second line')];
+
+describe('reading transcript lines', () => {
+	// Seen on videos with chapters: the open transcript panel plus a hidden copy with the same lines
+	const pageWithHiddenCopy = () => {
+		const open = linesPanel('engagement-panel-searchable-transcript', 'EXPANDED', someLines());
+		const copy = linesPanel('engagement-panel-searchable-transcript', 'HIDDEN', someLines());
+		return {expandedPanels: [open], allPanels: [open, copy]};
+	};
+
+	test('reads each line once when YouTube keeps a hidden copy of the panel', () => {
+		const {ImprovedTube} = load(['player'], pageWithHiddenCopy());
+		expect(ImprovedTube.readTranscriptSegments()).toEqual([
+			{time: '0:00', text: 'Hello'},
+			{time: '0:04', text: 'second line'}
+		]);
+	});
+
+	test('Copy copies the text once when YouTube keeps a hidden copy of the panel', () => {
+		const clipboard = [];
+		const {ImprovedTube} = load(['player'], {...pageWithHiddenCopy(), clipboard});
+		ImprovedTube.copyTranscript({style: {}}, {dataset: {}});
+		expect(clipboard).toEqual(['Hello second line']);
+	});
+
+	test('reads the lines of the "In this video" tab', () => {
+		const tab = linesPanel(null, 'EXPANDED', someLines());
+		const {ImprovedTube} = load(['player'], {expandedPanels: [tab], allPanels: [tab]});
+		expect(ImprovedTube.readTranscriptSegments().length).toBe(2);
+	});
+
+	test('with no open panel, reads only the first panel that holds lines', () => {
+		const first = linesPanel('engagement-panel-searchable-transcript', 'HIDDEN', someLines());
+		const copy = linesPanel('engagement-panel-searchable-transcript', 'HIDDEN', someLines());
+		const {ImprovedTube} = load(['player'], {allPanels: [first, copy]});
+		expect(ImprovedTube.readTranscriptSegments().length).toBe(2);
+	});
+});
 
 describe('closeTranscriptPanel', () => {
 	test('closes a separate transcript panel', () => {

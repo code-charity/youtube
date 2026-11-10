@@ -883,7 +883,7 @@ ImprovedTube.copyTranscript = function (svg, button) {
 		svg.style.opacity = '1';
 		button.dataset.tooltip = 'FetchingTranscript';
 
-		var existingTranscriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model');
+		var existingTranscriptSegments = ImprovedTube.transcriptSegmentElements();
 		if (existingTranscriptSegments.length > 0) {
 			var transcriptText = '';
 			existingTranscriptSegments.forEach(function (segment) {
@@ -947,7 +947,7 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 	var checkInterval = setInterval(function () {
 		attempts++;
 
-		var transcriptSegments = document.querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model');
+		var transcriptSegments = ImprovedTube.transcriptSegmentElements();
 
 		if (transcriptSegments.length > 0) {
 			clearInterval(checkInterval);
@@ -998,10 +998,23 @@ ImprovedTube.transcriptFileName = function (videoId, title) {
 	return name.replace(/[\\/:*?"<>|]+/g, ' ').replace(/\s+/g, ' ').trim().substr(0, 120) + '.txt';
 };
 
+// YouTube's current panel uses transcript-segment-view-model; ytd-transcript-segment-renderer is the older markup
+ImprovedTube.transcriptSegmentSelector = 'ytd-transcript-segment-renderer, transcript-segment-view-model';
+
+// The transcript lines of one panel: the open one, else the first panel that holds lines.
+// On videos with chapters YouTube keeps a hidden copy of the old transcript panel, with the
+// same lines, next to the open one, so reading the whole page would give every line twice.
+ImprovedTube.transcriptSegmentElements = function () {
+	var selector = ImprovedTube.transcriptSegmentSelector;
+	var panel = ImprovedTube.findOpenTranscriptPanel() || Array.from(document.querySelectorAll('ytd-engagement-panel-section-list-renderer')).find(function (candidate) {
+		return candidate.querySelector(selector);
+	});
+	return Array.from((panel || document).querySelectorAll(selector));
+};
+
 ImprovedTube.readTranscriptSegments = function () {
 	var segments = [];
-	// YouTube's current panel uses transcript-segment-view-model; ytd-transcript-segment-renderer is the older markup
-	document.querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model').forEach(function (segment) {
+	ImprovedTube.transcriptSegmentElements().forEach(function (segment) {
 		var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
 		var timeElement = segment.querySelector('.segment-timestamp, .ytwTranscriptSegmentViewModelTimestamp');
 		var text = textElement ? textElement.textContent.trim() : '';
