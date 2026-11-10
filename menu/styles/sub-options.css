@@ -8,8 +8,6 @@ NESTED (CONDITIONAL) SWITCHES
 /*-----------------
 >>> Appearance
 -----------------*/
-/*-transcript compact spacing-*/
-#transcript:not([data-value=true]) + .satus-switch,
  /*-DURATION WITH SPEED-*/
 #show-remaining-duration:not([data-value=true]) + .satus-switch,
  /*-comment sidebar scrollbars-*/
@@ -31,6 +29,8 @@ NESTED (CONDITIONAL) SWITCHES
 #player_playback_speed_button:not([data-value=true]) + .satus-slider + .satus-slider,
 /*-COPY VIDEO FULL URL-*/
 #copy-video-id:not([data-value=true]) + .satus-switch,
+/*-COPY TRANSCRIPT WITH TIMESTAMPS-*/
+#copy-transcript:not([data-value=true]) + .satus-switch,
 /*-COPY PLAYLIST VIDEO FULL URL-*/
 #playlist-copy-video-id:not([data-value=true]) + .satus-switch,
 /*--------------------------------------------------------------
@@ -57,8 +57,6 @@ NIGHT MODE
 /*-----------------
 >>> Appearance
 -----------------*/
-/*-transcript compact spacing-*/
-#transcript[data-value=true] + .satus-switch,
  /*-DURATION WITH SPEED-*/
 #show-remaining-duration[data-value=true] + .satus-switch,
  /*-comment sidebar scrollbars-*/
@@ -81,6 +79,8 @@ NIGHT MODE
 #player_playback_speed_button[data-value=true] + .satus-slider + .satus-slider,
 /*-COPY VIDEO FULL URL-*/
 #copy-video-id[data-value=true] + .satus-switch,
+/*-COPY TRANSCRIPT WITH TIMESTAMPS-*/
+#copy-transcript[data-value=true] + .satus-switch,
 /*-COPY PLAYLIST VIDEO FULL URL-*/
 #playlist-copy-video-id[data-value=true] + .satus-switch,
 /*--------------------------------------------------------------
@@ -102,8 +102,6 @@ NIGHT MODE
 /*-----------------
 >>> Appearance
 -----------------*/
-/*-transcript compact spacing-*/
-#transcript[data-value=true] + .satus-switch:not(:hover),
  /*-DURATION WITH SPEED-*/
 #show-remaining-duration[data-value=true] + .satus-switch:not(:hover),
  /*-comment sidebar scrollbars-*/
@@ -120,6 +118,8 @@ NIGHT MODE
 #player_screenshot_button[data-value=true] + .satus-switch + .satus-select:not(:hover),
 /*-COPY VIDEO FULL URL-*/
 #copy-video-id[data-value=true] + .satus-switch:not(:hover),
+/*-COPY TRANSCRIPT WITH TIMESTAMPS-*/
+#copy-transcript[data-value=true] + .satus-switch:not(:hover),
 /*-COPY PLAYLIST VIDEO FULL URL-*/
 #playlist-copy-video-id[data-value=true] + .satus-switch:not(:hover),
  /*--------------------------------------------------------------

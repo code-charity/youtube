@@ -348,8 +348,17 @@
   "copyTranscript": {
     "message": "📋 Copy Transcript"
   },
+  "copyTranscriptTimestamps": {
+    "message": "With timestamps, one line each"
+  },
   "downloadTranscript": {
     "message": "📜📥 Download Transcript (.txt)"
+  },
+  "toggleTranscriptButton": {
+    "message": "📜 Show / Hide Transcript"
+  },
+  "transcriptAlwaysExpanded": {
+    "message": "Always expanded"
   },
   "FetchingTranscript": {
     "message": "Fetching..."
