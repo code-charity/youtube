@@ -306,6 +306,7 @@ extension.skeleton.main.layers.section.player.on.click = {
 					variant: 'card',
 					channel_playback_speed_list: {
 						component: 'section',
+						variant: 'card',
 						on: {
 							render: function () {
 								let container = this;
@@ -352,8 +353,9 @@ extension.skeleton.main.layers.section.player.on.click = {
 											component: 'section',
 											variant: 'card',
 											title: channelName,
-											speed_slider: {
+											['speed_slider_' + safeKey + '_' + ts]: {
 												component: 'slider',
+												storage: false,
 												text: 'playbackSpeed',
 												value: channelSpeeds[channelName],
 												min: 0.1,
@@ -361,10 +363,24 @@ extension.skeleton.main.layers.section.player.on.click = {
 												step: 0.01,
 												textarea: true,
 												on: {
+													render: function() {
+														let component = this;
+														component.textInput.addEventListener('blur', function() {
+															let speed = Number(component.input.value);
+															if (!isNaN(speed)) {
+																let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds'));
+																freshState[channelName] = speed;
+																satus.storage.set('channel_playback_speeds', freshState);
+															}
+														});
+													},
 													change: function() {
-														let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds'));
-														freshState[channelName] = Number(this.value);
-														satus.storage.set('channel_playback_speeds', freshState);
+														let speed = Number(this.input.value);
+														if (!isNaN(speed)) {
+															let freshState = Object.assign({}, satus.storage.get('channel_playback_speeds'));
+															freshState[channelName] = speed;
+															satus.storage.set('channel_playback_speeds', freshState);
+														}
 													}
 												}
 											},
