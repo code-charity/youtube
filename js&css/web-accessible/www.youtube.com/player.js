@@ -883,17 +883,8 @@ ImprovedTube.copyTranscript = function (svg, button) {
 		svg.style.opacity = '1';
 		button.dataset.tooltip = 'FetchingTranscript';
 
-		var existingTranscriptSegments = ImprovedTube.transcriptSegmentElements();
-		if (existingTranscriptSegments.length > 0) {
-			var transcriptText = '';
-			existingTranscriptSegments.forEach(function (segment) {
-				var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
-				if (textElement) {
-					transcriptText += textElement.textContent.trim() + ' ';
-				}
-			});
-
-			transcriptText = transcriptText.trim();
+		if (ImprovedTube.transcriptSegmentElements().length > 0) {
+			var transcriptText = ImprovedTube.transcriptCopyText();
 			if (transcriptText) {
 				navigator.clipboard.writeText(transcriptText);
 				button.dataset.tooltip = 'Copied!';
@@ -947,21 +938,10 @@ ImprovedTube.waitForTranscriptAndCopy = function (svg, button) {
 	var checkInterval = setInterval(function () {
 		attempts++;
 
-		var transcriptSegments = ImprovedTube.transcriptSegmentElements();
-
-		if (transcriptSegments.length > 0) {
+		if (ImprovedTube.transcriptSegmentElements().length > 0) {
 			clearInterval(checkInterval);
 
-			var transcriptText = '';
-
-			transcriptSegments.forEach(function (segment) {
-				var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
-				if (textElement) {
-					transcriptText += textElement.textContent.trim() + ' ';
-				}
-			});
-
-			transcriptText = transcriptText.trim();
+			var transcriptText = ImprovedTube.transcriptCopyText();
 
 			if (transcriptText) {
 				navigator.clipboard.writeText(transcriptText);
@@ -991,6 +971,18 @@ ImprovedTube.transcriptSegmentsToText = function (segments) {
 	return segments.map(function (segment) {
 		return segment.time ? '[' + segment.time + '] ' + segment.text : segment.text;
 	}).join('\n');
+};
+
+// The text Copy puts on the clipboard: one paragraph, or with "With timestamps"
+// one line per transcript line with its time, the way Download writes the file
+ImprovedTube.transcriptCopyText = function () {
+	var segments = ImprovedTube.readTranscriptSegments();
+	if (ImprovedTube.storage.copy_transcript_timestamps === true) {
+		return ImprovedTube.transcriptSegmentsToText(segments);
+	}
+	return segments.map(function (segment) {
+		return segment.text;
+	}).join(' ');
 };
 
 ImprovedTube.transcriptFileName = function (videoId, title) {

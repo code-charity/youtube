@@ -126,6 +126,13 @@ describe('reading transcript lines', () => {
 		expect(clipboard).toEqual(['Hello second line']);
 	});
 
+	test('"With timestamps" copies one line per transcript line with its time', () => {
+		const clipboard = [];
+		const {ImprovedTube} = load(['player'], {...pageWithHiddenCopy(), clipboard, storage: {copy_transcript_timestamps: true}});
+		ImprovedTube.copyTranscript({style: {}}, {dataset: {}});
+		expect(clipboard).toEqual(['[0:00] Hello\n[0:04] second line']);
+	});
+
 	test('reads the lines of the "In this video" tab', () => {
 		const tab = linesPanel(null, 'EXPANDED', someLines());
 		const {ImprovedTube} = load(['player'], {expandedPanels: [tab], allPanels: [tab]});

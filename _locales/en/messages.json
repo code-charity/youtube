@@ -348,6 +348,9 @@
   "copyTranscript": {
     "message": "📋 Copy Transcript"
   },
+  "copyTranscriptTimestamps": {
+    "message": "With timestamps, one line each"
+  },
   "downloadTranscript": {
     "message": "📜📥 Download Transcript (.txt)"
   },

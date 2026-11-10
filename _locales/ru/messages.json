@@ -329,6 +329,9 @@
   "copyTranscript": {
     "message": "📋 Копия текста видео"
   },
+  "copyTranscriptTimestamps": {
+    "message": "Со временем, каждая фраза с новой строки"
+  },
   "toggleTranscriptButton": {
     "message": "📜 Показать / скрыть текст видео"
   },

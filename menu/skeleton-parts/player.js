@@ -2485,7 +2485,13 @@ extension.skeleton.main.layers.section.player.on.click = {
 		copy_transcript: {
 			component: 'switch',
 			text: 'copyTranscript',
+			id: 'copy-transcript',
 			value: true
+		},
+		copy_transcript_timestamps: {
+			component: 'switch',
+			text: 'copyTranscriptTimestamps',
+			value: false
 		},
 		download_transcript: {
 			component: 'switch',
