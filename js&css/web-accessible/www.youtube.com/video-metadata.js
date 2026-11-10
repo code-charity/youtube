@@ -1,5 +1,6 @@
 /*
  * VideoMetadata resolves metadata and marker inputs for YouTube videos.
+ * Current-player responses can be read from both watch pages and Shorts pages.
  * Metadata is cached in memory per video id and can remain available across YouTube SPA navigation.
  * It does not persist across page reloads or browser sessions.
  * The in-memory cache may remove stale entries through GC.
@@ -11,7 +12,7 @@
 
 // Source names are grouped by where the data comes from. The field table declares
 // which source groups each field can use, and source resolvers prepare source state when needed:
-// - currentPlayerResponse: current movie_player.getPlayerResponse(), or current ytInitialPlayerResponse fallback.
+// - currentPlayerResponse: the active watch or Shorts player response, or current ytInitialPlayerResponse fallback.
 // - currentYtInitialData: live window.ytInitialData, gated by its current video endpoint.
 // - currentDom: live DOM metadata, only when the DOM can prove it belongs to the current video.
 // - fetchedYtInitialPlayerResponse: ytInitialPlayerResponse parsed from a fetched watch page.
@@ -47,7 +48,8 @@ const VIDEO_METADATA_SOURCE_PRIORITY = {
 	author: SOURCE_PRIORITY_PLAYER_RESPONSE_ONLY,
 	publishDate: SOURCE_PRIORITY_PLAYER_RESPONSE_ONLY,
 	uploadDate: SOURCE_PRIORITY_PLAYER_RESPONSE_ONLY,
-	// Marker data and song count are exposed through ytInitialData trees, not player metadata.
+	// Marker data and song count come from ytInitialData, not player metadata,
+	// and are not guaranteed to be available on Shorts pages.
 	mostReplayedMarkers: SOURCE_PRIORITY_YT_INITIAL_DATA,
 	heatmapMarkers: SOURCE_PRIORITY_YT_INITIAL_DATA,
 	amountOfSongs: SOURCE_PRIORITY_YT_INITIAL_DATA, // Heuristic song-count field.
@@ -462,6 +464,23 @@ ImprovedTube.VideoMetadata = {
 
 		this._log.debug?.(`resolveField resolving ${this._formatDebugFields({key, videoId, priority: priority.join(', ')})}`);
 		for (const sourceName of priority) {
+			// For the current video, avoid fetching the watch page just for missing keywords when the player response has other metadata.
+			// Non-current video ids still use the fetched-response fallback.
+			if (
+				key === 'keywords'
+				&& sourceName === SOURCE.FETCHED_PLAYER_RESPONSE
+				&& this._isCurrentVideoId(videoId)
+			) {
+				const currentPlayerMetadata = entry.state.sources[SOURCE.CURRENT_PLAYER_RESPONSE]?.metadata;
+				const hasOtherMetadata = Object.entries(currentPlayerMetadata || {}).some(
+					([field, value]) => field !== 'keywords' && this._hasValue(value)
+				);
+				if (hasOtherMetadata) {
+					this._log.debug?.(`resolveField skippedWatchPageFetch ${this._formatDebugFields({key, videoId, reason: 'currentPlayerResponseHasOtherMetadata'})}`);
+					break;
+				}
+			}
+
 			const sourceReady = await this._ensureSource(entry, sourceName);
 			if (!sourceReady) {
 				continue;
@@ -731,7 +750,7 @@ ImprovedTube.VideoMetadata = {
 	},
 
 	_waitForCurrentPlayerResponseSource: async function (entry) {
-		// YouTube can populate movie_player metadata after the page URL is already current.
+		// SPA navigation can update the URL before the new video's player response is ready, so wait for that response to become available.
 		const videoId = entry.data.videoId;
 		const startedAt = Date.now();
 		this._log.debug?.(`waitForCurrentPlayerResponseSource waiting ${this._formatDebugFields({videoId})}`);
@@ -750,14 +769,27 @@ ImprovedTube.VideoMetadata = {
 	},
 
 	_readCurrentPlayerResponseSource: function (videoId) {
-		const player = document.getElementById('movie_player') || window.movie_player;
-		const playerResponse = this._readPlayerResponse(player);
+		const moviePlayer = document.getElementById('movie_player') || ImprovedTube.elements?.player;
+		const shortsPlayer = document.getElementById('shorts-player') || ImprovedTube.elements?.shorts_player;
+		// Prefer the player for the current route, then try the other player; verify each response against videoId.
+		const candidates = location.pathname.startsWith('/shorts/')
+			? [['shortsPlayer', shortsPlayer], ['moviePlayer', moviePlayer]]
+			: [['moviePlayer', moviePlayer], ['shortsPlayer', shortsPlayer]];
+		let lastPlayerResponse = null;
 
-		if (this._isPlayerResponseCurrent(playerResponse, videoId)) {
-			this._log.debug?.(`readCurrentPlayerResponseSource found ${this._formatDebugFields({source: 'playerResponse', videoId})}`);
-			return {
-				metadata: this._buildPlayerMetadata(playerResponse, videoId),
-			};
+		for (const [source, player] of candidates) {
+			if (!player) {
+				continue;
+			}
+
+			const playerResponse = this._readPlayerResponse(player);
+			lastPlayerResponse = playerResponse;
+			if (this._isPlayerResponseCurrent(playerResponse, videoId)) {
+				this._log.debug?.(`readCurrentPlayerResponseSource found ${this._formatDebugFields({source, videoId})}`);
+				return {
+					metadata: this._buildPlayerMetadata(playerResponse, videoId),
+				};
+			}
 		}
 
 		if (this._isPlayerResponseCurrent(window.ytInitialPlayerResponse, videoId)) {
@@ -767,7 +799,7 @@ ImprovedTube.VideoMetadata = {
 			};
 		}
 
-		this._log.debug?.(`readCurrentPlayerResponseSource notFound ${this._formatDebugFields({videoId, playerResponseVideoId: this._getPlayerResponseVideoId(playerResponse) || ''})}`);
+		this._log.debug?.(`readCurrentPlayerResponseSource notFound ${this._formatDebugFields({videoId, playerResponseVideoId: this._getPlayerResponseVideoId(lastPlayerResponse) || ''})}`);
 		return null;
 	},
 

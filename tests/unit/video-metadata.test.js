@@ -38,12 +38,17 @@ function createVideoMetadata({
 	getCurrentVideoId = () => currentVideoId,
 	playerResponse = null,
 	getPlayerResponse = null,
+	shortsPlayerResponse = null,
+	getShortsPlayerResponse = null,
 	currentDocument = null,
+	pageUrl = null,
 	windowYtInitialData = null,
+	windowYtInitialPlayerResponse = null,
 	now = () => Date.now(),
 	setTimeoutImpl = setTimeout,
 } = {}) {
 	const source = fs.readFileSync(SOURCE_PATH, 'utf8');
+	const getCurrentPageUrl = () => pageUrl || `https://www.youtube.com/watch?v=${getCurrentVideoId()}`;
 	const debug = process.env.VIDEO_METADATA_DEBUG === '1';
 	const consoleMock = {
 		debug: jest.fn(),
@@ -60,7 +65,7 @@ function createVideoMetadata({
 		Date: {now},
 		document: currentDocument || {
 			get URL() {
-				return `https://www.youtube.com/watch?v=${getCurrentVideoId()}`;
+				return getCurrentPageUrl();
 			},
 			getElementById: () => null,
 		},
@@ -74,13 +79,24 @@ function createVideoMetadata({
 		ImprovedTube: {
 			regex: {video_id: /(?:[?&]v=|embed\/|shorts\/)([^&?]{11})/},
 			storage: {video_metadata_debug: debug},
-		},
-		window: {
-			movie_player: playerResponse || getPlayerResponse
+			elements: {
+				player: playerResponse || getPlayerResponse
 				? {getPlayerResponse: () => getPlayerResponse ? getPlayerResponse() : playerResponse}
 				: null,
-			ytInitialData: windowYtInitialData,
+				shorts_player: shortsPlayerResponse || getShortsPlayerResponse
+				? {getPlayerResponse: () => getShortsPlayerResponse ? getShortsPlayerResponse() : shortsPlayerResponse}
+				: null,
+			}
 		},
+		window: {
+			ytInitialData: windowYtInitialData,
+			ytInitialPlayerResponse: windowYtInitialPlayerResponse,
+		},
+		location: {
+			get pathname() {
+				return new URL(getCurrentPageUrl()).pathname;
+			}
+		}
 	});
 
 	vm.runInContext(source, context, {filename: SOURCE_PATH});
@@ -208,6 +224,74 @@ describe('VideoMetadata in a vm context', () => {
 		expect(data.publishDate).toBeNull();
 		expect(entry.state.source.title).toBe('currentPlayerResponse');
 		expect(fetchImpl).not.toHaveBeenCalled();
+	});
+
+	test('uses the Shorts player first on a Shorts page', async () => {
+		const {videoMetadata} = createVideoMetadata({
+			currentVideoId: VIDEO_ID,
+			pageUrl: `https://www.youtube.com/shorts/${VIDEO_ID}`,
+			playerResponse: createPlayerResponse(VIDEO_ID, 'Watch player title'),
+			shortsPlayerResponse: createPlayerResponse(VIDEO_ID, 'Shorts player title'),
+		});
+
+		const title = await videoMetadata.getTitleAsync();
+		const entry = videoMetadata.entries.get(VIDEO_ID);
+
+		expect(title).toBe('Shorts player title');
+		expect(entry.state.source.title).toBe('currentPlayerResponse');
+	});
+
+	test('falls back to the movie player when the Shorts player has no response', async () => {
+		const {videoMetadata} = createVideoMetadata({
+			currentVideoId: VIDEO_ID,
+			pageUrl: `https://www.youtube.com/shorts/${VIDEO_ID}`,
+			playerResponse: createPlayerResponse(VIDEO_ID, 'Movie player title'),
+		});
+
+		const title = await videoMetadata.getTitleAsync();
+
+		expect(title).toBe('Movie player title');
+	});
+
+	test('ignores player responses for a different video on a Shorts page', async () => {
+		let now = 0;
+		const {videoMetadata} = createVideoMetadata({
+			currentVideoId: VIDEO_ID,
+			pageUrl: `https://www.youtube.com/shorts/${VIDEO_ID}`,
+			playerResponse: createPlayerResponse(OTHER_VIDEO_ID, 'Stale movie title'),
+			shortsPlayerResponse: createPlayerResponse(OTHER_VIDEO_ID, 'Stale Shorts title'),
+			now: () => now,
+			setTimeoutImpl: (callback, delay) => {
+				now += delay;
+				callback();
+			},
+		});
+
+		const title = await videoMetadata.getTitleAsync();
+
+		expect(title).toBeNull();
+		expect(videoMetadata.entries.get(VIDEO_ID).state.source.title).toBe('not-found');
+	});
+
+	test('uses ytInitialPlayerResponse as a current Shorts metadata fallback', async () => {
+		const {videoMetadata} = createVideoMetadata({
+			currentVideoId: VIDEO_ID,
+			pageUrl: `https://www.youtube.com/shorts/${VIDEO_ID}`,
+			windowYtInitialPlayerResponse: createPlayerResponse(VIDEO_ID, 'Initial response title'),
+		});
+
+		const title = await videoMetadata.getTitleAsync();
+
+		expect(title).toBe('Initial response title');
+	});
+
+	test('gets the current video id from a Shorts page URL', () => {
+		const {videoMetadata} = createVideoMetadata({
+			currentVideoId: VIDEO_ID,
+			pageUrl: `https://www.youtube.com/shorts/${VIDEO_ID}`,
+		});
+
+		expect(videoMetadata._getVideoId()).toBe(VIDEO_ID);
 	});
 
 	test('getDataAsync fetches metadata for an explicitly specified videoId', async () => {
