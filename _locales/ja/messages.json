@@ -314,8 +314,32 @@
   "categories": {
     "message": "カテゴリ"
   },
+  "categoryPlaybackSpeed": {
+    "message": "カテゴリごとの再生速度"
+  },
+  "categoryPlaybackSpeedAdd": {
+    "message": "カテゴリを追加"
+  },
+  "categoryPlaybackSpeedSelect": {
+    "message": "カテゴリ選択…"
+  },
+  "categoryPlaybackSpeedYoutubeSelect": {
+    "message": "カテゴリ"
+  },
   "channel": {
     "message": "チャンネル"
+  },
+  "channelPlaybackSpeed": {
+    "message": "チャンネルごとの再生速度"
+  },
+  "channelPlaybackSpeedAdd": {
+    "message": "チャンネルを追加"
+  },
+  "channelPlaybackSpeedPrompt": {
+    "message": "チャンネル名、チャンネルIDか @handle を入力してください："
+  },
+  "channelPlaybackSpeedSpeedPrompt": {
+    "message": "再生速度を入力してください（例：1.25、1.5、2.0）："
   },
   "channels": {
     "message": "チャンネル"
@@ -583,6 +607,9 @@
   },
   "forcedPlaybackSpeedMusic": {
     "message": "音楽再生時も再生速度を固定"
+  },
+  "forcedPlaybackSpeedShorts": {
+    "message": "ショート動画にも適用"
   },
   "forcedPlayVideoFromTheBeginning": {
     "message": "動画を必ず最初から再生"
@@ -1033,9 +1060,6 @@
   },
   "player": {
     "message": "プレイヤー"
-  },
-  "player_dont_speed_education": {
-    "message": "教育カテゴリの動画の再生速度を固定しない"
   },
   "player_fit_to_win_button": {
     "message": "ウィンドウに合わせる"

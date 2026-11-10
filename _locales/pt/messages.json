@@ -902,9 +902,6 @@
     "player": {
         "message": "Player"
     },
-    "player_dont_speed_education": {
-        "message": "Não acelere na categoria (Rara): Educação"
-    },
     "player_fit_to_win_button": {
         "message": "Proporção 4x3: *Velha tela Quadrada \nou ganho de área de visualização quando estiver em modo Teatro"
     },

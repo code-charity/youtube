@@ -264,6 +264,18 @@
   "categories": {
     "message": "Categories"
   },
+  "categoryPlaybackSpeed": {
+    "message": "Category-specific Playback Speed"
+  },
+  "categoryPlaybackSpeedAdd": {
+    "message": "Add category"
+  },
+  "categoryPlaybackSpeedSelect": {
+    "message": "Select category..."
+  },
+  "categoryPlaybackSpeedYoutubeSelect": {
+    "message": "YouTube category"
+  },
   "categoryRefreshButton": {
     "message": "Add category refresh button"
   },
@@ -280,7 +292,7 @@
     "message": "Add channel"
   },
   "channelPlaybackSpeedPrompt": {
-    "message": "Enter channel name:"
+    "message": "Enter channel name, @handle, channel ID:"
   },
   "channelPlaybackSpeedSpeedPrompt": {
     "message": "Enter playback speed (e.g., 1.25, 1.5, 2.0):"
@@ -590,6 +602,9 @@
   },
   "forcedPlaybackSpeedMusic": {
     "message": "(Force playback speed even for music?)"
+  },
+  "forcedPlaybackSpeedShorts": {
+    "message": "Apply to Shorts"
   },
   "forcedPlayVideoFromTheBeginning": {
     "message": "Force video to play from the beginning"
@@ -1130,9 +1145,6 @@
   },
   "player_cinema_mode_button": {
     "message": "Cinema Mode"
-  },
-  "player_dont_speed_education": {
-    "message": "Don't speed up the (rare) category: Education"
   },
   "player_fit_to_win_button": {
     "message": "Fit to window"

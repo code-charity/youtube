@@ -88,6 +88,24 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 				});
 			}
 		});
+		chrome.storage.local.get(['player_dont_speed_education', 'category_playback_speeds'], function (result) {
+			if (result.player_dont_speed_education === true) {
+				let categoryPlaybackSpeeds = result.category_playback_speeds && typeof result.category_playback_speeds === 'object'
+					? result.category_playback_speeds
+					: {};
+
+				if (!Object.prototype.hasOwnProperty.call(categoryPlaybackSpeeds, 'Education')) {
+					categoryPlaybackSpeeds.Education = 1;
+					chrome.storage.local.set({category_playback_speeds: categoryPlaybackSpeeds}, function () {
+						chrome.storage.local.remove(['player_dont_speed_education']);
+					});
+				} else {
+					chrome.storage.local.remove(['player_dont_speed_education']);
+				}
+			} else {
+				chrome.storage.local.remove(['player_dont_speed_education']);
+			}
+		});
 		chrome.storage.local.get('hideSubscribe', function (result) {
 			if (result.hideSubscribe === true) {
 				chrome.storage.local.set({subscribe: 'hidden'});
