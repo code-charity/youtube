@@ -13,6 +13,21 @@
 # Player Size
 --------------------------------------------------------------*/
 html[it-ambient-lighting='false'] #cinematics {display: none !important;}
+/* Full-window player: YouTube's new #player-container-outer/#player-container-inner wrappers
+   add a max-width and aspect-ratio padding that leave gaps around the video. */
+html[it-player-size='full_window'] ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container-outer.ytd-watch-flexy,
+html[it-player-size='full_window'] ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container-inner.ytd-watch-flexy,
+html[it-player-size='full_window'] ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container.ytd-watch-flexy {
+	max-width: none !important;
+	width: 100% !important;
+	height: 100vh !important;
+	max-height: 100vh !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+html[it-player-size='full_window'] ytd-watch-flexy:not([theater]):not([fullscreen]) video.video-stream.html5-main-video {
+	object-fit: contain !important;
+}
 
 /*--------------------------------------------------------------
 # MINI PLAYER Z-INDEX FIX
