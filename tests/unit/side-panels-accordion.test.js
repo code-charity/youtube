@@ -67,7 +67,8 @@ describe('Side panels accordion (#4020)', () => {
 
 	test('does not hijack clicks on links or non-close buttons inside the header', () => {
 		expect(sidebarJs).toMatch(/if \(target\.closest\('a'\)\)/);
-		expect(sidebarJs).toMatch(/if \(target\.closest\('button:not\(\[aria-label="Close"\]\)'\)\)/);
+		expect(sidebarJs).toMatch(/if \(target\.closest\('button'\)\)/);
+		expect(sidebarJs).not.toContain('#panels > * button[aria-label="Close"]');
 	});
 
 	test('sets an html attribute so CSS can scope its rules', () => {
