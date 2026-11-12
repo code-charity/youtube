@@ -224,6 +224,10 @@
 	height: 48px !important;
 }
 
+.satus-label--none-theme {
+	background: repeating-linear-gradient(45deg, #cfcfcf, #cfcfcf 6px, #efefef 6px, #efefef 12px);
+}
+
 .satus-label--dark-theme {
 	position: relative;
     height: 48px !important; margin-top: -5px !important;

@@ -63,4 +63,12 @@ describe('Themes menu radio state', () => {
 		expect(oppositeTheme.radio.value).toBe('dark');
 		expect(oppositeTheme.radio.checked).toBeUndefined();
 	});
+
+	test('offers a None option that disables the extension theming', () => {
+		const section = extension.skeleton.main.layers.section.themes.on.click.section;
+
+		expect(section.none.text).toBe('none');
+		expect(section.none.radio.group).toBe('theme');
+		expect(section.none.radio.value).toBe('none');
+	});
 });
