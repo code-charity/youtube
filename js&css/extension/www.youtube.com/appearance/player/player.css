@@ -13,6 +13,20 @@
 # Player Size
 --------------------------------------------------------------*/
 html[it-ambient-lighting='false'] #cinematics {display: none !important;}
+html[it-player-size='full_window'] ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container-outer {
+	max-height: 100vh !important;
+	height: 100vh !important;
+}
+html[it-player-size='full_window'] ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container-inner {
+	padding-top: 0 !important;
+	height: 100vh !important;
+}
+html[it-player-size='full_window'] ytd-watch-flexy:not([theater]):not([fullscreen]) #player-container {
+	height: 100vh !important;
+}
+html[it-player-size='full_window'] ytd-watch-flexy:not([theater]):not([fullscreen]) #player {
+	height: 100vh !important;
+}
 
 /*--------------------------------------------------------------
 # MINI PLAYER Z-INDEX FIX
