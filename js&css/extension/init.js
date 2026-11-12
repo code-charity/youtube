@@ -111,7 +111,24 @@ if ((navigator.userAgent.indexOf('Safari') !== -1
 		}
 	});
 } else {
-	extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
+	// Chrome/Chromium: injecting the page-world files as DOM <script> tags
+	// (extension.inject) makes the page load chrome-extension:// URLs, which
+	// Chrome refuses with "Unsafe attempt to load URL ... Domains, protocols
+	// and ports must match." (#4448), even though the files are listed in
+	// web_accessible_resources. Inject them through the background service
+	// worker instead (chrome.scripting, MAIN world -- the same
+	// 'inject-main-world' route Safari uses), and keep the DOM path only as
+	// a fallback for builds where the scripting injection is unavailable.
+	chrome.runtime.sendMessage({
+		action: 'inject-main-world',
+		files: pageWorldFiles
+	}, function (response) {
+		if (response && response.ok) {
+			finishPageWorldInit();
+		} else {
+			extension.inject(pageWorldFiles.slice(), finishPageWorldInit);
+		}
+	});
 }
 
 document.addEventListener('DOMContentLoaded', function () {
