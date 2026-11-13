@@ -351,6 +351,18 @@
   "downloadTranscript": {
     "message": "📜📥 Download Transcript (.txt)"
   },
+  "transcriptTimestamps": {
+    "message": "⏱ Transcript timestamps"
+  },
+  "transcriptTimestampsAsNow": {
+    "message": "As now (download with, copy without)"
+  },
+  "transcriptTimestampsWith": {
+    "message": "With timestamps"
+  },
+  "transcriptTimestampsWithout": {
+    "message": "Without timestamps"
+  },
   "FetchingTranscript": {
     "message": "Fetching..."
   },
