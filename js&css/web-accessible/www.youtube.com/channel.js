@@ -179,6 +179,12 @@ ImprovedTube.channelCompactTheme = function () {
 			const sub = document.querySelector(`#sections ytd-guide-section-renderer:nth-child(${i + 2}) #items`);
 			compact.parents[i] = parent;
 			compact.subs[i] = sub;
+
+			if (!parent || !sub) { // the guide may have fewer sections, or a section without a heading
+				compact.eventHandlerFns[i] = null;
+				continue;
+			}
+
 			let isCompact = localStorage.getItem(`ImprovedTube-compact-${i}`) === "true";
 			isCompact ? (sub.style.display = "none") : null;
 
@@ -193,7 +199,7 @@ ImprovedTube.channelCompactTheme = function () {
 				localStorage.setItem(`ImprovedTube-compact-${i}`, isCompact)
 			}
 
-			compact.eventHandlerFns.push(eventHandlerFn)
+			compact.eventHandlerFns[i] = eventHandlerFn
 			parent.addEventListener("click", eventHandlerFn)
 		}
 		removeStyles();
@@ -203,6 +209,9 @@ ImprovedTube.channelCompactTheme = function () {
 		for (let i = 0; i <= 2; i++) {
 			const parent = compact.parents[i]
 			const sub = compact.subs[i]
+			if (!parent || !sub) {
+				continue;
+			}
 			parent.removeEventListener("click", compact.eventHandlerFns[i]);
 			sub.style.display = "";
 		}
