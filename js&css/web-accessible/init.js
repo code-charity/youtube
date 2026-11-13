@@ -191,6 +191,9 @@ ImprovedTube.init = function () {
 		try { if (ImprovedTube.videoFilters) ImprovedTube.videoFilters(); } catch (e) {}
 	});
 	this.pageType();
+	if ((document.documentElement.dataset.pageType === 'subscriptions' || location.pathname.indexOf('/feed/subscriptions') === 0) && this.storage.archive_transcripts === true && this.storage.archive_subscription_videos === true) {
+		this.transcriptArchive?.init();
+	}
 	this.playerOnPlay();
 	this.playerSDR();
 	this.shortcutsInit();
@@ -255,6 +258,9 @@ document.addEventListener('yt-navigate-finish', function () {
 	ImprovedTube.commentsSidebar();
 	ImprovedTube.categoryRefreshButton();
 	ImprovedTube.playerAutoContinueWatching();
+	if ((document.documentElement.dataset.pageType === 'subscriptions' || location.pathname.indexOf('/feed/subscriptions') === 0) && ImprovedTube.storage.archive_transcripts === true && ImprovedTube.storage.archive_subscription_videos === true) {
+		ImprovedTube.transcriptArchive?.init();
+	}
 	try { if (ImprovedTube.lastWatchedOverlay) ImprovedTube.lastWatchedOverlay(); } catch (e) { console.error('[LWO] nav-finish error', e); }
 
 	// Cleanup playlist handlers when navigating away from playlist pages

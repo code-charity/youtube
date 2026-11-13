@@ -154,10 +154,13 @@ ImprovedTube.messages.create();
 
 ImprovedTube.messages.listener = function () {
 	document.addEventListener('it-message-from-youtube--readed', function () {
-		ImprovedTube.messages.queue.pop();
+		// The message that was just read is the head of the queue. Using
+		// pop() here used to drop the newest message and leave the queue
+		// stuck, which lost back-to-back archive/diary writes.
+		ImprovedTube.messages.queue.shift();
 
 		if (ImprovedTube.messages.queue.length > 0) {
-			ImprovedTube.messages.element.textContent = message;
+			ImprovedTube.messages.element.textContent = ImprovedTube.messages.queue[0];
 
 			document.dispatchEvent(new CustomEvent('it-message-from-youtube'));
 		}
@@ -239,6 +242,9 @@ document.addEventListener('it-message-from-extension', function () {
 				} else {
 					localStorage.removeItem('it-player30fps');
 				}
+			}
+			if (typeof message.key === 'string' && (message.key === 'watching_diary' || message.key.indexOf('watching_diary_') === 0)) {
+				ImprovedTube.transcriptArchive?.onStorageChanged?.(message.key, message.value);
 			}
 			switch (camelized_key) {
 				case 'blocklist':
@@ -615,6 +621,22 @@ document.addEventListener('it-message-from-extension', function () {
 							ImprovedTube.smartSpeed.onStorageChanged(message.key, message.value);
 						}
 					}
+					break
+
+				case 'archiveTranscripts':
+				case 'recordViewingLog':
+				case 'archiveRelatedVideos':
+				case 'archiveSubscriptionVideos':
+				case 'autoScreenshot':
+				case 'archiveStorageLimit':
+				case 'archiveStorageBudget':
+					if (ImprovedTube.transcriptArchive) {
+						ImprovedTube.transcriptArchive.init();
+					}
+					break
+
+				case 'transcriptArchive':
+					ImprovedTube.transcriptArchive?.onStorageChanged?.(message.key, message.value);
 					break
 
 				case 'returnYoutubeDislike':

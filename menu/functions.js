@@ -24,6 +24,7 @@ extension.attributes = function () {
 		it_shortcuts: true,
 		it_blocklist: true,
 		it_analyzer: true,
+		it_archive: true,
 		layer_animation_scale: false
 	};
 
