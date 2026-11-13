@@ -269,13 +269,14 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'playerPlaybackSpeed':
 				case 'playerForcedPlaybackSpeed':
-					if (ImprovedTube.storage.player_forced_playback_speed === true && isFinite(Number(ImprovedTube.storage.player_playback_speed))) {
-						ImprovedTube.playbackSpeed(Number(ImprovedTube.storage.player_playback_speed)); //new
-						ImprovedTube.elements.player.setPlaybackRate(Number(ImprovedTube.storage.player_playback_speed));
-						// ImprovedTube.elements.player.querySelector('video').playbackRate = Number(ImprovedTube.storage.player_playback_speed.toFixed(2));
-					} else if (ImprovedTube.storage.player_forced_playback_speed === false) {
-						ImprovedTube.elements.player.setPlaybackRate(1);
-						ImprovedTube.elements.player.querySelector('video').playbackRate = 1;
+				case 'channelPlaybackSpeeds':
+				case 'categoryPlaybackSpeeds':
+					if (ImprovedTube.storage.player_forced_playback_speed === true) {
+						try { ImprovedTube.playerPlaybackSpeed(); } catch (error) {}
+					} else if (ImprovedTube.storage.player_forced_playback_speed === false && ImprovedTube.elements.player) {
+						if (ImprovedTube.elements.player.setPlaybackRate) { ImprovedTube.elements.player.setPlaybackRate(1); }
+						var forcedSpeedVideo = ImprovedTube.elements.player.querySelector ? ImprovedTube.elements.player.querySelector('video') : null;
+						if (forcedSpeedVideo) { forcedSpeedVideo.playbackRate = 1; }
 					}
 					break
 
