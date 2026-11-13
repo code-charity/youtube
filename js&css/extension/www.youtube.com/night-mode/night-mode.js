@@ -115,7 +115,7 @@ extension.features.schedule = function () {
 		from = Number((extension.storage.get('schedule_time_from') || '00:00').substr(0, 2)),
 		to = Number((extension.storage.get('schedule_time_to') || '00:00').substr(0, 2));
 
-	if (to < from && current > from && current < 24) {
+	if (to < from && current >= from && current < 24) {
 		to += 24;
 	} else if (to < from && current < to) {
 		from = 0;
