@@ -234,7 +234,105 @@ extension.skeleton.main.layers.section.blocklist = {
 							}
 						}
 					}
-				}
+				},
+			playlists: {
+					component: 'button',
+					text: 'playlists',
+					style: {
+						justifyContent: 'space-between'
+					},
+					on: {
+						click: {
+							component: 'section',
+							variant: 'card',
+							on: {
+								render: function () {
+									let skeleton = {},
+										blocklist = satus.storage.get('blocklist');
+
+									if (blocklist && blocklist.playlists) {
+										for (let key in blocklist.playlists) {
+											let playlist = blocklist.playlists[key];
+
+											if (playlist !== false) {
+												skeleton[key] = {
+													component: 'div',
+													variant: 'blocklist',
+													data: {
+														id: key
+													},
+
+													title: {
+														component: 'div',
+														text: playlist.title || ''
+													},
+													delete: {
+														component: 'button',
+														on: {
+															click: function () {
+																let blocklist = satus.storage.get('blocklist'),
+																	component = this.parentNode;
+
+																if (blocklist && blocklist.playlists) {
+																	delete blocklist.playlists[component.dataset.id];
+
+																	satus.storage.set('blocklist', blocklist, function () {
+																		component.remove();
+																	});
+																}
+															}
+														},
+
+														svg: {
+															component: 'svg',
+															attr: {
+																'fill': 'currentColor',
+																'viewBox': '0 0 24 24'
+															},
+
+															path: {
+																component: 'path',
+																attr: {
+																	'd': 'M6 19c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v10zM18 4h-2.5l-.7-.7A1 1 0 0 0 14 3H9.9a1 1 0 0 0-.7.3l-.7.7H6c-.6 0-1 .5-1 1s.5 1 1 1h12c.6 0 1-.5 1-1s-.5-1-1-1z'
+																}
+															}
+														}
+													}
+												};
+											}
+										}
+									}
+
+									if (Object.keys(skeleton).length === 0) {
+										satus.render({
+											component: 'span',
+											text: 'empty'
+										}, this);
+									} else {
+										satus.render(skeleton, this);
+									}
+								}
+							}
+						}
+					},
+					list: {
+						component: 'span',
+						style: {
+							opacity: .64
+						},
+						on: {
+							render: function () {
+								let blocklist = satus.storage.get('blocklist');
+
+								if (blocklist && blocklist.playlists && Object.keys(blocklist.playlists).length) {
+									this.textContent = '('+Object.keys(blocklist.playlists).length+')';
+								} else {
+									this.textContent = '(empty)';
+								}
+							}
+						}
+					}
+				}	
 			}
 		}
 	},

@@ -249,6 +249,21 @@ document.addEventListener('it-message-from-youtube', function () {
 						delete extension.storage.data.blocklist.videos[message.id];
 					}
 					break
+					
+				case 'playlist':
+					if (!extension.storage.data.blocklist.playlists || typeof extension.storage.data.blocklist.playlists !== 'object') {
+						extension.storage.data.blocklist.playlists = {};
+						}
+					if (message.added) {
+						extension.storage.data.blocklist.playlists[message.id] = {
+						title: message.title,
+						preview: message.preview,
+						when: message.when
+					};
+					} else {
+						delete extension.storage.data.blocklist.playlists[message.id];
+					}
+					break;
 			}
 
 			chrome.storage.local.set({

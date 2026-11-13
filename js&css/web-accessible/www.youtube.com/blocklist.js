@@ -9,7 +9,8 @@ ImprovedTube.blocklistNode = function (node) {
 			|| this.blocklistLockupChannel(node, video),
 		blockedElement = this.blocklistElementTypeHelper(node);
 
-	if (!video) return; // not interested in nodes without one
+	const playlist = node.href?.match(/[&?]list=([^&]+)/)?.[1];
+		if (!video && !playlist) return; // not interested in nodes without one
 
 	// YT reuses Thumbnail cells dynamically, need to monitor all created Thumbnail links and dynamically apply/remove 'it-blocklisted-*' classes
 	if (!this.elements.observerList.includes(node)) {
@@ -38,6 +39,13 @@ ImprovedTube.blocklistNode = function (node) {
 			// channel not blocked, show it.
 			blockedElement.classList.remove('it-blocklisted-channel');
 		}
+	}
+	if (playlist) {
+    	if (ImprovedTube.storage.blocklist?.playlists[playlist]) {
+        	blockedElement.classList.add('it-blocklisted-playlist');
+    	} else {
+        	blockedElement.classList.remove('it-blocklisted-playlist');
+    	}
 	}
 
 	// skip blocklist button creation if one already exists, in theory this never happens due to check in functions.js
@@ -70,21 +78,26 @@ ImprovedTube.blocklistNode = function (node) {
 
 			// this button can perform three functions in this particular order:
 			if (channel && blockedElement.classList.contains('it-blocklisted-channel')) {
-				// unblocking whole channel
-				type = 'channel';
+    			// unblocking whole channel
+    			type = 'channel';
 			} else if (blockedElement.classList.contains('it-blocklisted-video')) {
-				// unblocking blocklisted video
+    		// unblocking blocklisted video
+			} else if (blockedElement.classList.contains('it-blocklisted-playlist')) {
+    		// unblocking blocklisted playlist
+    		type = 'playlist';
+			} else if (playlist) {
+    		// block this playlist
+    		added = true;
+    		type = 'playlist';
 			} else {
-				// block this video
-				added = true;
-			}
-
+    		// block this video
+    		added = true;			}
 			// this message will trigger 'storage-changed' event and eventually blocklistInit() full rescan
 			ImprovedTube.messages.send({
 				action: 'blocklist',
 				added: added,
 				type: type,
-				id: type == 'channel' ? channel : video,
+				id: type == 'channel' ? channel : (type == 'playlist' ? playlist : video),
 				title: title,
 				when: Date.parse(new Date().toDateString()) / 100000
 			});
@@ -225,13 +238,16 @@ ImprovedTube.blocklistInit = function () {
 		// initialize and (re)scan whole page. Called on load after 'storage-loaded'
 		// and blocklist 'storage-changed' event (adding/removing blocks)
 		if (!this.storage.blocklist || typeof this.storage.blocklist !== 'object') {
-			this.storage.blocklist = {videos: {}, channels: {}};
+			this.storage.blocklist = {videos: {}, channels: {}, playlists: {}};
 		}
 		if (!this.storage.blocklist.videos || typeof this.storage.blocklist.channels !== 'object') {
 			this.storage.blocklist.videos = {};
 		}
 		if (!this.storage.blocklist.channels || typeof this.storage.blocklist.channels !== 'object') {
 			this.storage.blocklist.channels = {};
+		}
+		if (!this.storage.blocklist.playlists || typeof this.storage.blocklist.playlists !== 'object') {
+    			this.storage.blocklist.playlists = {};
 		}
 		for (const thumbnail of document.querySelectorAll('a.ytd-thumbnail[href], a.ytLockupViewModelContentImage[href], a.ytd-video-preview')) {
 			this.blocklistNode(thumbnail);
@@ -268,6 +284,9 @@ ImprovedTube.blocklistInit = function () {
 		for (const blocked of document.querySelectorAll('.it-blocklisted-channel')) {
 			blocked.classList.remove('it-blocklisted-channel');
 		}
+		for (const blocked of document.querySelectorAll('.it-blocklisted-playlist')) {
+    			blocked.classList.remove('it-blocklisted-playlist');
+		}
 	}
 };
 
@@ -282,11 +301,17 @@ ImprovedTube.blocklistObserver = new MutationObserver(function (mutationList) {
 
 		if (!blockedElement) return; // unknown thumbnail cell type, bail out
 
-		if (!video) {
+		if (!video && !playlist) {
 			// no video ID means monitored thumbnail/video-preview node went inactive
 			blockedElement.classList.remove('it-blocklisted-video');
 			blockedElement.classList.remove('it-blocklisted-channel');
 			return;
+		}
+		if (!playlist) return;
+		if (ImprovedTube.storage.blocklist?.playlists[playlist]) {
+    		blockedElement.classList.add('it-blocklisted-playlist');
+		} else {
+    		blockedElement.classList.remove('it-blocklisted-playlist');
 		}
 
 		if (ImprovedTube.storage.blocklist?.videos[video]) {
