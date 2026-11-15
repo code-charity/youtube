@@ -83,6 +83,11 @@ extension.skeleton.main.layers.section.shortcuts = {
 									max: 25,
 									step: 1,
 									value: 5
+								},
+								shortcuts_volume_right_click_wheel: {
+									component: 'switch',
+									text: 'volumeRightClickWheel',
+									tags: 'volume,mouse,wheel,mousewheel,scroll,right click,right button,gesture'
 								}
 							},
 

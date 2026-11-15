@@ -1656,6 +1656,9 @@
   "volume": {
     "message": "Volume"
   },
+  "volumeRightClickWheel": {
+    "message": "Hold right mouse button + scroll wheel"
+  },
   "watchedVideos": {
     "message": "Watched videos"
   },

@@ -143,6 +143,9 @@ ImprovedTube.shortcutsListeners = {
 		}
 	},
 	wheel: function (event) {
+		// right mouse button + wheel belongs to shortcutsVolumeRightClickWheel
+		if (ImprovedTube.storage.shortcuts_volume_right_click_wheel === true && event.buttons & 2) return;
+
 	const player = ImprovedTube.elements.player;
 	if (!player) return;
 
@@ -410,6 +413,83 @@ ImprovedTube.shortcutIncreaseVolume = function (decrease) {
 ImprovedTube.shortcutDecreaseVolume = function () {
 	ImprovedTube.shortcutIncreaseVolume(true);
 };
+/*------------------------------------------------------------------------------
+4.7.14B VOLUME: HOLD RIGHT MOUSE BUTTON + SCROLL WHEEL
+------------------------------------------------------------------------------*/
+ImprovedTube.shortcutsVolumeRightClickWheel = function () {
+	for (const [name, handler] of Object.entries(this.shortcutsVolumeRightClickWheelListeners)) {
+		window.removeEventListener(name, handler, {capture: true});
+		if (this.storage.shortcuts_volume_right_click_wheel === true) {
+			window.addEventListener(name, handler, {passive: false, capture: true});
+		}
+	}
+};
+
+ImprovedTube.shortcutsVolumeRightClickWheelListeners = (function () {
+	let held = false, // right mouse button is down
+		used = false, // volume was changed during the current press
+		deferred = null; // 'contextmenu' event held back until the button is released
+
+	function overPlayer (event) {
+		const player = (document.documentElement.dataset.pageType === 'shorts') ? ImprovedTube.elements.shorts_player : ImprovedTube.elements.player;
+
+		return Boolean(player && player.contains(event.target));
+	}
+
+	function cancel (event) {
+		event.preventDefault();
+		event.stopPropagation();
+	}
+
+	return {
+		mousedown: function (event) {
+			if (event.button !== 2) return;
+
+			held = true;
+			used = false;
+			deferred = null;
+		},
+		wheel: function (event) {
+			if (!(event.buttons & 2) || !event.deltaY || !overPlayer(event)) return;
+
+			cancel(event);
+			used = true;
+
+			if (event.deltaY < 0) {
+				ImprovedTube.shortcutIncreaseVolume();
+			} else {
+				ImprovedTube.shortcutDecreaseVolume();
+			}
+		},
+		// Windows fires 'contextmenu' after 'mouseup', Linux and macOS fire it right after 'mousedown'
+		contextmenu: function (event) {
+			if (!event.isTrusted || event.button !== 2) return;
+
+			if (used) {
+				cancel(event);
+			} else if (held && overPlayer(event)) {
+				// button is still down, the user might scroll: hold the menu back until 'mouseup'
+				cancel(event);
+				deferred = event;
+			}
+		},
+		mouseup: function (event) {
+			if (event.button !== 2) return;
+
+			held = false;
+
+			if (deferred && !used) {
+				const contextmenu = deferred;
+
+				// replay after 'mouseup' has finished, the same order Windows uses
+				setTimeout(function () {
+					contextmenu.target.dispatchEvent(new MouseEvent('contextmenu', contextmenu));
+				});
+			}
+			deferred = null;
+		}
+	};
+})();
 /*------------------------------------------------------------------------------
 4.7.15 SCREENSHOT
 ------------------------------------------------------------------------------*/
