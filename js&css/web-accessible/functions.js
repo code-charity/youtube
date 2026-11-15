@@ -845,7 +845,7 @@ ImprovedTube.createPlayerButton = function (options) {
 
 ImprovedTube.empty = function (element) { for (var i = element.childNodes.length - 1; i > -1; i--) { element.childNodes[i].remove(); } };
 ImprovedTube.isset = function (variable) { return !(typeof variable === 'undefined' || variable === null || variable === 'null'); };
-ImprovedTube.showStatus = function (value) {
+ImprovedTube.showStatus = function (value, type = '', duration = 500) {
 	if (!this.elements.status) {
 		this.elements.status = document.createElement('div');
 
@@ -857,12 +857,15 @@ ImprovedTube.showStatus = function (value) {
 	}
 
 	this.elements.status.textContent = value;
+	// styles.css: #it-status[data-type="..."]
+	this.elements.status.dataset.type = type;
+	this.elements.status.style.animationDuration = duration + 'ms';
 
 	if (ImprovedTube.status_timer) {
 		clearTimeout(ImprovedTube.status_timer);
 	}
 
-	ImprovedTube.status_timer = setTimeout(function () { ImprovedTube.elements.status.remove(); }, 500);
+	ImprovedTube.status_timer = setTimeout(function () { ImprovedTube.elements.status.remove(); }, duration);
 
 	const player = (document.documentElement.dataset.pageType === 'shorts') ? this.elements.shorts_player : this.elements.player;
 	player.appendChild(this.elements.status);

@@ -405,7 +405,7 @@ ImprovedTube.shortcutIncreaseVolume = function (decrease) {
 
 	sessionStorage['yt-player-volume'] = localStorage['yt-player-volume'];
 
-	this.showStatus(player.getVolume());
+	this.showStatus(String(Math.round(player.getVolume())), 'volume', 1000);
 };
 /*------------------------------------------------------------------------------
 4.7.14 DECREASE VOLUME

@@ -2,6 +2,9 @@
 // to change the volume (menu: Shortcuts > Volume). The amount per wheel notch is
 // the existing "Step" slider (shortcuts_volume_step).
 //
+// The volume is shown as a whole number, white on 20% black, horizontally centered and 3/4 of
+// the way up the player, fading out within one second.
+//
 // The context menu must not pop up when the gesture was used. Browsers disagree
 // on when 'contextmenu' fires: Windows fires it after 'mouseup', Linux and macOS
 // fire it right after 'mousedown'. Both orders are covered below.
@@ -12,6 +15,8 @@ const vm = require('vm');
 
 const ROOT = path.join(__dirname, '../..');
 const SHORTCUTS_SRC = path.join(ROOT, 'js&css/web-accessible/www.youtube.com/shortcuts.js');
+const FUNCTIONS_SRC = path.join(ROOT, 'js&css/web-accessible/functions.js');
+const STYLES_SRC = path.join(ROOT, 'js&css/extension/www.youtube.com/styles.css');
 
 // Minimal event target: keeps listeners per event name and hands them plain objects.
 function makeTarget (sandbox) {
@@ -114,6 +119,27 @@ function load (storage) {
 		getVolume: () => volume,
 		runTimers: () => { while (timers.length) timers.shift()(); }
 	};
+}
+
+// Load the real showStatus() from functions.js with stand-ins for the DOM and timers.
+function loadShowStatus () {
+	const timers = [],
+		cleared = [],
+		status = { dataset: {}, style: {}, remove: jest.fn() },
+		player = { appendChild: jest.fn() },
+		improvedTube = { storage: {}, elements: { player } },
+		sandbox = {
+			ImprovedTube: improvedTube,
+			console,
+			document: { createElement: () => status, documentElement: { dataset: { pageType: 'video' } } },
+			setTimeout: (callback, delay) => timers.push({ callback, delay }),
+			clearTimeout: id => cleared.push(id)
+		};
+
+	vm.createContext(sandbox);
+	vm.runInContext(fs.readFileSync(FUNCTIONS_SRC, 'utf8'), sandbox);
+
+	return { improvedTube, status, player, timers, cleared };
 }
 
 const ENABLED = { shortcuts_volume_right_click_wheel: true };
@@ -319,6 +345,90 @@ describe('Volume: hold right mouse button + scroll wheel', () => {
 
 		const contextmenu = fire('contextmenu', { button: 0, buttons: 0 });
 		expect(contextmenu.preventDefault).not.toHaveBeenCalled();
+	});
+
+	describe('volume text', () => {
+		test('shown as a whole number, as the "volume" status, for one second', () => {
+			const { improvedTube, fire } = load({ ...ENABLED });
+
+			fire('mousedown');
+			fire('wheel', { deltaY: -100 });
+			expect(improvedTube.showStatus).toHaveBeenLastCalledWith('55', 'volume', 1000);
+		});
+
+		test('a fractional volume is rounded, never shown with decimals', () => {
+			const { improvedTube, fire, getVolume } = load({ ...ENABLED, shortcuts_volume_step: 2.5 });
+
+			fire('mousedown');
+			fire('wheel', { deltaY: -100 });
+			expect(getVolume()).toBe(52.5);
+			expect(improvedTube.showStatus).toHaveBeenLastCalledWith('53', 'volume', 1000);
+		});
+
+		test('showStatus marks the element for the stylesheet and removes it after the given time', () => {
+			const { improvedTube, status, player, timers } = loadShowStatus();
+
+			improvedTube.showStatus('55', 'volume', 1000);
+
+			expect(status.id).toBe('it-status');
+			expect(status.textContent).toBe('55');
+			expect(status.dataset.type).toBe('volume');
+			expect(status.style.animationDuration).toBe('1000ms');
+			expect(player.appendChild).toHaveBeenCalledWith(status);
+			expect(timers).toHaveLength(1);
+			expect(timers[0].delay).toBe(1000);
+
+			expect(status.remove).not.toHaveBeenCalled();
+			timers[0].callback();
+			expect(status.remove).toHaveBeenCalledTimes(1);
+		});
+
+		test('every new volume change restarts the one second', () => {
+			const { improvedTube, timers, cleared } = loadShowStatus();
+
+			improvedTube.showStatus('55', 'volume', 1000);
+			improvedTube.showStatus('60', 'volume', 1000);
+
+			expect(cleared).toEqual([improvedTube.status_timer - 1]);
+			expect(timers.map(timer => timer.delay)).toEqual([1000, 1000]);
+		});
+
+		test('the other status texts are unchanged (two decimals, 500 ms, no volume styling)', () => {
+			const { improvedTube, status, timers } = loadShowStatus();
+
+			improvedTube.showStatus('55', 'volume', 1000);
+			improvedTube.showStatus(1.5);
+
+			expect(status.textContent).toBe('1.50');
+			expect(status.dataset.type).toBe('');
+			expect(timers[1].delay).toBe(500);
+		});
+
+		test('stylesheet: 30px (other status texts: 40px), white on 20% black, horizontally centered, 3/4 of the way up, fading out', () => {
+			const styles = fs.readFileSync(STYLES_SRC, 'utf8'),
+				rule = styles.match(/#it-status\[data-type="volume"\] \{([^}]*)\}/)[1],
+				declarations = Object.fromEntries(rule.split(';').map(d => d.split(':').map(part => part.trim())).filter(d => d.length === 2)),
+				base = styles.match(/#it-status \{([^}]*)\}/)[1];
+
+			expect(base).toContain('font-size: 40px;');
+
+			expect(declarations).toEqual({
+				'font-size': '30px',
+				'top': '25%',
+				'right': 'auto',
+				'left': '50%',
+				'transform': 'translate(-50%, -50%)',
+				'padding': '4px 12px',
+				'border-radius': '4px',
+				'color': '#fff',
+				'background': 'rgba(0, 0, 0, .2)',
+				'pointer-events': 'none',
+				'animation-name': 'it-status-fade',
+				'animation-timing-function': 'ease-in',
+				'animation-fill-mode': 'forwards'
+			});
+			expect(styles).toMatch(/@keyframes it-status-fade \{\s*to \{\s*opacity: 0;\s*\}\s*\}/);
+		});
 	});
 
 	describe('wiring', () => {
