@@ -279,7 +279,7 @@ html[it-related-videos='collapsed'] #related > ytd-watch-next-secondary-results-
 	height: 48px !important;
 	margin: 0 !important;
 
-	color: var(--yt-spec-text-primary) !important;
+	color: var(--yt-spec-text-primary, var(--yt-sys-color-baseline--text-primary)) !important;
 	border-bottom: 1px solid var(--yt-spec-10-percent-layer) !important;
 
 	justify-content: center !important;
