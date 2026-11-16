@@ -19,11 +19,12 @@ ImprovedTube.shortcutsInit = function () {
 		// camelCase(name)
 		const camelName = name.replace(/_(.)/g, (m, l) => l.toUpperCase());
 		let potentialShortcut = {};
-		for (const button of ['alt', 'ctrl', 'shift', 'wheel', 'keys', 'toggle']) {
+		for (const button of ['alt', 'ctrl', 'shift', 'context', 'wheel', 'keys', 'toggle']) {
 			switch (button) {
 				case 'alt':
 				case 'ctrl':
 				case 'shift':
+				case 'context':
 				case 'toggle':
 					potentialShortcut[button] = keys[button] || false;
 					break
@@ -85,6 +86,7 @@ ImprovedTube.shortcutsHandler = function () {
 	check: for (const [key, shortcut] of Object.entries(ImprovedTube.input.listening)) {
 		if (ImprovedTube.input.pressed.keys.size != shortcut.keys.size
 			|| ImprovedTube.input.pressed.wheel != shortcut.wheel
+			|| ImprovedTube.input.pressed.context != shortcut.context
 			|| ImprovedTube.input.pressed.alt != shortcut.alt
 			|| ImprovedTube.input.pressed.ctrl != shortcut.ctrl
 			|| ImprovedTube.input.pressed.shift != shortcut.shift) continue;
@@ -101,6 +103,8 @@ ImprovedTube.shortcutsHandler = function () {
 		for (const pressedKey of ImprovedTube.input.pressed.keys.values()) {
 			ImprovedTube.input.cancelled.add(pressedKey);
 		}
+		// no context menu after a shortcut that uses the right mouse button
+		if (shortcut.context) ImprovedTube.input.rightButton.used = true;
 
 		if (key.startsWith('shortcutQuality')) {
 			ImprovedTube['shortcutQuality'](key);
@@ -122,6 +126,7 @@ ImprovedTube.shortcutsListeners = {
 			ImprovedTube.input.pressed.keys.add(event.keyCode);
 		}
 		ImprovedTube.input.pressed.wheel = 0;
+		ImprovedTube.input.pressed.context = false;
 		ImprovedTube.input.pressed.alt = event.altKey;
 		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
 		ImprovedTube.input.pressed.shift = event.shiftKey;
@@ -131,6 +136,7 @@ ImprovedTube.shortcutsListeners = {
 	keyup: function (event) {
 		ImprovedTube.input.pressed.keys.delete(event.keyCode);
 		ImprovedTube.input.pressed.wheel = 0;
+		ImprovedTube.input.pressed.context = false;
 		ImprovedTube.input.pressed.alt = event.altKey;
 		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
 		ImprovedTube.input.pressed.shift = event.shiftKey;
@@ -155,15 +161,62 @@ ImprovedTube.shortcutsListeners = {
 	) return;
 
 	ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
+		ImprovedTube.input.pressed.context = (event.buttons & 2) === 2;
 	ImprovedTube.input.pressed.alt = event.altKey;
 	ImprovedTube.input.pressed.ctrl = event.ctrlKey;
 	ImprovedTube.input.pressed.shift = event.shiftKey;
 
 	ImprovedTube.shortcutsHandler();
 },
+	// Right mouse button as part of a shortcut (hold it + wheel): its context menu must not show up afterwards.
+	// Windows fires 'contextmenu' after 'mouseup', Linux and macOS fire it right after 'mousedown'.
+	mousedown: function (event) {
+		if (event.button !== 2) return;
+
+		const rightButton = ImprovedTube.input.rightButton;
+
+		rightButton.held = true;
+		rightButton.used = false;
+		rightButton.contextmenu = null;
+	},
+	contextmenu: function (event) {
+		if (!event.isTrusted || event.button !== 2) return;
+
+		const rightButton = ImprovedTube.input.rightButton;
+
+		if (rightButton.used) {
+			event.preventDefault();
+			event.stopPropagation();
+		} else if (rightButton.held
+			&& ImprovedTube.elements.player?.contains(event.target)
+			&& Object.values(ImprovedTube.input.listening).some(shortcut => shortcut.context)) {
+			// button is still down, a shortcut might follow: hold the menu back until 'mouseup'
+			event.preventDefault();
+			event.stopPropagation();
+			rightButton.contextmenu = event;
+		}
+	},
+	mouseup: function (event) {
+		if (event.button !== 2) return;
+
+		const rightButton = ImprovedTube.input.rightButton;
+
+		rightButton.held = false;
+
+		if (rightButton.contextmenu && !rightButton.used) {
+			const contextmenu = rightButton.contextmenu;
+
+			// replay after 'mouseup' has finished, the same order Windows uses
+			setTimeout(function () {
+				contextmenu.target.dispatchEvent(new MouseEvent('contextmenu', contextmenu));
+			});
+		}
+		rightButton.contextmenu = null;
+	},
 	'improvedtube-blur': function () {
 		ImprovedTube.input.pressed.keys.clear();
 		ImprovedTube.input.pressed.wheel = 0
+		ImprovedTube.input.pressed.context = false;
 		ImprovedTube.input.pressed.alt = false;
 		ImprovedTube.input.pressed.ctrl = false;
 		ImprovedTube.input.pressed.shift = false;
@@ -402,7 +455,7 @@ ImprovedTube.shortcutIncreaseVolume = function (decrease) {
 
 	sessionStorage['yt-player-volume'] = localStorage['yt-player-volume'];
 
-	this.showStatus(player.getVolume());
+	this.showStatus(String(Math.round(player.getVolume())), 'volume', 1000);
 };
 /*------------------------------------------------------------------------------
 4.7.14 DECREASE VOLUME

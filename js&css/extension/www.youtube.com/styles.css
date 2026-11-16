@@ -351,6 +351,29 @@ html[it-channel-hide-featured-content=true] #secondary ytd-browse-secondary-cont
 	z-index: 3000;
 }
 
+/* volume: horizontally centered, 3/4 of the way up, fades out (duration is set by showStatus) */
+#it-status[data-type="volume"] {
+	font-size: 30px;
+	top: 25%;
+	right: auto;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 4px 12px;
+	border-radius: 4px;
+	color: #fff;
+	background: rgba(0, 0, 0, .2);
+	pointer-events: none;
+	animation-name: it-status-fade;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+@keyframes it-status-fade {
+	to {
+		opacity: 0;
+	}
+}
+
 
 /*------------------------------------------------------------------------------
 8.0 SETTINGS
