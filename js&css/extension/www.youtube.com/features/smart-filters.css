@@ -1,0 +1,9 @@
+/* Smart filters hide rows with a class so the rules survive page changes. */
+
+.it-smart-hidden {
+	display: none !important;
+}
+
+body.it-smart-show .it-smart-hidden {
+	display: block !important;
+}

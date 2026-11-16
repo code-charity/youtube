@@ -1943,6 +1943,35 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "subtitleDownload": {
+    "message": "Subtitle download"
+  },
+  "downloadSubtitles": {
+    "message": "Download the loaded transcript as SRT, VTT or TXT"
+  },
+  "smartFilters": {
+    "message": "Smart filters"
+  },
+  "smartFiltersEnable": {
+    "message": "Filter browse rows"
+  },
+  "smartFilterKeywords": {
+    "message": "Hide titles containing (comma separated)"
+  },
+  "smartFilterDuration": {
+    "message": "Hide videos by length"
+  },
+  "anyDuration": {
+    "message": "Any duration"
+  },
+  "underFourMinutes": {
+    "message": "Under 4 minutes"
+  },
+  "fourToTwentyMinutes": {
+    "message": "4 to 20 minutes"
+  },
+  "overTwentyMinutes": {
+    "message": "Over 20 minutes"
   }
 }
-
