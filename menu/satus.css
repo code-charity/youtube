@@ -10,30 +10,6 @@
     margin-top: 0 !important;
 }
 
-/* Home screen, layout "list". (Layout "bubbles" is an even grid: styles/home.css) */
-div[home-style="list"] .satus-button--general, div[home-style="list"] .satus-button--appearance, div[home-style="list"] .satus-button--player {
-	margin-left: 9px !important;
-	margin-right: -18px !important;
-	max-width: 272px !important;
-}
-div[home-style="list"] .satus-button--themes, div[home-style="list"] .satus-button--playlist,div[home-style="list"]  .satus-button--channel, div[home-style="list"] .satus-button--shortcuts {
-	transform: scale(0.92);
-	margin-bottom: -17px !important;
-	margin-left:3px !important;
-	margin-right: -28px !important;
-	max-width: 197px !important;
-	margin-top:2px !important;
-}
-div[home-style="list"] .satus-button--blocklist, div[home-style="list"] .satus-button--analyzer {
-	transform: scale(0.75);
-	margin-left: 165px !important;
-	margin-right: -150px !important;
-	max-width: 141px !important;
-	margin-top: -72px !important;
-}
-div[home-style="list"] .satus-button--analyzer {margin-top: -16px !important;}
-
-
 /*--------------------------------------------------------------
 # SCROLLBAR
 --------------------------------------------------------------*/

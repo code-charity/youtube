@@ -75,6 +75,13 @@
 	left: 2px;
 }
 
+/* layout "list": one column, rows of one size. Nine of them fit above the panel at the bottom of the popup */
+.satus-base[home-style='list'] .satus-section--card > :is(.satus-button--general, .satus-button--player, .satus-button--appearance, .satus-button--shortcuts, .satus-button--channel, .satus-button--playlist, .satus-button--themes, .satus-button--blocklist, .satus-button--analyzer) {
+	height: 30px;
+	min-height: 0;
+	padding: 0 12px;
+}
+
 .satus-base[home-style='list'] .satus-button--general > span:first-child,
 .satus-base[home-style='list'] .satus-button--appearance > span:first-child,
 .satus-base[home-style='list'] .satus-button--themes > span:first-child,
