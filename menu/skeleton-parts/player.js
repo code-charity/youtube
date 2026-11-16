@@ -111,6 +111,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'ambientLighting',
 			value: true
 		},
+		player_disable_animations: {
+			component: 'switch',
+			text: 'playerDisableAnimations',
+			tags: 'animation,animations,transition,transitions,motion,disable,performance,lag,slow,low end,menu,context menu,settings menu,tooltip'
+		},
 		video_filters: {
 			component: 'button',
 			text: 'videoFilters',

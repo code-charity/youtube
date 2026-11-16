@@ -1152,6 +1152,9 @@
   "playerColor": {
     "message": "Progress bar color"
   },
+  "playerDisableAnimations": {
+    "message": "Disable player animations"
+  },
   "playerIncreaseDecreaseSpeedButtons": {
     "message": "Increase/Decrease Speed buttons"
   },
