@@ -125,6 +125,14 @@ ImprovedTube.setTheme = function () {
 			this.elements.my_colors?.remove();
 			break
 
+		case 'none':
+			document.documentElement.removeAttribute('dark');
+			document.querySelector('ytd-masthead')?.removeAttribute('dark');
+			document.getElementById('cinematics')?.removeAttribute('style');
+			ImprovedTube.setPrefCookieValueByName('f6', null);
+			this.elements.my_colors?.remove();
+			break
+
 		case 'default':
 			document.getElementById('cinematics')?.removeAttribute('style');
 			this.elements.my_colors?.remove();
