@@ -2502,6 +2502,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			component: 'switch',
 			text: 'downloadTranscript',
 			value: false
+		},
+		transcript_video_info: {
+			component: 'switch',
+			text: 'transcriptVideoInfo',
+			value: false
 		}
 	}
 };

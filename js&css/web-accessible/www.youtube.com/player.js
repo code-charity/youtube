@@ -977,12 +977,92 @@ ImprovedTube.transcriptSegmentsToText = function (segments) {
 // one line per transcript line with its time, the way Download writes the file
 ImprovedTube.transcriptCopyText = function () {
 	var segments = ImprovedTube.readTranscriptSegments();
+	var text;
 	if (ImprovedTube.storage.copy_transcript_timestamps === true) {
-		return ImprovedTube.transcriptSegmentsToText(segments);
+		text = ImprovedTube.transcriptSegmentsToText(segments);
+	} else {
+		text = segments.map(function (segment) {
+			return segment.text;
+		}).join(' ');
 	}
-	return segments.map(function (segment) {
-		return segment.text;
-	}).join(' ');
+	return text && ImprovedTube.withTranscriptVideoInfo(text);
+};
+
+/*------------------------------------------------------------------------------
+TRANSCRIPT VIDEO INFO
+With "Add video info" on, Copy and Download put the video's title, channel, upload
+date, duration and link above the transcript, then an empty line.
+Read from the player's own data (no extra requests); a detail it doesn't have is left out.
+------------------------------------------------------------------------------*/
+ImprovedTube.withTranscriptVideoInfo = function (text) {
+	if (ImprovedTube.storage.transcript_video_info !== true) {
+		return text;
+	}
+	var info = ImprovedTube.transcriptVideoInfoText();
+	return info ? info + '\n\n' + text : text;
+};
+
+// The player's data for the video on the page; null while it still holds the previous video
+ImprovedTube.currentPlayerResponse = function (videoId) {
+	var response = document.querySelector('#movie_player')?.getPlayerResponse?.();
+	return response && response.videoDetails && response.videoDetails.videoId === videoId ? response : null;
+};
+
+ImprovedTube.transcriptVideoInfoText = function () {
+	var videoId = ImprovedTube.videoId();
+	var response = ImprovedTube.currentPlayerResponse(videoId) || {};
+	var details = response.videoDetails || {};
+	var microformat = (response.microformat && response.microformat.playerMicroformatRenderer) || {};
+	var channelUrl = microformat.ownerProfileUrl
+		? microformat.ownerProfileUrl.replace(/^http:/, 'https:')
+		: (details.channelId ? 'https://www.youtube.com/channel/' + details.channelId : '');
+	var lines = [
+		['Title', details.title || ImprovedTube.videoTitle()],
+		['Channel', details.author || microformat.ownerChannelName],
+		['Channel link', channelUrl],
+		['Uploaded', ImprovedTube.transcriptDateText(microformat.publishDate || microformat.uploadDate)],
+		['Duration', ImprovedTube.transcriptDurationText(details.lengthSeconds)],
+		['Link', videoId ? 'https://www.youtube.com/watch?v=' + videoId : '']
+	];
+	return lines.filter(function (line) {
+		return line[1];
+	}).map(function (line) {
+		return line[0] + ': ' + String(line[1]).trim();
+	}).join('\n');
+};
+
+// "2009-10-24T23:57:33-07:00" -> "2009-10-25 08:57 (UTC+02:00)" in the viewer's time zone;
+// a date without a time stays as it is
+ImprovedTube.transcriptDateText = function (value) {
+	if (!value) {
+		return '';
+	}
+	if (!/T\d/.test(value)) {
+		return value;
+	}
+	var date = new Date(value);
+	if (isNaN(date.getTime())) {
+		return value;
+	}
+	var pad = function (number) {
+		return String(number).padStart(2, '0');
+	};
+	var offset = -date.getTimezoneOffset();
+	return date.getFullYear() + '-' + pad(date.getMonth() + 1) + '-' + pad(date.getDate())
+		+ ' ' + pad(date.getHours()) + ':' + pad(date.getMinutes())
+		+ ' (UTC' + (offset < 0 ? '-' : '+') + pad(Math.floor(Math.abs(offset) / 60)) + ':' + pad(Math.abs(offset) % 60) + ')';
+};
+
+// 213 -> "3:33", 3753 -> "1:02:33"; nothing for live streams, which report 0
+ImprovedTube.transcriptDurationText = function (seconds) {
+	seconds = parseInt(seconds, 10);
+	if (!(seconds > 0)) {
+		return '';
+	}
+	var hours = Math.floor(seconds / 3600);
+	var minutes = Math.floor(seconds % 3600 / 60);
+	var rest = String(seconds % 60).padStart(2, '0');
+	return hours ? hours + ':' + String(minutes).padStart(2, '0') + ':' + rest : minutes + ':' + rest;
 };
 
 ImprovedTube.transcriptFileName = function (videoId, title) {
@@ -1127,7 +1207,7 @@ ImprovedTube.downloadTranscript = function (svg, button) {
 
 	ImprovedTube.getTranscriptSegments(function (segments, openedPanel) {
 		var a = document.createElement('a');
-		a.href = URL.createObjectURL(new Blob([ImprovedTube.transcriptSegmentsToText(segments)], {type: 'text/plain;charset=utf-8'}));
+		a.href = URL.createObjectURL(new Blob([ImprovedTube.withTranscriptVideoInfo(ImprovedTube.transcriptSegmentsToText(segments))], {type: 'text/plain;charset=utf-8'}));
 		a.download = ImprovedTube.transcriptFileName(ImprovedTube.videoId(), ImprovedTube.videoTitle());
 		a.click();
 		setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);

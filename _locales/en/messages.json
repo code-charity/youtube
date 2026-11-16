@@ -360,6 +360,9 @@
   "transcriptButtonsBelowPlayer": {
     "message": "Buttons below the player"
   },
+  "transcriptVideoInfo": {
+    "message": "Add video info at the top (Copy / Download)"
+  },
   "transcriptAlwaysExpanded": {
     "message": "Always expanded"
   },

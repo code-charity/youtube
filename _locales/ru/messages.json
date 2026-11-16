@@ -338,6 +338,9 @@
   "transcriptButtonsBelowPlayer": {
     "message": "Кнопки под проигрывателем"
   },
+  "transcriptVideoInfo": {
+    "message": "Добавлять сведения о видео в начало (копия / загрузка)"
+  },
   "transcriptAlwaysExpanded": {
     "message": "Всегда развёрнут"
   },

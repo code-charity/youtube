@@ -44,7 +44,8 @@ describe('Transcript menu', () => {
 			'toggle_transcript_button',
 			'copy_transcript',
 			'copy_transcript_timestamps',
-			'download_transcript'
+			'download_transcript',
+			'transcript_video_info'
 		]);
 		expect(card.buttons_below_player.component).toBe('span');
 		expect(card.buttons_below_player.text).toBe('transcriptButtonsBelowPlayer');
@@ -72,6 +73,7 @@ describe('Transcript menu', () => {
 		for (const locale of ['en', 'ru']) {
 			const messages = JSON.parse(fs.readFileSync(path.join(__dirname, '../../_locales', locale, 'messages.json'), 'utf8'));
 			expect(messages.transcriptButtonsBelowPlayer.message).toBeTruthy();
+			expect(messages.transcriptVideoInfo.message).toBeTruthy();
 			expect(messages.transcriptAlwaysExpandedSidebar.message).toBeTruthy();
 		}
 	});
