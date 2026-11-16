@@ -146,32 +146,239 @@ ImprovedTube.playerLiveHeadSpeedReset = function (event) {
 	ImprovedTube.showStatus(1);
 };
 /*------------------------------------------------------------------------------
+SMART CHANNEL & CATEGORY DETECTION (FORCED PLAYBACK SPEED OVERRIDES)
+Smart detection of the current video's channel and category, used to pick a
+per-rule playback speed that overrides the global default speed.
+Priority: channel rule > category rule > global default speed.
+Channel identity prefers the stable channel ID (immune to channel renames),
+with display name / @handle fallbacks so rules saved by name keep working.
+Category comes from YouTube's genre metadata (no API key needed).
+------------------------------------------------------------------------------*/
+ImprovedTube.currentVideoChannelIdentity = function (playerResponse) {
+	var id = '',
+		name = '',
+		handle = '';
+
+	function idFromUrl (url) {
+		if (typeof url !== 'string' || !url) return '';
+		var match = url.match(/(?:\/channel\/|\/c\/|\/@)([^/?&#]+)/);
+		return match ? decodeURIComponent(match[1]) : '';
+	}
+
+	try {
+		var details = playerResponse && playerResponse.videoDetails;
+		if (details && details.channelId) {
+			id = String(details.channelId);
+			if (details.author) name = String(details.author).trim();
+		}
+	} catch (error) {}
+
+	if (!id || !name) {
+		try {
+			var player = this.elements && this.elements.player;
+			var data = player && player.getVideoData ? player.getVideoData() : null;
+			if (data) {
+				if (!id && data.channelId) id = String(data.channelId);
+				if (!name && data.author) name = String(data.author).trim();
+			}
+		} catch (error) {}
+	}
+
+	var anchor = null;
+	try {
+		anchor = document.querySelector('ytd-watch-metadata #channel-name a[href], #owner-name a[href], .ytd-channel-name a[href], #upload-info .ytd-channel-name a[href], ytd-video-owner-renderer a[href]');
+	} catch (error) { anchor = null; }
+	if (anchor) {
+		var href = anchor.getAttribute ? anchor.getAttribute('href') : '';
+		var slug = idFromUrl(href);
+		if (slug) {
+			if (href.indexOf('/channel/') !== -1) {
+				if (!id) id = slug;
+			} else if (href.indexOf('/@') !== -1) {
+				handle = slug.charAt(0) === '@' ? slug : '@' + slug;
+			}
+		}
+		if (!name && anchor.textContent) name = anchor.textContent.trim();
+	}
+
+	if (!name) {
+		try {
+			var nameEl = document.querySelector('.ytd-channel-name, #upload-info .ytd-channel-name, ytd-video-owner-renderer #channel-name');
+			if (nameEl && nameEl.textContent) name = nameEl.textContent.trim();
+		} catch (error) {}
+	}
+	if (!name) {
+		try {
+			var metaAuthor = document.querySelector('meta[itemprop="author"]');
+			if (metaAuthor && metaAuthor.content) name = String(metaAuthor.content).trim();
+		} catch (error) {}
+	}
+	if (!id) {
+		try {
+			var metaId = document.querySelector('meta[itemprop="channelId"]');
+			if (metaId && metaId.content) id = String(metaId.content).trim();
+		} catch (error) {}
+	}
+
+	if (!id && !name) return null;
+	return {id: id, name: name, handle: handle};
+};
+/*------------------------------------------------------------------------------
+CURRENT VIDEO CATEGORY
+------------------------------------------------------------------------------*/
+ImprovedTube.currentVideoCategoryName = function (playerResponse) {
+	var genre = '';
+	try {
+		var meta = document.querySelector('meta[itemprop="genre"]');
+		if (meta && meta.content) genre = String(meta.content).trim();
+	} catch (error) {}
+	if (!genre) {
+		try {
+			var micro = document.querySelector('#microformat script');
+			if (micro && micro.textContent) genre = String(JSON.parse(micro.textContent).genre || '').trim();
+		} catch (error) {}
+	}
+	if (!genre) {
+		try {
+			var mf = playerResponse && playerResponse.microformat && playerResponse.microformat.playerMicroformatRenderer;
+			if (mf && mf.category) genre = String(mf.category).trim();
+		} catch (error) {}
+	}
+	if (!genre && this.category) genre = String(this.category).trim();
+	return genre || '';
+};
+/*------------------------------------------------------------------------------
+CURRENT VIDEO PLAYER RESPONSE (never throws, never fetches over network)
+------------------------------------------------------------------------------*/
+ImprovedTube.currentVideoPlayerResponse = function (videoId) {
+	try {
+		var player = this.elements && this.elements.player;
+		if (player && typeof player.getPlayerResponse === 'function') {
+			var resp = player.getPlayerResponse();
+			if (resp && (!videoId || !resp.videoDetails || !resp.videoDetails.videoId || resp.videoDetails.videoId === videoId)) return resp;
+		}
+	} catch (error) {}
+	try {
+		if (typeof window !== 'undefined' && window.ytInitialPlayerResponse) {
+			var initial = window.ytInitialPlayerResponse;
+			if (!videoId || !initial.videoDetails || !initial.videoDetails.videoId || initial.videoDetails.videoId === videoId) return initial;
+		}
+	} catch (error) {}
+	return null;
+};
+/*------------------------------------------------------------------------------
+NORMALIZE A STORED SPEED VALUE (null = unusable)
+------------------------------------------------------------------------------*/
+ImprovedTube.normalizePlaybackSpeedOption = function (value) {
+	var speed = Number(value);
+	if (!isFinite(speed) || speed <= 0) return null;
+	if (speed > 16) speed = 16;
+	if (speed < 0.0625) speed = 0.0625;
+	return speed;
+};
+/*------------------------------------------------------------------------------
+RESOLVE FORCED PLAYBACK SPEED: channel rule > category rule > global default.
+Returns {speed, source: {type: 'channel'|'category'|'default', key}}.
+------------------------------------------------------------------------------*/
+ImprovedTube.resolveForcedPlaybackSpeed = function () {
+	var videoId = null;
+	try { videoId = this.videoId ? this.videoId() : null; } catch (error) {}
+	var playerResponse = null;
+	try { playerResponse = this.currentVideoPlayerResponse ? this.currentVideoPlayerResponse(videoId) : null; } catch (error) {}
+
+	var identity = null;
+	try { identity = this.currentVideoChannelIdentity ? this.currentVideoChannelIdentity(playerResponse) : null; } catch (error) {}
+	var category = '';
+	try { category = this.currentVideoCategoryName ? this.currentVideoCategoryName(playerResponse) : ''; } catch (error) {}
+
+	var channelSpeeds = (this.storage && typeof this.storage.channel_playback_speeds === 'object' && this.storage.channel_playback_speeds !== null) ? this.storage.channel_playback_speeds : {};
+	var categorySpeeds = (this.storage && typeof this.storage.category_playback_speeds === 'object' && this.storage.category_playback_speeds !== null) ? this.storage.category_playback_speeds : {};
+
+	function lookup (table, keys) {
+		var i, key;
+		for (i = 0; i < keys.length; i++) {
+			key = keys[i];
+			if (!key) continue;
+			if (Object.prototype.hasOwnProperty.call(table, key)) {
+				var speed = ImprovedTube.normalizePlaybackSpeedOption(table[key]);
+				if (speed !== null) return {speed: speed, key: key};
+			}
+		}
+		// case-insensitive fallback for hand-typed names
+		for (var stored in table) {
+			if (!Object.prototype.hasOwnProperty.call(table, stored)) continue;
+			for (i = 0; i < keys.length; i++) {
+				key = keys[i];
+				if (key && String(stored).toLowerCase() === String(key).toLowerCase()) {
+					var fallback = ImprovedTube.normalizePlaybackSpeedOption(table[stored]);
+					if (fallback !== null) return {speed: fallback, key: stored};
+				}
+			}
+		}
+		return null;
+	}
+
+	if (identity) {
+		var channelKeys = [];
+		if (identity.id) channelKeys.push('channel:' + identity.id);
+		if (identity.name) {
+			channelKeys.push(identity.name);
+			channelKeys.push('name:' + identity.name);
+		}
+		if (identity.handle) {
+			channelKeys.push(identity.handle);
+			channelKeys.push('name:' + identity.handle);
+		}
+		var channelMatch = lookup(channelSpeeds, channelKeys);
+		if (channelMatch) return {speed: channelMatch.speed, source: {type: 'channel', key: channelMatch.key}};
+	}
+
+	if (category) {
+		var categoryMatch = lookup(categorySpeeds, ['category:' + category, category]);
+		if (categoryMatch) return {speed: categoryMatch.speed, source: {type: 'category', key: categoryMatch.key}};
+	}
+
+	var fallbackSpeed = this.normalizePlaybackSpeedOption(this.storage && this.storage.player_playback_speed);
+	return {speed: fallbackSpeed === null ? 1 : fallbackSpeed, source: {type: 'default', key: ''}};
+};
+/*------------------------------------------------------------------------------
 PERMANENT PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
 	var player = this.elements.player; if (!player) return;
 	var video = this.elements.video || player.querySelector('video');
 	
-	// Check for channel-specific playback speed
-	var channelNameEl = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
-	var channelName = channelNameEl ? channelNameEl.textContent.trim() : '';
-	var channelSpeeds = this.storage.channel_playback_speeds || {};
-	
-	// Use channel-specific speed if available, otherwise use global speed
-	if (channelName && channelSpeeds[channelName] && typeof channelSpeeds[channelName] === 'number') {
-		option = channelSpeeds[channelName];
-	} else {
-		option = this.storage.player_playback_speed;
+	// Channel header and genre metadata often render after the player is
+	// ready (or still show the previous video right after SPA navigation),
+	// so re-resolve once shortly after each navigation. The manual-speed
+	// guard below keeps a re-resolve from ever overriding the viewer.
+	if (this._speedRecheckFor !== location.href) {
+		this._speedRecheckFor = location.href;
+		var recheckUrl = location.href;
+		var self = this;
+		setTimeout(function () {
+			if (location.href !== recheckUrl || self.storage.player_forced_playback_speed !== true) return;
+			self.playerPlaybackSpeed();
+		}, 1200);
 	}
+	
+	// Smart detection: a per-channel or per-category rule overrides the global default speed.
+	var resolvedSpeed = this.resolveForcedPlaybackSpeed();
+	var option = resolvedSpeed.speed;
+	var speedSource = resolvedSpeed.source;
 	
 	if (this.isset(option) === false) { option = 1; }
 	else if ( option !== 1 ) {
-		const speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
-		 if (speed !== option && speed !== 1 && speed !== Number((Math.floor(option / 0.05) * 0.05).toFixed(2)))
-		   { console.log("skipping permanent speed, since speed was manually set differently for this video to:" + video.playbackRate + ", was it?"); return; }
+		var currentRate = video && video.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
+		var lastApplied = (this._appliedForcedSpeedFor === location.href) ? this._appliedForcedSpeed : null;
+		 if (currentRate !== option && currentRate !== 1 && currentRate !== Number((Math.floor(option / 0.05) * 0.05).toFixed(2)) && currentRate !== lastApplied)
+		   { console.log('ImprovedTube: skipping permanent speed (' + speedSource.type + (speedSource.key ? ' rule "' + speedSource.key + '"' : ' default') + ' ' + option + '), since speed was manually set differently for this video to: ' + (video && video.playbackRate)); return; }
 	}
-	if (!(player.getVideoData() && player.getVideoData().isLive))
-	{ player.setPlaybackRate(Number(option)); if (!video) { video = { playbackRate: 1 }; };	video.playbackRate = Number(option); // #1729 q2 // hi! @raszpl
+	var videoData = (player.getVideoData && player.getVideoData()) || {};
+	if (!videoData.isLive)
+	{ if (player.setPlaybackRate) { player.setPlaybackRate(Number(option)); } if (!video) { video = { playbackRate: 1 }; }	video.playbackRate = Number(option); // #1729 q2 // hi! @raszpl
+		this._appliedForcedSpeed = Number(option);
+		this._appliedForcedSpeedFor = location.href;
 		if ( (this.storage.player_force_speed_on_music !== true || this.storage.player_dont_speed_education === true)
 		 	&& option !== 1) {
 			ImprovedTube.speedException = function () {
