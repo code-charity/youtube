@@ -830,16 +830,37 @@ ImprovedTube.playerLoudnessNormalization = function () {
 /*------------------------------------------------------------------------------
 SCREENSHOT
 ------------------------------------------------------------------------------*/
+// Shared by the manual screenshot button and the watching diary. Returns a
+// canvas with the current player frame (optionally downscaled), or null.
+ImprovedTube.captureFrame = function (options) {
+	options = options && typeof options === 'object' ? options : {};
+
+	const video = ImprovedTube.elements.video;
+
+	if (!video || !video.videoWidth || !video.videoHeight) {
+		return null;
+	}
+
+	const maxWidth = Number(options.maxWidth) || 0,
+		scale = maxWidth > 0 ? Math.min(1, maxWidth / video.videoWidth) : 1,
+		cvs = document.createElement('canvas');
+
+	cvs.width = Math.max(1, Math.round(video.videoWidth * scale));
+	cvs.height = Math.max(1, Math.round(video.videoHeight * scale));
+	cvs.getContext('2d').drawImage(video, 0, 0, cvs.width, cvs.height);
+
+	return cvs;
+};
+
 ImprovedTube.screenshot = function () {
-	const video = ImprovedTube.elements.video,
-		cvs = document.createElement('canvas'),
-		ctx = cvs.getContext('2d');
+	const cvs = ImprovedTube.captureFrame();
 	let subText = '';
 
-	cvs.width = video.videoWidth;
-	cvs.height = video.videoHeight;
+	if (!cvs) {
+		return;
+	}
 
-	ctx.drawImage(video, 0, 0, cvs.width, cvs.height);
+	const ctx = cvs.getContext('2d');
 
 	if (ImprovedTube.storage.embed_subtitle != false) {
 		let captionElements = document.querySelectorAll('.captions-text .ytp-caption-segment');
