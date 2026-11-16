@@ -438,16 +438,23 @@ ImprovedTube.playerOnPlay = function () {
 					 if (player && (!ImprovedTube.user_interacted || ImprovedTube.video_url !== location.href)
 						 && !player.classList.contains('ad-showing') // (=no ads playing, needs an update?)
 						 ){
+						 // #1461: pause the intercepted HTML5 element before the player
+						 // API. pauseVideo() is latent enough to write a watch-history
+						 // entry; HTMLMediaElement.pause() is not.
+						 const video = this;
 						 if (!ImprovedTube.user_interacted) {  // (=user didnt click or type)
-							 try { player.pauseVideo(); } catch (error) { this.pause(); }
+							 try { video.pause(); } catch (error) {}
+							 try { player.pauseVideo(); } catch (error) { video.pause(); }
 							 return Promise.resolve();
 						 } else {
 							 if (!ImprovedTube._autoplayTimeout) {
 								 ImprovedTube._autoplayTimeout =
 									 setTimeout(() => {
 										 if (!ImprovedTube.user_interacted) {
-										 try { player.pauseVideo(); } catch (error) { this.pause(); }
-										 } ImprovedTube._autoplayTimeout = null;
+											 try { video.pause(); } catch (error) {}
+											 try { player.pauseVideo(); } catch (error) { video.pause(); }
+										 }
+										 ImprovedTube._autoplayTimeout = null;
 									 }, 100);
 							 }
 						 }
