@@ -1943,6 +1943,11 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "playlistFilter": {
+    "message": "Playlist row filter"
+  },
+  "playlistFilterCard": {
+    "message": "Filter rows as you type"
   }
 }
-
