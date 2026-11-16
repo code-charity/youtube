@@ -2189,6 +2189,19 @@ satus.components.shortcut = function (component, skeleton) {
 			}
 		}
 
+		if (this.data.context) {
+			if (children.length && children[children.length - 1].className.indexOf('plus') === -1) {
+				createElement('plus');
+			}
+
+			let mouse = createElement('mouse'),
+				div = document.createElement('div');
+
+			mouse.appendChild(div);
+
+			mouse.className += ' context';
+		}
+
 		if (this.data.wheel) {
 			if (children.length && children[children.length - 1].className.indexOf('plus') === -1) {
 				createElement('plus');
@@ -2227,19 +2240,6 @@ satus.components.shortcut = function (component, skeleton) {
 
 			mouse.className += ' middle';
 		}
-
-		if (this.data.context) {
-			if (children.length && children[children.length - 1].className.indexOf('plus') === -1) {
-				createElement('plus');
-			}
-
-			let mouse = createElement('mouse'),
-				div = document.createElement('div');
-
-			mouse.appendChild(div);
-
-			mouse.className += ' context';
-		}
 	};
 
 	component.keydown = function (event) {
@@ -2261,6 +2261,7 @@ satus.components.shortcut = function (component, skeleton) {
 		}
 
 		component.data.wheel = 0;
+		component.pristine = false;
 
 		component.render();
 
@@ -2272,6 +2273,7 @@ satus.components.shortcut = function (component, skeleton) {
 			event.stopPropagation();
 
 			if (
+				component.pristine ||
 				(
 					component.data.wheel === 0 &&
 					(
@@ -2292,12 +2294,20 @@ satus.components.shortcut = function (component, skeleton) {
 			}
 
 			component.data.wheel = event.deltaY < 0 ? -1 : 1;
+			// right mouse button held while scrolling
+			component.data.context = (event.buttons & 2) === 2;
+			component.pristine = false;
 
 			component.render();
 
 			return false;
 		};
 	}
+
+	// the right mouse button can be part of a shortcut: no context menu while recording
+	component.contextmenu = function (event) {
+		event.preventDefault();
+	};
 
 	component.addEventListener('click', function () {
 		satus.render({
@@ -2310,6 +2320,7 @@ satus.components.shortcut = function (component, skeleton) {
 				close: function () {
 					window.removeEventListener('keydown', component.keydown);
 					window.removeEventListener('wheel', component.mousewheel);
+					window.removeEventListener('contextmenu', component.contextmenu);
 				}
 			},
 
@@ -2434,8 +2445,12 @@ satus.components.shortcut = function (component, skeleton) {
 			}
 		}, this.baseProvider);
 
+		// nothing recorded yet, the dialog shows the current shortcut
+		this.pristine = true;
+
 		window.addEventListener('keydown', this.keydown);
 		window.addEventListener('wheel', this.mousewheel);
+		window.addEventListener('contextmenu', this.contextmenu);
 	});
 
 	component.data = component.storage.value || {

@@ -66,7 +66,14 @@ var ImprovedTube = {
 			wheel: 0,
 			alt: false,
 			ctrl: false,
-			shift: false
+			shift: false,
+			context: false
+		},
+		// right mouse button: is it down, did it trigger a shortcut, 'contextmenu' event held back until it is released
+		rightButton: {
+			held: false,
+			used: false,
+			contextmenu: null
 		},
 		cancelled: new Set(),
 		ignoreElements: ['EMBED', 'INPUT', 'OBJECT', 'TEXTAREA', 'IFRAME'],

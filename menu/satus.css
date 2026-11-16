@@ -1741,6 +1741,10 @@ As our Syntax markup isnt read for <textarea>, is it?
 	background: #f96754;
 }
 
+.satus-shortcut__value>.satus-shortcut__mouse.context::before {
+	left: 11px;
+}
+
 .satus-section_shortcut {
 	width: 100%;
 	margin: 8px 0 0;

@@ -194,7 +194,6 @@ ImprovedTube.init = function () {
 	this.playerOnPlay();
 	this.playerSDR();
 	this.shortcutsInit();
-	this.shortcutsVolumeRightClickWheel();
 	this.onkeydown();
 	this.onmousedown();
 	this.youtubeLanguage();
