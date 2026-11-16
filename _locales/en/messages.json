@@ -1943,6 +1943,11 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "bookmarks": {
+    "message": "Bookmarks"
+  },
+  "bookmarksWithNotes": {
+    "message": "Bookmarks with notes (saved timestamps)"
   }
 }
-
