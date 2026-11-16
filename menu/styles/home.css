@@ -15,7 +15,7 @@
 	width: calc(100% / 3);
 	height: unset;
 	margin: 8px 0 0;
-	padding: 8px 0;
+	padding: 4px 0;
 }
 
 .satus-base:not([improvedtube-home='list'])[page] .satus-section--home .satus-button {
@@ -73,6 +73,13 @@
 .satus-button--player svg {
 	top: 1px;
 	left: 2px;
+}
+
+/* layout "list": one column, rows of one size. Nine of them fit above the panel at the bottom of the popup */
+.satus-base[home-style='list'] .satus-section--card > :is(.satus-button--general, .satus-button--player, .satus-button--appearance, .satus-button--shortcuts, .satus-button--channel, .satus-button--playlist, .satus-button--themes, .satus-button--blocklist, .satus-button--analyzer) {
+	height: 30px;
+	min-height: 0;
+	padding: 0 12px;
 }
 
 .satus-base[home-style='list'] .satus-button--general > span:first-child,
