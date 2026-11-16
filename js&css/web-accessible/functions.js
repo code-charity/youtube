@@ -301,7 +301,7 @@ ImprovedTube.ytElementsHandler = function (node) {
 			setTimeout(function () { ImprovedTube.expandDescription(node.querySelector('#more')); }, 200);
 			// } else if (id === 'below') { setTimeout(function () {}, 0);
 		} else if (id === 'panels') {
-			setTimeout(function () { ImprovedTube.transcript(node); ImprovedTube.chapters(node); ImprovedTube.elements.panels = node; }, 200);
+			setTimeout(function () { ImprovedTube.chapters(node); ImprovedTube.transcript(node); ImprovedTube.elements.panels = node; }, 200);
 		} /* else if (name === 'TP-YT-PAPER-BUTTON') {
 		if ( (id === 'expand-sizer' || id === 'expand') && node.parentNode.id === 'description-inline-expander') {
 			setTimeout(function () {
@@ -557,7 +557,7 @@ ImprovedTube.playerOnTimeUpdate = function () {
 ImprovedTube.playerOnLoadedMetadata = function () {
 	if (ImprovedTube.storage.player_watched_segments === true) {ImprovedTube.watchedSegments.init();}
 	setTimeout(function () { ImprovedTube.playerSize(); }, 100);
-	setTimeout(function () { if (ImprovedTube.elements.panels) { ImprovedTube.transcript(ImprovedTube.elements.panels); ImprovedTube.chapters(ImprovedTube.elements.panels); } }, 250);
+	setTimeout(function () { if (ImprovedTube.elements.panels) { ImprovedTube.chapters(ImprovedTube.elements.panels); ImprovedTube.transcript(ImprovedTube.elements.panels); } }, 250);
 };
 
 ImprovedTube.playerOnPause = function (event) {

@@ -348,8 +348,26 @@
   "copyTranscript": {
     "message": "📋 Copy Transcript"
   },
+  "copyTranscriptTimestamps": {
+    "message": "With timestamps, one line each"
+  },
   "downloadTranscript": {
     "message": "📜📥 Download Transcript (.txt)"
+  },
+  "toggleTranscriptButton": {
+    "message": "📜 Show / Hide Transcript"
+  },
+  "transcriptButtonsBelowPlayer": {
+    "message": "Buttons below the player"
+  },
+  "transcriptVideoInfo": {
+    "message": "Add video info at the top (Copy / Download)"
+  },
+  "transcriptAlwaysExpanded": {
+    "message": "Always expanded"
+  },
+  "transcriptAlwaysExpandedSidebar": {
+    "message": "Transcript: always expanded"
   },
   "FetchingTranscript": {
     "message": "Fetching..."

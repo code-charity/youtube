@@ -1096,11 +1096,12 @@ extension.skeleton.main.layers.section.appearance.on.click.sidebar = {
 				component: "switch",
 				text: "hideThumbnails"
 			},
+			// same settings as Player > Transcript > "Always expanded" / "Compact spacing", kept here where they used to be
 			transcript: {
 				component: 'switch',
-				text: 'Transcript',
+				text: 'transcriptAlwaysExpandedSidebar',
 				value: false,
-				id: 'transcript',
+				id: 'sidebar-transcript',
 				on: {
 					click: function () {
 						setTimeout(() => {

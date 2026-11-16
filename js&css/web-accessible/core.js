@@ -299,10 +299,9 @@ document.addEventListener('it-message-from-extension', function () {
 					break
 
 				case 'transcript':
-					if (ImprovedTube.storage.transcript === true) {
-						document.querySelector('*[target-id*=transcript]')?.removeAttribute('visibility');
-					} else if (ImprovedTube.storage.transcript === false) {
-						document.querySelector('*[target-id*=transcript] #visibility-button button')?.click();
+					// Switching it on is handled by ImprovedTube.transcript(), called after this switch
+					if (ImprovedTube.storage.transcript !== true) {
+						ImprovedTube.closeTranscriptPanel();
 					}
 					break
 
@@ -493,6 +492,15 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
 					} else {
 						document.querySelector('.improvedtube-player-button[data-tooltip="DownloadTranscript"]')?.remove();
+					}
+					break
+
+				case 'toggleTranscriptButton':
+					if (ImprovedTube.storage.toggle_transcript_button === true) {
+						document.querySelectorAll('.improvedtube-player-button').forEach(e => e.remove());
+						ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer();
+					} else {
+						document.querySelector('#it-below-player-toggle-transcript')?.remove();
 					}
 					break
 

@@ -329,6 +329,24 @@
   "copyTranscript": {
     "message": "📋 Копия текста видео"
   },
+  "copyTranscriptTimestamps": {
+    "message": "Со временем, каждая фраза с новой строки"
+  },
+  "toggleTranscriptButton": {
+    "message": "📜 Показать / скрыть текст видео"
+  },
+  "transcriptButtonsBelowPlayer": {
+    "message": "Кнопки под проигрывателем"
+  },
+  "transcriptVideoInfo": {
+    "message": "Добавлять сведения о видео в начало (копия / загрузка)"
+  },
+  "transcriptAlwaysExpanded": {
+    "message": "Всегда развёрнут"
+  },
+  "transcriptAlwaysExpandedSidebar": {
+    "message": "Текст видео: всегда развёрнут"
+  },
   "FetchingTranscript": {
     "message": "Готово..."
   },

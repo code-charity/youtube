@@ -56,7 +56,7 @@ describe('Download Transcript (#3316)', () => {
 			}
 		});
 		const withSegments = (segments) => {
-			const context = {ImprovedTube: {}, document: {querySelectorAll: () => segments}};
+			const context = {ImprovedTube: {transcriptSegmentElements: () => segments}};
 			vm.runInNewContext(
 				'ImprovedTube.readTranscriptSegments = ' + ImprovedTube.readTranscriptSegments.toString(),
 				context
@@ -84,8 +84,7 @@ describe('Download Transcript (#3316)', () => {
 		});
 
 		test('queries both the current and the older segment element', () => {
-			const player = read('js&css', 'web-accessible', 'www.youtube.com', 'player.js');
-			expect(player).toContain("querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model')");
+			expect(ImprovedTube.transcriptSegmentSelector).toBe('ytd-transcript-segment-renderer, transcript-segment-view-model');
 		});
 	});
 

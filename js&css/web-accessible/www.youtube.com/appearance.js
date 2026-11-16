@@ -512,9 +512,31 @@ ImprovedTube.hideTopProgressBar = function () {
 /*----------------------------------------------------------------
  TRANSCRIPT
 --------------------------------------------------------------*/
-ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript === true) {
-	const available = el.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || el.querySelector('[target-id*=transcript]')?.clientHeight;
-	if (available) {
+ImprovedTube.transcript = function (el) {
+	clearTimeout(ImprovedTube.transcriptRetry);
+	if (ImprovedTube.storage.transcript !== true) return;
+	el = el || document; // core.js calls it without the panels element when the option is switched on
+	var attempts = 0;
+	var retry = function () {
+		// YouTube barely renders in background tabs, so only count tries while the tab is visible
+		if (!document.hidden) attempts++;
+		if (attempts < 10) ImprovedTube.transcriptRetry = setTimeout(tryOpen, 600);
+	};
+	var tryOpen = function () {
+		var videoId = ImprovedTube.videoId();
+		// Right after SPA navigation the description (and its "Show transcript" button) still belongs to the
+		// previous video; clicking it would show that video's transcript
+		var metadata = document.querySelector('ytd-watch-metadata');
+		if (metadata && metadata.getAttribute('video-id') !== videoId) return retry();
+		// The player knows early whether the video has captions; without captions there is no transcript
+		var playerResponse = document.querySelector('#movie_player')?.getPlayerResponse?.();
+		if (playerResponse?.videoDetails?.videoId === videoId && !playerResponse.captions) return;
+		if (ImprovedTube.isTranscriptOpen()) return;
+		// Only the description's own button: the wider aria-label fallback also matches e.g. "Description"
+		var transcriptButton = document.querySelector('ytd-video-description-transcript-section-renderer button');
+		var panel = el.querySelector('[target-id*=transcript]');
+		// No transcript, or the description's "Show transcript" button isn't rendered yet
+		if (!transcriptButton && !panel) return retry();
 		if (!ImprovedTube.originalFocus) {ImprovedTube.originalFocus = HTMLElement.prototype.focus;}  // Backing up default method. Youtube doesn't use alternatives Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy)
 		ImprovedTube.forbidFocus =  function (ms) {
 			HTMLElement.prototype.focus = function() {console.log("Preventing YouTube's scripted scrolling for a moment."); }
@@ -522,15 +544,20 @@ ImprovedTube.transcript = function (el) { if (ImprovedTube.storage.transcript ==
 			setTimeout(function() { HTMLElement.prototype.focus = ImprovedTube.originalFocus; }, ms); 	// Restoring JS's "focus()"
 		}
 		ImprovedTube.forbidFocus(2100);
-		const descriptionTranscript = el.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
-		descriptionTranscript ? descriptionTranscript.click() : el.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
-		if ( yt.config_.EXPERIMENT_FLAGS.kevlar_watch_grid === true ) { available.setAttribute('z-index', '98765') }
-	}
-}};
+		// The button also opens the transcript tab of the "In this video" panel, which has no target-id of its own
+		transcriptButton ? transcriptButton.click() : panel.removeAttribute('visibility');
+		if (window.yt?.config_?.EXPERIMENT_FLAGS?.kevlar_watch_grid === true) {
+			setTimeout(function () { (ImprovedTube.findOpenTranscriptPanel() || panel)?.setAttribute('z-index', '98765'); }, 500);
+		}
+	};
+	tryOpen();
+};
 /*----------------------------------------------------------------
  CHAPTERS
 --------------------------------------------------------------*/
 ImprovedTube.chapters = function (el) { if (ImprovedTube.storage.chapters === true) {
+	// Chapters and transcript may be two tabs of the same "In this video" panel: keep the transcript
+	if (ImprovedTube.storage.transcript === true && ImprovedTube.isTranscriptOpen()) return;
 	const available = el.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || el.querySelector('[target-id*=chapters]')?.clientHeight;
 	if (available) {
 		if (!ImprovedTube.originalFocus) { ImprovedTube.originalFocus = HTMLElement.prototype.focus;}  // Backing up default method. Youtube doesn't use alternatives Element.prototype.scrollIntoView  window.scrollTo  window.scrollBy)
@@ -742,6 +769,32 @@ ImprovedTube.improvedtubeYoutubeButtonsUnderPlayer = function () {
 
 				button.onclick = function () {
 					ImprovedTube.downloadTranscript(svg, button);
+				};
+
+				svg.appendChild(path);
+				button.appendChild(svg);
+				section.insertAdjacentElement('afterend', button);
+			}
+
+			if (this.storage.toggle_transcript_button === true && !document.querySelector('#it-below-player-toggle-transcript')) {
+				const button = document.createElement('button'),
+					svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
+					path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+				button.className = 'improvedtube-player-button';
+				button.id = 'it-below-player-toggle-transcript';
+				button.dataset.tooltip = 'Transcript';
+				svg.style.opacity = '.5';
+				svg.setAttributeNS(null, 'viewBox', '0 0 24 24');
+				path.setAttributeNS(null, 'd', 'M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z');
+
+				button.onclick = function () {
+					ImprovedTube.toggleTranscriptPanel(function () {
+						button.dataset.tooltip = 'No transcript';
+						setTimeout(function () {
+							button.dataset.tooltip = 'Transcript';
+						}, 2000);
+					});
 				};
 
 				svg.appendChild(path);

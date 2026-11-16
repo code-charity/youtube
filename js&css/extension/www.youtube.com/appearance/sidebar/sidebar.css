@@ -105,6 +105,11 @@ html[data-page-type=video][it-transcript='true'] ytd-transcript-segment-renderer
 {margin-bottom:-5px !important; margin-top:-5px !important; font-size:1.24em !important;}
 html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'] ytd-transcript-segment-renderer *
 {margin-bottom:-4px !important; margin-top:-4px !important; }
+/* YouTube's current markup: each line sits in a timeline item with 8px padding (own panel or "In this video") */
+html[data-page-type=video][it-compactSpacing='true'] timeline-item-view-model:has(transcript-segment-view-model)
+{padding-top:2px !important; padding-bottom:2px !important;}
+html[data-page-type=video][it-compactSpacing='true'] transcript-segment-view-model
+{line-height:1.3 !important;}
 
 html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript'],
 html[data-page-type=video][it-compactSpacing='true'] *[target-id*='transcript']  ytd-engagement-panel-section-list-renderer #content {
