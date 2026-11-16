@@ -133,3 +133,15 @@ NIGHT MODE
 #activate[data-value='sunset_to_sunrise'] + * + .satus-time--to:not(:hover)
 /*====================================*/
 	{background-color:rgb(69,180,210,0.09);}
+
+/*--------------------------------------------------------------
+SUBHEADING INSIDE A CARD (e.g. Player > Transcript > Buttons below the player)
+--------------------------------------------------------------*/
+.satus-section--card > .satus-span--subheading {
+	min-height: 32px;
+	margin-top: 4px;
+	padding-top: 12px;
+	border-top: 1px solid var(--satus-section-border);
+	font-size: .9em;
+	opacity: .7;
+}

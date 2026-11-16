@@ -335,8 +335,14 @@
   "toggleTranscriptButton": {
     "message": "📜 Показать / скрыть текст видео"
   },
+  "transcriptButtonsBelowPlayer": {
+    "message": "Кнопки под проигрывателем"
+  },
   "transcriptAlwaysExpanded": {
     "message": "Всегда развёрнут"
+  },
+  "transcriptAlwaysExpandedSidebar": {
+    "message": "Текст видео: всегда развёрнут"
   },
   "FetchingTranscript": {
     "message": "Готово..."

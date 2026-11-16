@@ -357,8 +357,14 @@
   "toggleTranscriptButton": {
     "message": "📜 Show / Hide Transcript"
   },
+  "transcriptButtonsBelowPlayer": {
+    "message": "Buttons below the player"
+  },
   "transcriptAlwaysExpanded": {
     "message": "Always expanded"
+  },
+  "transcriptAlwaysExpandedSidebar": {
+    "message": "Transcript: always expanded"
   },
   "FetchingTranscript": {
     "message": "Fetching..."

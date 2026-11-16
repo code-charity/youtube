@@ -2477,6 +2477,11 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'compact_spacing',
 			storage: 'compactSpacing'
 		},
+		buttons_below_player: {
+			component: 'span',
+			class: 'satus-span--subheading',
+			text: 'transcriptButtonsBelowPlayer'
+		},
 		toggle_transcript_button: {
 			component: 'switch',
 			text: 'toggleTranscriptButton',
