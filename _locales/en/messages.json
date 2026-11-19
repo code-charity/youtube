@@ -1272,6 +1272,9 @@
   "removeIcons": {
     "message": "Remove icons"
   },
+  "restoreTitleFont": {
+    "message": "Restore the previous (non-condensed) title font"
+  },
   "removeMemberOnly": {
     "message": "Remove member only videos"
   },
