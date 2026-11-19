@@ -29,6 +29,9 @@ ImprovedTube.myColors = function () {
 			text_color = 'rgb(25, 25, 25)';
 		}
 
+		// "rgb(...)cc" is not valid CSS; build an rgba() with 80% alpha instead
+		var frosted_glass_color = primary_color.replace('rgb(', 'rgba(').replace(/\)$/, ', 0.8)');
+
 		style.className = 'it-theme-editor';
 		style.textContent = 'html[it-theme=custom], html[it-theme=custom] [dark] {' +
 				'--yt-swatch-textbox-bg:rgba(19,19,19,1)!important;' +
@@ -82,7 +85,7 @@ ImprovedTube.myColors = function () {
 				'--yt-spec-inverted-background: #fff;' +
 				'--ytd-searchbox-background:' + primary_color + '!important;' +
 				'--ytd-searchbox-legacy-button-color:' + 'var(--yt-spec-brand-background-primary)' + '!important;' +
-				'--yt-frosted-glass-desktop:' + primary_color + 'cc !important;' +
+				'--yt-frosted-glass-desktop:' + frosted_glass_color + ' !important;' +
 				'background-color: var(--yt-spec-base-background)!important;' +
 				'}' +
 				'html[it-theme=custom] ytd-masthead, html[it-theme=custom] #masthead, html[it-theme=custom] ytd-app #masthead { background-color: ' + secondary_color + ' !important; }' +
