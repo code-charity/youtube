@@ -584,6 +584,9 @@ extension.skeleton.main.layers.section.general = {
 						text: 'Raleway',
 						value: 'Raleway'
 					}, {
+						text: 'Roboto',
+						value: 'Roboto'
+					}, {
 						text: 'Roboto Condensed',
 						value: 'Roboto+Condensed'
 					}, {
@@ -596,6 +599,11 @@ extension.skeleton.main.layers.section.general = {
 						text: 'Source Sans Pro',
 						value: 'Source+Sans+Pro'
 					}]
+				},
+				restore_title_font: {
+					component: 'switch',
+					text: 'restoreTitleFont',
+					tags: 'font title condensed roboto old classic readable'
 				},
 				scroll_bar: {
 					component: 'select',
