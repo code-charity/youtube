@@ -684,3 +684,20 @@ html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth
 html[it-channel-compact-theme='true'] #sections > ytd-guide-section-renderer:nth-child(4) > h3:active {
 	background-color: var(--yt-spec-10-percent-layer);
 }
+
+/*--------------------------------------------------------------
+# RESTORE TITLE FONT
+--------------------------------------------------------------*/
+/* YouTube's newer title style uses a narrow (condensed) face. Leaving the
+   Font option on "Default" keeps that look, so this switch puts titles back
+   on regular-width Roboto, the font YouTube used before. */
+html[it-restore-title-font='true'] ytd-watch-metadata #title h1,
+html[it-restore-title-font='true'] ytd-watch-metadata #title h1 yt-formatted-string,
+html[it-restore-title-font='true'] #video-title,
+html[it-restore-title-font='true'] .yt-lockup-metadata-view-model__title,
+html[it-restore-title-font='true'] .ytLockupMetadataViewModelTitle,
+html[it-restore-title-font='true'] .shortsLockupViewModelHostMetadataTitle {
+	font-family: 'Roboto', 'Arial', sans-serif !important;
+	font-stretch: normal !important;
+	letter-spacing: normal !important;
+}
