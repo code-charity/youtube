@@ -9,6 +9,7 @@ satus.storage.import(function (items) {
 	var language = items.language;
 	if (!language || language === 'default') { language = false; }
 	satus.locale.import(language, function () {
+		if (typeof ImprovedTubeMenuAccessibility !== 'undefined') ImprovedTubeMenuAccessibility.updateLanguage(items.language);
 		// Place normal skeleton into seperate function to only render if password is disabled or not required
 		const renderSkeleton = () => {
 			satus.render(extension.skeleton);

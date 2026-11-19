@@ -1057,18 +1057,33 @@ satus.locale.import = function (code, callback, path) {
 		try {
 			chrome.i18n.getAcceptLanguages(function (languages) {
 				languages = languages.map(language => language.replace('-', '_'));
+
+				try {
+					const uiLanguage = chrome.i18n.getUILanguage().replace('-', '_');
+					const uiBase = uiLanguage.split('_')[0];
+					const preferred = [uiLanguage];
+					if (uiBase && uiBase !== uiLanguage) preferred.push(uiBase);
+					languages = preferred.concat(languages.filter(language => preferred.indexOf(language) === -1));
+				} catch (_) {}
+
 				for (let i = languages.length - 1; i >= 0; i--) {
 					if (languages[i].includes('_')) {
-						let languageWithoutCountryCode = languages[i].substring(0, 2);
-
-						if (!languages.includes(languageWithoutCountryCode)) {
-							languages.splice(i + 1, 0, languageWithoutCountryCode);
-						}
+						const languageWithoutCountryCode = languages[i].split('_')[0];
+						if (!languages.includes(languageWithoutCountryCode)) languages.splice(i + 1, 0, languageWithoutCountryCode);
 					}
 				}
-				languages.includes("en") || languages.push("en");
+				if (!languages.includes('en')) languages.push('en');
 
-				languages.forEach((language, index) => index === languages.length - 1 ? importLocale(language, callback) : importLocale(language, () => {}));
+				const importNext = function (index) {
+					if (index >= languages.length) {
+						if (callback) callback();
+						return;
+					}
+					importLocale(languages[index], function () {
+						importNext(index + 1);
+					});
+				};
+				importNext(0);
 			/* equals:
    languages.length === 1 && importLocale(languages[0], callback);
    languages.length === 2 && importLocale(languages[0], () => importLocale(languages[1], callback));
