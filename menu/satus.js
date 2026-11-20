@@ -995,11 +995,28 @@ satus.storage.set = function (key, value, callback) {
 # ON CHANGED
 --------------------------------------------------------------*/
 satus.storage.onchanged = function (callback) {
-	chrome.storage.onChanged.addListener(function (changes) {
-		for (var key in changes) {
-			callback(key, changes[key].newValue);
+	const subscriptions = satus.storage.onchanged.subscriptions || (satus.storage.onchanged.subscriptions = new Set());
+	const subscription = { callback };
+	if (subscriptions.size === 0) {
+		satus.storage.onchanged.listener = function (changes, areaName) {
+			if (areaName && areaName !== 'local') return;
+			// Update once before notifying subscribers, which may themselves change storage.
+			for (const key in changes) {
+				if (changes[key].newValue === undefined) delete satus.storage.data[key];
+				else satus.storage.data[key] = changes[key].newValue;
+			}
+			for (const key in changes) {
+				for (const subscription of [...subscriptions]) subscription.callback(key, changes[key].newValue);
+			}
+		};
+		chrome.storage.onChanged.addListener(satus.storage.onchanged.listener);
+	}
+	subscriptions.add(subscription);
+	return function () {
+		if (subscriptions.delete(subscription) && subscriptions.size === 0) {
+			chrome.storage.onChanged.removeListener(satus.storage.onchanged.listener);
 		}
-	});
+	};
 };
 
 /*--------------------------------------------------------------
@@ -1631,7 +1648,7 @@ satus.components.select = function (component, skeleton) {
 		component.render();
 	});
 
-	component.value = component.storage.value || component.options[0].value;
+	component.value = component.storage.value ?? component.options[0]?.value ?? '';
 
 	component.render();
 };
@@ -1975,14 +1992,14 @@ satus.components.radio = function (component, skeleton) {
 		component.nativeControl.name = skeleton.group;
 	}
 
-	if (skeleton.value) {
+	if (satus.isset(skeleton.value)) {
 		component.nativeControl.value = skeleton.value;
 	}
 
 	value = satus.storage.get(component.storage.key);
 
 	if (satus.isset(value)) {
-		component.nativeControl.checked = value === skeleton.value;
+		component.nativeControl.checked = String(value) === String(skeleton.value);
 	} else if (skeleton.checked) {
 		component.nativeControl.checked = true;
 	}
@@ -1990,10 +2007,10 @@ satus.components.radio = function (component, skeleton) {
 	component.nativeControl.addEventListener('change', function () {
 		const component = this.parentNode,
 			parent = component.parentNode.parentNode.skeleton;
-		let defValue;
+		let defValue = skeleton.defaultValue;
 
 		// determine default value for whole radio section
-		for (const key in parent) {
+		for (const key in satus.isset(defValue) ? {} : parent) {
 			let item = parent[key];
 
 			// components can be functions
@@ -2001,7 +2018,7 @@ satus.components.radio = function (component, skeleton) {
 				item = item();
 			}
 
-			if (!defValue && item?.radio) {
+			if (!satus.isset(defValue) && item?.radio) {
 				// start with first element in case checked: is not defined
 				defValue = item.radio.value;
 			} else if (item?.radio?.checked) {
@@ -2039,7 +2056,7 @@ satus.components.slider = function (component, skeleton) {
 	input.min = skeleton.min || 0;
 	input.max = skeleton.max || 1;
 	input.step = skeleton.step || 1;
-	input.value = component.storage?.value || skeleton.value || 0;
+	input.value = component.storage?.value ?? skeleton.value ?? 0;
 
 	text_input.addEventListener('blur', function () {
 		var component = this.parentNode.parentNode;
@@ -2067,11 +2084,11 @@ satus.components.slider = function (component, skeleton) {
 		component.update();
 	});
 
-	component.update = function () {
+	component.update = function (save = true) {
 		const input = this.input;
 
 		this.textInput.value = input.value;
-		if (component.storage) {
+		if (save && component.storage) {
 			if (component.skeleton.value == Number(input.value)) {
 				component.storage.remove();
 			} else {
@@ -2082,7 +2099,7 @@ satus.components.slider = function (component, skeleton) {
 		this.track.style.width = 100 / (input.max - input.min) * (input.value - input.min) + '%';
 	};
 
-	component.update();
+	component.update(false);
 
 	if (skeleton.on) {
 		for (var type in skeleton.on) {
