@@ -816,6 +816,12 @@ html[it-player-hide-pause-overlay='true'] .ytp-pause-overlay {
     filter: drop-shadow(0 0 4px rgba(62, 166, 255, 0.4));
 }
 
+
+/* Hide precise seeking interface */
+html[it-disable-precise-seeking="true"] .ytp-fine-scrubbing-container,
+html[it-disable-precise-seeking="true"] .ytp-fine-scrubbing {
+	display: none !important;
+}
 /*--------------------------------------------------------------
 # CINEMA MODE (toggled by ImprovedTube.cinemaModeSetVisible)
 --------------------------------------------------------------*/

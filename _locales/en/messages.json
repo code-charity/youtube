@@ -774,6 +774,9 @@
   "hideProgressBarPreview": {
     "message": "Hide progress bar preview"
   },
+  "disablePreciseSeeking": {
+    "message": "Disable precise seeking"
+  },
   "hideReport": {
     "message": "Hide 'Report'"
   },
