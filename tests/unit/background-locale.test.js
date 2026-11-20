@@ -11,8 +11,15 @@ async function loadBackground () {
 	const fetch = jest.fn().mockResolvedValue(response({}));
 	const chrome = {
 		runtime: { onInstalled: listener(), onMessage: listener(), setUninstallURL: jest.fn() },
-		storage: { onChanged: listener() },
-		contextMenus: { onClicked: listener(), removeAll: jest.fn(), create: jest.fn() },
+		storage: {
+			onChanged: listener(),
+			local: { get: jest.fn((keys, callback) => setImmediate(() => callback({}))) }
+		},
+		contextMenus: {
+			onClicked: listener(),
+			removeAll: jest.fn(callback => { if (callback) setImmediate(callback); }),
+			create: jest.fn((item, callback) => { if (callback) setImmediate(callback); return item.id; })
+		},
 		tabs: { onActivated: listener() },
 		windows: { onFocusChanged: listener() },
 		i18n: { getUILanguage: () => 'en' }
