@@ -10,30 +10,33 @@ to ever be watched. Detection only: nothing is deleted.
 	var button = null,
 		panel = null,
 		timer = null,
-		observer = null;
+		observer = null,
+		navigating = false,
+		lastReport = '';
 
-	var UNAVAILABLE = /\[(?:deleted|private|unavailable)\]|video unavailable|this video is private|this video is unavailable|deleted video/i;
+	var UNAVAILABLE = /\[(?:deleted|private|unavailable)(?: video)?\]|video unavailable|this video is private|this video is unavailable|deleted video/i;
 
 	function enabled() {
 		return ImprovedTube.storage.playlist_health === true;
 	}
 
 	function videoId(href) {
-		var match = String(href || '').match(/[?&]v=([^&]{11})/);
+		var match = String(href || '').match(/[?&]v=([\w-]{11})(?:[&#]|$)/);
 
 		return match ? match[1] : null;
 	}
 
 	function parseDuration(text) {
-		var match = String(text || '').match(/(\d{1,2}):(\d{2})(?::(\d{2}))?/);
+		var match = String(text || '').trim().match(/^(\d+):(\d{2})(?::(\d{2}))?$/);
 
-		if (!match) {
+		if (!match || Number(match[2]) > 59 || (match[3] && Number(match[3]) > 59)) {
 			return null;
 		}
 
-		return match[3]
+		var seconds = match[3]
 			? Number(match[1]) * 3600 + Number(match[2]) * 60 + Number(match[3])
 			: Number(match[1]) * 60 + Number(match[2]);
+		return Number.isSafeInteger(seconds) ? seconds : null;
 	}
 
 	/**
@@ -41,9 +44,10 @@ to ever be watched. Detection only: nothing is deleted.
 	 * signal, playlist size is context, and an existing progress bar subtracts.
 	 */
 	function decayScore(options) {
-		var index = Math.max(0, Number(options.index) || 0),
-			total = Math.max(1, Number(options.total) || 1),
-			duration = Number(options.duration) || 0,
+		function finite(value, fallback) { return Number.isFinite(Number(value)) ? Number(value) : fallback; }
+		var total = Math.max(1, finite(options.total, 1)),
+			index = Math.min(total - 1, Math.max(0, finite(options.index, 0))),
+			duration = Math.max(0, finite(options.duration, 0)),
 			watched = options.watched === true,
 			depth = total > 1 ? (index / (total - 1)) : 0,
 			lengthSignal = Math.min(1, duration / (90 * 60)),
@@ -54,34 +58,24 @@ to ever be watched. Detection only: nothing is deleted.
 	}
 
 	function collect() {
-		var selector = 'ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer';
-
-		if (location.pathname === '/playlist') {
-			selector += ', #contents yt-lockup-view-model';
-		} else {
-			selector += ', ytd-playlist-panel-renderer yt-lockup-view-model';
-		}
-
-		var list = [];
-
-		document.querySelectorAll(selector).forEach(function (row) {
-			var link = row.querySelector('a[href*="/watch?v="]'),
-				id = link && videoId(link.getAttribute('href'));
-
-			if (!id) {
-				return;
-			}
+		var root = listRoot(), list = [];
+		if (!root) return list;
+		root.querySelectorAll('ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer, yt-lockup-view-model').forEach(function (row) {
+			if (row.parentElement?.closest('ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer')) return;
+			var link = row.querySelector('a[href*="/watch?"]'),
+				id = link ? videoId(link.getAttribute('href')) : null;
 
 			var title = row.querySelector('#video-title, h3'),
 				durationNode = row.querySelector('#time-status, ytd-thumbnail-overlay-time-status-renderer, [class*="ThumbnailOverlayBottomPanel"]'),
-				progress = row.querySelector('ytd-thumbnail-overlay-resume-playback-renderer, [class*="WatchedProgress"], [class*="resume-playback"]'),
+				progress = row.querySelector('ytw-thumbnail-overlay-resume-playback-renderer [class*="ThumbnailOverlayResumePlaybackProgress"], ytd-thumbnail-overlay-resume-playback-renderer #progress, [class*="WatchedProgress"]'),
 				text = row.textContent || '';
+			if (!id && !UNAVAILABLE.test(text)) return;
 
 			list.push({
 				id: id,
 				title: title ? title.textContent.trim() : text.trim(),
-				duration: parseDuration(durationNode ? durationNode.textContent : text),
-				watched: !!progress,
+				duration: parseDuration(durationNode ? durationNode.textContent : ''),
+				watched: !!row.querySelector('ytw-thumbnail-overlay-watched-status-renderer, ytd-thumbnail-overlay-watched-status-renderer') || !!(progress && parseFloat(progress.style.width) > 0),
 				unavailable: UNAVAILABLE.test(text)
 			});
 		});
@@ -90,15 +84,15 @@ to ever be watched. Detection only: nothing is deleted.
 	}
 
 	function report(list) {
-		var seen = {},
+		var seen = Object.create(null),
 			duplicates = [],
 			unavailable = [],
 			ranked = [];
 
 		list.forEach(function (item, index) {
-			if (seen[item.id]) {
+			if (item.id && seen[item.id]) {
 				duplicates.push({ title: item.title, id: item.id, first: seen[item.id].title });
-			} else {
+			} else if (item.id) {
 				seen[item.id] = item;
 			}
 
@@ -145,15 +139,18 @@ to ever be watched. Detection only: nothing is deleted.
 	}
 
 	function render() {
-		if (!panel) {
+		if (!panel || !panel.isConnected || !enabled() || navigating) {
 			return;
 		}
 
 		var body = panel.querySelector('#it-playlist-health-body'),
 			data;
 
-		body.textContent = '';
 		data = report(collect());
+		var signature = JSON.stringify(data);
+		if (signature === lastReport) return;
+		lastReport = signature;
+		body.textContent = '';
 
 		body.appendChild(line(data.scanned + ' rows scanned', { muted: true }));
 
@@ -181,11 +178,12 @@ to ever be watched. Detection only: nothing is deleted.
 		});
 
 		if (!data.ranked.length) {
-			body.appendChild(line('no rows with a readable duration', { muted: true }));
+			body.appendChild(line('no loaded playlist rows', { muted: true }));
 		}
 	}
 
 	function close() {
+		lastReport = '';
 		if (panel) {
 			panel.remove();
 			panel = null;
@@ -193,6 +191,7 @@ to ever be watched. Detection only: nothing is deleted.
 	}
 
 	function open() {
+		if (!enabled() || navigating || !isPlaylistPage() || !document.body) return;
 		if (panel) {
 			close();
 			return;
@@ -206,6 +205,8 @@ to ever be watched. Detection only: nothing is deleted.
 			refresh = document.createElement('button');
 
 		el.id = 'it-playlist-health-panel';
+		el.setAttribute('role', 'dialog');
+		el.setAttribute('aria-label', 'Playlist health');
 		el.style.cssText = 'position:fixed;left:16px;bottom:112px;z-index:2147483000;width:340px;max-height:60vh;overflow:auto;padding:12px;border-radius:12px;background:' +
 			theme().bg + ';color:' + theme().fg + ';border:1px solid ' + theme().border +
 			';box-shadow:0 8px 32px rgba(0,0,0,.35);font:13px/1.45 Roboto,Arial,sans-serif';
@@ -251,11 +252,21 @@ to ever be watched. Detection only: nothing is deleted.
 	}
 
 	function isPlaylistPage() {
-		return location.pathname === '/playlist' || !!document.querySelector('ytd-playlist-panel-renderer');
+		return (location.pathname === '/playlist' || location.pathname === '/watch') && /[?&]list=[^&]+/.test(location.search);
+	}
+
+	function listRoot() {
+		return location.pathname === '/playlist'
+			? document.querySelector('ytd-playlist-video-list-renderer, yt-item-section-renderer, ytd-item-section-renderer')
+			: document.querySelector('ytd-watch-flexy ytd-playlist-panel-renderer, ytd-playlist-panel-renderer');
 	}
 
 	function apply() {
-		if (!enabled() || !isPlaylistPage()) {
+		clearTimeout(timer);
+		timer = null;
+		if (!enabled() || navigating || !isPlaylistPage() || !document.body) {
+			if (observer) observer.disconnect();
+			observer = null;
 			if (button) {
 				button.remove();
 				button = null;
@@ -263,11 +274,12 @@ to ever be watched. Detection only: nothing is deleted.
 			close();
 			return;
 		}
-
+		observe();
 		if (!button || !document.contains(button)) {
 			button = makeButton();
 			document.body.appendChild(button);
 		}
+		render();
 	}
 
 	function observe() {
@@ -275,20 +287,29 @@ to ever be watched. Detection only: nothing is deleted.
 			return;
 		}
 
-		observer = new MutationObserver(function () {
-			if (!enabled() || !panel) {
-				return;
-			}
-
-			clearTimeout(timer);
-			timer = setTimeout(render, 300);
+		observer = new MutationObserver(function (mutations) {
+			if (mutations.some(function (mutation) {
+				var target = mutation.target.nodeType === 1 ? mutation.target : mutation.target.parentElement;
+				return target && !target.closest('#it-playlist-health-panel, #it-playlist-health-button') &&
+					(!button?.isConnected || target.closest('ytd-playlist-video-list-renderer, yt-item-section-renderer, ytd-item-section-renderer, ytd-playlist-panel-renderer') ||
+						Array.from(mutation.addedNodes || []).some(function (node) {
+							return node.nodeType === 1 && (node.matches('ytd-playlist-video-list-renderer, yt-item-section-renderer, ytd-item-section-renderer, ytd-playlist-panel-renderer') ||
+								node.querySelector('ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer, yt-lockup-view-model'));
+						}));
+			})) schedule();
 		});
-		observer.observe(document.body, { childList: true, subtree: true });
+		observer.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href', 'title', 'style'] });
 	}
 
-	document.addEventListener('init_completed', function () { observe(); apply(); });
-	document.addEventListener('yt-navigate-finish', function () { setTimeout(apply, 150); });
-	document.addEventListener('it-message-from-extension', function () { setTimeout(apply, 0); });
+	function schedule() {
+		if (timer === null) timer = setTimeout(apply, 150);
+	}
+	document.addEventListener('init_completed', apply);
+	document.addEventListener('DOMContentLoaded', apply);
+	document.addEventListener('yt-navigate-start', function () { navigating = true; apply(); });
+	document.addEventListener('yt-navigate-finish', function () { navigating = false; schedule(); });
+	document.addEventListener('keydown', function (event) { if (event.key === 'Escape') close(); });
+	ImprovedTube.playlistHealth = apply;
 
 	ImprovedTube.playlistHealthParseDuration = parseDuration;
 	ImprovedTube.playlistHealthDecayScore = decayScore;
