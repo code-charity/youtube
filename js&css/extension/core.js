@@ -201,14 +201,19 @@ extension.messages.create = function () {
 --------------------------------------------------------------*/
 
 extension.messages.listener = function () {
+	if (this.listening) return;
+	this.listening = true;
 	document.addEventListener('it-message-from-extension--readed', function () {
-		extension.messages.queue.pop();
-
-		if (extension.messages.queue.length > 0) {
-			extension.messages.element.textContent = message;
-
-			document.dispatchEvent(new CustomEvent('it-message-from-extension'));
-		}
+		const messages = extension.messages;
+		if (!messages.awaitingReply) return;
+		messages.awaitingReply = false;
+		messages.queue.shift();
+		// Acknowledgements arrive before the receiver finishes applying the message.
+		messages.scheduled = true;
+		queueMicrotask(function () {
+			messages.scheduled = false;
+			messages.sendNext();
+		});
 	});
 };
 
@@ -223,11 +228,14 @@ extension.messages.send = function (message) {
 
 	this.queue.push(message);
 
-	if (this.queue.length === 1) {
-		this.element.textContent = message;
+	if (!this.scheduled) this.sendNext();
+};
 
-		document.dispatchEvent(new CustomEvent('it-message-from-extension'));
-	}
+extension.messages.sendNext = function () {
+	if (this.awaitingReply || this.queue.length === 0) return;
+	this.awaitingReply = true;
+	this.element.textContent = this.queue[0];
+	document.dispatchEvent(new CustomEvent('it-message-from-extension'));
 };
 
 /*--------------------------------------------------------------
@@ -247,15 +255,16 @@ extension.storage.get = function (key) {
 				return value != '';
 			});
 
-		for (var i = 0, l = key.length; i < l; i++) {
-			var part = key[i];
+		for (var i = 0, l = path.length; i < l; i++) {
+			var part = path[i];
 
-			if (target.hasOwnProperty(part)) {
+			if (target != null && Object.prototype.hasOwnProperty.call(target, part)) {
 				target = target[part];
 			} else {
 				return undefined;
 			}
 		}
+		return target;
 	}
 };
 

@@ -153,14 +153,19 @@ ImprovedTube.messages.create();
 --------------------------------------------------------------*/
 
 ImprovedTube.messages.listener = function () {
+	if (this.listening) return;
+	this.listening = true;
 	document.addEventListener('it-message-from-youtube--readed', function () {
-		ImprovedTube.messages.queue.pop();
-
-		if (ImprovedTube.messages.queue.length > 0) {
-			ImprovedTube.messages.element.textContent = message;
-
-			document.dispatchEvent(new CustomEvent('it-message-from-youtube'));
-		}
+		const messages = ImprovedTube.messages;
+		if (!messages.awaitingReply) return;
+		messages.awaitingReply = false;
+		messages.queue.shift();
+		// Acknowledgements arrive before the receiver finishes applying the message.
+		messages.scheduled = true;
+		queueMicrotask(function () {
+			messages.scheduled = false;
+			messages.sendNext();
+		});
 	});
 };
 
@@ -404,7 +409,6 @@ document.addEventListener('it-message-from-extension', function () {
 					}
 					break
 
-
 				case 'shortcutActivateFitToWindow':
 					if (ImprovedTube.storage.shortcut_activate_fit_to_window && ImprovedTube.storage.player_fit_to_win_button === false) {
 						// Activate the player_fit_to_win_button if the user has set a shortcut
@@ -602,11 +606,9 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'smartSpeedProfiles':
 					if (message.key === 'smart_speed') {
 						if (ImprovedTube.storage.smart_speed === true) {
-							if (ImprovedTube.smartSpeed?.init) { ImprovedTube.smartSpeed.init(); }
-							else if (ImprovedTube.heatmap?.init) { ImprovedTube.heatmap.init(); }
+							if (ImprovedTube.smartSpeed?.init) { ImprovedTube.smartSpeed.init(); } else if (ImprovedTube.heatmap?.init) { ImprovedTube.heatmap.init(); }
 						} else if (ImprovedTube.storage.smart_speed === false) {
-							if (ImprovedTube.smartSpeed?._teardown) { ImprovedTube.smartSpeed._teardown(); }
-							else if (ImprovedTube.heatmap?.isEnabled !== undefined) { ImprovedTube.heatmap.isEnabled = false; }
+							if (ImprovedTube.smartSpeed?._teardown) { ImprovedTube.smartSpeed._teardown(); } else if (ImprovedTube.heatmap?.isEnabled !== undefined) { ImprovedTube.heatmap.isEnabled = false; }
 							const v = document.querySelector("video");
 							if (v) v.playbackRate = 1.0;
 						}
@@ -686,9 +688,12 @@ ImprovedTube.messages.send = function (message) {
 
 	this.queue.push(message);
 
-	if (this.queue.length === 1) {
-		this.element.textContent = message;
+	if (!this.scheduled) this.sendNext();
+};
 
-		document.dispatchEvent(new CustomEvent('it-message-from-youtube'));
-	}
+ImprovedTube.messages.sendNext = function () {
+	if (this.awaitingReply || this.queue.length === 0) return;
+	this.awaitingReply = true;
+	this.element.textContent = this.queue[0];
+	document.dispatchEvent(new CustomEvent('it-message-from-youtube'));
 };
