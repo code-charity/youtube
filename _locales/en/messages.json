@@ -471,6 +471,9 @@
   "disableLikesAnimation": {
     "message": "Disable likes animation"
   },
+  "disableMiniplayer": {
+    "message": "Disable YouTube's miniplayer (stops the video instead)"
+  },
   "disableThumbnailPlayback": {
     "message": "Disable video playback on hover"
   },
