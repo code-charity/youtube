@@ -29,80 +29,88 @@
 
 chrome.runtime.onInstalled.addListener(function (installed) {
 	if (installed.reason == 'update') {
-		//		var thisVersion = chrome.runtime.getManifest().version;
-		//		console.log("Updated from " + installed.previousVersion + " to " + thisVersion + "!");
-		chrome.storage.local.get('description', function (result) {
-			if (result.description === 'classic_expanded') {
-				chrome.storage.local.set({description: 'expanded'});
+		const shortcutKeys = ['shortcut_auto', 'shortcut_144p', 'shortcut_240p', 'shortcut_360p', 'shortcut_480p', 'shortcut_720p', 'shortcut_1080p', 'shortcut_1440p', 'shortcut_2160p', 'shortcut_2880p', 'shortcut_4320p'],
+			stepKeys = ['volume_step', 'playback_speed_step'];
+
+		chrome.storage.local.get([
+			...shortcutKeys, ...shortcutKeys.map(key => key.replace('shortcut_', 'shortcut_quality_')),
+			...stepKeys, ...stepKeys.map(key => 'shortcuts_' + key),
+			'description', 'channel_default_tab', 'player_quality', 'player_quality_auto', 'player_size',
+			'player_autoplay', 'player_autoplay_disable', 'Hide_Pause_Overlay', 'player_auto_continue_watching',
+			'hideSubscribe', 'subscribe', 'limit_page_width', 'no_page_margin'
+		], function (items) {
+			const error = chrome.runtime.lastError;
+			if (error) {
+				console.error('Settings migration read failed:', error.message);
+				return;
 			}
-		});
-		// Shortcut renames:
-		chrome.storage.local.get(['shortcut_auto', 'shortcut_144p', 'shortcut_240p', 'shortcut_360p', 'shortcut_480p', 'shortcut_720p', 'shortcut_1080p', 'shortcut_1440p', 'shortcut_2160p', 'shortcut_2880p', 'shortcut_4320p'], function (result) {
-			// validate and move to new name
-			for (let [name, keys] of Object.entries(result)) {
-				if (!keys) continue;
-				let newKeys = {},
+
+			const updates = {},
+				obsolete = [],
+				has = key => Object.prototype.hasOwnProperty.call(items, key);
+
+			function rename (oldKey, newKey, value) {
+				if (!has(oldKey) || (!has(newKey) && value === undefined)) return false;
+				// Presence, not truthiness: false, zero and cleared shortcuts are user choices.
+				if (!has(newKey)) updates[newKey] = value;
+				obsolete.push(oldKey);
+				return !has(newKey);
+			}
+
+			for (const name of shortcutKeys) {
+				const keys = items[name],
 					newName = name.replace('shortcut_', 'shortcut_quality_');
+				if (has(newName)) {
+					rename(name, newName);
+					continue;
+				}
+				if (!keys || typeof keys !== 'object' || Array.isArray(keys)) continue;
+				const newKeys = {};
 				for (const button of ['alt', 'ctrl', 'shift', 'wheel', 'toggle']) {
 					if (keys[button]) newKeys[button] = keys[button];
 				}
-				if (keys['keys'] && Object.keys(keys['keys'])?.length) {
-					newKeys['keys'] = keys['keys'];
+				if (keys.keys && typeof keys.keys === 'object' && !Array.isArray(keys.keys) && Object.keys(keys.keys).length) {
+					newKeys.keys = keys.keys;
 				}
-				// only shortcuts with Key of Wheel are valid and saved
-				if (newKeys['keys'] || newKeys['wheel']) chrome.storage.local.set({[newName]: newKeys});
+				if (newKeys.keys || newKeys.wheel) rename(name, newName, newKeys);
 			}
-			chrome.storage.local.remove(Object.keys(result));
-		});
-		chrome.storage.local.get(['volume_step', 'playback_speed_step'], function (result) {
-			for (let [name, value] of Object.entries(result)) {
-				let newName = 'shortcuts_' + name;
-				chrome.storage.local.set({[newName]: value});
+			for (const name of stepKeys) rename(name, 'shortcuts_' + name, items[name]);
+			rename('player_autoplay', 'player_autoplay_disable', items.player_autoplay === false ? true : undefined);
+			rename('Hide_Pause_Overlay', 'player_auto_continue_watching', items.Hide_Pause_Overlay === true ? true : undefined);
+			rename('hideSubscribe', 'subscribe', items.hideSubscribe === true ? 'hidden' : undefined);
+			if (rename('limit_page_width', 'no_page_margin', items.limit_page_width === false ? true : undefined)
+				&& (items.player_size === 'full_window' || items.player_size === 'fit_to_window')) {
+				updates.player_size = 'max_width';
 			}
-			chrome.storage.local.remove(Object.keys(result));
-		});
-		chrome.storage.local.get('player_autoplay', function (result) {
-			if (result.player_autoplay === false) {
-				chrome.storage.local.set({player_autoplay_disable: true});
-				chrome.storage.local.remove(['player_autoplay']);
+
+			if (items.description === 'classic_expanded') updates.description = 'expanded';
+			if (items.channel_default_tab === '/home') updates.channel_default_tab = '/';
+			if (items.player_quality === 'auto' && items.player_quality_auto !== 'migrated') {
+				updates.player_quality = 'disabled';
+				updates.player_quality_auto = 'migrated';
 			}
-		});
-		chrome.storage.local.get('channel_default_tab', function (result) {
-			if (result.channel_default_tab === '/home') {
-				chrome.storage.local.set({channel_default_tab: '/'});
+
+			function cleanup () {
+				if (obsolete.length) {
+					chrome.storage.local.remove(obsolete, function () {
+						const error = chrome.runtime.lastError;
+						if (error) console.error('Settings migration cleanup failed:', error.message);
+					});
+				}
 			}
-		});
-		chrome.storage.local.get('Hide_Pause_Overlay', function (result) {
-			if (result.Hide_Pause_Overlay === true) {
-				chrome.storage.local.set({player_auto_continue_watching: true});
-				chrome.storage.local.remove(['Hide_Pause_Overlay']);
-			}
-		});
-		chrome.storage.local.get('player_quality', function (result) {
-			if (result.player_quality === 'auto') {
-				chrome.storage.local.get('player_quality_auto', function (result) {
-					if (result.player_quality_auto !== 'migrated') {
-						chrome.storage.local.set({player_quality: 'disabled'});
-						chrome.storage.local.set({player_quality_auto: 'migrated'});
+
+			if (Object.keys(updates).length) {
+				chrome.storage.local.set(updates, function () {
+					const error = chrome.runtime.lastError;
+					if (error) {
+						console.error('Settings migration write failed:', error.message);
+						return;
 					}
+					// Retain the old data until its replacement has been persisted successfully.
+					cleanup();
 				});
-			}
-		});
-		chrome.storage.local.get('hideSubscribe', function (result) {
-			if (result.hideSubscribe === true) {
-				chrome.storage.local.set({subscribe: 'hidden'});
-				chrome.storage.local.remove(['hideSubscribe']);
-			}
-		});
-		chrome.storage.local.get('limit_page_width', function (result) {
-			if (result.limit_page_width === false) {
-				chrome.storage.local.set({no_page_margin: true});
-				chrome.storage.local.remove(['limit_page_width']);
-				chrome.storage.local.get('player_size', function (r) {
-					if (r.player_size == 'full_window' || r.player_size == 'fit_to_window') {
-						chrome.storage.local.set({player_size: 'max_width'});
-					}
-				});
+			} else {
+				cleanup();
 			}
 		});
 	} else if (installed.reason == 'install') {
