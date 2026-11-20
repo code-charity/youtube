@@ -122,24 +122,76 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 /*--------------------------------------------------------------
 # LOCALE
 --------------------------------------------------------------*/
+const contextMenuLocaleRequests = new Map();
+
 function getLocale (language, callback) {
-	language = language.replace('-', '_');
-	fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
-		if (response.ok) {
-			response.json().then(callback);
-		} else {
-			fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
-				if (response.ok) {
-					response.json().then(callback);
-				} else {
-					getLocale('en', callback);
+	let locale = 'en';
+	if (typeof language === 'string' && /^[a-z]{2,3}(?:[-_][a-z0-9]{2,8})*$/i.test(language.trim())) {
+		locale = language.trim().split(/[-_]/).map(function (part, index) {
+			if (index === 0) return part.toLowerCase();
+			if (part.length === 2) return part.toUpperCase();
+			if (part.length === 4) return part[0].toUpperCase() + part.substring(1).toLowerCase();
+			return part.toLowerCase();
+		}).join('_');
+	}
+	const version = chrome.runtime.getManifest().version,
+		requestKey = version + ':' + locale,
+		keys = ['donate', 'rateMe'],
+		cacheKey = 'context_menu_locale_cache';
+
+	if (!contextMenuLocaleRequests.has(requestKey)) {
+		const pending = (async function () {
+			const cached = await new Promise(function (resolve) {
+				try {
+					chrome.storage.local.get(cacheKey, function (items) {
+						resolve(chrome.runtime.lastError ? undefined : items?.[cacheKey]);
+					});
+				} catch (error) {
+					resolve();
 				}
-			}).catch(function () { getLocale('en', callback); });
-			getLocale('en', callback);
-		}
-	}).catch(function () {
-		getLocale('en', callback);
-	});
+			});
+			const usable = value => typeof value === 'string' && value.trim().length > 0;
+			if (cached?.version === version && cached.language === locale && keys.every(key => usable(cached.messages?.[key]))) {
+				return Object.fromEntries(keys.map(key => [key, { message: cached.messages[key] }]));
+			}
+
+			const result = {};
+			for (const candidate of new Set([locale, locale.split('_')[0], 'en'])) {
+				try {
+					const response = await fetch('_locales/' + candidate + '/messages.json');
+					if (!response.ok) continue;
+					const messages = await response.json();
+					if (!messages || typeof messages !== 'object' || Array.isArray(messages)) continue;
+					for (const key of keys) {
+						if (!result[key] && usable(messages[key]?.message)) result[key] = { message: messages[key].message };
+					}
+					if (keys.every(key => result[key])) break;
+				} catch (error) {
+					// Regional catalogs can be partial; fill missing messages from base/English.
+				}
+			}
+			// Cache only the two menu labels, and retry incomplete catalogs on a later wake.
+			if (keys.every(key => result[key])) {
+				await new Promise(function (resolve) {
+					try {
+						chrome.storage.local.set({
+							[cacheKey]: { version, language: locale, messages: Object.fromEntries(keys.map(key => [key, result[key].message])) }
+						}, function () {
+							if (chrome.runtime.lastError) console.warn('Context menu locale cache could not be saved.');
+							resolve();
+						});
+					} catch (error) {
+						console.warn('Context menu locale cache could not be saved.');
+						resolve();
+					}
+				});
+			}
+			return result;
+		})();
+		contextMenuLocaleRequests.set(requestKey, pending);
+		pending.then(function () { contextMenuLocaleRequests.delete(requestKey); }, function () { contextMenuLocaleRequests.delete(requestKey); });
+	}
+	contextMenuLocaleRequests.get(requestKey).then(callback);
 }
 /*--------------------------------------------------------------
 # CONTEXT MENU
