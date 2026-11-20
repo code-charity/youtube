@@ -554,6 +554,13 @@ document.addEventListener('it-message-from-extension', function () {
 						ImprovedTube.playlistCopyVideoIdButton();
 					}
 					break
+				case 'playlistTotalDuration':
+					if (ImprovedTube.storage.playlist_total_duration === true) {
+						ImprovedTube.playlistTotalDuration();
+					} else {
+						ImprovedTube.playlistTotalDurationCleanup();
+					}
+					break
 				case 'playlistQuickDeleteShortcut':
 					if (typeof ImprovedTube.playlistQuickDeleteShortcut === 'function') {
 						ImprovedTube.playlistQuickDeleteShortcut();
