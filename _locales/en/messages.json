@@ -1943,6 +1943,17 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "commentsTools": {
+    "message": "Comments tools"
+  },
+  "searchLoadedComments": {
+    "message": "Search loaded comments"
+  },
+  "sortCommentsNewest": {
+    "message": "Sort by newest first"
+  },
+  "expandAllComments": {
+    "message": "Expand all replies"
   }
 }
-
