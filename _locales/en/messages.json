@@ -1943,6 +1943,12 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "captionSearch": {
+    "message": "Caption search"
+  },
+  "captionSearchLoaded": {
+    "message": "Search loaded captions in YouTube's transcript panel"
   }
 }
 

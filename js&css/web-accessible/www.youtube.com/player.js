@@ -997,10 +997,10 @@ ImprovedTube.transcriptFileName = function (videoId, title) {
 	return name.replace(/[\\/:*?"<>|]+/g, ' ').replace(/\s+/g, ' ').trim().substr(0, 120) + '.txt';
 };
 
-ImprovedTube.readTranscriptSegments = function () {
+ImprovedTube.readTranscriptSegments = function (root) {
 	var segments = [];
 	// YouTube's current panel uses transcript-segment-view-model; ytd-transcript-segment-renderer is the older markup
-	document.querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model').forEach(function (segment) {
+	(root || document).querySelectorAll('ytd-transcript-segment-renderer, transcript-segment-view-model').forEach(function (segment) {
 		var textElement = segment.querySelector('.segment-text, .ytAttributedStringHost');
 		var timeElement = segment.querySelector('.segment-timestamp, .ytwTranscriptSegmentViewModelTimestamp');
 		var text = textElement ? textElement.textContent.trim() : '';

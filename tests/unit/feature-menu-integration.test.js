@@ -14,7 +14,7 @@ test('feature menu parts execute after their categories in the popup script orde
 		}
 	});
 	const dependencies = new Set(['skeleton.js', 'skeleton-parts/general.js', 'skeleton-parts/appearance.js', 'skeleton-parts/playlist.js']);
-	const featureParts = ['bookmarks', 'zen', 'channel-rss', 'invidious', 'playlist-filter', 'series-gap', 'playlist-health', 'comments-tools', 'smart-filters', 'time-limiter'];
+	const featureParts = ['bookmarks', 'zen', 'channel-rss', 'invidious', 'playlist-filter', 'series-gap', 'playlist-health', 'comments-tools', 'smart-filters', 'time-limiter', 'caption-search'];
 	let loaded = 0;
 	for (const match of html.matchAll(/<script\b[^>]*src="([^"]+)"[^>]*>/g)) {
 		const file = match[1];
