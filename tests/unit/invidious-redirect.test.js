@@ -35,7 +35,8 @@ function load({ instance = 'yewtu.be', auto = false, search = '?v=dQw4w9WgXcQ', 
 		},
 		window: { open: noop },
 		console,
-		setTimeout: noop
+		setTimeout: noop,
+		clearTimeout: noop
 	};
 	vm.runInNewContext(read('js&css', 'web-accessible', 'www.youtube.com', 'features', 'invidious.js'), context);
 	return { IT: context.ImprovedTube, calls, store, location: context.location };

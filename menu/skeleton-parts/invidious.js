@@ -29,9 +29,6 @@ extension.skeleton.main.layers.section.general.on.click.invidious_section = {
 		}, {
 			text: 'Piped — piped.video',
 			value: 'piped.video'
-		}, {
-			text: 'Piped — pipedapi.kavin.rocks',
-			value: 'pipedapi.kavin.rocks'
 		}]
 	},
 

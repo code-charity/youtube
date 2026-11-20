@@ -7,14 +7,17 @@ the current tab is redirected. Off until an instance is picked.
 --------------------------------------------------------------*/
 (function () {
 	'use strict';
+	var observer = null,
+		timer = null,
+		navigating = false,
+		lastRedirect = null;
 
 	var INSTANCES = {
 		'yewtu.be': 'Invidious — yewtu.be',
 		'inv.nadeko.net': 'Invidious — inv.nadeko.net',
 		'invidious.nerdvpn.de': 'Invidious — invidious.nerdvpn.de',
 		'inv.tux.pizza': 'Invidious — inv.tux.pizza',
-		'piped.video': 'Piped — piped.video',
-		'pipedapi.kavin.rocks': 'Piped — pipedapi.kavin.rocks'
+		'piped.video': 'Piped — piped.video'
 	};
 
 	function instance() {
@@ -24,13 +27,14 @@ the current tab is redirected. Off until an instance is picked.
 	}
 
 	function videoId() {
-		var match = location.search.match(/[?&]v=([^&]{11})/);
+		var match = location.search.match(/[?&]v=([\w-]{11})(?:&|$)/);
 
 		return match ? match[1] : null;
 	}
 
 	function watchUrl(host, id) {
-		return 'https://' + host + '/watch?v=' + id;
+		return Object.prototype.hasOwnProperty.call(INSTANCES, host) && /^[\w-]{11}$/.test(id)
+			? 'https://' + host + '/watch?v=' + id : null;
 	}
 
 	function auto() {
@@ -63,6 +67,8 @@ the current tab is redirected. Off until an instance is picked.
 		}
 
 		if (existing) {
+			existing.dataset.tooltip = 'Open in ' + host;
+			existing.setAttribute('aria-label', 'Open this video on ' + host);
 			return;
 		}
 
@@ -92,7 +98,8 @@ the current tab is redirected. Off until an instance is picked.
 		el.addEventListener('click', function (event) {
 			event.preventDefault();
 			event.stopPropagation();
-			window.open(watchUrl(host, id), '_blank', 'noopener');
+			var url = watchUrl(instance(), videoId());
+			if (url && !navigating && location.pathname === '/watch') window.open(url, '_blank', 'noopener');
 		});
 
 		anchor.insertAdjacentElement('afterend', el);
@@ -103,7 +110,7 @@ the current tab is redirected. Off until an instance is picked.
 			host = instance(),
 			marker;
 
-		if (!host || !auto() || location.pathname !== '/watch' || !id) {
+		if (!host || !auto() || navigating || location.pathname !== '/watch' || !id) {
 			return;
 		}
 
@@ -114,7 +121,7 @@ the current tab is redirected. Off until an instance is picked.
 		}
 
 		// One redirect per video per tab, so going Back does not bounce forward again.
-		if (marker === id) {
+		if (marker === id || lastRedirect === id) {
 			return;
 		}
 
@@ -124,11 +131,16 @@ the current tab is redirected. Off until an instance is picked.
 			// Private mode without storage still redirects once per page load.
 		}
 
+		lastRedirect = id;
 		location.replace(watchUrl(host, id));
 	}
 
 	function apply() {
-		if (!instance()) {
+		clearTimeout(timer);
+		timer = null;
+		if (!instance() || navigating || location.pathname !== '/watch' || !videoId()) {
+			if (observer) observer.disconnect();
+			observer = null;
 			var existing = document.querySelector('#it-invidious-button');
 
 			if (existing) {
@@ -139,14 +151,25 @@ the current tab is redirected. Off until an instance is picked.
 
 		button();
 		maybeRedirect();
+		if (!observer && document.body) {
+			observer = new MutationObserver(function () {
+				if (!document.querySelector('#it-invidious-button')) schedule();
+			});
+			observer.observe(document.body, { childList: true, subtree: true });
+		}
 	}
 
+	function schedule() {
+		if (timer === null) timer = setTimeout(apply, 100);
+	}
 	document.addEventListener('init_completed', apply);
-	document.addEventListener('yt-navigate-finish', function () { setTimeout(apply, 100); });
-	document.addEventListener('it-message-from-extension', apply);
+	document.addEventListener('DOMContentLoaded', apply);
+	document.addEventListener('yt-navigate-start', function () { navigating = true; apply(); });
+	document.addEventListener('yt-navigate-finish', function () { navigating = false; schedule(); });
+	ImprovedTube.invidiousInstance = apply;
+	ImprovedTube.invidiousAutoRedirect = function () { apply(); return auto(); };
 
 	ImprovedTube.invidiousInstances = INSTANCES;
 	ImprovedTube.invidiousWatchUrl = watchUrl;
-	ImprovedTube.invidiousAutoRedirect = auto;
 	ImprovedTube.invidiousMaybeRedirect = maybeRedirect;
 })();
