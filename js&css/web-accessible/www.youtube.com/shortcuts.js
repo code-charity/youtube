@@ -95,6 +95,10 @@ ImprovedTube.shortcutsHandler = function (event) {
 			if (!shortcut.keys.has(pressedKey)) continue check;
 		}
 
+		const action = key.startsWith('shortcutQuality') ? 'shortcutQuality'
+			: key.startsWith('shortcutPlaybackSpeed') ? 'shortcutPlaybackSpeed' : key;
+		if (typeof ImprovedTube[action] !== 'function') continue;
+
 		// cancel keydown/wheel event before we call target handler
 		// this way crashing handler wont keep 'cancelled' keys stuck
 		event.preventDefault();
@@ -104,13 +108,8 @@ ImprovedTube.shortcutsHandler = function (event) {
 			ImprovedTube.input.cancelled.add(pressedKey);
 		}
 
-		if (key.startsWith('shortcutQuality')) {
-			ImprovedTube['shortcutQuality'](key);
-		} else if (key.startsWith('shortcutPlaybackSpeed')) {
-			ImprovedTube['shortcutPlaybackSpeed'](key);
-		} else if (typeof ImprovedTube[key] === 'function') {
-			ImprovedTube[key]();
-		}
+		if (action === key) ImprovedTube[action]();
+		else ImprovedTube[action](key);
 	}
 };
 

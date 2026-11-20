@@ -58,6 +58,18 @@ const forward = { shortcut_seek_forward: { keys: { 70: { key: 'f', code: 'KeyF' 
 afterEach(() => { sessions.splice(0).forEach(dom => dom.window.close()); });
 
 describe('Shortcut dispatch through the real page core and native events', () => {
+	test('leaves native events alone for unknown or removed shortcut actions', () => {
+		const page = load({ shortcut_removed_action: { keys: {70: true} }, shortcut_removed_wheel: { wheel: 1 } });
+		expect(page.key().defaultPrevented).toBe(false);
+		expect(page.key('keyup').defaultPrevented).toBe(false);
+		expect(page.wheel(100).defaultPrevented).toBe(false);
+		expect(page.IT.input.cancelled.size).toBe(0);
+		expect(page.player.seekBy).not.toHaveBeenCalled();
+		page.change('shortcut_seek_forward', forward.shortcut_seek_forward);
+		expect(page.key().defaultPrevented).toBe(true);
+		expect(page.player.seekBy).toHaveBeenCalledTimes(1);
+	});
+
 	test('dispatches a configured key with no global event and cancels its keyup once', () => {
 		const page = load(forward);
 		expect(page.key().defaultPrevented).toBe(true);
