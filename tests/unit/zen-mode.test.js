@@ -15,9 +15,10 @@ function loadModule(storage) {
 			querySelectorAll: () => [],
 			addEventListener: noop,
 			createElement: () => ({ style: {}, addEventListener: noop }),
-			documentElement: { hasAttribute: () => false },
+			documentElement: { hasAttribute: () => false, toggleAttribute: noop },
 			body: { appendChild: noop }
 		},
+		location: { pathname: '/watch' },
 		console,
 		setTimeout: noop
 	};

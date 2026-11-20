@@ -18,6 +18,7 @@ through the same storage bridge the menu uses.
 	}
 
 	function exit() {
+		if (!active()) return;
 		ImprovedTube.storage.zen_mode = 'off';
 		ImprovedTube.messages.send({ action: 'set', key: 'zen_mode', value: 'off' });
 		apply();
@@ -25,15 +26,17 @@ through the same storage bridge the menu uses.
 
 	function apply() {
 		var button = document.querySelector('#it-zen-exit');
+		var onVideo = location.pathname === '/watch' || location.pathname.startsWith('/live/');
+		document.documentElement.toggleAttribute('it-zen-active', active() && onVideo);
 
-		if (!active()) {
+		if (!active() || !onVideo) {
 			if (button) {
 				button.remove();
 			}
 			return;
 		}
 
-		if (button) {
+		if (button || !document.body) {
 			return;
 		}
 
@@ -53,10 +56,12 @@ through the same storage bridge the menu uses.
 	}
 
 	document.addEventListener('init_completed', apply);
+	document.addEventListener('DOMContentLoaded', apply);
 	document.addEventListener('yt-navigate-finish', apply);
-	document.addEventListener('it-message-from-extension', apply);
+	ImprovedTube.zenMode = apply;
 	document.addEventListener('keydown', function (event) {
-		if (event.key === 'Escape' && active()) {
+		if (event.key === 'Escape' && active() && document.documentElement.hasAttribute('it-zen-active') && !document.fullscreenElement
+			&& !event.defaultPrevented && !event.target.isContentEditable && !/^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName)) {
 			exit();
 		}
 	});
