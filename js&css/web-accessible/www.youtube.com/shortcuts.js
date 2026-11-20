@@ -483,16 +483,21 @@ ImprovedTube.shortcutActivateCaptions = function () {
 };
 /*------Chapters------*/
 ImprovedTube.shortcutChapters = function () {
-	const available = document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || document.querySelector('[target-id*=chapters]').clientHeight;
-	if (available) {
-		const modernChapters = document.querySelector('[modern-chapters] #navigation-button button[aria-label]');
-		modernChapters ? modernChapters.click() : document.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
+	if (!document.querySelector('[target-id*=chapters]')) return;
+	// YouTube can keep a second, hidden copy of the chapters panel next to the open one,
+	// so decide by whether any copy is expanded, not by whether a hidden one exists
+	const expanded = document.querySelector('[target-id*=chapters][visibility*=EXPANDED]');
+	if (expanded) {
+		const visibilityButton = expanded.querySelector('#visibility-button button[aria-label]') || expanded.querySelector('#visibility-button button');
+		visibilityButton?.click();
 	} else {
-		const visibilityButton = document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]');
-		visibilityButton ? visibilityButton.click() : document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
-	}
-	if (!modernChapters && visibilityButton) {
-		console.error('shortcutChapters: Cant fint proper Enable button, falling back to unreliable bruteforce method');
+		const modernChapters = document.querySelector('[modern-chapters] #navigation-button button[aria-label]');
+		if (modernChapters) {
+			modernChapters.click();
+		} else {
+			console.error('shortcutChapters: Cant fint proper Enable button, falling back to unreliable bruteforce method');
+			document.querySelector('[target-id*=chapters]').removeAttribute('visibility');
+		}
 	}
 };
 /*------Transcript------*/
