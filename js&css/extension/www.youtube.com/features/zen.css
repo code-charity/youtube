@@ -1,0 +1,51 @@
+/*--------------------------------------------------------------
+>>> ZEN MODE
+----------------------------------------------------------------
+Activated by the it-zen-mode attribute that the extension writes to
+<html> for the zen_mode setting. "dim" fades the page; "hide" keeps
+only the player.
+--------------------------------------------------------------*/
+html[it-zen-active][it-zen-mode="hide"] ytd-masthead,
+html[it-zen-active][it-zen-mode="hide"] #masthead-container,
+html[it-zen-active][it-zen-mode="hide"] #guide,
+html[it-zen-active][it-zen-mode="hide"] ytd-mini-guide-renderer,
+html[it-zen-active][it-zen-mode="hide"] ytd-watch-flexy #secondary,
+html[it-zen-active][it-zen-mode="hide"] ytd-watch-flexy #comments,
+html[it-zen-active][it-zen-mode="hide"] ytd-watch-flexy #below,
+html[it-zen-active][it-zen-mode="hide"] ytd-watch-flexy #chat,
+html[it-zen-active][it-zen-mode="hide"] ytd-watch-flexy #chat-container,
+html[it-zen-active][it-zen-mode="hide"] ytd-watch-next-secondary-results-renderer {
+	display: none !important;
+}
+
+html[it-zen-active][it-zen-mode="hide"] ytd-watch-flexy #columns,
+html[it-zen-active][it-zen-mode="hide"] ytd-watch-flexy #primary,
+html[it-zen-active][it-zen-mode="hide"] #player-container-outer,
+html[it-zen-active][it-zen-mode="hide"] #player-full-bleed-container {
+	max-width: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+html[it-zen-active][it-zen-mode="hide"] body {
+	background: #000 !important;
+}
+
+html[it-zen-active][it-zen-mode="dim"] ytd-watch-flexy #secondary,
+html[it-zen-active][it-zen-mode="dim"] ytd-watch-flexy #below,
+html[it-zen-active][it-zen-mode="dim"] ytd-masthead,
+html[it-zen-active][it-zen-mode="dim"] #guide {
+	opacity: .2 !important;
+	transition: opacity .2s ease;
+}
+
+html[it-zen-active][it-zen-mode="dim"] ytd-watch-flexy #secondary:hover,
+html[it-zen-active][it-zen-mode="dim"] ytd-watch-flexy #secondary:focus-within,
+html[it-zen-active][it-zen-mode="dim"] ytd-watch-flexy #below:hover,
+html[it-zen-active][it-zen-mode="dim"] ytd-watch-flexy #below:focus-within,
+html[it-zen-active][it-zen-mode="dim"] ytd-masthead:hover,
+html[it-zen-active][it-zen-mode="dim"] ytd-masthead:focus-within,
+html[it-zen-active][it-zen-mode="dim"] #guide:hover,
+html[it-zen-active][it-zen-mode="dim"] #guide:focus-within {
+	opacity: 1 !important;
+}

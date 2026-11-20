@@ -1943,6 +1943,14 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "zenMode": {
+    "message": "Zen mode"
+  },
+  "dimEverythingElse": {
+    "message": "Dim everything except the player"
+  },
+  "hideEverythingElse": {
+    "message": "Hide everything except the player"
   }
 }
-
