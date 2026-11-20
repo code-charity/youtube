@@ -56,6 +56,14 @@
       ],
       "matches": ["https://www.youtube.com/*"],
       "run_at": "document_start"
+    },
+    {
+      "all_frames": false,
+      "js": [
+        "js&css/extension/m.youtube.com/shorts-redirect.js"
+      ],
+      "matches": ["https://m.youtube.com/*"],
+      "run_at": "document_start"
     }
   ],
   "host_permissions": ["https://www.youtube.com/*"],
