@@ -144,30 +144,69 @@ function getLocale (language, callback) {
 /*--------------------------------------------------------------
 # CONTEXT MENU
 --------------------------------------------------------------*/
+let contextMenuRequest = 0,
+	contextMenuQueue = Promise.resolve();
+
 function updateContextMenu (language) {
-	if (!language || language === 'default') language = chrome.i18n.getUILanguage();
-	getLocale(language, function (response) {
-		const items = [
-			'donate',
-			'rateMe',
-			'GitHub'
-		];
-		chrome.contextMenus.removeAll();
+	const request = ++contextMenuRequest;
+	let received = false;
 
-		for (const [index, item] of items.entries()) {
-			const text = response?.[item]?.message || item;
+	function load (language) {
+		if (request !== contextMenuRequest) return;
+		if (typeof language !== 'string' || !language || language === 'default') language = chrome.i18n.getUILanguage();
+		getLocale(language, function (response) {
+			if (received || request !== contextMenuRequest) return;
+			received = true;
 
-			chrome.contextMenus.create({
-				id: String(index),
-				title: text,
-				contexts: ['action'] //manifest3
-				// contexts: ['browser_action'] //manifest2
+			// Wait for the previous rebuild, including creation callbacks, before clearing its items.
+			contextMenuQueue = contextMenuQueue.then(async function () {
+				if (request !== contextMenuRequest) return;
+				await new Promise(function (resolve, reject) {
+					chrome.contextMenus.removeAll(function () {
+						const error = chrome.runtime.lastError;
+						if (error) reject(new Error(error.message));
+						else resolve();
+					});
+				});
+				if (request !== contextMenuRequest) return;
+
+				await Promise.all(['donate', 'rateMe', 'GitHub'].map(function (item, index) {
+					const text = response?.[item]?.message;
+					return new Promise(function (resolve, reject) {
+						chrome.contextMenus.create({
+							id: String(index),
+							title: typeof text === 'string' && text.trim() ? text : item,
+							contexts: ['action'] //manifest3
+							// contexts: ['browser_action'] //manifest2
+						}, function () {
+							const error = chrome.runtime.lastError;
+							if (error) reject(new Error(error.message));
+							else resolve();
+						});
+					}).catch(function (error) {
+						console.error('Context menu item creation failed:', error);
+					});
+				}));
+			}).catch(function (error) {
+				console.error('Context menu update failed:', error);
 			});
-		}
-	});
+		});
+	}
+
+	if (language === undefined) {
+		chrome.storage.local.get('language', function (items) {
+			const error = chrome.runtime.lastError;
+			if (error) console.error('Context menu language lookup failed:', error);
+			load(error ? undefined : items?.language);
+		});
+	} else {
+		load(language);
+	}
 }
 
 chrome.contextMenus.onClicked.addListener(function (info) {
+	if (!['0', '1', '2'].includes(String(info.menuItemId))) return;
+
 	const isFirefox = chrome.runtime.getURL('').startsWith('moz-extension://');
 	const links = [
 		'https://www.improvedtube.com/donate',
@@ -180,16 +219,14 @@ chrome.contextMenus.onClicked.addListener(function (info) {
 	// window.open(links[info.menuItemId]); //manifest2
 });
 chrome.runtime.onInstalled.addListener(function () {
-	chrome.storage.local.get(function (items) {
-		updateContextMenu(items.language);
-	});
+	updateContextMenu();
 });
 
 /*--------------------------------------------------------------
 # STORAGE LISTENER
 --------------------------------------------------------------*/
-chrome.storage.onChanged.addListener(function (changes) {
-	if (changes?.language) updateContextMenu(changes.language.newValue);
+chrome.storage.onChanged.addListener(function (changes, areaName) {
+	if (areaName === 'local' && changes?.language) updateContextMenu(changes.language.newValue);
 	if (changes?.improvedTubeSidebar) {
 		chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: changes.improvedTubeSidebar.newValue });
 	}
