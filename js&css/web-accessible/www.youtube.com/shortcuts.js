@@ -318,58 +318,107 @@ ImprovedTube.shortcutSeekForward = function () {
 /*------------------------------------------------------------------------------
 4.7.11 SEEK NEXT CHAPTER
 ------------------------------------------------------------------------------*/
-ImprovedTube.shortcutSeekNextChapter = function () {
-	if (this.elements.player) {
-		var player = this.elements.player,
-			chapters_container = player.querySelector('.ytp-chapters-container'),
-			progress_bar = player.querySelector('.ytp-progress-bar');
+ImprovedTube.shortcutChapterEntries = function () {
+	const url = new URL(location.href),
+		videoId = url.searchParams.get('v') || url.pathname.match(/^\/(?:embed|live)\/([\w-]{11})(?:\/|$)/)?.[1],
+		player = this.elements.player;
+	if (!/^[\w-]{11}$/.test(videoId || '') || !player) return [];
 
-		if (chapters_container && chapters_container.children && progress_bar) {
-			var chapters = chapters_container.children,
-				duration = player.getDuration(),
-				current_width = player.getCurrentTime() / (duration / 100) * (progress_bar.offsetWidth / 100);
+	try {
+		const playingId = player.getVideoData?.()?.video_id;
+		if (playingId && playingId !== videoId) return [];
+	} catch (error) {
+		return [];
+	}
 
-			for (var i = 0, l = chapters.length; i < l; i++) {
-				var left = chapters[i].offsetLeft;
+	function number (value) {
+		return typeof value === 'number' || typeof value === 'string' && value.trim() ? Number(value) : NaN;
+	}
 
-				if (current_width < left) {
-					player.seekTo(left / (progress_bar.offsetWidth / 100) * (duration / 100));
+	function text (value) {
+		if (typeof value?.simpleText === 'string') return value.simpleText;
+		return Array.isArray(value?.runs) ? value.runs.map(run => typeof run?.text === 'string' ? run.text : '').join('') : '';
+	}
 
-					return false;
-				}
+	function normalize (entries) {
+		const seen = new Set();
+		return entries.filter(entry => Number.isFinite(entry.start) && entry.start >= 0)
+			.sort((a, b) => a.start - b.start)
+			.filter(function (entry) {
+				if (seen.has(entry.start)) return false;
+				seen.add(entry.start);
+				return true;
+			});
+	}
+
+	for (const data of [this.elements.ytd_watch?.data, window.ytInitialData]) {
+		// Bootstrap data survives SPA navigation. Only use data explicitly owned by this video.
+		const owner = data?.currentVideoEndpoint?.watchEndpoint?.videoId || data?.endpoint?.watchEndpoint?.videoId;
+		if (owner !== videoId) continue;
+		const bar = data?.playerOverlays?.playerOverlayRenderer?.decoratedPlayerBarRenderer?.decoratedPlayerBarRenderer?.playerBar?.multiMarkersPlayerBarRenderer;
+		for (const key of ['DESCRIPTION_CHAPTERS', 'AUTO_CHAPTERS']) {
+			const group = Array.isArray(bar?.markersMap) && bar.markersMap.find(item => item?.key === key);
+			if (Array.isArray(group?.value?.chapters)) {
+				const entries = normalize(group.value.chapters.map(function (item) {
+					const chapter = item?.chapterRenderer;
+					return { start: number(chapter?.timeRangeStartMillis) / 1000, title: text(chapter?.title) };
+				}));
+				if (entries.length) return entries;
 			}
+			const target = 'engagement-panel-macro-markers-' + key.toLowerCase().replace('_', '-');
+			const panel = Array.isArray(data.engagementPanels) && data.engagementPanels.find(item => item?.engagementPanelSectionListRenderer?.targetId === target);
+			const contents = panel?.engagementPanelSectionListRenderer?.content?.macroMarkersListRenderer?.contents;
+			if (!Array.isArray(contents)) continue;
+			const entries = normalize(contents.map(function (item) {
+				const chapter = item?.macroMarkersListItemRenderer, endpoint = chapter?.onTap?.watchEndpoint;
+				return { start: endpoint?.videoId === videoId ? number(endpoint.startTimeSeconds) : NaN, title: text(chapter?.title) };
+			}));
+			if (entries.length) return entries;
 		}
 	}
+
+	const panels = [...document.querySelectorAll('[target-id*="chapters"]')];
+	panels.sort((a, b) => Number(b.getAttribute('target-id').includes('description-chapters')) - Number(a.getAttribute('target-id').includes('description-chapters')));
+	for (const panel of panels) {
+		const entries = [];
+		for (const anchor of panel.querySelectorAll('a[href]')) {
+			try {
+				const link = new URL(anchor.getAttribute('href'), url);
+				if (link.origin !== url.origin || link.pathname !== '/watch' || link.searchParams.get('v') !== videoId) continue;
+				const time = (link.searchParams.get('t') ?? link.searchParams.get('start'))?.trim();
+				if (!time) continue;
+				const parts = time.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+(?:\.\d+)?)s)?$/);
+				const seconds = /^\d+(?:\.\d+)?$/.test(time) ? Number(time) : parts && parts.slice(1).some(Boolean)
+					? Number(parts[1] || 0) * 3600 + Number(parts[2] || 0) * 60 + Number(parts[3] || 0) : NaN;
+				entries.push({ start: seconds, title: anchor.textContent.trim() });
+			} catch (error) {
+				// A malformed or unrelated link is not a chapter timestamp.
+			}
+		}
+		const chapters = normalize(entries);
+		if (chapters.length) return chapters;
+	}
+	return [];
+};
+
+ImprovedTube.shortcutSeekNextChapter = function (previous = false) {
+	const player = this.elements.player;
+	if (typeof player?.seekTo !== 'function' || typeof player.getCurrentTime !== 'function' || player.classList?.contains('ad-showing') || player.classList?.contains('ad-interrupting')) return;
+	const time = player.getCurrentTime(), duration = typeof player.getDuration === 'function' ? player.getDuration() : undefined;
+	if (!Number.isFinite(time) || time < 0) return;
+	const entries = this.shortcutChapterEntries().filter(entry => !Number.isFinite(duration) || duration <= 0 || entry.start < duration);
+	// One millisecond avoids selecting the same boundary after floating-point seek rounding.
+	const chapter = previous ? entries.reverse().find(entry => entry.start < time - 0.001) : entries.find(entry => entry.start > time + 0.001);
+	if (!chapter) return;
+	player.seekTo(chapter.start);
+	if (chapter.title) this.showStatus?.(chapter.title);
+	return false;
 };
 /*------------------------------------------------------------------------------
 4.7.12 SEEK PREVIOUS CHAPTER
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutSeekPreviousChapter = function () {
-	if (this.elements.player) {
-		var player = this.elements.player,
-			chapters_container = player.querySelector('.ytp-chapters-container'),
-			progress_bar = player.querySelector('.ytp-progress-bar');
-
-		if (chapters_container && chapters_container.children && progress_bar) {
-			var chapters = chapters_container.children,
-				duration = player.getDuration(),
-				current_width = player.getCurrentTime() / (duration / 100) * (progress_bar.offsetWidth / 100);
-
-			for (var i = chapters.length - 1; i > 0; i--) {
-				if (current_width > chapters[i].offsetLeft) {
-					var left = 0;
-
-					if (i > 0) {
-						left = chapters[i - 1].offsetLeft;
-					}
-
-					player.seekTo(left / (progress_bar.offsetWidth / 100) * (duration / 100));
-
-					return false;
-				}
-			}
-		}
-	}
+	return this.shortcutSeekNextChapter(true);
 };
 /*------------------------------------------------------------------------------
 4.7.13 INCREASE VOLUME
