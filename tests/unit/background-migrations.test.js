@@ -17,9 +17,13 @@ async function loadBackground (initial = {}, options = {}) {
 		};
 	};
 	const chrome = {
-		runtime: { onInstalled: event(), onMessage: event(), setUninstallURL: jest.fn() },
+		runtime: { onInstalled: event(), onMessage: event(), setUninstallURL: jest.fn(), getManifest: () => ({ version: '4' }) },
 		storage: { onChanged: event(), local: {} },
-		contextMenus: { onClicked: event(), removeAll: jest.fn(), create: jest.fn() },
+		contextMenus: {
+			onClicked: event(),
+			removeAll: jest.fn(callback => { if (callback) queueMicrotask(callback); }),
+			create: jest.fn((item, callback) => { if (callback) queueMicrotask(callback); return item.id; })
+		},
 		tabs: { onActivated: event() },
 		windows: { onFocusChanged: event() },
 		i18n: { getUILanguage: () => 'en' }
@@ -63,7 +67,7 @@ async function loadBackground (initial = {}, options = {}) {
 	});
 	const context = {
 		chrome,
-		console: { error: jest.fn(), log: jest.fn() },
+		console: { error: jest.fn(), warn: jest.fn(), log: jest.fn() },
 		navigator: { userAgent: 'Chrome' },
 		fetch: jest.fn().mockResolvedValue({ ok: true, json: () => Promise.resolve({}) })
 	};
