@@ -40,6 +40,9 @@ jobs:
       - name: Run npm test
         run: npm test
 
+      - name: Test browser packaging
+        run: python3 -m unittest discover -s tests/build -p 'test_*.py'
+
       - name: Install csslint using npm
         run: npm install -g csslint@1.0.5
 
