@@ -12,7 +12,9 @@ a reading tool: nothing is changed on YouTube.
 		panel = null,
 		items = [],
 		observer = null,
-		timer = null;
+		timer = null,
+		navigating = false,
+		lastReport = '';
 
 	function enabled() {
 		return ImprovedTube.storage.playlist_series_gap === true;
@@ -62,7 +64,7 @@ a reading tool: nothing is changed on YouTube.
 	}
 
 	function report(list, minimum) {
-		var min = Math.max(1, Number(minimum) || 3),
+		var min = Number.isFinite(Number(minimum)) ? Math.min(20, Math.max(2, Math.floor(Number(minimum) || 3))) : 3,
 			numbered = [],
 			unparsed = [],
 			byKey = {},
@@ -71,9 +73,10 @@ a reading tool: nothing is changed on YouTube.
 			missing = [];
 
 		list.forEach(function (item) {
-			var parsed = parseEpisode(item.title);
+			var parsed = parseEpisode(item && item.title);
 
-			if (!parsed) {
+			if (!parsed || !Number.isSafeInteger(parsed.episode) || parsed.episode < 0 ||
+				(parsed.season !== null && (!Number.isSafeInteger(parsed.season) || parsed.season < 0))) {
 				unparsed.push(item);
 				return;
 			}
@@ -113,25 +116,25 @@ a reading tool: nothing is changed on YouTube.
 				return;
 			}
 
-			var numbers = entries.map(function (entry) { return entry.episode; }),
-				low = Math.min.apply(null, numbers),
-				high = Math.max.apply(null, numbers),
-				seen = {},
-				gaps = [];
+			var numbers = Array.from(new Set(entries.map(function (entry) { return entry.episode; }))).sort(function (a, b) { return a - b; }),
+				gaps = [],
+				omitted = 0;
 
-			numbers.forEach(function (n) { seen[n] = true; });
-
-			for (var n = low; n <= high; n++) {
-				if (!seen[n]) {
-					gaps.push(n);
-				}
+			// A title may contain a year or a very large episode number; bound both work and output.
+			for (var i = 1; i < numbers.length; i++) {
+				var gap = numbers[i] - numbers[i - 1] - 1,
+					take = Math.min(gap, 100 - gaps.length);
+				for (var n = 1; n <= take; n++) gaps.push(numbers[i - 1] + n);
+				omitted += gap - take;
 			}
 
 			if (gaps.length) {
-				missing.push({
+				var result = {
 					season: group === 'all' ? null : Number(group),
 					episodes: gaps
-				});
+				};
+				if (omitted) result.omitted = omitted;
+				missing.push(result);
 			}
 		});
 
@@ -148,24 +151,17 @@ a reading tool: nothing is changed on YouTube.
 	}
 
 	function videoId(href) {
-		var match = String(href || '').match(/[?&]v=([^&]{11})/);
+		var match = String(href || '').match(/[?&]v=([\w-]{11})(?:[&#]|$)/);
 
 		return match ? match[1] : null;
 	}
 
 	function rows() {
-		var selector = 'ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer';
-
-		if (location.pathname === '/playlist') {
-			selector += ', #contents yt-lockup-view-model';
-		} else {
-			selector += ', ytd-playlist-panel-renderer yt-lockup-view-model';
-		}
-
-		var list = [];
-
-		document.querySelectorAll(selector).forEach(function (row) {
-			var link = row.querySelector('a[href*="/watch?v="]');
+		var root = listRoot(), list = [];
+		if (!root) return list;
+		root.querySelectorAll('ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer, yt-lockup-view-model').forEach(function (row) {
+			if (row.parentElement?.closest('ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer')) return;
+			var link = row.querySelector('a[href*="/watch?"]');
 
 			if (!link || !videoId(link.getAttribute('href'))) {
 				return;
@@ -173,10 +169,6 @@ a reading tool: nothing is changed on YouTube.
 
 			var title = row.querySelector('#video-title, h3'),
 				id = videoId(link.getAttribute('href'));
-
-			if (list.some(function (item) { return item.id === id; })) {
-				return;
-			}
 
 			list.push({
 				id: id,
@@ -208,19 +200,18 @@ a reading tool: nothing is changed on YouTube.
 	}
 
 	function render() {
-		if (!panel) {
+		if (!panel || !panel.isConnected || !enabled() || navigating) {
 			return;
 		}
 
-		var body = panel.querySelector('#it-series-gap-body'),
-			footer = panel.querySelector('#it-series-gap-footer');
-
-		body.textContent = '';
-		footer.textContent = '';
-
+		var body = panel.querySelector('#it-series-gap-body');
 		items = rows();
 
 		var data = report(items, Number(ImprovedTube.storage.playlist_series_gap_minimum) || 3);
+		var signature = JSON.stringify(data, function (key, value) { return key === 'row' ? undefined : value; });
+		if (signature === lastReport) return;
+		lastReport = signature;
+		body.textContent = '';
 
 		body.appendChild(line(data.scanned + ' rows scanned, ' + data.numbered + ' numbered', { muted: true }));
 
@@ -232,7 +223,8 @@ a reading tool: nothing is changed on YouTube.
 		if (data.missing.length) {
 			body.appendChild(line('Missing episodes', { strong: true }));
 			data.missing.forEach(function (entry) {
-				body.appendChild(line((entry.season == null ? 'All episodes' : 'Season ' + entry.season) + ': ' + entry.episodes.join(', ')));
+				body.appendChild(line((entry.season == null ? 'All episodes' : 'Season ' + entry.season) + ': ' + entry.episodes.join(', ') +
+					(entry.omitted ? ' …and ' + entry.omitted + ' more' : '')));
 			});
 		} else {
 			body.appendChild(line('No gaps in the numbered range.'));
@@ -258,6 +250,7 @@ a reading tool: nothing is changed on YouTube.
 	}
 
 	function close() {
+		lastReport = '';
 		if (panel) {
 			panel.remove();
 			panel = null;
@@ -265,6 +258,7 @@ a reading tool: nothing is changed on YouTube.
 	}
 
 	function open() {
+		if (!enabled() || navigating || !isPlaylistPage() || !document.body) return;
 		if (panel) {
 			close();
 			return;
@@ -278,6 +272,8 @@ a reading tool: nothing is changed on YouTube.
 			footer = document.createElement('div');
 
 		el.id = 'it-series-gap-panel';
+		el.setAttribute('role', 'dialog');
+		el.setAttribute('aria-label', 'Series gaps');
 		el.style.cssText = 'position:fixed;left:16px;bottom:64px;z-index:2147483000;width:340px;max-height:60vh;overflow:auto;padding:12px;border-radius:12px;background:' +
 			theme().bg + ';color:' + theme().fg + ';border:1px solid ' + theme().border +
 			';box-shadow:0 8px 32px rgba(0,0,0,.35);font:13px/1.45 Roboto,Arial,sans-serif';
@@ -328,11 +324,21 @@ a reading tool: nothing is changed on YouTube.
 	}
 
 	function isPlaylistPage() {
-		return location.pathname === '/playlist' || !!document.querySelector('ytd-playlist-panel-renderer');
+		return (location.pathname === '/playlist' || location.pathname === '/watch') && /[?&]list=[^&]+/.test(location.search);
+	}
+
+	function listRoot() {
+		return location.pathname === '/playlist'
+			? document.querySelector('ytd-playlist-video-list-renderer, yt-item-section-renderer, ytd-item-section-renderer')
+			: document.querySelector('ytd-watch-flexy ytd-playlist-panel-renderer, ytd-playlist-panel-renderer');
 	}
 
 	function apply() {
-		if (!enabled() || !isPlaylistPage()) {
+		clearTimeout(timer);
+		timer = null;
+		if (!enabled() || navigating || !isPlaylistPage() || !document.body) {
+			if (observer) observer.disconnect();
+			observer = null;
 			if (button) {
 				button.remove();
 				button = null;
@@ -340,11 +346,12 @@ a reading tool: nothing is changed on YouTube.
 			close();
 			return;
 		}
-
+		observe();
 		if (!button || !document.contains(button)) {
 			button = makeButton();
 			document.body.appendChild(button);
 		}
+		render();
 	}
 
 	function observe() {
@@ -352,20 +359,30 @@ a reading tool: nothing is changed on YouTube.
 			return;
 		}
 
-		observer = new MutationObserver(function () {
-			if (!enabled() || !panel) {
-				return;
-			}
-
-			clearTimeout(timer);
-			timer = setTimeout(render, 300);
+		observer = new MutationObserver(function (mutations) {
+			if (mutations.some(function (mutation) {
+				var target = mutation.target.nodeType === 1 ? mutation.target : mutation.target.parentElement;
+				return target && !target.closest('#it-series-gap-panel, #it-series-gap-button') &&
+					(!button?.isConnected || target.closest('ytd-playlist-video-list-renderer, yt-item-section-renderer, ytd-item-section-renderer, ytd-playlist-panel-renderer') ||
+						Array.from(mutation.addedNodes || []).some(function (node) {
+							return node.nodeType === 1 && (node.matches('ytd-playlist-video-list-renderer, yt-item-section-renderer, ytd-item-section-renderer, ytd-playlist-panel-renderer') ||
+								node.querySelector('ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer, yt-lockup-view-model'));
+						}));
+			})) schedule();
 		});
-		observer.observe(document.body, { childList: true, subtree: true });
+		observer.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href', 'title'] });
 	}
 
-	document.addEventListener('init_completed', function () { observe(); apply(); });
-	document.addEventListener('yt-navigate-finish', function () { setTimeout(apply, 150); });
-	document.addEventListener('it-message-from-extension', function () { setTimeout(apply, 0); });
+	function schedule() {
+		if (timer === null) timer = setTimeout(apply, 150);
+	}
+	document.addEventListener('init_completed', apply);
+	document.addEventListener('DOMContentLoaded', apply);
+	document.addEventListener('yt-navigate-start', function () { navigating = true; apply(); });
+	document.addEventListener('yt-navigate-finish', function () { navigating = false; schedule(); });
+	document.addEventListener('keydown', function (event) { if (event.key === 'Escape') close(); });
+	ImprovedTube.playlistSeriesGap = apply;
+	ImprovedTube.playlistSeriesGapMinimum = render;
 
 	ImprovedTube.seriesGapParseEpisode = parseEpisode;
 	ImprovedTube.seriesGapReport = report;
