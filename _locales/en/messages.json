@@ -1943,6 +1943,14 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "seriesGap": {
+    "message": "Series gaps"
+  },
+  "seriesGapButton": {
+    "message": "Episode gap report"
+  },
+  "minimumNumberedTitles": {
+    "message": "Minimum numbered titles for a report"
   }
 }
-
