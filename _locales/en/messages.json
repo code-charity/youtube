@@ -1230,6 +1230,9 @@
   "ram": {
     "message": "RAM"
   },
+  "showOriginalRemainingDuration": {
+    "message": "Also show original remaining time (with speed-adjusted time)"
+  },
   "rateMe": {
     "message": "Rate me"
   },

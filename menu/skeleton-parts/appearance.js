@@ -420,6 +420,11 @@ extension.skeleton.main.layers.section.appearance.on.click.player = {
 					id: "show-remaining-duration",
 					value: false
 				},
+				remaining_duration_show_original: {
+					component: "switch",
+					text: "showOriginalRemainingDuration",
+					value: false
+				},
 				duration_with_speed: {
 					component: "switch",
 					text: "durationWithSpeed",

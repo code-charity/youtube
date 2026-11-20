@@ -168,51 +168,72 @@ ImprovedTube.showProgressBar = function () {
 /*------------------------------------------------------------------------------
  VIDEO REMAINING DURATION
 ------------------------------------------------------------------------------*/
-ImprovedTube.formatSecond = function (rTime) {
-	var time = new Date(null);
-	if (this.storage.duration_with_speed === true) {
-		var playbackRate = this.elements.video.playbackRate;
-		time.setSeconds(rTime / playbackRate);
-	} else {
-		time.setSeconds(rTime);
-	}
+ImprovedTube.formatSecond = function (rTime, withSpeed = this.storage.duration_with_speed === true) {
+	const seconds = Number(rTime);
+	if (!Number.isFinite(seconds)) return '';
+	const rate = Number(this.elements.video?.playbackRate),
+		speed = withSpeed && Number.isFinite(rate) && rate > 0 ? rate : 1,
+		total = Math.floor(Math.max(0, seconds) / speed),
+		hours = Math.floor(total / 3600),
+		minutes = String(Math.floor(total / 60) % 60).padStart(2, '0'),
+		rest = String(total % 60).padStart(2, '0');
+	return (hours ? String(hours).padStart(2, '0') + ':' : '') + minutes + ':' + rest;
+};
 
-	if (rTime / 3600 < 1) {
-		return time.toISOString().substr(14, 5);
-	} else {
-		return time.toISOString().substr(11, 8);
+ImprovedTube.playerRemainingDurationCleanup = function () {
+	const video = this.remainingDurationVideo;
+	if (video) {
+		for (const name of ['timeupdate', 'ratechange', 'durationchange', 'seeking', 'emptied']) {
+			video.removeEventListener(name, this.remainingDurationListener);
+		}
 	}
+	delete this.remainingDurationVideo;
+	this.remainingDurationElement?.remove();
+	delete this.remainingDurationElement;
 };
 
 ImprovedTube.playerRemainingDuration = function () {
-	const liveBadge = document.querySelector('button.ytp-live-badge.ytp-button.ytp-live-badge-is-livehead');
-	if (liveBadge) return;
-
-	const durationEl = document.querySelector('.ytp-time-duration');
-	if (!durationEl) return;
-
-	const player = ImprovedTube.elements.player;
-	if (!player) return;
-
-	const currentTime = player.getCurrentTime();
-	const duration = player.getDuration();
-
-	if (!isFinite(duration) || !isFinite(currentTime) || duration <= 0) return;
-
-	const remainingSeconds = Math.max(0, duration - currentTime);
-	const rTime = ImprovedTube.formatSecond(Math.floor(remainingSeconds));
-
-	if (!rTime || rTime.includes('NaN')) return;
-
-	var remainingEl = document.querySelector('.ytp-time-remaining-duration');
+	const player = this.elements.player,
+		video = this.elements.video;
+	if (this.storage.player_remaining_duration !== true || !player || !video) {
+		this.playerRemainingDurationCleanup();
+		return;
+	}
+	if (this.remainingDurationVideo !== video) {
+		this.playerRemainingDurationCleanup();
+		this.remainingDurationVideo = video;
+		this.remainingDurationListener = () => ImprovedTube.playerRemainingDuration();
+		for (const name of ['timeupdate', 'ratechange', 'durationchange', 'seeking', 'emptied']) {
+			video.addEventListener(name, this.remainingDurationListener);
+		}
+	}
+	const durationEl = player.querySelector('.ytp-time-duration'),
+		liveBadge = player.querySelector('button.ytp-live-badge.ytp-button.ytp-live-badge-is-livehead'),
+		currentTime = player.getCurrentTime?.(),
+		duration = player.getDuration?.();
+	if (!durationEl || liveBadge || !Number.isFinite(duration) || !Number.isFinite(currentTime) || duration <= 0) {
+		this.remainingDurationElement?.remove();
+		delete this.remainingDurationElement;
+		return;
+	}
+	const remainingSeconds = Math.max(0, duration - currentTime),
+		rTime = this.formatSecond(remainingSeconds);
+	let remainingEl = player.querySelector('.ytp-time-remaining-duration');
 	if (!remainingEl) {
 		remainingEl = document.createElement('span');
 		remainingEl.className = 'ytp-time-remaining-duration';
 		durationEl.insertAdjacentElement('afterend', remainingEl);
 	}
-	remainingEl.textContent = '  (-' + rTime + ')';
+	this.remainingDurationElement = remainingEl;
+	let text = '  (-' + rTime + ')';
+	if (this.storage.duration_with_speed === true && this.storage.remaining_duration_show_original === true) {
+		const original = this.formatSecond(remainingSeconds, false);
+		text = '  (-' + rTime + ' / -' + original + ')';
+	}
+	if (remainingEl.textContent !== text) remainingEl.textContent = text;
 };
 
+document.addEventListener('yt-navigate-start', function () { ImprovedTube.playerRemainingDurationCleanup(); });
 
 /*------------------------------------------------------------------------------
  Comments Sidebar Simple
