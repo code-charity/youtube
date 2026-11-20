@@ -9,14 +9,18 @@ extension page world message bridge.
 	'use strict';
 
 	var MAX_PER_VIDEO = 100,
-		MAX_LABEL = 80;
+		MAX_LABEL = 80,
+		observer = null,
+		timer = null,
+		panelVideo = null,
+		refreshPanel = null;
 
 	function enabled() {
 		return ImprovedTube.storage.bookmarks_enabled === true;
 	}
 
 	function videoId() {
-		var match = location.search.match(/[?&]v=([^&]{11})/);
+		var match = location.search.match(/[?&]v=([\w-]{11})(?:&|$)/);
 		return match ? match[1] : null;
 	}
 
@@ -32,7 +36,19 @@ extension page world message bridge.
 
 	function listFor(id) {
 		var list = readAll()[id];
-		return Array.isArray(list) ? list.slice() : [];
+		return cleanList(list);
+	}
+
+	function cleanList(list) {
+		return (Array.isArray(list) ? list : []).filter(function (item) {
+			return item && Number.isFinite(item.t) && item.t >= 0 && Number.isSafeInteger(Math.floor(item.t));
+		}).map(function (item) {
+			return {
+				t: Math.floor(item.t),
+				label: typeof item.label === 'string' ? item.label.slice(0, MAX_LABEL) : formatTime(item.t),
+				at: Number.isFinite(item.at) && item.at >= 0 ? item.at : 0
+			};
+		}).sort(function (a, b) { return a.t - b.t; });
 	}
 
 	function writeAll(data) {
@@ -43,7 +59,7 @@ extension page world message bridge.
 	}
 
 	function formatTime(seconds) {
-		var total = Math.max(0, Math.floor(Number(seconds) || 0)),
+		var total = Number.isFinite(Number(seconds)) ? Math.max(0, Math.floor(Number(seconds))) : 0,
 			h = Math.floor(total / 3600),
 			m = Math.floor((total % 3600) / 60),
 			s = total % 60,
@@ -57,7 +73,7 @@ extension page world message bridge.
 		var value = String(text == null ? '' : text).trim();
 
 		if (/^\d+$/.test(value)) {
-			return Number(value);
+			return Number.isSafeInteger(Number(value)) ? Number(value) : null;
 		}
 
 		var parts = value.split(':');
@@ -66,25 +82,30 @@ extension page world message bridge.
 			return null;
 		}
 
-		return parts.reduce(function (total, part) { return total * 60 + Number(part); }, 0);
+		if (parts.slice(1).some(function (part) { return Number(part) >= 60; })) return null;
+		var total = parts.reduce(function (sum, part) { return sum * 60 + Number(part); }, 0);
+		return Number.isSafeInteger(total) ? total : null;
 	}
 
 	function add(list, seconds, label) {
+		list = cleanList(list);
+		if (!Number.isFinite(Number(seconds)) || Number(seconds) < 0 || !Number.isSafeInteger(Math.floor(Number(seconds)))) return list;
 		var clean = String(label || '').trim().slice(0, MAX_LABEL),
-			time = Math.max(0, Math.floor(Number(seconds) || 0)),
+			time = Math.floor(Number(seconds)),
 			next = list.filter(function (item) { return item.t !== time; });
+		if (next.length >= MAX_PER_VIDEO) return list;
 
 		next.push({ t: time, label: clean || formatTime(time), at: Date.now() });
 		next.sort(function (a, b) { return a.t - b.t; });
 
-		return next.slice(-MAX_PER_VIDEO);
+		return next;
 	}
 
 	function remove(list, index) {
 		return list.filter(function (_item, i) { return i !== index; });
 	}
 
-	function exportText(video, list) {
+	function exportText(_video, list) {
 		return list.map(function (item) {
 			return formatTime(item.t) + '  ' + item.label;
 		}).join('\n');
@@ -135,7 +156,7 @@ extension page world message bridge.
 			return existing;
 		}
 
-		var anchor = document.querySelector('#subscribe-button'),
+		var anchor = document.querySelector('ytd-watch-metadata #subscribe-button, ytd-video-secondary-info-renderer #subscribe-button, #subscribe-button'),
 			el = document.createElement('button'),
 			svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'),
 			path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
@@ -148,6 +169,7 @@ extension page world message bridge.
 		el.className = 'improvedtube-player-button';
 		el.dataset.tooltip = 'Bookmarks';
 		el.type = 'button';
+		el.setAttribute('aria-label', 'Bookmarks');
 		el.style.cssText = 'position:relative;margin-left:8px;width:36px;height:36px;border:0;border-radius:50%;background:' + theme().chip + ';color:' + theme().fg + ';cursor:pointer;display:inline-flex;align-items:center;justify-content:center;vertical-align:middle';
 		svg.setAttribute('viewBox', '0 0 24 24');
 		svg.setAttribute('width', '20');
@@ -179,6 +201,8 @@ extension page world message bridge.
 		if (panel) {
 			panel.remove();
 		}
+		panelVideo = null;
+		refreshPanel = null;
 	}
 
 	function togglePanel() {
@@ -192,8 +216,10 @@ extension page world message bridge.
 	}
 
 	function openPanel() {
+		if (!enabled() || location.pathname !== '/watch' || !document.body) return;
+		closePanel();
 		var id = videoId(),
-			video = document.querySelector('video'),
+			video = document.querySelector('#movie_player video, video.html5-main-video'),
 			panel = document.createElement('div'),
 			head = document.createElement('div'),
 			title = document.createElement('strong'),
@@ -209,6 +235,9 @@ extension page world message bridge.
 		}
 
 		panel.id = 'it-bookmarks-panel';
+		panelVideo = id;
+		panel.setAttribute('role', 'dialog');
+		panel.setAttribute('aria-label', 'Bookmarks');
 		panel.style.cssText = 'position:fixed;top:64px;right:16px;z-index:2147483000;width:320px;max-height:70vh;overflow:auto;padding:12px;border-radius:12px;background:' + theme().bg + ';color:' + theme().fg + ';box-shadow:0 8px 32px rgba(0,0,0,.35);font:13px/1.45 Roboto,Arial,sans-serif;border:1px solid ' + theme().border;
 
 		head.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px';
@@ -237,7 +266,7 @@ extension page world message bridge.
 				return;
 			}
 
-			items.forEach(function (item, index) {
+			items.forEach(function (item) {
 				var row = document.createElement('div'),
 					jump = document.createElement('button'),
 					label = document.createElement('span'),
@@ -249,8 +278,9 @@ extension page world message bridge.
 				jump.title = 'Jump to ' + formatTime(item.t);
 				jump.style.cssText = 'flex:0 0 auto;border:0;border-radius:6px;padding:3px 7px;background:' + theme().chip + ';color:inherit;font:inherit;cursor:pointer';
 				jump.addEventListener('click', function () {
-					if (video) {
-						video.currentTime = item.t;
+					var current = document.querySelector('#movie_player video, video.html5-main-video');
+					if (enabled() && videoId() === id && current) {
+						current.currentTime = item.t;
 					}
 				});
 				label.textContent = item.label;
@@ -260,8 +290,9 @@ extension page world message bridge.
 				del.title = 'Delete bookmark';
 				del.style.cssText = 'flex:0 0 auto;border:0;background:transparent;color:inherit;cursor:pointer;opacity:.6';
 				del.addEventListener('click', function () {
+					if (!enabled() || videoId() !== id) return;
 					var data = readAll();
-					data[id] = remove(listFor(id), index);
+					data[id] = listFor(id).filter(function (entry) { return entry.t !== item.t; });
 					writeAll(data);
 					render();
 				});
@@ -273,6 +304,7 @@ extension page world message bridge.
 		}
 
 		input.type = 'text';
+		input.setAttribute('aria-label', 'Bookmark note');
 		input.placeholder = 'Name (blank = timestamp)';
 		input.maxLength = MAX_LABEL;
 		input.style.cssText = 'flex:1 1 auto;min-width:0;padding:6px 8px;border-radius:6px;border:1px solid ' + theme().border + ';background:transparent;color:inherit;font:inherit';
@@ -282,9 +314,16 @@ extension page world message bridge.
 		form.style.cssText = 'display:flex;gap:6px;margin-bottom:10px';
 		form.addEventListener('submit', function (event) {
 			event.preventDefault();
+			if (!enabled() || videoId() !== id) return;
+			var current = document.querySelector('#movie_player video, video.html5-main-video');
+			if (!current || !Number.isFinite(current.currentTime)) return;
 
-			var at = video ? video.currentTime : 0,
+			var at = current.currentTime,
 				data = readAll();
+			if (listFor(id).length >= MAX_PER_VIDEO && !listFor(id).some(function (item) { return item.t === Math.floor(at); })) {
+				save.textContent = '100 bookmarks saved — delete one first';
+				return;
+			}
 
 			data[id] = add(listFor(id), at, input.value || formatTime(at));
 			writeAll(data);
@@ -299,6 +338,7 @@ extension page world message bridge.
 			b.textContent = 'Export ' + pair[0];
 			b.style.cssText = 'padding:5px 8px;border-radius:6px;border:1px solid ' + theme().border + ';background:transparent;color:inherit;font:inherit;cursor:pointer';
 			b.addEventListener('click', function () {
+				if (!enabled() || videoId() !== id) return;
 				var items = listFor(id),
 					video_ = { id: id, title: videoTitle() };
 
@@ -321,25 +361,38 @@ extension page world message bridge.
 		panel.appendChild(footer);
 
 		document.body.appendChild(panel);
+		refreshPanel = render;
 		render();
-		setTimeout(function () { input.focus(); }, 50);
+		setTimeout(function () { if (panel.isConnected) input.focus(); }, 50);
 
 		if (video) {
 			var updateLabel = function () {
-				save.textContent = 'Add at ' + formatTime(video.currentTime);
+				var current = document.querySelector('#movie_player video, video.html5-main-video');
+				if (current) save.textContent = 'Add at ' + formatTime(current.currentTime);
 			};
 
-			video.addEventListener('timeupdate', updateLabel);
+			document.addEventListener('timeupdate', updateLabel, true);
 			panelCleanup = function () {
-				video.removeEventListener('timeupdate', updateLabel);
+				document.removeEventListener('timeupdate', updateLabel, true);
 			};
 		}
 	}
 
 	function apply() {
+		clearTimeout(timer);
+		timer = null;
+		if (panelVideo && panelVideo !== videoId()) closePanel();
 		if (enabled() && location.pathname === '/watch' && videoId()) {
 			button();
+			if (!observer && document.body) {
+				observer = new MutationObserver(function () {
+					if (!document.querySelector('#it-bookmarks-button')) schedule();
+				});
+				observer.observe(document.body, { childList: true, subtree: true });
+			}
 		} else {
+			if (observer) observer.disconnect();
+			observer = null;
 			var existing = document.querySelector('#it-bookmarks-button');
 			if (existing) {
 				existing.remove();
@@ -348,9 +401,16 @@ extension page world message bridge.
 		}
 	}
 
+	function schedule() {
+		if (timer === null) timer = setTimeout(apply, 50);
+	}
+
 	document.addEventListener('init_completed', apply);
-	document.addEventListener('yt-navigate-finish', function () { setTimeout(apply, 50); });
-	document.addEventListener('it-message-from-extension', function () { setTimeout(apply, 0); });
+	document.addEventListener('DOMContentLoaded', apply);
+	document.addEventListener('yt-navigate-start', closePanel);
+	document.addEventListener('yt-navigate-finish', schedule);
+	ImprovedTube.bookmarksEnabled = apply;
+	ImprovedTube.bookmarks = function () { if (refreshPanel) refreshPanel(); };
 	document.addEventListener('keydown', function (event) {
 		if (event.key === 'Escape') {
 			closePanel();

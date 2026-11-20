@@ -78,7 +78,7 @@ module.exports = function featureDom(file, settings = {}, html = '', setup = () 
 		const end = now + ms;
 		let iterations = 0;
 		await flush();
-		while (true) {
+		while (timers.size > 0) {
 			const next = [...timers].filter(([, timer]) => timer.at <= end).sort((a, b) => a[1].at - b[1].at)[0];
 			if (!next) break;
 			if (++iterations > 2000) throw new Error('Unbounded timer loop');
