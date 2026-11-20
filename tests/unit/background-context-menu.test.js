@@ -7,7 +7,7 @@ const flush = () => new Promise(resolve => setImmediate(resolve));
 const catalog = language => ({
 	donate: { message: language + ' donate' },
 	rateMe: { message: language + ' rate' },
-	GitHub: { message: language + ' GitHub' }
+	GitHub: { message: 'GitHub' }
 });
 
 function loadBackground (storedLanguage = 'de') {
@@ -22,11 +22,18 @@ function loadBackground (storedLanguage = 'de') {
 	const chrome = {
 		runtime: {
 			onInstalled: event(), onMessage: event(), setUninstallURL: jest.fn(),
+			getManifest: () => ({ version: '4' }),
 			getURL: jest.fn(() => 'chrome-extension://test/')
 		},
 		i18n: { getUILanguage: jest.fn(() => 'en') },
 		storage: {
-			local: { get: jest.fn((key, callback) => reads.push(() => callback({ language: storedLanguage }))) },
+			local: {
+				get: jest.fn((key, callback) => {
+					if (key === 'context_menu_locale_cache') queueMicrotask(() => callback({}));
+					else reads.push(() => callback({ language: storedLanguage }));
+				}),
+				set: jest.fn((values, callback) => queueMicrotask(() => callback?.()))
+			},
 			onChanged: event()
 		},
 		contextMenus: {
@@ -37,12 +44,17 @@ function loadBackground (storedLanguage = 'de') {
 		tabs: { onActivated: event(), create: jest.fn() },
 		windows: { onFocusChanged: event() }
 	};
-	const fetch = jest.fn(url => new Promise(resolve => requests.push({ url, resolve })));
-	const context = { chrome, fetch, console: { error: jest.fn(), log: jest.fn() } };
+	const fetch = jest.fn();
+	const context = { chrome, fetch, console: { error: jest.fn(), warn: jest.fn(), log: jest.fn() } };
 	vm.runInNewContext(source, context, { filename: 'background.js' });
+	// Control locale completion independently of the locale resolver's cache and fallback tests.
+	context.getLocale = jest.fn((language, callback) => {
+		fetch('_locales/' + language + '/messages.json');
+		requests.push({ url: '_locales/' + language + '/messages.json', resolve: callback });
+	});
 	return {
 		...context, reads, removals, creations, requests,
-		resolveLocale: (index, messages) => requests[index].resolve({ ok: true, json: () => Promise.resolve(messages) }),
+		resolveLocale: (index, messages) => requests[index].resolve(messages),
 		finishCreations: () => creations.splice(0).forEach(callback => callback()),
 		changeLanguage: (language, area = 'local') => chrome.storage.onChanged.emit({ language: { newValue: language } }, area)
 	};
@@ -53,6 +65,7 @@ describe('Background context-menu lifecycle (#4124 follow-up)', () => {
 		const bg = loadBackground();
 		expect(bg.fetch).not.toHaveBeenCalled();
 		bg.reads.shift()();
+		await flush();
 		expect(bg.requests[0].url).toBe('_locales/de/messages.json');
 		bg.resolveLocale(0, catalog('de'));
 		await flush();
@@ -64,22 +77,24 @@ describe('Background context-menu lifecycle (#4124 follow-up)', () => {
 		expect(bg.chrome.contextMenus.create.mock.calls.map(([item]) => item)).toEqual([
 			{ id: '0', title: 'de donate', contexts: ['action'] },
 			{ id: '1', title: 'de rate', contexts: ['action'] },
-			{ id: '2', title: 'de GitHub', contexts: ['action'] }
+			{ id: '2', title: 'GitHub', contexts: ['action'] }
 		]);
 		bg.finishCreations();
 	});
 
-	test.each([undefined, 'default', '', null])('uses the browser language for the saved default %j', saved => {
+	test.each([undefined, 'default', '', null])('uses the browser language for the saved default %j', async saved => {
 		const bg = loadBackground(saved);
 		if (saved === undefined) bg.chrome.storage.local.get.mock.calls[0][1]({});
 		else bg.reads.shift()();
+		await flush();
 		expect(bg.requests[0].url).toBe('_locales/en/messages.json');
 	});
 
-	test('ignores a startup storage read that finishes after a language change', () => {
+	test('ignores a startup storage read that finishes after a language change', async () => {
 		const bg = loadBackground();
 		bg.changeLanguage('fr');
 		bg.reads.shift()();
+		await flush();
 		expect(bg.fetch.mock.calls).toEqual([['_locales/fr/messages.json']]);
 	});
 
