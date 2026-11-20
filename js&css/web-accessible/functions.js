@@ -501,6 +501,7 @@ ImprovedTube.initPlayer = function () {
 		ImprovedTube.playerPlaybackSpeedButton();
 		ImprovedTube.playerHamburgerButton();
 		ImprovedTube.playerControls();
+		ImprovedTube.playerDisableTouchSwipeToMiniplayer();
 		ImprovedTube.playerHideProgressPreview();
 		ImprovedTube.expandDescription();
 		if (ImprovedTube.storage.player_watched_segments === true) {ImprovedTube.watchedSegments.init();}
