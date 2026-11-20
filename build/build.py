@@ -14,37 +14,30 @@
 # 1.0 IMPORT MODULES
 #---------------------------------------------------------------
 
-import shutil
-import sys
 import json
 import os
 import zipfile
 import re
-#import pathlib
+import argparse
+import tempfile
+import time
+from pathlib import Path
 
 #---------------------------------------------------------------
 # Helpers
 #---------------------------------------------------------------
 
-EXCLUDE_TOP_LEVEL = {
-	'.editorconfig',
-	'.idea',
-	'build',
-	'node_modules',
-	'tests',
-	'jest.config.js',
-	'package-lock.json',
-	'package.json',
-	'README.md',
-	'LICENSE',
-	'CONTRIBUTING.md'
-}
+REPO_ROOT = Path(__file__).resolve().parent.parent
+PACKAGE_FILES = ('manifest.json', 'background.js', 'LICENSE')
+PACKAGE_DIRECTORIES = ('_locales', 'js&css', 'menu')
 
 def _sanitize_name_for_store(name, store):
 	# remove non-ASCII (simple emoji removal) and replace single quote with '*' for Edge/Whale
 	sanitized = re.sub(r'[^\x00-\x7F]+', '', name or '')
 	if store in ('edge', 'whale'):
 		sanitized = sanitized.replace("'", "*")
+	if store == 'whale':
+		sanitized = sanitized.replace('&', '+')
 	return sanitized
 
 def _short_app_store_locale_text(text, max_bytes=112):
@@ -81,242 +74,109 @@ def _short_app_store_locale_text(text, max_bytes=112):
 # 2.0 CHROMIUM
 #---------------------------------------------------------------
 
-def chromium(browser):
-	temporary_path = '../cached'
+def package_sources():
+	for name in PACKAGE_FILES:
+		yield REPO_ROOT / name
+	for name in PACKAGE_DIRECTORIES:
+		if not (REPO_ROOT / name).is_dir() or (REPO_ROOT / name).is_symlink():
+			raise ValueError('Missing or linked package directory: ' + name)
+		for root, directories, files in os.walk(REPO_ROOT / name):
+			directories[:] = sorted(d for d in directories if not d.startswith('.') and d != '__pycache__')
+			for directory in directories:
+				if (Path(root) / directory).is_symlink():
+					raise ValueError('Linked package directory: ' + str(Path(root) / directory))
+			for file in sorted(files):
+				if file.startswith('.') or file in ('AGENTS.md', 'CLAUDE.md'):
+					continue
+				yield Path(root) / file
 
-	if os.path.isdir(temporary_path):
-		shutil.rmtree(temporary_path, ignore_errors=True)
 
-	os.mkdir(temporary_path)
-
-	for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))):
-		if (
-			item != '.git' and
-			item != '.github' and
-			item != 'cached' and
-			item != 'previews' and
-			item != 'py' and
-			item != 'wiki' and
-			item != 'LICENSE' and
-			item != 'README.md' and
-			item != 'SECURITY.md' and
-			item.find('.zip') == -1
-		):
-			if item in EXCLUDE_TOP_LEVEL:
-				continue
-			repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-			s = os.path.join(repo_root, item)
-			d = os.path.join(temporary_path, item)
-			if os.path.isdir(s):
-				shutil.copytree(s, d, True, None)
-			else:
-				shutil.copy2(s, d)
-
-	os.chdir(temporary_path)
-
-	with open('manifest.json', 'r+') as json_file:
-		data = json.load(json_file)
-
-		version = data['version']
-
-		if (browser == 'beta'):
+def manifest_for(browser):
+	data = json.loads((REPO_ROOT / 'manifest.json').read_text(encoding='utf8'))
+	if browser.startswith('chromium-'):
+		store = browser.removeprefix('chromium-')
+		data.get('background', {}).pop('scripts', None)
+		data.pop('browser_specific_settings', None)
+		data.get('action', {}).pop('default_area', None)
+		if store == 'beta':
 			data['name'] = 'ImprovedTube (testing)'
-
-		if browser in ('edge', 'whale'):
-			data['name'] = _sanitize_name_for_store(data.get('name', ''), browser)
-
-		# Patch background for ManifestV3
-		if 'background' in data:
-			data['background'].pop('scripts', None)
-
-		json_file.seek(0)
-		json.dump(data, json_file, indent=4, sort_keys=True)
-		json_file.truncate()
-
-	archive_name = os.path.join('..', f'chromium-{browser}-{version}.zip')
-	archive = zipfile.ZipFile(archive_name, 'w', zipfile.ZIP_DEFLATED)
-
-	for root, dirs, files in os.walk('.'):
-		for file in files:
-			archive.write(os.path.join(root, file),
-						os.path.relpath(os.path.join(root, file),
-										os.path.join('.', '.')))
-
-	archive.close()
-	shutil.rmtree(temporary_path)
-
-
-#---------------------------------------------------------------
-# 3.0 FIREFOX
-#---------------------------------------------------------------
-
-def firefox():
-	temporary_path = './cached'
-
-	if os.path.isdir(temporary_path):
-		shutil.rmtree(temporary_path, ignore_errors=True)
-
-	os.mkdir(temporary_path)
-
-	for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))):
-		if (
-			item != '.git' and
-			item != '.github' and
-			item != 'cached' and
-			item != 'previews' and
-			item != 'py' and
-			item != 'wiki' and
-			item != 'LICENSE' and
-			item != 'README.md' and
-			item != 'SECURITY.md' and
-			item.find('.zip') == -1
-		):
-			if item in EXCLUDE_TOP_LEVEL:
-				continue
-			s = os.path.join('.', item)
-			d = os.path.join(temporary_path, item)
-			if os.path.isdir(s):
-				shutil.copytree(s, d, True, None)
-			else:
-				shutil.copy2(s, d)
-
-	os.chdir(temporary_path)
-
-	with open('manifest.json', 'r+', encoding='utf8') as json_file:
-		data = json.load(json_file)
-
-		version = data['version']
-
+		elif store in ('edge', 'whale'):
+			data['name'] = _sanitize_name_for_store(data.get('name', ''), store)
+	elif browser == 'firefox':
 		data.pop('content_security_policy', None)
 		data.pop('update_url', None)
-
-		# Patch background for Firefox
-		if 'background' in data:
-			if 'service_worker' in data['background']:
-				del data['background']['service_worker']
-			data['background']['scripts'] = ['background.js']
-
-		json_file.seek(0)
-		json.dump(data, json_file, indent=4, sort_keys=True)
-		json_file.truncate()
-
-	archive = zipfile.ZipFile('../firefox-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
-
-	for root, dirs, files in os.walk('.'):
-		for file in files:
-			archive.write(os.path.join(root, file),
-						os.path.relpath(os.path.join(root, file),
-										os.path.join('.', '.')))
-
-	archive.close()
-	os.chdir('..')
-	shutil.rmtree(temporary_path)
-
-def safari():
-	temporary_path = os.path.abspath('../cached-safari')
-
-	if os.path.isdir(temporary_path):
-		shutil.rmtree(temporary_path, ignore_errors=True)
-
-	repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-
-	shutil.copytree(
-		repo_root,
-		temporary_path,
-		ignore=shutil.ignore_patterns(
-			'.git',
-			'.github',
-			'cached',
-			'cached-safari',
-			'previews',
-			'py',
-			'wiki',
-			'*.zip',
-			*EXCLUDE_TOP_LEVEL
-		)
-	)
-
-	os.chdir(temporary_path)
-
-	for root, dirs, files in os.walk('_locales'):
-		if 'messages.json' not in files:
-			continue
-
-		path = os.path.join(root, 'messages.json')
-
-		with open(path, 'r+', encoding='utf8') as json_file:
-			data = json.load(json_file)
-			changed = False
-
-			for key, value in data.items():
-				if isinstance(value, dict):
-					message = value.get('message')
-					short_message = _short_app_store_locale_text(message)
-
-					if key == 'description_ext' and message != short_message:
-						value['message'] = short_message
-						changed = True
-
-					description = value.get('description')
-					short_description = _short_app_store_locale_text(description or short_message or key)
-
-					if description != short_description:
-						value['description'] = short_description
-						changed = True
-
-					if value.get('placeholders') == {}:
-						del value['placeholders']
-						changed = True
-
-			if changed:
-				json_file.seek(0)
-				json.dump(data, json_file, indent=4, sort_keys=True, ensure_ascii=False)
-				json_file.truncate()
-
-	with open('manifest.json', 'r+', encoding='utf8') as json_file:
-		data = json.load(json_file)
-
-		version = data['version']
-		permissions = data.get('permissions', [])
-
+		data['background'] = {'scripts': ['background.js']}
+	elif browser == 'safari':
 		data['name'] = 'Improve YouTube! for YouTube & Videos'
-
+		permissions = data.setdefault('permissions', [])
 		if 'scripting' not in permissions:
 			permissions.append('scripting')
-
-		data['permissions'] = permissions
-
-		json_file.seek(0)
-		json.dump(data, json_file, indent=4, sort_keys=True)
-		json_file.truncate()
-
-	archive = zipfile.ZipFile('../safari-' + version + '.zip', 'w', zipfile.ZIP_DEFLATED)
-
-	for root, dirs, files in os.walk('.'):
-		for file in files:
-			archive.write(os.path.join(root, file),
-						os.path.relpath(os.path.join(root, file),
-										os.path.join('.', '.')))
-
-	archive.close()
-	os.chdir('..')
-	shutil.rmtree(temporary_path)
+	return data
 
 
-#---------------------------------------------------------------
-# 4.0 INITIALIZATION
-#---------------------------------------------------------------
+def safari_locale(content):
+	data = json.loads(content)
+	for key, value in data.items():
+		if not isinstance(value, dict):
+			continue
+		message = _short_app_store_locale_text(value.get('message'))
+		if key == 'description_ext':
+			value['message'] = message
+		value['description'] = _short_app_store_locale_text(value.get('description') or message or key)
+		if value.get('placeholders') == {}:
+			del value['placeholders']
+	return json.dumps(data, indent=4, sort_keys=True, ensure_ascii=False).encode('utf8')
 
-for arg in sys.argv:
-	if arg == '-chromium-stable':
-		chromium('stable')
-	elif arg == '-chromium-beta':
-		chromium('beta')
-	elif arg == '-chromium-edge':
-		chromium('edge')
-	elif arg == '-chromium-whale':
-		chromium('whale')
-	elif arg == '-firefox':
-		firefox()
-	elif arg == '-safari':
-		safari()
+
+def build(browser, output_dir):
+	manifest = manifest_for(browser)
+	version = manifest['version']
+	if not re.fullmatch(r'\d+(?:\.\d+){0,3}', version):
+		raise ValueError('Invalid extension version: ' + str(version))
+	output_dir = Path(output_dir).resolve()
+	output_dir.mkdir(parents=True, exist_ok=True)
+	archive_path = output_dir / (browser + '-' + version + '.zip')
+	# Stage beside the destination so a failed or concurrent build never leaves a partial archive.
+	with tempfile.TemporaryDirectory(prefix='.improvedtube-build-', dir=output_dir) as stage:
+		temporary_archive = Path(stage) / archive_path.name
+		with zipfile.ZipFile(temporary_archive, 'w', zipfile.ZIP_DEFLATED) as archive:
+			for source in package_sources():
+				relative = source.relative_to(REPO_ROOT).as_posix()
+				if source.is_symlink() or not source.resolve().is_relative_to(REPO_ROOT):
+					raise ValueError('Package source must be inside the repository: ' + relative)
+				if relative == 'manifest.json':
+					content = json.dumps(manifest, indent=4, sort_keys=True, ensure_ascii=False).encode('utf8')
+				elif browser == 'safari' and relative.startswith('_locales/') and source.name == 'messages.json':
+					content = safari_locale(source.read_text(encoding='utf8'))
+				else:
+					content = source.read_bytes()
+				info = zipfile.ZipInfo(relative, (1980, 1, 1, 0, 0, 0))
+				info.compress_type = zipfile.ZIP_DEFLATED
+				info.external_attr = 0o644 << 16
+				archive.writestr(info, content)
+		for attempt in range(5):
+			try:
+				os.replace(temporary_archive, archive_path)
+				break
+			except PermissionError:
+				if os.name != 'nt' or attempt == 4:
+					raise
+				# Windows briefly locks a destination replaced by another build or scanned by antivirus.
+				time.sleep(0.025 * (2 ** attempt))
+	return archive_path
+
+
+def main(argv=None):
+	parser = argparse.ArgumentParser(description='Build browser-specific ImprovedTube archives without modifying the checkout.')
+	for browser in ('chromium-stable', 'chromium-beta', 'chromium-edge', 'chromium-whale', 'firefox', 'safari'):
+		parser.add_argument('-' + browser, action='append_const', dest='browsers', const=browser)
+	parser.add_argument('--output-dir', type=Path, default=REPO_ROOT)
+	args = parser.parse_args(argv)
+	if not args.browsers:
+		parser.error('Select at least one browser, for example -chromium-edge')
+	for browser in dict.fromkeys(args.browsers):
+		print(build(browser, args.output_dir))
+
+
+if __name__ == '__main__':
+	main()
