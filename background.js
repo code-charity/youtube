@@ -123,23 +123,31 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 # LOCALE
 --------------------------------------------------------------*/
 function getLocale (language, callback) {
-	language = language.replace('-', '_');
-	fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
-		if (response.ok) {
-			response.json().then(callback);
-		} else {
-			fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
+	let locale = 'en';
+	if (typeof language === 'string' && /^[a-z]{2,3}(?:[-_][a-z0-9]{2,8})*$/i.test(language.trim())) {
+		locale = language.trim().split(/[-_]/).map(function (part, index) {
+			if (index === 0) return part.toLowerCase();
+			if (part.length === 2) return part.toUpperCase();
+			if (part.length === 4) return part[0].toUpperCase() + part.substring(1).toLowerCase();
+			return part.toLowerCase();
+		}).join('_');
+	}
+	const locales = [...new Set([locale, locale.split('_')[0], 'en'])];
+
+	(async function () {
+		for (const candidate of locales) {
+			try {
+				const response = await fetch('_locales/' + candidate + '/messages.json');
 				if (response.ok) {
-					response.json().then(callback);
-				} else {
-					getLocale('en', callback);
+					const messages = await response.json();
+					if (messages && typeof messages === 'object' && !Array.isArray(messages)) return messages;
 				}
-			}).catch(function () { getLocale('en', callback); });
-			getLocale('en', callback);
+			} catch (error) {
+				// Missing or invalid locale files fall through to the next distinct candidate.
+			}
 		}
-	}).catch(function () {
-		getLocale('en', callback);
-	});
+		return {};
+	})().then(callback);
 }
 /*--------------------------------------------------------------
 # CONTEXT MENU
