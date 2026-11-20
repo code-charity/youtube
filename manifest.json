@@ -39,7 +39,8 @@
         "js&css/extension/www.youtube.com/appearance/player/player.css",
         "js&css/extension/www.youtube.com/appearance/details/details.css",
         "js&css/extension/www.youtube.com/appearance/sidebar/sidebar.css",
-        "js&css/extension/www.youtube.com/appearance/comments/comments.css"
+        "js&css/extension/www.youtube.com/appearance/comments/comments.css",
+        "js&css/extension/www.youtube.com/features/smart-filters.css"
       ],
       "exclude_matches": [
         "https://www.youtube.com/audiolibrary/*",
@@ -81,6 +82,7 @@
         "js&css/web-accessible/www.youtube.com/return-youtube-dislike.js",
         "js&css/web-accessible/www.youtube.com/return-youtube-dislike.css",
         "js&css/web-accessible/init.js",
+        "js&css/web-accessible/www.youtube.com/features/smart-filters.js",
         "menu/icons/48.png"
       ],
       "matches": ["https://www.youtube.com/*"]
