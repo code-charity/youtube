@@ -591,6 +591,10 @@ html:not([data-page-type=channel]) .it-blocklisted-channel {
 	transition: max-height 0.4s ease 0.1s;
 }
 
+.it-blocklisted-playlist {
+    display: none;
+}
+
 .ytd-vertical-list-renderer.it-blocklisted-video,
 .ytd-item-section-renderer.it-blocklisted-video,
 .ytd-grid-video-renderer.it-blocklisted-video,
