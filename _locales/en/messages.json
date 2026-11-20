@@ -1943,6 +1943,11 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "channelRss": {
+    "message": "Channel RSS"
+  },
+  "channelRssButton": {
+    "message": "RSS feed button on channel pages"
   }
 }
-
