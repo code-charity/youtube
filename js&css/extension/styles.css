@@ -1,0 +1,40 @@
+/* Styling for the restored CC (subtitles) indicator */
+.satus-cc-indicator {
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500; /* Medium weight */
+    line-height: 1;
+    color: var(--yt-spec-text-secondary); /* YouTube's default secondary text color */
+    background-color: var(--yt-spec-badge-chip-background); /* A subtle background for badges */
+    border-radius: 2px;
+    padding: 2px 4px;
+    margin-left: 6px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    display: inline-flex; /* Allows for better vertical alignment and sizing */
+    align-items: center;
+    justify-content: center;
+    min-width: 18px; /* Ensure a consistent minimum size */
+    height: 14px; /* Consistent height */
+    box-sizing: border-box;
+    white-space: nowrap; /* Prevent "CC" from wrapping */
+    cursor: default; /* Not interactive itself */
+}
+
+/* Optional: Adjust spacing if necessary to integrate smoothly with the video title */
+h3#video-title a + .satus-cc-indicator {
+    /* Fine-tune vertical alignment if needed */
+    position: relative;
+    top: -1px; /* Small adjustment to align with title baseline */
+}
+
+/* Ensure the title itself doesn't wrap awkwardly if the indicator is added */
+h3#video-title {
+    display: flex; /* Use flexbox for title and indicator alignment */
+    align-items: center;
+}
+
+h3#video-title a {
+    flex-shrink: 1; /* Allow title to shrink if space is limited */
+    min-width: 0; /* Important for flex-shrink to work */
+}
