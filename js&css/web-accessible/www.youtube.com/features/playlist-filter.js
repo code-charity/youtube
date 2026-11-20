@@ -11,9 +11,10 @@ playlist panel beside a video.
 	var bar = null,
 		input = null,
 		count = null,
-		hidden = [],
+		hidden = new Map(),
 		timer = null,
-		observer = null;
+		observer = null,
+		navigating = false;
 
 	function enabled() {
 		return ImprovedTube.storage.playlist_filter === true;
@@ -24,27 +25,23 @@ playlist panel beside a video.
 	}
 
 	function videoId(href) {
-		var match = String(href || '').match(/[?&]v=([^&]{11})/);
+		var match = String(href || '').match(/[?&]v=([\w-]{11})(?:[&#]|$)/);
 
 		return match ? match[1] : null;
 	}
 
 	function rows() {
 		var list = [],
-			selector = 'ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer';
+			root = listRoot();
+		if (!root) return list;
 
-		if (location.pathname === '/playlist') {
-			selector += ', #contents yt-lockup-view-model';
-		} else {
-			selector += ', ytd-playlist-panel-renderer yt-lockup-view-model';
-		}
-
-		document.querySelectorAll(selector).forEach(function (row) {
+		root.querySelectorAll('ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer, yt-lockup-view-model').forEach(function (row) {
 			if (row.closest('#it-playlist-filter-bar')) {
 				return;
 			}
 
-			var link = row.querySelector('a[href*="/watch?v="]');
+			if (row.parentElement?.closest('ytd-playlist-video-renderer, ytd-playlist-panel-video-renderer')) return;
+			var link = row.querySelector('a[href*="/watch?"]');
 
 			if (link && videoId(link.getAttribute('href'))) {
 				list.push(row);
@@ -65,12 +62,14 @@ playlist panel beside a video.
 	}
 
 	function restore() {
-		hidden.forEach(function (row) {
-			if (row.style.display === 'none') {
-				row.style.display = '';
-			}
+		hidden.forEach(function (previous, row) {
+			if (row.style.display === 'none') row.style.setProperty('display', previous.value, previous.priority);
 		});
-		hidden = [];
+		hidden.clear();
+	}
+
+	function setCount(text) {
+		if (count && count.textContent !== text) count.textContent = text;
 	}
 
 	function run(query) {
@@ -80,9 +79,7 @@ playlist panel beside a video.
 			shown = 0;
 
 		if (!query.trim()) {
-			if (count) {
-				count.textContent = all.length + ' rows';
-			}
+			setCount(all.length + ' rows');
 			return;
 		}
 
@@ -92,14 +89,12 @@ playlist panel beside a video.
 			if (match(text.title, query) || match(text.channel, query)) {
 				shown++;
 			} else {
-				row.style.display = 'none';
-				hidden.push(row);
+				hidden.set(row, { value: row.style.getPropertyValue('display'), priority: row.style.getPropertyPriority('display') });
+				row.style.setProperty('display', 'none', 'important');
 			}
 		});
 
-		if (count) {
-			count.textContent = shown + ' / ' + all.length;
-		}
+		setCount(shown + ' / ' + all.length);
 	}
 
 	function theme() {
@@ -130,10 +125,7 @@ playlist panel beside a video.
 		input.setAttribute('aria-label', 'Filter playlist rows');
 		input.style.cssText = 'flex:1 1 auto;min-width:80px;padding:4px 6px;border:1px solid ' + theme().border +
 			';border-radius:6px;background:transparent;color:inherit;font:inherit';
-		input.addEventListener('input', function () {
-			clearTimeout(timer);
-			timer = setTimeout(function () { run(input.value); }, 100);
-		});
+		input.addEventListener('input', schedule);
 		input.addEventListener('keydown', function (event) {
 			if (event.key === 'Escape') {
 				input.value = '';
@@ -168,7 +160,7 @@ playlist panel beside a video.
 		if (location.pathname === '/playlist') {
 			// The rows live in the right column; the header renderer is the left card,
 			// so anchoring to the item section keeps the bar at the list's full width.
-			var section = document.querySelector('yt-item-section-renderer');
+			var section = listRoot();
 
 			if (section) {
 				return { el: section, where: 'beforebegin' };
@@ -181,12 +173,14 @@ playlist panel beside a video.
 			}
 		}
 
-		var panel = document.querySelector('ytd-playlist-panel-renderer #items, ytd-playlist-panel-renderer');
+		var panel = listRoot();
 
 		return panel ? { el: panel, where: 'beforebegin' } : null;
 	}
 
 	function clearBar() {
+		clearTimeout(timer);
+		timer = null;
 		restore();
 
 		if (bar) {
@@ -198,17 +192,22 @@ playlist panel beside a video.
 	}
 
 	function apply() {
-		if (!enabled()) {
+		clearTimeout(timer);
+		timer = null;
+		if (!enabled() || navigating || !isPlaylistPage()) {
+			if (observer) observer.disconnect();
+			observer = null;
 			clearBar();
 			return;
 		}
+		observe();
 
 		if (bar && document.contains(bar)) {
 			run(input ? input.value : '');
 			return;
 		}
 
-		bar = null;
+		clearBar();
 		var spot = anchor();
 
 		if (!spot) {
@@ -233,20 +232,34 @@ playlist panel beside a video.
 			return;
 		}
 
-		observer = new MutationObserver(function () {
-			if (!enabled() || !input || !input.value) {
-				return;
-			}
-
-			clearTimeout(timer);
-			timer = setTimeout(function () { run(input.value); }, 250);
+		observer = new MutationObserver(function (mutations) {
+			if (mutations.some(function (mutation) {
+				var target = mutation.target.nodeType === 1 ? mutation.target : mutation.target.parentElement;
+				return target && !target.closest('#it-playlist-filter-bar') &&
+					(!bar || !bar.isConnected || target.closest('ytd-playlist-video-list-renderer, yt-item-section-renderer, ytd-item-section-renderer, ytd-playlist-panel-renderer'));
+			})) schedule();
 		});
-		observer.observe(document.body, { childList: true, subtree: true });
+		observer.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href', 'title'] });
 	}
 
-	document.addEventListener('init_completed', function () { observe(); apply(); });
-	document.addEventListener('yt-navigate-finish', function () { setTimeout(apply, 150); });
-	document.addEventListener('it-message-from-extension', function () { setTimeout(apply, 0); });
+	function isPlaylistPage() {
+		return (location.pathname === '/playlist' || location.pathname === '/watch') && /[?&]list=[^&]+/.test(location.search);
+	}
+
+	function listRoot() {
+		return location.pathname === '/playlist'
+			? document.querySelector('ytd-playlist-video-list-renderer, yt-item-section-renderer, ytd-item-section-renderer')
+			: document.querySelector('ytd-watch-flexy ytd-playlist-panel-renderer, ytd-playlist-panel-renderer');
+	}
+
+	function schedule() {
+		if (timer === null) timer = setTimeout(apply, 100);
+	}
+	document.addEventListener('init_completed', apply);
+	document.addEventListener('DOMContentLoaded', apply);
+	document.addEventListener('yt-navigate-start', function () { navigating = true; apply(); });
+	document.addEventListener('yt-navigate-finish', function () { navigating = false; schedule(); });
+	ImprovedTube.playlistFilter = apply;
 
 	ImprovedTube.playlistFilterMatch = match;
 	ImprovedTube.playlistFilterVideoId = videoId;
