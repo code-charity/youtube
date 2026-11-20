@@ -252,8 +252,8 @@ extension.skeleton.main.layers.section.player.on.click = {
 			on: {
 				render: function () {
 					if (!document.pictureInPictureEnabled) {
-						document.getElementById('player_autoPip').remove();
-						document.getElementById('player_autoPip_outside').remove();
+						document.getElementById('player_autoPip')?.remove();
+						document.getElementById('player_autoPip_outside')?.remove();
 					}
 				}
 			}
