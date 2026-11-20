@@ -124,22 +124,33 @@ chrome.runtime.onInstalled.addListener(function (installed) {
 --------------------------------------------------------------*/
 function getLocale (language, callback) {
 	language = language.replace('-', '_');
-	fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
+	var shortLanguage = language.substring(0, 2);
+
+	function fallbackToEnglish () {
+		if (language !== 'en') getLocale('en', callback);
+	}
+
+	function tryShortLanguage () {
+		if (shortLanguage === language) {
+			fallbackToEnglish();
+			return;
+		}
+		fetch('_locales/' + shortLanguage + '/messages.json').then(function (response) {
+			if (response.ok) {
+				response.json().then(callback);
+			} else {
+				fallbackToEnglish();
+			}
+		}).catch(fallbackToEnglish);
+	}
+
+	fetch('_locales/' + language + '/messages.json').then(function (response) {
 		if (response.ok) {
 			response.json().then(callback);
 		} else {
-			fetch('_locales/' + language.substring(0, 2) + '/messages.json').then(function (response) {
-				if (response.ok) {
-					response.json().then(callback);
-				} else {
-					getLocale('en', callback);
-				}
-			}).catch(function () { getLocale('en', callback); });
-			getLocale('en', callback);
+			tryShortLanguage();
 		}
-	}).catch(function () {
-		getLocale('en', callback);
-	});
+	}).catch(tryShortLanguage);
 }
 /*--------------------------------------------------------------
 # CONTEXT MENU
