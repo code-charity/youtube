@@ -1944,12 +1944,6 @@
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
   },
-  "subtitleDownload": {
-    "message": "Subtitle download"
-  },
-  "downloadSubtitles": {
-    "message": "Download the loaded transcript as SRT, VTT or TXT"
-  },
   "smartFilters": {
     "message": "Smart filters"
   },

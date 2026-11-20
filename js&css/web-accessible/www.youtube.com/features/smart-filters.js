@@ -2,7 +2,7 @@
 >>> SMART FILTERS
 ----------------------------------------------------------------
 Hides browse rows whose title contains one of the keywords or
-whose duration falls outside the chosen band. Detection only:
+whose duration falls within the chosen band. Detection only:
 nothing is blocklisted, reported or stored per video.
 --------------------------------------------------------------*/
 (function () {
@@ -12,7 +12,11 @@ nothing is blocklisted, reported or stored per video.
 		BROWSE = /^\/($|results|feed|channel|playlist|@|c\/|user\/)/,
 		timer = null,
 		pill = null,
-		showHidden = false;
+		showHidden = false,
+		hiddenCount = 0,
+		hiddenRows = new Set(),
+		observer = null,
+		navigating = false;
 
 	function enabled() {
 		return ImprovedTube.storage.smart_filters === true;
@@ -34,7 +38,7 @@ nothing is blocklisted, reported or stored per video.
 	}
 
 	function durationSeconds(text) {
-		var match = String(text || '').trim().match(/^(\d{1,2}:)?(\d{1,2}):(\d{2})$/),
+		var match = String(text || '').trim().match(/^(\d+:)?(\d+):(\d{2})$/),
 			parts;
 
 		if (!match) {
@@ -42,12 +46,15 @@ nothing is blocklisted, reported or stored per video.
 		}
 
 		parts = String(text).trim().split(':').map(Number);
+		if (parts.slice(1).some(function (part) { return part > 59; })) return null;
 
 		if (parts.length === 2) {
-			return parts[0] * 60 + parts[1];
+			var minutes = parts[0] * 60 + parts[1];
+			return Number.isSafeInteger(minutes) ? minutes : null;
 		}
 
-		return parts[0] * 3600 + parts[1] * 60 + parts[2];
+		var hours = parts[0] * 3600 + parts[1] * 60 + parts[2];
+		return Number.isSafeInteger(hours) ? hours : null;
 	}
 
 	/** @returns {boolean} true when the row should be hidden. */
@@ -109,7 +116,7 @@ nothing is blocklisted, reported or stored per video.
 
 	function rows() {
 		return Array.prototype.slice.call(document.querySelectorAll(SELECTOR)).filter(function (row) {
-			return !row.closest('ytd-watch-flexy');
+			return !row.closest('ytd-watch-flexy') && !row.parentElement?.closest(SELECTOR);
 		});
 	}
 
@@ -117,7 +124,8 @@ nothing is blocklisted, reported or stored per video.
 		var list = keywords(),
 			mode = ImprovedTube.storage.smart_filter_duration || 'any',
 			hiddenCount = 0,
-			total = 0;
+			total = 0,
+			nextHidden = new Set();
 
 		rows().forEach(function (row) {
 			var hide = shouldHide(titleOf(row), durationOf(row), mode, list);
@@ -126,11 +134,14 @@ nothing is blocklisted, reported or stored per video.
 
 			if (hide) {
 				hiddenCount++;
+				nextHidden.add(row);
 				row.classList.add('it-smart-hidden');
 			} else {
 				row.classList.remove('it-smart-hidden');
 			}
 		});
+		hiddenRows.forEach(function (row) { if (!nextHidden.has(row)) row.classList.remove('it-smart-hidden'); });
+		hiddenRows = nextHidden;
 
 		return { hidden: hiddenCount, total: total };
 	}
@@ -142,9 +153,10 @@ nothing is blocklisted, reported or stored per video.
 		el.type = 'button';
 		el.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:2147483000;padding:7px 10px;border-radius:16px;border:1px solid rgba(128,128,128,.4);background:rgba(32,32,32,.9);color:#fff;font:12px/1 Roboto,Arial,sans-serif;cursor:pointer;display:none';
 		el.addEventListener('click', function () {
+			if (!enabled() || navigating) return;
 			showHidden = !showHidden;
 			document.body.classList.toggle('it-smart-show', showHidden);
-			paintPill();
+			paintPill(hiddenCount);
 		});
 
 		document.body.appendChild(el);
@@ -162,45 +174,71 @@ nothing is blocklisted, reported or stored per video.
 		}
 
 		pill.style.display = 'block';
-		pill.textContent = showHidden ? 'Unfilter (' + count + ' hidden)' : count + ' hidden by filters';
+		var text = showHidden ? 'Hide filtered videos again (' + count + ')' : count + ' hidden by filters';
+		if (pill.textContent !== text) pill.textContent = text;
 		pill.setAttribute('aria-pressed', showHidden ? 'true' : 'false');
 	}
 
 	function apply() {
-		if (!enabled() || !BROWSE.test(location.pathname)) {
-			document.querySelectorAll('.it-smart-hidden').forEach(function (row) {
-				row.classList.remove('it-smart-hidden');
-			});
-			if (pill) {
-				pill.style.display = 'none';
-			}
+		clearTimeout(timer);
+		timer = null;
+		if (!enabled() || navigating || !BROWSE.test(location.pathname)) {
+			cleanup();
 			return;
 		}
+		if (!document.body) return;
 
-		if (!pill) {
+		if (!pill || !pill.isConnected) {
 			makePill();
 		}
 
-		paintPill(paint().hidden);
+		hiddenCount = paint().hidden;
+		paintPill(hiddenCount);
+		if (!observer) {
+			observer = new MutationObserver(function (mutations) {
+				if (!pill?.isConnected || mutations.some(function (mutation) {
+					var target = mutation.target.nodeType === 1 ? mutation.target : mutation.target.parentElement;
+					if (!target || target.closest('#it-smart-filter-pill')) return false;
+					return target.closest(SELECTOR) || Array.from(mutation.addedNodes).concat(Array.from(mutation.removedNodes)).some(function (node) {
+						return node.nodeType === 1 && (node.matches(SELECTOR) || node.querySelector(SELECTOR));
+					});
+				})) schedule();
+			});
+			observer.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href', 'title'] });
+		}
 	}
 
 	function schedule() {
+		if (timer === null) timer = setTimeout(apply, 200);
+	}
+
+	function cleanup() {
 		clearTimeout(timer);
-		timer = setTimeout(apply, 200);
+		timer = null;
+		if (observer) observer.disconnect();
+		observer = null;
+		hiddenRows.forEach(function (row) { row.classList.remove('it-smart-hidden'); });
+		hiddenRows.clear();
+		if (pill) pill.remove();
+		pill = null;
+		showHidden = false;
+		hiddenCount = 0;
+		document.body?.classList.remove('it-smart-show');
+	}
+
+	function configure() {
+		showHidden = false;
+		document.body?.classList.remove('it-smart-show');
+		apply();
 	}
 
 	document.addEventListener('init_completed', apply);
-	document.addEventListener('yt-navigate-finish', schedule);
-	document.addEventListener('it-message-from-extension', schedule);
-
-	new MutationObserver(function (mutations) {
-		for (var i = 0; i < mutations.length; i++) {
-			if (mutations[i].addedNodes.length) {
-				schedule();
-				return;
-			}
-		}
-	}).observe(document.documentElement, { childList: true, subtree: true });
+	document.addEventListener('DOMContentLoaded', apply);
+	document.addEventListener('yt-navigate-start', function () { navigating = true; cleanup(); });
+	document.addEventListener('yt-navigate-finish', function () { navigating = false; schedule(); });
+	ImprovedTube.smartFilters = configure;
+	ImprovedTube.smartFilterKeywords = configure;
+	ImprovedTube.smartFilterDuration = configure;
 
 	ImprovedTube.smartFiltersMatchKeywords = matchesKeywords;
 	ImprovedTube.smartFiltersDurationSeconds = durationSeconds;
