@@ -1943,6 +1943,14 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "invidious": {
+    "message": "Invidious / Piped"
+  },
+  "invidiousInstance": {
+    "message": "Open videos on"
+  },
+  "automaticRedirect": {
+    "message": "Redirect automatically (watch pages)"
   }
 }
-
