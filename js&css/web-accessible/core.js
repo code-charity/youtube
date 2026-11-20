@@ -505,11 +505,9 @@ document.addEventListener('it-message-from-extension', function () {
 					break
 
 				case 'playerRemainingDuration':
-					if (ImprovedTube.storage.player_remaining_duration === false) {
-						document.querySelector('.ytp-time-remaining-duration')?.remove();
-					} else if (ImprovedTube.storage.player_remaining_duration === true) {
-						ImprovedTube.playerRemainingDuration();
-					}
+				case 'durationWithSpeed':
+				case 'remainingDurationShowOriginal':
+					ImprovedTube.playerRemainingDuration();
 					break
 
 				case 'subtitlesFontFamily':
