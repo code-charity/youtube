@@ -8,6 +8,10 @@ the page.
 --------------------------------------------------------------*/
 (function () {
 	'use strict';
+	var observer = null,
+		timer = null,
+		initialPath = location.pathname,
+		navigating = false;
 
 	function enabled() {
 		return ImprovedTube.storage.channel_rss_button === true;
@@ -15,6 +19,17 @@ the page.
 
 	/** Channel id from the page, preferring the structured metadata. */
 	function channelId() {
+		var direct = String(location.pathname || '').match(/^\/channel\/(UC[\w-]{22})(?:\/|$)/);
+		if (direct) return direct[1];
+		var live = document.querySelector('ytd-app')?.__data?.data?.response?.metadata?.channelMetadataRenderer;
+		if (live?.externalId && /^UC[\w-]{22}$/.test(live.externalId)) {
+			var url = live.vanityChannelUrl || live.channelUrl;
+			try {
+				if (url && new URL(url, location.href).pathname.replace(/\/$/, '') === String(location.pathname).replace(/\/(videos|shorts|streams|playlists|community|about|featured)\/?$/, '').replace(/\/$/, '')) {
+					return live.externalId;
+				}
+			} catch { /* Ignore malformed metadata while YouTube replaces the header. */ }
+		}
 		var meta = document.querySelector('meta[itemprop="identifier"]'),
 			canonical = document.querySelector('link[rel="canonical"]'),
 			external = window.ytInitialData &&
@@ -24,17 +39,17 @@ the page.
 			match;
 
 		// The head tags are rewritten on SPA navigation; ytInitialData is not.
-		if (meta && /^UC[\w-]{22}$/.test(meta.content)) {
+		if (location.pathname === initialPath && meta && /^UC[\w-]{22}$/.test(meta.content)) {
 			return meta.content;
 		}
 
 		match = canonical && canonical.href.match(/\/channel\/(UC[\w-]{22})/);
 
-		if (match) {
+		if (match && location.pathname === initialPath) {
 			return match[1];
 		}
 
-		return external && /^UC[\w-]{22}$/.test(external) ? external : null;
+		return location.pathname === initialPath && external && /^UC[\w-]{22}$/.test(external) ? external : null;
 	}
 
 	function feedUrl(id) {
@@ -42,11 +57,7 @@ the page.
 	}
 
 	function copy(text) {
-		if (navigator.clipboard && navigator.clipboard.writeText) {
-			return navigator.clipboard.writeText(text);
-		}
-
-		return new Promise(function (resolve) {
+		function fallback() {
 			var area = document.createElement('textarea');
 
 			area.value = text;
@@ -55,14 +66,15 @@ the page.
 			area.select();
 
 			try {
-				document.execCommand('copy');
-			} catch (error) {
-				console.warn('[ImprovedTube] RSS copy failed', error);
+				if (!document.execCommand('copy')) throw new Error('Clipboard copy failed');
+			} finally {
+				area.remove();
 			}
-
-			area.remove();
-			resolve();
-		});
+		}
+		if (navigator.clipboard && navigator.clipboard.writeText) {
+			return Promise.resolve().then(function () { return navigator.clipboard.writeText(text); }).catch(fallback);
+		}
+		return Promise.resolve().then(fallback);
 	}
 
 	/**
@@ -98,6 +110,20 @@ the page.
 	}
 
 	function apply() {
+		clearTimeout(timer);
+		timer = null;
+		if (!enabled() || navigating || !/^\/(?:@[^/]+|channel\/[^/]+|c\/[^/]+|user\/[^/]+)(?:\/|$)/.test(location.pathname || '')) {
+			if (observer) observer.disconnect();
+			observer = null;
+			document.querySelector('#it-rss-button')?.remove();
+			return;
+		}
+		if (!observer) {
+			observer = new MutationObserver(function (mutations) {
+				if (mutations.some(function (mutation) { return !mutation.target.closest?.('#it-rss-button'); })) schedule();
+			});
+			observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['content', 'href', 'hidden'] });
+		}
 		var existing = document.querySelector('#it-rss-button'),
 			id = channelId(),
 			anchor,
@@ -144,12 +170,19 @@ the page.
 			event.preventDefault();
 			event.stopPropagation();
 
+			if (!enabled() || channelId() !== id || navigating) return;
 			copy(feedUrl(id)).then(function () {
+				if (!button.isConnected) return;
 				button.dataset.tooltip = 'Copied';
+				button.title = 'Copied';
 
 				setTimeout(function () {
 					button.dataset.tooltip = 'RSS feed';
+					button.title = 'RSS feed';
 				}, 1600);
+			}).catch(function () {
+				button.dataset.tooltip = 'Copy failed';
+				button.title = 'Copy failed — try again';
 			});
 		});
 
@@ -158,9 +191,15 @@ the page.
 		(action || anchor).insertAdjacentElement('afterend', button);
 	}
 
+	function schedule() {
+		if (timer === null) timer = setTimeout(apply, 50);
+	}
 	document.addEventListener('init_completed', apply);
-	document.addEventListener('yt-navigate-finish', function () { setTimeout(apply, 50); });
-	document.addEventListener('it-message-from-extension', apply);
+	document.addEventListener('DOMContentLoaded', apply);
+	document.addEventListener('yt-navigate-start', function () { navigating = true; apply(); });
+	document.addEventListener('yt-navigate-finish', function () { navigating = false; schedule(); });
+	document.addEventListener('yt-page-data-updated', schedule);
+	ImprovedTube.channelRssButton = apply;
 
 	ImprovedTube.channelRssChannelId = channelId;
 	ImprovedTube.channelRssFeedUrl = feedUrl;
