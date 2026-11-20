@@ -1943,6 +1943,11 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "playlistHealth": {
+    "message": "Playlist health"
+  },
+  "playlistHealthButton": {
+    "message": "Unavailable, duplicate and never-watched report"
   }
 }
-
