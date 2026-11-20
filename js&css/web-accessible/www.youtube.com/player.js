@@ -106,9 +106,8 @@ ImprovedTube.playerAutoPip = function () {
 PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.playbackSpeed = function (newSpeed) {
-	const [player, video] = (document.documentElement.dataset.pageType === 'shorts')
-		? [this.elements.shorts_player, this.elements.shorts_player?.querySelector('video')]
-		: [this.elements.player, this.elements.video],
+	const player = (document.documentElement.dataset.pageType === 'shorts') ? this.elements.shorts_player : this.elements.player,
+		video = player?.querySelector('video'),
 		speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
 
 	if (!speed) {
@@ -119,11 +118,16 @@ ImprovedTube.playbackSpeed = function (newSpeed) {
 	// called with no option or demanded speed already set, only provide readback
 	if (!newSpeed || speed == newSpeed) return speed;
 
+	// Set the playback rate through the YouTube Player API so YouTube recognizes the playback rate properly and the player menu stays in sync.
+	// The API may limit the supported range or increments, so use video.playbackRate as the actual rate.
+	// The menu may display a rate that differs from the actual playback rate (e.g., menu displays 1.75 when the actual playback rate is 1.78).
+	if (player?.setPlaybackRate) {
+		player.setPlaybackRate(newSpeed);
+	}
 	if (video?.playbackRate) {
 		video.playbackRate = newSpeed;
 		newSpeed = Number(video.playbackRate.toFixed(2));
-	} else if (player?.setPlaybackRate && player.getPlaybackRate) {
-		player.setPlaybackRate(newSpeed);
+	} else if (player?.getPlaybackRate) {
 		newSpeed = Number(player.getPlaybackRate().toFixed(2));
 	} else newSpeed = false;
 
