@@ -845,7 +845,22 @@ ImprovedTube.createPlayerButton = function (options) {
 
 ImprovedTube.empty = function (element) { for (var i = element.childNodes.length - 1; i > -1; i--) { element.childNodes[i].remove(); } };
 ImprovedTube.isset = function (variable) { return !(typeof variable === 'undefined' || variable === null || variable === 'null'); };
+ImprovedTube.getActiveShortsRenderer = function () {
+	const videoId = location.pathname.match(/^\/shorts\/([\w-]{11})(?:\/|$)/)?.[1];
+	if (!videoId) return null;
+	const reels = [...document.querySelectorAll('ytd-reel-video-renderer[is-active]')].filter(function (reel) {
+		return !reel.closest('[hidden], [aria-hidden="true"], [inert]') && reel.getAttribute('is-active') !== 'false';
+	});
+	const matching = reels.filter(reel => reel.getAttribute('video-id') === videoId);
+	if (matching.length === 1) return matching[0];
+	// The URL can change before YouTube activates the destination reel. Never act on a known different video.
+	return !matching.length && reels.length === 1 && !reels[0].getAttribute('video-id') ? reels[0] : null;
+};
 ImprovedTube.showStatus = function (value) {
+	const shorts = location.pathname.startsWith('/shorts/'),
+		reel = shorts ? this.getActiveShortsRenderer() : null,
+		player = shorts ? reel?.querySelector('#shorts-player, .html5-video-player') || reel : this.elements.player;
+	if (!player) return;
 	if (!this.elements.status) {
 		this.elements.status = document.createElement('div');
 
@@ -864,7 +879,6 @@ ImprovedTube.showStatus = function (value) {
 
 	ImprovedTube.status_timer = setTimeout(function () { ImprovedTube.elements.status.remove(); }, 500);
 
-	const player = (document.documentElement.dataset.pageType === 'shorts') ? this.elements.shorts_player : this.elements.player;
 	player.appendChild(this.elements.status);
 };
 
