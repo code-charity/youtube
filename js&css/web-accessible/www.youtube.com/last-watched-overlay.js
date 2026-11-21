@@ -11,6 +11,10 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 	// interval and event listener, which kept scanning thumbnails forever.
 	function detach () {
 		if (!state) return;
+		if (state.flush) {
+			try { state.flush(); } catch (e) { console.warn('[LWO] final save failed', e); }
+			state.flush = null;
+		}
 		if (state.observer) {
 			state.observer.disconnect();
 			state.observer = null;
@@ -27,6 +31,18 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 			});
 		});
 		state.listeners = {};
+		if (document.querySelectorAll) {
+			Array.prototype.forEach.call(document.querySelectorAll('.it-last-watched-overlay'), function (el) {
+				if (el.remove) el.remove();
+				else if (el.parentNode) el.parentNode.removeChild(el);
+			});
+			Array.prototype.forEach.call(document.querySelectorAll('.it-lwo-container'), function (el) {
+				if (el.classList && el.classList.remove) el.classList.remove('it-lwo-container');
+			});
+		}
+		var style = document.getElementById && document.getElementById('it-last-watched-overlay-style');
+		if (style && style.remove) style.remove();
+		ImprovedTube.lastWatchedOverlayProcess = null;
 		state = null;
 	}
 
@@ -39,8 +55,14 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 			return true;
 		}
 
-		state = { observer: null, interval: null, timeouts: [], listeners: {} };
+		state = { observer: null, interval: null, timeouts: [], listeners: {}, flush: null };
 		var current = state;
+
+		function cancel (id) {
+			var index = current.timeouts.indexOf(id);
+			if (index >= 0) current.timeouts.splice(index, 1);
+			clearTimeout(id);
+		}
 
 		function later (fn, ms) {
 			var id = setTimeout(function () {
@@ -78,7 +100,8 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
         }
         .it-lwo-container { position: relative !important; }
     `;
-			document.head.appendChild(style);
+			var host = document.head || document.documentElement;
+			if (host) host.appendChild(style);
 		})();
 
 		var overlayMap = new WeakMap();
@@ -155,8 +178,12 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 			}
 		}
 
+		current.flush = saveHistory;
+		var saveTimeout = null;
+
 		function scheduleSaveHistory () {
-			later(saveHistory, 600);
+			cancel(saveTimeout);
+			saveTimeout = later(saveHistory, 600);
 		}
 
 		function formatTimestamp (ts) {
@@ -272,27 +299,57 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 				}
 			}
 			if (!relevant) return;
-			clearTimeout(processingTimeout);
+			cancel(processingTimeout);
 			processingTimeout = later(processPage, 150);
 		});
-		observer.observe(document.body, { childList: true, subtree: true });
 		current.observer = observer;
+
+		// Page-world code can run before <body> exists. Defer observation instead
+		// of throwing on a null target; the generation guard keeps it one-shot.
+		var bodyObservePending = false;
+
+		function observeBody () {
+			if (current !== state) return;
+			if (!document.body) {
+				if (bodyObservePending) return;
+				bodyObservePending = true;
+				listen('DOMContentLoaded', observeBody);
+				return;
+			}
+			bodyObservePending = false;
+			observer.observe(document.body, { childList: true, subtree: true });
+		}
+		observeBody();
+
+		var navTimeout = null;
 
 		listen('yt-navigate-finish', function () {
 			trackWatch();
-			later(processPage, 400);
+			cancel(navTimeout);
+			navTimeout = later(processPage, 400);
 		});
 
 		current.interval = setInterval(processPage, 5000);
 
 		// Re-process after YouTube updates the page; never call the initializer
 		// from here, that used to register another listener on every update.
+		var dataTimeout = null;
+
 		listen('yt-page-data-updated', function () {
-			later(processPage, 800);
+			cancel(dataTimeout);
+			dataTimeout = later(processPage, 800);
 		});
 
 		ImprovedTube.lastWatchedOverlayProcess = processPage;
 		return true;
+	};
+
+	// core.js dispatches storage changes through ImprovedTube[camelizedKey]().
+	// show_last_watched_overlay camelizes to showLastWatchedOverlay, so the
+	// setting cannot reach the teardown path without this alias.
+	ImprovedTube.showLastWatchedOverlay = ImprovedTube.lastWatchedOverlay;
+	ImprovedTube.lastWatchedOverlayTracked = function () {
+		return state ? state.timeouts.length : 0;
 	};
 
 	ImprovedTube.lastWatchedOverlay();
