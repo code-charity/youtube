@@ -21,6 +21,12 @@ extension.skeleton.main.layers.section.playlist = {
 					component: 'switch',
 					text: 'upNextAutoplay',
 					value: true
+				},
+				playlist_autoplay_per_playlist: {
+					component: 'switch',
+					text: 'playlistAutoplayPerPlaylist',
+					value: false,
+					tags: 'playlist,autoplay,override,stop,next,default'
 				}
 			},
 			section2: {

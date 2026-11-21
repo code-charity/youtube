@@ -277,6 +277,7 @@ ImprovedTube.shortcutNextVideo = function () {
 	// correctly navigates within the playlist. player.nextVideo() may
 	// navigate outside the playlist on recent YouTube versions.
 	if (ImprovedTube.getParam(location.href, 'list')) {
+		ImprovedTube.playlistAutoplayBeforeManualNavigation?.();
 		var nextBtn = player.querySelector('.ytp-next-button');
 		if (nextBtn) {
 			nextBtn.click();
@@ -295,6 +296,7 @@ ImprovedTube.shortcutPrevVideo = function () {
 	// In playlist context, use the player's built-in prev button which
 	// correctly navigates within the playlist.
 	if (ImprovedTube.getParam(location.href, 'list')) {
+		ImprovedTube.playlistAutoplayBeforeManualNavigation?.();
 		var prevBtn = player.querySelector('.ytp-prev-button');
 		if (prevBtn) {
 			prevBtn.click();
