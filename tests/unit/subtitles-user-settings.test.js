@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 
+// Let acknowledgement microtasks deliver queued messages before checking player updates.
+const flushMessages = () => new Promise(resolve => setImmediate(resolve));
+
 function readSource (file) {
 	return fs.readFileSync(path.join(__dirname, '../..', file), 'utf8');
 }
@@ -105,6 +108,7 @@ function createContext (storage = {}, settings = youtubeSettings) {
 	const context = vm.createContext({
 		document,
 		CustomEvent,
+		queueMicrotask,
 		Element: MenuElement,
 		HTMLDocument: EventTarget,
 		localStorage: {},
@@ -231,22 +235,36 @@ describe('subtitle user settings', () => {
 });
 
 describe('subtitle settings storage dispatch', () => {
-	test.each(zeroSettings)('applies numeric zero from a %s storage change', (key, setting) => {
+	test.each(zeroSettings)('applies numeric zero from a %s storage change', async (key, setting) => {
 		const {improvedTube, player, changeSetting} = createContext({[key]: 2});
 
 		changeSetting(key, 0);
+		await flushMessages();
 
 		expect(improvedTube.storage[key]).toBe(0);
 		expect(player.updateSubtitlesUserSettings).toHaveBeenCalledTimes(1);
 		expect(player.updateSubtitlesUserSettings).toHaveBeenCalledWith({...youtubeSettings, [setting]: 0});
 	});
 
-	test.each([undefined, null, false, ''])('stops overriding after a setting becomes %p', value => {
+	test('applies consecutive font-size changes in order, including numeric zero', async () => {
+		const {improvedTube, player, changeSetting} = createContext();
+
+		for (const value of ['2', 0, '-1', 0]) changeSetting('subtitles_font_size', value);
+		await flushMessages();
+
+		expect(player.updateSubtitlesUserSettings.mock.calls.map(([settings]) => settings.fontSizeIncrement)).toEqual([2, 0, -1, 0]);
+		expect(player.updateSubtitlesUserSettings).toHaveBeenLastCalledWith({...youtubeSettings, fontSizeIncrement: 0});
+		expect(improvedTube.storage.subtitles_font_size).toBe(0);
+	});
+
+	test.each([undefined, null, false, ''])('stops overriding after a setting becomes %p', async value => {
 		const {improvedTube, player, changeSetting} = createContext();
 		changeSetting('subtitles_font_size', 0);
+		await flushMessages();
 		player.updateSubtitlesUserSettings.mockClear();
 
 		changeSetting('subtitles_font_size', value);
+		await flushMessages();
 
 		expect(improvedTube.storage.subtitles_font_size).toBe(value);
 		expect(player.updateSubtitlesUserSettings).not.toHaveBeenCalled();
@@ -257,7 +275,7 @@ describe('subtitle settings menu storage', () => {
 	test.each([
 		['subtitles_font_size', 'fontSizeIncrement', '100%'],
 		['subtitles_character_edge_style', 'charEdgeStyle', 'none']
-	])('applies the string zero selected for %s', (key, setting, text) => {
+	])('applies the string zero selected for %s', async (key, setting, text) => {
 		const {improvedTube, player, stored, loadMenu} = createContext({[key]: 2});
 		const {definitions, render} = loadMenu();
 		expect(definitions[key].options.find(option => option.text === text).value).toBe(0);
@@ -265,6 +283,7 @@ describe('subtitle settings menu storage', () => {
 
 		component.selectElement.value = '0';
 		component.selectElement.dispatchEvent(new Event('change'));
+		await flushMessages();
 
 		expect(stored[key]).toBe('0');
 		expect(improvedTube.storage[key]).toBe('0');
@@ -275,12 +294,13 @@ describe('subtitle settings menu storage', () => {
 	test.each([
 		['subtitles_background_opacity', 'backgroundOpacity'],
 		['subtitles_font_opacity', 'textOpacity']
-	])('applies numeric zero saved by the %s slider', (key, setting) => {
+	])('applies numeric zero saved by the %s slider', async (key, setting) => {
 		const {improvedTube, player, stored, loadMenu} = createContext({[key]: 50});
 		const component = loadMenu().render(key);
 
 		component.input.value = '0';
 		component.input.dispatchEvent(new Event('input'));
+		await flushMessages();
 
 		expect(stored[key]).toBe(0);
 		expect(improvedTube.storage[key]).toBe(0);
@@ -292,7 +312,7 @@ describe('subtitle settings menu storage', () => {
 		['subtitles_background_opacity', 75],
 		['subtitles_window_opacity', 0],
 		['subtitles_font_opacity', 100]
-	])('removes the override when the %s slider returns to its default', (key, value) => {
+	])('removes the override when the %s slider returns to its default', async (key, value) => {
 		const {improvedTube, player, stored, loadMenu} = createContext({[key]: 50});
 		const {definitions, render} = loadMenu();
 		expect(definitions[key].value).toBe(value);
@@ -300,16 +320,18 @@ describe('subtitle settings menu storage', () => {
 
 		component.input.value = String(value);
 		component.input.dispatchEvent(new Event('input'));
+		await flushMessages();
 
 		expect(stored).not.toHaveProperty(key);
 		expect(improvedTube.storage[key]).toBeUndefined();
 		expect(player.updateSubtitlesUserSettings).not.toHaveBeenCalled();
 	});
 
-	test.each(zeroSettings)('does not save an override when an unconfigured %s control is rendered', key => {
+	test.each(zeroSettings)('does not save an override when an unconfigured %s control is rendered', async key => {
 		const {improvedTube, player, stored, loadMenu} = createContext();
 
 		loadMenu().render(key);
+		await flushMessages();
 
 		expect(stored).toEqual({});
 		expect(improvedTube.storage).toEqual({});
