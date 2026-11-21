@@ -168,7 +168,9 @@ document.addEventListener('it-message-from-youtube', function () {
 			message = JSON.parse(message);
 		} catch (error) {
 			console.log(error);
+			return;
 		}
+		if (!message || typeof message !== 'object' || Array.isArray(message)) return;
 
 		//console.log(message);
 
@@ -273,7 +275,8 @@ document.addEventListener('it-message-from-youtube', function () {
 				watched: extension.storage.data.watched
 			});
 		} else if (message.action === 'set') {
-			if (message.value) {
+			if (typeof message.key !== 'string' || !message.key) return;
+			if (message.value !== null && message.value !== undefined) {
 				chrome.storage.local.set({ [message.key]: message.value });
 			} else {
 				chrome.storage.local.remove([message.key]);
