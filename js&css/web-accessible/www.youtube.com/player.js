@@ -3476,7 +3476,7 @@ SMART SPEED ENGINE
     function setStorage(key, value) {
         ImprovedTube.storage[key] = value;
         if (ImprovedTube.messages && typeof ImprovedTube.messages.send === 'function') {
-            ImprovedTube.messages.send({ action: 'storage-set', key, value });
+            ImprovedTube.messages.send({ action: 'set', key, value });
         }
     }
 
