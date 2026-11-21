@@ -129,7 +129,17 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 			try {
 				if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local && chrome.storage.local.get) {
 					chrome.storage.local.get(PERSIST_KEY, function (res) {
-						if (current !== state) return;
+						if (current !== state) {
+							// Detached generation: fold persisted entries into the shared
+							// history and persist once. Never restart the feature here.
+							try {
+								if (res && res[PERSIST_KEY]) mergeHistory(res[PERSIST_KEY]);
+								var lateValue = {};
+								lateValue[PERSIST_KEY] = ImprovedTube.storage.watch_history;
+								chrome.storage.local.set(lateValue);
+							} catch (e) { console.warn('[LWO] late merge error', e); }
+							return;
+						}
 						try {
 							if (res && res[PERSIST_KEY]) mergeHistory(res[PERSIST_KEY]);
 							else {
@@ -178,7 +188,9 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 			}
 		}
 
-		current.flush = saveHistory;
+		current.flush = function () {
+			if (watchHistoryLoaded) saveHistory();
+		};
 		var saveTimeout = null;
 
 		function scheduleSaveHistory () {
@@ -348,9 +360,6 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 	// show_last_watched_overlay camelizes to showLastWatchedOverlay, so the
 	// setting cannot reach the teardown path without this alias.
 	ImprovedTube.showLastWatchedOverlay = ImprovedTube.lastWatchedOverlay;
-	ImprovedTube.lastWatchedOverlayTracked = function () {
-		return state ? state.timeouts.length : 0;
-	};
 
 	ImprovedTube.lastWatchedOverlay();
 })();

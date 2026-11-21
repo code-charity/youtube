@@ -1,5 +1,5 @@
 // Regression coverage for the last-watched overlay lifecycle (#4083).
-// Production modules are executed in a VM with instrumented DOM/timer APIs.
+// Production modules run in a VM with instrumented DOM, timer and storage APIs.
 
 const fs = require('fs');
 const path = require('path');
@@ -11,11 +11,14 @@ const CORE_SOURCE = path.join(root, 'js&css/web-accessible/core.js');
 const code = fs.readFileSync(SOURCE, 'utf8');
 const coreCode = fs.readFileSync(CORE_SOURCE, 'utf8');
 
-function buildEnvironment (settings = {}) {
+function buildEnvironment (settings = {}, options = {}) {
 	const listeners = {};
 	const timeouts = [];
 	const intervals = [];
 	const observers = [];
+	const clearedCalls = [];
+	const getCallbacks = [];
+	const chromeWrites = [];
 	const storage = Object.assign({ show_last_watched_overlay: true }, settings);
 	const provider = { textContent: '' };
 	const overlays = [];
@@ -75,6 +78,7 @@ function buildEnvironment (settings = {}) {
 			return handle;
 		},
 		clearTimeout (handle) {
+			clearedCalls.push(handle);
 			if (handle) handle.cleared = true;
 		},
 		setInterval (fn, ms) {
@@ -96,8 +100,21 @@ function buildEnvironment (settings = {}) {
 		}
 	};
 
+	if (options.asyncStorage) {
+		context.chrome = {
+			storage: {
+				local: {
+					get (key, cb) { getCallbacks.push(cb); },
+					set (value) { chromeWrites.push(value); }
+				}
+			}
+		};
+	}
+
 	return {
-		context, document, storage, provider, listeners, timeouts, intervals, observers, overlays, containers, saved, style,
+		context, document, storage, provider, listeners, timeouts, intervals, observers,
+		clearedCalls, getCallbacks, chromeWrites, overlays, containers, saved, style,
+		pending: ms => timeouts.filter(handle => handle.ms === ms && !handle.cleared),
 		activeIntervals: () => intervals.filter(handle => !handle.cleared),
 		activeObservers: () => observers.filter(observer => observer.observed),
 		fire (type) {
@@ -116,18 +133,18 @@ function buildEnvironment (settings = {}) {
 	};
 }
 
-function createApp (settings = {}, source = code) {
-	const app = buildEnvironment(settings);
+function createApp (settings = {}, options = {}) {
+	const app = buildEnvironment(settings, options);
 	app.context.ImprovedTube = { storage: app.storage };
-	vm.runInNewContext(source, app.context, { filename: 'last-watched-overlay.js' });
+	vm.runInNewContext(code, app.context, { filename: 'last-watched-overlay.js' });
 	return app;
 }
 
-function createDispatcherApp (settings = {}, source = code) {
-	const app = buildEnvironment(settings);
+function createDispatcherApp (settings = {}, options = {}) {
+	const app = buildEnvironment(settings, options);
 	vm.runInNewContext(coreCode, app.context, { filename: 'core.js' });
 	app.context.ImprovedTube.storage = app.storage;
-	vm.runInNewContext(source, app.context, { filename: 'last-watched-overlay.js' });
+	vm.runInNewContext(code, app.context, { filename: 'last-watched-overlay.js' });
 	app.send = message => {
 		app.provider.textContent = JSON.stringify(message);
 		app.document.dispatchEvent(new app.context.CustomEvent('it-message-from-extension'));
@@ -187,27 +204,21 @@ describe('last watched overlay lifecycle (#4083)', () => {
 		expect(app.observers).toHaveLength(1);
 	});
 
-	test('mutation bursts keep tracked timeouts bounded', () => {
-		const legacy = code.replace('cancel(processingTimeout);', 'clearTimeout(processingTimeout);');
-		const broken = createApp({}, legacy);
-		broken.observers[0].cb([thumbnailMutation]);
-		broken.observers[0].cb([thumbnailMutation]);
-		broken.observers[0].cb([thumbnailMutation]);
-		expect(broken.context.ImprovedTube.lastWatchedOverlayTracked()).toBe(4);
-
+	test('mutation bursts leave one pending callback and never clear a handle twice', () => {
 		const app = createApp();
 		for (let i = 0; i < 50; i++) app.observers[0].cb([thumbnailMutation]);
 
-		expect(app.context.ImprovedTube.lastWatchedOverlayTracked()).toBeLessThanOrEqual(2);
-		expect(app.activeObservers()).toHaveLength(1);
+		expect(app.pending(150)).toHaveLength(1);
+
+		app.storage.show_last_watched_overlay = false;
+		app.context.ImprovedTube.lastWatchedOverlay();
+
+		const clearedTwice = new Map();
+		app.clearedCalls.forEach(handle => clearedTwice.set(handle, (clearedTwice.get(handle) || 0) + 1));
+		expect([...clearedTwice.values()].every(count => count === 1)).toBe(true);
 	});
 
 	test('real storage dispatcher detaches and re-enables via camelized hook', () => {
-		const noAlias = code.replace('ImprovedTube.showLastWatchedOverlay = ImprovedTube.lastWatchedOverlay;', '');
-		const broken = createDispatcherApp({}, noAlias);
-		broken.send(storageChange(false));
-		expect(broken.activeObservers()).toHaveLength(1);
-
 		const app = createDispatcherApp();
 		expect(app.context.ImprovedTube.showLastWatchedOverlay).toBe(app.context.ImprovedTube.lastWatchedOverlay);
 
@@ -223,37 +234,30 @@ describe('last watched overlay lifecycle (#4083)', () => {
 		expect(typeof app.context.ImprovedTube.lastWatchedOverlayProcess).toBe('function');
 	});
 
-	test('stale history callbacks and timers cannot mutate a re-enabled generation', () => {
-		const app = createApp();
+	test('late history callback preserves data without reviving a disabled generation', () => {
+		const app = createApp({}, { asyncStorage: true });
 		const staleTimer = app.timeouts[0];
-		const staleHistory = Object.assign({}, app.storage.watch_history, { stale: 12345 });
+		const staleGet = app.getCallbacks[0];
 
 		app.storage.show_last_watched_overlay = false;
 		app.context.ImprovedTube.lastWatchedOverlay();
+		const history = app.context.ImprovedTube.storage.watch_history;
+
+		staleTimer.fn();
+		staleGet({ it_watch_history: { savedVideo: 4242 } });
+
+		expect(app.context.ImprovedTube.storage.watch_history).toBe(history);
+		expect(history.savedVideo).toBe(4242);
+		expect(app.chromeWrites).toHaveLength(1);
+		expect(app.observers).toHaveLength(1);
+		expect(app.activeIntervals()).toHaveLength(0);
+
 		app.storage.show_last_watched_overlay = true;
 		app.context.ImprovedTube.lastWatchedOverlay();
-
-		const currentHistory = app.context.ImprovedTube.storage.watch_history;
-		staleTimer.fn();
-		expect(app.context.ImprovedTube.storage.watch_history).toBe(currentHistory);
-		expect(app.context.ImprovedTube.storage.watch_history.stale).toBeUndefined();
 		expect(app.observers).toHaveLength(2);
-		expect(staleHistory.stale).toBe(12345);
 	});
 
 	test('disable flushes pending persistence and removes owned overlays', () => {
-		const brokenSource = code
-			.replace('try { state.flush(); }', 'try { /* pending save dropped */ }')
-			.replace("document.querySelectorAll('.it-last-watched-overlay')", '[]');
-		const broken = createApp({}, brokenSource);
-		broken.fire('yt-navigate-finish');
-		const brokenOverlay = { remove: jest.fn() };
-		broken.overlays.push(brokenOverlay);
-		broken.storage.show_last_watched_overlay = false;
-		broken.context.ImprovedTube.showLastWatchedOverlay();
-		expect(broken.saved).toHaveLength(0);
-		expect(brokenOverlay.remove).not.toHaveBeenCalled();
-
 		const app = createApp();
 		app.fire('yt-navigate-finish');
 		const overlay = { remove: jest.fn() };
@@ -268,7 +272,31 @@ describe('last watched overlay lifecycle (#4083)', () => {
 		expect(app.style.remove).toHaveBeenCalledTimes(1);
 		expect(app.saved).toHaveLength(1);
 		expect(JSON.parse(app.saved[0].value)).toHaveProperty('abc123');
-		expect(app.context.ImprovedTube.lastWatchedOverlayTracked()).toBe(0);
+		expect(app.timeouts.every(handle => handle.cleared)).toBe(true);
+	});
+
+	test('async history load pending at disable cannot be overwritten by teardown', () => {
+		const app = createApp({}, { asyncStorage: true });
+		const pendingGet = app.getCallbacks[0];
+		expect(pendingGet).toBeDefined();
+
+		app.storage.show_last_watched_overlay = false;
+		app.context.ImprovedTube.lastWatchedOverlay();
+
+		expect(app.chromeWrites).toHaveLength(0);
+		pendingGet({ it_watch_history: { savedVideo: 4242 } });
+		expect(app.storage.watch_history.savedVideo).toBe(4242);
+		expect(app.chromeWrites).toHaveLength(1);
+		expect(app.observers).toHaveLength(1);
+
+		app.storage.show_last_watched_overlay = true;
+		app.context.ImprovedTube.lastWatchedOverlay();
+		expect(app.observers).toHaveLength(2);
+		app.getCallbacks[1]({ it_watch_history: { savedVideo: 4242 } });
+
+		app.fire('yt-navigate-finish');
+		app.flush();
+		expect(app.chromeWrites[app.chromeWrites.length - 1].it_watch_history.savedVideo).toBe(4242);
 	});
 
 	test('re-enable starts one generation and keeps scheduled work bounded', () => {
@@ -284,31 +312,22 @@ describe('last watched overlay lifecycle (#4083)', () => {
 		expect(app.observers).toHaveLength(2);
 		expect(app.activeObservers()).toHaveLength(1);
 		expect(app.activeIntervals()).toHaveLength(1);
-		expect(app.context.ImprovedTube.lastWatchedOverlayTracked()).toBeLessThanOrEqual(4);
+		expect(app.timeouts.filter(handle => !handle.cleared).length).toBeLessThanOrEqual(4);
 	});
 
 	test('pre-body initialization defers observation until DOMContentLoaded', () => {
-		const app = createApp();
+		const app = buildEnvironment();
+		app.context.ImprovedTube = { storage: app.storage };
 		app.document.body = null;
-		const deferred = createApp();
-		deferred.document.body = null;
-
-		// Re-run against a context whose body is absent at initialization time.
-		const fresh = buildEnvironment();
-		fresh.context.ImprovedTube = { storage: fresh.storage };
-		fresh.document.body = null;
-		vm.runInNewContext(code, fresh.context, { filename: 'last-watched-overlay.js' });
-
-		expect(fresh.observers).toHaveLength(1);
-		expect(fresh.activeObservers()).toHaveLength(0);
-		expect(fresh.listeners.DOMContentLoaded).toHaveLength(1);
-
-		fresh.document.body = {};
-		fresh.fire('DOMContentLoaded');
-		expect(fresh.activeObservers()).toHaveLength(1);
-		expect(fresh.listeners.DOMContentLoaded).toHaveLength(1);
+		vm.runInNewContext(code, app.context, { filename: 'last-watched-overlay.js' });
 
 		expect(app.observers).toHaveLength(1);
-		expect(deferred.observers).toHaveLength(1);
+		expect(app.activeObservers()).toHaveLength(0);
+		expect(app.listeners.DOMContentLoaded).toHaveLength(1);
+
+		app.document.body = {};
+		app.fire('DOMContentLoaded');
+		expect(app.activeObservers()).toHaveLength(1);
+		expect(app.listeners.DOMContentLoaded).toHaveLength(1);
 	});
 });
