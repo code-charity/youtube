@@ -106,9 +106,10 @@ ImprovedTube.playerAutoPip = function () {
 PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
 ImprovedTube.playbackSpeed = function (newSpeed) {
-	const [player, video] = (document.documentElement.dataset.pageType === 'shorts')
-		? [this.elements.shorts_player, this.elements.shorts_player?.querySelector('video')]
-		: [this.elements.player, this.elements.video],
+	const shorts = location.pathname.startsWith('/shorts/'),
+		reel = shorts ? this.getActiveShortsRenderer() : null,
+		player = shorts ? reel?.querySelector('#shorts-player, .html5-video-player') : this.elements.player,
+		video = shorts ? reel?.querySelector('video') : this.elements.video,
 		speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
 
 	if (!speed) {
