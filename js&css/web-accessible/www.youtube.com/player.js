@@ -409,7 +409,7 @@ ImprovedTube.subtitlesUserSettings = function () {
 			charEdgeStyle: this.storage.subtitles_character_edge_style,
 			textOpacity: this.storage.subtitles_font_opacity
 		},
-		userSettings = Object.keys(ourSettings).filter(e => ourSettings[e]),
+		userSettings = Object.keys(ourSettings).filter(e => ourSettings[e] || ourSettings[e] === 0),
 		player = this.elements.player;
 
 	if (userSettings.length && player && player.getSubtitlesUserSettings && player.updateSubtitlesUserSettings) {
