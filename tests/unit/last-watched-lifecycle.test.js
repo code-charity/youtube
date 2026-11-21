@@ -60,7 +60,7 @@ function buildEnvironment (settings = {}, options = {}) {
 	};
 
 	const localStorage = {
-		getItem: () => null,
+		getItem: () => options.localStorageValue || null,
 		setItem (key, value) { saved.push({ key, value }); },
 		removeItem () {}
 	};
@@ -101,14 +101,9 @@ function buildEnvironment (settings = {}, options = {}) {
 	};
 
 	if (options.asyncStorage) {
-		context.chrome = {
-			storage: {
-				local: {
-					get (key, cb) { getCallbacks.push(cb); },
-					set (value) { chromeWrites.push(value); }
-				}
-			}
-		};
+		const local = { get (key, cb) { getCallbacks.push(cb); } };
+		if (!options.noChromeSet) local.set = value => chromeWrites.push(JSON.parse(JSON.stringify(value)));
+		context.chrome = { storage: { local } };
 	}
 
 	return {
@@ -297,6 +292,49 @@ describe('last watched overlay lifecycle (#4083)', () => {
 		app.fire('yt-navigate-finish');
 		app.flush();
 		expect(app.chromeWrites[app.chromeWrites.length - 1].it_watch_history.savedVideo).toBe(4242);
+	});
+
+	test('debounced save before the async read completes preserves both histories', () => {
+		const app = createApp({}, { asyncStorage: true });
+		const pendingGet = app.getCallbacks[0];
+
+		app.fire('yt-navigate-finish');
+		app.flush();
+		expect(app.storage.watch_history.abc123).toBeDefined();
+		expect(app.chromeWrites).toHaveLength(0);
+
+		pendingGet({ it_watch_history: { oldVideo: 1000 } });
+		app.flush();
+		expect(app.storage.watch_history.oldVideo).toBe(1000);
+		expect(app.chromeWrites).toHaveLength(1);
+		expect(app.chromeWrites[0].it_watch_history).toMatchObject({
+			abc123: expect.any(Number),
+			oldVideo: 1000
+		});
+	});
+
+	test('late detached read falls back to localStorage when Chrome has no key', () => {
+		const stored = JSON.stringify({ savedVideo: 4242 });
+		const app = createApp({}, { asyncStorage: true, localStorageValue: stored });
+		app.storage.show_last_watched_overlay = false;
+		app.context.ImprovedTube.showLastWatchedOverlay();
+		expect(app.chromeWrites).toHaveLength(0);
+
+		app.getCallbacks[0]({});
+		expect(app.storage.watch_history.savedVideo).toBe(4242);
+		expect(app.chromeWrites).toHaveLength(1);
+		expect(app.chromeWrites[0].it_watch_history.savedVideo).toBe(4242);
+
+		const noSet = createApp({}, {
+			asyncStorage: true,
+			noChromeSet: true,
+			localStorageValue: stored
+		});
+		noSet.storage.show_last_watched_overlay = false;
+		noSet.context.ImprovedTube.showLastWatchedOverlay();
+		noSet.getCallbacks[0]({});
+		expect(noSet.saved.some(entry => entry.key === 'it_watch_history')).toBe(true);
+		expect(JSON.parse(noSet.saved[noSet.saved.length - 1].value).savedVideo).toBe(4242);
 	});
 
 	test('re-enable starts one generation and keeps scheduled work bounded', () => {

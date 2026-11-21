@@ -111,6 +111,7 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 		}
 
 		var watchHistoryLoaded = false;
+		var dirtyWhileLoading = false;
 		var PERSIST_KEY = 'it_watch_history';
 
 		function mergeHistory (obj) {
@@ -124,6 +125,15 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 			});
 		}
 
+		function finishLoad () {
+			watchHistoryLoaded = true;
+			if (dirtyWhileLoading) {
+				dirtyWhileLoading = false;
+				scheduleSaveHistory();
+			}
+			processPage();
+		}
+
 		function loadPersistedHistory () {
 			if (watchHistoryLoaded) return;
 			try {
@@ -134,9 +144,17 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 							// history and persist once. Never restart the feature here.
 							try {
 								if (res && res[PERSIST_KEY]) mergeHistory(res[PERSIST_KEY]);
+								else {
+									var lateFallback = localStorage.getItem(PERSIST_KEY);
+									if (lateFallback) mergeHistory(JSON.parse(lateFallback));
+								}
 								var lateValue = {};
 								lateValue[PERSIST_KEY] = ImprovedTube.storage.watch_history;
-								chrome.storage.local.set(lateValue);
+								if (chrome.storage && chrome.storage.local && chrome.storage.local.set) {
+									chrome.storage.local.set(lateValue);
+								} else {
+									localStorage.setItem(PERSIST_KEY, JSON.stringify(ImprovedTube.storage.watch_history));
+								}
 							} catch (e) { console.warn('[LWO] late merge error', e); }
 							return;
 						}
@@ -147,25 +165,26 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 								if (ls) mergeHistory(JSON.parse(ls));
 							}
 						} catch (e) { console.warn('[LWO] merge error', e); }
-						watchHistoryLoaded = true;
-						processPage();
+						finishLoad();
 					});
 				} else {
 					var ls = localStorage.getItem(PERSIST_KEY);
 					if (ls) {
 						try { mergeHistory(JSON.parse(ls)); } catch (e) { console.warn('[LWO] localStorage parse failed', e); }
 					}
-					watchHistoryLoaded = true;
-					processPage();
+					finishLoad();
 				}
 			} catch (e) {
 				console.warn('[LWO] loadPersistedHistory error', e);
-				watchHistoryLoaded = true;
-				processPage();
+				finishLoad();
 			}
 		}
 
 		function saveHistory () {
+			// A debounced save can fire while the persisted read is still in
+			// flight. Writing then would replace stored history with an
+			// unmerged object; the read callback performs the single merge.
+			if (!watchHistoryLoaded) return;
 			try {
 				var h = ImprovedTube.storage.watch_history;
 				var ids = Object.keys(h);
@@ -278,6 +297,7 @@ LAST WATCHED OVERLAY ON THUMBNAILS (ROBUSTE VERSION)
 
 			var history = ImprovedTube.storage.watch_history || {};
 			history[videoId] = Date.now();
+			if (!watchHistoryLoaded) dirtyWhileLoading = true;
 			var ids = Object.keys(history);
 			if (ids.length > 1000) {
 				var oldestId = ids.sort(function (a, b) { return history[a] - history[b]; })[0];
