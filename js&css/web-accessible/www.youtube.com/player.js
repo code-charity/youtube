@@ -570,58 +570,55 @@ ImprovedTube.playerAutofullscreen = function () {
 /*------------------------------------------------------------------------------
 QUALITY
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerQuality = function (quality = this.storage.player_quality) {
-  var playlistQ = this.storage.player_quality_playlist;
-  var isPlaylist = !!(
-    new URLSearchParams(location.search).has('list') ||
-    document.querySelector('ytd-playlist-panel-renderer')
-  );
-  if (isPlaylist && playlistQ && playlistQ !== 'disabled') {
-    quality = playlistQ;
-  }
+ImprovedTube.playerQuality = function (quality = this.storage.player_quality, manual = false) {
+	if (!manual) {
+		const playlistQuality = this.storage.player_quality_playlist;
+		const isPlaylist = new URLSearchParams(location.search).has('list') || document.querySelector('ytd-playlist-panel-renderer');
+		if (isPlaylist && playlistQuality && playlistQuality !== 'disabled') quality = playlistQuality;
+	}
 
-  let player = this.elements.player;
-	if (quality && quality !== 'disabled'
-		&& player && player.getAvailableQualityLevels
-		&& (!player.dataset.defaultQuality || player.dataset.defaultQuality != quality)) {
-		let available_quality_levels = player.getAvailableQualityLevels();
-		try {
-			const hasTrue1080pOrHigher = available_quality_levels.some(q =>
-				['hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'].includes(q)
-			);
-			if (
-				!hasTrue1080pOrHigher &&
-				['hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'].includes(quality)
-			) {
-				console.log('[ImprovedTube] Preventing AI-upscaled "Super Resolution" — capping to 720p.');
-				quality = 'hd720';
-			}
-		} catch (e) {
-			console.warn('[ImprovedTube] Error checking available quality levels', e);
+	const player = this.elements.player;
+	if (!quality || quality === 'disabled' || !player
+		|| typeof player.setPlaybackQualityRange !== 'function'
+		|| typeof player.setPlaybackQuality !== 'function') return;
+
+	// Auto releases the rendition constraint; it is not necessarily in the list
+	// of available resolutions and must never go through numeric fallback.
+	if (quality !== 'auto') {
+		if (typeof player.getAvailableQualityLevels !== 'function') return;
+		const available = player.getAvailableQualityLevels();
+		if (!Array.isArray(available) || !available.length) return;
+
+		const highQuality = ['hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'];
+		if (highQuality.includes(quality) && !available.some(level => highQuality.includes(level))) {
+			console.log('[ImprovedTube] Preventing AI-upscaled "Super Resolution" — capping to 720p.');
+			quality = 'hd720';
 		}
-		function closest (num, arr) {
-			let curr = arr[0];
-			let diff = Math.abs(num - curr);
-			for (let val = 1; val < arr.length; val++) {
-				let newdiff = Math.abs(num - arr[val]);
-				if (newdiff < diff) {
-					diff = newdiff;
-					curr = arr[val];
+
+		if (!available.includes(quality)) {
+			const labels = ['tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'];
+			const resolutions = [144, 240, 360, 480, 720, 1080, 1440, 2160, 2880, 4320];
+			const requested = resolutions[labels.indexOf(quality)];
+			let closest;
+			let distance = Infinity;
+			for (const level of available) {
+				const difference = Math.abs(resolutions[labels.indexOf(level)] - requested);
+				if (difference < distance) {
+					distance = difference;
+					closest = level;
 				}
 			}
-			return curr;
-		};
-
-		if (!available_quality_levels.includes(quality)) {
-			let label = ['tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'];
-			let resolution = ['144', '240', '360', '480', '720', '1080', '1440', '2160', '2880', '4320'];
-			let availableresolutions = available_quality_levels.map(q => resolution[label.indexOf(q)]);
-			quality = label[resolution.indexOf(closest(resolution[label.indexOf(quality)], availableresolutions))];
+			if (!closest) return;
+			quality = closest;
 		}
-		player.setPlaybackQualityRange(quality);
-		player.setPlaybackQuality(quality);
-		player.dataset.defaultQuality = quality;
 	}
+
+	// Explicit shortcuts must work even if YouTube changed quality since the
+	// last automatic policy application. Only policy calls use the cache.
+	if (!manual && player.dataset.defaultQuality === quality) return;
+	player.setPlaybackQualityRange(quality);
+	player.setPlaybackQuality(quality);
+	player.dataset.defaultQuality = quality;
 };
 /*------------------------------------------------------------------------------
 QUALITY WITHOUT FOCUS
