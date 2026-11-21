@@ -181,10 +181,12 @@ ImprovedTube.shortcutToggleAmbientLighting = function () {
 4.7.1 QUALITY
 ------------------------------------------------------------------------------*/
 ImprovedTube.shortcutQuality = function (key) {
+	if (typeof key !== 'string' || !key.startsWith('shortcutQuality')) return;
 	const label = ['auto', 'tiny', 'small', 'medium', 'large', 'hd720', 'hd1080', 'hd1440', 'hd2160', 'hd2880', 'highres'],
 		resolution = ['auto', '144p', '240p', '360p', '480p', '720p', '1080p', '1440p', '2160p', '2880p', '4320p'];
 
-	ImprovedTube.playerQuality(label[resolution.indexOf(key.replace('shortcutQuality', ''))]);
+	const quality = label[resolution.indexOf(key.slice('shortcutQuality'.length).toLowerCase())];
+	if (quality) ImprovedTube.playerQuality(quality, true);
 };
 /*------------------------------------------------------------------------------
 4.7.1B PLAYBACK SPEED
