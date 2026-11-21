@@ -1,0 +1,44 @@
+{
+  "source": "https://www.youtube.com/watch?v=Cto5R8p74kg&hl=en",
+  "retrieved": "2026-11-20T12:12:53.654Z",
+  "data": {
+    "currentVideoEndpoint": { "watchEndpoint": { "videoId": "Cto5R8p74kg" } },
+    "playerOverlays": {
+      "playerOverlayRenderer": {
+        "decoratedPlayerBarRenderer": {
+          "decoratedPlayerBarRenderer": {
+            "playerBar": {
+              "multiMarkersPlayerBarRenderer": {
+                "visibleOnLoad": { "key": "AUTO_CHAPTERS" },
+                "markersMap": [{
+                  "key": "AUTO_CHAPTERS",
+                  "value": { "chapters": [
+                    { "chapterRenderer": { "title": { "simpleText": "Introduction" }, "timeRangeStartMillis": 0 } },
+                    { "chapterRenderer": { "title": { "simpleText": "Marketing fundamentals" }, "timeRangeStartMillis": 23599 } },
+                    { "chapterRenderer": { "title": { "simpleText": "Advertising channels" }, "timeRangeStartMillis": 86119 } },
+                    { "chapterRenderer": { "title": { "simpleText": "Channel strategy" }, "timeRangeStartMillis": 185560 } },
+                    { "chapterRenderer": { "title": { "simpleText": "Communication skills" }, "timeRangeStartMillis": 251968 } },
+                    { "chapterRenderer": { "title": { "simpleText": "Data-driven marketing" }, "timeRangeStartMillis": 299907 } },
+                    { "chapterRenderer": { "title": { "simpleText": "Technical skills" }, "timeRangeStartMillis": 341617 } },
+                    { "chapterRenderer": { "title": { "simpleText": "Product marketing" }, "timeRangeStartMillis": 380374 } },
+                    { "chapterRenderer": { "title": { "simpleText": "Project management" }, "timeRangeStartMillis": 428526 } },
+                    { "chapterRenderer": { "title": { "simpleText": "Experimentation and passion" }, "timeRangeStartMillis": 464695 } }
+                  ] }
+                }]
+              }
+            }
+          }
+        }
+      }
+    },
+    "engagementPanels": [{
+      "engagementPanelSectionListRenderer": {
+        "targetId": "engagement-panel-macro-markers-auto-chapters",
+        "content": { "macroMarkersListRenderer": { "contents": [
+          { "macroMarkersListItemRenderer": { "title": { "simpleText": "Introduction" }, "onTap": { "watchEndpoint": { "videoId": "Cto5R8p74kg", "startTimeSeconds": 0 } } } },
+          { "macroMarkersListItemRenderer": { "title": { "simpleText": "Marketing fundamentals" }, "onTap": { "watchEndpoint": { "videoId": "Cto5R8p74kg", "startTimeSeconds": 23.599001 } } } }
+        ] } }
+      }
+    }]
+  }
+}
