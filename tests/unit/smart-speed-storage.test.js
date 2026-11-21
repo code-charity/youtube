@@ -66,8 +66,16 @@ function load (initial = {}) {
 			await jest.advanceTimersByTimeAsync(1);
 			if (errors.length) throw errors.shift();
 		},
-		identifyChannel () {
-			IT.smartSpeed.session = { playerResponse: { videoDetails: { channelId, author: 'Guide' } } };
+		identifyChannel (name = 'Guide', id = channelId) {
+			IT.smartSpeed.session = { playerResponse: { videoDetails: { channelId: id, author: name } } };
+			if (!id) {
+				const link = window.document.createElement('a');
+				link.textContent = name;
+				const owner = window.document.createElement('div');
+				owner.className = 'ytd-channel-name';
+				owner.appendChild(link);
+				window.document.body.appendChild(owner);
+			}
 		}
 	};
 }
@@ -169,5 +177,76 @@ describe('Smart Speed persists through the production page/content bridge', () =
 		page.IT.smartSpeed.toggleChannelWhitelist();
 		await page.flush();
 		expect(page.stored).toEqual({ unrelated: 'keep' });
+	});
+
+	test('resolution preserves a category whose name matches the current channel', async () => {
+		const page = load({
+			smart_speed_profiles: { Music: { min: 1, max: 3, whitelist: true } },
+			smart_speed_no_heatmap_fallback_mode: 'fixed_speed',
+			smart_speed_no_heatmap_fixed_speed: 2
+		});
+		await page.flush();
+		page.identifyChannel('Music');
+		const video = page.window.document.createElement('video');
+		Object.defineProperties(video, { paused: { value: false }, duration: { value: 600 } });
+		page.window.document.body.appendChild(video);
+		page.IT.smartSpeed.video = video;
+		page.IT.storage.smart_speed = true;
+		page.IT.smartSpeed.tick();
+		await page.flush();
+		expect(page.stored.smart_speed_profiles).toEqual({ Music: { min: 1, max: 3, whitelist: true } });
+		expect(page.IT.storage.smart_speed_profiles).not.toHaveProperty(channelKey);
+		expect(video.playbackRate).toBe(2);
+	});
+
+	test.each([channelId, null])('toggling a category-named channel preserves its category rule with identity %s', async id => {
+		const page = load({ smart_speed_profiles: { Music: { min: 1, max: 3, whitelist: true } } });
+		await page.flush();
+		page.identifyChannel('Music', id);
+		page.IT.smartSpeed.toggleChannelWhitelist();
+		await page.flush();
+		const key = id ? channelKey : 'name:Music';
+		expect(page.stored.smart_speed_profiles).toEqual({
+			Music: { min: 1, max: 3, whitelist: true },
+			[key]: { name: 'Music', whitelist: true }
+		});
+		const reloaded = load(page.stored);
+		await reloaded.flush();
+		reloaded.identifyChannel('Music', id);
+		reloaded.IT.smartSpeed.toggleChannelWhitelist();
+		await reloaded.flush();
+		expect(reloaded.stored.smart_speed_profiles).toEqual({ Music: { min: 1, max: 3, whitelist: true } });
+	});
+
+	test('toggling before resolution merges both channel aliases with canonical overrides', async () => {
+		const page = load({ smart_speed_profiles: {
+			Guide: { min: 1, max: 4, sens: 0.25 },
+			'name:Guide': { max: 3 },
+			[channelKey]: { min: 1.5 },
+			Education: { min: 1, max: 2 }
+		} });
+		await page.flush();
+		page.identifyChannel();
+		page.IT.smartSpeed.toggleChannelWhitelist();
+		await page.flush();
+		expect(page.stored.smart_speed_profiles).toEqual({
+			[channelKey]: { min: 1.5, max: 3, sens: 0.25, name: 'Guide', whitelist: true },
+			Education: { min: 1, max: 2 }
+		});
+		const reloaded = load(page.stored);
+		await reloaded.flush();
+		expect(reloaded.IT.storage.smart_speed_profiles[channelKey]).toEqual({ min: 1.5, max: 3, sens: 0.25, name: 'Guide', whitelist: true });
+	});
+
+	test('a channel name matching a qualified profile key does not consume that rule', async () => {
+		const page = load({ smart_speed_profiles: { 'lang:en': { min: 1, max: 2 } } });
+		await page.flush();
+		page.identifyChannel('lang:en');
+		page.IT.smartSpeed.toggleChannelWhitelist();
+		await page.flush();
+		expect(page.stored.smart_speed_profiles).toEqual({
+			'lang:en': { min: 1, max: 2 },
+			[channelKey]: { name: 'lang:en', whitelist: true }
+		});
 	});
 });

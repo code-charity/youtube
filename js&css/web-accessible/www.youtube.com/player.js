@@ -3471,14 +3471,14 @@ SMART SPEED ENGINE
         }
     }
 
-    /** Updates the key in memory and relays the change through the
-     *  content-script bridge so it's persisted and other contexts stay in sync. */
-    function setStorage(key, value) {
-        ImprovedTube.storage[key] = value;
-        if (ImprovedTube.messages && typeof ImprovedTube.messages.send === 'function') {
-            ImprovedTube.messages.send({ action: 'set', key, value });
-        }
-    }
+	/** Updates the key in memory and relays the change through the
+	 *  content-script bridge so it's persisted and other contexts stay in sync. */
+	function setStorage (key, value) {
+		ImprovedTube.storage[key] = value;
+		if (ImprovedTube.messages && typeof ImprovedTube.messages.send === 'function') {
+			ImprovedTube.messages.send({ action: 'set', key, value });
+		}
+	}
 
     /** fetch() with a timeout, plus an optional external AbortSignal
      *  (e.g. to cancel when the user navigates away from a video). */
@@ -4011,22 +4011,34 @@ SMART SPEED ENGINE
         return null;
     }
 
-    /**
-     * Migrates any existing profile entry saved under the channel's display name
-     * into the canonical ID-keyed slot once a channel ID becomes available.
-     */
-    function migrateLegacyChannelKey(profiles, ident, cKey) {
-        if (!ident?.id || !ident?.name || !cKey) return;
-        const oldNameKey = ident.name;
-        const oldPrefixedKey = 'name:' + ident.name;
-        if (profiles[oldNameKey] || profiles[oldPrefixedKey]) {
-            const legacyData = profiles[oldNameKey] || profiles[oldPrefixedKey];
-            profiles[cKey] = { ...legacyData, ...(profiles[cKey] || {}) };
-            if (profiles[oldNameKey]) delete profiles[oldNameKey];
-            if (profiles[oldPrefixedKey]) delete profiles[oldPrefixedKey];
-            setStorage('smart_speed_profiles', profiles);
-        }
-    }
+	// The menu historically used bare keys for both categories and channel names.
+	const legacyCategoryKeys = new Set([
+		'Entertainment', 'Music', 'Gaming', 'People & Blogs', 'Comedy', 'Howto & Style',
+		'Film & Animation', 'Education', 'Science & Technology', 'Sports', 'News & Politics',
+		'Autos & Vehicles', 'Travel & Events', 'Pets & Animals', 'Nonprofits & Activism', 'Unknown'
+	]);
+
+	function channelProfileKeys (profiles, ident) {
+		const keys = [];
+		if (ident?.name) {
+			if (!legacyCategoryKeys.has(ident.name) && !/^(?:channel|name|category|lang):/.test(ident.name)) keys.push(ident.name);
+			keys.push('name:' + ident.name);
+		}
+		if (ident?.id) keys.push('channel:' + ident.id);
+		return keys.filter(key => Object.prototype.hasOwnProperty.call(profiles, key) &&
+			profiles[key] && typeof profiles[key] === 'object' && !Array.isArray(profiles[key]));
+	}
+
+	/** Merge unambiguous channel aliases, with canonical settings taking precedence. */
+	function migrateLegacyChannelKey (profiles, ident, cKey) {
+		if (!ident?.id || !ident?.name || !cKey) return;
+		const keys = channelProfileKeys(profiles, ident);
+		if (keys.some(key => key !== cKey)) {
+			profiles[cKey] = Object.assign({}, ...keys.map(key => profiles[key]));
+			for (const key of keys) if (key !== cKey) delete profiles[key];
+			setStorage('smart_speed_profiles', profiles);
+		}
+	}
 
     const Profiles = {
         _cache: null,
@@ -4067,7 +4079,8 @@ SMART SPEED ENGINE
                     const cKey = canonicalChannelKey(ident);
                     if (cKey) {
                         migrateLegacyChannelKey(profiles, ident, cKey);
-                        resolved = profiles[cKey] || (ident.name && profiles['name:' + ident.name]) || (ident.name && profiles[ident.name]);
+						const keys = channelProfileKeys(profiles, ident);
+						resolved = keys.length ? Object.assign({}, ...keys.map(key => profiles[key])) : null;
                         if (resolved) { tier = 'channel'; break; }
                     }
                 }
@@ -4689,9 +4702,8 @@ SMART SPEED ENGINE
             if (!cKey) { UI.toast('Channel identity missing. Try again.'); return; }
 
             const profiles = { ...(ImprovedTube.storage.smart_speed_profiles || {}) };
-            const oldNameKey = ident.name;
-            const oldPrefixedKey = ident.name ? 'name:' + ident.name : null;
-            const existing = profiles[cKey] || (oldPrefixedKey && profiles[oldPrefixedKey]) || (oldNameKey && profiles[oldNameKey]) || {};
+			const keys = channelProfileKeys(profiles, ident);
+			const existing = Object.assign({}, ...keys.map(key => profiles[key]));
 
             const entry = { ...existing, ...(ident.name ? { name: ident.name } : {}) };
             if (entry.whitelist) delete entry.whitelist; else entry.whitelist = true;
@@ -4699,13 +4711,10 @@ SMART SPEED ENGINE
             const { name, ...settings } = entry;
             if (Object.keys(settings).length > 0) {
                 profiles[cKey] = entry;
-                if (oldNameKey && oldNameKey !== cKey) delete profiles[oldNameKey];
-                if (oldPrefixedKey && oldPrefixedKey !== cKey) delete profiles[oldPrefixedKey];
             } else {
                 delete profiles[cKey];
-                if (oldNameKey) delete profiles[oldNameKey];
-                if (oldPrefixedKey) delete profiles[oldPrefixedKey];
             }
+			for (const key of keys) if (key !== cKey) delete profiles[key];
             setStorage('smart_speed_profiles', profiles);
             Profiles.invalidate();
 
