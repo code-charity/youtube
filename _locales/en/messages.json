@@ -1943,6 +1943,9 @@
   },
   "smartSpeedAddSelectedLanguage": {
     "message": "➕ Add Selected Language"
+  },
+  "playlistAutoplayPerPlaylist": {
+    "message": "Autoplay control in each playlist header (saved per playlist)"
   }
 }
 

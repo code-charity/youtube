@@ -535,18 +535,6 @@ document.addEventListener('it-message-from-extension', function () {
 				case 'playerHideControls':
 					ImprovedTube.playerControls();
 					break
-				case 'playlistUpNextAutoplay':
-					if (this.storage.playlist_up_next_autoplay !== false) {
-						// Autoplay enabled -> resync indices and start the large playlist handler
-						const pData = ImprovedTube.elements.ytd_watch?.playlistData;
-						if (pData && pData.currentIndex != pData.localCurrentIndex) { pData.currentIndex = pData.localCurrentIndex; }
-						ImprovedTube.playlistLargePlaylistHandler();
-					} else {
-						// Autoplay disabled -> clean up sync handlers and apply disable
-						ImprovedTube.cleanupPlaylistHandlers();
-						ImprovedTube.playlistUpNextAutoplay();
-					}
-					break
 				case 'playlistCopyVideoId':
 					if (ImprovedTube.storage.playlist_copy_video_id === false) {
 						document.querySelectorAll('.it-playlist-copy-video-id').forEach(e => e.remove());
@@ -631,7 +619,9 @@ document.addEventListener('it-message-from-extension', function () {
 
 			// dont trigger shortcuts on config change, reinitialize handler instead
 			if (message.key.startsWith('shortcut_')) camelized_key = 'shortcuts';
-			if (ImprovedTube[camelized_key]) {
+			if (message.key.startsWith('playlist_autoplay_override_')) {
+				ImprovedTube.playlistAutoplayPerPlaylist?.(message);
+			} else if (ImprovedTube[camelized_key]) {
 				try { ImprovedTube[camelized_key]() } catch { };
 			}
 		} else if (message.focus === true && ImprovedTube.elements.player) {
