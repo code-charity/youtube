@@ -11,6 +11,8 @@ ImprovedTube.shortcutsInit = function () {
 	const listening = ImprovedTube.input.listening,
 		listeners = ImprovedTube.input.listeners;
 
+	this.shortcutsListeners['improvedtube-blur']();
+
 	// reset 'listening' shortcuts
 	for (var key in listening) delete listening[key];
 	// extract shortcuts from User Settings and initialize 'listening'
@@ -81,7 +83,7 @@ ImprovedTube.shortcutsInit = function () {
 	}
 };
 
-ImprovedTube.shortcutsHandler = function () {
+ImprovedTube.shortcutsHandler = function (event) {
 	check: for (const [key, shortcut] of Object.entries(ImprovedTube.input.listening)) {
 		if (ImprovedTube.input.pressed.keys.size != shortcut.keys.size
 			|| ImprovedTube.input.pressed.wheel != shortcut.wheel
@@ -93,6 +95,10 @@ ImprovedTube.shortcutsHandler = function () {
 			if (!shortcut.keys.has(pressedKey)) continue check;
 		}
 
+		const action = key.startsWith('shortcutQuality') ? 'shortcutQuality'
+			: key.startsWith('shortcutPlaybackSpeed') ? 'shortcutPlaybackSpeed' : key;
+		if (typeof ImprovedTube[action] !== 'function') continue;
+
 		// cancel keydown/wheel event before we call target handler
 		// this way crashing handler wont keep 'cancelled' keys stuck
 		event.preventDefault();
@@ -102,21 +108,23 @@ ImprovedTube.shortcutsHandler = function () {
 			ImprovedTube.input.cancelled.add(pressedKey);
 		}
 
-		if (key.startsWith('shortcutQuality')) {
-			ImprovedTube['shortcutQuality'](key);
-		} else if (key.startsWith('shortcutPlaybackSpeed')) {
-			ImprovedTube['shortcutPlaybackSpeed'](key);
-		} else if (typeof ImprovedTube[key] === 'function') {
-			ImprovedTube[key]();
-		}
+		if (action === key) ImprovedTube[action]();
+		else ImprovedTube[action](key);
 	}
+};
+
+ImprovedTube.shortcutsIgnoreEvent = function (event) {
+	const path = event.composedPath?.() || [event.target];
+	return event.isComposing || path.concat(document.activeElement).some(element => element && (
+		element.isContentEditable || element.tagName === 'SELECT' || ImprovedTube.input.ignoreElements.includes(element.tagName)
+	));
 };
 
 ImprovedTube.shortcutsListeners = {
 	keydown: function (event) {
 		ImprovedTube.user_interacted = true;
 		// no shortcuts over 'ignoreElements'
-		if ((document.activeElement && ImprovedTube.input.ignoreElements.includes(document.activeElement.tagName)) || event.target.isContentEditable) return;
+		if (ImprovedTube.shortcutsIgnoreEvent(event)) return;
 
 		if (!ImprovedTube.input.modifierKeys.includes(event.code)) {
 			ImprovedTube.input.pressed.keys.add(event.keyCode);
@@ -126,7 +134,7 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
 		ImprovedTube.input.pressed.shift = event.shiftKey;
 
-		ImprovedTube.shortcutsHandler();
+		ImprovedTube.shortcutsHandler(event);
 	},
 	keyup: function (event) {
 		ImprovedTube.input.pressed.keys.delete(event.keyCode);
@@ -143,26 +151,27 @@ ImprovedTube.shortcutsListeners = {
 		}
 	},
 	wheel: function (event) {
-	const player = ImprovedTube.elements.player;
-	if (!player) return;
+		const player = ImprovedTube.elements.player;
+		if (!player || event.deltaY === 0 || ImprovedTube.shortcutsIgnoreEvent(event)) return;
 
-	const path = event.composedPath?.() || [];
+		const path = event.composedPath?.() || [];
 
-	if (
-		!player.matches(':hover') &&
-		!path.includes(player) &&
-		!path.includes(ImprovedTube.elements.video)
-	) return;
+		if (
+			!player.matches(':hover') &&
+			!path.includes(player) &&
+			!path.includes(ImprovedTube.elements.video)
+		) return;
 
-	ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
-	ImprovedTube.input.pressed.alt = event.altKey;
-	ImprovedTube.input.pressed.ctrl = event.ctrlKey;
-	ImprovedTube.input.pressed.shift = event.shiftKey;
+		ImprovedTube.input.pressed.wheel = event.deltaY > 0 ? 1 : -1;
+		ImprovedTube.input.pressed.alt = event.altKey;
+		ImprovedTube.input.pressed.ctrl = event.ctrlKey;
+		ImprovedTube.input.pressed.shift = event.shiftKey;
 
-	ImprovedTube.shortcutsHandler();
-},
+		ImprovedTube.shortcutsHandler(event);
+	},
 	'improvedtube-blur': function () {
 		ImprovedTube.input.pressed.keys.clear();
+		ImprovedTube.input.cancelled.clear();
 		ImprovedTube.input.pressed.wheel = 0
 		ImprovedTube.input.pressed.alt = false;
 		ImprovedTube.input.pressed.ctrl = false;
@@ -483,30 +492,30 @@ ImprovedTube.shortcutActivateCaptions = function () {
 };
 /*------Chapters------*/
 ImprovedTube.shortcutChapters = function () {
-	const available = document.querySelector('[target-id*=chapters][visibility*=HIDDEN]') || document.querySelector('[target-id*=chapters]').clientHeight;
-	if (available) {
-		const modernChapters = document.querySelector('[modern-chapters] #navigation-button button[aria-label]');
-		modernChapters ? modernChapters.click() : document.querySelector('[target-id*=chapters]')?.removeAttribute('visibility');
+	const panel = document.querySelector('[target-id*=chapters]'),
+		visibility = panel?.getAttribute('visibility') || '',
+		expanded = panel && !visibility.includes('HIDDEN') && (visibility.includes('EXPANDED') || panel.clientHeight > 0);
+
+	if (expanded) {
+		panel.querySelector('#visibility-button button')?.click();
 	} else {
-		const visibilityButton = document.querySelector('[target-id*=chapters][visibility*=EXPANDED] #visibility-button button[aria-label]');
-		visibilityButton ? visibilityButton.click() : document.querySelector('*[target-id*=chapters] #visibility-button button')?.click();
-	}
-	if (!modernChapters && visibilityButton) {
-		console.error('shortcutChapters: Cant fint proper Enable button, falling back to unreliable bruteforce method');
+		const button = document.querySelector('[modern-chapters] #navigation-button button[aria-label]');
+		if (button) button.click();
+		else panel?.removeAttribute('visibility');
 	}
 };
 /*------Transcript------*/
 ImprovedTube.shortcutTranscript = function () {
-	const available = document.querySelector('[target-id*=transcript][visibility*=HIDDEN]') || document.querySelector('[target-id*=transcript]').clientHeight;
-	if (available) {
-		const descriptionTranscript = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
-		descriptionTranscript ? descriptionTranscript.click() : document.querySelector('[target-id*=transcript]')?.removeAttribute('visibility');
+	const panel = document.querySelector('[target-id*=transcript]'),
+		visibility = panel?.getAttribute('visibility') || '',
+		expanded = panel && !visibility.includes('HIDDEN') && (visibility.includes('EXPANDED') || panel.clientHeight > 0);
+
+	if (expanded) {
+		panel.querySelector('#visibility-button button')?.click();
 	} else {
-		const transcriptButton = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
-		transcriptButton ? transcriptButton.click() : document.querySelector('[target-id*=transcript] #visibility-button button')?.click();
-	}
-	if (!descriptionTranscript && transcriptButton) {
-		console.error('shortcutTranscript: Cant fint proper Enble button, falling back to unreliable bruteforce method');
+		const button = document.querySelector('ytd-video-description-transcript-section-renderer button[aria-label]');
+		if (button) button.click();
+		else panel?.removeAttribute('visibility');
 	}
 };
 /*------------------------------------------------------------------------------

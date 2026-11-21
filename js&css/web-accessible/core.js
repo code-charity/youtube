@@ -630,7 +630,7 @@ document.addEventListener('it-message-from-extension', function () {
 			}
 
 			// dont trigger shortcuts on config change, reinitialize handler instead
-			if (message.key.startsWith('shortcut_')) camelized_key = 'shortcuts';
+			if (message.key.startsWith('shortcut_')) camelized_key = 'shortcutsInit';
 			if (ImprovedTube[camelized_key]) {
 				try { ImprovedTube[camelized_key]() } catch { };
 			}
