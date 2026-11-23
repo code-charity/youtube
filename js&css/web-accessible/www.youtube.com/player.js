@@ -878,6 +878,14 @@ ImprovedTube.transcriptButtonSelector = 'button[aria-label*="scrip"], button[ari
 										+ 'button[aria-label*="प्रतिलि"], button[aria-label*="प्रत"], button[aria-label*="লিপি"], button[aria-label*="bản ghi"], button[aria-label*="steno"],'
 										+ 'button[aria-label*="γραφ"], button[aria-label*="přep"], button[aria-label*="átir"], button[aria-label*="avsk"]';
 
+// The label selector is loose ("scrip" also matches "Subscriptions"), so look in YouTube's
+// transcript section first, then inside the description, and only then anywhere on the page.
+ImprovedTube.findTranscriptButton = function () {
+	return document.querySelector('ytd-video-description-transcript-section-renderer button')
+		|| document.querySelector('#description ' + ImprovedTube.transcriptButtonSelector.replace(/,\s*/g, ', #description '))
+		|| document.querySelector(ImprovedTube.transcriptButtonSelector);
+};
+
 ImprovedTube.copyTranscript = function (svg, button) {
 	try {
 		svg.style.opacity = '1';
@@ -904,20 +912,24 @@ ImprovedTube.copyTranscript = function (svg, button) {
 				return;
 			}
 		}
-		var transcriptButtonSelector = ImprovedTube.transcriptButtonSelector;
-		var transcriptButton = document.querySelector(transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');
+		var transcriptButton = ImprovedTube.findTranscriptButton();
 
 		if (!transcriptButton) {
 			var moreActionsButton = document.querySelector('#description ytd-text-inline-expander #expand, #description tp-yt-paper-button#expand');
 			if (moreActionsButton && !moreActionsButton.hasAttribute('hidden')) {
 				moreActionsButton.click();
 				setTimeout(function () {
-					transcriptButton = document.querySelector(transcriptButtonSelector) || 	document.querySelector('ytd-video-description-transcript-section-renderer button');
+					transcriptButton = ImprovedTube.findTranscriptButton();
 					if (transcriptButton) {
 						transcriptButton.click();
 						ImprovedTube.waitForTranscriptAndCopy(svg, button);
 					} else {
-						throw new Error('Transcript button not found');
+						console.error('ImprovedTube: Failed to copy transcript: Transcript button not found');
+						button.dataset.tooltip = 'TranscriptError';
+						setTimeout(function () {
+							button.dataset.tooltip = 'CopyTranscript';
+							svg.style.opacity = '.5';
+						}, 2000);
 					}
 				}, 500);
 				return;
@@ -1031,7 +1043,7 @@ ImprovedTube.getTranscriptSegments = function (onReady, onError) {
 	}
 
 	var findTranscriptButton = function () {
-		return document.querySelector(ImprovedTube.transcriptButtonSelector) || document.querySelector('ytd-video-description-transcript-section-renderer button');
+		return ImprovedTube.findTranscriptButton();
 	};
 	var waitForSegments = function () {
 		var attempts = 0;
