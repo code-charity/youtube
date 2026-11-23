@@ -1019,9 +1019,6 @@
   "player": {
     "message": "Player"
   },
-  "player_dont_speed_education": {
-    "message": "Nicht beschleunigen bei (seltener) Kategorie: Bildung"
-  },
   "player_fit_to_win_button": {
     "message": "Ans Fenster anpassen"
   },

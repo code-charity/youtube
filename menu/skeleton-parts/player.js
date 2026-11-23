@@ -280,13 +280,14 @@ extension.skeleton.main.layers.section.player.on.click = {
 			text: 'forcedPlaybackSpeed',
 			id: 'forced-playback-speed'
 		},
+		player_forced_playback_speed_shorts: {
+			component: 'switch',
+			text: 'forcedPlaybackSpeedShorts',
+			id: 'forced-playback-speed-shorts'
+		},
 		player_force_speed_on_music: {
 			component: 'switch',
 			text: 'forcedPlaybackSpeedMusic'
-		},
-		player_dont_speed_education: {
-			component: 'switch',
-			text: 'player_dont_speed_education',
 		},
 		player_playback_speed: {
 			component: 'slider',
@@ -296,6 +297,148 @@ extension.skeleton.main.layers.section.player.on.click = {
 			min: .01,
 			max: 3.17,
 			step: .01
+		},
+		category_playback_speed: {
+			component: 'button',
+			text: 'categoryPlaybackSpeed',
+			on: {
+				click: {
+					component: 'section',
+					variant: 'card',
+					category_playback_speed_list: {
+						component: 'section',
+						variant: 'card',
+						on: {
+							render: function () {
+								let container = this;
+
+								function updateView() {
+									container.innerHTML = '';
+									satus.storage.remove('category_playback_speed_select');
+									let skeleton = {};
+									let ts = Date.now();
+									let storedSpeeds = satus.storage.get('category_playback_speeds');
+									let categorySpeeds;
+									let tempCategory = 'none';
+
+									if (storedSpeeds === undefined) {
+										categorySpeeds = {};
+										satus.storage.set('category_playback_speeds', categorySpeeds);
+									} else {
+										categorySpeeds = typeof storedSpeeds === 'object' && storedSpeeds !== null ? storedSpeeds : {};
+									}
+
+									skeleton['add_category_btn_' + ts] = {
+										component: 'section',
+										variant: 'card',
+										add_category_dropdown: {
+											component: 'select',
+											storage: 'category_playback_speed_select',
+											text: 'categoryPlaybackSpeedYoutubeSelect',
+											value: 'none',
+											options: [
+												{value: 'none', text: 'categoryPlaybackSpeedSelect'},
+												{value: 'Entertainment', text: 'categoryEntertainment'},
+												{value: 'Music', text: 'categoryMusic'},
+												{value: 'Gaming', text: 'categoryGaming'},
+												{value: 'People & Blogs', text: 'categoryPeopleBlogs'},
+												{value: 'Comedy', text: 'categoryComedy'},
+												{value: 'Howto & Style', text: 'categoryHowtoStyle'},
+												{value: 'Film & Animation', text: 'categoryFilmAnimation'},
+												{value: 'Education', text: 'categoryEducation'},
+												{value: 'Science & Technology', text: 'categoryScienceTechnology'},
+												{value: 'Sports', text: 'categorySports'},
+												{value: 'News & Politics', text: 'categoryNewsPolitics'},
+												{value: 'Autos & Vehicles', text: 'categoryAutosVehicles'},
+												{value: 'Travel & Events', text: 'categoryTravelEvents'},
+												{value: 'Pets & Animals', text: 'categoryPetsAnimals'},
+												{value: 'Nonprofits & Activism', text: 'categoryNonprofitsActivism'}
+											],
+											on: {
+												change: function() { tempCategory = this.value; }
+											}
+										},
+										add_category_btn: {
+											component: 'button',
+											text: 'categoryPlaybackSpeedAdd',
+											on: {
+												click: function() {
+													if (tempCategory !== 'none' && !Object.prototype.hasOwnProperty.call(categorySpeeds, tempCategory)) {
+														extension.prompt('channelPlaybackSpeedSpeedPrompt', '1.25', function (speed) {
+															if (speed && !isNaN(parseFloat(speed))) {
+																let freshState = Object.assign({}, satus.storage.get('category_playback_speeds') || {});
+																freshState[tempCategory] = parseFloat(speed);
+																satus.storage.set('category_playback_speeds', freshState);
+																updateView();
+															}
+														});
+													}
+												}
+											}
+										}
+									};
+
+									for (let categoryName in categorySpeeds) {
+										let safeKey = categoryName.replace(/[^a-zA-Z0-9]/g, '_');
+										skeleton['speed_' + safeKey + '_' + ts] = {
+											component: 'section',
+											variant: 'card',
+											title: categoryName,
+											['speed_slider_' + safeKey + '_' + ts]: {
+												component: 'slider',
+												storage: false,
+												text: 'playbackSpeed',
+												value: categorySpeeds[categoryName],
+												min: 0.1,
+												max: 3.17,
+												step: 0.01,
+												textarea: true,
+												on: {
+													render: function() {
+														let component = this;
+														component.textInput.addEventListener('blur', function() {
+															let speed = Number(component.input.value);
+															if (!isNaN(speed)) {
+																let freshState = Object.assign({}, satus.storage.get('category_playback_speeds'));
+																freshState[categoryName] = speed;
+																satus.storage.set('category_playback_speeds', freshState);
+															}
+														});
+													},
+													change: function() {
+														let speed = Number(this.input.value);
+														if (!isNaN(speed)) {
+															let freshState = Object.assign({}, satus.storage.get('category_playback_speeds'));
+															freshState[categoryName] = speed;
+															satus.storage.set('category_playback_speeds', freshState);
+														}
+													}
+												}
+											},
+											delete_btn: {
+												component: 'button',
+												text: 'delete',
+												on: {
+													click: function() {
+														let freshState = Object.assign({}, satus.storage.get('category_playback_speeds'));
+														delete freshState[categoryName];
+														satus.storage.set('category_playback_speeds', freshState);
+														updateView();
+													}
+												}
+											}
+										};
+									}
+
+									satus.render(skeleton, container);
+								}
+
+								updateView();
+							}
+						}
+					}
+				}
+			}
 		},
 		channel_playback_speed: {
 			component: 'button',

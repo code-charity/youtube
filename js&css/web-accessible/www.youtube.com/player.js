@@ -148,165 +148,207 @@ ImprovedTube.playerLiveHeadSpeedReset = function (event) {
 /*------------------------------------------------------------------------------
 PERMANENT PLAYBACK SPEED
 ------------------------------------------------------------------------------*/
-ImprovedTube.playerPlaybackSpeed = function () { if (this.storage.player_forced_playback_speed === true) {
-	var player = this.elements.player; if (!player) return;
-	var video = this.elements.video || player.querySelector('video');
-	
-	// Check for channel-specific playback speed
-	var channelNameEl = document.querySelector('.ytd-channel-name a') || document.querySelector('#upload-info .ytd-channel-name');
-	var channelName = channelNameEl ? channelNameEl.textContent.trim() : '';
-	var channelSpeeds = this.storage.channel_playback_speeds || {};
-	
-	// Use channel-specific speed if available, otherwise use global speed
-	if (channelName && channelSpeeds[channelName] && typeof channelSpeeds[channelName] === 'number') {
-		option = channelSpeeds[channelName];
-	} else {
-		option = this.storage.player_playback_speed;
+ImprovedTube.playerPlaybackSpeed = function (force) {
+	if (this.storage.player_forced_playback_speed !== true) {
+		return;
 	}
-	
-	if (this.isset(option) === false) { option = 1; }
-	else if ( option !== 1 ) {
-		const speed = video?.playbackRate ? Number(video.playbackRate.toFixed(2)) : (player?.getPlaybackRate ? Number(player.getPlaybackRate().toFixed(2)) : null);
-		 if (speed !== option && speed !== 1 && speed !== Number((Math.floor(option / 0.05) * 0.05).toFixed(2)))
-		   { console.log("skipping permanent speed, since speed was manually set differently for this video to:" + video.playbackRate + ", was it?"); return; }
+	const pageType = document.documentElement.dataset.pageType;
+	const isAllowed = pageType === 'video' || pageType === 'embed' || (pageType === 'shorts' && this.storage.player_forced_playback_speed_shorts === true)
+	if (!isAllowed) return;
+	const startedVideoId = ImprovedTube.videoId();
+	if (!startedVideoId) {
+		console.warn(`[ImprovedTube:ForcedSpeed] location=${location.href}`);
+		return;
 	}
-	if (!(player.getVideoData() && player.getVideoData().isLive))
-	{ player.setPlaybackRate(Number(option)); if (!video) { video = { playbackRate: 1 }; };	video.playbackRate = Number(option); // #1729 q2 // hi! @raszpl
-		if ( (this.storage.player_force_speed_on_music !== true || this.storage.player_dont_speed_education === true)
-		 	&& option !== 1) {
-			ImprovedTube.speedException = function () {
-				if (this.storage.player_dont_speed_education === true && DATA.genre === 'Education')
-				{player.setPlaybackRate(Number(1));	video.playbackRate = Number(1); return;}
-				if (this.storage.player_force_speed_on_music === true)
-				{ //player.setPlaybackRate(Number(option));	video.playbackRate = Number(option);
-	 return;}
-				if (DATA.keywords && !keywords) { keywords = DATA.keywords.join(', ') || ''; }
-				if (keywords === 'video, sharing, camera phone, video phone, free, upload') { keywords = ''; }
-				var musicIdentifiers = /(official|music|lyrics?)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
-				var musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
-				var musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + '|' + musicIdentifiers.source, "i");
-				var musicRegexMatch = musicIdentifiersTitle.test(DATA.title);
-				if (!musicRegexMatch) {
-					var musicIdentifiersTagsOnly = /^(lyrics|remix|song|music|AMV|theme song|full song)$|\(Musical Genre\)|^jazz|^reggae/i;
-					var musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + '|' + musicIdentifiers.source, "i");
-				    var keywordList = (keywords || '').split(', ').map(keyword => keyword.trim()).filter(Boolean);
-				    var musicKeywordCount = keywordList.filter(keyword => musicIdentifiersTags.test(keyword)).length;
-					keywordsAmount = keywordList.length;
-					if ( keywordsAmount && musicKeywordCount / keywordsAmount > 0.08) {
-						musicRegexMatch = true}}
-				notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(DATA.title + " " + keywords);
-				// (Tags/keywords shouldnt lie & very few songs titles might have these words)
-				if (DATA.duration) {
-					function parseDuration (duration) {	const [_, h = 0, m = 0, s = 0] = duration.match(/PT(?:(\d+)?H)?(?:(\d+)?M)?(\d+)?S?/).map(part => parseInt(part) || 0);
-						return h * 3600 + m * 60 + s; }
-					DATA.lengthSeconds = parseDuration(DATA.duration); 	}
-				function testSongDuration (s, ytMusic) {
-					if (135 <= s && s <= 260) {return 'veryCommon';}
-					if (105 <= s && s <= 420) {return 'common';}
-					if (420 <= s && s <= 720) {return 'long';}
-					if (45 <= s && s <= 105) {return 'short';}
-					if (ytMusic && ytMusic > 1 && (85 <= s / ytMusic && (s / ytMusic <= 375 || ytMusic == 10))) {return 'multiple';}
-				//does Youtube ever show more than 10 songs below the description?
-				}
-				var songDurationType = testSongDuration(DATA.lengthSeconds);
-				console.log("genre: " + DATA.genre + "//title: " + DATA.title + "//keywords: " + keywords + "//music word match: " + musicRegexMatch + "// not music word match:" + notMusicRegexMatch + "//duration: " + DATA.lengthSeconds + "//song duration type: " + songDurationType);
-				// check if the video is PROBABLY MUSIC:
-				if ( 		( DATA.genre === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))
-			|| ( musicRegexMatch && !notMusicRegexMatch && (typeof songDurationType !== 'undefined'
-						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(DATA.title + " " + keywords)
-							&& 1000 <= DATA.lengthSeconds )) ) // && 1150 <= DATA.lengthSeconds <= 5000
-			||	( DATA.genre === 'Music' && musicRegexMatch && (typeof songDurationType !== 'undefined'
-						|| (/album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(DATA.title + " " + keywords)
-							&& 1000 <= DATA.lengthSeconds )) ) // && DATA.lengthSeconds <= 5000
-			|| (amountOfSongs && typeof testSongDuration(DATA.lengthSeconds, amountOfSongs ) !== 'undefined')
-		 //	||  location.href.indexOf('music.') !== -1  // (=currently we are only running on www.youtube.com anyways)
-				)	{ player.setPlaybackRate(1); video.playbackRate = 1; console.log ("...,thus must be music?"); }
-				else { 	// Now this video might rarely be music
-					// - however we can make extra-sure after waiting for the video descripion to load... (#1539)
-					if (location.href.indexOf('/watch?') !== -1) {
-						let tries = 0;
-						const intervalMs = 210;
-						const maxTries = 10;
-						const waitForDescription = setInterval(() => {
-							const subtitle = document.querySelector('#title + #subtitle:last-of-type');
-							// console.log("[SPEED] checking for music keywords in the description... try " + tries + "// subtitle: " + subtitle?.innerHTML);
-							const descriptionSongCount = Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0]);
-							if (subtitle && 1 <= descriptionSongCount && typeof testSongDuration(DATA.lengthSeconds, descriptionSongCount) !== 'undefined')
-							{player.setPlaybackRate(1); video.playbackRate = 1; console.log("...but YouTube shows music below the description!"); clearInterval(waitForDescription); return; }
-							if (++tries >= maxTries) {
-								// console.log("[SPEED] max tries reached, stopping description check...");
-								clearInterval(waitForDescription);
-							}
-						}, intervalMs);
-					}
-				}
+	this.retryPlayerAction(() => {
+		if (startedVideoId !== ImprovedTube.videoId() || this.storage.player_forced_playback_speed !== true) {
+			return 'stop';
+		}
+		const player = (document.documentElement.dataset.pageType === 'shorts') ? this.elements.shorts_player : this.elements.player;
+		const video = player?.querySelector('video');
+		if (!player || !video || typeof player.getVideoData !== 'function') {
+			return false;
+		}
+		if (player.getVideoData()?.isLive) {
+			return 'stop';
+		}
+
+		const testSongDuration = (seconds, ytMusic) => {
+			if (!seconds) { return undefined; }
+			if (135 <= seconds && seconds <= 260) { return 'veryCommon'; }
+			if (105 <= seconds && seconds <= 420) { return 'common'; }
+			if (420 <= seconds && seconds <= 720) { return 'long'; }
+			if (45 <= seconds && seconds <= 105) { return 'short'; }
+			if (ytMusic && ytMusic > 1 && (85 <= seconds / ytMusic && (seconds / ytMusic <= 375 || ytMusic === 10))) { return 'multiple'; }
+			return undefined;
+		};
+
+		const getPlaybackSpeed = () => {
+			if (typeof video?.playbackRate === 'number' && Number.isFinite(video.playbackRate)) {
+				return Number(video.playbackRate.toFixed(2));
 			}
-			//DATA  (TO-DO: make the Data available to more/all features? #1452  #1763  (Then can replace ImprovedTube.elements.category === 'music', VideoID is also used elsewhere)
-			DATA = {};
-			defaultKeywords = "video,sharing,camera,phone,video phone,free,upload";
-			keywords = false; amountOfSongs = false;
+			if (typeof player?.getPlaybackRate === 'function') {
+				const speed = player.getPlaybackRate();
+				return Number.isFinite(speed) ? Number(speed.toFixed(2)) : null;
+			}
+			return null;
+		};
 
-			ImprovedTube.fetchDOMData = function () {
-				try { DATA = JSON.parse(document.querySelector('#microformat script')?.textContent) ?? false; DATA.title = DATA.name;}
-			 catch { DATA.genre = false; DATA.keywords = false; DATA.lengthSeconds = false;
-					try {
-						DATA.title = document.getElementsByTagName('meta')?.title?.content || false;
-						DATA.genre = document.querySelector('meta[itemprop=genre]')?.content || false;
-						DATA.duration = document.querySelector('meta[itemprop=duration]')?.content || false;
-			 } catch {}}
-
-let tries = 0; const maxTries = 11; let intervalMs = 200;
-const waitForVideoTitle = setInterval(() => { const title = ImprovedTube.videoTitle?.();  tries++;
-
-if (title && title !== 'YouTube') {
-    clearInterval(waitForVideoTitle);
-			 DATA.videoID = ImprovedTube.videoId() || false;     // console.log("SPEED: TITLE:" + ImprovedTube.videoTitle() + DATA.title);
-			 if ( DATA.title && (DATA.title === ImprovedTube.videoTitle() || DATA.title.replace(/\s{2,}/g, ' ') === ImprovedTube.videoTitle()) )
-				{ keywords = document.querySelector('meta[name="keywords"]')?.content || ''; ImprovedTube.speedException(); }
-				else { keywords = ''; (async function () { try { const response = await fetch(`https://www.youtube.com/watch?v=${DATA.videoID}`);
-					console.log("loading the html source:" + `https://www.youtube.com/watch?v=${DATA.videoID}`);
-					const htmlContent = await response.text();
-					const metaRegex = /<meta[^>]+(?:name|itemprop)=["'](keywords|genre|duration|title)["'][^>]+content=["']([^"']+)["'][^>]*>/gi;
-					let match; while ((match = metaRegex.exec(htmlContent)) !== null) { // console.log(match);
-						const [, property, value] = match;
-						if (property === 'keywords') { keywords = value;} else {DATA[property] = value;}
-					}
-					amountOfSongs = (htmlContent.slice(-80000).match(/},"subtitle":{"simpleText":"(\d*)\s/) || [])[1] || false;
-					if (keywords) { ImprovedTube.speedException(); }
-				} catch (error) { console.error('Error: fetching from https://Youtube.com/watch?v=${DATA.videoID}', error); keywords = ''; }
-				})();
-				}
-}
-
-if (tries >= maxTries) {  clearInterval(waitForVideoTitle); } intervalMs *= 1.11; }, intervalMs);
-window.addEventListener('load', () => {  setTimeout(() => { clearInterval(waitForVideoTitle) }, 5000);});
+		const setPlaybackSpeed = (speed) => {
+			// ImprovedTube.playbackSpeed(Number(speed));
+			// Try to keep YouTube's playback speed menu in sync.
+			if (typeof player.setPlaybackRate === 'function') player.setPlaybackRate(Number(speed));
+			// Set the actual playback speed; supports values outside YouTube's menu options.
+			if (video) video.playbackRate = Number(speed);
+			ImprovedTube.showStatus(speed);
+			this.playerForcedPlaybackSpeedState = {
+				videoId: startedVideoId,
+				video,
+				speed: getPlaybackSpeed(),
 			};
-			ImprovedTube.fetchDOMData();
-/*
-			if ( (history && history.length === 1) || !history?.state?.endpoint?.watchEndpoint) { ImprovedTube.fetchDOMData(); }
-			else {
-				//Invidious instances. Should be updated automatically!...
-				const invidiousInstances = ['invidious.fdn.fr', 'inv.tux.pizza', 'invidious.flokinet.to', 'invidious.protokolla.fi', 'invidious.private.coffee', 'yt.artemislena.eu', 'invidious.materialio.us', 'iv.datura.network'];
-				function getRandomInvidiousInstance () { return invidiousInstances[Math.floor(Math.random() * invidiousInstances.length)];}
+		};
 
-				(async function () {	 let retries = 4;	let invidiousFetched = false;
-					async function fetchInvidiousData () {
-						try {const response = await fetch(`https://${getRandomInvidiousInstance()}/api/v1/videos/${DATA.videoID}?fields=genre,title,lengthSeconds,keywords`);
-			 DATA = await response.json();
-			 if (DATA.genre && DATA.title && DATA.keywords && DATA.lengthSeconds) { if (DATA.keywords.toString() === defaultKeywords ) {DATA.keywords = ''}
-				 ImprovedTube.speedException(); invidiousFetched = true;	}
-						} catch (error) { console.error('Error: Invidious API: ', error); }
-					}
-					while (retries > 0 && !invidiousFetched) { await fetchInvidiousData();
-						if (!invidiousFetched) { await new Promise(resolve => setTimeout(resolve, retries === 4 ? 1500 : 876)); retries--; }	}
-					if (!invidiousFetched) { if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', ImprovedTube.fetchDOMData())}
-					else { ImprovedTube.fetchDOMData();} }
-				})();
+		const isManualSpeedChange = () => {
+			const state = this.playerForcedPlaybackSpeedState;
+			const speed = getPlaybackSpeed();
+			return state?.videoId === startedVideoId
+				&& state?.video === video
+				&& state?.speed !== null
+				&& speed !== null
+				&& speed !== state.speed;
+		};
+
+		const applyForcedSpeed = async () => {
+			const meta = (await ImprovedTube.VideoMetadata.getDataAsync()) || {};
+			if (startedVideoId !== ImprovedTube.videoId() || meta.videoId !== ImprovedTube.videoId()) {
+				return;
 			}
-*/
-		}	// else { }
-	}
-}
+
+			const title = meta.title || '';
+			const genre = meta.genre || ''; // category
+			const lengthSeconds = meta.lengthSeconds || '';
+			const channelHandle = meta.handle || '';
+			const channelName = meta.channelName || '';
+			const channelId = meta.channelId || '';
+			const keywords = Array.isArray(meta.keywords) ? meta.keywords.join(', ') : '';
+
+			let optionSource = 'default';
+			let option = this.storage.player_playback_speed;
+			if (this.isset(option) === false) {
+				option = 1;
+			}
+
+			// Override the global speed with the category-specific speed, if available.
+			const categorySpeeds = this.storage.category_playback_speeds || {};
+			if (genre && categorySpeeds[genre] && typeof categorySpeeds[genre] === 'number') {
+				optionSource = `category "${genre}"`;
+				option = categorySpeeds[genre];
+			}
+			// Override the global speed with the channel-specific speed, if available.
+			const channelSpeeds = this.storage.channel_playback_speeds || {};
+			if (channelHandle && channelSpeeds[channelHandle] && typeof channelSpeeds[channelHandle] === 'number') {
+				optionSource = `channel "${channelHandle}"`;
+				option = channelSpeeds[channelHandle];
+			} else if (channelName && channelSpeeds[channelName] && typeof channelSpeeds[channelName] === 'number') {
+				optionSource = `channel "${channelName}"`;
+				option = channelSpeeds[channelName];
+			} else if (channelId && channelSpeeds[channelId] && typeof channelSpeeds[channelId] === 'number') {
+				optionSource = `channel "${channelId}"`;
+				option = channelSpeeds[channelId];
+			}
+
+			if (!(this.storage.player_force_speed_on_music === true || option === 1)) {
+				const musicIdentifiers = /(official|music|lyrics?)[ -]video|(cover|studio|radio|album|alternate)[- ]version|soundtrack|unplugged|\bmedley\b|\blo-fi\b|\blofi\b|a(lla)? cappella|feat\.|(piano|guitar|jazz|ukulele|violin|reggae)[- ](version|cover)|karaok|backing[- ]track|instrumental|(sing|play)[- ]?along|卡拉OK|卡拉OK|الكاريوكي|караоке|カラオケ|노래방|bootleg|mashup|Radio edit|Guest (vocals|musician)|(title|opening|closing|bonus|hidden)[ -]track|live acoustic|interlude|featuring|recorded (at|live)/i;
+				const musicIdentifiersTitleOnly = /lyrics|theme song|\bremix|\bAMV ?[^a-z0-9]|[^a-z0-9] ?AMV\b|\bfull song\b|\bsong:|\bsong[\!$]|^song\b|( - .*\bSong\b|\bSong\b.* - )|cover ?[^a-z0-9]|[^a-z0-9] ?cover|\bconcert\b/i;
+				const musicIdentifiersTitle = new RegExp(musicIdentifiersTitleOnly.source + '|' + musicIdentifiers.source, "i");
+				let musicRegexMatch = musicIdentifiersTitle.test(title);
+				if (!musicRegexMatch) {
+					const musicIdentifiersTagsOnly = /^(lyrics|remix|song|music|AMV|theme song|full song)$|\(Musical Genre\)|^jazz|^reggae/i;
+					const musicIdentifiersTags = new RegExp(musicIdentifiersTagsOnly.source + '|' + musicIdentifiers.source, "i");
+					const keywordList = (keywords || '').split(', ').map(keyword => keyword.trim()).filter(Boolean);
+					const musicKeywordCount = keywordList.filter(keyword => musicIdentifiersTags.test(keyword)).length;
+					const keywordsAmount = keywordList.length;
+					if ( keywordsAmount && musicKeywordCount / keywordsAmount > 0.08) {
+						musicRegexMatch = true;
+					}
+				}
+				const notMusicRegexMatch = /\bdo[ck]u|interv[iyj]|back[- ]?stage|インタビュー|entrevista|面试|面試|회견|wawancara|مقابلة|интервью|entretien|기록한 것|记录|記錄|ドキュメンタリ|وثائقي|документальный/i.test(title + " " + keywords);
+				const isAlbumLike = /album|Álbum|专辑|專輯|एलबम|البوم|アルバム|альбом|앨범|mixtape|concert|playlist|\b(live|cd|vinyl|lp|ep|compilation|collection|symphony|suite|medley)\b/i.test(title + " " + keywords);
+				const songDurationType = testSongDuration(lengthSeconds);
+				console.log("[ImprovedTube:applyForcedSpeed] Regex results", {musicRegexMatch, notMusicRegexMatch, isAlbumLike, songDurationType, metadata: {genre, title, keywords, lengthSeconds, channelName, channelHandle}});
+				if (
+					(genre === 'Music' && (!notMusicRegexMatch || songDurationType === 'veryCommon'))
+					|| (musicRegexMatch && !notMusicRegexMatch && (typeof songDurationType !== 'undefined' || (isAlbumLike && 1000 <= lengthSeconds )))
+					|| (genre === 'Music' && musicRegexMatch && (typeof songDurationType !== 'undefined' || (isAlbumLike && 1000 <= lengthSeconds )))
+				) {
+					optionSource = "Music Regex";
+					option = 1;
+					// console.log("[ImprovedTube:applyForcedSpeed] ...thus must be music?");
+				}
+			}
+
+			// Preserve a speed changed manually after this feature last set the speed for this video.
+			if (force !== true && option !== 1 && isManualSpeedChange()) {
+				const speed = getPlaybackSpeed();
+				console.log(`[ImprovedTube:applyForcedSpeed] Skipping; a manual speed change was detected. Current=${speed}x, State=${this.playerForcedPlaybackSpeedState?.speed}x, Target=${option}x`);
+				return;
+			}
+
+			console.log(`[ImprovedTube:applyForcedSpeed] apply speed: ${option}x, source: ${optionSource}`);
+			setPlaybackSpeed(option);
+
+			if (option === 1 || this.storage.player_force_speed_on_music === true || pageType !== 'video') {
+				return;
+			}
+
+			// Last music check: song count may become available after the main metadata.
+			const amountOfSongs = await ImprovedTube.VideoMetadata.getAmountOfSongsAsync();
+			if (startedVideoId !== ImprovedTube.videoId()) {
+				return;
+			}
+			// Playback speed may change while getAmountOfSongsAsync() is pending, so check again.
+			if (isManualSpeedChange()) {
+				const speed = getPlaybackSpeed();
+				console.log(`[ImprovedTube:applyForcedSpeed] Skipping; a manual speed change was detected. Current=${speed}x, State=${this.playerForcedPlaybackSpeedState?.speed}x, Target=${option}x`);
+				return;
+			}
+			if (amountOfSongs && typeof testSongDuration(lengthSeconds, amountOfSongs) !== 'undefined') {
+				setPlaybackSpeed(1);
+				console.log("[ImprovedTube:applyForcedSpeed] Music detected via metadata fallback.");
+				return;
+			}
+			// Last fallback: check the song count in the video description.
+			if (amountOfSongs === null) {
+				let tries = 0;
+				const intervalMs = 210;
+				const maxTries = 10;
+				const waitForDescription = setInterval(() => {
+					if (startedVideoId !== ImprovedTube.videoId() || ++tries > maxTries || isManualSpeedChange()) {
+						clearInterval(waitForDescription);
+						return;
+					}
+					const subtitle = document.querySelector('#title + #subtitle:last-of-type');
+					// console.log("[ImprovedTube:applyForcedSpeed] checking for music keywords in the description... try " + tries + "// subtitle: " + subtitle?.innerHTML);
+					const descriptionSongCount = Number((subtitle?.innerHTML?.match(/^\d+/) || [])[0]);
+					if (subtitle && 1 <= descriptionSongCount && typeof testSongDuration(lengthSeconds, descriptionSongCount) !== 'undefined') {
+						setPlaybackSpeed(1);
+						console.log("[ImprovedTube:applyForcedSpeed] Music detected via description fallback (shown below description).");
+						clearInterval(waitForDescription);
+						return;
+					}
+				}, intervalMs);
+			} else {
+				if (amountOfSongs > 0) {
+					console.log(`[ImprovedTube:applyForcedSpeed] not music. ${(lengthSeconds/amountOfSongs).toFixed(1)}(sec/song), lengthSeconds:${lengthSeconds}, amountOfSongs:${amountOfSongs}` /*, ImprovedTube.VideoMetadata.dumpData({raw:true})*/);
+				} else {
+					console.log('[ImprovedTube:applyForcedSpeed] not music.' /*, ImprovedTube.VideoMetadata.dumpData({raw:true})*/);
+				}
+			}
+		}
+
+		applyForcedSpeed().catch(error => console.error('[ImprovedTube:applyForcedSpeed] failed', error));
+		return true;
+	});
 }
 /*------------------------------------------------------------------------------
 SUBTITLES
