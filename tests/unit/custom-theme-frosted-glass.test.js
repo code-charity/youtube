@@ -34,14 +34,26 @@ describe('Custom theme frosted glass colour', () => {
 		};
 	});
 
-	test('emits a valid rgba() value for --yt-frosted-glass-desktop', () => {
+	test('emits a valid rgba() value when the primary colour is set', () => {
 		ImprovedTube.myColors();
 
 		const css = ImprovedTube.elements.my_colors.textContent;
 		const match = css.match(/--yt-frosted-glass-desktop:([^;]+);/);
 
 		expect(match).not.toBeNull();
-		expect(match[1].trim()).toBe('rgba(0,51,89, 0.8) !important');
+		expect(match[1].trim()).toBe('rgba(0,51,89,0.8)!important');
 		expect(css).not.toMatch(/rgb\([^)]*\)cc/);
+	});
+
+	test('emits the default rgba() value when the primary colour is unset', () => {
+		delete ImprovedTube.storage.theme_primary_color;
+
+		ImprovedTube.myColors();
+
+		const css = ImprovedTube.elements.my_colors.textContent;
+		const match = css.match(/--yt-frosted-glass-desktop:([^;]+);/);
+
+		expect(match).not.toBeNull();
+		expect(match[1].trim()).toBe('rgba(200,200,200,0.8)!important');
 	});
 });

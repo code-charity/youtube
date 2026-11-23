@@ -5,15 +5,18 @@ ImprovedTube.myColors = function () {
 	if (this.storage.theme === 'custom') {
 		var style = this.elements.my_colors || document.createElement('style'),
 			primary_color = this.storage.theme_primary_color,
+			frosted_glass_color,
 			secondary_color = this.storage.theme_secondary_color,
 			text_color = this.storage.theme_text_color;
 		if (primary_color) {
 			if ((0.2126*primary_color[0] + 0.7152*primary_color[1] + 0.0722*primary_color[2]) / 255 < 0.4)
 				{style.textContent += ' .improvedtube-player-button svg,.improvedtube-player-button svg path{fill:#fff!important} '}
+			frosted_glass_color = 'rgba(' + primary_color.join(',') + ',0.8)';
 			primary_color = 'rgb(' + primary_color.join(',') + ')';
 		} else {
 			// need better central place for storing default custom profile colors
 			primary_color = 'rgb(200, 200, 200)';
+			frosted_glass_color = 'rgba(200,200,200,0.8)';
 		}
 
 		if (secondary_color) {
@@ -28,9 +31,6 @@ ImprovedTube.myColors = function () {
 			// need better central place for storing default custom profile colors
 			text_color = 'rgb(25, 25, 25)';
 		}
-
-		// "rgb(...)cc" is not valid CSS; build an rgba() with 80% alpha instead
-		var frosted_glass_color = primary_color.replace('rgb(', 'rgba(').replace(/\)$/, ', 0.8)');
 
 		style.className = 'it-theme-editor';
 		style.textContent = 'html[it-theme=custom], html[it-theme=custom] [dark] {' +
@@ -85,7 +85,7 @@ ImprovedTube.myColors = function () {
 				'--yt-spec-inverted-background: #fff;' +
 				'--ytd-searchbox-background:' + primary_color + '!important;' +
 				'--ytd-searchbox-legacy-button-color:' + 'var(--yt-spec-brand-background-primary)' + '!important;' +
-				'--yt-frosted-glass-desktop:' + frosted_glass_color + ' !important;' +
+				'--yt-frosted-glass-desktop:' + frosted_glass_color + '!important;' +
 				'background-color: var(--yt-spec-base-background)!important;' +
 				'}' +
 				'html[it-theme=custom] ytd-masthead, html[it-theme=custom] #masthead, html[it-theme=custom] ytd-app #masthead { background-color: ' + secondary_color + ' !important; }' +
