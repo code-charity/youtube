@@ -518,6 +518,17 @@ ImprovedTube.initPlayer = function () {
 };
 
 
+// YouTube resets the speed to 1x for an ad and does not restore it afterwards (#954),
+// so apply the forced speed again once the ad is over.
+ImprovedTube.playerSpeedAfterAd = function () {
+	const player = ImprovedTube.elements.player;
+	if (!player?.classList) return;
+	const adShowing = player.classList.contains('ad-showing');
+	const adJustEnded = ImprovedTube.adWasShowing === true && !adShowing;
+	ImprovedTube.adWasShowing = adShowing;
+	if (adJustEnded) { ImprovedTube.playerPlaybackSpeed(); }
+};
+
 var timeUpdateInterval = null;
 var noTimeUpdate = null;
 
@@ -540,6 +551,7 @@ ImprovedTube.playerOnTimeUpdate = function () {
 				ImprovedTube.playerPlaybackSpeed();
 			}
 
+			ImprovedTube.playerSpeedAfterAd();
 			if (ImprovedTube.storage.always_show_progress_bar === true) { ImprovedTube.showProgressBar(); }
 			if (ImprovedTube.storage.player_remaining_duration === true && document.documentElement.dataset.pageType === 'video') { ImprovedTube.playerRemainingDuration(); }
 			ImprovedTube.played_time += .5;
