@@ -145,7 +145,10 @@ html[it-hide-details='true'] ytd-watch-metadata,
 	/*------# HIDE VIEWS COUNT-----*/
 html[it-hide-views-count='true'] #info #count,
 html[it-hide-views-count='true'] #info #count + #info-strings>#dot,
+html[it-hide-views-count='true'] #info #info-strings>#dot,
 html[it-hide-views-count='true'] ytd-watch-metadata #info>span:first-child,
+html[it-hide-views-count='true'] ytd-watch-metadata #info>span:nth-child(2),
+html[it-hide-views-count='true'] ytd-watch-metadata #info>#dot,
 	/*------# HIDE COMMENTS COUNT---*/
 html[it-hide-comments-count='true'] #comments #count,
 	/*------# HIDE DATE-------------*/
