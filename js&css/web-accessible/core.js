@@ -625,8 +625,6 @@ document.addEventListener('it-message-from-extension', function () {
 
 				case 'archiveTranscripts':
 				case 'recordViewingLog':
-				case 'archiveRelatedVideos':
-				case 'archiveSubscriptionVideos':
 				case 'autoScreenshot':
 				case 'archiveStorageLimit':
 				case 'archiveStorageBudget':

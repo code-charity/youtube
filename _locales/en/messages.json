@@ -1,8 +1,10 @@
 {
-  "dontShortenTitles": { 	"message": "Full Video Titles (don't shorten)" },
-	 "preferredDubbingLanguage": {
-		"message": "Preferred auto-dubbing language"
-	},
+  "dontShortenTitles": {
+    "message": "Full Video Titles (don't shorten)"
+  },
+  "preferredDubbingLanguage": {
+    "message": "Preferred auto-dubbing language"
+  },
   "hideSuggestedAction": {
     "message": "Hide Suggested Action 'View products'"
   },
@@ -1548,8 +1550,8 @@
   "thumbnails": {
     "message": "Thumbnails"
   },
-  "thumbnailGrayscale":{
-    "message":"Thumbnail Grayscale"
+  "thumbnailGrayscale": {
+    "message": "Thumbnail Grayscale"
   },
   "thumbnailSize": {
     "message": "Thumbnail Size"
@@ -1786,7 +1788,7 @@
     "message": "Channel Whitelisted for Smart Speed!"
   },
   "autoVideoRecovery": {
-  "message": "Auto video recovery"
+    "message": "Auto video recovery"
   },
   "hideWatchLaterVideos": {
     "message": "Hide Watch Later Videos"
@@ -1950,12 +1952,6 @@
   "archiveTranscripts": {
     "message": "Archive transcripts of watched videos"
   },
-  "archiveRelatedVideos": {
-    "message": "Also archive related videos"
-  },
-  "archiveSubscriptionVideos": {
-    "message": "Also archive videos from subscriptions"
-  },
   "recordViewingLog": {
     "message": "Record a viewing log"
   },
@@ -2012,12 +2008,6 @@
   },
   "areYouSureYouWantToDeleteTheWatchingDiary": {
     "message": "Delete all watching-diary screenshots? This cannot be undone."
-  },
-  "relatedVideo": {
-    "message": "related"
-  },
-  "subscriptionVideo": {
-    "message": "subscription"
   },
   "searchTranscripts": {
     "message": "Search archived transcripts"

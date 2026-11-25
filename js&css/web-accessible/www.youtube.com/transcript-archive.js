@@ -23,12 +23,6 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 	var FETCH_COOLDOWN = 10 * 60 * 1000;
 	var MIN_LOG_SECONDS = 2;
 
-	// Nearby videos are archived slowly and politely: one request per
-	// interval, and only a handful per page.
-	var NEARBY_INTERVAL = 20000;
-	var NEARBY_SCAN_INTERVAL = 30000;
-	var NEARBY_LIMIT = 25;
-
 	// Watching diary frames: one every minute of playback, downscaled.
 	var FRAME_INTERVAL = 60000;
 	var FRAME_MIN_GAP = 5;
@@ -41,14 +35,12 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 		SAVE_DELAY: SAVE_DELAY,
 		TICK_DELAY: TICK_DELAY,
 		FETCH_COOLDOWN: FETCH_COOLDOWN,
-		NEARBY_INTERVAL: NEARBY_INTERVAL,
-		NEARBY_SCAN_INTERVAL: NEARBY_SCAN_INTERVAL,
-		NEARBY_LIMIT: NEARBY_LIMIT,
 		FRAME_INTERVAL: FRAME_INTERVAL,
 		FRAME_MIN_GAP: FRAME_MIN_GAP,
 		FRAME_MAX_WIDTH: FRAME_MAX_WIDTH,
 
 		attached_video: null,
+		captionInterceptorInstalled: false,
 		counted: false,
 		diary: null,
 		diary_id: '',
@@ -60,10 +52,6 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 		last_frame_time: -1,
 		last_time: null,
 		meta: null,
-		nearby_at: 0,
-		nearby_queue: [],
-		nearby_scanned_at: 0,
-		nearby_source: 'related',
 		pauses: [],
 		pending_heatmap: null,
 		pending_metrics: null,
@@ -84,13 +72,7 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 			return ImprovedTube.storage.record_viewing_log === true;
 		},
 
-		relatedEnabled: function () {
-			return this.enabled() && ImprovedTube.storage.archive_related_videos === true;
-		},
 
-		subscriptionsEnabled: function () {
-			return this.enabled() && ImprovedTube.storage.archive_subscription_videos === true;
-		},
 
 		diaryEnabled: function () {
 			return ImprovedTube.storage.auto_screenshot === true;
@@ -118,9 +100,6 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 			return document.documentElement.dataset.pageType || '';
 		},
 
-		subscriptionsPage: function () {
-			return this.pageType() === 'subscriptions' || location.pathname.indexOf('/feed/subscriptions') === 0;
-		},
 
 		video: function () {
 			return ImprovedTube.elements.video || document.querySelector('#movie_player video');
@@ -160,6 +139,8 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 				this.store = this.readStore();
 			}
 
+			this.installCaptionInterceptor();
+
 			clearInterval(this.tick_timer);
 
 			var self = this;
@@ -186,7 +167,6 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 			this.last_time = null;
 			this.counted = false;
 			this.dirty = false;
-			this.nearby_queue = [];
 		},
 
 		tick: function () {
@@ -198,8 +178,6 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 
 			// The subscription feed has no player, so it gets its own scan.
 			if (this.pageType() !== 'video' && this.pageType() !== 'embed') {
-				this.scanFeed();
-
 				return;
 			}
 
@@ -237,7 +215,6 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 
 			this.track();
 			this.capture(video_id);
-			this.captureNearby(video_id);
 			this.captureDiary(video);
 		},
 
@@ -259,8 +236,6 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 			this.pending_metrics = null;
 			this.pending_views = 0;
 			this.meta = null;
-			this.nearby_queue = [];
-			this.nearby_scanned_at = 0;
 
 			if (this.enabled()) {
 				var store = this.readStore(),
@@ -648,7 +623,85 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 
 		// JSON3 is the compact format, but YouTube sometimes returns an empty
 		// body for it and still serves the track's original format. Try that
-		// once before giving up, so nearby videos keep their captions.
+		// once before giving up, so captions are not lost.
+		// The player fetches caption tracks with its own proof-of-origin token,
+		// so intercepting those responses is the reliable way to get cues.
+		installCaptionInterceptor: function () {
+			if (this.captionInterceptorInstalled) {
+				return;
+			}
+
+			this.captionInterceptorInstalled = true;
+
+			var self = this;
+
+			function handle(url, text) {
+				if (!self.enabled() || !self.video_id || !text || !/timedtext/i.test(url)) {
+					return;
+				}
+
+				var segments = self.parseTimedText(text);
+
+				if (!segments.length) {
+					return;
+				}
+
+				var language = '';
+
+				try {
+					language = new URL(url, location.href).searchParams.get('lang') || '';
+				} catch (error) {
+					language = '';
+				}
+
+				self.storeTranscript(segments, language);
+			}
+
+			if (typeof window.fetch === 'function') {
+				var originalFetch = window.fetch;
+
+				window.fetch = function () {
+					var request = arguments[0],
+						url = typeof request === 'string' ? request : (request && request.url) || '';
+
+					return originalFetch.apply(this, arguments).then(function (response) {
+						if (/timedtext/i.test(url) && response && typeof response.clone === 'function') {
+							response.clone().text().then(function (text) {
+								handle(url, text);
+							}).catch(function () {});
+						}
+
+						return response;
+					});
+				};
+			}
+
+			var XHR = window.XMLHttpRequest;
+
+			if (XHR && XHR.prototype) {
+				var originalOpen = XHR.prototype.open,
+					originalSend = XHR.prototype.send;
+
+				XHR.prototype.open = function (method, url) {
+					this._it_timedtext_url = url;
+
+					return originalOpen.apply(this, arguments);
+				};
+
+				XHR.prototype.send = function () {
+					var xhr = this;
+
+					xhr.addEventListener('load', function () {
+						if (xhr._it_timedtext_url && /timedtext/i.test(xhr._it_timedtext_url)) {
+							handle(xhr._it_timedtext_url, xhr.responseText);
+						}
+					});
+
+					return originalSend.apply(this, arguments);
+				};
+			}
+		},
+
 		fetchTrack: function (track, callback) {
 			var self = this,
 				json_url = library.captionUrl(track, location.origin),
@@ -740,159 +793,6 @@ TRANSCRIPT ARCHIVE (WATCH PAGE)
 			this.dirty = true;
 
 			this.save();
-		},
-
-		/*--------------------------------------------------------------
-		# RELATED VIDEOS / SUBSCRIPTION FEED
-		--------------------------------------------------------------*/
-
-		scanFeed: function () {
-			if (!this.subscriptionsEnabled() || !this.subscriptionsPage()) {
-				return;
-			}
-
-			if (Date.now() - this.nearby_scanned_at < this.NEARBY_SCAN_INTERVAL) {
-				return;
-			}
-
-			this.nearby_scanned_at = Date.now();
-			this.queueNearby(this.collectFeedIds(), 'subscription');
-			this.processNearby();
-		},
-
-		collectFeedIds: function () {
-			var links = document.querySelectorAll(
-				'ytd-rich-item-renderer a#thumbnail[href*="/watch?v="],'
-				+ 'ytd-video-renderer a#thumbnail[href*="/watch?v="],'
-				+ 'ytd-grid-video-renderer a#thumbnail[href*="/watch?v="]'
-			);
-
-			return library.videoIdsFromLinks(links, { limit: this.NEARBY_LIMIT });
-		},
-
-		collectRelatedIds: function (video_id) {
-			var ids = library.collectVideoIds(window.ytInitialData, {
-				exclude: video_id,
-				limit: this.NEARBY_LIMIT
-			});
-
-			if (!ids.length) {
-				ids = library.videoIdsFromLinks(document.querySelectorAll(
-					'#secondary a#thumbnail[href*="/watch?v="], ytd-watch-next-secondary-results-renderer a#thumbnail[href*="/watch?v="]'
-				), {
-					exclude: video_id,
-					limit: this.NEARBY_LIMIT
-				});
-			}
-
-			return ids;
-		},
-
-		queueNearby: function (ids, source) {
-			var store = this.store || this.readStore(),
-				self = this;
-
-			ids.forEach(function (id) {
-				if (self.nearby_queue.indexOf(id) !== -1) {
-					return;
-				}
-
-				// Already archived with captions? Nothing to do.
-				if (store[id] && store[id].segments && store[id].segments.length) {
-					return;
-				}
-
-				self.nearby_queue.push(id);
-			});
-
-			if (ids.length) {
-				this.nearby_source = source;
-			}
-		},
-
-		captureNearby: function (video_id) {
-			if (!this.relatedEnabled() && !this.subscriptionsEnabled()) {
-				return;
-			}
-
-			if (Date.now() - this.nearby_scanned_at >= this.NEARBY_SCAN_INTERVAL) {
-				this.nearby_scanned_at = Date.now();
-				this.queueNearby(this.collectRelatedIds(video_id), 'related');
-			}
-
-			this.processNearby();
-		},
-
-		processNearby: function () {
-			if (!this.nearby_queue.length || Date.now() - this.nearby_at < this.NEARBY_INTERVAL) {
-				return;
-			}
-
-			this.nearby_at = Date.now();
-
-			var id = this.nearby_queue.shift(),
-				source = this.nearby_source;
-
-			this.fetchNearby(id, source);
-		},
-
-		fetchNearby: function (id, source) {
-			if (!id) {
-				return;
-			}
-
-			var self = this;
-
-			fetch('https://www.youtube.com/watch?v=' + encodeURIComponent(id), {
-				credentials: 'include'
-			}).then(function (response) {
-				return response.ok ? response.text() : null;
-			}).then(function (html) {
-				var player_response = html && library.parseWatchPage(html),
-					track = library.captionTrack(player_response);
-
-				if (!track) {
-					return;
-				}
-
-				self.fetchTrack(track, function (segments) {
-					self.storeNearby(player_response, segments, source, track.languageCode || '');
-				});
-			}).catch(function () {
-				// Offline, rate limited or no captions: try the next one later.
-			});
-		},
-
-		storeNearby: function (response, segments, source, language) {
-			var details = library.videoDetails(response),
-				id = details.id || '';
-
-			if (!id || id === this.video_id) {
-				return;
-			}
-
-			var store = this.readStore();
-
-			library.recordView(store, {
-				videoId: id,
-				title: details.title,
-				channel: details.channel,
-				channel_id: details.channel_id,
-				duration: details.duration,
-				language: language || details.language,
-				increment_views: false,
-				source: source === 'subscription' ? 'subscription' : 'related',
-				segments: segments,
-				heatmap: this.findHeatmap(response),
-				metrics: { views: details.views, likes: 0 },
-				maxVideos: this.limit(),
-				maxBytes: this.budget()
-			});
-
-			this.store = store;
-			ImprovedTube.storage[library.STORAGE_KEY] = store;
-
-			this.send(library.STORAGE_KEY, store);
 		},
 
 		/*--------------------------------------------------------------

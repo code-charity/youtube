@@ -695,36 +695,6 @@ describe('Watch page integration', () => {
 		expect(sent.some(message => message.key.indexOf('watching_diary') === 0)).toBe(false);
 	});
 
-	test('queues related videos and skips ones that already have captions', () => {
-		createContext({
-			storage: {archive_transcripts: true, archive_related_videos: true},
-			ytInitialData: {contents: [{videoRenderer: {videoId: 'related0001'}}, {videoRenderer: {videoId: 'related0002'}}]}
-		});
-
-		archive.load('abcdefghijk');
-		archive.store.related0001 = library.sanitizeEntry({segments: [{t: 0, text: 'archived'}]}, 'related0001');
-
-		expect(archive.collectRelatedIds('abcdefghijk')).toEqual(['related0001', 'related0002']);
-
-		archive.queueNearby(archive.collectRelatedIds('abcdefghijk'), 'related');
-
-		expect(archive.nearby_queue).toEqual(['related0002']);
-	});
-
-	test('reads the subscription feed from the page anchors', () => {
-		createContext({
-			storage: {archive_transcripts: true, archive_subscription_videos: true},
-			pageType: 'subscriptions',
-			links: [
-				{href: 'https://www.youtube.com/watch?v=aaaaaaaaaaa'},
-				{href: 'https://www.youtube.com/watch?v=aaaaaaaaaaa'},
-				{href: 'https://www.youtube.com/watch?v=bbbbbbbbbbb'}
-			]
-		});
-
-		expect(archive.collectFeedIds()).toEqual(['aaaaaaaaaaa', 'bbbbbbbbbbb']);
-	});
-
 	test('retries the caption track without JSON3 when the first body is empty', async () => {
 		const calls = [];
 		const nodes = [{textContent: ' Hello ', getAttribute: () => '1'}];
@@ -778,18 +748,6 @@ describe('Watch page integration', () => {
 		expect(segments).toEqual([{t: 1, text: 'one'}]);
 	});
 
-	test('starts the feed scan instead of the player tracking on the subscriptions page', () => {
-		createContext({
-			storage: {archive_transcripts: true, archive_subscription_videos: true},
-			pageType: 'subscriptions'
-		});
-
-		archive.tick();
-
-		expect(archive.video_id).toBe('');
-		expect(archive.tick_timer).toBeNull();
-	});
-
 	test('stops when both settings are switched off', () => {
 		ImprovedTube.storage.archive_transcripts = false;
 		ImprovedTube.storage.record_viewing_log = false;
@@ -828,11 +786,8 @@ describe('Wiring', () => {
 		expect(functions).toContain('ImprovedTube.transcriptArchive?.init()');
 		expect(core).toContain("case 'archiveTranscripts':");
 		expect(core).toContain("case 'recordViewingLog':");
-		expect(core).toContain("case 'archiveRelatedVideos':");
-		expect(core).toContain("case 'archiveSubscriptionVideos':");
 		expect(core).toContain("case 'autoScreenshot':");
 		expect(core).toContain("case 'transcriptArchive':");
-		expect(init).toContain("dataset.pageType === 'subscriptions'");
 	});
 
 	test('the watching diary reuses the screenshot frame capture', () => {
@@ -861,8 +816,6 @@ describe('Wiring', () => {
 
 		expect(menu).toContain('archive_transcripts');
 		expect(menu).toContain('record_viewing_log');
-		expect(menu).toContain('archive_related_videos');
-		expect(menu).toContain('archive_subscription_videos');
 		expect(menu).toContain('auto_screenshot');
 		expect(menu).toContain('archive_storage_limit');
 		expect(menu).toContain('archive_storage_budget');
@@ -881,9 +834,9 @@ describe('Wiring', () => {
 		const messages = JSON.parse(read('_locales', 'en', 'messages.json'));
 
 		['archive', 'archiveTranscripts', 'recordViewingLog', 'searchTranscripts', 'personalRanking', 'globalRanking', 'viewingLog',
-			'archiveRelatedVideos', 'archiveSubscriptionVideos', 'autoScreenshot', 'storageLimit', 'storageBudget', 'unlimited',
+			'autoScreenshot', 'storageLimit', 'storageBudget', 'unlimited',
 			'videos100', 'videos1000', 'videos10000', 'watchingDiary', 'watchingDiaryIsEmpty', 'deleteWatchingDiary',
-			'relatedVideo', 'subscriptionVideo'].forEach(key => {
+].forEach(key => {
 			expect(messages[key]).toBeDefined();
 		});
 	});

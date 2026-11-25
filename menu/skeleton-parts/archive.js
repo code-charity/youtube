@@ -390,14 +390,6 @@
 						component: 'switch',
 						text: 'archiveTranscripts'
 					},
-					archive_related_videos: {
-						component: 'switch',
-						text: 'archiveRelatedVideos'
-					},
-					archive_subscription_videos: {
-						component: 'switch',
-						text: 'archiveSubscriptionVideos'
-					},
 					record_viewing_log: {
 						component: 'switch',
 						text: 'recordViewingLog'
