@@ -518,6 +518,38 @@ html[data-page-type=video][it-player-size='full_window'] .ytp-fit-cover-video .h
 html[data-page-type="video"][it-player-size="full_window"] ytd-watch-flexy[default-layout]:not([no-top-margin]):not([reduced-top-margin]) #primary {padding-top:0}
 
 /*--------------------------------------------------------------
+# FIX: full_window gaps introduced by web_watch_variable_sidebar_width_buckets
+# YouTube (logged-in) injects --ytd-watch-flexy-space-below-player and sets
+# a dynamic sidebar width through the kevlar experiment flag
+# web_watch_variable_sidebar_width_buckets.  Those values push the player
+# container down and add blank space around the video frame.  We reset all
+# three gap sources to zero / auto so the player fills the viewport cleanly.
+# Ref: github.com/code-charity/youtube/issues/4470
+--------------------------------------------------------------*/
+
+/* Zero the below-player gap variable (experiment flag: web_watch_variable_sidebar_width_buckets) */
+html[data-page-type=video][it-player-size='full_window'] ytd-watch-flexy {
+	--ytd-watch-flexy-space-below-player: 0px !important;
+}
+
+/* Remove extra padding/margin YouTube adds around #columns in the new sidebar-width layout */
+html[data-page-type=video][it-player-size='full_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #columns.ytd-watch-flexy {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+/* Neutralise the variable sidebar width so it does not push the player container sideways */
+html[data-page-type=video][it-player-size='full_window'] ytd-app:not([player-fullscreen_]) ytd-watch-flexy:not([fullscreen]) #secondary.ytd-watch-flexy {
+	width: 0 !important;
+	min-width: 0 !important;
+	max-width: 0 !important;
+	padding: 0 !important;
+	flex: 0 0 0px !important;
+}
+
+/*--------------------------------------------------------------
 #  "FIT TO WINDOW"  (needs update)
 --------------------------------------------------------------*/
 
