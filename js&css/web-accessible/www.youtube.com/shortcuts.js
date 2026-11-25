@@ -127,6 +127,21 @@ ImprovedTube.shortcutsListeners = {
 		ImprovedTube.input.pressed.shift = event.shiftKey;
 
 		ImprovedTube.shortcutsHandler();
+
+		// Issue #4441: YouTube hardcodes a volume step of 5 for its native
+		// ArrowUp/ArrowDown handlers, ignoring the user's shortcuts_volume_step
+		// setting. After our configured shortcuts have had first priority above,
+		// intercept bare (no modifier) arrow keys that weren't already handled
+		// and apply the user-configured step instead.
+		if (
+			!event.defaultPrevented &&
+			(event.keyCode === 38 || event.keyCode === 40) &&
+			!event.altKey && !event.ctrlKey && !event.shiftKey && !event.metaKey
+		) {
+			ImprovedTube.shortcutIncreaseVolume(event.keyCode === 40);
+			event.preventDefault();
+			event.stopPropagation();
+		}
 	},
 	keyup: function (event) {
 		ImprovedTube.input.pressed.keys.delete(event.keyCode);
