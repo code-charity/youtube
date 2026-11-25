@@ -143,9 +143,12 @@ html[it-hide-details='true'] ytd-video-primary-info-renderer,
 html[it-hide-details='true'] ytd-video-secondary-info-renderer,
 html[it-hide-details='true'] ytd-watch-metadata,
 	/*------# HIDE VIEWS COUNT-----*/
+	/* Older ytd-video-primary-info-renderer layout: view count and separator */
 html[it-hide-views-count='true'] #info #count,
 html[it-hide-views-count='true'] #info #count + #info-strings>#dot,
+	/* Also covers the separator when #info-strings does not directly follow #count */
 html[it-hide-views-count='true'] #info #info-strings>#dot,
+	/* Current ytd-watch-metadata layout: view count, then the separator */
 html[it-hide-views-count='true'] ytd-watch-metadata #info>span:first-child,
 html[it-hide-views-count='true'] ytd-watch-metadata #info>span:nth-child(2),
 html[it-hide-views-count='true'] ytd-watch-metadata #info>#dot,

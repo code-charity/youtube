@@ -8,6 +8,9 @@ describe('Hide Views Count (#926)', () => {
 
 	beforeAll(() => {
 		const filePath = path.join(__dirname, '../../js&css/extension/www.youtube.com/appearance/details/details.css');
+		if (!fs.existsSync(filePath)) {
+			throw new Error(`Expected CSS file is missing: ${filePath}`);
+		}
 		css = fs.readFileSync(filePath, 'utf8');
 	});
 
@@ -20,6 +23,16 @@ describe('Hide Views Count (#926)', () => {
 	});
 
 	test('should not hide upload date', () => {
-		expect(css).not.toMatch(/it-hide-views-count='true'\][^,{]*(span:nth-child\(3\)|span:last-child|yt-formatted-string)/);
+		const selectors = css.split(/\r?\n/).filter(line =>
+			/^html\[it-hide-views-count=(?:'true'|"true"|true)\]/.test(line.trimStart())
+		);
+		expect(selectors.length).toBeGreaterThan(0);
+
+		for (const selector of selectors) {
+			expect(selector).not.toMatch(/yt-formatted-string|span:last-child/);
+			for (const [, position] of selector.matchAll(/span:nth-child\(\s*(\+?\d+)\s*\)/g)) {
+				expect(Number(position)).toBeLessThan(3);
+			}
+		}
 	});
 });
