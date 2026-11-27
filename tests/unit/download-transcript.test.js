@@ -134,7 +134,39 @@ describe('Download Transcript (#3316)', () => {
 		test('copy and download share one transcript button selector', () => {
 			expect(typeof ImprovedTube.transcriptButtonSelector).toBe('string');
 			const player = read('js&css', 'web-accessible', 'www.youtube.com', 'player.js');
-			expect(player).toContain('var transcriptButtonSelector = ImprovedTube.transcriptButtonSelector;');
+			expect(player).toContain('var transcriptButton = ImprovedTube.findTranscriptButton();');
 		});
+
+		test('the English label fragment does not match Subscriptions or Description', () => {
+			const fragments = ImprovedTube.transcriptButtonSelector.match(/aria-label\*="([^"]+)"/g).map((m) => m.slice(13, -1));
+			const matches = (label) => fragments.some((f) => label.indexOf(f) !== -1);
+			expect(matches('Show transcript')).toBe(true);
+			expect(matches('Subscriptions')).toBe(false);
+			expect(matches('Description')).toBe(false);
+		});
+	});
+});
+
+describe('findTranscriptButton (#4504)', () => {
+	const load = (querySelector) => {
+		const context = {
+			ImprovedTube: {},
+			document: {querySelector, querySelectorAll: () => [], addEventListener: () => {}, createElement: () => ({style: {}, setAttribute() {}, appendChild() {}, addEventListener() {}})},
+			console, setTimeout() {}, setInterval() {}, clearInterval() {}
+		};
+		vm.runInNewContext(read('js&css', 'web-accessible', 'www.youtube.com', 'player.js'), context);
+		return context.ImprovedTube;
+	};
+
+	test('prefers the transcript section button over a loosely matching label', () => {
+		const section = {name: 'section'};
+		const IT = load((sel) => sel === 'ytd-video-description-transcript-section-renderer button' ? section : {name: 'subscriptions'});
+		expect(IT.findTranscriptButton()).toBe(section);
+	});
+
+	test('searches inside the description before the whole page', () => {
+		const inDescription = {name: 'description'};
+		const IT = load((sel) => sel.indexOf('#description ') === 0 ? inDescription : (sel.indexOf('ytd-') === 0 ? null : {name: 'page'}));
+		expect(IT.findTranscriptButton()).toBe(inDescription);
 	});
 });
