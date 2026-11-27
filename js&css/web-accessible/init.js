@@ -251,6 +251,8 @@ document.addEventListener('yt-navigate-finish', function () {
 				// if(node.getAttribute('itemprop') === 'uploadDate')   {ImprovedTube.uploadDate = node.content;}
 */
 	ImprovedTube.pageType();
+	// An ad can end with the old player torn down; don't carry that into the next video (#954).
+	ImprovedTube.adWasShowing = false;
 	ImprovedTube.YouTubeExperiments();
 	ImprovedTube.commentsSidebar();
 	ImprovedTube.categoryRefreshButton();
