@@ -873,12 +873,12 @@ ImprovedTube.screenshot = function () {
 	});
 };
 
-ImprovedTube.transcriptButtonSelector = 'button[aria-label*="scrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],'
+ImprovedTube.transcriptButtonSelector = 'button[aria-label*="nscrip"], button[aria-label*="skrip"], button[aria-label*="скрипт"], button[aria-label*="스크립"], button[aria-label*="スクリ"],'
 										+ 'button[aria-label*="guion"], button[aria-label*="naskah"], button[aria-label*="脚本"], button[aria-label*="文字"], button[aria-label*="نص"], button[aria-label*="نقل"],'
 										+ 'button[aria-label*="प्रतिलि"], button[aria-label*="प्रत"], button[aria-label*="লিপি"], button[aria-label*="bản ghi"], button[aria-label*="steno"],'
 										+ 'button[aria-label*="γραφ"], button[aria-label*="přep"], button[aria-label*="átir"], button[aria-label*="avsk"]';
 
-// The label selector is loose ("scrip" also matches "Subscriptions"), so look in YouTube's
+// The label selector is loose (it matches any label containing those fragments), so look in YouTube's
 // transcript section first, then inside the description, and only then anywhere on the page.
 ImprovedTube.findTranscriptButton = function () {
 	return document.querySelector('ytd-video-description-transcript-section-renderer button')

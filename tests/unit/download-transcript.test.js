@@ -136,6 +136,14 @@ describe('Download Transcript (#3316)', () => {
 			const player = read('js&css', 'web-accessible', 'www.youtube.com', 'player.js');
 			expect(player).toContain('var transcriptButton = ImprovedTube.findTranscriptButton();');
 		});
+
+		test('the English label fragment does not match Subscriptions or Description', () => {
+			const fragments = ImprovedTube.transcriptButtonSelector.match(/aria-label\*="([^"]+)"/g).map((m) => m.slice(13, -1));
+			const matches = (label) => fragments.some((f) => label.indexOf(f) !== -1);
+			expect(matches('Show transcript')).toBe(true);
+			expect(matches('Subscriptions')).toBe(false);
+			expect(matches('Description')).toBe(false);
+		});
 	});
 });
 
