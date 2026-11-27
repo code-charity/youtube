@@ -288,3 +288,25 @@ document.addEventListener('it-play', function () {
 		chrome.runtime.sendMessage({ action: 'play' })
 	} catch (error) { console.log(error); setTimeout(function () { try { chrome.runtime.sendMessage({ action: 'play' }, function (response) { console.log(response) }); } catch { } }, 321) }
 });
+
+
+// Safari: YouTube's CSP blocks the page-world autoplay code, so this runs from the content script.
+(function () {
+        let upNextOff = false;
+
+        chrome.storage.local.get('playlist_up_next_autoplay', function (items) {
+                upNextOff = items.playlist_up_next_autoplay === false;
+        });
+        chrome.storage.onChanged.addListener(function (changes) {
+                if (changes.playlist_up_next_autoplay) {
+                        upNextOff = changes.playlist_up_next_autoplay.newValue === false;
+                }
+        });
+
+        // timeupdate doesn't bubble, so listen in the capture phase on the document
+        document.addEventListener('timeupdate', function (event) {
+                const v = event.target;
+                if (v.tagName !== 'VIDEO' || !upNextOff || !location.href.includes('list=')) return;
+                if (isFinite(v.duration) && v.duration - v.currentTime < 4) v.pause();
+        }, true);
+})();
