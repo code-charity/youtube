@@ -65,22 +65,97 @@ ImprovedTube.playerSize = function () {
 /*------------------------------------------------------------------------------
  FORCED THEATER MODE
 ------------------------------------------------------------------------------*/
-ImprovedTube.forcedTheaterMode = function (attempt) {
-	if (ImprovedTube.storage.forced_theater_mode === true && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
-		var button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
-		var theater = ImprovedTube.elements.ytd_watch.theater === true || ImprovedTube.elements.ytd_watch.hasAttribute('theater');
+ImprovedTube._clearForcedTheaterTimers = function (clearDisable) {
+	clearTimeout(ImprovedTube._forcedTheaterTimer);
+	ImprovedTube._forcedTheaterTimer = null;
+	if (clearDisable) {
+		clearTimeout(ImprovedTube._forcedTheaterDisableTimer);
+		ImprovedTube._forcedTheaterDisableTimer = null;
+	}
+};
 
-		if (button && theater === false) {
-			document.cookie = "wide=1;domain=.youtube.com;path=/";
-			//     ImprovedTube.elements.ytd_watch.theater = true;
-			setTimeout(function () {
-				button.click();
-			}, 100);
-		} else if (theater === false && (attempt || 0) < 10) {
-			setTimeout(function () {
-				ImprovedTube.forcedTheaterMode((attempt || 0) + 1);
-			}, 250);
+ImprovedTube._getTheaterContext = function () {
+	var ytdWatch = (ImprovedTube.elements.ytd_watch && ImprovedTube.elements.ytd_watch.isConnected !== false ? ImprovedTube.elements.ytd_watch : null) || document.querySelector('ytd-watch-flexy');
+	var player = (ImprovedTube.elements.player && ImprovedTube.elements.player.isConnected !== false ? ImprovedTube.elements.player : null) || document.getElementById('movie_player');
+	var isTheater = !!(ytdWatch && (ytdWatch.theater === true || (ytdWatch.hasAttribute && ytdWatch.hasAttribute('theater'))));
+	var isFullscreen = !!(
+		document.fullscreenElement ||
+		document.webkitFullscreenElement ||
+		document.mozFullScreenElement ||
+		(ytdWatch && ytdWatch.hasAttribute && ytdWatch.hasAttribute('fullscreen')) ||
+		(player && player.classList && player.classList.contains('ytp-fullscreen'))
+	);
+	var button = player && player.querySelector ? player.querySelector('button.ytp-size-button') : null;
+
+	return {
+		ytdWatch: ytdWatch,
+		player: player,
+		button: button,
+		isTheater: isTheater,
+		isFullscreen: isFullscreen
+	};
+};
+
+ImprovedTube._scheduleTheaterToggle = function (targetTheater) {
+	var timerKey = targetTheater ? '_forcedTheaterTimer' : '_forcedTheaterDisableTimer';
+	ImprovedTube[timerKey] = setTimeout(function () {
+		ImprovedTube[timerKey] = null;
+		if (ImprovedTube.storage.forced_theater_mode !== targetTheater || document.documentElement.dataset.pageType !== 'video') {
+			return;
 		}
+		var latest = ImprovedTube._getTheaterContext();
+		if (latest.button && !latest.isFullscreen && latest.isTheater !== targetTheater) {
+			latest.button.click();
+		}
+	}, 100);
+};
+
+ImprovedTube.scheduleForcedTheaterMode = function () {
+	ImprovedTube._clearForcedTheaterTimers(false);
+	if (ImprovedTube.storage.forced_theater_mode !== true || document.documentElement.dataset.pageType !== 'video') {
+		return;
+	}
+	ImprovedTube._forcedTheaterTimer = setTimeout(function () {
+		ImprovedTube._forcedTheaterTimer = null;
+		ImprovedTube.forcedTheaterMode();
+	}, 150);
+};
+
+ImprovedTube.forcedTheaterMode = function (attempt) {
+	ImprovedTube._clearForcedTheaterTimers(false);
+
+	if (ImprovedTube.storage.forced_theater_mode !== true || document.documentElement.dataset.pageType !== 'video') {
+		return;
+	}
+
+	ImprovedTube._clearForcedTheaterTimers(true);
+
+	var ctx = ImprovedTube._getTheaterContext();
+	if (ctx.isFullscreen || ctx.isTheater) {
+		return;
+	}
+
+	if (ctx.ytdWatch && ctx.player && ctx.button) {
+		document.cookie = 'wide=1;domain=.youtube.com;path=/';
+		ImprovedTube._scheduleTheaterToggle(true);
+	} else if ((attempt || 0) < 10) {
+		ImprovedTube._forcedTheaterTimer = setTimeout(function () {
+			ImprovedTube._forcedTheaterTimer = null;
+			ImprovedTube.forcedTheaterMode((attempt || 0) + 1);
+		}, 250);
+	}
+};
+
+ImprovedTube.disableForcedTheaterMode = function () {
+	ImprovedTube._clearForcedTheaterTimers(true);
+
+	if (ImprovedTube.storage.forced_theater_mode !== false || document.documentElement.dataset.pageType !== 'video') {
+		return;
+	}
+
+	var ctx = ImprovedTube._getTheaterContext();
+	if (ctx.button && ctx.isTheater && !ctx.isFullscreen) {
+		ImprovedTube._scheduleTheaterToggle(false);
 	}
 };
 

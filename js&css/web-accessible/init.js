@@ -178,6 +178,9 @@ ImprovedTube.categoryRefreshButton = function () {
 ImprovedTube.init = function () {
 	window.addEventListener('yt-page-data-updated', function () {
 		ImprovedTube.pageType();
+		if (document.documentElement.dataset.pageType === 'video' && ImprovedTube.storage.forced_theater_mode === true && typeof ImprovedTube.scheduleForcedTheaterMode === 'function') {
+			ImprovedTube.scheduleForcedTheaterMode();
+		}
 		if (location.search.match(ImprovedTube.regex.playlist_id)) {
 			ImprovedTube.playlistRepeat();
 			ImprovedTube.playlistShuffle();
