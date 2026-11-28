@@ -324,12 +324,11 @@ document.addEventListener('it-message-from-extension', function () {
 					break
 
 				case 'forcedTheaterMode':
-					if (ImprovedTube.storage.forced_theater_mode === false && ImprovedTube.elements.ytd_watch && ImprovedTube.elements.player) {
-						const button = ImprovedTube.elements.player.querySelector("button.ytp-size-button");
-						if (button && ImprovedTube.elements.ytd_watch.theater === true) {
-							ImprovedTube.elements.ytd_watch.theater = false;
-							setTimeout(function () { button.click(); }, 100);
-						}
+					if (ImprovedTube.storage.forced_theater_mode === false && typeof ImprovedTube.disableForcedTheaterMode === 'function') {
+						ImprovedTube.disableForcedTheaterMode();
+					} else {
+						clearTimeout(ImprovedTube._forcedTheaterDisableTimer);
+						ImprovedTube._forcedTheaterDisableTimer = null;
 					}
 					break
 
